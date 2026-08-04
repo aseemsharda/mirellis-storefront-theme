@@ -1,0 +1,25 @@
+{
+  "name": "mirellis-transition-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test src/lib/route-policy.test.ts src/lib/observatory.test.ts src/lib/product-experience.test.ts src/lib/v1-transition-model.test.ts src/curriculum/stewardship.test.ts src/operations/launch.test.ts",
+    "content:generate": "python3 scripts/generate-content.py"
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "tsx": "latest",
+    "typescript": "latest"
+  }
+}
