@@ -1,7 +1,7 @@
 import type { AppData, EvidenceAtom, Experience, RouteType, Transition } from './types';
 
 export const POLICY_VERSION = 'v2.0';
-export type Constraint = 'open' | 'crowded' | 'urgent' | 'unsure';
+export type Constraint = 'open' | 'urgent' | 'unsure';
 
 export type Suggestion = {
   experience: Experience;
@@ -53,9 +53,7 @@ export function evaluateRoute(transition: Transition, data: AppData, constraint:
   const next = available[0];
   if (!next) return { policyVersion: POLICY_VERSION, alternatives: [], alwaysAvailable: ['choose_another_route', 'leave_for_today'] };
 
-  const primary = constraint === 'crowded'
-    ? suggestion(next, 'minimum', 'You chose a crowded moment, so this route is shorter.')
-    : suggestion(next, 'guided', 'This is a small practice for the difficulty you chose today.');
+  const primary = suggestion(next, 'guided', 'This is a small practice for the difficulty you chose today.');
 
   const recentlyFit = available
     .map((experience) => ({ experience, evidence: activeEvidence.filter((item) => item.experienceId === experience.id && (item.kind === 'fit' || item.kind === 'partly-fit')) }))
