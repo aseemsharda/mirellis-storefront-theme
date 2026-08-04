@@ -19,6 +19,10 @@ button { min-height: 44px; cursor: pointer; }
 button:focus-visible, textarea:focus-visible, select:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 
 .app-shell { min-height: 100dvh; max-width: 46rem; margin: 0 auto; padding: 1.15rem 1.2rem 3rem; }
+.mode-sleep-wakefulness { background: linear-gradient(180deg, rgba(47, 72, 104, .12), transparent 16rem); }
+.mode-wakefulness-readiness { background: linear-gradient(180deg, rgba(255, 253, 249, .7), transparent 16rem); }
+.mode-readiness-focus { background: linear-gradient(180deg, rgba(53, 83, 108, .09), transparent 13rem); }
+.mode-focus-recovery { background: linear-gradient(180deg, rgba(155, 119, 66, .12), transparent 16rem); }
 .centered-shell { display: grid; place-content: center; gap: 2rem; min-height: 100dvh; }
 .topbar { display: flex; align-items: center; justify-content: space-between; gap: .75rem; min-height: 3.5rem; margin-bottom: 2.5rem; }
 .wordmark, .brand-mark { color: var(--ink); font-family: Georgia, "Times New Roman", serif; font-size: 1.4rem; font-weight: 600; letter-spacing: -.04em; }
@@ -129,5 +133,5 @@ p { font-size: 1rem; line-height: 1.65; }
 
 @keyframes appear { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 @media (min-width: 640px) { .app-shell { padding-inline: 2rem; } .transition-list, .moment-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 560px) { .topbar { align-items: flex-start; flex-wrap: wrap; } .wordmark { flex: 1 0 auto; } .primary-nav { display: grid; width: 100%; max-width: none; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .3rem; } .primary-nav .quiet-control { min-width: 0; padding-inline: 0; font-size: .73rem; text-align: center; } }
+@media (max-width: 560px) { .app-shell { padding: max(1.15rem, env(safe-area-inset-top)) 1.2rem max(3rem, env(safe-area-inset-bottom)); } .topbar { align-items: flex-start; flex-wrap: wrap; } .wordmark { flex: 1 0 auto; } .primary-nav { display: grid; width: 100%; max-width: none; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .3rem; } .primary-nav .quiet-control { min-width: 0; padding-inline: 0; font-size: .73rem; text-align: center; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
