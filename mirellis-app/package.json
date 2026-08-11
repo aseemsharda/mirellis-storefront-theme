@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "test": "tsx --test src/lib/route-policy.test.ts src/lib/observatory.test.ts src/lib/product-experience.test.ts src/lib/v1-transition-model.test.ts src/lib/work-recovery-protocol.test.ts src/curriculum/stewardship.test.ts src/operations/launch.test.ts",
+    "test": "tsx --test src/lib/route-policy.test.ts src/lib/route-engine.test.ts src/lib/observatory.test.ts src/lib/product-experience.test.ts src/lib/v1-transition-model.test.ts src/lib/work-recovery-protocol.test.ts src/curriculum/stewardship.test.ts src/operations/launch.test.ts",
     "content:generate": "python3 scripts/generate-content.py"
   },
   "dependencies": {

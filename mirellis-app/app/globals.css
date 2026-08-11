@@ -24,7 +24,7 @@ button:focus-visible, textarea:focus-visible { outline: 3px solid var(--focus); 
 
 .threshold-screen { max-width: 30rem; margin: 0 auto; background: var(--paper-light); }
 .threshold-image { position: relative; min-height: clamp(22rem, 51.5dvh, 28rem); background-color: #59422c; background-image: url('/images/work-recovery-threshold.svg'); background-position: 50% 54%; background-size: cover; }
-.threshold-header, .topbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.threshold-header, .topbar { display: flex; align-items: center; justify-content: space-between; gap: .7rem; }
 .threshold-header { position: absolute; inset: 0 0 auto; padding: max(1.4rem, env(safe-area-inset-top)) 1.5rem 1rem 2.5rem; color: #fbf5e9; font-size: .82rem; letter-spacing: .04em; }
 .threshold-wordmark, .wordmark { font-family: "Playfair Display", Georgia, "Times New Roman", serif; font-size: 1rem; font-weight: 500; letter-spacing: .16em; }
 .threshold-wordmark { font-size: .76rem; }
@@ -49,11 +49,15 @@ p { font-size: 1rem; line-height: 1.6; }
 .resume-line { margin-top: 1.8rem; border-top: 1px solid var(--line); padding-top: 1.25rem; }
 .resume-line p { margin-bottom: 0; color: var(--muted); font-size: .9rem; }
 .resume-line .primary-button { margin-top: 1rem; }
+.today-choices { display: grid; margin-top: 1.4rem; border-top: 1px solid var(--line); }
+.today-choice { width: 100%; min-height: 3.8rem; border: 0; border-bottom: 1px solid var(--line); background: transparent; padding: .85rem 0; color: var(--ink); text-align: left; font-family: "Playfair Display", Georgia, "Times New Roman", serif; font-size: 1.22rem; line-height: 1.15; letter-spacing: -.02em; }
+.today-choice:hover { color: #72501e; }
 
 .ritual-screen { width: min(100%, 46rem); margin: 0 auto; padding: max(1.1rem, env(safe-area-inset-top)) 1.5rem max(2.5rem, env(safe-area-inset-bottom)); }
 .topbar { min-height: 3rem; margin-bottom: clamp(3rem, 9vh, 6rem); }
 .wordmark { min-height: 2.75rem; border: 0; background: transparent; color: var(--ink); padding: .3rem 0; font-size: 1rem; }
-.destination { color: var(--muted); font-size: .78rem; }
+.destination { min-width: 0; overflow: hidden; color: var(--muted); font-size: .78rem; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
+.header-settings { min-height: 2.75rem; flex: 0 0 auto; border: 0; background: transparent; padding: .35rem 0 .35rem .45rem; color: var(--muted); font-size: .78rem; text-decoration: underline; text-underline-offset: .25rem; }
 .ritual-copy { max-width: 34rem; }
 .ritual-copy h1 { max-width: 12ch; }
 .context-copy { padding-top: clamp(2rem, 7vh, 5rem); }
@@ -71,6 +75,11 @@ p { font-size: 1rem; line-height: 1.6; }
 .practice-cue { max-width: 21ch; margin-bottom: 1.6rem; font-family: "Playfair Display", Georgia, "Times New Roman", serif; font-size: clamp(1.65rem, 6vw, 2.25rem); line-height: 1.14; letter-spacing: -.035em; }
 .guide-action { max-width: 29rem; color: var(--muted); font-size: .94rem; }
 .orientation-copy .text-button, .guide-copy .text-button, .follow-on-copy .text-button { margin-left: 0; }
+.support-card { margin-top: 1.75rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 1.15rem 0; }
+.support-card .eyebrow { margin-bottom: .55rem; }
+.support-card strong { font-family: "Playfair Display", Georgia, "Times New Roman", serif; font-size: 1.2rem; font-weight: 500; }
+.support-card p:not(.eyebrow) { margin: .55rem 0 0; color: var(--muted); font-size: .9rem; }
+.support-link { display: inline-flex; min-height: 2.75rem; align-items: center; margin-top: .6rem; color: var(--ink); font-size: .9rem; font-weight: 700; text-decoration: underline; text-underline-offset: .28rem; }
 
 .reflection-copy, .completion-copy, .explore-copy, .observatory-copy, .settings-copy, .help-copy { padding-top: clamp(1rem, 5vh, 4rem); }
 .note-field { display: grid; gap: .55rem; margin-top: 2rem; color: var(--muted); font-size: .88rem; }
@@ -79,6 +88,7 @@ p { font-size: 1rem; line-height: 1.6; }
 .completion-copy { padding-top: clamp(7rem, 22vh, 12rem); }
 .completion-copy .secondary-button { margin-top: .75rem; }
 .saved-confirmation { margin: 1.1rem 0 0; color: #4a684f; font-size: .9rem; }
+.completion-detail { max-width: 28rem; color: var(--muted); font-size: .95rem; }
 
 .moment-list { display: grid; margin-top: 2.25rem; border-top: 1px solid var(--line); }
 .moment-row { display: grid; width: 100%; min-height: 6.2rem; grid-template-columns: 1fr auto; gap: .25rem 1rem; border: 0; border-bottom: 1px solid var(--line); background: transparent; padding: 1.05rem 0; color: var(--ink); text-align: left; }
@@ -109,5 +119,6 @@ p { font-size: 1rem; line-height: 1.6; }
 .destructive-button { color: #8d2c20; }
 
 @keyframes settle { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 360px) { .topbar { gap: .4rem; } .wordmark { font-size: .88rem; letter-spacing: .11em; } .destination { font-size: .7rem; } .header-settings { padding-left: .15rem; font-size: .7rem; } }
 @media (min-width: 640px) { .threshold-screen { box-shadow: 0 0 0 1px rgba(45, 40, 35, .06); } .threshold-copy { padding-inline: 2.25rem; } .ritual-screen { padding-inline: 2.5rem; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
