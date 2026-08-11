@@ -30,6 +30,7 @@ export type Transition = {
 
 export type RouteType = 'guided' | 'minimum' | 'saved' | 'self-guided' | 'no-app';
 export type ExplicitFit = 'fit' | 'partly-fit' | 'not-for-me';
+export type TransitionOutcome = 'enough' | 'partly' | 'different' | 'nothing-yet';
 
 export type EvidenceAtom = {
   id: string;
@@ -43,8 +44,11 @@ export type EvidenceAtom = {
 export type Attempt = {
   transitionId: string;
   experienceId: string;
-  currentStep: 'preview' | 'choice' | 'action' | 'reflect' | 'complete';
+  currentStep: 'preview' | 'choice' | 'action' | 'reflect' | 'complete' | 'orientation' | 'guided' | 'outcome' | 'follow-on';
   selectedValue?: string;
+  entryId?: string;
+  stepIndex?: number;
+  outcome?: TransitionOutcome;
   note?: string;
   routeType?: RouteType;
   startedAt: string;
