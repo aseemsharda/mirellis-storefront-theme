@@ -1,0 +1,262 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "mirellis-pdp-hero",
+      "settings": {
+        "image": "shopify://shop_images/Image-1_Product.png",
+        "eyebrow": "Stimulation → Restoration",
+        "heading": "The signal to come down.",
+        "identity": "A temple-and-breath ritual for the crossing from stimulation into rest.",
+        "sub": "An externally applied aromatic oil used as an optional scent-and-touch cue in an evening ritual. It is not a sleep aid and no outcome is guaranteed.",
+        "cta_label": "See product, safety and price →",
+        "cta_url": "",
+        "secondary_label": "Why this exists →",
+        "secondary_url": "/pages/why-we-exist",
+        "background": "#faf7f2"
+      }
+    },
+    "recognition": {
+      "type": "mirellis-pdp-recognition",
+      "settings": {
+        "eyebrow": "The evening most of us have",
+        "body": "<p>The work stops, but the day may still feel open. Screens go dark, yet unfinished thoughts or repeated checking can continue.</p><p>Stillness is one optional way to make the beginning of an evening ritual tangible. The same boundary can be practised without buying a product.</p>",
+        "contrast_a_label": "Most evenings",
+        "contrast_a": "<p>Stimulation → one more screen → shallow rest</p>",
+        "contrast_b_label": "A different ending",
+        "contrast_b": "<p>Stimulation → a deliberate cue → one quieter next action</p>"
+      }
+    },
+    "reasoning": {
+      "type": "mirellis-pdp-reasoning",
+      "settings": {
+        "eyebrow": "How this came to exist",
+        "intro": "<p>Nothing here began as a product. It began with an observation.</p>",
+        "finding_label": "Product record 003 · under continuing review",
+        "finding_line": "Stillness is an optional sensory instrument inside an evening ritual.",
+        "body": "<p>The product began with a practical question: could scent and touch make the beginning of an evening ritual more tangible for someone who wants a physical cue?</p><p>That question does not establish a neurological mechanism or guarantee a change in state. Dimmed light, temperature, breath, sound, touch and scent are all possible ritual elements; a product is not required.</p><p>Mirellis chose an externally applied aromatic oil because it is portable, screen-free and repeatable. The public evidence register keeps this design rationale separate from scientific proof and from classical Ayurvedic tradition.</p>",
+        "steps": "Transition, Observation, Finding, Question, Intervention, Ritual, Product",
+        "link1_label": "",
+        "link1_url": "",
+        "link2_label": "The full reasoning →",
+        "link2_url": "/pages/stimulation-restoration"
+      }
+    },
+    "lineage": {
+      "type": "mirellis-pdp-lineage",
+      "settings": {
+        "eyebrow": "The practice we chose",
+        "heading": "Aromatic temple oil — a classical evening practice, honestly bounded.",
+        "tradition_tag": "Classical Ayurvedic tradition",
+        "tradition": "<p>The external application of aromatic oils to the head and temples, and the inhalation of aromatic preparations, are described in the classical Ayurvedic evening routine (<em>ratricharya</em>). Tradition associates them with grounding, calming, and preparing the body for rest.</p>",
+        "boundary": "<p>That is what tradition describes. It is not the same as modern clinical proof, and we will not pretend it is. We keep tradition and evidence separate on purpose — and where we cannot yet point to strong evidence, we would rather say nothing than overstate. That restraint is the honest version of an Ayurvedic ritual, and we think it is the only one worth making.</p>",
+        "expand_label": "More on temple application and aromatic inhalation in ratricharya →",
+        "expand_url": "/pages/the-evening-transition"
+      }
+    },
+    "institution": {
+      "type": "mirellis-pdp-institution",
+      "settings": {
+        "eyebrow": "Who stands behind this",
+        "lead": "<p>Stillness is one output of the Mirellis Observatory, our research arm studying human state transitions. It is not a marketing idea; it is the end of a documented chain of reasoning.</p>",
+        "ratify_label": "How claims are reviewed",
+        "reviewer_name": "",
+        "reviewer_role": "",
+        "ratification": "<p>Claims on Mirellis pages pass through the Observatory's review process before they appear. Where the evidence is only emerging, or a statement is our own interpretation, we say so. The reviewers behind each formula are recorded in its Formula Dossier.</p>",
+        "link_label": "How the Observatory works →",
+        "link_url": "/pages/the-observatory"
+      }
+    },
+    "made": {
+      "type": "mirellis-pdp-made",
+      "settings": {
+        "eyebrow": "How it is made",
+        "manufacture_label": "Made",
+        "manufacture": "<p>Made in India by Lambda Lifestyle Pvt Ltd, Gurugram. · contact@lambdalifestyle.com</p>",
+        "testing_label": "Net quantity",
+        "testing": "<p>50 ml</p>",
+        "sourcing_label": "Shelf life",
+        "sourcing": "<p>12 months</p>",
+        "expand_label": "",
+        "expand_url": "",
+        "coa_label": "",
+        "coa_url": ""
+      }
+    },
+    "formulation": {
+      "type": "mirellis-pdp-formulation",
+      "settings": {
+        "eyebrow": "What is in it",
+        "intro": "<p>The full formula, disclosed. No proprietary blend, no undisclosed \"actives.\"</p>",
+        "ing_1_name": "Ashwagandha",
+        "ing_1_tag": "",
+        "ing_1_surface": "",
+        "ing_1_detail": "",
+        "ing_1_link_label": "Read the dossier →",
+        "ing_1_link_url": "/pages/ashwagandha-the-feeling-of-internal-restoration",
+        "ing_2_name": "Jatamansi",
+        "ing_2_tag": "",
+        "ing_2_surface": "",
+        "ing_2_detail": "",
+        "ing_2_link_label": "",
+        "ing_2_link_url": "",
+        "ing_3_name": "Tagar",
+        "ing_3_tag": "",
+        "ing_3_surface": "",
+        "ing_3_detail": "",
+        "ing_3_link_label": "",
+        "ing_3_link_url": "",
+        "ing_4_name": "Vetiver",
+        "ing_4_tag": "",
+        "ing_4_surface": "",
+        "ing_4_detail": "",
+        "ing_4_link_label": "Read the dossier →",
+        "ing_4_link_url": "/pages/vetiver-the-depth-of-nervous-system-stillness",
+        "ing_5_name": "Lavender",
+        "ing_5_tag": "",
+        "ing_5_surface": "",
+        "ing_5_detail": "",
+        "ing_5_link_label": "",
+        "ing_5_link_url": "",
+        "ing_6_name": "Blue Tansy",
+        "ing_6_tag": "",
+        "ing_6_surface": "",
+        "ing_6_detail": "",
+        "ing_6_link_label": "",
+        "ing_6_link_url": "",
+        "ing_7_name": "Sweet Almond Oil",
+        "ing_7_tag": "Base",
+        "ing_7_surface": "",
+        "ing_7_detail": "",
+        "ing_7_link_label": "",
+        "ing_7_link_url": "",
+        "ing_8_name": "Vitamin E",
+        "ing_8_tag": "",
+        "ing_8_surface": "",
+        "ing_8_detail": "",
+        "ing_8_link_label": "",
+        "ing_8_link_url": "",
+        "expand_all_label": "",
+        "expand_all_url": ""
+      }
+    },
+    "safety": {
+      "type": "mirellis-pdp-safety",
+      "settings": {
+        "eyebrow": "Who this is for — and who it isn't",
+        "suit_label": "It may suit you if",
+        "suit": "<p>You end the day wired, rely on screens to wind down, or want a clear line between work and rest.</p>",
+        "not_label": "It is not for",
+        "not_for": "<p>It is not intended for young children; for anyone with a known allergy to tree nuts (it contains sweet almond oil) or to any of its botanicals; or for use on broken or irritated skin. It is not a sedative, sleep medication, or treatment for any condition. If you are pregnant, nursing, or managing a health condition, please speak with your doctor first.</p>",
+        "using_label": "Using it safely",
+        "using": "<p><strong>External use only — not to be swallowed.</strong> Applied to the skin (temples, behind the ears, wrists) and inhaled. <strong>Patch-test first</strong>; keep away from the eyes and mucous membranes.</p>",
+        "closing": "Every one of these is here to return control to you — so nothing about the ritual is a surprise."
+      }
+    },
+    "ritual": {
+      "type": "mirellis-pdp-ritual",
+      "settings": {
+        "eyebrow": "The ritual",
+        "lead": "Two to five minutes, at the end of the day — after screens, before bed.",
+        "step_1_title": "Warm",
+        "step_1_body": "A few drops of oil between the palms.",
+        "step_2_title": "Apply",
+        "step_2_body": "To the temples, behind the ears, and wrists — slow, unhurried circles.",
+        "step_3_title": "Breathe",
+        "step_3_body": "Cup the hands near the face; three slow breaths. Let the shoulders drop.",
+        "step_4_title": "",
+        "step_4_body": "",
+        "step_5_title": "",
+        "step_5_body": "",
+        "step_6_title": "",
+        "step_6_body": "",
+        "meaning": "<p>The scent, the warmth, and the pressure are the same each evening. That sameness is the point: repetition is what turns a few minutes into a signal the body begins to read as rest.</p>",
+        "expand_label": "",
+        "expand_url": ""
+      }
+    },
+    "companion": {
+      "type": "mirellis-pdp-companion",
+      "settings": {
+        "eyebrow": "The transition after this one",
+        "body": "<p>How you wake is shaped by how you came down. <strong>Morning Clarity</strong> exists for the Sleep → Wakefulness crossing — the first coherent signal the day receives, so it can begin on purpose.</p>",
+        "link1_label": "Morning Clarity →",
+        "link1_url": "/products/morning-clarity",
+        "link2_label": "The three transitions →",
+        "link2_url": "/pages/transitions"
+      }
+    },
+    "pricing": {
+      "type": "mirellis-pdp-pricing",
+      "settings": {
+        "eyebrow": "Why it costs what it costs",
+        "price": "₹1,100",
+        "allocation": "<p>The price reflects the formulation and the work behind it — and a standing decision never to discount.</p>",
+        "tradeoff": "<p>A simpler, cheaper product was possible — synthetic fragrance, a lower-grade base oil, or an undisclosed blend. It would have compromised the one reason Stillness exists. We chose not to.</p>"
+      }
+    },
+    "faq": {
+      "type": "mirellis-pdp-faq",
+      "settings": {
+        "eyebrow": "Questions answered",
+        "q_1_q": "Do I swallow it?",
+        "q_1_a": "<p>No — it is for external use only, applied to the skin and inhaled.</p>",
+        "q_2_q": "How is this different from a pillow spray or an essential-oil roller?",
+        "q_2_a": "<p>Stillness isn't an aromatherapy oil — the formulation is the delivery mechanism for a specific evening transition. It's chosen deliberately, fully disclosed, and honest about what we can and can't yet show.</p>",
+        "q_3_q": "Is this a sleep medication?",
+        "q_3_a": "<p>No. It is not a sedative or a treatment for any condition; it is spoken about observationally. For medical concerns, see your doctor.</p>",
+        "q_4_q": "Will it make me drowsy, or affect driving?",
+        "q_4_a": "<p>It is applied to the skin and inhaled, not ingested. It is a ritual cue, not a sedative.</p>",
+        "q_5_q": "When will I notice something?",
+        "q_5_a": "<p>Honestly — there is no promised timeline. The ritual works through repetition; what people describe tends to be quiet, not dramatic.</p>",
+        "q_6_q": "Why are there never discounts?",
+        "q_6_a": "<p>Because a considered product held to a fair, steady price is part of the trust — discounting would undercut it.</p>",
+        "q_7_q": "",
+        "q_7_a": "",
+        "q_8_q": "",
+        "q_8_a": ""
+      }
+    },
+    "decision": {
+      "type": "mirellis-pdp-decision",
+      "settings": {
+        "heading": "Begin the evening ritual.",
+        "sub": "Read the essentials before deciding. The complete ritual, formulation, reasoning and safety record remain available above.",
+        "what_it_is": "A 50 ml externally applied aromatic oil used as an optional scent-and-touch cue at the end of work or as the evening begins.",
+        "who_for": "Adults who want a repeatable, screen-free physical cue inside an evening ritual and who have no known allergy to its ingredients.",
+        "not_for": "Not a sleep aid, sedative, diagnosis, treatment or required part of the Mirellis practice. No change in state or sleep outcome is promised.",
+        "safety": "External use only. Patch-test first; avoid eyes, mucous membranes and broken skin. Contains sweet almond oil. See the full safety section above.",
+        "variant_label": "Option",
+        "cta_label": "Add to cart",
+        "sold_out": "Sold out",
+        "reassurance": "Secure checkout.",
+        "next": "",
+        "fallback_label": "",
+        "fallback_url": ""
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "recognition",
+    "reasoning",
+    "lineage",
+    "institution",
+    "made",
+    "formulation",
+    "safety",
+    "ritual",
+    "companion",
+    "pricing",
+    "faq",
+    "decision"
+  ]
+}

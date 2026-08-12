@@ -23,8 +23,8 @@
           <div class="mer__detail"><p class="mer__label">Evidence basis</p><p>{{ block.settings.evidence_basis }}</p></div>
           <div class="mer__detail"><p class="mer__label">Limit</p><p>{{ block.settings.limitation }}</p></div>
           <div class="mer__links">
-            {% if block.settings.source_url != blank %}<a class="mer__link" href="{{ block.settings.source_url }}">{{ block.settings.source_label | default: 'Read the record' }}</a>{% endif %}
-            {% if block.settings.practice_url != blank %}<a class="mer__link" href="{{ block.settings.practice_url }}">{{ block.settings.practice_label | default: 'Use the related practice' }}</a>{% endif %}
+            {% if block.settings.source_url != blank %}<a class="mer__link" data-mirellis-event="evidence_record_open" href="{{ block.settings.source_url }}">{{ block.settings.source_label | default: 'Read the record' }}</a>{% endif %}
+            {% if block.settings.practice_url != blank %}<a class="mer__link" data-mirellis-event="evidence_practice_open" href="{{ block.settings.practice_url }}">{{ block.settings.practice_label | default: 'Use the related practice' }}</a>{% endif %}
           </div>
         </article>
       {% endfor %}

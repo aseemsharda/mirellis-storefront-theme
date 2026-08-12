@@ -1,0 +1,316 @@
+{% comment %}
+Related Transitions Section
+Shows the three transitions as a connected journey
+{% endcomment %}
+
+<section class="related-transitions">
+  <div class="related-transitions__container">
+    
+    <h2 class="related-transitions__title">The Complete Journey</h2>
+    <p class="related-transitions__subtitle">
+      These three transitions form a continuous cycle. Master one, and you understand the architecture of all three.
+    </p>
+
+    <div class="related-transitions__flow">
+      
+      <div class="related-transitions__card related-transitions__card--sleep">
+        <div class="related-transitions__card-content">
+          <h3 class="related-transitions__card-title">
+            <a href="/pages/sleep-to-wakefulness">Sleep → Wakefulness</a>
+          </h3>
+          <p class="related-transitions__card-description">
+            The morning transition. Waking up fully, engaging your executive function, activating your nervous system.
+          </p>
+          <div class="related-transitions__card-meta">
+            <span class="related-transitions__stat">
+              <strong>30</strong> Articles
+            </span>
+            <span class="related-transitions__stat">
+              <strong>3</strong> Findings
+            </span>
+          </div>
+        </div>
+        <a href="/pages/sleep-to-wakefulness" class="related-transitions__card-arrow">
+          Explore →
+        </a>
+      </div>
+
+      <div class="related-transitions__connector">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <path d="M10 20L30 20M25 15L30 20L25 25" stroke="#1a1a18" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="related-transitions__card related-transitions__card--work">
+        <div class="related-transitions__card-content">
+          <h3 class="related-transitions__card-title">
+            <a href="/pages/work-to-recovery">Work → Recovery</a>
+          </h3>
+          <p class="related-transitions__card-description">
+            The evening transition. Moving from sustained effort toward a lower-demand part of the day.
+          </p>
+          <div class="related-transitions__card-meta">
+            <span class="related-transitions__stat">
+              <strong>28</strong> Articles
+            </span>
+            <span class="related-transitions__stat">
+              <strong>2</strong> Findings
+            </span>
+          </div>
+        </div>
+        <a href="/pages/work-to-recovery" class="related-transitions__card-arrow">
+          Explore →
+        </a>
+      </div>
+
+      <div class="related-transitions__connector">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <path d="M10 20L30 20M25 15L30 20L25 25" stroke="#1a1a18" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="related-transitions__card related-transitions__card--stimulation">
+        <div class="related-transitions__card-content">
+          <h3 class="related-transitions__card-title">
+            <a href="/pages/stimulation-to-restoration">Stimulation → Restoration</a>
+          </h3>
+          <p class="related-transitions__card-description">
+            The micro-transition. Resetting your nervous system during the day, managing stimulation load, restoring focus.
+          </p>
+          <div class="related-transitions__card-meta">
+            <span class="related-transitions__stat">
+              <strong>25</strong> Articles
+            </span>
+            <span class="related-transitions__stat">
+              <strong>2</strong> Findings
+            </span>
+          </div>
+        </div>
+        <a href="/pages/stimulation-to-restoration" class="related-transitions__card-arrow">
+          Explore →
+        </a>
+      </div>
+
+    </div>
+
+    <div class="related-transitions__insight">
+      <p>
+        These territories may involve different practical cues, contexts and constraints. <strong>Mirellis does not claim that one mechanism explains every transition.</strong> Each public record keeps its evidence basis and limits visible.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .related-transitions {
+    padding: 4rem 2rem;
+    background: #fff;
+  }
+
+  .related-transitions__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .related-transitions__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: #1a1a18;
+    text-align: center;
+    margin: 0 0 1rem 0;
+  }
+
+  .related-transitions__subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+  }
+
+  .related-transitions__flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .related-transitions__card {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    padding: 1.5rem;
+    background: #faf7f2;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: all 0.2s ease;
+  }
+
+  .related-transitions__card:hover {
+    background: #f5f2ed;
+  }
+
+  .related-transitions__card-content {
+    flex: 1;
+  }
+
+  .related-transitions__card-title {
+    margin: 0 0 0.75rem 0;
+  }
+
+  .related-transitions__card-title a {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a18;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+  }
+
+  .related-transitions__card-title a:hover {
+    color: #666;
+  }
+
+  .related-transitions__card-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #666;
+    margin: 0;
+  }
+
+  .related-transitions__card-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: #999;
+    margin-top: 1rem;
+  }
+
+  .related-transitions__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .related-transitions__stat strong {
+    color: #1a1a18;
+    font-size: 0.95rem;
+    display: block;
+  }
+
+  .related-transitions__card-arrow {
+    align-self: flex-start;
+    color: #1a1a18;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .related-transitions__card-arrow:hover {
+    color: #666;
+  }
+
+  .related-transitions__connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+
+  .related-transitions__connector svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .related-transitions__insight {
+    padding: 2rem;
+    background: #faf7f2;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .related-transitions__insight p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #1a1a18;
+    margin: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .related-transitions__flow {
+      gap: 1rem;
+    }
+
+    .related-transitions__card {
+      min-width: 220px;
+      max-width: 260px;
+      padding: 1.25rem;
+    }
+
+    .related-transitions__card-title a {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .related-transitions {
+      padding: 3rem 1.5rem;
+    }
+
+    .related-transitions__title {
+      font-size: 1.5rem;
+    }
+
+    .related-transitions__subtitle {
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    .related-transitions__flow {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .related-transitions__connector {
+      width: 30px;
+      height: 30px;
+      transform: rotate(90deg);
+    }
+
+    .related-transitions__card {
+      max-width: 100%;
+    }
+
+    .related-transitions__card-meta {
+      justify-content: space-around;
+    }
+
+    .related-transitions__insight {
+      padding: 1.5rem;
+    }
+
+    .related-transitions__insight p {
+      font-size: 0.95rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Related Transitions",
+  "settings": []
+}
+{% endschema %}
