@@ -182,7 +182,14 @@ export function AfterWorkApp() {
     } catch {
       setStatus('This browser could not load prior practice data.');
     } finally {
-      const requestedEntry = new URLSearchParams(window.location.search).get('friction') ?? undefined;
+      const search = new URLSearchParams(window.location.search);
+      const requestedEntry = search.get('friction') ?? undefined;
+      const requestedView = search.get('view');
+      if (requestedView === 'record' || requestedView === 'library' || requestedView === 'programme') {
+        setTab(requestedView);
+        setView('home');
+        setStatus(requestedView === 'record' ? 'Your private record is open.' : `${requestedView[0].toUpperCase()}${requestedView.slice(1)} is open.`);
+      }
       if (!savedProgrammeStarted() && isRecoveryEntryId(requestedEntry)) {
         setData((current) => ({ ...current, entryId: requestedEntry }));
         setOnboarding(1);

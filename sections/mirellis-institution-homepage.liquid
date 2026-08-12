@@ -26,6 +26,29 @@
             <p class="mi-lead">{{ block.settings.question }}</p>
           </div>
         </section>
+      {%- when 'today' -%}
+        <section class="mi-section mi-today" id="today" data-mi-today {{ block.shopify_attributes }}>
+          <div class="mi-shell">
+            <div class="mi-today__intro">
+              <p class="mi-kicker">{{ block.settings.eyebrow }}</p>
+              <h2>{{ block.settings.heading }}</h2>
+              <p class="mi-lead">{{ block.settings.body }}</p>
+            </div>
+            <div class="mi-today__choices" role="group" aria-label="Choose what is difficult right now">
+              {% for item in section.blocks %}{% if item.type == 'moment' %}<button class="mi-today__choice" type="button" data-mi-moment-choice="{{ item.settings.moment_id }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}" {{ item.shopify_attributes }}><strong>{{ item.settings.problem }}</strong><span>See what might help</span></button>{% endif %}{% endfor %}
+            </div>
+            <p class="mi-today__status" role="status" aria-live="polite" data-mi-today-status>Showing one suggestion. Choose a different moment at any time.</p>
+            <div>
+              {% for item in section.blocks %}{% if item.type == 'moment' %}
+                <article class="mi-today__result" data-mi-moment-result="{{ item.settings.moment_id }}" {% unless forloop.first %}hidden{% endunless %}>
+                  <div><p class="mi-kicker">{{ item.settings.context }}</p><h3>{{ item.settings.action_heading }}</h3><p class="mi-today__acknowledgement">{{ item.settings.acknowledgement }}</p></div>
+                  <div class="mi-today__action"><p>{{ item.settings.action_body }}</p><div class="mi-actions"><a class="mi-button" href="{{ item.settings.primary_url }}">{{ item.settings.primary_label }}</a>{% if item.settings.resource_url != blank %}<a class="mi-text-link" href="{{ item.settings.resource_url }}">{{ item.settings.resource_label }}<span aria-hidden="true"> →</span></a>{% endif %}</div></div>
+                </article>
+              {% endif %}{% endfor %}
+            </div>
+            <p class="mi-today__privacy">No answer is sent to Mirellis. The selector changes only what this page shows.</p>
+          </div>
+        </section>
       {%- when 'transitions' -%}
         <section class="mi-section" id="transitions" {{ block.shopify_attributes }}>
           <div class="mi-shell"><p class="mi-kicker">{{ block.settings.eyebrow }}</p><h2>{{ block.settings.heading }}</h2><p class="mi-lead mi-section-lead">{{ block.settings.body }}</p>
@@ -52,13 +75,39 @@
         <section class="mi-section mi-instruments-section" id="rituals" {{ block.shopify_attributes }}><div class="mi-shell"><p class="mi-kicker">{{ block.settings.eyebrow }}</p><h2>{{ block.settings.heading }}</h2><p class="mi-lead mi-section-lead">{{ block.settings.body }}</p><div class="mi-grid mi-grid--two">{% for item in section.blocks %}{% if item.type == 'instrument' %}<article class="mi-instrument">{% if item.settings.image != blank %}<div class="mi-instrument__image">{{ item.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '480, 720, 960, 1200', alt: item.settings.image.alt }}</div>{% endif %}<div class="mi-instrument__body"><p class="mi-kicker">{{ item.settings.transition }}</p><h3>{{ item.settings.name }}</h3><p>{{ item.settings.ritual }}</p><p class="mi-meta">Sound pairing: {{ item.settings.sound }}</p><div>{% if item.settings.product_url != blank %}<a class="mi-text-link" href="{{ item.settings.product_url }}">Explore {{ item.settings.name }}<span aria-hidden="true"> →</span></a>{% endif %}{% if item.settings.dossier_url != blank %}<a class="mi-text-link" href="{{ item.settings.dossier_url }}">Formula Dossier<span aria-hidden="true"> →</span></a>{% endif %}</div></div></article>{% endif %}{% endfor %}</div></div></section>
       {%- when 'observatory' -%}
         <section class="mi-section mi-observatory" {{ block.shopify_attributes }}><div class="mi-shell mi-reading"><p class="mi-kicker">{{ block.settings.eyebrow }}</p><h2>{{ block.settings.heading }}</h2><p class="mi-lead">{{ block.settings.body }}</p><p>{{ block.settings.consent }}</p><div class="mi-actions"><a class="mi-button" href="{{ block.settings.primary_url }}">{{ block.settings.primary_label }}</a><a class="mi-text-link" href="{{ block.settings.secondary_url }}">{{ block.settings.secondary_label }}<span aria-hidden="true"> →</span></a></div></div></section>
+      {%- when 'library' -%}
+        <section class="mi-section mi-library" id="library" {{ block.shopify_attributes }}><div class="mi-shell"><p class="mi-kicker">{{ block.settings.eyebrow }}</p><h2>{{ block.settings.heading }}</h2><p class="mi-lead mi-section-lead">{{ block.settings.body }}</p><div class="mi-library__grid">{% for item in section.blocks %}{% if item.type == 'resource' %}<article class="mi-library__card"><p class="mi-kicker">{{ item.settings.format }}</p><h3>{{ item.settings.title }}</h3><p>{{ item.settings.description }}</p><a class="mi-text-link" href="{{ item.settings.url }}"{% if item.settings.new_window %} target="_blank" rel="noopener"{% endif %}>{{ item.settings.label }}<span aria-hidden="true"> →</span></a></article>{% endif %}{% endfor %}</div></div></section>
+      {%- when 'private_record' -%}
+        <section class="mi-section mi-private-record" id="private-record" {{ block.shopify_attributes }}><div class="mi-shell mi-agency__grid"><div><p class="mi-kicker">{{ block.settings.eyebrow }}</p><h2>{{ block.settings.heading }}</h2><p class="mi-lead">{{ block.settings.body }}</p><p class="mi-today__privacy">{{ block.settings.privacy }}</p></div><div class="mi-agency__actions"><a class="mi-button" href="{{ block.settings.primary_url }}">{{ block.settings.primary_label }}</a><a class="mi-text-link" href="{{ block.settings.secondary_url }}">{{ block.settings.secondary_label }}<span aria-hidden="true"> →</span></a></div></div></section>
     {%- endcase -%}
   {%- endfor -%}
 </div>
 
+<script>
+(() => {
+  const root = document.querySelector('#mirellis-home-{{ section.id }} [data-mi-today]');
+  if (!root) return;
+  const choices = Array.from(root.querySelectorAll('[data-mi-moment-choice]'));
+  const results = Array.from(root.querySelectorAll('[data-mi-moment-result]'));
+  const status = root.querySelector('[data-mi-today-status]');
+  const hour = new Date().getHours();
+  const suggested = hour < 11 ? 'morning' : hour < 18 ? 'work' : 'evening';
+  const show = (id, automatic) => {
+    choices.forEach((choice) => choice.setAttribute('aria-pressed', String(choice.getAttribute('data-mi-moment-choice') === id)));
+    results.forEach((result) => { result.hidden = result.getAttribute('data-mi-moment-result') !== id; });
+    const activeChoice = choices.find((choice) => choice.getAttribute('data-mi-moment-choice') === id);
+    if (status && activeChoice) status.textContent = `${automatic ? 'Suggested for this time. ' : ''}Showing: ${activeChoice.querySelector('strong').textContent}.`;
+  };
+  if (choices.some((choice) => choice.getAttribute('data-mi-moment-choice') === suggested)) show(suggested, true);
+  choices.forEach((choice) => choice.addEventListener('click', () => show(choice.getAttribute('data-mi-moment-choice'), false)));
+})();
+</script>
+
 {% schema %}
 {"name":"Institution homepage","blocks":[
 {"type":"hero","name":"Hero","limit":1,"settings":[{"type":"image_picker","id":"image","label":"Original photograph"},{"type":"text","id":"eyebrow","label":"Eyebrow"},{"type":"textarea","id":"heading","label":"Heading"},{"type":"textarea","id":"body","label":"Supporting copy"},{"type":"text","id":"primary_label","label":"Primary CTA"},{"type":"url","id":"primary_url","label":"Primary URL"},{"type":"text","id":"secondary_label","label":"Secondary CTA"},{"type":"url","id":"secondary_url","label":"Secondary URL"}]},
+{"type":"today","name":"Today introduction","limit":1,"settings":[{"type":"text","id":"eyebrow","label":"Eyebrow"},{"type":"textarea","id":"heading","label":"Heading"},{"type":"textarea","id":"body","label":"Body"}]},
+{"type":"moment","name":"Today moment","limit":3,"settings":[{"type":"select","id":"moment_id","label":"Moment","options":[{"value":"morning","label":"Morning"},{"value":"work","label":"After work"},{"value":"evening","label":"Evening"}]},{"type":"text","id":"problem","label":"Human problem"},{"type":"text","id":"context","label":"Context label"},{"type":"textarea","id":"acknowledgement","label":"Acknowledgement"},{"type":"text","id":"action_heading","label":"Action heading"},{"type":"textarea","id":"action_body","label":"Action body"},{"type":"text","id":"primary_label","label":"Primary label"},{"type":"url","id":"primary_url","label":"Primary URL"},{"type":"text","id":"resource_label","label":"Resource label"},{"type":"url","id":"resource_url","label":"Resource URL"}]},
 {"type":"recognition","name":"Recognition","limit":1,"settings":[{"type":"text","id":"eyebrow","label":"Eyebrow"},{"type":"textarea","id":"heading","label":"Heading"},{"type":"text","id":"point_1","label":"Observation 1"},{"type":"text","id":"point_2","label":"Observation 2"},{"type":"text","id":"point_3","label":"Observation 3"},{"type":"textarea","id":"question","label":"Question"}]},
 {"type":"transitions","name":"Transition introduction","limit":1,"settings":[{"type":"text","id":"eyebrow","label":"Eyebrow"},{"type":"textarea","id":"heading","label":"Heading"},{"type":"textarea","id":"body","label":"Body"}]},
 {"type":"transition","name":"Transition card","limit":3,"settings":[{"type":"text","id":"transition","label":"Transition"},{"type":"text","id":"title","label":"Boundary moment"},{"type":"textarea","id":"description","label":"Description"},{"type":"url","id":"url","label":"Route URL"}]},
@@ -68,5 +117,8 @@
 {"type":"agency","name":"Mirror and routes","limit":1,"settings":[{"type":"text","id":"eyebrow","label":"Eyebrow"},{"type":"textarea","id":"heading","label":"Heading"},{"type":"textarea","id":"body","label":"Body"},{"type":"text","id":"primary_label","label":"Primary CTA"},{"type":"url","id":"primary_url","label":"Primary URL"},{"type":"text","id":"secondary_label","label":"Secondary CTA"},{"type":"url","id":"secondary_url","label":"Secondary URL"}]},
 {"type":"instruments","name":"Instruments introduction","limit":1,"settings":[{"type":"text","id":"eyebrow","label":"Eyebrow"},{"type":"textarea","id":"heading","label":"Heading"},{"type":"textarea","id":"body","label":"Body"}]},
 {"type":"instrument","name":"Ritual instrument","limit":3,"settings":[{"type":"image_picker","id":"image","label":"Original product photograph"},{"type":"text","id":"name","label":"Product name"},{"type":"text","id":"transition","label":"Transition"},{"type":"textarea","id":"ritual","label":"Ritual"},{"type":"text","id":"sound","label":"Sound pairing"},{"type":"url","id":"product_url","label":"Product URL"},{"type":"url","id":"dossier_url","label":"Formula Dossier URL"}]},
-{"type":"observatory","name":"Observatory invitation","limit":1,"settings":[{"type":"text","id":"eyebrow","label":"Eyebrow"},{"type":"textarea","id":"heading","label":"Heading"},{"type":"textarea","id":"body","label":"Body"},{"type":"textarea","id":"consent","label":"Participation consent copy"},{"type":"text","id":"primary_label","label":"Primary CTA"},{"type":"url","id":"primary_url","label":"Primary URL"},{"type":"text","id":"secondary_label","label":"Secondary CTA"},{"type":"url","id":"secondary_url","label":"Secondary URL"}]}],"presets":[{"name":"Institution homepage"}]}
+{"type":"observatory","name":"Observatory invitation","limit":1,"settings":[{"type":"text","id":"eyebrow","label":"Eyebrow"},{"type":"textarea","id":"heading","label":"Heading"},{"type":"textarea","id":"body","label":"Body"},{"type":"textarea","id":"consent","label":"Participation consent copy"},{"type":"text","id":"primary_label","label":"Primary CTA"},{"type":"url","id":"primary_url","label":"Primary URL"},{"type":"text","id":"secondary_label","label":"Secondary CTA"},{"type":"url","id":"secondary_url","label":"Secondary URL"}]},
+{"type":"library","name":"Library introduction","limit":1,"settings":[{"type":"text","id":"eyebrow","label":"Eyebrow"},{"type":"textarea","id":"heading","label":"Heading"},{"type":"textarea","id":"body","label":"Body"}]},
+{"type":"resource","name":"Library resource","limit":4,"settings":[{"type":"text","id":"format","label":"Format"},{"type":"text","id":"title","label":"Title"},{"type":"textarea","id":"description","label":"Description"},{"type":"text","id":"label","label":"Link label"},{"type":"url","id":"url","label":"Link URL"},{"type":"checkbox","id":"new_window","label":"Open in new window","default":false}]},
+{"type":"private_record","name":"Private record","limit":1,"settings":[{"type":"text","id":"eyebrow","label":"Eyebrow"},{"type":"textarea","id":"heading","label":"Heading"},{"type":"textarea","id":"body","label":"Body"},{"type":"textarea","id":"privacy","label":"Privacy note"},{"type":"text","id":"primary_label","label":"Primary label"},{"type":"url","id":"primary_url","label":"Primary URL"},{"type":"text","id":"secondary_label","label":"Secondary label"},{"type":"url","id":"secondary_url","label":"Secondary URL"}]}],"presets":[{"name":"Institution homepage"}]}
 {% endschema %}
