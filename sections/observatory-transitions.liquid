@@ -1,0 +1,147 @@
+{% comment %}
+Observatory Transitions Section
+Displays Sleep→Wakefulness, Work→Recovery, Stimulation→Restoration
+{% endcomment %}
+
+<section class="observatory-transitions">
+  <div class="observatory-transitions__container">
+    <div class="observatory-transitions__grid">
+      
+      <!-- Sleep to Wakefulness -->
+      <div class="observatory-transition-card">
+        <div class="observatory-transition-card__header">
+          <h2 class="observatory-transition-card__title">Sleep → Wakefulness</h2>
+        </div>
+        <div class="observatory-transition-card__content">
+          <p class="observatory-transition-card__description">
+            Why you wake up foggy and how the first 30 minutes shape your entire day.
+          </p>
+          <p class="observatory-transition-card__status">Current work: published guides and findings under continuing review.</p>
+        </div>
+        <div class="observatory-transition-card__footer">
+          <a href="/pages/sleep-to-wakefulness" class="observatory-transition-card__cta">
+            Explore Transition →
+          </a>
+        </div>
+      </div>
+
+      <!-- Work to Recovery -->
+      <div class="observatory-transition-card">
+        <div class="observatory-transition-card__header">
+          <h2 class="observatory-transition-card__title">Work → Recovery</h2>
+        </div>
+        <div class="observatory-transition-card__content">
+          <p class="observatory-transition-card__description">
+            Why you can't disengage from work and how to actively signal recovery.
+          </p>
+          <p class="observatory-transition-card__status">Current work: a practical pathway, guides and findings under continuing review.</p>
+        </div>
+        <div class="observatory-transition-card__footer">
+          <a href="/pages/work-to-recovery" class="observatory-transition-card__cta">
+            Explore Transition →
+          </a>
+        </div>
+      </div>
+
+      <!-- Stimulation to Restoration -->
+      <div class="observatory-transition-card">
+        <div class="observatory-transition-card__header">
+          <h2 class="observatory-transition-card__title">Stimulation → Restoration</h2>
+        </div>
+        <div class="observatory-transition-card__content">
+          <p class="observatory-transition-card__description">
+            Why constant stimulation prevents restoration and how to actively downregulate.
+          </p>
+          <p class="observatory-transition-card__status">Current work: listening environments and findings under continuing review.</p>
+        </div>
+        <div class="observatory-transition-card__footer">
+          <a href="/pages/stimulation-to-restoration" class="observatory-transition-card__cta">
+            Explore Transition →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .observatory-transitions {
+    padding: 4rem 2rem;
+    background: #fff;
+  }
+
+  .observatory-transitions__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .observatory-transitions__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .observatory-transition-card {
+    border: 1px solid rgba(26, 26, 24, 0.08);
+    border-radius: 4px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+  }
+
+  .observatory-transition-card:hover {
+    border-color: rgba(26, 26, 24, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .observatory-transition-card__title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a1a18;
+    margin-bottom: 1rem;
+  }
+
+  .observatory-transition-card__description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .observatory-transition-card__status {
+    margin: 1rem 0 1.5rem 0;
+    font-size: 0.85rem;
+    color: #999;
+    line-height: 1.55;
+  }
+
+  .observatory-transition-card__cta {
+    color: #1a1a18;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .observatory-transition-card__cta:hover {
+    color: #666;
+  }
+
+  @media (max-width: 768px) {
+    .observatory-transitions__grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Observatory Transitions",
+  "settings": []
+}
+{% endschema %}

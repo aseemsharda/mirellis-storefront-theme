@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "workday_exit": {
+      "type": "mirellis-workday-exit",
+      "blocks": {
+        "unfinished": { "type": "route", "settings": { "route_id": "unfinished", "label": "One unfinished point is still replaying.", "result_heading": "Give the unfinished point a return place.", "acknowledgement": "An open point can keep asking for attention because tomorrow has no visible place to begin.", "promise": "In a few minutes, you will leave one clear return point and close one work surface.", "step_1_title": "Name one unfinished point.", "step_1_body": "Choose one item—not the whole list.", "step_2_title": "Write tomorrow’s first visible action.", "step_2_body": "Make it specific enough that tomorrow-you knows exactly where to begin.", "step_3_title": "Close one work surface.", "step_3_body": "Close the tab, notebook or device. The work is not finished; today’s window is." } },
+        "activated": { "type": "route", "settings": { "route_id": "activated", "label": "My body still feels switched on.", "result_heading": "Change the physical signals around you.", "acknowledgement": "Sometimes effort stays in the body after the task itself has ended.", "promise": "You will make one safe physical change and choose a lower-demand next action.", "step_1_title": "Find one point of support.", "step_1_body": "Let your feet meet the floor or your back meet a chair.", "step_2_title": "Change one physical signal.", "step_2_body": "Change rooms, loosen one layer, drink water or change the light.", "step_3_title": "Choose a lower-demand next action.", "step_3_body": "A meal, shower, gentle movement or quiet is enough." } },
+        "checking": { "type": "route", "settings": { "route_id": "checking", "label": "I keep checking and cannot disengage.", "result_heading": "Create distance from the cue pulling you back.", "acknowledgement": "Checking can keep a work window open long after its useful part has finished.", "promise": "You will make the next genuine check explicit—or decide there is no next check tonight.", "step_1_title": "Name what you keep checking.", "step_1_body": "An inbox, message, task or uncertainty is enough.", "step_2_title": "Create one piece of distance.", "step_2_body": "Close the inbox, turn over the phone or move the work device out of reach.", "step_3_title": "Decide the next check.", "step_3_body": "Choose a sensible later time only if one is genuinely needed." } },
+        "scattered": { "type": "route", "settings": { "route_id": "scattered", "label": "Work is over, but the evening has not begun.", "result_heading": "Give your attention one ordinary place to land.", "acknowledgement": "The day can end without attention landing anywhere yet.", "promise": "You will orient to what is here and begin one ordinary next thing.", "step_1_title": "Look around the room.", "step_1_body": "Notice three ordinary things without interpreting them.", "step_2_title": "Name what is actually next.", "step_2_body": "Food, water, movement, a person, a shower or quiet.", "step_3_title": "Begin that one thing.", "step_3_body": "It does not need to be the perfect recovery activity." } }
+      },
+      "block_order": ["unfinished", "activated", "checking", "scattered"],
+      "settings": {
+        "eyebrow": "Mirellis · After Work",
+        "heading": "Work has ended. Why is it still with you?",
+        "spotify_url": "https://open.spotify.com/playlist/6VG02jtawiXTcOGi0nZzp6",
+        "finding_url": "shopify://pages/the-observatory",
+        "product_image": "shopify://shop_images/Image-1_Product.png",
+        "product_url": "shopify://products/mirellis-stillness-elixir"
+      }
+    }
+  },
+  "order": ["workday_exit"]
+}

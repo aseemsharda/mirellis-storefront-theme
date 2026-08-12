@@ -1,0 +1,159 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "mirellis_sound_intro": {
+      "type": "mirellis-sound-intro",
+      "settings": {
+        "eyebrow": "The Sound Observatory",
+        "heading": "Sound and Human State Transitions",
+        "body": "<p>Sound is an environmental signal. It changes how a room feels before you consciously notice it.</p><p>When sound changes, attention changes. When attention changes, pace changes. The nervous system responds to these shifts faster than meaning arrives — before you interpret what's happening.</p><p>The question is not whether sound matters. The question is how sound participates in Human State Transitions — the moments between sleep and waking, between work and recovery, between stimulation and restoration.</p><p>The Sound Observatory studies this relationship. The sections below introduce the listening environments currently under study, the questions guiding our research, and ways to contribute future observations.</p>",
+        "bg_color": "#faf7f2"
+      }
+    },
+    "mirellis_sound_system": {
+      "type": "mirellis-sound-system",
+      "blocks": {
+        "environment_qQECbT": {
+          "type": "environment",
+          "settings": {
+            "tag": "01",
+            "name": "Morning Clarity",
+            "transition_label": "Sleep → Wakefulness",
+            "when_text": "The listening environment for the transition from sleep into wakefulness. Used before screens, before conversation, and before the demands of the day begin.",
+            "transitions": "waking",
+            "link1_label": "Listen →",
+            "link1_text": "Morning Clarity Environment →",
+            "link1_url": "https://open.spotify.com/playlist/0kPGfp1m7uIAEkT8h6j66P",
+            "link1_new_tab": true,
+            "link2_label": "",
+            "link2_text": "",
+            "link2_url": "",
+            "link2_new_tab": false,
+            "link3_label": "",
+            "link3_text": "",
+            "link3_url": "",
+            "link3_new_tab": false
+          }
+        },
+        "environment_BCffdH": {
+          "type": "environment",
+          "settings": {
+            "tag": "02",
+            "name": "Flow",
+            "transition_label": "Work Initiation → Deep Focus",
+            "when_text": "The listening environment for entering sustained attention. Designed to reduce the friction between intention and focused work through consistent acoustic continuity.",
+            "transitions": "recovery",
+            "link1_label": "Listen →",
+            "link1_text": "Flow Environment →",
+            "link1_url": "https://open.spotify.com/playlist/10xydaUigLOhIwJa4FCAtT",
+            "link1_new_tab": true,
+            "link2_label": "",
+            "link2_text": "",
+            "link2_url": "",
+            "link2_new_tab": false,
+            "link3_label": "",
+            "link3_text": "",
+            "link3_url": "",
+            "link3_new_tab": false
+          }
+        },
+        "environment_gcJ46P": {
+          "type": "environment",
+          "settings": {
+            "tag": "03",
+            "name": "Stillness",
+            "transition_label": "Work → Recovery",
+            "when_text": "The listening environment for the transition from work into recovery. Used as the professional day comes to an end, helping create a familiar signal that sustained effort has finished.",
+            "transitions": "recovery restoration",
+            "link1_label": "Listen →",
+            "link1_text": "Stillness Environment →",
+            "link1_url": "https://open.spotify.com/playlist/6VG02jtawiXTcOGi0nZzp6",
+            "link1_new_tab": true,
+            "link2_label": "",
+            "link2_text": "",
+            "link2_url": "",
+            "link2_new_tab": false,
+            "link3_label": "",
+            "link3_text": "",
+            "link3_url": "",
+            "link3_new_tab": false
+          }
+        },
+        "environment_iicpdf": {
+          "type": "environment",
+          "settings": {
+            "tag": "04",
+            "name": "Restoration",
+            "transition_label": "Stimulation → Restoration",
+            "when_text": "The listening environment for the transition from sustained stimulation into restoration. Designed for evenings when the nervous system benefits from moving away from continuous input toward a quieter state.",
+            "transitions": "restoration overwhelmed",
+            "link1_label": "Listen →",
+            "link1_text": "Restoration Environment →",
+            "link1_url": "https://open.spotify.com/playlist/53xH1HRTy7x9IEN7WPByDp",
+            "link1_new_tab": true,
+            "link2_label": "",
+            "link2_text": "",
+            "link2_url": "",
+            "link2_new_tab": false,
+            "link3_label": "",
+            "link3_text": "",
+            "link3_url": "",
+            "link3_new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "environment_qQECbT",
+        "environment_BCffdH",
+        "environment_gcJ46P",
+        "environment_iicpdf"
+      ],
+      "settings": {
+        "hero_eyebrow": "Sound Environments",
+        "hero_heading": "Sound for Human State Transitions.",
+        "hero_body": "Sound is not background. It is one of the signals through which the nervous system learns that one chapter has ended and another has begun. Each environment is designed for a specific transition — not a mood, not a genre, a moment.",
+        "selector_label": "Explore by Transition",
+        "selector_question": "What are you transitioning from?",
+        "btn_waking": "Sleep → Wakefulness",
+        "btn_recovery": "Work → Recovery",
+        "btn_restoration": "Stimulation → Restoration",
+        "btn_overwhelmed": "Feeling Overwhelmed",
+        "btn_all": "Show all environments",
+        "env_intro": "Four listening environments",
+        "label_waking": "For Sleep → Wakefulness",
+        "label_recovery": "For Work → Recovery",
+        "label_restoration": "For Stimulation → Restoration",
+        "label_overwhelmed": "For moments of overwhelm",
+        "closing_text": "<p>Listening environments become meaningful through consistent use at the same transition point.<br/>Listen at the same transition point. Every day.<br/>Allow the environment to become meaningful.</p>"
+      }
+    },
+    "mirellis_sound_observatory": {
+      "type": "mirellis-sound-observatory",
+      "settings": {
+        "eyebrow": "Active Research",
+        "heading": "The Sound Observatory",
+        "intro": "These are the questions currently under investigation. Not conclusions. Not claims. Open questions the Observatory is studying.",
+        "note": "<p>These observations are gathered from people using Mirellis Sound environments consistently over weeks and months. The patterns that emerge from your data help us understand which transitions sound influences most strongly.</p>",
+        "bg_color": "#faf7f2"
+      }
+    },
+    "mirellis_sound_contribute": {
+      "type": "mirellis-sound-contribute",
+      "settings": {}
+    }
+  },
+  "order": [
+    "mirellis_sound_intro",
+    "mirellis_sound_system",
+    "mirellis_sound_observatory",
+    "mirellis_sound_contribute"
+  ]
+}
