@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Mirellis After Work',
     short_name: 'Mirellis',
-    description: 'A 21-day, local-first practice for ending work clearly and beginning the evening.',
+    description: 'Choose what is keeping work open, act now, or build a private 21-day workday-exit practice.',
     start_url: '/',
     display: 'standalone',
     background_color: '#f6f1e8',
