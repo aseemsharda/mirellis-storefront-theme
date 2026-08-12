@@ -45,7 +45,10 @@ p { font-size: 1rem; line-height: 1.6; }
 .text-button, .footer-button { border: 0; background: transparent; color: var(--muted); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .28rem; }
 .text-button { display: block; width: fit-content; margin: 1.35rem auto 0; padding: .45rem .1rem; }
 .threshold-footer { display: flex; justify-content: center; gap: .6rem; margin-top: 3.25rem; color: var(--muted); font-size: .8rem; }
-.footer-button { min-height: 2.75rem; padding: .25rem; font-size: .8rem; }
+.footer-button { min-height: 2.75rem; min-width: 2.75rem; padding: .25rem; font-size: .8rem; }
+.today-entry { margin-top: 1.8rem; border-top: 1px solid var(--line); padding-top: 1.25rem; }
+.today-entry p { max-width: 24rem; margin-bottom: 0; color: var(--muted); font-size: .94rem; }
+.today-entry .primary-button { margin-top: 1.25rem; }
 .resume-line { margin-top: 1.8rem; border-top: 1px solid var(--line); padding-top: 1.25rem; }
 .resume-line p { margin-bottom: 0; color: var(--muted); font-size: .9rem; }
 .resume-line .primary-button { margin-top: 1rem; }
@@ -55,9 +58,9 @@ p { font-size: 1rem; line-height: 1.6; }
 
 .ritual-screen { width: min(100%, 46rem); margin: 0 auto; padding: max(1.1rem, env(safe-area-inset-top)) 1.5rem max(2.5rem, env(safe-area-inset-bottom)); }
 .topbar { min-height: 3rem; margin-bottom: clamp(3rem, 9vh, 6rem); }
-.wordmark { min-height: 2.75rem; border: 0; background: transparent; color: var(--ink); padding: .3rem 0; font-size: 1rem; }
+.wordmark { min-height: 2.75rem; min-width: 2.75rem; border: 0; background: transparent; color: var(--ink); padding: .3rem 0; font-size: 1rem; }
 .destination { min-width: 0; overflow: hidden; color: var(--muted); font-size: .78rem; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
-.header-settings { min-height: 2.75rem; flex: 0 0 auto; border: 0; background: transparent; padding: .35rem 0 .35rem .45rem; color: var(--muted); font-size: .78rem; text-decoration: underline; text-underline-offset: .25rem; }
+.header-settings { min-height: 2.75rem; min-width: 2.75rem; flex: 0 0 auto; border: 0; background: transparent; padding: .35rem 0 .35rem .45rem; color: var(--muted); font-size: .78rem; text-decoration: underline; text-underline-offset: .25rem; }
 .ritual-copy { max-width: 34rem; }
 .ritual-copy h1 { max-width: 12ch; }
 .context-copy { padding-top: clamp(2rem, 7vh, 5rem); }
@@ -69,11 +72,13 @@ p { font-size: 1rem; line-height: 1.6; }
 .orientation-screen, .guide-screen, .follow-on-screen { display: flex; flex-direction: column; }
 .orientation-copy, .guide-copy, .follow-on-copy { margin: auto 0; padding-bottom: clamp(2rem, 12vh, 7rem); }
 .orientation-acknowledgement { max-width: 28rem; margin-bottom: 1.2rem; font-family: "Playfair Display", Georgia, "Times New Roman", serif; font-size: clamp(1.4rem, 5vw, 1.8rem); line-height: 1.18; letter-spacing: -.028em; }
+.session-time { margin: 1.35rem 0 0; color: var(--muted); font-size: .88rem; }
 .guide-progress { width: 100%; height: 2px; margin: 0 0 clamp(3.5rem, 13vh, 7rem); background: var(--line); }
 .guide-progress span { display: block; height: 100%; background: var(--gold); transition: width .35s ease; }
 .motion-reduced .guide-progress span { transition: none; }
 .practice-cue { max-width: 21ch; margin-bottom: 1.6rem; font-family: "Playfair Display", Georgia, "Times New Roman", serif; font-size: clamp(1.65rem, 6vw, 2.25rem); line-height: 1.14; letter-spacing: -.035em; }
 .guide-action { max-width: 29rem; color: var(--muted); font-size: .94rem; }
+.quiet-copy { padding-bottom: clamp(1rem, 6vh, 3rem); }
 .orientation-copy .text-button, .guide-copy .text-button, .follow-on-copy .text-button { margin-left: 0; }
 .support-card { margin-top: 1.75rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 1.15rem 0; }
 .support-card .eyebrow { margin-bottom: .55rem; }
