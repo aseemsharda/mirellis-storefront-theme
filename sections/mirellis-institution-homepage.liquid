@@ -1,0 +1,72 @@
+{{ 'mirellis-institution.css' | asset_url | stylesheet_tag }}
+
+<div class="mi-home" id="mirellis-home-{{ section.id }}">
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'hero' -%}
+        <section class="mi-section mi-hero" {{ block.shopify_attributes }}>
+          <div class="mi-shell mi-hero__grid">
+            <div class="mi-hero__copy">
+              <p class="mi-kicker">{{ block.settings.eyebrow }}</p>
+              <h1>{{ block.settings.heading }}</h1>
+              <p class="mi-lead">{{ block.settings.body }}</p>
+              <div class="mi-actions">
+                {% if block.settings.primary_url != blank %}<a class="mi-button" href="{{ block.settings.primary_url }}">{{ block.settings.primary_label }}</a>{% endif %}
+                {% if block.settings.secondary_url != blank %}<a class="mi-text-link" href="{{ block.settings.secondary_url }}">{{ block.settings.secondary_label }}<span aria-hidden="true"> →</span></a>{% endif %}
+              </div>
+            </div>
+            {% if block.settings.image != blank %}<div class="mi-hero__media">{{ block.settings.image | image_url: width: 2000 | image_tag: loading: 'eager', widths: '640, 900, 1200, 1600, 2000', alt: block.settings.image.alt }}</div>{% endif %}
+          </div>
+        </section>
+      {%- when 'recognition' -%}
+        <section class="mi-section mi-problem" {{ block.shopify_attributes }}>
+          <div class="mi-shell mi-reading">
+            <p class="mi-kicker">{{ block.settings.eyebrow }}</p><h2>{{ block.settings.heading }}</h2>
+            <div class="mi-problem__list"><p>{{ block.settings.point_1 }}</p><p>{{ block.settings.point_2 }}</p><p>{{ block.settings.point_3 }}</p></div>
+            <p class="mi-lead">{{ block.settings.question }}</p>
+          </div>
+        </section>
+      {%- when 'transitions' -%}
+        <section class="mi-section" id="transitions" {{ block.shopify_attributes }}>
+          <div class="mi-shell"><p class="mi-kicker">{{ block.settings.eyebrow }}</p><h2>{{ block.settings.heading }}</h2><p class="mi-lead mi-section-lead">{{ block.settings.body }}</p>
+            <div class="mi-grid mi-grid--three">{% for item in section.blocks %}{% if item.type == 'transition' %}{% render 'mirellis-transition-card', transition: item.settings.transition, title: item.settings.title, description: item.settings.description, url: item.settings.url %}{% endif %}{% endfor %}</div>
+          </div>
+        </section>
+      {%- when 'method' -%}
+        <section class="mi-section mi-method" {{ block.shopify_attributes }}>
+          <div class="mi-shell"><p class="mi-kicker">{{ block.settings.eyebrow }}</p><h2>{{ block.settings.heading }}</h2><p class="mi-lead mi-section-lead">{{ block.settings.body }}</p>
+            <ol class="mi-method__steps"><li><strong>Lived observation</strong><span>Raw signal</span></li><li><strong>Recurring pattern</strong><span>Internal research</span></li><li><strong>Interpreted finding</strong><span>Published knowledge</span></li><li><strong>Coherent ritual</strong><span>Practical instrument</span></li><li><strong>Continued observation</strong><span>Outcome data</span></li></ol>
+            {% if block.settings.url != blank %}<a class="mi-text-link" href="{{ block.settings.url }}">How the method works<span aria-hidden="true"> →</span></a>{% endif %}
+          </div>
+        </section>
+      {%- when 'findings' -%}
+        <section class="mi-section" id="findings" {{ block.shopify_attributes }}>
+          <div class="mi-shell"><p class="mi-kicker">{{ block.settings.eyebrow }}</p><h2>{{ block.settings.heading }}</h2><p class="mi-lead mi-section-lead">{{ block.settings.body }}</p>
+            <div class="mi-grid mi-grid--three">{% for item in section.blocks %}{% if item.type == 'finding' %}{% render 'mirellis-finding-card', number: item.settings.number, transition: item.settings.transition, line: item.settings.line, status: item.settings.status, reviewed: item.settings.reviewed, url: item.settings.url %}{% endif %}{% endfor %}</div>
+            {% if block.settings.url != blank %}<a class="mi-text-link" href="{{ block.settings.url }}">See the Observatory<span aria-hidden="true"> →</span></a>{% endif %}
+          </div>
+        </section>
+      {%- when 'agency' -%}
+        <section class="mi-section mi-agency" {{ block.shopify_attributes }}><div class="mi-shell mi-agency__grid"><div><p class="mi-kicker">{{ block.settings.eyebrow }}</p><h2>{{ block.settings.heading }}</h2><p class="mi-lead">{{ block.settings.body }}</p></div><div class="mi-agency__actions"><a class="mi-button" href="{{ block.settings.primary_url }}">{{ block.settings.primary_label }}</a><a class="mi-text-link" href="{{ block.settings.secondary_url }}">{{ block.settings.secondary_label }}<span aria-hidden="true"> →</span></a></div></div></section>
+      {%- when 'instruments' -%}
+        <section class="mi-section mi-instruments-section" id="rituals" {{ block.shopify_attributes }}><div class="mi-shell"><p class="mi-kicker">{{ block.settings.eyebrow }}</p><h2>{{ block.settings.heading }}</h2><p class="mi-lead mi-section-lead">{{ block.settings.body }}</p><div class="mi-grid mi-grid--two">{% for item in section.blocks %}{% if item.type == 'instrument' %}<article class="mi-instrument">{% if item.settings.image != blank %}<div class="mi-instrument__image">{{ item.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '480, 720, 960, 1200', alt: item.settings.image.alt }}</div>{% endif %}<div class="mi-instrument__body"><p class="mi-kicker">{{ item.settings.transition }}</p><h3>{{ item.settings.name }}</h3><p>{{ item.settings.ritual }}</p><p class="mi-meta">Sound pairing: {{ item.settings.sound }}</p><div>{% if item.settings.product_url != blank %}<a class="mi-text-link" href="{{ item.settings.product_url }}">Explore {{ item.settings.name }}<span aria-hidden="true"> →</span></a>{% endif %}{% if item.settings.dossier_url != blank %}<a class="mi-text-link" href="{{ item.settings.dossier_url }}">Formula Dossier<span aria-hidden="true"> →</span></a>{% endif %}</div></div></article>{% endif %}{% endfor %}</div></div></section>
+      {%- when 'observatory' -%}
+        <section class="mi-section mi-observatory" {{ block.shopify_attributes }}><div class="mi-shell mi-reading"><p class="mi-kicker">{{ block.settings.eyebrow }}</p><h2>{{ block.settings.heading }}</h2><p class="mi-lead">{{ block.settings.body }}</p><p>{{ block.settings.consent }}</p><div class="mi-actions"><a class="mi-button" href="{{ block.settings.primary_url }}">{{ block.settings.primary_label }}</a><a class="mi-text-link" href="{{ block.settings.secondary_url }}">{{ block.settings.secondary_label }}<span aria-hidden="true"> →</span></a></div></div></section>
+    {%- endcase -%}
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{"name":"Institution homepage","blocks":[
+{"type":"hero","name":"Hero","limit":1,"settings":[{"type":"image_picker","id":"image","label":"Original photograph"},{"type":"text","id":"eyebrow","label":"Eyebrow"},{"type":"textarea","id":"heading","label":"Heading"},{"type":"textarea","id":"body","label":"Supporting copy"},{"type":"text","id":"primary_label","label":"Primary CTA"},{"type":"url","id":"primary_url","label":"Primary URL"},{"type":"text","id":"secondary_label","label":"Secondary CTA"},{"type":"url","id":"secondary_url","label":"Secondary URL"}]},
+{"type":"recognition","name":"Recognition","limit":1,"settings":[{"type":"text","id":"eyebrow","label":"Eyebrow"},{"type":"textarea","id":"heading","label":"Heading"},{"type":"text","id":"point_1","label":"Observation 1"},{"type":"text","id":"point_2","label":"Observation 2"},{"type":"text","id":"point_3","label":"Observation 3"},{"type":"textarea","id":"question","label":"Question"}]},
+{"type":"transitions","name":"Transition introduction","limit":1,"settings":[{"type":"text","id":"eyebrow","label":"Eyebrow"},{"type":"textarea","id":"heading","label":"Heading"},{"type":"textarea","id":"body","label":"Body"}]},
+{"type":"transition","name":"Transition card","limit":3,"settings":[{"type":"text","id":"transition","label":"Transition"},{"type":"text","id":"title","label":"Boundary moment"},{"type":"textarea","id":"description","label":"Description"},{"type":"url","id":"url","label":"Route URL"}]},
+{"type":"method","name":"Method","limit":1,"settings":[{"type":"text","id":"eyebrow","label":"Eyebrow"},{"type":"textarea","id":"heading","label":"Heading"},{"type":"textarea","id":"body","label":"Body"},{"type":"url","id":"url","label":"Method URL"}]},
+{"type":"findings","name":"Findings introduction","limit":1,"settings":[{"type":"text","id":"eyebrow","label":"Eyebrow"},{"type":"textarea","id":"heading","label":"Heading"},{"type":"textarea","id":"body","label":"Body"},{"type":"url","id":"url","label":"Observatory URL"}]},
+{"type":"finding","name":"Observatory record","limit":3,"settings":[{"type":"text","id":"number","label":"Record number"},{"type":"text","id":"transition","label":"Territory"},{"type":"textarea","id":"line","label":"Public statement"},{"type":"select","id":"status","label":"Record status","options":[{"value":"Working observation","label":"Working observation"},{"value":"Practice hypothesis","label":"Practice hypothesis"},{"value":"Under review","label":"Under review"},{"value":"Product record","label":"Product record"},{"value":"Retired","label":"Retired"}]},{"type":"text","id":"reviewed","label":"Reviewed date"},{"type":"url","id":"url","label":"Record URL"}]},
+{"type":"agency","name":"Mirror and routes","limit":1,"settings":[{"type":"text","id":"eyebrow","label":"Eyebrow"},{"type":"textarea","id":"heading","label":"Heading"},{"type":"textarea","id":"body","label":"Body"},{"type":"text","id":"primary_label","label":"Primary CTA"},{"type":"url","id":"primary_url","label":"Primary URL"},{"type":"text","id":"secondary_label","label":"Secondary CTA"},{"type":"url","id":"secondary_url","label":"Secondary URL"}]},
+{"type":"instruments","name":"Instruments introduction","limit":1,"settings":[{"type":"text","id":"eyebrow","label":"Eyebrow"},{"type":"textarea","id":"heading","label":"Heading"},{"type":"textarea","id":"body","label":"Body"}]},
+{"type":"instrument","name":"Ritual instrument","limit":3,"settings":[{"type":"image_picker","id":"image","label":"Original product photograph"},{"type":"text","id":"name","label":"Product name"},{"type":"text","id":"transition","label":"Transition"},{"type":"textarea","id":"ritual","label":"Ritual"},{"type":"text","id":"sound","label":"Sound pairing"},{"type":"url","id":"product_url","label":"Product URL"},{"type":"url","id":"dossier_url","label":"Formula Dossier URL"}]},
+{"type":"observatory","name":"Observatory invitation","limit":1,"settings":[{"type":"text","id":"eyebrow","label":"Eyebrow"},{"type":"textarea","id":"heading","label":"Heading"},{"type":"textarea","id":"body","label":"Body"},{"type":"textarea","id":"consent","label":"Participation consent copy"},{"type":"text","id":"primary_label","label":"Primary CTA"},{"type":"url","id":"primary_url","label":"Primary URL"},{"type":"text","id":"secondary_label","label":"Secondary CTA"},{"type":"url","id":"secondary_url","label":"Secondary URL"}]}],"presets":[{"name":"Institution homepage"}]}
+{% endschema %}

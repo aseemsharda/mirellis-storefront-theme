@@ -1,0 +1,6 @@
+<article class="mi-finding-card">
+  <p class="mi-kicker">Observatory record {{ number }} · {{ transition }}</p>
+  <h3>{{ line }}</h3>
+  {% render 'mirellis-status-chip', status: status, reviewed: reviewed %}
+  {% if url != blank %}<a class="mi-text-link" href="{{ url }}">Read record {{ number }}<span aria-hidden="true"> →</span></a>{% endif %}
+</article>

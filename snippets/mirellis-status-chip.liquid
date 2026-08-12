@@ -1,0 +1,4 @@
+{%- comment -%}Status is always expressed in words, not colour alone.{%- endcomment -%}
+<span class="mi-status mi-status--{{ status | handleize }}" aria-label="Record status: {{ status | escape }}">
+  <span aria-hidden="true">●</span> Status: {{ status }}{% if reviewed != blank %}; reviewed {{ reviewed }}{% endif %}
+</span>

@@ -1,0 +1,86 @@
+{{ 'mirellis-evidence-register.css' | asset_url | stylesheet_tag }}
+
+<section class="mer" id="evidence-register-{{ section.id }}" aria-labelledby="mer-heading-{{ section.id }}">
+  <div class="mer__inner">
+    <p class="mer__meta">{{ section.settings.eyebrow }}</p>
+    <h1 class="mer__heading" id="mer-heading-{{ section.id }}">{{ section.settings.heading }}</h1>
+    <p class="mer__lead">{{ section.settings.body }}</p>
+
+    <div class="mer__filters" role="group" aria-label="Filter Observatory records">
+      <button class="mer__filter" type="button" data-mer-filter="all" aria-pressed="true">All records</button>
+      <button class="mer__filter" type="button" data-mer-filter="morning">Morning beginning</button>
+      <button class="mer__filter" type="button" data-mer-filter="work">Work ending</button>
+      <button class="mer__filter" type="button" data-mer-filter="evening">Evening quieting</button>
+    </div>
+    <p class="mer__status" role="status" aria-live="polite" data-mer-status>Showing all {{ section.blocks.size }} records.</p>
+
+    <div class="mer__grid">
+      {% for block in section.blocks %}
+        <article class="mer__record" data-mer-record="{{ block.settings.territory }}" {{ block.shopify_attributes }}>
+          <p class="mer__meta">Record {{ block.settings.number }} · {{ block.settings.status }} · reviewed {{ block.settings.reviewed }}</p>
+          <h2>{{ block.settings.title }}</h2>
+          <p class="mer__statement">{{ block.settings.statement }}</p>
+          <div class="mer__detail"><p class="mer__label">Evidence basis</p><p>{{ block.settings.evidence_basis }}</p></div>
+          <div class="mer__detail"><p class="mer__label">Limit</p><p>{{ block.settings.limitation }}</p></div>
+          <div class="mer__links">
+            {% if block.settings.source_url != blank %}<a class="mer__link" href="{{ block.settings.source_url }}">{{ block.settings.source_label | default: 'Read the record' }}</a>{% endif %}
+            {% if block.settings.practice_url != blank %}<a class="mer__link" href="{{ block.settings.practice_url }}">{{ block.settings.practice_label | default: 'Use the related practice' }}</a>{% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+(() => {
+  const root = document.getElementById('evidence-register-{{ section.id }}');
+  if (!root) return;
+  const filters = Array.from(root.querySelectorAll('[data-mer-filter]'));
+  const records = Array.from(root.querySelectorAll('[data-mer-record]'));
+  const status = root.querySelector('[data-mer-status]');
+  filters.forEach((button) => button.addEventListener('click', () => {
+    const value = button.getAttribute('data-mer-filter');
+    let visible = 0;
+    filters.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+    records.forEach((record) => {
+      const show = value === 'all' || record.getAttribute('data-mer-record') === value;
+      record.hidden = !show;
+      if (show) visible += 1;
+    });
+    if (status) status.textContent = value === 'all' ? `Showing all ${visible} records.` : `Showing ${visible} ${button.textContent.trim().toLowerCase()} records.`;
+  }));
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Evidence register",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Observatory · public register" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "What we can say—and what we cannot yet say." },
+    { "type": "textarea", "id": "body", "label": "Introduction", "default": "Every record shows its present status, evidence basis, limitation and review date. A working observation is not a diagnosis, a product claim or established scientific fact." }
+  ],
+  "blocks": [
+    {
+      "type": "record",
+      "name": "Public record",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Record number" },
+        { "type": "select", "id": "territory", "label": "Territory", "options": [{"value":"morning","label":"Morning beginning"},{"value":"work","label":"Work ending"},{"value":"evening","label":"Evening quieting"}] },
+        { "type": "select", "id": "status", "label": "Status", "options": [{"value":"Working observation","label":"Working observation"},{"value":"Practice hypothesis","label":"Practice hypothesis"},{"value":"Under review","label":"Under review"},{"value":"Product record","label":"Product record"},{"value":"Retired","label":"Retired"}] },
+        { "type": "text", "id": "reviewed", "label": "Reviewed date" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "statement", "label": "Public statement" },
+        { "type": "textarea", "id": "evidence_basis", "label": "Evidence basis" },
+        { "type": "textarea", "id": "limitation", "label": "Limitation" },
+        { "type": "text", "id": "source_label", "label": "Source label" },
+        { "type": "url", "id": "source_url", "label": "Source URL" },
+        { "type": "text", "id": "practice_label", "label": "Practice label" },
+        { "type": "url", "id": "practice_url", "label": "Practice URL" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Evidence register" }]
+}
+{% endschema %}
