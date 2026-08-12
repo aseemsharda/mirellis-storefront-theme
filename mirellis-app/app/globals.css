@@ -127,3 +127,54 @@ p { font-size: 1rem; line-height: 1.6; }
 @media (max-width: 360px) { .topbar { gap: .4rem; } .wordmark { font-size: .88rem; letter-spacing: .11em; } .destination { font-size: .7rem; } .header-settings { padding-left: .15rem; font-size: .7rem; } }
 @media (min-width: 640px) { .threshold-screen { box-shadow: 0 0 0 1px rgba(45, 40, 35, .06); } .threshold-copy { padding-inline: 2.25rem; } .ritual-screen { padding-inline: 2.5rem; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+
+/* Adaptive transition-training prototype. Kept separate from the live route. */
+.training-shell { width: min(100%, 34rem); min-height: 100dvh; margin: 0 auto; padding: max(1.1rem, env(safe-area-inset-top)) 1.5rem max(2rem, env(safe-area-inset-bottom)); background: var(--paper-light); }
+.training-header { display: grid; min-height: 2.75rem; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: .8rem; color: var(--muted); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
+.training-header > span { white-space: nowrap; text-align: center; }
+.training-header .wordmark { justify-self: start; font-size: .84rem; }
+.training-text-control { justify-self: end; min-width: 2.75rem; border: 0; background: transparent; color: var(--muted); padding: .4rem 0; text-align: right; text-decoration: underline; text-underline-offset: .28rem; }
+.training-screen { display: flex; min-height: calc(100dvh - 5.5rem); flex-direction: column; padding: clamp(3.25rem, 10vh, 6.5rem) 0 1rem; animation: settle .26s ease-out both; }
+.training-today { padding-top: clamp(4.5rem, 15vh, 9rem); }
+.training-counter { margin-bottom: .9rem; font-family: "Playfair Display", Georgia, "Times New Roman", serif; color: var(--ink); font-size: 1.05rem; letter-spacing: -.02em; }
+.training-counter span { color: var(--muted); }
+.training-shell h1 { max-width: 11ch; font-size: clamp(3.1rem, 12vw, 4.15rem); }
+.training-shell h2 { font-size: 1.55rem; }
+.training-lead { max-width: 30rem; color: var(--muted); font-size: 1rem; }
+.today-workout, .next-session { display: flex; justify-content: space-between; gap: 1.2rem; margin-top: 2.4rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 1.25rem 0; }
+.today-workout h2, .next-session h2 { margin: 0 0 .5rem; }
+.today-workout p:not(.eyebrow), .next-session p:not(.eyebrow) { margin: 0; color: var(--muted); font-size: .91rem; line-height: 1.5; }
+.today-workout > span { flex: 0 0 auto; color: var(--gold); font-size: .72rem; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+.training-note { max-width: 26rem; margin: auto 0 0; padding-top: 2.5rem; color: var(--muted); font-size: .78rem; line-height: 1.5; }
+.training-choice-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: .55rem; margin-top: 2.25rem; }
+.training-choice, .drill-option { min-height: 3.35rem; border: 1px solid var(--line); border-radius: 0; background: transparent; color: var(--ink); padding: .7rem .75rem; text-align: left; font-size: .9rem; line-height: 1.3; }
+.training-choice { text-align: center; }
+.training-choice.is-selected, .drill-option.is-selected { border-color: var(--night); background: var(--night); color: #fffaf2; }
+.firmness-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1rem; border-bottom: 1px solid var(--line); padding: 1.2rem 0; }
+.firmness-row strong { display: block; margin-bottom: .25rem; font-family: "Playfair Display", Georgia, "Times New Roman", serif; font-size: 1.2rem; font-weight: 500; }
+.firmness-row p { max-width: 20rem; margin: 0; color: var(--muted); font-size: .82rem; line-height: 1.45; }
+.training-progress { height: 3px; margin-bottom: clamp(3rem, 9vh, 5.5rem); background: var(--line); }
+.training-progress span { display: block; height: 100%; background: var(--gold); transition: width .35s ease; }
+.drill-panel { margin-top: 1.8rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 1.1rem 0 1.25rem; }
+.drill-panel > p:first-child { margin-bottom: 1.1rem; font-family: "Playfair Display", Georgia, "Times New Roman", serif; font-size: 1.25rem; line-height: 1.2; letter-spacing: -.025em; }
+.drill-options { display: grid; gap: .55rem; }
+.compact-options { grid-template-columns: repeat(3, 1fr); }
+.drill-question { margin: 1.25rem 0 .7rem !important; color: var(--muted); font-family: inherit !important; font-size: .9rem !important; letter-spacing: 0 !important; }
+.drill-feedback { margin: 1rem 0 0 !important; color: #7e4937; font-family: inherit !important; font-size: .86rem !important; letter-spacing: 0 !important; }
+.drill-feedback.is-positive { color: #3d624e; }
+.sort-count { margin-bottom: .75rem !important; color: var(--gold); font-family: inherit !important; font-size: .7rem !important; font-weight: 800; letter-spacing: .12em !important; text-transform: uppercase; }
+.sort-card { margin-bottom: 1.3rem !important; font-size: 1.4rem !important; }
+.sort-actions { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; }
+.sort-actions .primary-button, .sort-actions .secondary-button { margin-top: 0; }
+.training-drill .primary-button:disabled { cursor: not-allowed; border-color: var(--line); background: var(--line); color: var(--muted); }
+.training-field { padding-top: clamp(7rem, 22vh, 12rem); }
+.field-instruction { max-width: 20ch; margin: 0 0 1.5rem; font-family: "Playfair Display", Georgia, "Times New Roman", serif; font-size: clamp(1.7rem, 6vw, 2.4rem); line-height: 1.12; letter-spacing: -.035em; }
+.training-complete { padding-top: clamp(6rem, 20vh, 11rem); }
+.next-session { display: block; }
+.exercise-switcher { position: sticky; bottom: 0; display: grid; grid-template-columns: repeat(3, 1fr); margin: 2rem -1.5rem -2rem; border-top: 1px solid var(--line); background: rgba(251, 248, 242, .96); padding: .5rem 1rem max(.5rem, env(safe-area-inset-bottom)); }
+.exercise-tab { min-height: 3.4rem; border: 0; background: transparent; color: var(--muted); padding: .35rem .25rem; font-family: "Playfair Display", Georgia, "Times New Roman", serif; font-size: .76rem; line-height: 1.1; }
+.exercise-tab span { display: block; margin-bottom: .2rem; color: var(--gold); font-family: Inter, ui-sans-serif, sans-serif; font-size: .58rem; font-weight: 800; letter-spacing: .11em; }
+.exercise-tab.is-active { color: var(--ink); text-decoration: underline; text-underline-offset: .25rem; }
+.training-shell .primary-button, .training-shell .secondary-button { margin-top: 1.5rem; }
+.training-shell .text-button { margin-top: 1rem; }
+@media (max-width: 360px) { .training-header { gap: .35rem; font-size: .65rem; } .training-header .wordmark { font-size: .72rem; letter-spacing: .1em; } .compact-options { grid-template-columns: 1fr; } }
