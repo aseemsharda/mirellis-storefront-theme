@@ -60,6 +60,44 @@
   </section>
 </div>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": {{ section.settings.heading | json }},
+  "description": {{ section.settings.lede | json }},
+  "url": {{ canonical_url | json }},
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Mirellis",
+    "url": "https://mirellis.in"
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "Workday exit and work-to-recovery transition"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "Ways work can remain open after the workday",
+    "itemListElement": [
+      {% assign route_position = 0 %}
+      {% for block in section.blocks %}
+        {% if block.type == 'route' %}
+          {% assign route_position = route_position | plus: 1 %}
+          {
+            "@type": "ListItem",
+            "position": {{ route_position }},
+            "name": {{ block.settings.label | json }},
+            "description": {{ block.settings.acknowledgement | json }},
+            "url": "https://app.mirellis.in/?friction={{ block.settings.route_id }}"
+          }{% unless forloop.last %},{% endunless %}
+        {% endif %}
+      {% endfor %}
+    ]
+  }
+}
+</script>
+
 <script>
 (() => {
   const root = document.getElementById('workday-exit-{{ section.id }}');
