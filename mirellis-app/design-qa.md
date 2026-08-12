@@ -1,56 +1,56 @@
-**Findings**
+# Mirellis After Work — Product Design QA
 
-- No actionable P0/P1/P2 visual issues remain in the training prototype.
-- [P3] The established threshold photograph is deliberately not repeated on the training home. The prototype needs a denser, task-led starting state; repeating the photograph would delay the daily workout without aiding the exercise model.
+**Final result: passed**
 
-**Open Questions**
+## Evidence
 
-- The reference was the existing Mirellis visual system, not a requirement to clone the advice-led screen. The missing hero image is an intentional product change: the training home leads with the workout rather than a contemplative threshold.
-- Native-mobile visual treatment remains future work. This prototype validates web interaction and responsive layout only.
+- Source visual truth: `/Users/aseem/.codex/generated_images/019fcbc2-228f-7e70-9cc5-51c6703f44c2/exec-1989b8a4-d3e1-445a-b1e5-409ebfa92efb.png`.
+- Source role: visual-language and daily-workout hierarchy reference. The user explicitly deferred final visual design, so photography and decorative exercise art are not fidelity requirements for this functional product slice.
+- Browser-rendered implementation: `/private/tmp/mirellis-after-work-today-fixed.jpg` at `http://127.0.0.1:3000/after-work`.
+- Full-view comparison: `/private/tmp/mirellis-after-work-comparison.png`.
+- Viewport: 390 × 844 CSS pixels at device pixel ratio 1.
+- Source pixels: 853 × 1844, normalized to 390 × 844 for comparison.
+- Implementation pixels: 390 × 844.
+- Compared state: configured user, Session 2 Today screen.
+- First-time state evidence: `/private/tmp/mirellis-after-work-onboarding.png`.
+- Focused region comparison was not separately required: the normalized comparison keeps headline, workout list, primary action and navigation legible. Form, timer, selection, completion and deletion states were inspected directly in the browser.
 
-**Implementation Checklist**
+## Findings
 
-1. Completed: retained the existing warm-paper, espresso, muted-gold and deep-blue focus tokens.
-2. Completed: retained the editorial serif / clean sans typography hierarchy and square, restrained control treatment.
-3. Completed: replaced the advice-led hero with a clear daily-training composition and one primary workout action.
-4. Completed: verified the three exercise tabs, commitment choice, exercise completion, real-world field handoff, pause state, adaptive second attempt and accessible live status feedback.
-5. Completed: confirmed the desktop card and mobile-width layout keep all interactive targets at least 44 px high.
+- No actionable P0, P1 or P2 visual issues remain for the provisional functional design.
+- [P3] The final art direction is intentionally unresolved. The current screen uses the established Mirellis serif/sans typography, bone paper, espresso ink, brass accent and restrained dividers, but omits the reference photograph and custom exercise artwork until the user chooses a final design direction.
 
-**Follow-up Polish**
+## Required fidelity surfaces
 
-- Test the final native-shell visual treatment after the first exercise mechanism proves voluntary repeat use.
+- Fonts and typography: the existing Mirellis Playfair/Inter stack, weight hierarchy, line height and wrapping remain legible at 390 px. The main headline wraps deliberately; small UI labels remain readable.
+- Spacing and layout: 24 px mobile margins, consistent divider rhythm and 44 px or larger interactive targets. The Today primary action is visible above the persistent navigation at 390 × 844.
+- Colors and tokens: existing paper, ink, muted, line, brass and focus tokens are reused. Selected, destructive and disabled states are distinct.
+- Image quality: the current functional slice contains no imagery or decorative illustrations. No placeholder, CSS-art or fake raster assets are present.
+- Copy and content: all copy describes an actual function or recorded event. No health, recovery, mood or productivity outcome is inferred.
+- Accessibility: semantic buttons/labels, visible 3 px focus outline, aria-live status, aria-current navigation, pressed states, disabled states, reduced-motion support, keyboard focus and cancelable deletion were verified.
 
-source visual truth path: `/Users/aseem/.codex/generated_images/019fcbc2-228f-7e70-9cc5-51c6703f44c2/exec-fdafcc42-073c-4d50-836c-a9afce6058bc.png`
+## Comparison history
 
-implementation screenshot path: `/private/tmp/mirellis-training-home.png`
+1. [P1] The original mobile Today composition pushed the primary action below the visible viewport. Fixed by tightening only the Today top spacing and removing decorative sequence numbers. Post-fix evidence: `/private/tmp/mirellis-after-work-today-fixed.jpg`.
+2. [P1] Navigating to Programme or Settings discarded an unfinished exercise. Fixed with a versioned local draft and exact exercise restoration after navigation or reload. Browser verification restored both text fields and the current exercise.
+3. [P2] The one-minute action initially displayed `00:60`. Fixed with real minute/second formatting; browser verification showed `01:00`, `00:30` and the completed state.
+4. [P2] Deletion confirmation did not move focus into the alert. Fixed with cancel autofocus, dialog description and focus return to the delete trigger.
+5. [P2] The workout did not explain its next-session adaptation. Fixed with a deterministic Signal Sort level derived only from exercise performance and explicit completion feedback.
 
-comparison image path: `/private/tmp/mirellis-training-comparison.png`
+## Product and interaction verification
 
-viewport: existing application desktop canvas, 1280 × 720 CSS px at deviceScaleFactor 1; implementation content frame measured 544 × 720 px. Responsive 390 × 844 validation was also run for the Today screen.
+- First-time onboarding, time choice and Gentle/Firm/Accountable selection.
+- Today, all three exercises, deterministic task feedback, one-minute action, completion and next session.
+- Interruption/resume through tab navigation and full reload.
+- Programme lock/current/completed states.
+- True empty Record state and immediate saved-session record.
+- Settings time/style changes, analytics inactive copy, deletion cancel and confirmed deletion.
+- Mobile 390 × 844, focus visibility, aria-live announcements and minimum targets.
+- Browser console: no warnings or errors.
+- TypeScript: passed.
+- Production build: passed.
+- Existing automated suite: 20/20 passed.
 
-state: Training prototype / Today / first exercise unlocked.
+## Follow-up polish
 
-full-view comparison evidence: `/private/tmp/mirellis-training-comparison.png` places the source system beside the training home at the same content height. The result deliberately changes imagery and density for the new training job while preserving the shared visual language.
-
-focused region comparison evidence: header, all-caps eyebrow, serif display headline, primary action, underline treatment and warm neutral surface are readable at 1:1 in the comparison image. No separate crop was needed.
-
-fonts and typography: source and implementation use the same editorial serif treatment for display copy and clean sans treatment for controls. The training title has a strong hierarchy without copying the source headline.
-
-spacing and layout rhythm: the prototype uses the same generous margin system, fine divider lines, flat controls and deliberate vertical pauses. The workout panel is more compact by intent so the main action remains above the fold.
-
-colors and visual tokens: warm parchment, dark espresso primary action, muted-gold metadata, restrained line color and visible deep-blue focus state remain consistent with the source.
-
-image quality and asset fidelity: the source threshold image is a genuine existing asset. The prototype has no visible placeholder, handcrafted asset, custom icon, or simulated image; omitting the hero is an intentional interaction-led change.
-
-copy and content: training-specific copy is distinct from the invalidated advice flow, accurately describes completion as training activity rather than an emotional, cognitive or health result.
-
-primary interactions tested: duration choice; Firm/Gentle commitment toggle; Return Point correct and incorrect answer state; Cue Break selection; Boundary Sort six-step completion; pause; field handoff; return; completion; exercise switcher; adaptive Return Point second attempt with changed content.
-
-console errors checked: none.
-
-comparison history:
-
-1. First interaction pass found displayed exercise levels changed only as a number. Fixed by adding distinct second-level Return Point content and an expanded second-level Boundary Sort set.
-2. Final browser pass confirmed the second Return Point attempt presented the new, more ambiguous set at level 2. No actionable P0/P1/P2 visual issues remain.
-
-final result: passed
+- Final photography, exercise illustration, iconography and motion should be selected in the later visual-design phase; they are not blockers for validating this product loop.
