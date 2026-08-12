@@ -1,56 +1,42 @@
-# Mirellis After Work — Product Design QA
+# Mirellis After Work V2 — Design QA
 
-**Final result: passed**
+- Source visual truth: `/Users/aseem/.codex/generated_images/019fcbc2-228f-7e70-9cc5-51c6703f44c2/exec-1989b8a4-d3e1-445a-b1e5-409ebfa92efb.png`
+- Implementation screenshots: `/private/tmp/mirellis-v2-local-01-onboarding.jpg`, `/private/tmp/mirellis-v2-local-02-do-now.jpg`, `/private/tmp/mirellis-v2-local-03-day3.jpg`
+- Combined comparison: `/private/tmp/mirellis-v2-design-comparison.png`
+- Browser viewport: 390 × 844 CSS px; device scale factor 1
+- Source pixels: 853 × 1844; normalized to a top 390 × 844 crop
+- Implementation pixels: 390 × 931 full-page onboarding capture; normalized to a top 390 × 844 crop for comparison
+- State: first-time onboarding; additional evidence covers Day 1 action and Day 3 progression
 
-## Evidence
+## Full-view comparison evidence
 
-- Source visual truth: `/Users/aseem/.codex/generated_images/019fcbc2-228f-7e70-9cc5-51c6703f44c2/exec-1989b8a4-d3e1-445a-b1e5-409ebfa92efb.png`.
-- Source role: visual-language and daily-workout hierarchy reference. The user explicitly deferred final visual design, so photography and decorative exercise art are not fidelity requirements for this functional product slice.
-- Browser-rendered implementation: `/private/tmp/mirellis-after-work-today-fixed.jpg` at `http://127.0.0.1:3000/after-work`.
-- Full-view comparison: `/private/tmp/mirellis-after-work-comparison.png`.
-- Viewport: 390 × 844 CSS pixels at device pixel ratio 1.
-- Source pixels: 853 × 1844, normalized to 390 × 844 for comparison.
-- Implementation pixels: 390 × 844.
-- Compared state: configured user, Session 2 Today screen.
-- First-time state evidence: `/private/tmp/mirellis-after-work-onboarding.png`.
-- Focused region comparison was not separately required: the normalized comparison keeps headline, workout list, primary action and navigation legible. Form, timer, selection, completion and deletion states were inspected directly in the browser.
+The source is an art-direction reference rather than a literal mock of the new onboarding state. The implementation preserves its warm-neutral paper, black-brown ink, muted gold, editorial serif display type, sans-serif utility type, square controls, fine rules and generous vertical rhythm. The new screen intentionally omits the photographic cover because this state must first explain the programme and its real reminder behavior.
 
-## Findings
+## Focused evidence
 
-- No actionable P0, P1 or P2 visual issues remain for the provisional functional design.
-- [P3] The final art direction is intentionally unresolved. The current screen uses the established Mirellis serif/sans typography, bone paper, espresso ink, brass accent and restrained dividers, but omits the reference photograph and custom exercise artwork until the user chooses a final design direction.
+No separate crop was required: the 390 px full-page captures make the header, headline, step hierarchy, controls, selection state, focus ring and persistent navigation legible. The Day 1 action screenshot verifies long-form controls and selected states; the Day 3 screenshot verifies the same system on later programme content.
+
+## Findings and iteration history
+
+- Earlier P0: the flow used hidden scoring, levels, “matched” decisions and an unexplained timer. Fixed by replacing them with the person’s actual unfinished item, a plain urgency check, two explicit outside-the-app actions and confirmation-only records.
+- Earlier P1: reminder choices implied behavior a web app did not provide. Fixed by stating the limitation and generating a real 21-day calendar file.
+- Earlier P1: Day 2 repeated Day 1. Fixed by making Day 2 retrieve yesterday’s exact plan and branch its real actions from the cue the person selects.
+- Earlier P2: new content inherited excessive top padding from the old `.training-field` selector. Fixed with V2-specific padding reset and checked at 390 px.
+- Post-fix comparison: no actionable P0/P1/P2 visual mismatch remains for the functional onboarding and practice states. The missing photographic cover is an intentional state/content difference, not a fidelity defect.
 
 ## Required fidelity surfaces
 
-- Fonts and typography: the existing Mirellis Playfair/Inter stack, weight hierarchy, line height and wrapping remain legible at 390 px. The main headline wraps deliberately; small UI labels remain readable.
-- Spacing and layout: 24 px mobile margins, consistent divider rhythm and 44 px or larger interactive targets. The Today primary action is visible above the persistent navigation at 390 × 844.
-- Colors and tokens: existing paper, ink, muted, line, brass and focus tokens are reused. Selected, destructive and disabled states are distinct.
-- Image quality: the current functional slice contains no imagery or decorative illustrations. No placeholder, CSS-art or fake raster assets are present.
-- Copy and content: all copy describes an actual function or recorded event. No health, recovery, mood or productivity outcome is inferred.
-- Accessibility: semantic buttons/labels, visible 3 px focus outline, aria-live status, aria-current navigation, pressed states, disabled states, reduced-motion support, keyboard focus and cancelable deletion were verified.
+- Fonts and typography: Playfair Display/Georgia display hierarchy and Inter sans-serif UI hierarchy are consistent with the source; no clipping or truncation at 390 px.
+- Spacing and layout: consistent 1.15–1.5 rem mobile gutters, fine-rule grouping, square fields and 44 px minimum controls; no horizontal overflow observed.
+- Colors and tokens: warm paper, ink, muted text and gold progress/eyebrow tokens match the source direction with readable selected states.
+- Image quality: no visible image asset is required by these functional states; no placeholder or approximate image is used.
+- Copy and content: plain-language programme structure, reminder mechanism, real actions and tomorrow handoff are explicit.
 
-## Comparison history
+## Interaction and accessibility evidence
 
-1. [P1] The original mobile Today composition pushed the primary action below the visible viewport. Fixed by tightening only the Today top spacing and removing decorative sequence numbers. Post-fix evidence: `/private/tmp/mirellis-after-work-today-fixed.jpg`.
-2. [P1] Navigating to Programme or Settings discarded an unfinished exercise. Fixed with a versioned local draft and exact exercise restoration after navigation or reload. Browser verification restored both text fields and the current exercise.
-3. [P2] The one-minute action initially displayed `00:60`. Fixed with real minute/second formatting; browser verification showed `01:00`, `00:30` and the completed state.
-4. [P2] Deletion confirmation did not move focus into the alert. Fixed with cancel autofocus, dialog description and focus return to the delete trigger.
-5. [P2] The workout did not explain its next-session adaptation. Fixed with a deterministic Signal Sort level derived only from exercise performance and explicit completion feedback.
+- Tested first-time setup, no-reminder start, the real urgent-item branch, explicit closing action, Day 1 completion, Day 2 retrieval and cue branch, Day 3 differentiated content, pause/reload/resume, record visibility, calendar download feedback and delete-cancel.
+- Native buttons, inputs and textareas provide keyboard activation and logical DOM order; visible focus ring observed on selection controls.
+- Accessible status updates are exposed through `role="status"` and `aria-live="polite"`.
+- Local browser logs contained no errors; only Next.js development information and HMR connection logs.
 
-## Product and interaction verification
-
-- First-time onboarding, time choice and Gentle/Firm/Accountable selection.
-- Today, all three exercises, deterministic task feedback, one-minute action, completion and next session.
-- Interruption/resume through tab navigation and full reload.
-- Programme lock/current/completed states.
-- True empty Record state and immediate saved-session record.
-- Settings time/style changes, analytics inactive copy, deletion cancel and confirmed deletion.
-- Mobile 390 × 844, focus visibility, aria-live announcements and minimum targets.
-- Browser console: no warnings or errors.
-- TypeScript: passed.
-- Production build: passed.
-- Existing automated suite: 20/20 passed.
-
-## Follow-up polish
-
-- Final photography, exercise illustration, iconography and motion should be selected in the later visual-design phase; they are not blockers for validating this product loop.
+final result: passed

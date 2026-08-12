@@ -1,4 +1,4 @@
-const CACHE = 'mirellis-v2';
+const CACHE = 'mirellis-v3';
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(['/'])));

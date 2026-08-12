@@ -3,111 +3,173 @@
 import { useEffect, useRef, useState } from 'react';
 
 type Tab = 'today' | 'programme' | 'record' | 'settings';
-type SessionView = 'home' | 'close-loop' | 'signal-sort' | 'leave' | 'complete';
-type Firmness = 'gentle' | 'firm' | 'accountable';
+type ReminderMode = 'calendar' | 'none';
+type ResumeView = 'day1-plan' | 'day1-urgent' | 'day1-close' | 'day2-review' | 'day2-cue' | 'day2-close' | 'daily-question' | 'daily-action' | 'daily-close';
+type SessionView = 'home' | 'paused' | ResumeView | 'complete';
+
+type PracticeRecord = {
+  day: number;
+  date: string;
+  title: string;
+  tomorrowAction?: string;
+  urgentItem?: string;
+  review?: string;
+  cue?: string;
+  chosenAction: string;
+  nextActivity?: string;
+};
 
 type AppData = {
+  version: 2;
   hasStarted: boolean;
   time: string;
-  firmness: Firmness;
+  reminderMode: ReminderMode;
   day: number;
-  signalLevel: number;
   completedDays: number[];
-  sessionLog: Array<{ day: number; date: string; closeLoop: string; boundary: string; score: number }>;
+  records: PracticeRecord[];
 };
 
-type SessionDraft = {
-  view: Exclude<SessionView, 'home' | 'complete'>;
-  workItem: string;
-  firstMove: string;
-  sortIndex: number;
-  sortScore: number;
-  selectedBoundary: string;
-  seconds: number;
+type Draft = {
+  view: ResumeView;
+  unfinishedItem: string;
+  tomorrowAction: string;
+  urgentChoice: '' | 'none' | 'yes';
+  urgentItem: string;
+  urgentAction: string;
+  urgentHandled: boolean;
+  closingAction: string;
+  nextActivity: string;
+  otherActivity: string;
+  day2Review: string;
+  day2Cue: string;
+  day2Action: string;
+  laterAnswer: string;
+  laterAction: string;
 };
 
-const STORAGE_KEY = 'mirellis-after-work-training-v1';
-const DRAFT_KEY = 'mirellis-after-work-training-draft-v1';
+type ProgrammeDay = {
+  day: number;
+  title: string;
+  purpose: string;
+  question?: string;
+  options?: string[];
+  actions?: string[];
+};
+
+const STORAGE_KEY = 'mirellis-after-work-v2';
+const DRAFT_KEY = 'mirellis-after-work-draft-v2';
+
 const defaultData: AppData = {
+  version: 2,
   hasStarted: false,
   time: '18:30',
-  firmness: 'gentle',
+  reminderMode: 'calendar',
   day: 1,
-  signalLevel: 1,
   completedDays: [],
-  sessionLog: [],
+  records: [],
 };
 
-const sortPromptSets = [[
-  { copy: 'A task that has no deadline until tomorrow morning.', answer: 'work' },
-  { copy: 'Choosing what you will do for the next twenty minutes.', answer: 'evening' },
-  { copy: 'An email labelled urgent by a person you trust.', answer: 'work' },
-  { copy: 'Changing into clothes you do not work in.', answer: 'evening' },
-], [
-  { copy: 'A colleague asks for a thought tonight, but the decision is tomorrow.', answer: 'work' },
-  { copy: 'A personal plan that requires opening the same laptop you worked on.', answer: 'evening' },
-  { copy: 'A client cannot continue until you answer one factual question.', answer: 'work' },
-  { copy: 'Writing down a work thought so you do not have to keep rehearsing it.', answer: 'evening' },
-]] as const;
-
-const boundaryActions = [
-  'Put my work device out of reach.',
-  'Close the work surface and change rooms.',
-  'Send the return point, then leave the desk.',
-  'Begin a planned evening activity for one minute.',
+const programmeDays: ProgrammeDay[] = [
+  { day: 1, title: 'Make a clear ending', purpose: 'Choose tomorrow’s first action, check whether anything truly cannot wait, and leave work deliberately.' },
+  { day: 2, title: 'Notice what pulls you back', purpose: 'Check whether yesterday’s plan helped and change one real cue that brought work back into your evening.' },
+  { day: 3, title: 'Define what is actually urgent', purpose: 'Create a plain rule for the rare situation that deserves your attention after work.', question: 'Which situation should be allowed to interrupt your evening?', options: ['A safety or financial risk before morning', 'Someone is blocked and truly cannot wait until tomorrow', 'A named person uses an agreed urgent channel', 'Nothing should interrupt my evening tonight'], actions: ['Write my one exception in a single sentence', 'Tell one person which urgent channel to use', 'Mute every other work channel until tomorrow', 'Keep tonight fully closed'] },
+  { day: 4, title: 'Change the setting', purpose: 'Use one physical change to make the end of work visible.', question: 'What keeps the workday physically present after you stop?', options: ['My laptop or work phone stays beside me', 'I stay in the same chair or room', 'Work papers remain open', 'My workspace is already separate'], actions: ['Put the work device in a different place', 'Leave the workspace and change rooms', 'Clear or cover the visible work materials', 'Repeat the separation that already works'] },
+  { day: 5, title: 'Silence one cue', purpose: 'Remove one prompt that routinely invites you back into work.', question: 'Which cue most often brings work back after you stop?', options: ['Work email', 'Work chat or messages', 'Task notifications', 'Seeing the work device'], actions: ['Mute work email until tomorrow', 'Silence work chat except one agreed urgent channel', 'Turn off task notifications for the evening', 'Put the work device out of sight and reach'] },
+  { day: 6, title: 'Begin the evening', purpose: 'Make the next part of the day concrete instead of waiting to feel ready.', question: 'What usually makes the first part of your evening drift?', options: ['I do not decide what comes next', 'I keep checking work while choosing', 'I stay at the desk too long', 'I am too tired for a large plan'], actions: ['Choose one ten-minute evening activity now', 'Put the work device away before choosing', 'Leave the desk before making another decision', 'Choose the smallest possible evening action'] },
+  { day: 7, title: 'Review the first week', purpose: 'Keep only what you explicitly found useful.', question: 'Which part of your ending was most useful this week?', options: ['Writing tomorrow’s first action', 'Checking what was genuinely urgent', 'Changing a work cue or setting', 'Starting something outside work'], actions: ['Keep that step in next week’s ending', 'Make that step easier to repeat', 'Remove one step that did not help', 'Write my three-step ending in my own words'] },
+  { day: 8, title: 'Make the ending smaller', purpose: 'Build a version you can still complete on a demanding day.', question: 'What makes your usual ending feel too large?', options: ['Too many unfinished tasks', 'Too many closing steps', 'Too little time', 'Too much mental noise'], actions: ['Choose only one unfinished item for tomorrow', 'Keep only one closing action tonight', 'Use a two-minute closing sequence', 'Write one sentence, then physically leave work'] },
+  { day: 9, title: 'Name what can wait', purpose: 'Give one unfinished task a deliberate place tomorrow.', question: 'What makes it hard to let an unfinished item wait?', options: ['I worry I will forget it', 'The next action is unclear', 'I feel I should finish everything', 'Someone may ask about it'], actions: ['Write when and where I will restart it', 'Write the first visible action only', 'Choose one clear stopping point', 'Send a factual update before I stop'] },
+  { day: 10, title: 'Handle late requests', purpose: 'Respond to a late request without surrendering the whole evening.', question: 'What kind of late request is hardest to leave?', options: ['A request from my manager', 'A customer or client message', 'A colleague asking for quick help', 'A request with no clear deadline'], actions: ['Acknowledge it and state when I will respond', 'Ask whether it is needed before tomorrow', 'Offer one urgent channel and close the rest', 'Put it into tomorrow’s first-action plan'] },
+  { day: 11, title: 'Protect the first twenty minutes', purpose: 'Give the evening enough time to begin before work can return.', question: 'What interrupts the first twenty minutes after work?', options: ['Notifications', 'An unfinished thought', 'Other people’s requests', 'Staying near the workspace'], actions: ['Mute the cue for twenty minutes', 'Write the thought down without reopening work', 'State when I will next be available', 'Move to a different place for twenty minutes'] },
+  { day: 12, title: 'Close digitally', purpose: 'Make your digital workday visibly end.', question: 'Which digital surface stays open after work?', options: ['Email', 'Chat', 'Browser tabs', 'Task or calendar apps'], actions: ['Close email and remove its badge', 'Set my status, then close chat', 'Save what matters and close the work tabs', 'Record tomorrow’s first action, then close the app'] },
+  { day: 13, title: 'Close physically', purpose: 'Give your body and environment a clear change of context.', question: 'Which physical signal would make work feel finished?', options: ['Closing and storing the device', 'Changing rooms', 'Changing clothes', 'Going outside briefly'], actions: ['Store the work device now', 'Move to a non-work room now', 'Change into non-work clothes now', 'Step outside or walk for five minutes'] },
+  { day: 14, title: 'Review the second week', purpose: 'Choose the cue change that you want to keep.', question: 'Which change made ending work most concrete?', options: ['A notification rule', 'A physical change', 'A clear tomorrow plan', 'A chosen evening activity'], actions: ['Keep this as a permanent part of my ending', 'Make the action easier to begin', 'Tell someone else about this boundary', 'Write a backup version for difficult days'] },
+  { day: 15, title: 'Return after interruption', purpose: 'Practise closing work again after it unexpectedly returns.', question: 'What most often reopens work after you have stopped?', options: ['A message', 'A thought I forgot to record', 'A request from someone', 'Opening the device for a personal reason'], actions: ['Answer only if it meets my urgent rule, then close again', 'Record the thought without reopening the task', 'State when I will respond tomorrow', 'Use a different device or immediately close work apps'] },
+  { day: 16, title: 'Leave while work is unfinished', purpose: 'Choose a safe stopping point without pretending everything is complete.', question: 'What makes stopping unfinished work hardest tonight?', options: ['The task feels close to done', 'I cannot see tomorrow’s first step', 'I feel guilty leaving it', 'Other people may expect more'], actions: ['Name the exact stopping point', 'Write tomorrow’s first visible action', 'State what I completed and what remains', 'Send a brief factual update, then stop'] },
+  { day: 17, title: 'Make the plan portable', purpose: 'Keep your ending usable when your location or schedule changes.', question: 'What is different about today’s work ending?', options: ['I am away from my usual workspace', 'I am ending later than usual', 'I am ending earlier than usual', 'My day was interrupted'], actions: ['Use a note as my portable return point', 'Use only the shortest closing sequence', 'Choose tomorrow’s first action before leaving', 'Restart the sequence from the current moment'] },
+  { day: 18, title: 'Ask for support clearly', purpose: 'Make one boundary understandable to another person.', question: 'Who most needs to understand when your workday ends?', options: ['My manager', 'My team', 'A client or customer', 'Someone at home'], actions: ['State when I stop and when I respond again', 'Agree on one genuine urgent channel', 'Set a clear response expectation', 'Explain the small action that helps me leave work'] },
+  { day: 19, title: 'Use it on a difficult day', purpose: 'Keep one reliable action when the full sequence feels impossible.', question: 'What is making today harder than usual?', options: ['Too much unfinished work', 'Low energy', 'A late interruption', 'An unclear tomorrow'], actions: ['Choose one item and write one restart action', 'Close physically without adding more decisions', 'Apply my urgent rule once, then close again', 'Choose tomorrow’s exact first ten minutes'] },
+  { day: 20, title: 'Build your own ending', purpose: 'Select the steps that have earned a place in your personal sequence.', question: 'Which three-part sequence fits you best?', options: ['Plan tomorrow, close devices, begin the evening', 'Check urgency, change rooms, begin the evening', 'Send an update, store work, begin the evening', 'I want to choose each step myself'], actions: ['Save this sequence as my usual ending', 'Write my own three steps in a personal note', 'Create a shorter backup sequence', 'Tell one person how my ending works'] },
+  { day: 21, title: 'Use it without Mirellis', purpose: 'Leave with a sequence you chose and can use independently.', question: 'What do you want to carry forward after today?', options: ['My tomorrow-start sentence', 'My urgency rule', 'My physical closing action', 'My complete three-step sequence'], actions: ['Copy it into my own notes', 'Add it to my calendar or routine', 'Share it with one relevant person', 'Use it now without any further prompt'] },
 ];
 
-const firmnessCopy: Record<Firmness, string> = {
-  gentle: 'One reminder. You can reschedule without explanation.',
-  firm: 'A clear appointment and one follow-up reminder.',
-  accountable: 'A scheduled appointment with a deliberate skip choice. Partner sharing comes later.',
+const day2CueActions: Record<string, string[]> = {
+  'Work email or chat': ['Mute work email and chat until tomorrow', 'Keep one agreed urgent channel and close everything else', 'Set one chosen check time, then stop checking'],
+  'An unfinished thought': ['Write one next action without reopening the task', 'Put the thought into tomorrow’s plan', 'Say the thought aloud, record one sentence, then close notes'],
+  'The work device or workspace': ['Put the work device out of sight and reach', 'Leave the workspace and change rooms', 'Clear the visible work surface'],
+  'A person needed me': ['Tell them when I will be available tomorrow', 'Agree on one genuine urgent channel', 'Answer the factual need, then explicitly close work again'],
+  'Nothing pulled me back': ['Repeat yesterday’s closing action', 'Make yesterday’s action easier to repeat', 'Keep the first twenty minutes of the evening work-free'],
 };
 
-const practiceNames = ['Close the loop', 'Sort the signal', 'Leave on purpose'];
+const closingActions = [
+  'Save tomorrow’s first action, then close all work apps',
+  'Close the laptop and put the work device out of reach',
+  'Leave the desk or workspace and change rooms',
+  'Tell one relevant person I am done for today, then disconnect',
+];
+
+const eveningActivities = [
+  'Prepare or eat something',
+  'Take a shower or change clothes',
+  'Go for a short walk or stretch',
+  'Call or spend time with someone',
+  'Read, listen, or rest',
+  'Something else I choose',
+];
 
 function dateLabel(date: Date) {
   return new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric' }).format(date);
 }
 
-function formatTimer(value: number) {
-  const minutes = Math.floor(value / 60);
-  const seconds = value % 60;
-  return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+function calendarDate(date: Date, time: string) {
+  const [hours, minutes] = time.split(':').map(Number);
+  const next = new Date(date);
+  next.setDate(next.getDate() + 1);
+  next.setHours(hours, minutes, 0, 0);
+  const pad = (value: number) => String(value).padStart(2, '0');
+  return `${next.getFullYear()}${pad(next.getMonth() + 1)}${pad(next.getDate())}T${pad(next.getHours())}${pad(next.getMinutes())}00`;
 }
+
+function downloadCalendarReminder(time: string) {
+  const start = calendarDate(new Date(), time);
+  const calendar = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Mirellis//After Work//EN', 'BEGIN:VEVENT', `UID:mirellis-after-work-${Date.now()}@mirellis.in`, `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}`, `DTSTART:${start}`, 'DURATION:PT10M', 'RRULE:FREQ=DAILY;COUNT=21', 'SUMMARY:Mirellis — After Work practice', 'DESCRIPTION:Open https://app.mirellis.in for today\'s seven-minute practice.', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+  const url = URL.createObjectURL(new Blob([calendar], { type: 'text/calendar;charset=utf-8' }));
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'mirellis-after-work-21-days.ics';
+  link.click();
+  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+const emptyDraft: Omit<Draft, 'view'> = {
+  unfinishedItem: '', tomorrowAction: '', urgentChoice: '', urgentItem: '', urgentAction: '', urgentHandled: false,
+  closingAction: '', nextActivity: '', otherActivity: '', day2Review: '', day2Cue: '', day2Action: '', laterAnswer: '', laterAction: '',
+};
 
 export function AfterWorkApp() {
   const [data, setData] = useState<AppData>(defaultData);
   const [hydrated, setHydrated] = useState(false);
   const [tab, setTab] = useState<Tab>('today');
-  const [sessionView, setSessionView] = useState<SessionView>('home');
+  const [view, setView] = useState<SessionView>('home');
+  const [resumeView, setResumeView] = useState<ResumeView>();
   const [onboarding, setOnboarding] = useState(0);
   const [status, setStatus] = useState('');
-  const [workItem, setWorkItem] = useState('');
-  const [firstMove, setFirstMove] = useState('');
-  const [sortIndex, setSortIndex] = useState(0);
-  const [sortScore, setSortScore] = useState(0);
-  const [selectedBoundary, setSelectedBoundary] = useState('');
-  const [seconds, setSeconds] = useState(60);
-  const [timerRunning, setTimerRunning] = useState(false);
+  const [completedRecord, setCompletedRecord] = useState<PracticeRecord>();
   const [deleteOpen, setDeleteOpen] = useState(false);
-  const [adaptationStatus, setAdaptationStatus] = useState('');
+  const [draft, setDraft] = useState(emptyDraft);
   const deleteTriggerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     try {
       const saved = window.localStorage.getItem(STORAGE_KEY);
       if (saved) setData({ ...defaultData, ...JSON.parse(saved) as AppData });
-      const draft = window.localStorage.getItem(DRAFT_KEY);
-      if (draft) {
-        const restored = JSON.parse(draft) as SessionDraft;
-        setSessionView(restored.view);
-        setWorkItem(restored.workItem);
-        setFirstMove(restored.firstMove);
-        setSortIndex(restored.sortIndex);
-        setSortScore(restored.sortScore);
-        setSelectedBoundary(restored.selectedBoundary);
-        setSeconds(restored.seconds);
-        setStatus('Your unfinished workout is ready to resume.');
+      const savedDraft = window.localStorage.getItem(DRAFT_KEY);
+      if (savedDraft) {
+        const restored = JSON.parse(savedDraft) as Draft;
+        setDraft(restored);
+        setResumeView(restored.view);
+        setView('paused');
+        setStatus('Your unfinished daily practice is saved in this browser.');
       }
     } catch {
       setStatus('This browser could not load prior practice data.');
@@ -123,209 +185,237 @@ export function AfterWorkApp() {
 
   useEffect(() => {
     if (!hydrated) return;
-    if (sessionView === 'home' || sessionView === 'complete') {
+    const active = view !== 'home' && view !== 'paused' && view !== 'complete' ? view : view === 'paused' ? resumeView : undefined;
+    if (!active) {
       window.localStorage.removeItem(DRAFT_KEY);
       return;
     }
-    const draft: SessionDraft = { view: sessionView, workItem, firstMove, sortIndex, sortScore, selectedBoundary, seconds };
-    window.localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
-  }, [firstMove, hydrated, seconds, selectedBoundary, sessionView, sortIndex, sortScore, workItem]);
+    window.localStorage.setItem(DRAFT_KEY, JSON.stringify({ ...draft, view: active } satisfies Draft));
+  }, [draft, hydrated, resumeView, view]);
 
-  useEffect(() => {
-    if (!timerRunning || seconds <= 0) return;
-    const timer = window.setInterval(() => setSeconds((value) => value - 1), 1000);
-    return () => window.clearInterval(timer);
-  }, [timerRunning, seconds]);
+  const dayNumber = Math.min(data.day, 21);
+  const day = programmeDays[dayNumber - 1];
+  const previousRecord = data.records.find((record) => record.day === dayNumber - 1);
+  const chosenActivity = draft.nextActivity === 'Something else I choose' ? draft.otherActivity.trim() : draft.nextActivity;
 
-  useEffect(() => {
-    if (seconds === 0 && timerRunning) {
-      setTimerRunning(false);
-      setStatus('One minute complete. You can record this workout when ready.');
-    }
-  }, [seconds, timerRunning]);
+  const setDraftValue = <K extends keyof typeof emptyDraft>(key: K, value: (typeof emptyDraft)[K]) => setDraft((current) => ({ ...current, [key]: value }));
 
-  const completedCount = data.completedDays.length;
-  const sessionNumber = Math.min(data.day, 21);
-  const activeSortPrompts = sortPromptSets[Math.min(data.signalLevel - 1, sortPromptSets.length - 1)];
-  const sortPrompt = activeSortPrompts[sortIndex];
-  const canFinishCloseLoop = workItem.trim().length > 3 && firstMove.trim().length > 6;
-  const canCompleteLeave = Boolean(selectedBoundary) && seconds === 0;
+  const initialView = (): ResumeView => dayNumber === 1 ? 'day1-plan' : dayNumber === 2 ? 'day2-review' : 'daily-question';
 
-  const updateData = (patch: Partial<AppData>, message?: string) => {
-    setData((current) => ({ ...current, ...patch }));
-    if (message) setStatus(message);
+  const startPractice = () => {
+    setDraft(emptyDraft);
+    const next = initialView();
+    setResumeView(next);
+    setView(next);
+    setTab('today');
+    setStatus(`Day ${dayNumber} started: ${day.title}.`);
   };
 
-  const startSession = () => {
-    setWorkItem('');
-    setFirstMove('');
-    setSortIndex(0);
-    setSortScore(0);
-    setSelectedBoundary('');
-    setSeconds(60);
-    setTimerRunning(false);
-    setSessionView('close-loop');
-    setStatus(`Session ${sessionNumber} started. First exercise: close the loop.`);
+  const pausePractice = (from: ResumeView) => {
+    setResumeView(from);
+    setView('paused');
+    setStatus('Practice paused. Your answers are saved in this browser.');
   };
 
-  const chooseSort = (choice: 'work' | 'evening') => {
-    const correct = sortPrompt.answer === choice;
-    if (correct) setSortScore((value) => value + 1);
-    setStatus(correct ? 'Matched. Next signal.' : 'Different from this exercise. Next signal.');
-    if (sortIndex === activeSortPrompts.length - 1) {
-      setSortIndex(activeSortPrompts.length);
-      return;
-    }
-    setSortIndex((value) => value + 1);
+  const discardPractice = () => {
+    setDraft(emptyDraft);
+    setResumeView(undefined);
+    setView('home');
+    setStatus('The unfinished practice was discarded. Nothing was recorded as complete.');
   };
 
-  const completeSession = () => {
-    const today = new Date();
-    const log = { day: sessionNumber, date: dateLabel(today), closeLoop: firstMove.trim(), boundary: selectedBoundary, score: sortScore };
-    const nextSignalLevel = sortScore >= 3 ? Math.min(data.signalLevel + 1, sortPromptSets.length) : data.signalLevel;
-    setAdaptationStatus(nextSignalLevel > data.signalLevel
-      ? 'Tomorrow’s Signal Sort will use closer, more difficult distinctions because you matched at least three today.'
-      : 'Tomorrow’s Signal Sort will stay at this level with new examples.');
+  const completePractice = (record: PracticeRecord) => {
     setData((current) => ({
       ...current,
-      day: Math.min(current.day + 1, 21),
-      signalLevel: nextSignalLevel,
-      completedDays: current.completedDays.includes(sessionNumber) ? current.completedDays : [...current.completedDays, sessionNumber],
-      sessionLog: [...current.sessionLog.filter((entry) => entry.day !== sessionNumber), log],
+      day: current.day < 21 ? current.day + 1 : current.day,
+      completedDays: current.completedDays.includes(record.day) ? current.completedDays : [...current.completedDays, record.day],
+      records: [...current.records.filter((item) => item.day !== record.day), record],
     }));
-    setSessionView('complete');
-    setStatus(`Workout recorded. Session ${sessionNumber} is complete.`);
+    setCompletedRecord(record);
+    setResumeView(undefined);
+    setView('complete');
+    setStatus(`Day ${record.day} recorded as complete.`);
+  };
+
+  const finishDayOne = () => completePractice({
+    day: 1, date: dateLabel(new Date()), title: programmeDays[0].title,
+    tomorrowAction: draft.tomorrowAction.trim(), urgentItem: draft.urgentChoice === 'yes' ? `${draft.urgentItem.trim()} — ${draft.urgentAction.trim()}` : undefined,
+    chosenAction: draft.closingAction, nextActivity: chosenActivity,
+  });
+
+  const finishDayTwo = () => completePractice({
+    day: 2, date: dateLabel(new Date()), title: programmeDays[1].title,
+    review: draft.day2Review, cue: draft.day2Cue, chosenAction: draft.day2Action, nextActivity: chosenActivity,
+  });
+
+  const finishLaterDay = () => completePractice({
+    day: dayNumber, date: dateLabel(new Date()), title: day.title,
+    review: draft.laterAnswer, chosenAction: draft.laterAction, nextActivity: chosenActivity,
+  });
+
+  const beginProgramme = () => {
+    setData((current) => ({ ...current, hasStarted: true }));
+    if (data.reminderMode === 'calendar') {
+      downloadCalendarReminder(data.time);
+      setStatus('Your programme is ready. A 21-day calendar reminder file was downloaded for your calendar app.');
+    } else setStatus('Your programme is ready. No reminder was created.');
+    setOnboarding(0);
+  };
+
+  const addCalendarReminder = () => {
+    downloadCalendarReminder(data.time);
+    setData((current) => ({ ...current, reminderMode: 'calendar' }));
+    setStatus('Calendar reminder downloaded. Open it to add the 21 daily events to your calendar.');
+  };
+
+  const copyTomorrowPlan = async () => {
+    try {
+      await navigator.clipboard.writeText(draft.tomorrowAction);
+      setStatus('Tomorrow’s first action was copied. Paste it into your notes if you want it outside Mirellis.');
+    } catch {
+      setStatus('Copy was unavailable. Your first action is still saved inside Mirellis.');
+    }
   };
 
   const deleteData = () => {
     window.localStorage.removeItem(STORAGE_KEY);
     window.localStorage.removeItem(DRAFT_KEY);
     setData(defaultData);
-    setTab('today');
-    setSessionView('home');
-    setOnboarding(0);
-    setDeleteOpen(false);
+    setDraft(emptyDraft);
+    setTab('today'); setView('home'); setResumeView(undefined); setOnboarding(0); setDeleteOpen(false);
     setStatus('All local Mirellis practice data was deleted.');
   };
-
-  const trainingState = completedCount === 0
-    ? 'Your first practice is ready.'
-    : completedCount >= 21
-      ? 'This programme is complete. Your practice record is yours to revisit.'
-      : `Session ${sessionNumber} is ready at ${data.time}.`;
 
   if (!hydrated) return <main className="after-work-shell"><p className="quiet-loading">Opening your practice…</p></main>;
 
   if (!data.hasStarted) return <main className="after-work-shell onboarding-shell">
     <p className="sr-status" role="status" aria-live="polite">{status}</p>
     <header className="after-work-header"><span className="after-work-wordmark">MIRELLIS</span><span>After work</span></header>
-    {onboarding === 0 && <section className="onboarding-copy">
-      <p className="eyebrow">A daily training programme</p>
-      <h1>End work on purpose.</h1>
-      <p className="after-work-lead">A short daily workout for practising the moment between work and the rest of your life. It does not assess you or promise how you will feel.</p>
-      <section className="after-work-rule"><strong>21 sessions</strong><span>Three short exercises per day</span></section>
-      <button className="primary-button" onClick={() => setOnboarding(1)}>Build my routine</button>
-      <p className="after-work-footnote">Stored only in this browser until you choose otherwise.</p>
+    {onboarding === 0 && <section className="onboarding-copy onboarding-v2">
+      <p className="eyebrow">After Work · 21 days</p>
+      <h1>End work clearly. Begin the evening.</h1>
+      <p className="after-work-lead">Mirellis gives you one seven-minute practice each day for 21 days. Each day has three plain steps:</p>
+      <ol className="plain-steps"><li><strong>Decide what remains.</strong><span>Choose what can safely wait until tomorrow.</span></li><li><strong>Make one closing choice.</strong><span>Take a real action that ends work today.</span></li><li><strong>Begin what comes next.</strong><span>Start one small part of your evening.</span></li></ol>
+      <p className="programme-promise">One practice per day · about 7 minutes · missing a day does not reset anything</p>
+      <button className="primary-button" onClick={() => setOnboarding(1)}>Set up my 21 days</button>
+      <p className="after-work-footnote">This is practice, not an assessment. Mirellis records only what you choose and confirm.</p>
     </section>}
-    {onboarding === 1 && <section className="onboarding-copy">
-      <p className="eyebrow">Your appointment</p>
-      <h1>When does work usually end?</h1>
-      <p className="after-work-lead">We will prepare a daily session for this time. Browser reminders are a preview in this build, not a push notification.</p>
-      <label className="time-control">Usual end time<input type="time" value={data.time} onChange={(event) => updateData({ time: event.target.value })} /></label>
-      <button className="primary-button" onClick={() => setOnboarding(2)}>Continue</button>
-      <button className="text-button" onClick={() => setOnboarding(0)}>Back</button>
+    {onboarding === 1 && <section className="onboarding-copy onboarding-v2">
+      <p className="eyebrow">Your daily time</p><h1>When do you usually want work to end?</h1>
+      <p className="after-work-lead">This time helps you create a calendar reminder. The practice is still available whenever you open Mirellis.</p>
+      <label className="time-control">Usual end time<input type="time" value={data.time} onChange={(event) => setData((current) => ({ ...current, time: event.target.value }))} /></label>
+      <button className="primary-button" onClick={() => setOnboarding(2)}>Choose how I’ll remember</button><button className="text-button" onClick={() => setOnboarding(0)}>Back</button>
     </section>}
-    {onboarding === 2 && <section className="onboarding-copy">
-      <p className="eyebrow">Reminder style</p>
-      <h1>How should Mirellis show up?</h1>
-      <p className="after-work-lead">You can change this any time. Nothing is shared with anyone.</p>
-      <div className="firmness-list" role="group" aria-label="Reminder style">
-        {(Object.keys(firmnessCopy) as Firmness[]).map((style) => <button key={style} className={data.firmness === style ? 'firmness-choice is-selected' : 'firmness-choice'} aria-pressed={data.firmness === style} onClick={() => updateData({ firmness: style })}><strong>{style}</strong><span>{firmnessCopy[style]}</span></button>)}
+    {onboarding === 2 && <section className="onboarding-copy onboarding-v2">
+      <p className="eyebrow">How reminders work</p><h1>Choose a real reminder.</h1>
+      <p className="after-work-lead">This web app cannot ring an alarm or send a push notification. Mirellis can download a 21-day calendar event instead. Your calendar—not Mirellis—will deliver the alert.</p>
+      <div className="reminder-options" role="group" aria-label="Reminder choice">
+        <button className={data.reminderMode === 'calendar' ? 'reminder-choice is-selected' : 'reminder-choice'} aria-pressed={data.reminderMode === 'calendar'} onClick={() => setData((current) => ({ ...current, reminderMode: 'calendar' }))}><strong>Add it to my calendar</strong><span>Downloads one daily event at {data.time} for the next 21 days. You open the file and add it to your calendar.</span></button>
+        <button className={data.reminderMode === 'none' ? 'reminder-choice is-selected' : 'reminder-choice'} aria-pressed={data.reminderMode === 'none'} onClick={() => setData((current) => ({ ...current, reminderMode: 'none' }))}><strong>No reminder</strong><span>I will open Mirellis myself. No alert will be created.</span></button>
       </div>
-      <button className="primary-button" onClick={() => { updateData({ hasStarted: true }, 'Your After Work programme is ready.'); setOnboarding(0); }}>Start my programme</button>
-      <button className="text-button" onClick={() => setOnboarding(1)}>Back</button>
+      <button className="primary-button" onClick={beginProgramme}>{data.reminderMode === 'calendar' ? 'Start and download calendar reminder' : 'Start without a reminder'}</button><button className="text-button" onClick={() => setOnboarding(1)}>Back</button>
     </section>}
   </main>;
+
+  const nextDay = completedRecord && completedRecord.day < 21 ? programmeDays[completedRecord.day] : undefined;
+  const homeSteps = dayNumber === 1 ? ['Plan tomorrow’s first action', 'Check whether anything truly cannot wait', 'Close work and begin one evening activity'] : dayNumber === 2 ? ['Check whether yesterday’s plan helped', 'Name what actually pulled you back', 'Change one real cue tonight'] : [day.question ?? 'Notice today’s situation', 'Choose one action that fits', 'Do it and record only what you chose'];
 
   return <main className="after-work-shell">
     <p className="sr-status" role="status" aria-live="polite">{status}</p>
-    <header className="after-work-header"><button className="after-work-wordmark" onClick={() => setTab('today')}>MIRELLIS</button><span>{sessionView === 'home' ? 'After work' : sessionView === 'complete' ? 'Workout complete' : `Practice ${sessionNumber}`}</span><button className="after-work-plain-button" onClick={() => setTab('settings')}>Settings</button></header>
+    <header className="after-work-header"><button className="after-work-wordmark" onClick={() => setTab('today')}>MIRELLIS</button><span>After Work · Day {completedRecord && view === 'complete' ? completedRecord.day : dayNumber}</span><button className="after-work-plain-button" onClick={() => setTab('settings')}>Settings</button></header>
 
-    {tab === 'today' && sessionView === 'home' && <section className="after-work-screen today-screen">
-      <p className="eyebrow">Today’s training</p>
-      <h1>{completedCount === 0 ? 'Make one clear ending.' : completedCount >= 21 ? 'Programme complete.' : 'Keep the appointment.'}</h1>
-      <p className="after-work-lead">{trainingState}</p>
-      <section className="workout-sheet" aria-labelledby="today-workout-title">
-        <div className="workout-sheet-heading"><div><p className="eyebrow">After Work · Session {sessionNumber} of 21</p><h2 id="today-workout-title">{completedCount === 0 ? 'Your first workout' : 'Today’s workout'}</h2></div><span>7 min</span></div>
-        {practiceNames.map((name, index) => <div className="practice-row" key={name}><div><strong>{name}</strong><p>{index === 0 ? 'Make tomorrow easier to begin.' : index === 1 ? 'Decide what belongs to work and what can wait.' : 'Take one real step away from work.'}</p></div></div>)}
-      </section>
-      {completedCount >= 21 ? <button className="primary-button" onClick={() => setTab('record')}>View my practice record</button> : <button className="primary-button" onClick={startSession}>Start today’s workout</button>}
-      <button className="text-button" onClick={() => { setTab('programme'); setStatus('Programme opened.'); }}>View the programme</button>
-      <p className="after-work-footnote">A completed workout records the exercises you completed. It does not measure your mood, recovery, or productivity.</p>
+    {tab === 'today' && view === 'home' && <section className="after-work-screen today-screen today-v2">
+      <p className="eyebrow">Day {dayNumber} of 21 · One practice today</p><h1>{data.completedDays.length >= 21 ? 'Your programme is complete.' : day.title}</h1><p className="after-work-lead">{data.completedDays.length >= 21 ? 'Your private record contains the actions you chose across all 21 days.' : day.purpose}</p>
+      {data.completedDays.length < 21 && <section className="today-plan"><p className="eyebrow">What you will do · about 7 minutes</p><ol>{homeSteps.map((step) => <li key={step}>{step}</li>)}</ol></section>}
+      {data.completedDays.length >= 21 ? <button className="primary-button" onClick={() => setTab('record')}>View my 21-day record</button> : <button className="primary-button" onClick={startPractice}>Start Day {dayNumber}</button>}
+      <button className="text-button" onClick={() => setTab('programme')}>See all 21 days</button>
+      {data.completedDays.length < 21 && <p className="tomorrow-preview"><strong>Tomorrow: Day {Math.min(dayNumber + 1, 21)} — {programmeDays[Math.min(dayNumber, 20)].title}</strong><span>{programmeDays[Math.min(dayNumber, 20)].purpose}</span></p>}
     </section>}
 
-    {tab === 'today' && sessionView === 'close-loop' && <section className="after-work-screen practice-screen">
-      <Progress step={1} />
-      <p className="eyebrow">Exercise 1 · Close the loop</p>
-      <h1>Give tomorrow a real starting point.</h1>
-      <p className="after-work-lead">This is not a to-do list. Choose one unfinished item and write the smallest visible action that begins it.</p>
-      <label className="training-field">The unfinished item<textarea value={workItem} onChange={(event) => setWorkItem(event.target.value)} placeholder="For example: the campaign update for Friday" /></label>
-      <label className="training-field">Tomorrow’s first visible action<textarea value={firstMove} onChange={(event) => setFirstMove(event.target.value)} placeholder="For example: at 9:15, open the update and write the first three headings" /></label>
-      <button className="primary-button" disabled={!canFinishCloseLoop} onClick={() => { setSessionView('signal-sort'); setStatus('Return point saved for this workout. Next: sort the signal.'); }}>Save and continue</button>
-      <button className="text-button" onClick={() => { setSessionView('home'); setStatus('Workout paused. Nothing was recorded as complete.'); }}>Pause workout</button>
+    {tab === 'today' && view === 'paused' && <section className="after-work-screen compact-screen paused-screen"><p className="eyebrow">Day {dayNumber} is paused</p><h1>Your answers are still here.</h1><p className="after-work-lead">Continue from the exact step where you stopped. Nothing has been recorded as complete.</p><button className="primary-button" onClick={() => resumeView && setView(resumeView)}>Resume Day {dayNumber}</button><button className="text-button" onClick={discardPractice}>Discard this unfinished practice</button></section>}
+
+    {tab === 'today' && view === 'day1-plan' && <section className="after-work-screen practice-screen v2-practice"><StepHeader step={1} title="Plan tomorrow’s first action" />
+      <h1>Choose one unfinished item to leave for tomorrow.</h1><p className="after-work-lead"><strong>You are not being asked to work on it now.</strong> You are giving it a clear place to restart so you do not have to keep rehearsing it tonight.</p>
+      <label className="training-field">What are you leaving unfinished today?<textarea value={draft.unfinishedItem} onChange={(event) => setDraftValue('unfinishedItem', event.target.value)} placeholder="Example: Redesign the Amazon Brand Page" /></label>
+      <label className="training-field">What exact action will begin it tomorrow?<textarea value={draft.tomorrowAction} onChange={(event) => setDraftValue('tomorrowAction', event.target.value)} placeholder="Example: At 9:15, open the Amazon Brand Page and replace the first banner copy" /></label>
+      <p className="explanation-box"><strong>A useful first action is visible and small.</strong> “Redesign the page” is broad. “Open the page and replace the first banner copy” tells tomorrow-you exactly where to begin.</p>
+      <button className="primary-button" disabled={draft.unfinishedItem.trim().length < 3 || draft.tomorrowAction.trim().length < 10} onClick={() => { setView('day1-urgent'); setResumeView('day1-urgent'); setStatus('Tomorrow’s first action saved for today’s practice.'); }}>Save this plan and continue</button><button className="text-button" onClick={() => pausePractice('day1-plan')}>Pause and return later</button>
     </section>}
 
-    {tab === 'today' && sessionView === 'signal-sort' && <section className="after-work-screen practice-screen">
-      <Progress step={2} />
-      <p className="eyebrow">Exercise 2 · Sort the signal</p>
-      <h1>Decide what needs you now.</h1>
-      <p className="after-work-lead">Choose where this belongs. The result only reflects this short exercise.</p>
-      {sortIndex < activeSortPrompts.length ? <section className="signal-prompt" aria-live="polite"><p>Decision {sortIndex + 1} of {activeSortPrompts.length} · Level {data.signalLevel}</p><h2>{sortPrompt.copy}</h2><div><button className="secondary-button" onClick={() => chooseSort('work')}>Work</button><button className="primary-button" onClick={() => chooseSort('evening')}>Evening</button></div></section> : <section className="signal-prompt"><p>Round complete</p><h2>{sortScore} of {activeSortPrompts.length} decisions matched this exercise.</h2><p className="after-work-lead">Next, choose one actual boundary action for tonight.</p><button className="primary-button" onClick={() => setSessionView('leave')}>Continue</button></section>}
-      <button className="text-button" onClick={() => { setSessionView('home'); setStatus('Workout paused. Nothing was recorded as complete.'); }}>Pause workout</button>
+    {tab === 'today' && view === 'day1-urgent' && <section className="after-work-screen practice-screen v2-practice"><StepHeader step={2} title="Check for one genuine exception" />
+      <h1>Does anything truly need action tonight?</h1><p className="after-work-lead">“Truly needs action” means there is a real deadline before morning, someone is blocked before tomorrow, or leaving it would create a concrete problem. Ordinary unfinished work can wait.</p>
+      <div className="plain-choice-list" role="group" aria-label="Urgency check"><button className={draft.urgentChoice === 'none' ? 'plain-choice is-selected' : 'plain-choice'} aria-pressed={draft.urgentChoice === 'none'} onClick={() => { setDraftValue('urgentChoice', 'none'); setDraftValue('urgentHandled', false); }}><strong>Nothing needs action tonight</strong><span>Tomorrow’s plan is enough. I can stop.</span></button><button className={draft.urgentChoice === 'yes' ? 'plain-choice is-selected' : 'plain-choice'} aria-pressed={draft.urgentChoice === 'yes'} onClick={() => setDraftValue('urgentChoice', 'yes')}><strong>One thing genuinely cannot wait</strong><span>I will name the smallest action that makes it safe to stop.</span></button></div>
+      {draft.urgentChoice === 'yes' && <section className="conditional-panel"><label className="training-field">What genuinely cannot wait?<textarea value={draft.urgentItem} onChange={(event) => { setDraftValue('urgentItem', event.target.value); setDraftValue('urgentHandled', false); }} /></label><label className="training-field">What is the smallest action needed tonight?<textarea value={draft.urgentAction} onChange={(event) => { setDraftValue('urgentAction', event.target.value); setDraftValue('urgentHandled', false); }} /></label><p>Do that action outside Mirellis. Return only when it is handled or when you decide it can safely wait.</p><div className="inline-actions"><button className="secondary-button" disabled={draft.urgentItem.trim().length < 3 || draft.urgentAction.trim().length < 6} onClick={() => { setDraftValue('urgentHandled', true); setStatus('You confirmed that the necessary action was handled.'); }}>I handled this action</button><button className="text-button" onClick={() => { setDraftValue('urgentChoice', 'none'); setDraftValue('urgentHandled', false); setStatus('The item was moved to tomorrow.'); }}>It can wait after all</button></div>{draft.urgentHandled && <p className="positive-copy" role="status">Confirmed. You said the necessary action is handled.</p>}</section>}
+      <button className="primary-button" disabled={!draft.urgentChoice || (draft.urgentChoice === 'yes' && !draft.urgentHandled)} onClick={() => { setView('day1-close'); setResumeView('day1-close'); }}>Continue to close work</button><button className="text-button" onClick={() => pausePractice('day1-urgent')}>Pause and return later</button>
     </section>}
 
-    {tab === 'today' && sessionView === 'leave' && <section className="after-work-screen practice-screen">
-      <Progress step={3} />
-      <p className="eyebrow">Exercise 3 · Leave on purpose</p>
-      <h1>Choose your first move out of work.</h1>
-      <p className="after-work-lead">Pick one action you can actually take now. Then use the minute to begin it, outside the app.</p>
-      <div className="boundary-list" role="group" aria-label="Boundary action">{boundaryActions.map((action) => <button key={action} className={selectedBoundary === action ? 'boundary-choice is-selected' : 'boundary-choice'} aria-pressed={selectedBoundary === action} onClick={() => { setSelectedBoundary(action); setStatus('Boundary action selected.'); }}>{action}</button>)}</div>
-      {selectedBoundary && <section className="minute-card"><p className="eyebrow">The one-minute start</p><strong>{seconds === 0 ? 'One minute is complete.' : formatTimer(seconds)}</strong><p>Leave this screen and begin: {selectedBoundary}</p>{seconds > 0 && <button className="secondary-button" onClick={() => { setTimerRunning((value) => !value); setStatus(timerRunning ? 'Timer paused.' : 'Timer started.'); }}>{timerRunning ? 'Pause the minute' : 'Start the minute'}</button>}</section>}
-      <button className="primary-button" disabled={!canCompleteLeave} onClick={completeSession}>Record today’s workout</button>
-      <button className="text-button" onClick={() => { setSessionView('home'); setStatus('Workout paused. Nothing was recorded as complete.'); }}>Pause workout</button>
+    {tab === 'today' && view === 'day1-close' && <section className="after-work-screen practice-screen v2-practice"><StepHeader step={3} title="Close work and begin the evening" />
+      <h1>Take two clear actions now.</h1><section className="saved-plan"><p className="eyebrow">Tomorrow’s first action</p><p>{draft.tomorrowAction}</p><button className="text-button" onClick={copyTomorrowPlan}>Copy this plan</button></section>
+      <p className="choice-prompt">First, how will you make the end of work visible?</p><ChoiceList label="Closing action" options={closingActions} value={draft.closingAction} onChoose={(value) => setDraftValue('closingAction', value)} />
+      <ActivityChoice value={draft.nextActivity} other={draft.otherActivity} onChoose={(value) => setDraftValue('nextActivity', value)} onOther={(value) => setDraftValue('otherActivity', value)} />
+      {draft.closingAction && chosenActivity && <section className="do-now"><p className="eyebrow">Do this now</p><ol><li>{draft.closingAction}.</li><li>Begin: {chosenActivity}.</li></ol><p>No timer is required. Return when you have taken both actions.</p></section>}
+      <button className="primary-button" disabled={!draft.closingAction || !chosenActivity} onClick={finishDayOne}>I completed these two actions</button><button className="text-button" onClick={() => pausePractice('day1-close')}>Pause and return later</button>
     </section>}
 
-    {tab === 'today' && sessionView === 'complete' && <section className="after-work-screen completion-screen">
-      <p className="eyebrow">Workout recorded</p>
-      <h1>Today’s practice is complete.</h1>
-      <p className="after-work-lead">You completed three exercises and chose one real boundary action. That is what this record shows—nothing more.</p>
-      <section className="result-sheet"><p><span>Tomorrow’s first move</span>{firstMove}</p><p><span>Signal Sort</span>{sortScore} of {activeSortPrompts.length} matched</p><p><span>Tonight’s boundary</span>{selectedBoundary}</p></section>
-      <p className="adaptation-copy" role="status">{adaptationStatus}</p>
-      <button className="primary-button" onClick={() => { setSessionView('home'); setStatus(`Session ${sessionNumber} is ready when you are.`); }}>Back to today</button>
-      <button className="text-button" onClick={() => { setTab('record'); setSessionView('home'); }}>View my private record</button>
+    {tab === 'today' && view === 'day2-review' && <section className="after-work-screen practice-screen v2-practice"><StepHeader step={1} title="Check yesterday’s plan" />
+      <h1>Did yesterday’s starting point help today?</h1>{previousRecord?.tomorrowAction && <section className="saved-plan"><p className="eyebrow">What you planned</p><p>{previousRecord.tomorrowAction}</p></section>}<p className="after-work-lead">Choose only what you know. This is not a score and Mirellis will not interpret your answer.</p>
+      <ChoiceList label="Yesterday’s plan" options={['Yes, I used it', 'Partly — it needed more detail', 'No — I did not use it', 'I do not remember']} value={draft.day2Review} onChoose={(value) => setDraftValue('day2Review', value)} />
+      <button className="primary-button" disabled={!draft.day2Review} onClick={() => { setView('day2-cue'); setResumeView('day2-cue'); }}>Continue</button><button className="text-button" onClick={() => pausePractice('day2-review')}>Pause and return later</button>
     </section>}
 
-    {tab === 'programme' && <section className="after-work-screen compact-screen">
-      <p className="eyebrow">Your programme</p><h1>After work · 21 sessions.</h1><p className="after-work-lead">A repeatable daily training path. The path records practice; it does not label your state.</p>
-      <div className="programme-grid" aria-label="Twenty-one session programme">{Array.from({ length: 21 }, (_, index) => { const day = index + 1; const state = data.completedDays.includes(day) ? 'done' : day === sessionNumber ? 'current' : 'upcoming'; return <button key={day} className={`programme-day ${state}`} onClick={() => { if (day === sessionNumber) { setTab('today'); startSession(); } else setStatus(state === 'done' ? `Session ${day} was completed.` : `Session ${day} unlocks after the earlier sessions.`); }} aria-label={`Session ${day}, ${state}`}> {String(day).padStart(2, '0')}<span>{state === 'done' ? 'Done' : state === 'current' ? 'Today' : 'Later'}</span></button>; })}</div>
-      <section className="programme-detail"><p className="eyebrow">What repeats</p>{practiceNames.map((name) => <p key={name}><strong>{name}</strong> — practice the same skill with new prompts as you return.</p>)}</section>
+    {tab === 'today' && view === 'day2-cue' && <section className="after-work-screen practice-screen v2-practice"><StepHeader step={2} title="Name what pulled you back" />
+      <h1>After you stopped yesterday, what brought work back?</h1><p className="after-work-lead">Choose the closest real answer. If nothing pulled you back, say that.</p>
+      <ChoiceList label="What pulled work back" options={Object.keys(day2CueActions)} value={draft.day2Cue} onChoose={(value) => { setDraftValue('day2Cue', value); setDraftValue('day2Action', ''); }} />
+      {draft.day2Cue && <><p className="choice-prompt">Choose one change you will actually make tonight.</p><ChoiceList label="Tonight’s change" options={day2CueActions[draft.day2Cue]} value={draft.day2Action} onChoose={(value) => setDraftValue('day2Action', value)} /></>}
+      <button className="primary-button" disabled={!draft.day2Cue || !draft.day2Action} onClick={() => { setView('day2-close'); setResumeView('day2-close'); }}>Use this change tonight</button><button className="text-button" onClick={() => pausePractice('day2-cue')}>Pause and return later</button>
     </section>}
 
-    {tab === 'record' && <section className="after-work-screen compact-screen">
-      <p className="eyebrow">Private record</p><h1>Your practice, as recorded.</h1><p className="after-work-lead">Mirellis keeps an honest list of sessions and the choices you chose to save.</p>
-      {data.sessionLog.length === 0 ? <section className="record-empty"><h2>Nothing recorded yet.</h2><p>Complete one workout to build a private record you can use without Mirellis.</p><button className="primary-button" onClick={() => { setTab('today'); startSession(); }}>Start the first workout</button></section> : <div className="record-list-new">{[...data.sessionLog].reverse().map((entry) => <article key={entry.day}><p className="eyebrow">Session {entry.day} · {entry.date}</p><h2>Workout recorded</h2><p><span>Return point</span>{entry.closeLoop}</p><p><span>Boundary</span>{entry.boundary}</p><p><span>Signal Sort</span>{entry.score} of 4 matched</p></article>)}</div>}
+    {tab === 'today' && view === 'day2-close' && <section className="after-work-screen practice-screen v2-practice"><StepHeader step={3} title="Take the action" />
+      <h1>Make the change, then begin your evening.</h1><section className="do-now"><p className="eyebrow">Your chosen change</p><p>{draft.day2Action}.</p></section><ActivityChoice value={draft.nextActivity} other={draft.otherActivity} onChoose={(value) => setDraftValue('nextActivity', value)} onOther={(value) => setDraftValue('otherActivity', value)} />
+      {chosenActivity && <section className="do-now"><p className="eyebrow">Do this now</p><ol><li>{draft.day2Action}.</li><li>Begin: {chosenActivity}.</li></ol><p>Return when you have taken both actions.</p></section>}
+      <button className="primary-button" disabled={!chosenActivity} onClick={finishDayTwo}>I completed these two actions</button><button className="text-button" onClick={() => pausePractice('day2-close')}>Pause and return later</button>
     </section>}
 
-    {tab === 'settings' && <section className="after-work-screen compact-screen">
-      <p className="eyebrow">Settings</p><h1>Your routine and data.</h1>
-      <section className="settings-list-new"><div><h2>Daily appointment</h2><p>Prepared for {data.time} in this browser.</p><label className="time-control">Change time<input type="time" value={data.time} onChange={(event) => updateData({ time: event.target.value }, 'Appointment time saved.')}/></label></div><div><h2>Reminder style</h2><p>{firmnessCopy[data.firmness]}</p><select value={data.firmness} onChange={(event) => updateData({ firmness: event.target.value as Firmness }, 'Reminder style saved.')} aria-label="Reminder style">{(Object.keys(firmnessCopy) as Firmness[]).map((style) => <option value={style} key={style}>{style}</option>)}</select></div><div><h2>Analytics</h2><p>Analytics are not active in this build.</p></div><div><h2>Local data</h2><p>Your programme, saved actions, and workout record are stored in this browser.</p><button ref={deleteTriggerRef} className="secondary-button" onClick={() => setDeleteOpen(true)}>Delete local data</button></div></section>
-      {deleteOpen && <section className="delete-dialog" role="alertdialog" aria-labelledby="delete-title" aria-describedby="delete-description"><h2 id="delete-title">Delete this browser’s practice data?</h2><p id="delete-description">This removes your local programme, saved actions, and workout record. It cannot be undone.</p><div><button autoFocus className="secondary-button" onClick={() => { setDeleteOpen(false); setStatus('Deletion cancelled.'); window.setTimeout(() => deleteTriggerRef.current?.focus(), 0); }}>Cancel</button><button className="primary-button destructive" onClick={deleteData}>Delete everything</button></div></section>}
+    {tab === 'today' && view === 'daily-question' && <section className="after-work-screen practice-screen v2-practice"><StepHeader step={1} title={day.title} />
+      <h1>{day.question}</h1><p className="after-work-lead">{day.purpose} Choose the closest real answer; Mirellis will record only what you select.</p><ChoiceList label={`Day ${dayNumber} situation`} options={day.options ?? []} value={draft.laterAnswer} onChoose={(value) => setDraftValue('laterAnswer', value)} />
+      <button className="primary-button" disabled={!draft.laterAnswer} onClick={() => { setView('daily-action'); setResumeView('daily-action'); }}>Choose today’s action</button><button className="text-button" onClick={() => pausePractice('daily-question')}>Pause and return later</button>
     </section>}
 
-    <nav className="after-work-nav" aria-label="After Work navigation"><button aria-current={tab === 'today' ? 'page' : undefined} className={tab === 'today' ? 'is-active' : ''} onClick={() => setTab('today')}>Today</button><button aria-current={tab === 'programme' ? 'page' : undefined} className={tab === 'programme' ? 'is-active' : ''} onClick={() => setTab('programme')}>Programme</button><button aria-current={tab === 'record' ? 'page' : undefined} className={tab === 'record' ? 'is-active' : ''} onClick={() => setTab('record')}>Record</button><button aria-current={tab === 'settings' ? 'page' : undefined} className={tab === 'settings' ? 'is-active' : ''} onClick={() => setTab('settings')}>Settings</button></nav>
+    {tab === 'today' && view === 'daily-action' && <section className="after-work-screen practice-screen v2-practice"><StepHeader step={2} title="Choose one action" />
+      <h1>What will you actually do tonight?</h1><section className="saved-plan"><p className="eyebrow">What you selected</p><p>{draft.laterAnswer}</p></section><ChoiceList label="Today’s action" options={day.actions ?? []} value={draft.laterAction} onChoose={(value) => setDraftValue('laterAction', value)} />
+      <button className="primary-button" disabled={!draft.laterAction} onClick={() => { setView('daily-close'); setResumeView('daily-close'); }}>Use this action</button><button className="text-button" onClick={() => pausePractice('daily-action')}>Pause and return later</button>
+    </section>}
+
+    {tab === 'today' && view === 'daily-close' && <section className="after-work-screen practice-screen v2-practice"><StepHeader step={3} title="Do it and leave work" />
+      <h1>Take the action, then begin your evening.</h1><section className="do-now"><p className="eyebrow">Your chosen action</p><p>{draft.laterAction}.</p></section><ActivityChoice value={draft.nextActivity} other={draft.otherActivity} onChoose={(value) => setDraftValue('nextActivity', value)} onOther={(value) => setDraftValue('otherActivity', value)} />
+      {chosenActivity && <section className="do-now"><p className="eyebrow">Do this now</p><ol><li>{draft.laterAction}.</li><li>Begin: {chosenActivity}.</li></ol></section>}
+      <button className="primary-button" disabled={!chosenActivity} onClick={finishLaterDay}>I completed these two actions</button><button className="text-button" onClick={() => pausePractice('daily-close')}>Pause and return later</button>
+    </section>}
+
+    {tab === 'today' && view === 'complete' && completedRecord && <section className="after-work-screen completion-screen completion-v2"><p className="eyebrow">Day {completedRecord.day} of 21 complete</p><h1>Work is closed for today.</h1><p className="after-work-lead">This record contains only the choices and actions you confirmed.</p>
+      <section className="result-sheet">{completedRecord.tomorrowAction && <p><span>Tomorrow I will</span>{completedRecord.tomorrowAction}</p>}{completedRecord.urgentItem && <p><span>Handled before stopping</span>{completedRecord.urgentItem}</p>}{completedRecord.review && <p><span>What I selected</span>{completedRecord.review}</p>}{completedRecord.cue && <p><span>What pulled work back</span>{completedRecord.cue}</p>}<p><span>My closing action</span>{completedRecord.chosenAction}</p>{completedRecord.nextActivity && <p><span>My evening begins with</span>{completedRecord.nextActivity}</p>}</section>
+      {nextDay ? <section className="tomorrow-card"><p className="eyebrow">Tomorrow · Day {nextDay.day}</p><h2>{nextDay.title}</h2><p>{nextDay.purpose}</p></section> : <section className="tomorrow-card"><p className="eyebrow">Programme complete</p><h2>Your ending belongs to you.</h2><p>Your private record contains the sequence you explicitly chose.</p></section>}
+      <button className="primary-button" onClick={() => { setView('home'); setCompletedRecord(undefined); }}>Back to today</button><button className="text-button" onClick={() => { setView('home'); setCompletedRecord(undefined); setTab('record'); }}>View my private record</button>
+    </section>}
+
+    {tab === 'programme' && <section className="after-work-screen compact-screen"><p className="eyebrow">The complete programme</p><h1>One practice each day for 21 days.</h1><p className="after-work-lead">Every day has three steps and takes about seven minutes. Missing a day does not reset your programme.</p><div className="programme-list-v2">{programmeDays.map((item) => { const state = data.completedDays.includes(item.day) ? 'complete' : item.day === dayNumber ? 'today' : item.day > dayNumber ? 'later' : 'available'; return <button key={item.day} className={`programme-row-v2 ${state}`} onClick={() => { if (item.day === dayNumber && data.completedDays.length < 21) startPractice(); else setStatus(state === 'complete' ? `Day ${item.day} was completed.` : state === 'later' ? `Day ${item.day} becomes available after the earlier days.` : `Day ${item.day} is available.`); }}><span>Day {item.day}</span><strong>{item.title}</strong><small>{state === 'complete' ? 'Complete' : state === 'today' ? 'Today' : 'Later'}</small></button>; })}</div></section>}
+
+    {tab === 'record' && <section className="after-work-screen compact-screen"><p className="eyebrow">Private record</p><h1>Only what you chose and confirmed.</h1><p className="after-work-lead">No score, diagnosis, or inferred progress appears here.</p>{data.records.length === 0 ? <section className="record-empty"><h2>Nothing recorded yet.</h2><p>Complete Day 1 to create your first practical ending record.</p><button className="primary-button" onClick={startPractice}>Start Day 1</button></section> : <div className="record-list-new">{[...data.records].reverse().map((record) => <article key={record.day}><p className="eyebrow">Day {record.day} · {record.date}</p><h2>{record.title}</h2>{record.tomorrowAction && <p><span>Tomorrow</span>{record.tomorrowAction}</p>}{record.review && <p><span>Selected</span>{record.review}</p>}{record.cue && <p><span>Work returned through</span>{record.cue}</p>}<p><span>Closing action</span>{record.chosenAction}</p>{record.nextActivity && <p><span>Evening began with</span>{record.nextActivity}</p>}</article>)}</div>}</section>}
+
+    {tab === 'settings' && <section className="after-work-screen compact-screen"><p className="eyebrow">Settings</p><h1>Your time, reminder, and data.</h1><section className="settings-list-new"><div><h2>Daily time</h2><p>Your chosen end-of-work time is {data.time}.</p><label className="time-control">Change time<input type="time" value={data.time} onChange={(event) => { setData((current) => ({ ...current, time: event.target.value })); setStatus('Time saved. Download a new calendar reminder if you want your calendar to use it.'); }} /></label></div><div><h2>Reminder</h2><p>Mirellis cannot ring an alarm or send a web push notification. A calendar reminder is delivered by your own calendar app.</p><button className="secondary-button" onClick={addCalendarReminder}>Download a 21-day calendar reminder</button><button className="text-button settings-text-button" onClick={() => { setData((current) => ({ ...current, reminderMode: 'none' })); setStatus('Mirellis will not create a reminder. Remove any previously added event in your calendar app separately.'); }}>Use Mirellis without a reminder</button></div><div><h2>Analytics</h2><p>Analytics are not active in this build.</p></div><div><h2>Local data</h2><p>Your programme, answers, and practice record are stored only in this browser.</p><button ref={deleteTriggerRef} className="secondary-button" onClick={() => setDeleteOpen(true)}>Delete local data</button></div></section>{deleteOpen && <section className="delete-dialog" role="alertdialog" aria-labelledby="delete-title" aria-describedby="delete-description"><h2 id="delete-title">Delete this browser’s practice data?</h2><p id="delete-description">This removes your programme, saved answers, and practice record from this browser. It cannot be undone.</p><div><button autoFocus className="secondary-button" onClick={() => { setDeleteOpen(false); setStatus('Deletion cancelled.'); window.setTimeout(() => deleteTriggerRef.current?.focus(), 0); }}>Cancel</button><button className="primary-button destructive" onClick={deleteData}>Delete everything</button></div></section>}</section>}
+
+    <nav className="after-work-nav" aria-label="After Work navigation"><button aria-current={tab === 'today' ? 'page' : undefined} className={tab === 'today' ? 'is-active' : ''} onClick={() => setTab('today')}>Today</button><button aria-current={tab === 'programme' ? 'page' : undefined} className={tab === 'programme' ? 'is-active' : ''} onClick={() => setTab('programme')}>21 days</button><button aria-current={tab === 'record' ? 'page' : undefined} className={tab === 'record' ? 'is-active' : ''} onClick={() => setTab('record')}>Record</button><button aria-current={tab === 'settings' ? 'page' : undefined} className={tab === 'settings' ? 'is-active' : ''} onClick={() => setTab('settings')}>Settings</button></nav>
   </main>;
 }
 
-function Progress({ step }: { step: number }) {
-  return <div className="session-progress" aria-label={`Exercise ${step} of 3`}><span style={{ width: `${(step / 3) * 100}%` }} /></div>;
+function StepHeader({ step, title }: { step: number; title: string }) {
+  return <><div className="session-progress" aria-label={`Step ${step} of 3`}><span style={{ width: `${(step / 3) * 100}%` }} /></div><p className="eyebrow">Step {step} of 3 · {title}</p></>;
+}
+
+function ChoiceList({ label, options, value, onChoose }: { label: string; options: string[]; value: string; onChoose: (value: string) => void }) {
+  return <div className="plain-choice-list" role="group" aria-label={label}>{options.map((option) => <button key={option} className={value === option ? 'plain-choice is-selected' : 'plain-choice'} aria-pressed={value === option} onClick={() => onChoose(option)}>{option}</button>)}</div>;
+}
+
+function ActivityChoice({ value, other, onChoose, onOther }: { value: string; other: string; onChoose: (value: string) => void; onOther: (value: string) => void }) {
+  return <section className="activity-choice"><p className="choice-prompt">Next, what small part of your evening will you begin?</p><ChoiceList label="Evening activity" options={eveningActivities} value={value} onChoose={onChoose} />{value === 'Something else I choose' && <label className="training-field">What will you begin?<input value={other} onChange={(event) => onOther(event.target.value)} placeholder="Name one small, specific activity" /></label>}</section>;
 }

@@ -270,5 +270,75 @@ button.after-work-wordmark { cursor: pointer; }
 .after-work-nav { position: fixed; z-index: 2; right: max(0px, calc((100vw - 34rem) / 2)); bottom: 0; left: max(0px, calc((100vw - 34rem) / 2)); display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); background: rgba(251, 248, 242, .97); backdrop-filter: blur(8px); padding: .45rem .75rem max(.45rem, env(safe-area-inset-bottom)); }
 .after-work-nav button { min-height: 3.25rem; border: 0; background: transparent; color: var(--muted); font-size: .72rem; }
 .after-work-nav button.is-active { color: var(--ink); font-weight: 800; text-decoration: underline; text-underline-offset: .3rem; }
+
+/* After Work V2: plain-language daily practice. These additions deliberately
+   reuse the existing Mirellis type, colour, button and spacing tokens. */
+.onboarding-v2 { padding-top: clamp(2.75rem, 7vh, 4.5rem); }
+.onboarding-v2 h1, .today-v2 h1 { max-width: 13ch; }
+.plain-steps { display: grid; gap: 0; margin: 1.5rem 0 1rem; padding: 0; list-style: none; counter-reset: plain-step; border-top: 1px solid var(--line); }
+.plain-steps li { display: grid; grid-template-columns: 2rem 1fr; gap: .1rem .7rem; border-bottom: 1px solid var(--line); padding: .9rem 0; counter-increment: plain-step; }
+.plain-steps li::before { grid-row: 1 / span 2; color: var(--gold); font-size: .72rem; font-weight: 800; letter-spacing: .1em; content: "0" counter(plain-step); }
+.plain-steps strong { font-family: "Playfair Display", Georgia, serif; font-size: 1.16rem; font-weight: 500; line-height: 1.25; }
+.plain-steps span { color: var(--muted); font-size: .82rem; line-height: 1.45; }
+.programme-promise { margin: .4rem 0 0; color: var(--muted); font-size: .78rem; line-height: 1.5; }
+.reminder-options { display: grid; gap: .65rem; margin-top: 1.7rem; }
+.reminder-choice { display: grid; min-height: 4.8rem; gap: .3rem; border: 1px solid var(--line); border-radius: 0; background: transparent; color: var(--ink); padding: .9rem 1rem; text-align: left; }
+.reminder-choice strong { font-family: "Playfair Display", Georgia, serif; font-size: 1.18rem; font-weight: 500; }
+.reminder-choice span { color: var(--muted); font-size: .82rem; line-height: 1.45; }
+.reminder-choice.is-selected { border-color: var(--night); background: var(--night); color: #fffaf2; }
+.reminder-choice.is-selected span { color: #e8ddce; }
+.today-plan { margin: 1.8rem 0 .4rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 1rem 0; }
+.today-plan .eyebrow { margin-bottom: .7rem; }
+.today-plan ol { display: grid; gap: .55rem; margin: 0; padding-left: 1.25rem; }
+.today-plan li { padding-left: .25rem; color: var(--ink); font-family: "Playfair Display", Georgia, serif; font-size: 1.02rem; line-height: 1.35; }
+.tomorrow-preview { display: grid; gap: .35rem; margin: 2rem 0 0; border-top: 1px solid var(--line); padding-top: 1rem; }
+.tomorrow-preview strong { font-family: "Playfair Display", Georgia, serif; font-size: 1.05rem; font-weight: 500; }
+.tomorrow-preview span { color: var(--muted); font-size: .8rem; line-height: 1.45; }
+.paused-screen { justify-content: center; }
+.v2-practice { padding-top: 1.3rem; }
+.v2-practice h1 { max-width: 15ch; font-size: clamp(2.45rem, 9vw, 3.35rem); }
+.v2-practice .session-progress { margin-bottom: clamp(2.1rem, 6vh, 3.4rem); }
+.v2-practice .training-field { padding-top: 0; }
+.training-field input { min-height: 3.5rem; width: 100%; border: 1px solid var(--line); border-radius: 0; background: transparent; color: var(--ink); padding: .75rem .8rem; font-size: 1rem; font-weight: 400; letter-spacing: 0; text-transform: none; }
+.explanation-box, .conditional-panel, .saved-plan, .do-now, .tomorrow-card { margin-top: 1.35rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 1rem 0; }
+.explanation-box { color: var(--muted); font-size: .86rem; line-height: 1.55; }
+.explanation-box strong { color: var(--ink); }
+.plain-choice-list { display: grid; gap: .6rem; margin-top: 1.35rem; }
+.plain-choice { min-height: 3.4rem; border: 1px solid var(--line); border-radius: 0; background: transparent; color: var(--ink); padding: .8rem .9rem; text-align: left; font-size: .9rem; line-height: 1.4; }
+.plain-choice strong { display: block; margin-bottom: .22rem; font-family: "Playfair Display", Georgia, serif; font-size: 1.15rem; font-weight: 500; }
+.plain-choice span { display: block; color: var(--muted); font-size: .8rem; }
+.plain-choice.is-selected { border-color: var(--night); background: var(--night); color: #fffaf2; }
+.plain-choice.is-selected span { color: #e8ddce; }
+.conditional-panel > p { color: var(--muted); font-size: .86rem; line-height: 1.5; }
+.inline-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .65rem; }
+.inline-actions .secondary-button, .inline-actions .text-button { width: auto; margin-top: 1rem; }
+.positive-copy { color: #3d624e !important; font-weight: 650; }
+.saved-plan .eyebrow, .do-now .eyebrow, .tomorrow-card .eyebrow { margin-bottom: .45rem; }
+.saved-plan > p:not(.eyebrow), .do-now > p:not(.eyebrow) { margin: 0; font-family: "Playfair Display", Georgia, serif; font-size: 1.14rem; line-height: 1.4; }
+.saved-plan .text-button { width: auto; margin-top: .8rem; }
+.choice-prompt { margin: 1.55rem 0 -.5rem; font-family: "Playfair Display", Georgia, serif; font-size: 1.2rem; line-height: 1.3; }
+.activity-choice { margin-top: 1.8rem; border-top: 1px solid var(--line); padding-top: .1rem; }
+.do-now ol { display: grid; gap: .55rem; margin: .65rem 0 0; padding-left: 1.2rem; }
+.do-now li { padding-left: .25rem; font-family: "Playfair Display", Georgia, serif; font-size: 1.03rem; line-height: 1.4; }
+.do-now > p:last-child:not(.eyebrow) { margin-top: .75rem; color: var(--muted); font-family: Inter, ui-sans-serif, sans-serif; font-size: .82rem; }
+.completion-v2 { padding-top: clamp(3rem, 8vh, 5rem); }
+.completion-v2 h1 { max-width: 13ch; }
+.tomorrow-card h2 { margin-bottom: .45rem; }
+.tomorrow-card p:last-child { margin: 0; color: var(--muted); font-size: .86rem; line-height: 1.5; }
+.programme-list-v2 { display: grid; margin-top: 2rem; border-top: 1px solid var(--line); }
+.programme-row-v2 { display: grid; min-height: 4.5rem; grid-template-columns: 3.5rem minmax(0, 1fr) auto; align-items: center; gap: .65rem; border: 0; border-bottom: 1px solid var(--line); background: transparent; color: var(--ink); padding: .75rem 0; text-align: left; }
+.programme-row-v2 > span, .programme-row-v2 small { color: var(--muted); font-size: .68rem; font-weight: 750; letter-spacing: .07em; text-transform: uppercase; }
+.programme-row-v2 strong { overflow: hidden; font-family: "Playfair Display", Georgia, serif; font-size: 1.02rem; font-weight: 500; line-height: 1.25; text-overflow: ellipsis; }
+.programme-row-v2.complete { color: #3d624e; }
+.programme-row-v2.today { background: var(--night); color: #fffaf2; padding-right: .75rem; padding-left: .75rem; }
+.programme-row-v2.today > span, .programme-row-v2.today small { color: #e8ddce; }
+.programme-row-v2.later { color: var(--muted); }
+.settings-text-button { display: block; width: auto; margin-top: .75rem; }
+@media (max-width: 390px) {
+  .after-work-shell { padding-right: 1.15rem; padding-left: 1.15rem; }
+  .after-work-shell h1 { font-size: clamp(2.55rem, 11vw, 3.2rem); }
+  .v2-practice h1 { font-size: clamp(2.25rem, 9.2vw, 2.8rem); }
+  .programme-row-v2 { grid-template-columns: 3.15rem minmax(0, 1fr) auto; }
+}
 @media (min-width: 545px) { .after-work-shell { box-shadow: 0 0 0 1px rgba(45, 40, 35, .06); } }
 @media (max-width: 360px) { .after-work-header { gap: .35rem; font-size: .65rem; } .after-work-wordmark { font-size: .74rem; letter-spacing: .12em; } .after-work-plain-button { font-size: .66rem; } .programme-day { min-height: 4.6rem; } }
