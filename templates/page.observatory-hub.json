@@ -1,0 +1,134 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "observatory_landing": {
+      "type": "observatory-landing",
+      "blocks": {
+        "morning": {
+          "type": "pillar",
+          "settings": {
+            "transition_label": "Morning beginning",
+            "title": "Sleep → Wakefulness",
+            "description": "Published questions and practical notes about the first boundary of the day. No diagnostic or causal claim is implied.",
+            "cta": "Explore the territory →",
+            "link": "/pages/sleep-to-wakefulness"
+          }
+        },
+        "work": {
+          "type": "pillar",
+          "settings": {
+            "transition_label": "Work ending",
+            "title": "Work → Recovery",
+            "description": "Working observations and one practical pathway for the difficulty of leaving work after the task has stopped.",
+            "cta": "Use the current pathway →",
+            "link": "/pages/work-to-recovery"
+          }
+        },
+        "evening": {
+          "type": "pillar",
+          "settings": {
+            "transition_label": "Evening quieting",
+            "title": "Stimulation → Restoration",
+            "description": "Published questions and practical notes about letting the day become quieter. Claims remain bounded by the evidence register.",
+            "cta": "Explore the territory →",
+            "link": "/pages/stimulation-to-restoration"
+          }
+        }
+      },
+      "block_order": ["morning", "work", "evening"],
+      "settings": {
+        "eyebrow": "THE OBSERVATORY",
+        "heading": "A public record of what Mirellis is learning—and what remains uncertain.",
+        "intro": "Mirellis publishes working observations, practice hypotheses and product records about recurring boundary moments. Each record keeps its status and limits visible.",
+        "articles_eyebrow": "THE LIBRARY",
+        "articles_heading": "Questions, explanations and practices",
+        "all_articles_label": "Browse the Library →",
+        "subscribe_eyebrow": "FOLLOW THE WORK",
+        "subscribe_heading": "Receive a new record when it is ready.",
+        "subscribe_text": "No daily content promise and no urgency. Mirellis publishes when a record is ready to be read.",
+        "email_placeholder": "Your email address",
+        "subscribe_cta": "Follow the Observatory",
+        "success_message": "You are now following the Observatory."
+      }
+    },
+    "evidence_register": {
+      "type": "mirellis-evidence-register",
+      "blocks": {
+        "work_observation": {
+          "type": "record",
+          "settings": {
+            "number": "001",
+            "territory": "work",
+            "status": "Working observation",
+            "reviewed": "12 August 2026",
+            "title": "Work can feel open after the scheduled workday has ended.",
+            "statement": "Some people describe unfinished thoughts, checking, physical activation or a missing next activity after work. Mirellis treats these as different situations rather than one inferred state.",
+            "evidence_basis": "User-described difficulties and the current After Work pathway design. This record names a lived pattern; it does not establish prevalence or cause.",
+            "limitation": "Mirellis has not conducted a representative prevalence study or clinical trial. This record must not be used as a diagnosis.",
+            "source_label": "See the practical pathway",
+            "source_url": "/pages/work-to-recovery",
+            "practice_label": "Use After Work privately",
+            "practice_url": "https://app.mirellis.in"
+          }
+        },
+        "work_practice": {
+          "type": "record",
+          "settings": {
+            "number": "002",
+            "territory": "work",
+            "status": "Practice hypothesis",
+            "reviewed": "12 August 2026",
+            "title": "A visible return point may make unfinished work easier to leave for now.",
+            "statement": "The After Work practice asks a person to name one unfinished item, write the first visible action for tomorrow and close one work surface.",
+            "evidence_basis": "A deliberately bounded practice design informed by work-recovery and task-closure literature. The action is explicit and user-confirmed.",
+            "limitation": "The current build does not prove that this sequence improves recovery, sleep, stress or productivity. Individual experience may differ.",
+            "source_label": "Read the current record",
+            "source_url": "/pages/finding-001",
+            "practice_label": "Try the practice",
+            "practice_url": "https://app.mirellis.in/?friction=unfinished"
+          }
+        },
+        "stillness_record": {
+          "type": "record",
+          "settings": {
+            "number": "003",
+            "territory": "evening",
+            "status": "Product record",
+            "reviewed": "12 August 2026",
+            "title": "Stillness Elixir is an optional sensory instrument inside an evening ritual.",
+            "statement": "Mirellis presents the product as an externally applied scent-and-touch cue. The app and the After Work practice do not require it.",
+            "evidence_basis": "Product formulation, disclosed ritual instructions and safety information. Traditional use and modern evidence are kept separate.",
+            "limitation": "Stillness Elixir is not a sleep aid, sedative, medical treatment or proven nervous-system intervention. No outcome is guaranteed.",
+            "source_label": "See product and safety information",
+            "source_url": "/products/mirellis-stillness-elixir",
+            "practice_label": "Use the non-product pathway",
+            "practice_url": "/pages/work-to-recovery"
+          }
+        }
+      },
+      "block_order": ["work_observation", "work_practice", "stillness_record"],
+      "settings": {
+        "eyebrow": "THE OBSERVATORY · PUBLIC REGISTER",
+        "heading": "What we can say—and what we cannot yet say.",
+        "body": "Every record shows its present status, evidence basis, limitation and review date. A working observation is not a diagnosis, a product claim or established scientific fact."
+      }
+    },
+    "observatory_hub": {
+      "type": "mirellis-observatory-hub",
+      "settings": {}
+    },
+    "mirellis_community_link": {
+      "type": "mirellis-community-link",
+      "settings": {}
+    }
+  },
+  "order": ["observatory_landing", "evidence_register", "observatory_hub", "mirellis_community_link"]
+}
