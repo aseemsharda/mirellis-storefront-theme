@@ -20,7 +20,7 @@
         "full_width": true,
         "subheading": "Contact · Mirellis",
         "title": "Talk to Mirellis.",
-        "content": "<p>Mirellis studies recurring difficulties around sleep, focus and restoration, and builds practical ways to respond.</p><p>Use this form for research, editorial, practitioner, product or order enquiries. Choose a clear subject and include only the information needed for us to respond.</p><p><strong>Operated by:</strong> Lambda Lifestyle Private Limited<br/><strong>Location:</strong> Gurugram, Haryana, India</p>",
+        "content": "<p>Mirellis studies recurring difficulties around sleep, focus and restoration, and builds practical ways to respond.</p><h2>Contribute during the invited pilot</h2><p>We are preparing two governed contribution formats: Expert Commentary and Evidence Note. Public submissions are not open yet. Use this form to request an invitation or ask about editorial scope.</p><p>Every contribution will require named authorship, sources, relevant conflicts, funding and AI-use disclosure. Nothing submitted is published automatically.</p><p><strong>Operated by:</strong> Lambda Lifestyle Private Limited<br/><strong>Location:</strong> Gurugram, Haryana, India</p>",
         "text_position": "start",
         "contact_form_size": "large",
         "background": "",
@@ -32,7 +32,19 @@
         "contact_text_color": "",
         "button_background": "",
         "button_text_color": ""
-      }
+      },
+      "blocks": {
+        "inquiry_type": {
+          "type": "dropdown",
+          "settings": {
+            "title": "What is this about?",
+            "values": "Editorial contribution,Research question,Practitioner or directory,Product or order,Something else"
+          }
+        }
+      },
+      "block_order": [
+        "inquiry_type"
+      ]
     }
   },
   "order": [

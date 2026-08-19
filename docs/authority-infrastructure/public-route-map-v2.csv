@@ -1,0 +1,17 @@
+destination,label,canonical_url,public_job,phase_2_state
+primary,Start here,/,Problem-first orientation,development-ready
+primary,Observatory,/pages/the-observatory,Single public evidence register,development-ready
+primary,Get help,/pages/what-is-going-on,Choose the nearest current difficulty,development-ready
+primary,Contribute,/pages/contact#contribute,Request an invited-pilot contribution,development-ready
+primary,About,/pages/about,Identity scope and institutional purpose,development-ready
+secondary,Rituals,/pages/transitions,Explore ritual instruments and transition territories,development-ready
+problem-door,Sleep,/sleep,Sleep-specific orientation,retained
+problem-door,Focus,/focus,Focus-specific orientation,retained
+problem-door,Restoration,/restoration,Restoration-specific orientation,retained
+service,Mirellis app,https://app.mirellis.in,Private practical experiences,retained
+service,Directory,https://directory.mirellis.in,Find relevant professional support,retained
+publication,Journal,/blogs/journal,Editorial reporting and context,retained-not-primary
+publication,Method,/pages/the-method,Public method explanation,retained-not-primary
+commerce,Morning Clarity,/products/morning-clarity,Optional ritual instrument,retained-not-primary
+commerce,Stillness Elixir,/products/mirellis-stillness-elixir,Optional ritual instrument,retained-not-primary
+reserved,Contributor studio,https://studio.mirellis.in,Authenticated drafts review and revisions,phase-4-not-published

@@ -1,0 +1,424 @@
+{%- comment -%}
+  MIRELLIS — OBSERVATORY LANDING
+  Identity header · Three pillar cards · Latest articles · Subscribe
+  Companion styles: assets/observatory.css
+{%- endcomment -%}
+
+{{ 'observatory.css' | asset_url | stylesheet_tag }}
+
+<div class="obs-landing">
+
+
+  {%- comment -%} ══ HEADER ══════════════════════════════════ {%- endcomment -%}
+
+  <header class="obs-landing__header">
+    <div class="ml-container-reading">
+      <div class="ml-text-breathing">
+
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="obs-eyebrow ml-supporting-text">
+            {{- section.settings.eyebrow -}}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h1 class="ml-display-heading ml-headline-soft">
+            {{- section.settings.heading -}}
+          </h1>
+        {%- endif -%}
+
+        {%- if section.settings.intro != blank -%}
+          <p class="ml-contemplative-copy ml-copy-soft">
+            {{- section.settings.intro -}}
+          </p>
+        {%- endif -%}
+
+      </div>
+    </div>
+  </header>
+
+
+  {%- comment -%} ══ PILLAR CARDS ════════════════════════════ {%- endcomment -%}
+
+  {%- assign pillar_blocks = section.blocks | where: 'type', 'pillar' -%}
+  {%- if pillar_blocks.size > 0 -%}
+
+    <div class="obs-pillars">
+      <div class="ml-container-cinematic">
+        <div class="obs-pillars__grid ml-soft-grid">
+
+          {%- for block in pillar_blocks -%}
+            <a
+              href="{{ block.settings.link }}"
+              class="obs-pillar ml-soft-hover"
+              {{ block.shopify_attributes }}
+            >
+
+              <p class="obs-pillar__index ml-supporting-text">
+                0{{- forloop.index -}}
+              </p>
+
+              <p class="obs-pillar__transition ml-supporting-text">
+                {{- block.settings.transition_label -}}
+              </p>
+
+              <h2 class="obs-pillar__title ml-section-heading">
+                {{- block.settings.title -}}
+              </h2>
+
+              <p class="obs-pillar__description ml-body-copy">
+                {{- block.settings.description -}}
+              </p>
+
+              <span class="obs-pillar__cta ml-soft-cta">
+                {{- block.settings.cta | default: 'Read the research →' -}}
+              </span>
+
+            </a>
+          {%- endfor -%}
+
+        </div>
+      </div>
+    </div>
+
+  {%- endif -%}
+
+
+  {%- comment -%} ══ LATEST ARTICLES ═════════════════════════ {%- endcomment -%}
+
+  {%- assign obs_blog = blogs[section.settings.blog] -%}
+  {%- if section.settings.show_articles and obs_blog != blank -%}
+
+    <div class="obs-articles">
+      <div class="ml-container-cinematic">
+
+        <div class="obs-articles__header ml-rhythm-soft">
+          {%- if section.settings.articles_eyebrow != blank -%}
+            <p class="obs-eyebrow ml-supporting-text">
+              {{- section.settings.articles_eyebrow -}}
+            </p>
+          {%- endif -%}
+          {%- if section.settings.articles_heading != blank -%}
+            <h2 class="ml-section-heading ml-headline-soft">
+              {{- section.settings.articles_heading -}}
+            </h2>
+          {%- endif -%}
+        </div>
+
+        <div class="obs-articles__grid">
+          {%- for article in obs_blog.articles limit: 3 -%}
+
+            {%- assign word_count = article.content | strip_html | split: ' ' | size -%}
+            {%- assign reading_minutes = word_count | divided_by: 200 | at_least: 1 | at_most: 30 -%}
+
+            <a href="{{ article.url }}" class="obs-article-card ml-soft-hover">
+
+              {%- if article.image != blank -%}
+                <div class="obs-article-card__image">
+                  {{-
+                    article.image
+                    | image_url: width: 900
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '400, 600, 900',
+                      class: 'obs-article-card__img ml-atmospheric-image'
+                  -}}
+                </div>
+              {%- endif -%}
+
+              <div class="obs-article-card__body ml-rhythm-soft">
+
+                {%- if article.tags.size > 0 -%}
+                  <p class="obs-article-card__tag ml-supporting-text">
+                    {{- article.tags.first -}}
+                  </p>
+                {%- endif -%}
+
+                <h3 class="obs-article-card__title">
+                  {{- article.title -}}
+                </h3>
+
+                {%- if article.excerpt != blank -%}
+                  <p class="obs-article-card__excerpt ml-body-copy ml-copy-soft">
+                    {{- article.excerpt | strip_html | truncate: 130 -}}
+                  </p>
+                {%- endif -%}
+
+                <div class="obs-article-card__meta ml-supporting-text">
+                  <span>{{- article.published_at | date: '%B %d, %Y' -}}</span>
+                  <span class="obs-meta-dot" aria-hidden="true">·</span>
+                  <span>{{- reading_minutes -}} min read</span>
+                </div>
+
+              </div>
+
+            </a>
+
+          {%- endfor -%}
+        </div>
+
+        {%- if section.settings.all_articles_label != blank -%}
+          <div class="obs-articles__footer">
+            <a href="{{ obs_blog.url }}" class="obs-view-all ml-soft-cta ml-soft-hover">
+              {{- section.settings.all_articles_label -}}
+            </a>
+          </div>
+        {%- endif -%}
+
+      </div>
+    </div>
+
+  {%- endif -%}
+
+
+  {%- comment -%} ══ SUBSCRIBE ═══════════════════════════════ {%- endcomment -%}
+
+  {%- if section.settings.show_subscribe -%}
+  <div class="obs-subscribe">
+    <div class="ml-container-narrow">
+      <div class="obs-subscribe__inner ml-text-breathing">
+
+        {%- if section.settings.subscribe_eyebrow != blank -%}
+          <p class="obs-eyebrow ml-supporting-text">
+            {{- section.settings.subscribe_eyebrow -}}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.subscribe_heading != blank -%}
+          <h2 class="ml-section-heading ml-headline-soft">
+            {{- section.settings.subscribe_heading -}}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.subscribe_text != blank -%}
+          <p class="ml-body-copy ml-copy-soft">
+            {{- section.settings.subscribe_text -}}
+          </p>
+        {%- endif -%}
+
+        {%- form 'customer', id: 'obs-subscribe-form' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter,observatory-subscriber">
+          <div class="obs-subscribe__form">
+            <label for="obs-email" class="sr-only">
+              {{- section.settings.email_placeholder | default: 'Your email address' -}}
+            </label>
+            <input
+              id="obs-email"
+              type="email"
+              name="contact[email]"
+              placeholder="{{- section.settings.email_placeholder | default: 'Your email address' -}}"
+              class="obs-subscribe__input"
+              required
+              autocomplete="email"
+            >
+            <button type="submit" class="obs-subscribe__button ml-soft-cta">
+              {{- section.settings.subscribe_cta | default: 'Follow the Observatory' -}}
+            </button>
+          </div>
+
+          {%- if form.posted_successfully? -%}
+            <p class="obs-subscribe__success ml-supporting-text ml-copy-soft">
+              {{- section.settings.success_message | default: 'You are now following the Observatory.' -}}
+            </p>
+          {%- endif -%}
+
+          {{- form.errors | default_errors -}}
+        {%- endform -%}
+
+      </div>
+    </div>
+  </div>
+  {%- endif -%}
+
+
+</div>
+
+<style>
+.obs-subscribe__inner .ml-section-heading {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Observatory Landing",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Identity Header"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "THE OBSERVATORY"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A research publication on Human State Transitions."
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro",
+      "default": "Mirellis studies how humans move between states — sleep to wakefulness, work to recovery, stimulation to restoration. The Observatory is where that research is published."
+    },
+    {
+      "type": "header",
+      "content": "Latest Articles"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_articles",
+      "label": "Show latest articles",
+      "default": true
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Observatory blog"
+    },
+    {
+      "type": "text",
+      "id": "articles_eyebrow",
+      "label": "Articles eyebrow",
+      "default": "LATEST RESEARCH"
+    },
+    {
+      "type": "text",
+      "id": "articles_heading",
+      "label": "Articles heading",
+      "default": "Latest from the Observatory"
+    },
+    {
+      "type": "text",
+      "id": "all_articles_label",
+      "label": "View all link label",
+      "default": "View all research →"
+    },
+    {
+      "type": "header",
+      "content": "Subscribe"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_subscribe",
+      "label": "Show subscription form",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "subscribe_eyebrow",
+      "label": "Subscribe eyebrow",
+      "default": "FOLLOW THE RESEARCH"
+    },
+    {
+      "type": "textarea",
+      "id": "subscribe_heading",
+      "label": "Subscribe heading",
+      "default": "Receive new research when it is published."
+    },
+    {
+      "type": "textarea",
+      "id": "subscribe_text",
+      "label": "Subscribe body",
+      "default": "The Observatory publishes slowly and without noise. One piece at a time."
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email placeholder",
+      "default": "Your email address"
+    },
+    {
+      "type": "text",
+      "id": "subscribe_cta",
+      "label": "Button label",
+      "default": "Follow the Observatory"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "You are now following the Observatory."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Pillar Card",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "transition_label",
+          "label": "Transition label",
+          "info": "e.g. Sleep → Wakefulness",
+          "default": "Sleep → Wakefulness"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Pillar title",
+          "default": "Sleep → Wakefulness"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "How the nervous system transitions from sleep to wakefulness, and what disrupts that transition in modern environments."
+        },
+        {
+          "type": "text",
+          "id": "cta",
+          "label": "CTA label",
+          "default": "Read the research →"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Observatory Landing",
+      "blocks": [
+        {
+          "type": "pillar",
+          "settings": {
+            "transition_label": "Sleep → Wakefulness",
+            "title": "Sleep → Wakefulness",
+            "description": "How the nervous system transitions from sleep to wakefulness, and what disrupts that transition in modern environments.",
+            "cta": "Read the research →"
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "transition_label": "Work → Recovery",
+            "title": "Work → Recovery",
+            "description": "How the body transitions from sustained cognitive engagement to genuine recovery, and what prevents that transition from completing.",
+            "cta": "Read the research →"
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "transition_label": "Stimulation → Restoration",
+            "title": "Stimulation → Restoration",
+            "description": "How sensory overload accumulates across the day and how the nervous system returns to a state of restoration.",
+            "cta": "Read the research →"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

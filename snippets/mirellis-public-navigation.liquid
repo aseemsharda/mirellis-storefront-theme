@@ -1,0 +1,60 @@
+{%- liquid
+  assign public_navigation_labels = 'Start here|Observatory|Get help|Contribute|About|Rituals' | split: '|'
+  assign public_navigation_urls = '/|/pages/the-observatory|/pages/what-is-going-on|/pages/contact#contribute|/pages/about|/pages/transitions' | split: '|'
+  assign public_navigation_path = request.path
+  assign show_rituals = include_rituals | default: true, allow_false: true
+-%}
+
+{%- for navigation_label in public_navigation_labels -%}
+  {%- liquid
+    assign navigation_url = public_navigation_urls[forloop.index0]
+    assign navigation_current = false
+    assign navigation_secondary = false
+
+    case forloop.index0
+      when 0
+        if public_navigation_path == routes.root_url
+          assign navigation_current = true
+        endif
+      when 1
+        if public_navigation_path contains '/pages/the-observatory'
+          assign navigation_current = true
+        endif
+      when 2
+        if public_navigation_path contains '/pages/what-is-going-on' or public_navigation_path == '/sleep' or public_navigation_path == '/focus' or public_navigation_path == '/restoration'
+          assign navigation_current = true
+        endif
+      when 3
+        if public_navigation_path contains '/pages/contact'
+          assign navigation_current = true
+        endif
+      when 4
+        if public_navigation_path contains '/pages/about'
+          assign navigation_current = true
+        endif
+      when 5
+        assign navigation_secondary = true
+        if public_navigation_path contains '/pages/transitions'
+          assign navigation_current = true
+        endif
+    endcase
+  -%}
+
+  {%- unless navigation_secondary and show_rituals == false -%}
+    {%- if surface == 'mobile' -%}
+      <li class="h3 sm:h4{% if navigation_secondary %} mirellis-public-nav__secondary{% endif %}">
+        <a href="{{ navigation_url }}" class="group block w-full"{% if navigation_current %} aria-current="page"{% endif %}>
+          <span><span class="reversed-link">{{ navigation_label }}</span></span>
+        </a>
+      </li>
+    {%- elsif surface == 'footer' -%}
+      <li>
+        <a href="{{ navigation_url }}" class="inline-block link-faded break-all"{% if navigation_current %} aria-current="page"{% endif %}>{{ navigation_label }}</a>
+      </li>
+    {%- else -%}
+      <li{% if navigation_secondary %} class="mirellis-public-nav__secondary"{% endif %}>
+        <a href="{{ navigation_url }}" class="bold link-faded-reverse"{% if navigation_current %} aria-current="page"{% endif %}>{{ navigation_label }}</a>
+      </li>
+    {%- endif -%}
+  {%- endunless -%}
+{%- endfor -%}

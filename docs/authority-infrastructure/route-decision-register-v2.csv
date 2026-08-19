@@ -1,0 +1,41 @@
+source,target,decision,reason,state
+/pages/about-1,/pages/about,redirect,Duplicate About page,development-approved
+/pages/about-us,/pages/about,redirect,Duplicate About page,development-approved
+/pages/why-mirellis-exists,/pages/why-we-exist,redirect,Duplicate institutional narrative,development-approved
+/pages/pathway-prototype,/pages/work-to-recovery,redirect,Prototype route has no public role,development-approved
+/pages/assessment,/#today,redirect,Legacy assessment replaced by problem-first entry,development-approved
+/pages/assessment-result,/#today,redirect,Legacy result route has no current product role,development-approved
+/pages/assessment-confirmed,/#today,redirect,Legacy confirmation route has no current product role,development-approved
+/pages/human-state-transitrion-assessment,/#today,redirect,Typo legacy assessment route,development-approved
+/pages/ritual-outcome,/#today,redirect,Legacy result route has no current product role,development-approved
+/pages/sleep-wakefulness,/pages/sleep-to-wakefulness,redirect,Canonical transition route,development-approved
+/pages/sleep-wakefulness-1,/pages/sleep-to-wakefulness,redirect,Duplicate transition route,development-approved
+/pages/work-recovery,/pages/work-to-recovery,redirect,Canonical transition route,development-approved
+/pages/work-recovery-1,/pages/work-to-recovery,redirect,Duplicate transition route,development-approved
+/pages/stimulation-restoration,/pages/stimulation-to-restoration,redirect,Canonical transition route,development-approved
+/pages/stimulation-restoration-1,/pages/stimulation-to-restoration,redirect,Duplicate transition route,development-approved
+/pages/the-observatory-live,/pages/the-observatory,redirect,Duplicate Observatory surface,development-approved
+/pages/observatory,/pages/the-observatory,redirect,Duplicate Observatory surface,development-approved
+/pages/observatory-hub,/pages/the-observatory,redirect,Duplicate Observatory surface,development-approved
+/pages/community,/pages/the-observatory,redirect,Legacy community surface,development-approved
+/pages/community-hub,/pages/the-observatory,redirect,Legacy community surface,development-approved
+/pages/observatory-findings,/pages/the-observatory#evidence-register,redirect,Duplicate Findings directory,development-approved
+/pages/findings-directory,/pages/the-observatory#evidence-register,redirect,Duplicate Findings directory,development-approved
+/pages/observatory-dossiers,/pages/the-observatory,redirect,Legacy Observatory directory,development-approved
+/pages/the-method-1,/pages/the-method,redirect,Duplicate Method page,development-approved
+/pages/the-observatory-mirror,https://app.mirellis.in/?view=record,redirect,Static mirror replaced by private record,development-approved
+/pages/personal-observatory,https://app.mirellis.in/?view=record,redirect,Static mirror replaced by private record,development-approved
+/pages/morning-clarity,/products/morning-clarity,redirect,Duplicate product landing page,development-approved
+/pages/stillness,/products/mirellis-stillness-elixir,redirect,Duplicate product landing page,development-approved
+/pages/stillness-elixir,/products/mirellis-stillness-elixir,redirect,Duplicate product landing page,development-approved
+/pages/rituals-page-using-pagefly,/pages/transitions,redirect,Legacy PageFly route,development-approved
+/pages/rituals-page-using-pagefly-1,/pages/transitions,redirect,Legacy PageFly route,development-approved
+/pages/rituals-page-using-pagefly-2,/pages/transitions,redirect,Legacy PageFly route,development-approved
+/pages/rituals-page-using-pagefly-3,/pages/transitions,redirect,Legacy PageFly route,development-approved
+/pages/rituals-page-using-pagefly-4,/pages/transitions,redirect,Legacy PageFly route,development-approved
+/pages/rituals-page-using-pagefly-5,/pages/transitions,redirect,Legacy PageFly route,development-approved
+/pages/rituals-page-using-pagefly-6,/pages/transitions,redirect,Legacy PageFly route,development-approved
+/pages/rituals-page-using-pagefly-7,/pages/transitions,redirect,Legacy PageFly route,development-approved
+/pages/rituals-page-using-pagefly-8,/pages/transitions,redirect,Legacy PageFly route,development-approved
+/pages/rituals-page-using-pagefly-9,/pages/transitions,redirect,Legacy PageFly route,development-approved
+/pages/rituals-page-using-pagefly-10,/pages/transitions,redirect,Legacy PageFly route,development-approved

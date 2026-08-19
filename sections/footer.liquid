@@ -61,18 +61,22 @@
                     {%- endif -%}
 
                     <ul class="v-stack gap-3" role="list">
-                      {%- for link in block.settings.menu.links -%}
-                        {%- liquid
-                          assign footer_link_title = link.title
-                          assign footer_link_title_downcase = link.title | downcase
-                          if link.url contains 'app.mirellis.in' and footer_link_title_downcase == 'after work'
-                            assign footer_link_title = 'Mirellis app'
-                          endif
-                        -%}
-                        <li>
-                          <a href="{{ link.url }}" class="inline-block link-faded break-all">{{ footer_link_title }}</a>
-                        </li>
-                      {%- endfor -%}
+                      {%- if block.settings.menu_title == 'Explore' -%}
+                        {%- render 'mirellis-public-navigation', surface: 'footer', include_rituals: false -%}
+                      {%- else -%}
+                        {%- for link in block.settings.menu.links -%}
+                          {%- liquid
+                            assign footer_link_title = link.title
+                            assign footer_link_title_downcase = link.title | downcase
+                            if link.url contains 'app.mirellis.in' and footer_link_title_downcase == 'after work'
+                              assign footer_link_title = 'Mirellis app'
+                            endif
+                          -%}
+                          <li>
+                            <a href="{{ link.url }}" class="inline-block link-faded break-all">{{ footer_link_title }}</a>
+                          </li>
+                        {%- endfor -%}
+                      {%- endif -%}
                     </ul>
                   </div>
                 {%- endif -%}

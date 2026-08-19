@@ -100,7 +100,7 @@ the underlying logic of the menu.
             <nav class="header__link-list {% if section.settings.layout == 'logo_left_navigation_center' %}justify-center{% endif %} wrap" role="navigation">
               <ul class="contents" role="list">
                 {%- if section.settings.use_problem_navigation -%}
-                  {%- render 'mirellis-problem-navigation' -%}
+                  {%- render 'mirellis-public-navigation', surface: 'desktop' -%}
                 {%- elsif section.settings.menu.links.size > 0 -%}
                 {%- for link in section.settings.menu.links -%}
                   {% liquid
@@ -262,7 +262,7 @@ the underlying logic of the menu.
           {%- if shop.customer_accounts_enabled -%}
             <li>
               <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="hidden tap-area sm:block">
-                <span class="sr-only">{% if customer %}{{ 'header.general.account' | t }}{% else %}{{ 'header.general.login' | t }}{% endif %}</span>
+                <span class="sr-only">Shop account</span>
                 {%- render 'icon' with 'account' -%}
               </a>
             </li>
@@ -384,7 +384,7 @@ the underlying logic of the menu.
     {
       "type": "checkbox",
       "id": "use_problem_navigation",
-      "label": "Use Mirellis problem navigation",
+      "label": "Use Mirellis public navigation",
       "default": false
     },
     {

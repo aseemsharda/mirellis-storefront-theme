@@ -1,0 +1,61 @@
+{%- liquid
+  assign governed_canonical = canonical_url
+  assign governed_noindex = false
+
+  if request.page_type == 'page'
+    case page.handle
+      when 'about-1', 'about-us'
+        assign governed_canonical = shop.url | append: '/pages/about'
+        assign governed_noindex = true
+      when 'why-mirellis-exists'
+        assign governed_canonical = shop.url | append: '/pages/why-we-exist'
+        assign governed_noindex = true
+      when 'pathway-prototype', 'work-recovery', 'work-recovery-1'
+        assign governed_canonical = shop.url | append: '/pages/work-to-recovery'
+        assign governed_noindex = true
+      when 'assessment', 'assessment-result', 'assessment-confirmed', 'human-state-transitrion-assessment', 'ritual-outcome'
+        assign governed_canonical = shop.url | append: '/#today'
+        assign governed_noindex = true
+      when 'sleep-wakefulness', 'sleep-wakefulness-1'
+        assign governed_canonical = shop.url | append: '/pages/sleep-to-wakefulness'
+        assign governed_noindex = true
+      when 'stimulation-restoration', 'stimulation-restoration-1'
+        assign governed_canonical = shop.url | append: '/pages/stimulation-to-restoration'
+        assign governed_noindex = true
+      when 'the-observatory-live', 'observatory', 'observatory-hub', 'observatory-dossiers', 'community', 'community-hub'
+        assign governed_canonical = shop.url | append: '/pages/the-observatory'
+        assign governed_noindex = true
+      when 'observatory-findings', 'findings-directory'
+        assign governed_canonical = shop.url | append: '/pages/the-observatory'
+        assign governed_noindex = true
+      when 'the-method-1'
+        assign governed_canonical = shop.url | append: '/pages/the-method'
+        assign governed_noindex = true
+      when 'the-observatory-mirror', 'personal-observatory'
+        assign governed_canonical = 'https://app.mirellis.in/?view=record'
+        assign governed_noindex = true
+      when 'morning-clarity'
+        assign governed_canonical = shop.url | append: '/products/morning-clarity'
+        assign governed_noindex = true
+      when 'stillness', 'stillness-elixir'
+        assign governed_canonical = shop.url | append: '/products/mirellis-stillness-elixir'
+        assign governed_noindex = true
+      when 'rituals-page-using-pagefly', 'rituals-page-using-pagefly-1', 'rituals-page-using-pagefly-2', 'rituals-page-using-pagefly-3', 'rituals-page-using-pagefly-4', 'rituals-page-using-pagefly-5', 'rituals-page-using-pagefly-6', 'rituals-page-using-pagefly-7', 'rituals-page-using-pagefly-8', 'rituals-page-using-pagefly-9', 'rituals-page-using-pagefly-10'
+        assign governed_canonical = shop.url | append: '/pages/transitions'
+        assign governed_noindex = true
+    endcase
+  endif
+
+  if request.page_type == 'article'
+    assign high_risk_article_handles = ',finding-calm-the-transformative-benefits-of-ashwagandha-for-stress-relief,transform-your-life-the-power-of-daily-rituals,unlock-the-secrets-to-restorative-sleep-your-ayurvedic-guide,harmonizing-health-the-role-of-music-and-sound-in-ayurvedic-healing-and-wellness,the-ultimate-guide-to-oil-pulling-ancient-wisdom-for-modern-health,sleep-oil-myths-debunked-what-really-works-for-deep-sleep,sleep-is-a-nervous-system-problem-how-essential-oils-calms-the-body-to-help-you-truly-rest,oil-pulling-is-an-ancient-ayurvedic-practice-that-can-promote-oral-health-and-overall-wellness,evening-rituals-for-sleep-sleep-amp-restorative-practices,the-science-of-ritual-how-environment-shapes-the-nervous-system,why-modern-life-keeps-the-brain-in-stimulation-mode,why-screens-and-artificial-light-delay-deep-sleep,why-the-nervous-system-needs-predictability-to-feel-safe,why-you-feel-tired-but-cannot-sleep,why-your-mind-races-at-night,why-modern-life-keeps-the-nervous-system-in-stimulation-mode,the-science-of-morning-rituals-how-your-first-signals-shape-the-nervous-system,the-oral-gut-brain-connection,why-slow-mornings-change-the-nervous-system,why-morning-predictability-affects-emotional-state,why-your-brain-feels-foggy-in-the-morning,modern-life-rarely-gives-the-nervous-system-a-clear-ending,why-the-nervous-system-depends-on-rhythms-of-recovery,how-modern-environments-disrupt-the-nervous-system-s-sense-of-time,how-visual-density-and-modern-environments-shape-the-nervous-system,how-repeated-sensory-rituals-shape-the-nervous-system,why-your-brain-turns-on-the-moment-you-get-into-bed,the-cortisol-awakening-response-why-the-first-30-minutes-matter-most,phone-first-mornings-what-happens-to-the-nervous-system-when-the-screen-comes-first,oil-pulling-and-the-oral-gut-brain-axis,how-circadian-rhythm-shapes-the-quality-of-waking,the-parasympathetic-shift-why-the-body-struggles-to-leave-work,evening-rituals-and-nervous-system-downregulation,'
+    assign delimited_article_handle = ',' | append: article.handle | append: ','
+    if high_risk_article_handles contains delimited_article_handle
+      assign governed_noindex = true
+    endif
+  endif
+-%}
+
+<link rel="canonical" href="{{ governed_canonical }}">
+{%- if governed_noindex -%}
+  <meta name="robots" content="noindex,follow">
+{%- endif -%}

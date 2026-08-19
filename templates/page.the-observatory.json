@@ -29,7 +29,9 @@
         "subscribe_text":"No daily content promise and no urgency. Mirellis publishes when a record is ready to be read.",
         "email_placeholder":"Your email address",
         "subscribe_cta":"Follow the Observatory",
-        "success_message":"You are now following the Observatory."
+        "success_message":"You are now following the Observatory.",
+        "show_articles":false,
+        "show_subscribe":false
       }
     },
     "evidence_register": {
@@ -42,23 +44,13 @@
       "block_order": ["work_observation","work_practice","stillness_record"],
       "settings": {
         "eyebrow":"THE OBSERVATORY · PUBLIC REGISTER",
-        "heading":"What we can say—and what we cannot yet say.",
+        "heading":"Current public records, with their limits visible.",
         "body":"Every record shows its present status, evidence basis, limitation and review date. A working observation is not a diagnosis, a product claim or established scientific fact."
       }
-    },
-    "observatory_hub": {
-      "type": "mirellis-observatory-hub",
-      "settings": {}
-    },
-    "mirellis_community_link": {
-      "type": "mirellis-community-link",
-      "settings": {}
     }
   },
   "order": [
     "observatory_landing",
-    "evidence_register",
-    "observatory_hub",
-    "mirellis_community_link"
+    "evidence_register"
   ]
 }

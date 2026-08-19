@@ -1,0 +1,41 @@
+Redirect from,Redirect to,Reason,Review status
+/pages/about-1,/pages/about,Duplicate about page,proposed
+/pages/about-us,/pages/about,Duplicate about page,proposed
+/pages/why-mirellis-exists,/pages/why-we-exist,Duplicate institutional narrative,proposed
+/pages/pathway-prototype,/pages/work-to-recovery,Prototype route must not remain public,proposed
+/pages/assessment,/#today,Legacy assessment replaced by problem-first Today,proposed
+/pages/assessment-result,/#today,Legacy assessment result has no current product role,proposed
+/pages/assessment-confirmed,/#today,Legacy assessment confirmation has no current product role,proposed
+/pages/human-state-transitrion-assessment,/#today,Typo legacy assessment route,proposed
+/pages/ritual-outcome,/#today,Legacy assessment outcome route,proposed
+/pages/sleep-wakefulness,/pages/sleep-to-wakefulness,Canonical transition URL,proposed
+/pages/sleep-wakefulness-1,/pages/sleep-to-wakefulness,Duplicate transition URL,proposed
+/pages/work-recovery,/pages/work-to-recovery,Canonical transition URL,proposed
+/pages/work-recovery-1,/pages/work-to-recovery,Duplicate transition URL,proposed
+/pages/stimulation-restoration,/pages/stimulation-to-restoration,Canonical transition URL,proposed
+/pages/stimulation-restoration-1,/pages/stimulation-to-restoration,Duplicate transition URL,proposed
+/pages/the-observatory-live,/pages/the-observatory,Duplicate Observatory page,proposed
+/pages/observatory,/pages/the-observatory,Duplicate Observatory page,proposed
+/pages/observatory-hub,/pages/the-observatory,Duplicate Observatory page,proposed
+/pages/community,/pages/the-observatory,Legacy community page; observations remain governed inside the Observatory,proposed
+/pages/community-hub,/pages/the-observatory,Legacy community page; observations remain governed inside the Observatory,proposed
+/pages/observatory-findings,/pages/the-observatory#evidence-register,Duplicate finding directory,proposed
+/pages/findings-directory,/pages/the-observatory#evidence-register,Duplicate finding directory,proposed
+/pages/observatory-dossiers,/pages/the-observatory,Legacy Observatory directory,proposed
+/pages/the-method-1,/pages/the-method,Duplicate Method page,proposed
+/pages/the-observatory-mirror,https://app.mirellis.in/?view=record,Static mirror replaced by genuine private record,proposed
+/pages/personal-observatory,https://app.mirellis.in/?view=record,Static Observatory page replaced by genuine private record,proposed
+/pages/morning-clarity,/products/morning-clarity,Duplicate product landing page,proposed
+/pages/stillness,/products/mirellis-stillness-elixir,Duplicate product landing page,proposed
+/pages/stillness-elixir,/products/mirellis-stillness-elixir,Duplicate product landing page,proposed
+/pages/rituals-page-using-pagefly,/pages/transitions,Legacy PageFly duplicate,proposed
+/pages/rituals-page-using-pagefly-1,/pages/transitions,Legacy PageFly duplicate,proposed
+/pages/rituals-page-using-pagefly-2,/pages/transitions,Legacy PageFly duplicate,proposed
+/pages/rituals-page-using-pagefly-3,/pages/transitions,Legacy PageFly duplicate,proposed
+/pages/rituals-page-using-pagefly-4,/pages/transitions,Legacy PageFly duplicate,proposed
+/pages/rituals-page-using-pagefly-5,/pages/transitions,Legacy PageFly duplicate,proposed
+/pages/rituals-page-using-pagefly-6,/pages/transitions,Legacy PageFly duplicate,proposed
+/pages/rituals-page-using-pagefly-7,/pages/transitions,Legacy PageFly duplicate,proposed
+/pages/rituals-page-using-pagefly-8,/pages/transitions,Legacy PageFly duplicate,proposed
+/pages/rituals-page-using-pagefly-9,/pages/transitions,Legacy PageFly duplicate,proposed
+/pages/rituals-page-using-pagefly-10,/pages/transitions,Legacy PageFly duplicate,proposed
