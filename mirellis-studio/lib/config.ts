@@ -1,11 +1,14 @@
 export function studioConfig() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+  const vercelUrl = process.env.VERCEL_URL;
   return {
     url,
     key,
     configured: Boolean(url && key),
-    siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+    siteUrl:
+      process.env.NEXT_PUBLIC_SITE_URL ??
+      (vercelUrl ? `https://${vercelUrl}` : "http://localhost:3000"),
   };
 }
 

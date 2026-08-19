@@ -124,7 +124,7 @@ Still required before live deployment:
 
 ## Phase 4 — authenticated contributor/editor studio
 
-Status: implementation complete locally; infrastructure connection and pilot verification remain withheld.
+Status: implementation complete; dedicated development infrastructure and protected preview verified in Phase 5.
 
 Changes:
 
@@ -148,12 +148,36 @@ Local verification evidence:
 - At 1440px and 390px the sign-in surface has no horizontal overflow; all visible mobile interactive targets meet 44 × 44px minimums.
 - The mobile composition preserves the brand, trust boundary and invitation context without competing header controls.
 
-Still required before Phase 5 or any preview deployment:
+Phase 4's infrastructure and pilot gates are now recorded under Phase 5. No `studio.mirellis.in` DNS record, public-site link or production deployment has been created.
 
-- Create a dedicated Supabase development project; do not reuse the directory project.
-- Apply the migration to development and run Supabase database/security advisors.
-- Configure exact Site URL, preview redirect URL and custom SMTP.
-- Provision separate contributor and editor test identities through the trusted control plane.
-- Execute the cross-user RLS, private-note, rejected-transition, session, email-link and full workflow test matrix against the real development database.
-- Complete keyboard focus verification across authenticated screens and a screen-reader announcement walkthrough.
-- No Vercel project, `studio.mirellis.in` DNS record, public link or live deployment has been created.
+## Phase 5 — free development infrastructure and invited pilot
+
+Status: complete on protected development infrastructure; not live.
+
+Changes:
+
+- The unused Supabase ECOS project was permanently deleted with the owner's approval. Mirellis Directory and the inactive Lambda project were not changed.
+- A dedicated Supabase Free project, `mirellis-studio-dev` (`cunxljvxlrnfutdcxxhc`), now holds the Studio development schema in Mumbai.
+- All seven tables have row-level security. Hosted default API privileges were revoked and replaced with bounded role and column grants.
+- Public sign-up is disabled. The app uses invitation-only one-time email links and returns the same check-email state for known and unknown addresses.
+- The auth callback now handles Supabase's default implicit email link as well as PKCE and token-hash links, then removes credentials from the visible URL.
+- A separate Vercel Free project, `mirellis-studio`, hosts a protected preview only. It has no production target, public alias, custom domain or Shopify connection.
+- Supabase's Site URL and wildcard callback allow-list point to the protected preview family. Development credentials exist only in Vercel Preview and Development environments.
+
+Pilot evidence:
+
+- A real contributor one-time link completed in the protected preview and reached the contributor workspace.
+- Under the actual Postgres `authenticated` role, a contributor created and submitted a valid Evidence Note; an editor started review, saved a private review and accepted it.
+- The contributor could immediately see the public decision and audit history, but could not see the private review, editor profile or restricted decision fields.
+- Direct contributor attempts to insert an editorial decision or overwrite submitted text were rejected. Anonymous table reads were rejected before row-level policy evaluation.
+- Acceptance did not publish or mutate any Shopify content.
+- `npm run validate:phase4`, `npm run lint`, `npm run build` and `npm audit --audit-level=moderate` pass; the dependency audit reports zero vulnerabilities.
+- The latest Supabase security advisor reports only leaked-password protection. Supabase limits that control to paid plans; the Free pilot avoids password entry, disables public sign-up and uses one-time links.
+- Performance advisors report only unused-index information expected in a new pilot database; the missing-index and duplicate-policy findings were resolved.
+
+Boundaries before Phase 6:
+
+- The preview remains invitation-only and protected by Vercel Authentication.
+- Default Supabase email delivery is rate-limited and suitable only for a small internal pilot. Custom SMTP is intentionally deferred because the current requirement is zero cost.
+- Complete a human keyboard and assistive-technology walkthrough with both roles once the email rate window permits a fresh editor link.
+- Do not create `studio.mirellis.in`, add public navigation or begin outreach without a separate launch approval.

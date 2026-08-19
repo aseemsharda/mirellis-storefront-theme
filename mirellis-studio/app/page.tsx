@@ -36,7 +36,7 @@ export default async function SignInPage({
         <div className="panel-inner">
           <p className="eyebrow">Invitation only</p>
           <h2 id="signin-title">Enter the studio</h2>
-          <p>We will send a one-time sign-in link. No password is stored by Mirellis.</p>
+          <p>We will email a one-time sign-in link. You do not need a password.</p>
           {reason === "expired" && (
             <p className="notice notice-error" role="alert">
               That sign-in link is invalid or has expired. Request a new one below.
