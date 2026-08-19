@@ -9,7 +9,8 @@
     "claims:audit:metadata": "PATH=\"$PWD/.tooling/node-v22.12.0-darwin-arm64/bin:$PATH\" node scripts/audit-public-claims.mjs --metadata-only --sitemap-file deliverables/launch-readiness-audit-2026-08-13/sitemap-blogs.xml --out-dir docs/governance/generated",
     "phase0:check": "PATH=\"$PWD/.tooling/node-v22.12.0-darwin-arm64/bin:$PATH\" node scripts/validate-phase-0.mjs",
     "authority:phase1:check": "PATH=\"$PWD/.tooling/node-v22.12.0-darwin-arm64/bin:$PATH\" node scripts/validate-authority-phase-1.mjs",
-    "authority:phase2:check": "PATH=\"$PWD/.tooling/node-v22.12.0-darwin-arm64/bin:$PATH\" node scripts/validate-authority-phase-2.mjs"
+    "authority:phase2:check": "PATH=\"$PWD/.tooling/node-v22.12.0-darwin-arm64/bin:$PATH\" node scripts/validate-authority-phase-2.mjs",
+    "authority:phase3:check": "PATH=\"$PWD/.tooling/node-v22.12.0-darwin-arm64/bin:$PATH\" node scripts/validate-authority-phase-3.mjs"
   },
   "devDependencies": {
     "@shopify/cli": "^4.6.0"

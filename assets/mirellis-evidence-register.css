@@ -28,6 +28,66 @@
   line-height: 1.75;
 }
 
+.mer__governance {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  margin-top: 2.5rem;
+  padding: clamp(1.3rem, 3vw, 2.2rem);
+  border: 1px solid var(--ml-color-border-soft);
+  background: rgba(255, 255, 255, .22);
+}
+
+.mer__governance h3 {
+  max-width: 24ch;
+  margin: .6rem 0 .9rem;
+  font-family: var(--font-heading-family);
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.mer__governance p {
+  margin: 0;
+  color: var(--ml-color-text-secondary);
+  line-height: 1.65;
+}
+
+.mer__standards {
+  align-self: start;
+  border-top: 1px solid var(--ml-color-border-soft);
+  border-bottom: 1px solid var(--ml-color-border-soft);
+}
+
+.mer__standards summary,
+.mer__citation summary {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: 650;
+}
+
+.mer__standards summary::after,
+.mer__citation summary::after {
+  content: "+";
+  margin-left: 1rem;
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+
+.mer__standards[open] summary::after,
+.mer__citation[open] summary::after {
+  content: "−";
+}
+
+.mer__standards-body {
+  display: grid;
+  gap: 1rem;
+  padding: .4rem 0 1.3rem;
+}
+
 .mer__filters {
   display: flex;
   flex-wrap: wrap;
@@ -54,7 +114,10 @@
 }
 
 .mer__filter:focus-visible,
-.mer__link:focus-visible {
+.mer__link:focus-visible,
+.mer__anchor:focus-visible,
+.mer__standards summary:focus-visible,
+.mer__citation summary:focus-visible {
   outline: 2px solid var(--ml-color-muted-earth);
   outline-offset: 4px;
 }
@@ -81,6 +144,28 @@
   background: var(--ml-color-linen-cream);
 }
 
+.mer__record:target {
+  border-color: var(--ml-color-muted-earth);
+  box-shadow: inset 0 0 0 1px var(--ml-color-muted-earth);
+}
+
+.mer__record-topline {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.mer__anchor {
+  display: inline-flex;
+  min-height: 44px;
+  flex: 0 0 auto;
+  align-items: center;
+  color: var(--ml-color-text-soft);
+  font-size: .72rem;
+  text-underline-offset: 4px;
+}
+
 .mer__meta,
 .mer__label {
   margin: 0;
@@ -92,13 +177,42 @@
   text-transform: uppercase;
 }
 
-.mer__record h2 {
+.mer__record h3 {
   max-width: 22ch;
   margin: 1.2rem 0;
   font-family: var(--font-heading-family);
   font-size: clamp(1.45rem, 2.4vw, 2rem);
   font-weight: 400;
   line-height: 1.2;
+}
+
+.mer__record-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .85rem 1.2rem;
+  margin: 0;
+  padding: 1rem 0;
+  border-top: 1px solid var(--ml-color-border-soft);
+  border-bottom: 1px solid var(--ml-color-border-soft);
+}
+
+.mer__record-meta div {
+  min-width: 0;
+}
+
+.mer__record-meta dt {
+  color: var(--ml-color-muted-earth);
+  font-size: .64rem;
+  font-weight: 650;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.mer__record-meta dd {
+  margin: .25rem 0 0;
+  color: var(--ml-color-text-secondary);
+  font-size: .82rem;
+  line-height: 1.45;
 }
 
 .mer__statement {
@@ -120,6 +234,46 @@
   line-height: 1.55;
 }
 
+.mer__sources {
+  display: grid;
+  gap: 1rem;
+  margin: .7rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.mer__sources li {
+  color: var(--ml-color-text-secondary);
+  font-size: .88rem;
+  line-height: 1.55;
+}
+
+.mer__sources a {
+  color: var(--ml-color-soft-charcoal);
+  text-underline-offset: 3px;
+}
+
+.mer__sources p,
+.mer__disclosures p {
+  margin: .35rem 0 0;
+  color: var(--ml-color-text-secondary);
+  font-size: .84rem;
+  line-height: 1.55;
+}
+
+.mer__citation {
+  margin-top: 1rem;
+  border-top: 1px solid var(--ml-color-border-soft);
+  border-bottom: 1px solid var(--ml-color-border-soft);
+}
+
+.mer__citation p {
+  margin: 0;
+  padding: .35rem 0 1rem;
+  color: var(--ml-color-text-secondary);
+  font-size: .82rem;
+  line-height: 1.55;
+}
+
 .mer__links {
   display: flex;
   flex-wrap: wrap;
@@ -138,8 +292,14 @@
 }
 
 @media (max-width: 760px) {
+  .mer__governance { grid-template-columns: 1fr; }
   .mer__grid { grid-template-columns: 1fr; }
   .mer__record { min-height: 0; }
+}
+
+@media (max-width: 480px) {
+  .mer__record-topline { align-items: flex-start; }
+  .mer__record-meta { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -87,7 +87,37 @@ Still required before live deployment:
 
 ## Later phases
 
-- Phase 3: citation-ready records and public editorial governance.
+## Phase 3 — citation-ready records and editorial governance
+
+Status: complete on development theme `144948297794`; not live.
+
+Scope:
+
+- Convert the three reviewed Observatory entries into stable, versioned and independently citable public records.
+- Publish source scope, limitations, accountable authorship, exact review level, interests, funding and material AI assistance on each record.
+- Add human-readable citations, stable anchors and `CreativeWork` structured data without implying journal publication or clinical evidence.
+- Publish a proportionate editorial policy covering record types, evidence, authorship, conflicts, AI, corrections, retirement and submission confidentiality.
+- Preserve the Phase 2 two-part Observatory architecture and the invited-pilot contribution boundary.
+
+Verification evidence:
+
+- Phase 3, Phase 2, Phase 1 and Phase 0 automated validations pass together.
+- The assigned Observatory template renders exactly three governed records with stable anchors `record-001` through `record-003`.
+- Each record exposes version, publication date, last review, next review, accountable institutional author, exact internal review level, source scope, limitation, interests/funding, AI assistance, change note and a human-readable citation.
+- The rendered `ItemList` structured data parses successfully and contains three `CreativeWork` entries with stable canonical URLs, dates, versions and source citations.
+- Work-ending filtering displays records 001 and 002 and announces “Showing 2 work ending records” through the existing live status region.
+- Editorial standards open as a native disclosure control; controls expose explicit focus styling and minimum 44px targets.
+- At 390px the register, record anchors, disclosures, metadata and source links remain inside the viewport without horizontal overflow.
+- All three permanent record anchors, the Work → Recovery provenance page, Stillness Elixir product record and the correction/contact anchor resolve on the development theme.
+- Shopify Theme Check continues to fail on inherited dormant/legacy files, including missing image dimensions and a Liquid syntax error in `sections/mirellis-recognition.liquid`. No Theme Check finding was reported for the Phase 3 evidence-register section, stylesheet or Observatory templates.
+
+Still required before live deployment:
+
+- A human editorial owner must approve the three record wordings and disclosures.
+- External subject-matter or methods review must be labelled only after it actually occurs.
+- The full authenticated submission, review, decision and audit trail remains Phase 4.
+- No redirect import or live-theme publication is authorized by this checkpoint.
+
 - Phase 4: authenticated contributor/editor studio.
 - Phase 5: security, accessibility and invited-contributor pilot.
 - Phase 6: outreach campaign infrastructure.

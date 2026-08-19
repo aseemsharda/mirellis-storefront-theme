@@ -1,10 +1,28 @@
 {{ 'mirellis-evidence-register.css' | asset_url | stylesheet_tag }}
 
-<section class="mer" id="evidence-register-{{ section.id }}" aria-labelledby="mer-heading-{{ section.id }}">
+<section class="mer" id="evidence-register-{{ section.id }}" aria-labelledby="mer-heading-{{ section.id }}" data-mirellis-view-event="evidence_register_view" data-mirellis-context="observatory">
   <div class="mer__inner">
     <p class="mer__meta">{{ section.settings.eyebrow }}</p>
     <h2 class="mer__heading" id="mer-heading-{{ section.id }}">{{ section.settings.heading }}</h2>
     <p class="mer__lead">{{ section.settings.body }}</p>
+
+    <aside class="mer__governance" aria-labelledby="mer-governance-heading-{{ section.id }}">
+      <div>
+        <p class="mer__meta">HOW TO READ THE REGISTER</p>
+        <h3 id="mer-governance-heading-{{ section.id }}">Status is a boundary, not a score.</h3>
+        <p>A working observation describes a bounded pattern. A practice hypothesis names something worth testing. A product record documents an instrument and Mirellis’s commercial interest. None of these labels means clinical proof.</p>
+      </div>
+      <details class="mer__standards">
+        <summary>Editorial standards and corrections</summary>
+        <div class="mer__standards-body">
+          <p><strong>Sources.</strong> Each record says what its sources support and what they do not. Association is not presented as causation, and a design rationale is not presented as clinical evidence.</p>
+          <p><strong>Accountability.</strong> Authorship, review level, relevant interests, funding and material AI assistance remain visible. Internal editorial review is never called peer review.</p>
+          <p><strong>Submissions.</strong> A submission is confidential, does not imply acceptance and is not uploaded into an external AI system without explicit permission and suitable safeguards.</p>
+          <p><strong>Changes.</strong> Material corrections increment the version and remain visible. Unsupported records are marked Under review or Retired rather than silently rewritten.</p>
+          <a class="mer__link" href="/pages/contact#contribute">Question or challenge a record</a>
+        </div>
+      </details>
+    </aside>
 
     <div class="mer__filters" role="group" aria-label="Filter Observatory records">
       <button class="mer__filter" type="button" data-mer-filter="all" aria-pressed="true">All records</button>
@@ -16,21 +34,104 @@
 
     <div class="mer__grid">
       {% for block in section.blocks %}
-        <article class="mer__record" data-mer-record="{{ block.settings.territory }}" {{ block.shopify_attributes }}>
-          <p class="mer__meta">Record {{ block.settings.number }} · {{ block.settings.status }} · reviewed {{ block.settings.reviewed }}</p>
-          <h2>{{ block.settings.title }}</h2>
+        {%- liquid
+          assign record_id = 'record-' | append: block.settings.number | handleize
+          assign record_url = shop.url | append: '/pages/the-observatory#' | append: record_id
+        -%}
+        <article id="{{ record_id }}" class="mer__record" data-mer-record="{{ block.settings.territory }}" aria-labelledby="{{ record_id }}-title" {{ block.shopify_attributes }}>
+          <div class="mer__record-topline">
+            <p class="mer__meta">Record {{ block.settings.number }} · {{ block.settings.status }}</p>
+            <a class="mer__anchor" href="#{{ record_id }}" aria-label="Permanent link to record {{ block.settings.number }}">Permanent link</a>
+          </div>
+          <h3 id="{{ record_id }}-title">{{ block.settings.title }}</h3>
           <p class="mer__statement">{{ block.settings.statement }}</p>
+
+          <dl class="mer__record-meta">
+            <div><dt>Version</dt><dd>{{ block.settings.version }}</dd></div>
+            <div><dt>Published</dt><dd>{{ block.settings.published }}</dd></div>
+            <div><dt>Last reviewed</dt><dd>{{ block.settings.reviewed }}</dd></div>
+            <div><dt>Next review</dt><dd>{{ block.settings.next_review }}</dd></div>
+            <div><dt>Author</dt><dd>{{ block.settings.author }}</dd></div>
+            <div><dt>Review</dt><dd>{{ block.settings.reviewer }}</dd></div>
+          </dl>
+
           <div class="mer__detail"><p class="mer__label">Evidence basis</p><p>{{ block.settings.evidence_basis }}</p></div>
           <div class="mer__detail"><p class="mer__label">Limit</p><p>{{ block.settings.limitation }}</p></div>
+
+          {% if block.settings.source_1_citation != blank %}
+            <div class="mer__detail">
+              <p class="mer__label">Sources and provenance</p>
+              <ol class="mer__sources">
+                <li>
+                  <a data-mirellis-event="evidence_record_open" data-mirellis-context="{{ block.settings.number }}-source-1" href="{{ block.settings.source_1_url }}">{{ block.settings.source_1_citation }}</a>
+                  {% if block.settings.source_1_scope != blank %}<p>{{ block.settings.source_1_scope }}</p>{% endif %}
+                </li>
+                {% if block.settings.source_2_citation != blank %}
+                  <li>
+                    <a data-mirellis-event="evidence_record_open" data-mirellis-context="{{ block.settings.number }}-source-2" href="{{ block.settings.source_2_url }}">{{ block.settings.source_2_citation }}</a>
+                    {% if block.settings.source_2_scope != blank %}<p>{{ block.settings.source_2_scope }}</p>{% endif %}
+                  </li>
+                {% endif %}
+              </ol>
+            </div>
+          {% endif %}
+
+          <div class="mer__detail mer__disclosures">
+            <p class="mer__label">Disclosures</p>
+            <p><strong>Interests and funding:</strong> {{ block.settings.disclosure }}</p>
+            <p><strong>AI assistance:</strong> {{ block.settings.ai_disclosure }}</p>
+            {% if block.settings.change_note != blank %}<p><strong>Change note:</strong> {{ block.settings.change_note }}</p>{% endif %}
+          </div>
+
+          <details class="mer__citation">
+            <summary>How to cite this record</summary>
+            <p>{{ block.settings.author }}. “{{ block.settings.title }}” Mirellis Observatory, Record {{ block.settings.number }}, version {{ block.settings.version }}, reviewed {{ block.settings.reviewed }}. {{ record_url }}</p>
+          </details>
+
           <div class="mer__links">
-            {% if block.settings.source_url != blank %}<a class="mer__link" data-mirellis-event="evidence_record_open" href="{{ block.settings.source_url }}">{{ block.settings.source_label | default: 'Read the record' }}</a>{% endif %}
-            {% if block.settings.practice_url != blank %}<a class="mer__link" data-mirellis-event="evidence_practice_open" href="{{ block.settings.practice_url }}">{{ block.settings.practice_label | default: 'Use the related practice' }}</a>{% endif %}
+            {% if block.settings.practice_url != blank %}<a class="mer__link" data-mirellis-event="evidence_practice_open" data-mirellis-context="{{ block.settings.number }}" href="{{ block.settings.practice_url }}">{{ block.settings.practice_label | default: 'Use the related practice' }}</a>{% endif %}
+            <a class="mer__link" href="/pages/contact#contribute">Question this record</a>
           </div>
         </article>
       {% endfor %}
     </div>
   </div>
 </section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Mirellis Observatory public records",
+  "url": {{ shop.url | append: '/pages/the-observatory' | json }},
+  "itemListElement": [
+    {% for block in section.blocks %}
+      {%- liquid
+        assign structured_record_id = 'record-' | append: block.settings.number | handleize
+        assign structured_record_url = shop.url | append: '/pages/the-observatory#' | append: structured_record_id
+      -%}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.index }},
+        "item": {
+          "@type": "CreativeWork",
+          "@id": {{ structured_record_url | json }},
+          "url": {{ structured_record_url | json }},
+          "headline": {{ block.settings.title | json }},
+          "version": {{ block.settings.version | json }},
+          "datePublished": {{ block.settings.published_iso | json }},
+          "dateModified": {{ block.settings.reviewed_iso | json }},
+          "author": { "@type": "Organization", "name": {{ block.settings.author | json }} },
+          "publisher": { "@type": "Organization", "name": "Mirellis", "url": {{ shop.url | json }} },
+          "citation": [
+            {% if block.settings.source_1_citation != blank %}{ "@type": "CreativeWork", "name": {{ block.settings.source_1_citation | json }}, "url": {{ block.settings.source_1_url | json }} }{% endif %}{% if block.settings.source_2_citation != blank %},{ "@type": "CreativeWork", "name": {{ block.settings.source_2_citation | json }}, "url": {{ block.settings.source_2_url | json }} }{% endif %}
+          ]
+        }
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
 
 <script>
 (() => {
@@ -69,13 +170,27 @@
         { "type": "text", "id": "number", "label": "Record number" },
         { "type": "select", "id": "territory", "label": "Territory", "options": [{"value":"morning","label":"Morning beginning"},{"value":"work","label":"Work ending"},{"value":"evening","label":"Evening quieting"}] },
         { "type": "select", "id": "status", "label": "Status", "options": [{"value":"Working observation","label":"Working observation"},{"value":"Practice hypothesis","label":"Practice hypothesis"},{"value":"Under review","label":"Under review"},{"value":"Product record","label":"Product record"},{"value":"Retired","label":"Retired"}] },
+        { "type": "text", "id": "version", "label": "Version", "default": "1.0" },
+        { "type": "text", "id": "published", "label": "Published date" },
+        { "type": "text", "id": "published_iso", "label": "Published date (YYYY-MM-DD)" },
         { "type": "text", "id": "reviewed", "label": "Reviewed date" },
+        { "type": "text", "id": "reviewed_iso", "label": "Reviewed date (YYYY-MM-DD)" },
+        { "type": "text", "id": "next_review", "label": "Next review" },
+        { "type": "text", "id": "author", "label": "Accountable author" },
+        { "type": "text", "id": "reviewer", "label": "Review level and owner" },
         { "type": "text", "id": "title", "label": "Title" },
         { "type": "textarea", "id": "statement", "label": "Public statement" },
         { "type": "textarea", "id": "evidence_basis", "label": "Evidence basis" },
         { "type": "textarea", "id": "limitation", "label": "Limitation" },
-        { "type": "text", "id": "source_label", "label": "Source label" },
-        { "type": "url", "id": "source_url", "label": "Source URL" },
+        { "type": "textarea", "id": "source_1_citation", "label": "Source 1 citation" },
+        { "type": "url", "id": "source_1_url", "label": "Source 1 URL" },
+        { "type": "textarea", "id": "source_1_scope", "label": "Source 1 scope" },
+        { "type": "textarea", "id": "source_2_citation", "label": "Source 2 citation" },
+        { "type": "url", "id": "source_2_url", "label": "Source 2 URL" },
+        { "type": "textarea", "id": "source_2_scope", "label": "Source 2 scope" },
+        { "type": "textarea", "id": "disclosure", "label": "Interests and funding disclosure" },
+        { "type": "textarea", "id": "ai_disclosure", "label": "AI disclosure" },
+        { "type": "textarea", "id": "change_note", "label": "Material change note" },
         { "type": "text", "id": "practice_label", "label": "Practice label" },
         { "type": "url", "id": "practice_url", "label": "Practice URL" }
       ]
