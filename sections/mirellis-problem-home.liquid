@@ -1,0 +1,46 @@
+{{ 'mirellis-problem-home.css' | asset_url | stylesheet_tag }}
+
+<main class="mph" id="mirellis-problem-home-{{ section.id }}">
+  <section class="mph-intro" aria-labelledby="mph-home-title">
+    <div class="mph-shell mph-intro__inner">
+      <div>
+        <h1 id="mph-home-title">Mirellis — for people who can't sleep, switch off, or focus.</h1>
+        <p class="mph-intro__subhead">Understand what's happening. Find help.</p>
+      </div>
+      <nav class="mph-doors" aria-label="Choose a starting point">
+        <a class="mph-door" href="/sleep"><span class="mph-door__title">I can't sleep</span><span class="mph-door__detail">Racing thoughts</span><span class="mph-door__arrow" aria-hidden="true">→</span></a>
+        <a class="mph-door" href="/focus"><span class="mph-door__title">I can't focus</span><span class="mph-door__detail">Brain fog</span><span class="mph-door__arrow" aria-hidden="true">→</span></a>
+        <a class="mph-door" href="/restoration"><span class="mph-door__title">I have nothing left</span><span class="mph-door__detail">No drive</span><span class="mph-door__arrow" aria-hidden="true">→</span></a>
+      </nav>
+      <a class="mph-escape" href="/what-is-going-on">Not sure? <span aria-hidden="true">→</span>&nbsp;Help me work it out</a>
+    </div>
+  </section>
+
+  <section class="mph-section mph-section--soft" aria-labelledby="mph-help-title">
+    <div class="mph-shell">
+      <div class="mph-section__intro">
+        <p class="mph-kicker">Start where you are</p>
+        <h2 id="mph-help-title">Three ways to get help.</h2>
+      </div>
+      <div class="mph-help-grid">
+        <article class="mph-help-card"><h3>A guided practice</h3><p>Choose the moment that is difficult now: waking, focusing, leaving work or preparing for sleep.</p><a class="mph-link" href="https://app.mirellis.in">Open the Mirellis app <span aria-hidden="true">→</span></a></article>
+        <article class="mph-help-card"><h3>Someone who actually knows</h3><p>Doctors, researchers and practitioners for sleep, stress and focus—with credentials, fees and direct contact.</p><a class="mph-link" href="https://directory.mirellis.in">Browse the directory <span aria-hidden="true">→</span></a></article>
+        <article class="mph-help-card"><h3>Understand what's happening</h3><p>Read the Observatory, Findings and Journal for a clearer account of what may be going on.</p><a class="mph-link" href="/blogs/journal">Explore the Journal <span aria-hidden="true">→</span></a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="mph-section" aria-labelledby="mph-about-title">
+    <div class="mph-shell mph-about">
+      <p class="mph-kicker">Why Mirellis exists</p>
+      <h2 id="mph-about-title">Getting help should not require translating your problem first.</h2>
+      <p>We make a clearer starting point for people whose sleep, attention or capacity has become hard to recognise.</p>
+      <a class="mph-link" href="/pages/about">About Mirellis <span aria-hidden="true">→</span></a>
+      <p class="mph-directory-note">The directory includes only people and places running a named programme for sleep, stress, focus or recovery.</p>
+    </div>
+  </section>
+</main>
+
+{% schema %}
+{"name":"Problem-first homepage","settings":[],"presets":[{"name":"Problem-first homepage"}]}
+{% endschema %}

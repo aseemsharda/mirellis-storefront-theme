@@ -1,0 +1,42 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "contact": {
+      "type": "contact",
+      "settings": {
+        "full_width": true,
+        "subheading": "Contact · Mirellis",
+        "title": "Talk to Mirellis.",
+        "content": "<p>Mirellis studies recurring difficulties around sleep, focus and restoration, and builds practical ways to respond.</p><p>Use this form for research, editorial, practitioner, product or order enquiries. Choose a clear subject and include only the information needed for us to respond.</p><p><strong>Operated by:</strong> Lambda Lifestyle Private Limited<br/><strong>Location:</strong> Gurugram, Haryana, India</p>",
+        "text_position": "start",
+        "contact_form_size": "large",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "contact_background": "",
+        "contact_text_color": "",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "contact"
+  ]
+}

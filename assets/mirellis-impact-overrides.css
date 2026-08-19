@@ -1,0 +1,543 @@
+/* =========================================================
+   MIRELLIS — IMPACT OVERRIDES
+   EMOTIONAL NEUTRALIZATION LAYER
+   ========================================================= */
+
+
+/* =========================================================
+   GLOBAL MOTION SOFTENING
+   ========================================================= */
+
+* {
+
+  transition-timing-function:
+    var(--ml-ease-atmospheric);
+
+}
+
+
+/* =========================================================
+   REMOVE AGGRESSIVE REVEAL ENERGY
+   ========================================================= */
+
+.reveal,
+.scroll-trigger,
+[data-animate],
+.appear-animation {
+
+  transition-duration:
+    var(--ml-motion-atmospheric) !important;
+
+  transition-timing-function:
+    var(--ml-ease-atmospheric) !important;
+
+}
+
+
+/* =========================================================
+   SOFTEN TRANSFORM DISTANCE
+   ========================================================= */
+
+.reveal--fade,
+.reveal-fade,
+.scroll-trigger.animate--slide-in {
+
+  transform:
+    translateY(12px) !important;
+
+}
+
+
+/* =========================================================
+   BUTTON NEUTRALIZATION
+   ========================================================= */
+
+.button,
+.btn,
+.shopify-payment-button__button {
+
+  background:
+    transparent !important;
+
+  color:
+    var(--ml-color-soft-charcoal) !important;
+
+  border:
+    1px solid rgba(46,43,40,0.14) !important;
+
+  border-radius:
+    var(--ml-radius-soft-xl) !important;
+
+  box-shadow:
+    none !important;
+
+  letter-spacing:
+    0.01em !important;
+
+  transition:
+    background-color var(--ml-motion-medium)
+    var(--ml-ease-soft),
+
+    border-color var(--ml-motion-medium)
+    var(--ml-ease-soft),
+
+    color var(--ml-motion-medium)
+    var(--ml-ease-soft),
+
+    opacity var(--ml-motion-medium)
+    var(--ml-ease-soft),
+
+    transform var(--ml-motion-medium)
+    var(--ml-ease-soft) !important;
+
+}
+
+
+/* =========================================================
+   BUTTON HOVER SOFTNESS
+   ========================================================= */
+
+.button:hover,
+.btn:hover,
+.shopify-payment-button__button:hover {
+
+  background:
+    rgba(255,255,255,0.22) !important;
+
+  border-color:
+    rgba(46,43,40,0.22) !important;
+
+  transform:
+    translateY(-1px) !important;
+
+}
+
+
+/* =========================================================
+   REMOVE HARD SCALE HOVERS
+   ========================================================= */
+
+.card:hover,
+.product-card:hover,
+.collection-card:hover,
+.image-hover-scale:hover {
+
+  transform:
+    none !important;
+
+}
+
+
+/* =========================================================
+   PRODUCT CARD RESTRAINT
+   ========================================================= */
+
+.card,
+.product-card,
+.collection-card {
+
+  border-radius:
+    var(--ml-radius-soft-lg);
+
+  overflow:
+    hidden;
+
+  box-shadow:
+    var(--ml-shadow-atmospheric-sm);
+
+  transition:
+    box-shadow var(--ml-motion-medium)
+    var(--ml-ease-soft),
+
+    opacity var(--ml-motion-medium)
+    var(--ml-ease-soft) !important;
+
+}
+
+
+/* =========================================================
+   PRODUCT CARD HOVER ATMOSPHERE
+   ========================================================= */
+
+.card:hover,
+.product-card:hover,
+.collection-card:hover {
+
+  box-shadow:
+    var(--ml-shadow-atmospheric-md);
+
+}
+
+
+/* =========================================================
+   TYPOGRAPHY SOFTENING
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+  letter-spacing:
+    var(--ml-letter-breathing);
+
+  line-height:
+    1.12;
+
+}
+
+
+/* =========================================================
+   BODY COPY BREATHING
+   ========================================================= */
+
+p {
+
+  line-height:
+    var(--ml-leading-body);
+
+}
+
+
+/* =========================================================
+   SECTION SPACING CORRECTION
+   ========================================================= */
+
+.shopify-section {
+
+  position:
+    relative;
+
+}
+
+
+/* =========================================================
+   GLOBAL SCENE BREATHING
+   ========================================================= */
+
+.section,
+.shopify-section {
+
+  margin-top:
+    0 !important;
+
+  margin-bottom:
+    0 !important;
+
+}
+
+
+/* =========================================================
+   SOFTEN CONTAINER PRESSURE
+   ========================================================= */
+
+.page-width,
+.container,
+.section__wrapper {
+
+  max-width:
+    var(--ml-container-cinematic);
+
+  padding-left:
+    var(--ml-container-padding-desktop);
+
+  padding-right:
+    var(--ml-container-padding-desktop);
+
+}
+
+
+/* =========================================================
+   REMOVE VISUAL HARSHNESS
+   ========================================================= */
+
+img,
+video {
+
+  border-radius:
+    min(
+      var(--ml-radius-soft-md),
+      1.8vw
+    );
+
+}
+
+
+/* =========================================================
+   IMAGE ATMOSPHERIC SOFTNESS
+   ========================================================= */
+
+img {
+
+  filter:
+    saturate(0.96)
+    contrast(0.97);
+
+}
+
+
+/* =========================================================
+   NAVIGATION SOFTENING
+   ========================================================= */
+
+.header,
+.header-wrapper {
+
+  background:
+    rgba(246,241,232,0.72) !important;
+
+  backdrop-filter:
+    blur(12px);
+
+  border-bottom:
+    1px solid rgba(46,43,40,0.04);
+
+}
+
+
+/* =========================================================
+   HEADER LINK RESTRAINT
+   ========================================================= */
+
+.header__menu-item,
+.header__menu-item span,
+.header__inline-menu a {
+
+  transition:
+    opacity var(--ml-motion-medium)
+    var(--ml-ease-soft),
+
+    color var(--ml-motion-medium)
+    var(--ml-ease-soft);
+
+}
+
+.header__menu-item:hover,
+.header__inline-menu a:hover {
+
+  opacity:
+    0.72;
+
+}
+
+
+/* =========================================================
+   DRAWER SOFTNESS
+   ========================================================= */
+
+.drawer,
+.menu-drawer,
+.predictive-search {
+
+  background:
+    var(--ml-color-warm-paper);
+
+  border:
+    none;
+
+  box-shadow:
+    var(--ml-shadow-soft-depth);
+
+}
+
+
+/* =========================================================
+   INPUT FIELD SOFTNESS
+   ========================================================= */
+
+input,
+textarea,
+select {
+
+  border-radius:
+    var(--ml-radius-soft-md);
+
+  border:
+    1px solid rgba(46,43,40,0.08);
+
+  background:
+    rgba(255,255,255,0.42);
+
+}
+
+
+/* =========================================================
+   FORM INTERACTION RESTRAINT
+   ========================================================= */
+
+input:focus,
+textarea:focus,
+select:focus {
+
+  outline:
+    none;
+
+  border-color:
+    rgba(46,43,40,0.16);
+
+  box-shadow:
+    0 0 0 3px rgba(216,198,177,0.12);
+
+}
+
+
+/* =========================================================
+   REDUCE SHARP DIVIDERS
+   ========================================================= */
+
+hr,
+.section-divider {
+
+  border-color:
+    rgba(46,43,40,0.06);
+
+}
+
+
+/* =========================================================
+   MOBILE DECOMPRESSION
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+
+  .page-width,
+  .container,
+  .section__wrapper {
+
+    padding-left:
+      var(--ml-container-padding-mobile);
+
+    padding-right:
+      var(--ml-container-padding-mobile);
+
+  }
+
+  .button,
+  .btn {
+
+    min-height:
+      52px;
+
+  }
+
+  p {
+
+    line-height:
+      2;
+
+  }
+
+}
+
+
+/* =========================================================
+   REMOVE EXCESSIVE PARALLAX
+   ========================================================= */
+
+.parallax,
+.media--hover-effect,
+.banner--zoom {
+
+  transform:
+    none !important;
+
+}
+
+
+/* =========================================================
+   SOFTEN ANNOUNCEMENT BAR
+   ========================================================= */
+
+.announcement-bar {
+
+  background:
+    rgba(239,231,219,0.72);
+
+  color:
+    var(--ml-color-text-secondary);
+
+}
+
+
+/* =========================================================
+   REMOVE HARD ECOMMERCE ENERGY
+   ========================================================= */
+
+.badge,
+.price-badge,
+.sale-badge {
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(216,198,177,0.18);
+
+  color:
+    var(--ml-color-text-secondary);
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  * {
+
+    animation:
+      none !important;
+
+    transition-duration:
+      0ms !important;
+
+  }
+
+}
+
+
+/* =========================================================
+   HEADER FIT — KEEP THE FULL NAVIGATION INSIDE THE VIEWPORT
+   ========================================================= */
+
+@media screen and (min-width: 1150px) and (max-width: 1399px) {
+
+  .header {
+
+    --header-part-gap: var(--spacing-3);
+    --header-icon-list-spacing: var(--spacing-3);
+    --header-link-list-spacing: var(--spacing-4);
+
+  }
+
+  .header__wrapper {
+
+    padding-inline:
+      clamp(1.25rem, 2.5vw, 2rem);
+
+  }
+
+  .header__link-list a,
+  .header__link-list summary,
+  .header__link-list button {
+
+    font-size:
+      0.78rem;
+
+    white-space:
+      nowrap;
+
+  }
+
+  .header__secondary-nav [class*="md:block"] {
+
+    display:
+      none;
+
+  }
+
+}
