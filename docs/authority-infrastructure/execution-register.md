@@ -121,3 +121,39 @@ Still required before live deployment:
 - Phase 4: authenticated contributor/editor studio.
 - Phase 5: security, accessibility and invited-contributor pilot.
 - Phase 6: outreach campaign infrastructure.
+
+## Phase 4 — authenticated contributor/editor studio
+
+Status: implementation complete locally; infrastructure connection and pilot verification remain withheld.
+
+Changes:
+
+- A separate `mirellis-studio` Next.js application now implements the reserved `studio.mirellis.in` surface without changing Shopify, the consumer app or the directory.
+- Sign-in is invitation-only and passwordless. Unknown email addresses cannot create users, and an authenticated identity without a provisioned studio profile receives no workspace access.
+- Contributors can create structured Evidence Note or Expert Commentary drafts, map sources to supported and unsupported claims, record contribution roles and disclose funding, interests and material AI assistance.
+- Contributors can save, resume, submit, resubmit after a requested revision or withdraw. They cannot promote their own status or edit submitted text.
+- Editors receive a bounded review queue, can start review, keep editor-private checklist notes and issue contributor-visible revision, hold, accept or decline decisions.
+- Private editor notes are stored in a separate table that contributors cannot select.
+- Database triggers enforce role-specific state transitions and write an append-only audit event for every status change.
+- The document bucket is private and constrained by user-prefix storage policies. The application contains no service-role key.
+- Acceptance is deliberately not publication. There is no code path that mutates the public Shopify Observatory.
+- The studio declares `noindex`, `nofollow` and `nocache` and is not linked from the public site.
+
+Local verification evidence:
+
+- `npm run lint` passes.
+- `npm run build` passes on Next.js 16.3.1 and TypeScript 5.9.3.
+- `npm audit` reports zero known vulnerabilities after the pinned install.
+- The rendered unconfigured state fails closed: authentication fields and actions are disabled and no workspace route is available.
+- At 1440px and 390px the sign-in surface has no horizontal overflow; all visible mobile interactive targets meet 44 × 44px minimums.
+- The mobile composition preserves the brand, trust boundary and invitation context without competing header controls.
+
+Still required before Phase 5 or any preview deployment:
+
+- Create a dedicated Supabase development project; do not reuse the directory project.
+- Apply the migration to development and run Supabase database/security advisors.
+- Configure exact Site URL, preview redirect URL and custom SMTP.
+- Provision separate contributor and editor test identities through the trusted control plane.
+- Execute the cross-user RLS, private-note, rejected-transition, session, email-link and full workflow test matrix against the real development database.
+- Complete keyboard focus verification across authenticated screens and a screen-reader announcement walkthrough.
+- No Vercel project, `studio.mirellis.in` DNS record, public link or live deployment has been created.
