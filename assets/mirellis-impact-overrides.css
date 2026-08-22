@@ -3,6 +3,32 @@
    EMOTIONAL NEUTRALIZATION LAYER
    ========================================================= */
 
+.mirellis-footer-mission {
+  max-width: 680px;
+  margin-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+.mirellis-footer-mission__brand {
+  margin: 0 0 0.8rem;
+  color: var(--ml-color-soft-charcoal);
+  font-family: var(--font-heading-family);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.mirellis-footer-mission > p:not(.mirellis-footer-mission__brand):not(.mirellis-footer-mission__note) {
+  max-width: 42rem;
+  margin: 0;
+  color: var(--ml-color-text-secondary);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.7;
+}
+
+.mirellis-footer-mission .mirellis-footer-mission__note {
+  margin: 0.9rem 0 0;
+  color: var(--ml-color-muted-earth);
+  font-size: 0.78rem;
+}
+
 
 /* =========================================================
    GLOBAL MOTION SOFTENING

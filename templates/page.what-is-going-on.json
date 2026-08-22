@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "navigator": {
+      "type": "mirellis-problem-hub",
+      "blocks": {
+        "sleep": {"type":"link","settings":{"title":"Sleep is hard","body":"I cannot settle, wake in the night, snore, or never feel refreshed.","url":"/sleep"}},
+        "focus": {"type":"link","settings":{"title":"Focus is hard","body":"I have brain fog, cannot start, forget things, or keep losing attention.","url":"/focus"}},
+        "restoration": {"type":"link","settings":{"title":"I have nothing left","body":"I cannot switch off, have no drive, or rest does not restore me.","url":"/restoration"}}
+      },
+      "block_order": ["sleep","focus","restoration"],
+      "settings": {
+        "eyebrow":"A starting point",
+        "heading":"What feels closest right now?",
+        "body":"<p>Choose the nearest description. You do not need to know the diagnosis or the professional title before you begin, and you can change direction at any time.</p>",
+        "primary_label":"Use the guided concern navigator",
+        "primary_url":"https://directory.mirellis.in/problems/navigator",
+        "secondary_label":"Browse all concerns",
+        "secondary_url":"https://directory.mirellis.in/problems",
+        "list_heading":"Begin with the part of the day that is difficult",
+        "note":"Mirellis provides orientation and navigation. It does not diagnose or replace medical care."
+      }
+    }
+  },
+  "order": ["navigator"]
+}

@@ -442,6 +442,55 @@
 .mph-closing h2 { max-width: 17ch; margin-inline: auto; }
 .mph-actions--center { justify-content: center; margin-top: 2rem; }
 
+.mph-hub-hero {
+  padding-block: clamp(5rem, 11vw, 9rem) clamp(4.5rem, 9vw, 7.5rem);
+  background:
+    radial-gradient(circle at 84% 18%, rgba(166, 111, 94, 0.12), transparent 28rem),
+    var(--mph-cream);
+}
+
+.mph-hub-hero h1 { max-width: 16ch; }
+.mph-hub-hero__body { max-width: 46rem; margin-top: 1.6rem; color: var(--mph-muted); font-size: clamp(1.05rem, 1.7vw, 1.3rem); line-height: 1.7; }
+.mph-hub-hero__body p { margin: 0; }
+.mph-hub-hero .mph-actions { margin-top: 2rem; }
+
+.mph-card-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2.25rem;
+}
+
+.mph-card-list__item {
+  position: relative;
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.4rem, 3vw, 2.25rem);
+  border: 1px solid var(--mph-line);
+  border-radius: 0.9rem;
+  background: rgba(255, 250, 243, 0.74);
+  color: var(--mph-ink);
+  text-decoration: none;
+}
+
+.mph-card-list__item:hover { border-color: rgba(78, 67, 56, 0.42); }
+.mph-card-list__item h3 { max-width: 18ch; margin: 0 0 0.85rem; font-size: clamp(1.5rem, 2.5vw, 2.05rem); }
+.mph-card-list__item p { max-width: 34rem; margin: 0; color: var(--mph-muted); font-size: 0.93rem; line-height: 1.65; }
+.mph-card-list__arrow { margin-top: auto; padding-top: 1.5rem; color: var(--mph-clay); font-size: 1.25rem; }
+
+.mph-notice {
+  max-width: 58rem;
+  margin: 0;
+  padding: 1.25rem 1.4rem;
+  border: 1px solid var(--mph-line);
+  border-radius: 0.75rem;
+  background: rgba(160, 111, 79, 0.07);
+  color: var(--mph-muted);
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
 .mph a:focus-visible {
   outline: 3px solid #8d553f;
   outline-offset: 4px;
@@ -462,6 +511,7 @@
   .mph-concern-card + .mph-concern-card { border-left: 0; }
   .mph-pathway-grid { grid-template-columns: 1fr; }
   .mph-pathway-card { min-height: 400px; }
+  .mph-card-list { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 599px) {
@@ -480,6 +530,8 @@
   .mph-pathway-card__topline { margin-bottom: 5rem; }
   .mph-specialist__steps li { gap: 0.9rem; }
   .mph-actions--center { align-items: stretch; }
+  .mph-hub-hero { padding-block: 4.25rem 4.75rem; }
+  .mph-card-list__item { min-height: 210px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "focus_hub": {
+      "type": "mirellis-problem-hub",
+      "blocks": {
+        "start": {"type":"link","settings":{"title":"I stare at the screen and cannot start","body":"The task is there, but beginning feels unusually difficult.","url":"https://directory.mirellis.in/problems/stare-at-screen-nothing-happens"}},
+        "attention": {"type":"link","settings":{"title":"My attention keeps disappearing","body":"You switch constantly, check automatically, or cannot stay with one thing.","url":"https://directory.mirellis.in/problems/attention-span-shrinking"}},
+        "fog": {"type":"link","settings":{"title":"My thinking feels foggy","body":"Thoughts feel slow, unclear, or harder to organise than usual.","url":"https://directory.mirellis.in/problems/brain-fog"}},
+        "changed": {"type":"link","settings":{"title":"I used to be sharp. Something changed.","body":"A noticeable change in attention or cognition is worth taking seriously.","url":"https://directory.mirellis.in/problems/sharp-before-not-now"}}
+      },
+      "block_order": ["start","attention","fog","changed"],
+      "settings": {
+        "eyebrow":"Focus",
+        "heading":"When focus has become hard to find.",
+        "body":"<p>Distraction, brain fog, difficulty starting, and a noticeable cognitive change may need different routes. Begin with what you can observe rather than trying to label yourself.</p>",
+        "primary_label":"Find a focus specialist",
+        "primary_url":"https://directory.mirellis.in/practitioners?focus=focus",
+        "secondary_label":"Help me choose",
+        "secondary_url":"https://directory.mirellis.in/problems/navigator",
+        "list_heading":"What feels closest?",
+        "note":"Focus difficulties can have many causes. Mirellis does not diagnose ADHD, cognitive decline, burnout, or another condition from a webpage."
+      }
+    }
+  },
+  "order": ["focus_hub"]
+}

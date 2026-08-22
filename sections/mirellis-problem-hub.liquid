@@ -1,0 +1,47 @@
+{{ 'mirellis-problem-home.css' | asset_url | stylesheet_tag }}
+
+<main class="mph" id="mirellis-problem-hub-{{ section.id }}">
+  <section class="mph-hub-hero" aria-labelledby="mph-hub-title">
+    <div class="mph-shell">
+      {% if section.settings.eyebrow != blank %}<p class="mph-kicker">{{ section.settings.eyebrow }}</p>{% endif %}
+      <h1 id="mph-hub-title">{{ section.settings.heading }}</h1>
+      {% if section.settings.body != blank %}<div class="mph-hub-hero__body">{{ section.settings.body }}</div>{% endif %}
+      {% if section.settings.primary_label != blank %}<div class="mph-actions"><a class="mph-button" href="{{ section.settings.primary_url }}">{{ section.settings.primary_label }}</a>{% if section.settings.secondary_label != blank %}<a class="mph-button mph-button--quiet" href="{{ section.settings.secondary_url }}">{{ section.settings.secondary_label }}</a>{% endif %}</div>{% endif %}
+    </div>
+  </section>
+
+  {% if section.blocks.size > 0 %}
+    <section class="mph-section mph-section--soft" aria-labelledby="mph-hub-start-title">
+      <div class="mph-shell">
+        <p class="mph-kicker">Choose a starting point</p>
+        <h2 id="mph-hub-start-title">{{ section.settings.list_heading }}</h2>
+        <div class="mph-card-list">
+          {% for block in section.blocks %}
+            <a class="mph-card-list__item" href="{{ block.settings.url }}" {{ block.shopify_attributes }}><h3>{{ block.settings.title }}</h3><p>{{ block.settings.body }}</p><span class="mph-card-list__arrow" aria-hidden="true">→</span></a>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  {% if section.settings.note != blank %}<section class="mph-section"><div class="mph-shell"><p class="mph-notice">{{ section.settings.note }}</p></div></section>{% endif %}
+</main>
+
+{% schema %}
+{
+  "name":"Problem hub",
+  "settings":[
+    {"type":"text","id":"eyebrow","label":"Eyebrow"},
+    {"type":"textarea","id":"heading","label":"Heading"},
+    {"type":"richtext","id":"body","label":"Introduction"},
+    {"type":"text","id":"primary_label","label":"Primary action label"},
+    {"type":"url","id":"primary_url","label":"Primary action URL"},
+    {"type":"text","id":"secondary_label","label":"Secondary action label"},
+    {"type":"url","id":"secondary_url","label":"Secondary action URL"},
+    {"type":"textarea","id":"list_heading","label":"List heading"},
+    {"type":"textarea","id":"note","label":"Note"}
+  ],
+  "blocks":[{"type":"link","name":"Starting point","settings":[{"type":"text","id":"title","label":"Title"},{"type":"textarea","id":"body","label":"Description"},{"type":"url","id":"url","label":"URL"}]}],
+  "presets":[{"name":"Problem hub"}]
+}
+{% endschema %}

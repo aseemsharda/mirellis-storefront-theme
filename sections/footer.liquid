@@ -17,6 +17,11 @@
 <div class="footer">
   <div class="container">
     <div class="footer__wrapper">
+      <div class="mirellis-footer-mission">
+        <p class="mirellis-footer-mission__brand">Mirellis</p>
+        <p>Mirellis helps people in India understand what is happening with their sleep, focus, and restoration—and find the right help.</p>
+        <p class="mirellis-footer-mission__note">Information and navigation, not diagnosis or medical advice.</p>
+      </div>
       {%- comment -%}
       ------------------------------------------------------------------------------------------------------------------
       BLOCK AREA
@@ -61,8 +66,25 @@
                     {%- endif -%}
 
                     <ul class="v-stack gap-3" role="list">
-                      {%- if block.settings.menu_title == 'Explore' -%}
-                        {%- render 'mirellis-public-navigation', surface: 'footer', include_rituals: false -%}
+                      {%- if block.settings.menu_title == 'Understand' -%}
+                        <li><a href="/sleep" class="inline-block link-faded break-all">Sleep</a></li>
+                        <li><a href="/focus" class="inline-block link-faded break-all">Focus</a></li>
+                        <li><a href="/restoration" class="inline-block link-faded break-all">Restoration</a></li>
+                        <li><a href="/pages/understand" class="inline-block link-faded break-all">Understand what is happening</a></li>
+                        <li><a href="/blogs/journal" class="inline-block link-faded break-all">Journal</a></li>
+                      {%- elsif block.settings.menu_title == 'Get help' -%}
+                        <li><a href="https://directory.mirellis.in" class="inline-block link-faded break-all">Find a specialist</a></li>
+                        <li><a href="https://directory.mirellis.in/problems/navigator" class="inline-block link-faded break-all">Help me choose</a></li>
+                        <li><a href="https://app.mirellis.in" class="inline-block link-faded break-all">After Work</a></li>
+                      {%- elsif block.settings.menu_title == 'About' -%}
+                        <li><a href="/pages/about" class="inline-block link-faded break-all">About Mirellis</a></li>
+                        <li><a href="/pages/why-we-exist" class="inline-block link-faded break-all">Why we exist</a></li>
+                        <li><a href="/pages/how-we-work" class="inline-block link-faded break-all">How we work</a></li>
+                        <li><a href="/pages/contact" class="inline-block link-faded break-all">Contact</a></li>
+                      {%- elsif block.settings.menu_title == 'More' -%}
+                        <li><a href="/collections/all" class="inline-block link-faded break-all">Shop</a></li>
+                        <li><a href="/policies/privacy-policy" class="inline-block link-faded break-all">Privacy</a></li>
+                        <li><a href="/policies/terms-of-service" class="inline-block link-faded break-all">Terms</a></li>
                       {%- else -%}
                         {%- for link in block.settings.menu.links -%}
                           {%- liquid

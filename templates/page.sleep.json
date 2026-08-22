@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "sleep_hub": {
+      "type": "mirellis-problem-hub",
+      "blocks": {
+        "thoughts": {"type":"link","settings":{"title":"My mind races when I lie down","body":"You are tired, but your thoughts become louder at bedtime.","url":"https://directory.mirellis.in/problems/mind-races-at-bedtime"}},
+        "waking": {"type":"link","settings":{"title":"I wake in the night","body":"You fall asleep, then wake and struggle to return.","url":"https://directory.mirellis.in/problems/wake-at-3am"}},
+        "unrefreshed": {"type":"link","settings":{"title":"I sleep, but never feel restored","body":"The hours may look sufficient, but you still wake exhausted.","url":"https://directory.mirellis.in/problems/sleep-eight-hours-still-tired"}},
+        "snoring": {"type":"link","settings":{"title":"I snore, gasp, or stop breathing","body":"This deserves clinical attention rather than another sleep tip.","url":"https://directory.mirellis.in/problems/snoring-gasping"}}
+      },
+      "block_order": ["thoughts","waking","unrefreshed","snoring"],
+      "settings": {
+        "eyebrow":"Sleep",
+        "heading":"When sleep will not come—or does not restore you.",
+        "body":"<p>Falling asleep, waking through the night, snoring, and waking exhausted are not the same problem. Begin with the closest description. Mirellis will show you what the concern may involve and who commonly works with it.</p>",
+        "primary_label":"Find a sleep specialist",
+        "primary_url":"https://directory.mirellis.in/practitioners?focus=sleep",
+        "secondary_label":"Help me choose",
+        "secondary_url":"https://directory.mirellis.in/problems/navigator",
+        "list_heading":"What feels closest?",
+        "note":"These pages provide orientation, not diagnosis. Seek urgent medical help for severe breathing difficulty, chest pain, loss of consciousness, or immediate danger."
+      }
+    }
+  },
+  "order": ["sleep_hub"]
+}

@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "restoration_hub": {
+      "type": "mirellis-problem-hub",
+      "blocks": {
+        "work": {"type":"link","settings":{"title":"Work is over, but I am still in it","body":"Your body has left the desk, but your attention has not.","url":"https://directory.mirellis.in/problems/cant-switch-off-after-work"}},
+        "drive": {"type":"link","settings":{"title":"I have no drive left","body":"Starting even ordinary things feels much harder than it used to.","url":"https://directory.mirellis.in/problems/no-drive-left"}},
+        "weekend": {"type":"link","settings":{"title":"Weekends do not restore me","body":"Time away happens, but recovery never seems to arrive.","url":"https://directory.mirellis.in/problems/weekends-dont-restore"}},
+        "rest": {"type":"link","settings":{"title":"Rest itself feels impossible","body":"Stopping creates agitation, guilt, or an immediate need to fill the space.","url":"https://directory.mirellis.in/problems/rest-feels-impossible"}}
+      },
+      "block_order": ["work","drive","weekend","rest"],
+      "settings": {
+        "eyebrow":"Restoration",
+        "heading":"When rest is no longer giving anything back.",
+        "body":"<p>Being unable to switch off, losing drive, and never feeling restored can overlap without being identical. Begin with the experience that is most present now.</p>",
+        "primary_label":"Find someone who works with this",
+        "primary_url":"https://directory.mirellis.in/practitioners?focus=restoration",
+        "secondary_label":"Use After Work tonight",
+        "secondary_url":"https://app.mirellis.in",
+        "list_heading":"What feels closest?",
+        "note":"After Work is a practical tool, not treatment. Persistent exhaustion, major changes in mood, or safety concerns deserve qualified care."
+      }
+    }
+  },
+  "order": ["restoration_hub"]
+}
