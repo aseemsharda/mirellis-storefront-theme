@@ -1,6 +1,6 @@
 {%- liquid
   assign public_navigation_labels = 'Start here|Observatory|Get help|Contribute|About|Rituals' | split: '|'
-  assign public_navigation_urls = '/|/pages/the-observatory|/pages/what-is-going-on|/pages/contact#contribute|/pages/about|/pages/transitions' | split: '|'
+  assign public_navigation_urls = '/|/pages/the-observatory|/what-is-going-on|/pages/contact#contribute|/pages/about|/pages/transitions' | split: '|'
   assign public_navigation_path = request.path
   assign show_rituals = include_rituals | default: true, allow_false: true
 -%}
@@ -21,7 +21,7 @@
           assign navigation_current = true
         endif
       when 2
-        if public_navigation_path contains '/pages/what-is-going-on' or public_navigation_path == '/sleep' or public_navigation_path == '/focus' or public_navigation_path == '/restoration'
+        if public_navigation_path == '/what-is-going-on' or public_navigation_path == '/sleep' or public_navigation_path == '/focus' or public_navigation_path == '/restoration'
           assign navigation_current = true
         endif
       when 3
