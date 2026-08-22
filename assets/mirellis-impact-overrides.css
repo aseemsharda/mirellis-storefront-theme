@@ -632,6 +632,43 @@ hr,
    GLOBAL NAVIGATION — ONE CLEAR SYSTEM ACROSS THE STOREFRONT
    ========================================================= */
 
+@media screen and (min-width: 1150px) {
+  .header--mirellis-nav {
+    --header-grid-template: "logo main-nav secondary-nav" / minmax(0, 1fr) auto minmax(0, 1fr);
+  }
+
+  .header--mirellis-nav .header__main-nav {
+    justify-self: center;
+  }
+
+  .header--mirellis-nav .header__main-nav > .header__icon-list,
+  .header--mirellis-nav .header__link-list,
+  .header--mirellis-nav .header__link-list > ul.contents > li {
+    align-items: center;
+  }
+
+  .header--mirellis-nav .header__main-nav > .header__icon-list {
+    justify-content: center;
+  }
+
+  .header--mirellis-nav .header__link-list > ul.contents > li {
+    min-height: 44px;
+    display: flex;
+  }
+
+  .header--mirellis-nav .header__link-list > ul.contents > li > a,
+  .header--mirellis-nav .header__link-list > ul.contents > li > details > summary {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1.2;
+  }
+
+  .header--mirellis-nav .header__link-list .icon-chevron-bottom {
+    top: 0;
+  }
+}
+
 .mirellis-public-menu__group > details > summary {
   min-height: 44px;
   cursor: pointer;
