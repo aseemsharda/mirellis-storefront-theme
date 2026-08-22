@@ -43,7 +43,7 @@
 .mph h1 {
   max-width: 12ch;
   margin-bottom: 1.5rem;
-  font-size: clamp(3rem, 6vw, 6.6rem);
+  font-size: clamp(2.35rem, 5.4vw, 4.85rem);
   line-height: 0.96;
 }
 

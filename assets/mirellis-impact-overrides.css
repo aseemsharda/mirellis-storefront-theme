@@ -631,3 +631,26 @@ hr,
     center;
 
 }
+.mirellis-footer-mission__nav {
+  margin-top: 1.25rem;
+}
+
+.mirellis-footer-mission__nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1.1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mirellis-footer-mission__nav a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+}
+
+.mirellis-footer-mission__nav a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}

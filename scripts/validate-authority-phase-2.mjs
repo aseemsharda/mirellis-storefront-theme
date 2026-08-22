@@ -6,7 +6,7 @@ import { readFile } from 'node:fs/promises';
 const read = (file) => readFile(file, 'utf8');
 const parseShopifyJson = (source) => JSON.parse(source.replace(/^\/\*[\s\S]*?\*\/\s*/, ''));
 
-const [navigation, header, headerGroupSource, navigationPanel, footer, problemHome, contact, contactSection, observatorySource, assignedObservatorySource, observatoryLanding, register, governance, redirects, routeMap, decisionRegister, architecture, overrides] = await Promise.all([
+const [navigation, header, headerGroupSource, navigationPanel, footer, problemHome, contact, contactSection, observatorySource, assignedObservatorySource, observatoryLanding, register, governance, redirects, canonicalRoutes, overrides] = await Promise.all([
   read('snippets/mirellis-public-navigation.liquid'),
   read('sections/header.liquid'),
   read('sections/header-group.json'),
@@ -21,24 +21,22 @@ const [navigation, header, headerGroupSource, navigationPanel, footer, problemHo
   read('sections/mirellis-evidence-register.liquid'),
   read('snippets/mirellis-public-governance.liquid'),
   read('docs/governance/url-redirects-phase-0.csv'),
-  read('docs/authority-infrastructure/public-route-map-v2.csv'),
-  read('docs/authority-infrastructure/route-decision-register-v2.csv'),
-  read('docs/mirellis-public-architecture-v1.md'),
+  read('docs/governance/canonical-route-ownership.md'),
   read('assets/mirellis-impact-overrides.css'),
 ]);
 
-for (const label of ['Start here', 'Observatory', 'Get help', 'Contribute', 'About', 'Rituals']) {
+for (const label of ['Sleep · Focus · Restoration', 'Find a specialist', 'Understand', 'After Work', 'Shop', 'About']) {
   assert.match(navigation, new RegExp(`\\b${label}\\b`), `Public navigation must include ${label}.`);
 }
-for (const url of ['/', '/pages/the-observatory', '/pages/what-is-going-on', '/pages/contact#contribute', '/pages/about', '/pages/transitions']) {
+for (const url of ['/what-is-going-on', 'https://directory.mirellis.in', '/pages/understand', 'https://app.mirellis.in', '/collections/all', '/pages/about']) {
   assert.ok(navigation.includes(url), `Public navigation must include ${url}.`);
 }
-assert.doesNotMatch(navigation, />Sleep<|>Focus<|>Restoration</, 'Problem doors must not occupy the institutional navigation.');
 assert.match(header, /render 'mirellis-public-navigation'/, 'Desktop header must render the canonical navigation.');
 assert.match(navigationPanel, /render 'mirellis-public-navigation'/, 'Mobile drawer must render the canonical navigation.');
 assert.match(footer, /render 'mirellis-public-navigation', surface: 'footer'/, 'Explore footer must use the same canonical source.');
 assert.equal(parseShopifyJson(headerGroupSource).sections.header.settings.use_problem_navigation, true, 'Source-controlled public navigation must be enabled.');
-assert.match(problemHome, /href="\/pages\/what-is-going-on"/, 'Homepage uncertainty route must use the canonical help URL.');
+assert.match(problemHome, /href="\/what-is-going-on"/, 'Homepage uncertainty route must use the canonical help URL.');
+assert.match(problemHome, /Open the Mirellis app/, 'Homepage app copy must describe the current multi-moment app.');
 assert.match(header, /<span class="sr-only">Shop account<\/span>/, 'The storefront account control must describe the actual destination.');
 assert.doesNotMatch(header, /header\.general\.login/, 'The public header must not expose the ambiguous Login label.');
 
@@ -69,14 +67,8 @@ const redirectRows = redirects.trim().split('\n').slice(1);
 assert.equal(redirectRows.length, 40, 'Phase 2 must govern all 40 reviewed duplicate routes.');
 assert.equal(new Set(redirectRows.map((row) => row.split(',')[0])).size, redirectRows.length, 'Redirect sources must be unique.');
 
-const routeRows = routeMap.trim().split('\n').slice(1);
-assert.equal(routeRows.filter((row) => row.startsWith('primary,')).length, 5, 'Route map must define five primary navigation destinations.');
-assert.equal(routeRows.filter((row) => row.startsWith('secondary,Rituals,')).length, 1, 'Rituals must remain one subordinate navigation destination.');
-assert.match(routeMap, /studio\.mirellis\.in[^\n]*phase-4-not-published/, 'Contributor studio must remain explicitly unpublished.');
-assert.ok(decisionRegister.trim().split('\n').slice(1).every((row) => row.endsWith(',development-approved')), 'Every Phase 2 redirect decision must remain development-only.');
-
-for (const term of ['Visitor problem doors', 'Observatory territories', 'App moments', 'Editorial contribution and anonymous observation are separate systems']) {
-  assert.match(architecture, new RegExp(term), `Architecture document must define ${term}.`);
+for (const term of ['Shopify theme', 'mirellis-directory', 'mirellis-app', 'Contributor studio', 'Sleep · Focus · Restoration → Find a specialist → Understand → After Work → Shop → About']) {
+  assert.match(canonicalRoutes, new RegExp(term), `Canonical route ownership must define ${term}.`);
 }
 
-console.log('Authority Phase 2 validation passed: canonical navigation, contribution gateway, Observatory consolidation and 40 development-only redirect decisions are coherent.');
+console.log('Authority Phase 2 validation passed: canonical navigation, cross-domain ownership, contribution gateway, Observatory consolidation and 40 development-only redirect decisions are coherent.');

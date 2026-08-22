@@ -11,8 +11,8 @@
               <h1>{{ block.settings.heading }}</h1>
               <p class="mi-lead">{{ block.settings.body }}</p>
               <div class="mi-actions">
-                {% if block.settings.primary_url != blank %}<a class="mi-button" href="{{ block.settings.primary_url }}">{{ block.settings.primary_label }}</a>{% endif %}
-                {% if block.settings.secondary_url != blank %}<a class="mi-text-link" href="{{ block.settings.secondary_url }}">{{ block.settings.secondary_label }}<span aria-hidden="true"> →</span></a>{% endif %}
+                {% if block.settings.primary_url != blank %}<a class="mi-button" data-mirellis-event="homepage_primary_action" data-mirellis-context="hero" href="{{ block.settings.primary_url }}">{{ block.settings.primary_label }}</a>{% endif %}
+                {% if block.settings.secondary_url != blank %}<a class="mi-text-link" data-mirellis-event="homepage_secondary_action" data-mirellis-context="hero" href="{{ block.settings.secondary_url }}">{{ block.settings.secondary_label }}<span aria-hidden="true"> →</span></a>{% endif %}
               </div>
             </div>
             {% if block.settings.image != blank %}<div class="mi-hero__media">{{ block.settings.image | image_url: width: 2000 | image_tag: loading: 'eager', widths: '640, 900, 1200, 1600, 2000', alt: block.settings.image.alt }}</div>{% endif %}
@@ -35,14 +35,14 @@
               <p class="mi-lead">{{ block.settings.body }}</p>
             </div>
             <div class="mi-today__choices" role="group" aria-label="Choose what is difficult right now">
-              {% for item in section.blocks %}{% if item.type == 'moment' %}<button class="mi-today__choice" type="button" data-mi-moment-choice="{{ item.settings.moment_id }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}" {{ item.shopify_attributes }}><strong>{{ item.settings.problem }}</strong><span>See what might help</span></button>{% endif %}{% endfor %}
+              {% for item in section.blocks %}{% if item.type == 'moment' %}<button class="mi-today__choice" type="button" data-mi-moment-choice="{{ item.settings.moment_id }}" data-mirellis-event="today_problem_selected" data-mirellis-context="{{ item.settings.moment_id }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}" {{ item.shopify_attributes }}><strong>{{ item.settings.problem }}</strong><span>See what might help</span></button>{% endif %}{% endfor %}
             </div>
             <p class="mi-today__status" role="status" aria-live="polite" data-mi-today-status>Showing one suggestion. Choose a different moment at any time.</p>
             <div>
               {% for item in section.blocks %}{% if item.type == 'moment' %}
                 <article class="mi-today__result" data-mi-moment-result="{{ item.settings.moment_id }}" {% unless forloop.first %}hidden{% endunless %}>
                   <div><p class="mi-kicker">{{ item.settings.context }}</p><h3>{{ item.settings.action_heading }}</h3><p class="mi-today__acknowledgement">{{ item.settings.acknowledgement }}</p></div>
-                  <div class="mi-today__action"><p>{{ item.settings.action_body }}</p><div class="mi-actions"><a class="mi-button" data-mirellis-event="today_action" href="{{ item.settings.primary_url }}">{{ item.settings.primary_label }}</a>{% if item.settings.resource_url != blank %}<a class="mi-text-link" data-mirellis-event="today_resource" href="{{ item.settings.resource_url }}">{{ item.settings.resource_label }}<span aria-hidden="true"> →</span></a>{% endif %}</div></div>
+                  <div class="mi-today__action"><p>{{ item.settings.action_body }}</p><div class="mi-actions"><a class="mi-button" data-mirellis-event="today_action" data-mirellis-context="{{ item.settings.moment_id }}" href="{{ item.settings.primary_url }}">{{ item.settings.primary_label }}</a>{% if item.settings.resource_url != blank %}<a class="mi-text-link" data-mirellis-event="today_resource" data-mirellis-context="{{ item.settings.moment_id }}" href="{{ item.settings.resource_url }}">{{ item.settings.resource_label }}<span aria-hidden="true"> →</span></a>{% endif %}</div></div>
                 </article>
               {% endif %}{% endfor %}
             </div>

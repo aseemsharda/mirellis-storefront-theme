@@ -171,6 +171,7 @@ img {
       window.gtag = function () { window.dataLayer.push(arguments); };
       window.gtag('js', new Date());
       window.gtag('config', measurementId, { anonymize_ip: true });
+      document.dispatchEvent(new CustomEvent('mirellisAnalyticsReady'));
       const script = document.createElement('script');
       script.async = true;
       script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
@@ -188,8 +189,51 @@ img {
     document.addEventListener('click', (event) => {
       const control = event.target.closest?.('[data-mirellis-event]');
       if (!control || !analyticsLoaded || typeof window.gtag !== 'function') return;
-      window.gtag('event', control.getAttribute('data-mirellis-event'), { page_path: window.location.pathname });
+      const eventName = control.getAttribute('data-mirellis-event');
+      const context = control.getAttribute('data-mirellis-context');
+      window.gtag('event', eventName, {
+        page_path: window.location.pathname,
+        ...(context ? { mirellis_context: context } : {})
+      });
     });
+    document.addEventListener('submit', (event) => {
+      const form = event.target.closest?.('form');
+      if (!form || !analyticsLoaded || typeof window.gtag !== 'function') return;
+      const isNewsletter = form.querySelector('input[name="contact[tags]"][value="newsletter"]');
+      if (!isNewsletter) return;
+      const location = form.id === 'footer-newsletter' ? 'footer' : 'popup';
+      window.gtag('event', 'newsletter_submit', { page_path: window.location.pathname, mirellis_context: location });
+    });
+    const observeViews = () => {
+      if (!('IntersectionObserver' in window)) return;
+      const seen = new WeakSet();
+      const emitView = (element) => {
+        if (seen.has(element) || !analyticsLoaded || typeof window.gtag !== 'function') return false;
+        seen.add(element);
+        const eventName = element.getAttribute('data-mirellis-view-event');
+        const context = element.getAttribute('data-mirellis-context');
+        window.gtag('event', eventName, { page_path: window.location.pathname, ...(context ? { mirellis_context: context } : {}) });
+        return true;
+      };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting || entry.intersectionRatio < 0.5 || seen.has(entry.target)) return;
+          if (emitView(entry.target)) observer.unobserve(entry.target);
+        });
+      }, { threshold: [0.5] });
+      const elements = Array.from(document.querySelectorAll('[data-mirellis-view-event]'));
+      elements.forEach((element) => observer.observe(element));
+      document.addEventListener('mirellisAnalyticsReady', () => {
+        elements.forEach((element) => {
+          if (seen.has(element)) return;
+          const rect = element.getBoundingClientRect();
+          const visible = Math.max(0, Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0));
+          if (visible >= Math.min(rect.height, window.innerHeight) * 0.5 && emitView(element)) observer.unobserve(element);
+        });
+      }, { once: true });
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', observeViews, { once: true });
+    else observeViews();
     loadPrivacyApi();
   })();
 </script>

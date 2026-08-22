@@ -1,6 +1,6 @@
 {%- liquid
-  assign public_navigation_labels = 'Sleep · Focus · Restoration|Find a specialist|Understand|After Work|About' | split: '|'
-  assign public_navigation_urls = '/what-is-going-on|https://directory.mirellis.in|/pages/understand|https://app.mirellis.in|/pages/about' | split: '|'
+  assign public_navigation_labels = 'Sleep · Focus · Restoration|Find a specialist|Understand|After Work|Shop|About' | split: '|'
+  assign public_navigation_urls = '/what-is-going-on|https://directory.mirellis.in|/pages/understand|https://app.mirellis.in|/collections/all|/pages/about' | split: '|'
   assign public_navigation_path = request.path
 -%}
 
@@ -19,6 +19,10 @@
           assign navigation_current = true
         endif
       when 4
+        if public_navigation_path contains '/collections' or public_navigation_path contains '/products'
+          assign navigation_current = true
+        endif
+      when 5
         if public_navigation_path contains '/pages/about' or public_navigation_path contains '/pages/why-we-exist' or public_navigation_path contains '/pages/how-we-work'
           assign navigation_current = true
         endif

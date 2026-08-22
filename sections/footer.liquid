@@ -21,6 +21,11 @@
         <p class="mirellis-footer-mission__brand">Mirellis</p>
         <p>Mirellis helps people in India understand what is happening with their sleep, focus, and restoration—and find the right help.</p>
         <p class="mirellis-footer-mission__note">Information and navigation, not diagnosis or medical advice.</p>
+        <nav class="mirellis-footer-mission__nav" aria-label="Mirellis public routes">
+          <ul role="list">
+            {%- render 'mirellis-public-navigation', surface: 'footer' -%}
+          </ul>
+        </nav>
       </div>
       {%- comment -%}
       ------------------------------------------------------------------------------------------------------------------
