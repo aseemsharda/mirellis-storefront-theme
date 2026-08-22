@@ -1,0 +1,44 @@
+<section class="mirellis-article-next" aria-labelledby="article-next-title-{{ section.id }}">
+  <div class="mirellis-article-next__inner">
+    <div>
+      <p class="mirellis-article-next__eyebrow">What to do next</p>
+      <h2 id="article-next-title-{{ section.id }}">Reading can clarify the problem. It should not leave you without a route.</h2>
+    </div>
+
+    <div class="mirellis-article-next__body">
+      <p>This article provides general information, not diagnosis or medical advice. If the concern is persistent, worsening, or affecting your safety, speak with an appropriately qualified professional.</p>
+      <div class="mirellis-article-next__actions">
+        <a class="mirellis-article-next__button" data-mirellis-event="directory_opened" data-mirellis-context="journal_article" href="https://directory.mirellis.in">Find a specialist</a>
+        <a class="mirellis-article-next__button mirellis-article-next__button--quiet" href="https://directory.mirellis.in/problems/navigator">Help me choose</a>
+      </div>
+
+      <div class="mirellis-article-next__links">
+        <a href="/pages/understand">Understand sleep, focus and restoration <span aria-hidden="true">→</span></a>
+        <a href="{{ blog.url | default: '/blogs/journal' }}">Return to the Journal</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .mirellis-article-next { padding-block: clamp(4.5rem, 9vw, 8rem); border-top: 1px solid rgba(64, 55, 46, 0.16); background: #f2ebe2; }
+  .mirellis-article-next__inner { width: min(100% - 2.5rem, 1080px); margin-inline: auto; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(330px, 0.75fr); gap: clamp(3rem, 8vw, 8rem); }
+  .mirellis-article-next__eyebrow { margin: 0 0 1.25rem; color: #98634b; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
+  .mirellis-article-next h2 { max-width: 15ch; margin: 0; color: #29241f; font-family: var(--font-heading-family); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 400; line-height: 1.08; }
+  .mirellis-article-next__body > p { margin: 0; color: #62594f; font-size: 1rem; line-height: 1.75; }
+  .mirellis-article-next__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.8rem; }
+  .mirellis-article-next__button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.25rem; border: 1px solid #29241f; border-radius: 999px; background: #29241f; color: #fffaf3; font-size: 0.78rem; font-weight: 700; text-decoration: none; }
+  .mirellis-article-next__button--quiet { background: transparent; color: #29241f; }
+  .mirellis-article-next__links { display: grid; gap: 0.55rem; margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid rgba(64, 55, 46, 0.16); }
+  .mirellis-article-next__links a { min-height: 42px; display: inline-flex; align-items: center; width: fit-content; color: #4e463e; font-size: 0.82rem; text-underline-offset: 4px; }
+  .mirellis-article-next a:focus-visible { outline: 3px solid #8d553f; outline-offset: 4px; }
+  @media (max-width: 760px) { .mirellis-article-next__inner { grid-template-columns: 1fr; } .mirellis-article-next__actions { flex-direction: column; } .mirellis-article-next__button { width: 100%; } }
+</style>
+
+{% schema %}
+{
+  "name": "Article next steps",
+  "settings": [],
+  "presets": [{ "name": "Article next steps" }]
+}
+{% endschema %}
