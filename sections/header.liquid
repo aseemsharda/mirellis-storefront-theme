@@ -97,7 +97,7 @@ the underlying logic of the menu.
           </a>
 
           {%- if section.settings.layout != 'drawer' -%}
-            <nav class="header__link-list {% if section.settings.layout == 'logo_left_navigation_center' %}justify-center{% endif %} wrap" role="navigation">
+            <nav class="header__link-list {% if section.settings.layout == 'logo_left_navigation_center' %}justify-center{% endif %} wrap" aria-label="Primary">
               <ul class="contents" role="list">
                 {%- if section.settings.use_problem_navigation -%}
                   {%- render 'mirellis-public-navigation', surface: 'desktop' -%}

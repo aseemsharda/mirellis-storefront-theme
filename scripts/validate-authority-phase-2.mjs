@@ -25,12 +25,13 @@ const [navigation, header, headerGroupSource, navigationPanel, footer, problemHo
   read('assets/mirellis-impact-overrides.css'),
 ]);
 
-for (const label of ['Sleep · Focus · Restoration', 'Find a specialist', 'Understand', 'After Work', 'Shop', 'About']) {
+for (const label of ['Get help', 'Start a check-in', 'Explore concerns', 'Find a specialist', 'Retreats &amp; programmes', 'Learn', 'Articles', 'Observatory findings', 'Understand', 'Mirellis app', 'Shop', 'About']) {
   assert.match(navigation, new RegExp(`\\b${label}\\b`), `Public navigation must include ${label}.`);
 }
-for (const url of ['/what-is-going-on', 'https://directory.mirellis.in', '/pages/understand', 'https://app.mirellis.in', '/collections/all', '/pages/about']) {
+for (const url of ['/check', '/concerns', '/find', '/retreats', '/articles', '/pages/findings', '/pages/understand', 'https://app.mirellis.in', '/collections/all', '/pages/about', '/pages/how-we-work', '/for-professionals']) {
   assert.ok(navigation.includes(url), `Public navigation must include ${url}.`);
 }
+assert.match(navigation, /<details[^>]+is="dropdown-disclosure"[^>]+trigger="click"/, 'Desktop menu groups must use functional click disclosures.');
 assert.match(header, /render 'mirellis-public-navigation'/, 'Desktop header must render the canonical navigation.');
 assert.match(navigationPanel, /render 'mirellis-public-navigation'/, 'Mobile drawer must render the canonical navigation.');
 assert.match(footer, /render 'mirellis-public-navigation', surface: 'footer'/, 'Explore footer must use the same canonical source.');
@@ -67,7 +68,7 @@ const redirectRows = redirects.trim().split('\n').slice(1);
 assert.equal(redirectRows.length, 40, 'Phase 2 must govern all 40 reviewed duplicate routes.');
 assert.equal(new Set(redirectRows.map((row) => row.split(',')[0])).size, redirectRows.length, 'Redirect sources must be unique.');
 
-for (const term of ['Shopify theme', 'mirellis-directory', 'mirellis-app', 'Contributor studio', 'Sleep · Focus · Restoration → Find a specialist → Understand → After Work → Shop → About']) {
+for (const term of ['Shopify theme', 'mirellis-directory', 'mirellis-app', 'Contributor studio', 'Get help → Learn → Mirellis app → Shop → About']) {
   assert.match(canonicalRoutes, new RegExp(term), `Canonical route ownership must define ${term}.`);
 }
 

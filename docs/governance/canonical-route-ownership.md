@@ -17,7 +17,13 @@ This register prevents the same public page from being maintained in more than o
 
 ## Navigation contract
 
-The public header order is: Sleep · Focus · Restoration → Find a specialist → Understand → After Work → Shop → About.
+The public header order is: Get help → Learn → Mirellis app → Shop → About.
+
+- **Get help** groups Start a check-in, Explore concerns, Find a specialist, and Retreats & programmes.
+- **Learn** groups Articles, Observatory findings, and Understand.
+- **About** groups About Mirellis, How Mirellis works, and For professionals.
+- The Mirellis wordmark is the Home control; a duplicate Start here link is not required.
+- Desktop groups are click disclosures with Escape and outside-click closure. Mobile presents the same destinations as labelled groups rather than hiding them behind nested menus.
 
 Products are optional instruments. They do not appear as treatment inside a distress, concern, specialist-verification or clinical-trust moment.
 

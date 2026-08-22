@@ -205,7 +205,7 @@ Supported variables
         ----------------------------------------------------------------------------------------------------------------
         {%- endcomment -%}
 
-        {%- if section.settings.show_social_media -%}
+        {%- if section.settings.show_social_media and use_problem_navigation != true -%}
           {%- capture social_media -%}{%- render 'social-media' -%}{%- endcapture -%}
         {%- endif -%}
 

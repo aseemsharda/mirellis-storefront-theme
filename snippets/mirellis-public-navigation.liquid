@@ -1,47 +1,116 @@
 {%- liquid
-  assign public_navigation_labels = 'Sleep · Focus · Restoration|Find a specialist|Understand|After Work|Shop|About' | split: '|'
-  assign public_navigation_urls = '/what-is-going-on|https://directory.mirellis.in|/pages/understand|https://app.mirellis.in|/collections/all|/pages/about' | split: '|'
   assign public_navigation_path = request.path
+
+  assign help_current = false
+  if public_navigation_path == '/what-is-going-on' or public_navigation_path == '/check' or public_navigation_path contains '/concerns' or public_navigation_path contains '/find' or public_navigation_path contains '/practitioners' or public_navigation_path contains '/retreats' or public_navigation_path == '/sleep' or public_navigation_path == '/focus' or public_navigation_path == '/restoration'
+    assign help_current = true
+  endif
+
+  assign learn_current = false
+  if public_navigation_path contains '/articles' or public_navigation_path contains '/blogs/journal' or public_navigation_path contains '/pages/understand' or public_navigation_path contains '/pages/findings' or public_navigation_path contains '/pages/the-observatory'
+    assign learn_current = true
+  endif
+
+  assign shop_current = false
+  if public_navigation_path contains '/collections' or public_navigation_path contains '/products'
+    assign shop_current = true
+  endif
+
+  assign about_current = false
+  if public_navigation_path contains '/pages/about' or public_navigation_path contains '/pages/why-we-exist' or public_navigation_path contains '/pages/how-we-work' or public_navigation_path contains '/for-professionals'
+    assign about_current = true
+  endif
 -%}
 
-{%- for navigation_label in public_navigation_labels -%}
-  {%- liquid
-    assign navigation_url = public_navigation_urls[forloop.index0]
-    assign navigation_current = false
+{%- if surface == 'desktop' -%}
+  <li class="mirellis-public-menu__group">
+    <details class="relative" is="dropdown-disclosure" trigger="click">
+      <summary class="text-with-icon gap-2 bold link-faded-reverse{% if help_current %} mirellis-public-menu__current{% endif %}">
+        Get help {%- render 'icon' with 'chevron-bottom' -%}
+      </summary>
 
-    case forloop.index0
-      when 0
-        if public_navigation_path == '/what-is-going-on' or public_navigation_path == '/sleep' or public_navigation_path == '/focus' or public_navigation_path == '/restoration'
-          assign navigation_current = true
-        endif
-      when 2
-        if public_navigation_path contains '/pages/understand' or public_navigation_path contains '/pages/the-observatory' or public_navigation_path contains '/pages/observatory-findings' or public_navigation_path contains '/blogs/journal'
-          assign navigation_current = true
-        endif
-      when 4
-        if public_navigation_path contains '/collections' or public_navigation_path contains '/products'
-          assign navigation_current = true
-        endif
-      when 5
-        if public_navigation_path contains '/pages/about' or public_navigation_path contains '/pages/why-we-exist' or public_navigation_path contains '/pages/how-we-work'
-          assign navigation_current = true
-        endif
-    endcase
-  -%}
+      <div class="dropdown-menu dropdown-menu--restrictable mirellis-public-menu__dropdown">
+        <ul class="contents" role="list">
+          <li><a href="/check" class="dropdown-menu__item mirellis-public-menu__item"><span>Start a check-in</span><small>Answer a few questions</small></a></li>
+          <li><a href="/concerns" class="dropdown-menu__item mirellis-public-menu__item"><span>Explore concerns</span><small>Browse by what you notice</small></a></li>
+          <li><a href="/find" class="dropdown-menu__item mirellis-public-menu__item"><span>Find a specialist</span><small>Search people and support</small></a></li>
+          <li><a href="/retreats" class="dropdown-menu__item mirellis-public-menu__item"><span>Retreats &amp; programmes</span><small>Explore structured support</small></a></li>
+        </ul>
+      </div>
+    </details>
+  </li>
 
-  {%- if surface == 'mobile' -%}
-    <li class="h3 sm:h4">
-      <a href="{{ navigation_url }}" class="group block w-full"{% if navigation_current %} aria-current="page"{% endif %}>
-        <span><span class="reversed-link">{{ navigation_label }}</span></span>
-      </a>
-    </li>
-  {%- elsif surface == 'footer' -%}
-    <li>
-      <a href="{{ navigation_url }}" class="inline-block link-faded break-all"{% if navigation_current %} aria-current="page"{% endif %}>{{ navigation_label }}</a>
-    </li>
-  {%- else -%}
-    <li>
-      <a href="{{ navigation_url }}" class="bold link-faded-reverse"{% if navigation_current %} aria-current="page"{% endif %}>{{- navigation_label -}}</a>
-    </li>
-  {%- endif -%}
-{%- endfor -%}
+  <li class="mirellis-public-menu__group">
+    <details class="relative" is="dropdown-disclosure" trigger="click">
+      <summary class="text-with-icon gap-2 bold link-faded-reverse{% if learn_current %} mirellis-public-menu__current{% endif %}">
+        Learn {%- render 'icon' with 'chevron-bottom' -%}
+      </summary>
+
+      <div class="dropdown-menu dropdown-menu--restrictable mirellis-public-menu__dropdown">
+        <ul class="contents" role="list">
+          <li><a href="/articles" class="dropdown-menu__item mirellis-public-menu__item"><span>Articles</span><small>Evidence-informed guidance</small></a></li>
+          <li><a href="/pages/findings" class="dropdown-menu__item mirellis-public-menu__item"><span>Observatory findings</span><small>What Mirellis is learning</small></a></li>
+          <li><a href="/pages/understand" class="dropdown-menu__item mirellis-public-menu__item"><span>Understand</span><small>Make sense of what is happening</small></a></li>
+        </ul>
+      </div>
+    </details>
+  </li>
+
+  <li><a href="https://app.mirellis.in" class="bold link-faded-reverse">Mirellis app</a></li>
+  <li><a href="/collections/all" class="bold link-faded-reverse"{% if shop_current %} aria-current="page"{% endif %}>Shop</a></li>
+
+  <li class="mirellis-public-menu__group">
+    <details class="relative" is="dropdown-disclosure" trigger="click">
+      <summary class="text-with-icon gap-2 bold link-faded-reverse{% if about_current %} mirellis-public-menu__current{% endif %}">
+        About {%- render 'icon' with 'chevron-bottom' -%}
+      </summary>
+
+      <div class="dropdown-menu dropdown-menu--restrictable mirellis-public-menu__dropdown mirellis-public-menu__dropdown--right">
+        <ul class="contents" role="list">
+          <li><a href="/pages/about" class="dropdown-menu__item mirellis-public-menu__item"><span>About Mirellis</span><small>Purpose and boundaries</small></a></li>
+          <li><a href="/pages/how-we-work" class="dropdown-menu__item mirellis-public-menu__item"><span>How Mirellis works</span><small>Our method and standards</small></a></li>
+          <li><a href="/for-professionals" class="dropdown-menu__item mirellis-public-menu__item"><span>For professionals</span><small>Join or update a listing</small></a></li>
+        </ul>
+      </div>
+    </details>
+  </li>
+{%- elsif surface == 'mobile' -%}
+  <li class="mirellis-mobile-nav__group">
+    <p class="mirellis-mobile-nav__heading">Get help</p>
+    <ul class="mirellis-mobile-nav__list" role="list">
+      <li><a href="/check" class="group block w-full"><span>Start a check-in</span><small>Answer a few questions</small></a></li>
+      <li><a href="/concerns" class="group block w-full"><span>Explore concerns</span><small>Browse by what you notice</small></a></li>
+      <li><a href="/find" class="group block w-full"><span>Find a specialist</span><small>Search people and support</small></a></li>
+      <li><a href="/retreats" class="group block w-full"><span>Retreats &amp; programmes</span><small>Explore structured support</small></a></li>
+    </ul>
+  </li>
+
+  <li class="mirellis-mobile-nav__group">
+    <p class="mirellis-mobile-nav__heading">Learn</p>
+    <ul class="mirellis-mobile-nav__list" role="list">
+      <li><a href="/articles" class="group block w-full"><span>Articles</span><small>Evidence-informed guidance</small></a></li>
+      <li><a href="/pages/findings" class="group block w-full"><span>Observatory findings</span><small>What Mirellis is learning</small></a></li>
+      <li><a href="/pages/understand" class="group block w-full"><span>Understand</span><small>Make sense of what is happening</small></a></li>
+    </ul>
+  </li>
+
+  <li class="mirellis-mobile-nav__direct"><a href="https://app.mirellis.in" class="group block w-full"><span>Mirellis app</span><small>Private practices for real moments</small></a></li>
+  <li class="mirellis-mobile-nav__direct"><a href="/collections/all" class="group block w-full"{% if shop_current %} aria-current="page"{% endif %}><span>Shop</span><small>Optional ritual instruments</small></a></li>
+
+  <li class="mirellis-mobile-nav__group">
+    <p class="mirellis-mobile-nav__heading">About</p>
+    <ul class="mirellis-mobile-nav__list" role="list">
+      <li><a href="/pages/about" class="group block w-full"><span>About Mirellis</span><small>Purpose and boundaries</small></a></li>
+      <li><a href="/pages/how-we-work" class="group block w-full"><span>How Mirellis works</span><small>Our method and standards</small></a></li>
+      <li><a href="/for-professionals" class="group block w-full"><span>For professionals</span><small>Join or update a listing</small></a></li>
+    </ul>
+  </li>
+{%- elsif surface == 'footer' -%}
+  <li><a href="/check" class="inline-block link-faded break-all">Start a check-in</a></li>
+  <li><a href="/concerns" class="inline-block link-faded break-all">Explore concerns</a></li>
+  <li><a href="/find" class="inline-block link-faded break-all">Find a specialist</a></li>
+  <li><a href="/articles" class="inline-block link-faded break-all">Articles</a></li>
+  <li><a href="https://app.mirellis.in" class="inline-block link-faded break-all">Mirellis app</a></li>
+  <li><a href="/collections/all" class="inline-block link-faded break-all">Shop</a></li>
+  <li><a href="/pages/about" class="inline-block link-faded break-all">About Mirellis</a></li>
+{%- endif -%}

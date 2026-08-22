@@ -37,14 +37,13 @@ These are product experiences, not additional Observatory territories. The websi
 
 ## Canonical public navigation
 
-- **Start here:** the problem-first homepage.
-- **Observatory:** the single public register at `/pages/the-observatory`.
-- **Get help:** the problem chooser at `/pages/what-is-going-on`.
-- **Contribute:** the invited-pilot gateway at `/pages/contact#contribute` until the governed studio is ready.
-- **About:** identity, scope and institutional purpose at `/pages/about`.
-- **Rituals:** a visually subordinate route to `/pages/transitions`.
+- **Get help:** Start a check-in, Explore concerns, Find a specialist, and Retreats & programmes.
+- **Learn:** Articles, Observatory findings, and Understand.
+- **Mirellis app:** the private practical companion at `app.mirellis.in`.
+- **Shop:** optional ritual instruments; never framed as treatment.
+- **About:** About Mirellis, How Mirellis works, and For professionals.
 
-Sleep, Focus and Restoration remain accessible from Start here and Get help rather than occupying the institutional navigation.
+The Mirellis wordmark returns to the problem-first homepage. Sleep, Focus and Restoration remain available inside the concern and check-in journeys instead of competing as unexplained curriculum headings in the global menu.
 
 ## Contribution boundary
 
