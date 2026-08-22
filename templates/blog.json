@@ -11,9 +11,7 @@
   "sections": {
     "main": {
       "type": "main-blog",
-      "custom_css": [
-        ".bg-secondary {display: none;}"
-      ],
+      "custom_css": [],
       "settings": {
         "allow_transparent_header": false,
         "content": "<p>Plain-language reading on sleep, focus, work and restoration. These articles can help you understand a concern; they do not diagnose it.</p><p><a href=\"https://directory.mirellis.in\">Need help now? Find a specialist →</a></p>",
