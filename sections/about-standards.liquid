@@ -1,0 +1,163 @@
+<section class="about-standards">
+
+  <div class="about-standards__header">
+
+    {% if section.settings.eyebrow != blank %}
+      <p class="about-standards__eyebrow">
+        {{ section.settings.eyebrow }}
+      </p>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="about-standards__heading">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+  </div>
+
+  <div class="about-standards__grid">
+
+    {% for block in section.blocks %}
+
+      <div class="about-standard" {{ block.shopify_attributes }}>
+
+        <h3 class="about-standard__title">
+          {{ block.settings.title }}
+        </h3>
+
+        <p class="about-standard__text">
+          {{ block.settings.text }}
+        </p>
+
+      </div>
+
+    {% endfor %}
+
+  </div>
+
+</section>
+
+<style>
+
+.about-standards{
+  background:#F8F4EE;
+  max-width:1380px;
+  margin:0 auto;
+  padding:110px 48px;
+}
+
+.about-standards__header{
+  max-width:820px;
+  margin:0 auto 80px;
+  text-align:center;
+}
+
+.about-standards__eyebrow{
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  opacity:.55;
+  margin-bottom:18px;
+  font-weight:500;
+}
+
+.about-standards__heading{
+  font-size:clamp(38px,5vw,64px);
+  line-height:1.08;
+  letter-spacing:-0.03em;
+  margin:0;
+}
+
+.about-standards__grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:50px;
+}
+
+.about-standard{
+  border-top:1px solid rgba(0,0,0,.08);
+  padding-top:24px;
+}
+
+.about-standard__title{
+  font-size:24px;
+  line-height:1.2;
+  letter-spacing:-0.02em;
+  margin:0 0 12px;
+}
+
+.about-standard__text{
+  margin:0;
+  font-size:16px;
+  line-height:1.8;
+  color:rgba(0,0,0,.72);
+}
+
+@media screen and (max-width:999px){
+
+  .about-standards{
+    padding:72px 24px;
+  }
+
+  .about-standards__header{
+    margin-bottom:50px;
+  }
+
+  .about-standards__grid{
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+
+  .about-standards__heading{
+    font-size:42px;
+  }
+
+  .about-standard__title{
+    font-size:22px;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "About Standards",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Standard",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Standards"
+    }
+  ]
+}
+{% endschema %}

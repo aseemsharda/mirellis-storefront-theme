@@ -1,0 +1,133 @@
+<section class="ingredient-hero">
+
+  <div class="page-width">
+
+    <div class="ingredient-hero__inner">
+
+      <p class="ingredient-hero__eyebrow">
+        Ingredient Philosophy
+      </p>
+
+      <h1 class="ingredient-hero__title">
+        {{ section.settings.title }}
+      </h1>
+
+      <div class="ingredient-hero__description">
+        {{ section.settings.description }}
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.ingredient-hero {
+  padding: 140px 0 110px;
+  background: #fcfaf7;
+}
+
+.ingredient-hero__inner {
+  max-width: 760px;
+}
+
+.ingredient-hero__eyebrow {
+  margin-bottom: 26px;
+
+  font-size: 11px;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+
+  color: #8a8178;
+}
+
+.ingredient-hero__title {
+  margin: 0 0 34px;
+
+  font-size: 72px;
+  line-height: 1.02;
+  letter-spacing: -2px;
+  font-weight: 400;
+
+  color: #1f1f1f;
+}
+
+.ingredient-hero__description {
+  max-width: 620px;
+
+  font-size: 21px;
+  line-height: 1.8;
+  font-weight: 300;
+
+  color: #5f5952;
+}
+
+.ingredient-hero__description p {
+  margin: 0;
+}
+
+@media screen and (max-width: 990px) {
+
+  .ingredient-hero {
+    padding: 120px 0 90px;
+  }
+
+  .ingredient-hero__title {
+    font-size: 54px;
+    line-height: 1.05;
+  }
+
+  .ingredient-hero__description {
+    font-size: 18px;
+    line-height: 1.75;
+  }
+
+}
+
+@media screen and (max-width: 749px) {
+
+  .ingredient-hero {
+    padding: 90px 0 70px;
+  }
+
+  .ingredient-hero__title {
+    font-size: 34px;
+    line-height: 1.12;
+    letter-spacing: -1px;
+  }
+
+  .ingredient-hero__description {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Ingredient Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Coconut Oil — The Ritual of Cleansing Softness"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Before the mind fully enters the day, the body has already begun responding to texture, warmth, familiarity, and rhythm.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredient Hero"
+    }
+  ]
+}
+{% endschema %}

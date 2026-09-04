@@ -26,10 +26,7 @@
 
 .mph a { color: inherit; }
 
-.mph h1,
-.mph h2,
-.mph h3,
-.mph p { margin-top: 0; }
+.mph :where(h1, h2, h3, p) { margin-top: 0; }
 
 .mph h1,
 .mph h2,
@@ -109,8 +106,10 @@
 
 .mph-hero__note {
   margin: 1.25rem 0 0;
+  max-width: 42rem;
   color: var(--mph-muted);
   font-size: 0.82rem;
+  line-height: 1.55;
 }
 
 .mph-hero__visual {
@@ -527,7 +526,7 @@
   .mph-section { padding-block: 5rem; }
   .mph-concern-card { min-height: 310px; padding: 1.35rem 0.25rem; }
   .mph-pathway-card { min-height: 0; padding: 1.4rem; }
-  .mph-pathway-card__topline { margin-bottom: 5rem; }
+  .mph-pathway-card__topline { margin-bottom: 3.5rem; }
   .mph-specialist__steps li { gap: 0.9rem; }
   .mph-actions--center { align-items: stretch; }
   .mph-hub-hero { padding-block: 4.25rem 4.75rem; }

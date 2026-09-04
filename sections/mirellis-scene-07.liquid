@@ -1,0 +1,243 @@
+{% comment %}
+=========================================================
+MIRELLIS — SCENE 07 (REFINED FINAL)
+RESTORATIVE ECOSYSTEM / SINGLE FIELD ARCHITECTURE
+=========================================================
+{% endcomment %}
+
+<section
+  class="
+    ml-scene
+    ml-scene-continuous
+    ml-scene-descent-large
+    ml-spatial-stillness
+    ml-scene-flow
+  "
+>
+
+  <!-- =====================================================
+       ATMOSPHERIC FOUNDATION (REFINED)
+       ===================================================== -->
+
+  <div
+    class="ml-depth-layer ml-depth-soft"
+    style="
+      background:
+        radial-gradient(
+          ellipse at top,
+          rgba(246,241,232,0.55) 0%,
+          rgba(246,241,232,0.20) 45%,
+          rgba(246,241,232,0) 75%
+        );
+      filter: blur(6px);
+      opacity: 0.95;
+    "
+  ></div>
+
+
+  <!-- =====================================================
+       RESTORATIVE ECOSYSTEM FIELD (UNIFIED FLOW)
+       ===================================================== -->
+
+  <div class="ml-container-reading">
+
+    <div class="ml-balanced-field ml-rhythm-atmospheric ml-scene-text-flow">
+
+      <div class="ml-visual-silence"></div>
+
+
+      <!-- =================================================
+           PRIMARY ECOSYSTEM STATEMENT
+           ================================================= -->
+
+      {% if section.settings.scene_heading != blank %}
+        <h2 class="ml-display-heading ml-headline-soft">
+          {{ section.settings.scene_heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.scene_copy != blank %}
+        <div class="ml-contemplative-copy ml-copy-soft">
+          {{ section.settings.scene_copy }}
+        </div>
+      {% endif %}
+
+
+      <div class="ml-cinematic-pause"></div>
+
+
+      <!-- =================================================
+           JOURNAL NODE
+           ================================================= -->
+
+      {% if section.settings.journal_image != blank %}
+
+        <div
+          class="ml-image-atmosphere ml-breathing-atmosphere ml-fade-soft is-visible"
+          style="opacity: 0.14; filter: saturate(0.9) contrast(0.95);"
+        >
+
+          {{
+            section.settings.journal_image
+            | image_url: width: 2200
+            | image_tag:
+              class: 'ml-atmospheric-image ml-soft-presence',
+              loading: 'lazy',
+              widths: '1200,1600,2200',
+              alt: section.settings.journal_heading
+          }}
+
+        </div>
+
+      {% endif %}
+
+      {% if section.settings.journal_heading != blank %}
+        <h3 class="ml-subheading-soft ml-headline-soft">
+          {{ section.settings.journal_heading }}
+        </h3>
+      {% endif %}
+
+      {% if section.settings.journal_copy != blank %}
+        <div class="ml-contemplative-copy ml-copy-soft">
+          {{ section.settings.journal_copy }}
+        </div>
+      {% endif %}
+
+
+      <div class="ml-cinematic-pause"></div>
+
+
+      <!-- =================================================
+           SOUNDSCAPE NODE
+           ================================================= -->
+
+      {% if section.settings.soundscape_image != blank %}
+
+        <div
+          class="ml-image-atmosphere ml-light-drift ml-fade-soft is-visible"
+          style="opacity: 0.12; filter: saturate(0.85) contrast(0.9);"
+        >
+
+          {{
+            section.settings.soundscape_image
+            | image_url: width: 2200
+            | image_tag:
+              class: 'ml-atmospheric-image ml-soft-presence',
+              loading: 'lazy',
+              widths: '1200,1600,2200',
+              alt: section.settings.soundscape_heading
+          }}
+
+        </div>
+
+      {% endif %}
+
+      {% if section.settings.soundscape_heading != blank %}
+        <h3 class="ml-subheading-soft ml-headline-soft">
+          {{ section.settings.soundscape_heading }}
+        </h3>
+      {% endif %}
+
+      {% if section.settings.soundscape_copy != blank %}
+        <div class="ml-contemplative-copy ml-copy-soft">
+          {{ section.settings.soundscape_copy }}
+        </div>
+      {% endif %}
+
+
+      <div class="ml-visual-silence-lg"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       ATMOSPHERIC RESIDUAL FIELD
+       ===================================================== -->
+
+  <div
+    class="ml-depth-layer ml-shadow-breathing ml-depth-atmospheric"
+    style="
+      background:
+        radial-gradient(
+          ellipse at center,
+          rgba(255,255,255,0.06) 0%,
+          rgba(255,255,255,0) 72%
+        );
+      opacity: 0.8;
+    "
+  ></div>
+
+</section>
+
+
+{% schema %}
+{
+  "name": "Scene 07",
+  "tag": "section",
+  "settings": [
+
+    {
+      "type": "textarea",
+      "id": "scene_heading",
+      "label": "Heading",
+      "default": "Restoration rarely happens through one moment alone."
+    },
+
+    {
+      "type": "textarea",
+      "id": "scene_copy",
+      "label": "Copy",
+      "default": "Sound, scent, writing, stillness and repetition all shape how the nervous system experiences daily life."
+    },
+
+    {
+      "type": "image_picker",
+      "id": "journal_image",
+      "label": "Journal Image"
+    },
+
+    {
+      "type": "textarea",
+      "id": "journal_heading",
+      "label": "Journal Heading",
+      "default": "Some rituals continue through reflection."
+    },
+
+    {
+      "type": "textarea",
+      "id": "journal_copy",
+      "label": "Journal Copy",
+      "default": "Writing once helped thoughts settle gradually into experience instead of remaining suspended inside constant movement."
+    },
+
+    {
+      "type": "image_picker",
+      "id": "soundscape_image",
+      "label": "Soundscape Image"
+    },
+
+    {
+      "type": "textarea",
+      "id": "soundscape_heading",
+      "label": "Soundscape Heading",
+      "default": "Some environments are carried through sound."
+    },
+
+    {
+      "type": "textarea",
+      "id": "soundscape_copy",
+      "label": "Soundscape Copy",
+      "default": "Rhythm, silence, repetition and tone also shape how the nervous system inhabits space."
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "Scene 07"
+    }
+  ]
+}
+{% endschema %}

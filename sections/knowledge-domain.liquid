@@ -1,0 +1,70 @@
+{% liquid
+  assign knowledge = metaobject
+%}
+
+<section class="knowledge-domain">
+
+  {% if knowledge %}
+
+    <div class="page-width">
+
+      {% if knowledge.hero_image %}
+        <div class="knowledge-domain__hero">
+          {{
+            knowledge.hero_image
+            | image_url: width: 1800
+            | image_tag:
+              loading: 'eager',
+              widths: '600,900,1200,1800'
+          }}
+        </div>
+      {% endif %}
+
+      <header class="knowledge-domain__header">
+
+        <p class="knowledge-domain__label">
+          Knowledge Domain
+        </p>
+
+        <h1>
+          {{ knowledge.title }}
+        </h1>
+
+        {% if knowledge.summary != blank %}
+          <div class="knowledge-domain__summary">
+            {{ knowledge.summary }}
+          </div>
+        {% endif %}
+
+      </header>
+
+      {% if knowledge.introduction != blank %}
+        <section class="knowledge-domain__introduction">
+
+          <h2>Introduction</h2>
+
+          {{ knowledge.introduction }}
+
+        </section>
+      {% endif %}
+
+    </div>
+
+  {% else %}
+
+    <div class="page-width">
+      <h2>No Knowledge Domain Found</h2>
+    </div>
+
+  {% endif %}
+
+</section>
+
+{% schema %}
+{
+  "name": "Knowledge Domain",
+  "tag": "section",
+  "class": "knowledge-domain-section",
+  "settings": []
+}
+{% endschema %}

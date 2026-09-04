@@ -1,0 +1,164 @@
+<section class="mmd-section">
+  <div class="mmd-inner">
+    <p class="mmd-eyebrow">HOW THE METHOD WORKS</p>
+
+    <div class="mmd-inputs">
+      <div class="mmd-input-card">
+        <p class="mmd-input-label">Ritual Tool</p>
+        <p class="mmd-input-sub">Morning Clarity<br>or Stillness</p>
+      </div>
+      <div class="mmd-input-card">
+        <p class="mmd-input-label">Sound</p>
+        <p class="mmd-input-sub">Morning Clarity<br>series</p>
+      </div>
+      <div class="mmd-input-card">
+        <p class="mmd-input-label">Environment</p>
+        <p class="mmd-input-sub">Light · space<br>timing</p>
+      </div>
+      <div class="mmd-input-card">
+        <p class="mmd-input-label">Daily Repetition</p>
+        <p class="mmd-input-sub">Same moment<br>each day</p>
+      </div>
+    </div>
+
+    <div class="mmd-arrow">↓</div>
+
+    <div class="mmd-outputs">
+      <div class="mmd-output-row">
+        <div class="mmd-output-card mmd-output-mid">
+          <p class="mmd-output-label">Coherent Sensory Signal</p>
+        </div>
+      </div>
+      <div class="mmd-arrow">↓</div>
+      <div class="mmd-output-row">
+        <div class="mmd-output-card mmd-output-mid">
+          <p class="mmd-output-label">Nervous System Learning</p>
+        </div>
+      </div>
+      <div class="mmd-arrow">↓</div>
+      <div class="mmd-output-row">
+        <div class="mmd-output-card mmd-output-final">
+          <p class="mmd-output-label">The body learns what comes next</p>
+          <p class="mmd-output-sub">The transition becomes familiar</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.mmd-section {
+  background: #faf7f2;
+  padding: 5rem 2rem 6rem;
+  border-top: 1px solid rgba(26,26,24,0.06);
+}
+.mmd-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.mmd-eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(26,26,24,0.35);
+  margin: 0 0 3rem 0;
+  text-align: center;
+}
+.mmd-inputs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(26,26,24,0.08);
+  border: 1px solid rgba(26,26,24,0.08);
+}
+.mmd-input-card {
+  background: #faf7f2;
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+}
+.mmd-input-label {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #1a1a18;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+}
+.mmd-input-sub {
+  font-size: 0.85rem;
+  color: rgba(26,26,24,0.45);
+  line-height: 1.5;
+  margin: 0;
+}
+.mmd-arrow {
+  text-align: center;
+  font-size: 1.2rem;
+  color: rgba(26,26,24,0.2);
+  padding: 0.75rem 0;
+  line-height: 1;
+}
+.mmd-outputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mmd-output-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.mmd-output-card {
+  border: 1px solid rgba(26,26,24,0.08);
+  text-align: center;
+  padding: 1.25rem 2rem;
+}
+.mmd-output-mid {
+  width: 60%;
+  background: #faf7f2;
+}
+.mmd-output-final {
+  width: 70%;
+  background: #faf7f2;
+  border-color: rgba(26,26,24,0.15);
+}
+.mmd-output-label {
+  font-size: 0.85rem;
+  color: #1a1a18;
+  letter-spacing: 0.02em;
+  margin: 0;
+  font-weight: 400;
+}
+.mmd-output-final .mmd-output-label {
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+}
+.mmd-output-sub {
+  font-size: 0.75rem;
+  color: rgba(26,26,24,0.4);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+@media (max-width: 700px) {
+  .mmd-inputs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .mmd-output-mid { width: 85%; }
+  .mmd-output-final { width: 90%; }
+  .mmd-section { padding: 4rem 1.5rem 5rem; }
+}
+@media (max-width: 420px) {
+  .mmd-inputs {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Method Diagram",
+  "presets": [{ "name": "Method Diagram" }]
+}
+{% endschema %}

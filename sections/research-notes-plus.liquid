@@ -1,0 +1,295 @@
+<section class="research-notes-plus">
+  <div class="research-notes-container">
+
+    <div class="research-notes-header">
+
+      {% if section.settings.eyebrow != blank %}
+        <span class="research-eyebrow">
+          {{ section.settings.eyebrow }}
+        </span>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h2 class="research-heading">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.intro != blank %}
+        <div class="research-intro">
+          {{ section.settings.intro }}
+        </div>
+      {% endif %}
+
+    </div>
+
+    <div class="research-accordion-group">
+
+      {% for block in section.blocks %}
+
+        <details class="research-item" {{ block.shopify_attributes }}>
+
+          <summary class="research-summary">
+
+            <span class="research-title">
+              {{ block.settings.title }}
+            </span>
+
+            <span class="research-icon">
+              +
+            </span>
+
+          </summary>
+
+          <div class="research-content">
+
+            <div class="research-description">
+              {{ block.settings.description }}
+            </div>
+
+            <div class="research-source-group">
+
+              {% if block.settings.link != blank %}
+
+                <a
+                  href="{{ block.settings.link }}"
+                  class="research-source"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Source → {{ block.settings.source }}
+                </a>
+
+              {% else %}
+
+                <div class="research-source">
+                  {{ block.settings.source }}
+                </div>
+
+              {% endif %}
+
+            </div>
+
+          </div>
+
+        </details>
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+
+.research-notes-plus {
+  padding: 120px 48px;
+  background: #f8f5ef;
+}
+
+.research-notes-container {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.research-notes-header {
+  margin-bottom: 72px;
+}
+
+.research-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(30,30,30,0.55);
+  display: block;
+  margin-bottom: 18px;
+}
+
+.research-heading {
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.25;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #1e1e1e;
+  margin-bottom: 24px;
+}
+
+.research-intro {
+  max-width: 720px;
+  font-size: 15px;
+  line-height: 1.9;
+  color: rgba(30,30,30,0.72);
+}
+
+.research-accordion-group {
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.research-item {
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.research-summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 30px 0;
+  transition: opacity 0.25s ease;
+}
+
+.research-summary::-webkit-details-marker {
+  display: none;
+}
+
+.research-summary:hover {
+  opacity: 0.72;
+}
+
+.research-title {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #1e1e1e;
+  font-weight: 400;
+}
+
+.research-icon {
+  font-size: 20px;
+  line-height: 1;
+  color: rgba(30,30,30,0.45);
+  transition: transform 0.25s ease;
+}
+
+details[open] .research-icon {
+  transform: rotate(45deg);
+}
+
+.research-content {
+  max-width: 720px;
+  padding: 0 0 34px 0;
+}
+
+.research-description {
+  font-size: 15px;
+  line-height: 1.9;
+  color: rgba(30,30,30,0.76);
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.research-source-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.research-source {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(30,30,30,0.45);
+  text-decoration: none;
+  transition: opacity 0.25s ease;
+  width: fit-content;
+  display: inline-block;
+}
+
+.research-source:hover {
+  opacity: 0.68;
+}
+
+@media screen and (max-width: 768px) {
+
+  .research-notes-plus {
+    padding: 80px 24px;
+  }
+
+  .research-notes-header {
+    margin-bottom: 56px;
+  }
+
+  .research-heading {
+    margin-bottom: 20px;
+  }
+
+  .research-summary {
+    padding: 24px 0;
+    align-items: flex-start;
+  }
+
+  .research-title {
+    font-size: 16px;
+  }
+
+  .research-content {
+    padding-bottom: 28px;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Research Notes+",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Research Notes+"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Quiet Scientific Context"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro Text",
+      "default": "Quiet scientific context exploring how rhythm, environment, sensory signals, and repeated rituals influence physiology."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "research_note",
+      "name": "Research Note",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Research Territory",
+          "default": "Circadian Rhythm"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Observation",
+          "default": "Even relatively modest evening light exposure may influence melatonin timing and biological rhythm."
+        },
+        {
+          "type": "text",
+          "id": "source",
+          "label": "Source",
+          "default": "Harvard Medical School / NIH"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Research Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Research Notes+"
+    }
+  ]
+}
+{% endschema %}

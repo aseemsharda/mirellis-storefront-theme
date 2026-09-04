@@ -1,0 +1,61 @@
+{%- comment -%}
+  MIRELLIS — INTERVENTION BRIDGE  (PDP → Intervention Record link)
+  --------------------------------------------------------------
+  Slice 2. Makes a product visibly descend from a Finding, on the PDP itself.
+  Reads PRODUCT metafields (namespace custom):
+    ir_eyebrow · ir_finding_label · ir_finding_url · ir_intervention_url
+  Build-alongside: new file, self-contained styles, zero new CSS/JS, empty-safe.
+  Renders nothing unless the product carries an eyebrow — so it is inert on any
+  product without the metafields (safe on all other PDPs).
+{%- endcomment -%}
+
+{%- assign m = product.metafields.custom -%}
+{%- if m.ir_eyebrow != blank -%}
+  <section class="ir-bridge">
+    <div class="ir-bridge__inner">
+      <p class="ir-bridge__eyebrow">{{ m.ir_eyebrow }}</p>
+      <p class="ir-bridge__links">
+        {%- if m.ir_finding_label and m.ir_finding_url -%}
+          <a href="{{ m.ir_finding_url }}">Descends from {{ m.ir_finding_label }}</a>
+        {%- endif -%}
+        {%- if m.ir_intervention_url -%}
+          {%- if m.ir_finding_label and m.ir_finding_url -%}<span class="ir-bridge__dot">·</span>{%- endif -%}
+          <a href="{{ m.ir_intervention_url }}">Why this exists →</a>
+        {%- endif -%}
+      </p>
+    </div>
+  </section>
+
+  <style>
+    .ir-bridge {
+      background: var(--ml-color-warm-paper);
+      border-top: 1px solid var(--ml-color-border-soft);
+      border-bottom: 1px solid var(--ml-color-border-soft);
+      padding-block: 3.5rem;
+    }
+    .ir-bridge__inner {
+      max-width: 680px; margin-inline: auto;
+      padding-inline: clamp(1rem, 5vw, 2rem);
+    }
+    .ir-bridge__eyebrow {
+      font-size: clamp(1.15rem, 2.6vw, 1.4rem);
+      line-height: 1.55; font-weight: 300;
+      color: var(--ml-color-soft-charcoal);
+      max-width: 40ch; margin: 0 0 1.5rem;
+    }
+    .ir-bridge__links {
+      font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--ml-color-muted-earth); margin: 0;
+    }
+    .ir-bridge__links a { color: var(--ml-color-soft-charcoal); text-underline-offset: 3px; }
+    .ir-bridge__dot { margin-inline: 0.75rem; opacity: 0.5; }
+  </style>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Intervention Bridge",
+  "settings": [],
+  "presets": [{ "name": "Intervention Bridge" }]
+}
+{% endschema %}

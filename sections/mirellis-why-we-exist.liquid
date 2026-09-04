@@ -1,0 +1,63 @@
+{%- comment -%}
+  MIRELLIS — WHY WE EXIST  (Slice 8, fully editable in theme editor)
+  All copy is exposed as section settings with defaults = canonical copy.
+  Edit each field in Customize. Self-contained styles, tokens, zero new CSS/JS.
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+<div class="wwe">
+
+  <section class="wwe__hero">
+    <div class="wwe__inner">
+      {%- if s.eyebrow != blank -%}<div class="wwe__eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+      {%- if s.title != blank -%}<h1 class="wwe__title">{{ s.title }}</h1>{%- endif -%}
+    </div>
+  </section>
+
+  <section class="wwe__body">
+    <div class="wwe__inner wwe__prose">
+      {%- if s.body_top != blank -%}{{ s.body_top }}{%- endif -%}
+      {%- if s.pull_quote != blank -%}<p class="wwe__pull">{{ s.pull_quote }}</p>{%- endif -%}
+      {%- if s.body_bottom != blank -%}{{ s.body_bottom }}{%- endif -%}
+    </div>
+  </section>
+
+  {%- if s.cta_label != blank and s.cta_url != blank -%}
+    <section class="wwe__cta-wrap">
+      <div class="wwe__inner">
+        <p class="wwe__cta"><a href="{{ s.cta_url }}">{{ s.cta_label }}</a></p>
+      </div>
+    </section>
+  {%- endif -%}
+
+</div>
+
+<style>
+  .wwe { background: var(--ml-color-warm-paper); }
+  .wwe__inner { max-width: 680px; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2rem); }
+  .wwe__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1.75rem; }
+  .wwe__hero { padding-block: clamp(5rem, 10vw, 8rem) clamp(2rem, 4vw, 3rem); }
+  .wwe__title { font-size: clamp(1.9rem, 4.2vw, 2.85rem); font-weight: 300; letter-spacing: -0.01em; line-height: 1.25; color: var(--ml-color-soft-charcoal); margin: 0; max-width: 26ch; }
+  .wwe__body { padding-block: clamp(1rem, 3vw, 2rem) clamp(4rem, 8vw, 6rem); }
+  .wwe__prose p { font-size: 1.0625rem; line-height: 2; color: var(--ml-color-text-secondary); margin: 0 0 2rem; max-width: 60ch; }
+  .wwe__pull { font-size: clamp(1.3rem, 3vw, 1.75rem); font-weight: 300; line-height: 1.4; color: var(--ml-color-soft-charcoal); max-width: 24ch; padding-block: 1.5rem; margin: 1rem 0 2.5rem; }
+  .wwe__cta-wrap { padding-block: 0 clamp(5rem, 9vw, 7rem); }
+  .wwe__cta { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0; }
+  .wwe__cta a { color: var(--ml-color-soft-charcoal); text-underline-offset: 3px; }
+</style>
+
+{% schema %}
+{
+  "name": "Why We Exist",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why we exist" },
+    { "type": "text", "id": "title", "label": "Title", "default": "The body responds to signals faster than it responds to instruction." },
+    { "type": "richtext", "id": "body_top", "label": "Body (top)", "default": "<p>You can know exactly what would help you sleep, or wake well, or leave work behind — and still not be able to start. Knowing is not the bottleneck. The missing piece is the signal: the coherent, repeated sensory cue that tells the nervous system a transition is underway.</p><p>The walk home once told the body work was over. The fading evening told it the day was closing. Those signals are gone — replaced by a screen that never dims and a feed that never ends. People know what would help. They cannot begin.</p>" },
+    { "type": "text", "id": "pull_quote", "label": "Pull quote", "default": "This is not a willpower problem. It is a transition problem." },
+    { "type": "richtext", "id": "body_bottom", "label": "Body (bottom)", "default": "<p>Human beings struggle most at the boundaries between states — not inside them. Inside sleep, inside work, inside rest, we are largely fine. It is the crossing that breaks down. And modern life has quietly stripped away almost every cue that used to mark those crossings.</p><p>Mirellis exists to study these boundaries and to restore what marks them. Not with more information. With better signals — rebuilt deliberately, one transition at a time.</p>" },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Explore the transitions →" },
+    { "type": "url", "id": "cta_url", "label": "CTA link" }
+  ],
+  "presets": [{ "name": "Why We Exist" }]
+}
+{% endschema %}

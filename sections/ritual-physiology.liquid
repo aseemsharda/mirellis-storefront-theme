@@ -1,0 +1,201 @@
+<section class="ritual-physiology">
+
+  <div class="page-width">
+
+    <div class="ritual-physiology__inner">
+
+      {% if section.settings.label != blank %}
+
+        <p class="ritual-physiology__label">
+          {{ section.settings.label }}
+        </p>
+
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+
+        <h2 class="ritual-physiology__heading">
+          {{ section.settings.heading }}
+        </h2>
+
+      {% endif %}
+
+      <div class="ritual-physiology__grid">
+
+        {% for block in section.blocks %}
+
+          <div class="ritual-physiology__item">
+
+            <h3 class="ritual-physiology__title">
+              {{ block.settings.title }}
+            </h3>
+
+            <div class="ritual-physiology__text">
+              {{ block.settings.text }}
+            </div>
+
+          </div>
+
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.ritual-physiology {
+  padding: 140px 0;
+  background: #fcfaf7;
+}
+
+.ritual-physiology__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.ritual-physiology__label {
+  margin-bottom: 24px;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #8b8378;
+}
+
+.ritual-physiology__heading {
+  max-width: 760px;
+  margin: 0 0 70px;
+
+  font-size: 42px;
+  line-height: 1.35;
+  font-weight: 300;
+
+  color: #1f1f1f;
+}
+
+.ritual-physiology__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.ritual-physiology__item {
+  padding: 40px;
+  background: #f7f3ee;
+}
+
+.ritual-physiology__title {
+  margin: 0 0 22px;
+
+  font-size: 28px;
+  line-height: 1.35;
+  font-weight: 300;
+
+  color: #202020;
+}
+
+.ritual-physiology__text {
+  font-size: 16px;
+  line-height: 1.95;
+
+  color: #5a5550;
+}
+
+.ritual-physiology__text p {
+  margin: 0 0 20px;
+}
+
+.ritual-physiology__text p:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 990px) {
+
+  .ritual-physiology {
+    padding: 110px 24px;
+  }
+
+  .ritual-physiology__grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media screen and (max-width: 749px) {
+
+  .ritual-physiology {
+    padding: 80px 24px;
+  }
+
+  .ritual-physiology__heading {
+    margin-bottom: 42px;
+    font-size: 30px;
+    line-height: 1.4;
+  }
+
+  .ritual-physiology__item {
+    padding: 34px 28px;
+  }
+
+  .ritual-physiology__title {
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+
+  .ritual-physiology__text {
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Ritual Physiology",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "Ritual Physiology"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The nervous system responds to repeated sensory environments long before conscious behavior fully changes."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ritual Physiology"
+    }
+  ]
+}
+{% endschema %}

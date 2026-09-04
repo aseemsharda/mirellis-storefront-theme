@@ -1,0 +1,22 @@
+{% assign rp_variant = variant | default: 'dark' %}
+
+{% if ritual_product_name != blank %}
+<div class="rp-snippet rp-snippet--{{ rp_variant }}">
+  <div class="rp-snippet-divider"></div>
+  {% if ritual_context != blank %}
+  <p class="rp-snippet-context">
+    {{ ritual_context }}
+  </p>
+  {% endif %}
+  {% if ritual_product_link != blank %}
+  <a href="{{ ritual_product_link }}"
+     class="rp-snippet-name-link">
+    {{ ritual_product_name }}
+  </a>
+  {% else %}
+  <p class="rp-snippet-name">
+    {{ ritual_product_name }}
+  </p>
+  {% endif %}
+</div>
+{% endif %}

@@ -1,0 +1,385 @@
+<section class="sonic-series">
+  <div class="sonic-series__container">
+    <div class="sonic-series__panels" id="sonic-panels"></div>
+  </div>
+</section>
+
+<style>
+
+.sonic-series {
+  background: #faf7f2;
+  padding: 4rem 2rem;
+  color: #1a1a18;
+}
+
+.sonic-series__container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.sonic-series__panels {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.sonic-panel {
+  background: #faf7f2;
+  border-bottom: 1px solid rgba(26,26,24,0.1);
+  padding: 2rem 0;
+  transition: all 400ms ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.sonic-panel.expanded {
+  background: #f0ebe3;
+  padding: 4rem 2rem;
+}
+
+.sonic-panel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+}
+
+.sonic-panel__title {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1.75;
+}
+
+.sonic-panel__toggle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: rgba(26,26,24,0.4);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  user-select: none;
+}
+
+.sonic-panel.expanded .sonic-panel__toggle {
+  display: none;
+}
+
+.sonic-panel__close {
+  font-size: 0.85rem;
+  color: rgba(26,26,24,0.5);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  display: none;
+}
+
+.sonic-panel.expanded .sonic-panel__close {
+  display: block;
+}
+
+.sonic-panel__subtitle {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(26,26,24,0.45);
+  margin: 0.75rem 0 0 0;
+  line-height: 1.75;
+}
+
+.sonic-panel__founding {
+  font-style: italic;
+  font-size: 1rem;
+  color: #1a1a18;
+  margin: 0;
+  line-height: 1.75;
+}
+
+.sonic-panel__content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 400ms ease;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.sonic-panel.expanded .sonic-panel__content {
+  max-height: 3000px;
+  opacity: 1;
+  padding: 3rem 0 4rem;
+}
+
+.sonic-panel__rule {
+  border: none;
+  border-top: 1px solid rgba(26,26,24,0.12);
+  margin: 0;
+  display: none;
+}
+
+.sonic-panel__founding-expanded {
+  font-style: italic;
+  font-size: 1.2rem;
+  text-align: center;
+  color: rgba(26,26,24,0.7);
+  margin-bottom: 3rem;
+  margin-top: 0;
+  line-height: 1.75;
+  display: block;
+}
+
+.sonic-panel__body {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(26,26,24,0.72);
+  margin-bottom: 2.5rem;
+  margin-top: 0;
+}
+
+.sonic-panel__section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(26,26,24,0.4);
+  margin-bottom: 1rem;
+  margin-top: 2.5rem;
+  line-height: 1.75;
+  display: block;
+}
+
+.sonic-panel__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.5rem 0;
+}
+
+.sonic-panel__list-item {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(26,26,24,0.72);
+  margin-bottom: 0.75rem;
+  padding-left: 1rem;
+  position: relative;
+  display: block;
+}
+
+.sonic-panel__list-item::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+}
+
+.sonic-panel__paragraph {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(26,26,24,0.72);
+  margin: 0 0 2.5rem 0;
+}
+
+.sonic-panel__principle {
+  font-style: italic;
+  color: rgba(26,26,24,0.65);
+  border-left: 2px solid rgba(26,26,24,0.15);
+  padding: 1.5rem 2rem;
+  margin: 3rem 0;
+  line-height: 1.9;
+}
+
+.sonic-panel__footer {
+  margin-top: 3rem;
+  font-size: 0.85rem;
+  color: rgba(26,26,24,0.45);
+  line-height: 1.75;
+}
+
+.sonic-panel__spotify {
+  display: block;
+  margin-top: 3rem;
+  font-size: 0.85rem;
+  color: rgba(26,26,24,0.45);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.sonic-panel__spotify:hover {
+  color: rgba(26,26,24,0.8);
+}
+
+@media (max-width: 768px) {
+  .sonic-series {
+    padding: 3rem 1.5rem;
+  }
+
+  .sonic-series__container {
+    padding: 0;
+  }
+
+  .sonic-panel.expanded {
+    padding: 3rem 1.5rem;
+  }
+
+  .sonic-panel__title {
+    font-size: 1.5rem;
+  }
+
+  .sonic-panel__founding {
+    font-size: 0.95rem;
+  }
+
+  .sonic-panel__body {
+    font-size: 0.95rem;
+  }
+
+  .sonic-panel__paragraph {
+    font-size: 0.95rem;
+  }
+
+  .sonic-panel__principle {
+    font-size: 0.95rem;
+  }
+}
+
+</style>
+
+<script>
+
+const SONIC_SERIES = [
+  {
+    id: 'morning-clarity',
+    title: 'Morning Clarity',
+    transition: 'Sleep → Wakefulness',
+    founding: 'Designed for coherent activation.',
+    body: 'The Morning Clarity series creates the conditions for a different kind of beginning — before the phone, before the news, before the day has named itself. Gradual. Orienting. Unrushed.',
+    whenToUse: [
+      'The first 10–20 minutes after waking',
+      'Before screens. Before conversation.',
+      'As the first intentional signal of the day.'
+    ],
+    soundsLike: 'Gentle rhythmic movement. Light tonal textures. Nothing that demands attention — everything that invites presence.',
+    duration: '10–20 minutes. Consistency matters more than duration.',
+    principle: 'The first signal of the day calibrates the nervous system\'s baseline for everything that follows. Most people make that signal a notification. We make it an environment.',
+    spotify: 'https://open.spotify.com/embed/playlist/37i9dQZF1DX3Ogo9pFvBkY'
+  },
+  {
+    id: 'flow',
+    title: 'Flow',
+    transition: 'Attention → Sustained Presence',
+    founding: 'Designed for depth.',
+    body: 'The Flow series creates the acoustic conditions for sustained cognitive presence. Not stimulation — continuity. Rhythm that supports without demanding. Frequency that focuses without fatiguing.',
+    whenToUse: [
+      'When beginning a period of deep work',
+      'When re-entering focus after interruption',
+      'When the environment keeps pulling attention away'
+    ],
+    soundsLike: 'Steady rhythmic pulse. No dramatic shifts — the environment remains consistent so attention can remain consistent.',
+    duration: '20–60 minutes. Most effective at the beginning of a work session.',
+    principle: 'The environment does not create focus. It removes the friction that prevents it. Sustained presence requires acoustic continuity — something the mind can settle into rather than something it must constantly process.',
+    spotify: 'https://open.spotify.com/embed/playlist/37i9dQZF1DX3Ogo9pFvBkY'
+  },
+  {
+    id: 'stillness',
+    title: 'Stillness',
+    transition: 'Work → Recovery · Stimulation → Restoration',
+    founding: 'Designed for descent.',
+    body: 'The Stillness series signals the nervous system that the professional chapter is closing. Not through silence — through deliberate deceleration. Rhythm slows. Frequency drops. Space opens.',
+    whenToUse: [
+      'After sustained cognitive work',
+      'When the mind continues after the body stops',
+      'When the evening feels like an extension of the workday'
+    ],
+    soundsLike: 'Sparse. Unhurried. Occasional low tones with long decay. Space between sounds is as intentional as the sounds themselves.',
+    duration: '15–30 minutes. Most effective used consistently at the same moment each evening.',
+    principle: 'The nervous system does not automatically shift out of engagement when work stops. It needs a signal. Stillness is that signal — not silence, but deliberate deceleration that tells the body: this chapter is closing.',
+    spotify: 'https://open.spotify.com/embed/playlist/37i9dQZF1DX3Ogo9pFvBkY'
+  },
+  {
+    id: 'ground',
+    title: 'Ground',
+    transition: 'Stimulation → Restoration',
+    founding: 'Designed for anchoring.',
+    body: 'The Ground series is for the moment when stimulation has accumulated and the body needs permission to become something else. Not sleep. Not silence. A held, anchored stillness that precedes genuine rest.',
+    whenToUse: [
+      'Late evening. After overstimulation.',
+      'When tired and alert simultaneously.',
+      'When the descent into rest feels unavailable.'
+    ],
+    soundsLike: 'Low. Warm. Slow pulse. Tones that feel like weight — not heavy, but settled. The sonic equivalent of exhaling.',
+    duration: '15–30 minutes. Can extend into sleep onset.',
+    principle: 'Exhaustion is not the same as rest. The body can be tired while the nervous system remains activated. Ground creates the conditions for the second to follow the first.',
+    spotify: 'https://open.spotify.com/embed/playlist/37i9dQZF1DX3Ogo9pFvBkY'
+  }
+];
+
+function initPanels() {
+  const container = document.getElementById('sonic-panels');
+  container.innerHTML = SONIC_SERIES.map((series, index) => `
+    <div class="sonic-panel ${index === 0 ? 'expanded' : ''}" data-id="${series.id}">
+      <div class="sonic-panel__header" onclick="togglePanel('${series.id}')">
+        <div style="flex: 1;">
+          <h3 class="sonic-panel__title">${series.title}</h3>
+          <p class="sonic-panel__subtitle">${series.transition}</p>
+          <p class="sonic-panel__founding">${series.founding}</p>
+        </div>
+        <span class="sonic-panel__toggle" data-id="${series.id}">+</span>
+        <span class="sonic-panel__close" onclick="event.stopPropagation(); togglePanel('${series.id}')">Close</span>
+      </div>
+
+      <div class="sonic-panel__content">
+        <hr class="sonic-panel__rule">
+        <p class="sonic-panel__founding-expanded">${series.founding}</p>
+        <p class="sonic-panel__body">${series.body}</p>
+
+        <div class="sonic-panel__section-label">When to use</div>
+        <ul class="sonic-panel__list">
+          ${series.whenToUse.map(item => `<li class="sonic-panel__list-item">${item}</li>`).join('')}
+        </ul>
+
+        <div class="sonic-panel__section-label">What it sounds like</div>
+        <p class="sonic-panel__paragraph">${series.soundsLike}</p>
+
+        <div class="sonic-panel__section-label">Duration</div>
+        <p class="sonic-panel__paragraph">${series.duration}</p>
+
+        <hr class="sonic-panel__rule">
+        <div class="sonic-panel__section-label">Working Principle</div>
+        <p class="sonic-panel__principle">${series.principle}</p>
+        <hr class="sonic-panel__rule">
+
+        <div class="sonic-panel__footer">
+          For a complete session:
+          <br>
+          <a href="${series.spotify}" target="_blank" class="sonic-panel__spotify">Listen on Spotify →</a>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function togglePanel(id) {
+  const panels = document.querySelectorAll('.sonic-panel');
+  panels.forEach(panel => {
+    const toggle = panel.querySelector('.sonic-panel__toggle');
+    if (panel.dataset.id === id) {
+      panel.classList.toggle('expanded');
+      toggle.textContent = panel.classList.contains('expanded') ? '−' : '+';
+    } else {
+      panel.classList.remove('expanded');
+      toggle.textContent = '+';
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initPanels);
+
+</script>
+
+{% schema %}
+{
+  "name": "Four Sonic Series"
+}
+{% endschema %}

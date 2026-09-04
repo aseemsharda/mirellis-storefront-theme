@@ -1,0 +1,850 @@
+<style>
+  /* ============================================================
+     MIRELLIS · HUMAN STATE TRANSITION ASSESSMENT V1_1
+     First public instrument of the Human Transition Observatory.
+     Self-contained. No external dependencies. Shopify-embeddable.
+     ============================================================ */
+
+  @font-face { font-family: 'system-serif'; src: local('Iowan Old Style'), local('Palatino'), local('Georgia'); }
+
+  :root{
+    --cream:#F6F2EA;        /* primary field — 80% of surface */
+    --ivory:#FBF8F2;
+    --linen:#EFE9DD;
+    --stone:#DED6C6;
+    --sand:#CFC3AD;
+    --clay:#B9A684;
+    --bark:#5C5042;         /* primary text */
+    --bark-soft:#7A6F5E;    /* secondary text */
+    --bark-faint:#A89B86;   /* hints */
+    --moss:#6E7257;         /* muted botanical, used sparingly */
+    --line:rgba(92,80,66,0.16);
+    --line-soft:rgba(92,80,66,0.09);
+
+    --serif: 'system-serif', 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Georgia', serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+
+    --measure: 34rem;
+    --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --slow: 1100ms;
+  }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color: transparent; }
+
+  html,body{ margin:0; padding:0; }
+
+  body{
+    background: var(--cream);
+    color: var(--bark);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    min-height: 100svh;
+    overflow-x: hidden;
+  }
+
+  /* The instrument lives in a single quiet column. */
+  .frame{
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1.5rem, 5vw, 3rem) clamp(1.5rem, 6vw, 2rem);
+    position: relative;
+  }
+
+  .stage{
+    width: 100%;
+    max-width: var(--measure);
+    margin: 0 auto;
+  }
+
+  /* Each screen fades. Slow, never flashy. */
+  .screen{
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity var(--slow) var(--ease), transform var(--slow) var(--ease);
+    display: none;
+  }
+  .screen.is-active{ display: block; }
+  .screen.is-shown{ opacity: 1; transform: none; }
+
+  /* ---------- type ---------- */
+  .eyebrow{
+    font-family: var(--sans);
+    font-size: 11.5px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--bark-faint);
+    font-weight: 500;
+    margin: 0 0 1.6rem;
+  }
+  h1.lede{
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.9rem, 6.5vw, 2.7rem);
+    line-height: 1.28;
+    letter-spacing: -0.01em;
+    color: var(--bark);
+    margin: 0 0 1.5rem;
+  }
+  .intro-line{
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.45rem, 5.2vw, 1.95rem);
+    line-height: 1.5;
+    color: var(--bark);
+    margin: 0;
+    max-width: 28rem;
+  }
+  .sub{
+    font-size: 16px;
+    color: var(--bark-soft);
+    max-width: 30rem;
+    margin: 0 0 2.4rem;
+    line-height: 1.7;
+  }
+  .quiet{
+    font-size: 14px;
+    color: var(--bark-faint);
+    letter-spacing: 0.01em;
+  }
+
+  /* ---------- entry control ---------- */
+  .enter{
+    appearance: none;
+    border: 1px solid var(--clay);
+    background: transparent;
+    color: var(--bark);
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    padding: 0.95rem 2.1rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 600ms var(--ease), color 600ms var(--ease), border-color 600ms var(--ease);
+  }
+  .enter:hover{ background: var(--bark); color: var(--ivory); border-color: var(--bark); }
+  .enter:focus-visible{ outline: 2px solid var(--moss); outline-offset: 4px; }
+
+  .textlink{
+    appearance:none; background:none; border:none; cursor:pointer;
+    font-family:var(--sans); font-size:14px; letter-spacing:0.04em;
+    color:var(--bark-soft); padding: 0.6rem 0; border-bottom:1px solid var(--line);
+    transition: color 500ms var(--ease), border-color 500ms var(--ease);
+  }
+  .textlink:hover{ color:var(--bark); border-color:var(--clay); }
+  .textlink:focus-visible{ outline: 2px solid var(--moss); outline-offset:3px; }
+
+  /* ---------- progress: a hairline, never a number ---------- */
+  .meter{
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    width: 100%;
+    background: transparent;
+    z-index: 20;
+  }
+  .meter > span{
+    display:block; height:100%; width:0%;
+    background: var(--clay);
+    transition: width var(--slow) var(--ease);
+  }
+
+  /* ---------- question ---------- */
+  .domain-tag{
+    font-size: 11.5px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--bark-faint);
+    margin: 0 0 1.8rem;
+    font-weight: 500;
+  }
+  .qtext{
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.55rem, 5.6vw, 2.15rem);
+    line-height: 1.42;
+    color: var(--bark);
+    margin: 0 0 2.6rem;
+    letter-spacing: -0.005em;
+    min-height: 4.2em;
+  }
+
+  .scale{
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .opt{
+    appearance:none;
+    text-align:left;
+    width:100%;
+    background: var(--ivory);
+    border: 1px solid var(--line-soft);
+    border-radius: 3px;
+    padding: 1.05rem 1.3rem;
+    font-family: var(--sans);
+    font-size: 16px;
+    color: var(--bark);
+    cursor: pointer;
+    transition: border-color 420ms var(--ease), background 420ms var(--ease), transform 420ms var(--ease);
+    display:flex; align-items:center; gap: 0.9rem;
+  }
+  .opt .dot{
+    width: 9px; height:9px; border-radius:50%;
+    border: 1px solid var(--clay);
+    flex: 0 0 auto;
+    transition: background 420ms var(--ease), border-color 420ms var(--ease);
+  }
+  .opt:hover{ border-color: var(--clay); background: #fff; }
+  .opt:focus-visible{ outline: 2px solid var(--moss); outline-offset: 3px; }
+  .opt.is-chosen{ border-color: var(--bark); background:#fff; }
+  .opt.is-chosen .dot{ background: var(--bark); border-color: var(--bark); }
+
+  .qnav{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-top: 2.4rem; min-height: 2rem;
+  }
+  .back{
+    appearance:none; background:none; border:none; cursor:pointer;
+    color: var(--bark-faint); font-family:var(--sans); font-size:14px;
+    letter-spacing:0.03em; padding: 0.4rem 0;
+    transition: color 400ms var(--ease);
+  }
+  .back:hover{ color: var(--bark-soft); }
+  .back:focus-visible{ outline: 2px solid var(--moss); outline-offset:3px; }
+  .back[hidden]{ visibility:hidden; }
+
+  /* ---------- pause (the held breath) ---------- */
+  .pause{ text-align:center; }
+  .pause .breathe{
+    width: 64px; height:64px; margin: 0 auto 2.2rem;
+    border-radius:50%;
+    border: 1px solid var(--clay);
+    animation: breathe 6s var(--ease) infinite;
+  }
+  @keyframes breathe{
+    0%,100%{ transform: scale(0.78); opacity:0.45; }
+    50%{ transform: scale(1.05); opacity:0.9; }
+  }
+  .pause-line{
+    font-family:var(--serif); font-weight:400;
+    font-size: clamp(1.4rem, 5vw, 1.85rem); line-height:1.5;
+    color: var(--bark); margin: 0 auto 2.6rem; max-width: 24rem;
+  }
+
+  /* ---------- results: a reading, not a score ---------- */
+  .reading-eyebrow{ margin-bottom: 2rem; }
+  .reading-block{ margin: 0 0 2.4rem; }
+  .reading-block .label{
+    font-size: 11.5px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--bark-faint); font-weight:500; margin: 0 0 0.7rem;
+  }
+  .reading-block .body{
+    font-family: var(--serif); font-weight:400;
+    font-size: clamp(1.3rem, 4.6vw, 1.7rem); line-height:1.5;
+    color: var(--bark); margin: 0;
+  }
+  .reading-rule{ border:0; border-top:1px solid var(--line-soft); margin: 2.4rem 0; }
+  .closing{
+    font-family: var(--serif); font-style: italic; font-weight:400;
+    font-size: clamp(1.2rem, 4.4vw, 1.5rem); line-height:1.55;
+    color: var(--bark-soft); margin: 0 0 2.8rem;
+  }
+
+  /* ---------- contribution ---------- */
+  .field{ margin: 0 0 2rem; }
+  .field label{
+    display:block;
+    font-family: var(--serif); font-size: clamp(1.05rem,4vw,1.25rem);
+    color: var(--bark); margin: 0 0 0.8rem; line-height:1.45;
+  }
+  .field textarea, .field input[type=email]{
+    width:100%; appearance:none;
+    background: var(--ivory);
+    border: 1px solid var(--line-soft);
+    border-radius: 3px;
+    padding: 0.9rem 1rem;
+    font-family: var(--sans); font-size: 16px; color: var(--bark);
+    line-height:1.6; resize: vertical;
+    transition: border-color 400ms var(--ease), background 400ms var(--ease);
+  }
+  .field textarea{ min-height: 4.6rem; }
+  .field textarea:focus, .field input[type=email]:focus{
+    outline:none; border-color: var(--clay); background:#fff;
+  }
+  .field textarea::placeholder, .field input::placeholder{ color: var(--bark-faint); }
+
+  .actions{ display:flex; flex-direction:column; gap:1rem; align-items:flex-start; margin-top: 1rem; }
+
+  .ack{
+    text-align:center;
+  }
+  .ack .breathe{
+    width: 56px; height:56px; margin: 0 auto 2rem;
+    border-radius:50%; border:1px solid var(--clay);
+    animation: breathe 6s var(--ease) infinite;
+  }
+
+  .sensor-note{
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line-soft);
+    font-size: 13.5px;
+    color: var(--bark-faint);
+    line-height: 1.65;
+    max-width: 30rem;
+  }
+  .sensor-note strong{ color: var(--bark-soft); font-weight:500; }
+
+  .footer-mark{
+    position: fixed; bottom: clamp(1rem,4vw,1.6rem); left:50%; transform:translateX(-50%);
+    font-size: 11px; letter-spacing: 0.3em; text-transform:uppercase;
+    color: var(--bark-faint); opacity:0.7; pointer-events:none;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .screen{ transition: opacity 200ms linear; transform:none; }
+    .pause .breathe, .ack .breathe{ animation: none; opacity:0.7; transform:scale(0.92); }
+    .meter > span{ transition: width 200ms linear; }
+  }
+
+  @media (max-width: 380px){
+    body{ font-size: 16px; }
+  }
+</style>
+
+<div class="meter" aria-hidden="true"><span id="meterFill"></span></div>
+
+<div class="frame">
+  <main class="stage" id="stage" aria-live="polite">
+
+    <!-- ============ LANDING ============ -->
+    <section class="screen is-active" data-screen="landing">
+      <p class="eyebrow">The Human Transition Observatory</p>
+      <h1 class="lede">An instrument for noticing where your days change state — and where they catch.</h1>
+      <p class="sub">A day is built from transitions, not tasks. Waking. Closing work. Coming to rest. This is the Observatory's first public instrument for observing where those edges hold, and where they don't.</p>
+      <button class="enter" id="beginBtn">Begin</button>
+      <p class="quiet" style="margin-top:2rem;">About four minutes. Nothing is scored.</p>
+    </section>
+
+    <!-- ============ INTRODUCTION (3 beats) ============ -->
+    <section class="screen" data-screen="intro">
+      <div data-beat="0">
+        <p class="intro-line">Most of life happens not in the states themselves, but in the moments between them.</p>
+        <div style="margin-top:2.6rem;"><button class="textlink" data-next-beat>Continue</button></div>
+      </div>
+    </section>
+
+    <!-- ============ QUESTIONS (rendered) ============ -->
+    <section class="screen" data-screen="question">
+      <p class="domain-tag" id="domainTag"></p>
+      <p class="qtext" id="qText"></p>
+      <div class="scale" id="scale" role="radiogroup" aria-label="How true does this feel"></div>
+      <div class="qnav">
+        <button class="back" id="backBtn">Back</button>
+        <span class="quiet" id="positionHint" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <!-- ============ PAUSE (interstitial) ============ -->
+    <section class="screen pause" data-screen="pause">
+      <div class="breathe" aria-hidden="true"></div>
+      <p class="pause-line" id="pauseLine"></p>
+      <button class="textlink" id="pauseContinue">Continue</button>
+    </section>
+
+    <!-- ============ RESULTS (the reading) ============ -->
+    <section class="screen" data-screen="results">
+      <p class="eyebrow reading-eyebrow">Your reading</p>
+
+      <div class="reading-block">
+        <p class="label">Where the day tends to catch</p>
+        <p class="body" id="primaryRead"></p>
+      </div>
+
+      <div class="reading-block">
+        <p class="label">And a second edge worth noticing</p>
+        <p class="body" id="secondaryRead"></p>
+      </div>
+
+      <hr class="reading-rule" />
+      <p class="closing" id="closingLine">None of this is a problem to fix. It is an edge worth noticing.</p>
+
+      <button class="enter" id="toContribute">Add what you noticed</button>
+      <p class="quiet" style="margin-top:1.6rem;">Optional. Your words help the Observatory see more clearly.</p>
+    </section>
+
+    <!-- ============ CONTRIBUTION ============ -->
+    <section class="screen" data-screen="contribute">
+      <p class="eyebrow">Contribute to the Observatory</p>
+      <p class="sub">Four open questions. Answer any, all, or none. What you write is read as an observation — in your own words, kept as you wrote them.</p>
+
+      <div class="field">
+        <label for="cMost">Which part of the reading felt most true?</label>
+        <textarea id="cMost" placeholder="In your own words…"></textarea>
+      </div>
+      <div class="field">
+        <label for="cLeast">Which part felt least true?</label>
+        <textarea id="cLeast" placeholder="In your own words…"></textarea>
+      </div>
+      <div class="field">
+        <label for="cHard">What transition feels most difficult right now?</label>
+        <textarea id="cHard" placeholder="In your own words…"></textarea>
+      </div>
+      <div class="field">
+        <label for="cMissed">Is there anything in your days this didn't capture?</label>
+        <textarea id="cMissed" placeholder="In your own words…"></textarea>
+      </div>
+      <div class="field">
+        <label for="cEmail">If you'd like your record returned to you, leave an email.</label>
+        <input type="email" id="cEmail" placeholder="Optional" autocomplete="email" />
+      </div>
+
+      <div class="actions">
+        <button class="enter" id="submitContribution">Contribute observations</button>
+        <button class="textlink" id="skipContribution">Skip — just show my record</button>
+      </div>
+    </section>
+
+    <!-- ============ ACKNOWLEDGEMENT ============ -->
+    <section class="screen ack" data-screen="ack">
+      <div class="breathe" aria-hidden="true"></div>
+      <p class="intro-line" style="max-width:26rem; margin:0 auto 1.4rem;">Noted.</p>
+      <p class="sub" style="margin-left:auto;margin-right:auto;">Your observations have entered the Observatory's pool, where they sit alongside many others. Recurring patterns — not any single voice — are what the Observatory eventually publishes as findings.</p>
+
+      <div class="sensor-note">
+        <strong>This assessment is one sensor.</strong> It does not diagnose and it does not prescribe. It observes where your transitions hold and where they catch, and it feeds what it observes back into ongoing research into how people move between states.
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<p class="footer-mark">Mirellis · Observatory</p>
+
+<script>
+(function(){
+  "use strict";
+
+  /* SUPABASE CONFIG */
+  var SUPABASE_URL = 'https://zathahofymjasgcsrxyz.supabase.co';
+  var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InphdGhhaG9meW1qYXNnY3NyeHl6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA2NTM2NDAsImV4cCI6MjA5NjIyOTY0MH0.6d8fksIgEDtB4hf4_3vDeXViD5Zd5wnNhFWUindN6sM';
+  var SUPABASE_TABLE = 'observatory_records';
+
+  var DOMAINS = {
+    T1: { name:"Sleep → Wakefulness", tag:"Edge one · Sleep → Wakefulness" },
+    T2: { name:"Work → Recovery",     tag:"Edge two · Work → Recovery" },
+    T3: { name:"Stimulation → Restoration", tag:"Edge three · Stimulation → Restoration" }
+  };
+
+  var QUESTIONS = [
+    { d:"T1", p:+1, t:"The first minutes after waking belong to me before they belong to anything else." },
+    { d:"T1", p:+1, t:"There is a clear moment where I feel I have actually arrived in the day." },
+    { d:"T1", p:-1, t:"My attention is somewhere else before I have fully woken up." },
+    { d:"T1", p:+1, t:"Waking feels like a process, not a switch being flipped." },
+    { d:"T1", p:+1, t:"The morning has a shape I recognise, rather than starting wherever the day grabs me." },
+
+    { d:"T2", p:+1, t:"When the workday ends, it feels clear that it has ended." },
+    { d:"T2", p:+1, t:"My body knows the work is over, not just my schedule." },
+    { d:"T2", p:+1, t:"There is a gap between finishing work and the evening beginning." },
+    { d:"T2", p:-1, t:"The thinking from the day keeps running after the day is done." },
+    { d:"T2", p:+1, t:"Something marks the close of work — a signal, not just a time." },
+
+    { d:"T3", p:+1, t:"Late in the day, there is a point where the input stops." },
+    { d:"T3", p:+1, t:"I can tell when I have shifted from taking things in to settling down." },
+    { d:"T3", p:+1, t:"The evening winds down, rather than just getting quieter by accident." },
+    { d:"T3", p:+1, t:"There is a threshold I cross before rest, not a slow fade into it." },
+    { d:"T3", p:+1, t:"By the time I am resting, the day feels closed rather than paused." }
+  ];
+
+  var SCALE = [
+    { label:"Rarely true",        v:1 },
+    { label:"Sometimes true",     v:2 },
+    { label:"Often true",         v:3 },
+    { label:"Almost always true", v:4 }
+  ];
+
+  var PAUSE_LINES = {
+    T1:"That was the edge between sleep and waking. Take one breath before the next.",
+    T2:"That was the edge between work and recovery. There is no rush here.",
+    T3:"That was the edge between stimulation and rest. Almost done."
+  };
+
+  var READINGS = {
+    T1: {
+      high:"The day seems to begin before you do. Attention arrives somewhere else — a screen, a task, a worry — before you have fully landed in your own morning.",
+      mid:"Your mornings hold their shape some days and slip on others. The arrival into waking is there, but it is not yet reliable.",
+      low:"There appears to be a clear arrival into your day. Waking reads as a process you move through, rather than a state the world imposes."
+    },
+    T2: {
+      high:"Work appears to end on the clock but not in the body. The day is technically finished, yet its thinking keeps running into the evening with no clear close.",
+      mid:"The end of work registers, but unevenly. Some days carry a clean close; others leave the work still humming underneath.",
+      low:"There seems to be a real boundary at the end of work — a point where the body, and not only the calendar, recognises that the day is done."
+    },
+    T3: {
+      high:"There seems to be no clear signal that the day is finished. The evening softens by accident rather than crossing a threshold, so rest arrives without ever being entered.",
+      mid:"The shift from stimulation to rest is present but loose. You wind down, though the line between input and quiet is not always drawn.",
+      low:"There appears to be a threshold you cross before rest. The day reads as closed rather than merely paused by the time you settle."
+    }
+  };
+
+  var CLOSINGS = [
+    "None of this is a problem to fix. It is an edge worth noticing.",
+    "Nothing here is a verdict. It is simply where your attention might rest next.",
+    "These are observations, not instructions. Noticing the edge is the whole of it."
+  ];
+
+  var sessionId = (function(){
+    try {
+      if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+    } catch(e){}
+    return 'sess-' + Date.now() + '-' + Math.floor(Math.random()*1e6);
+  })();
+
+  var answers = new Array(QUESTIONS.length).fill(null);
+  var qIndex = 0;
+  var introBeats = [
+    "Most of life happens not in the states themselves, but in the moments between them.",
+    "Friction tends to gather at the edges — the minutes where one state is meant to become another.",
+    "There are no right answers here, and nothing is graded. We are only noticing."
+  ];
+  var introBeat = 0;
+
+  var stage = document.getElementById('stage');
+  var meterFill = document.getElementById('meterFill');
+
+  function screen(name){ return stage.querySelector('[data-screen="'+name+'"]'); }
+
+  function show(name, after){
+    var screens = stage.querySelectorAll('.screen');
+    var target = screen(name);
+    screens.forEach(function(s){
+      if (s !== target){ s.classList.remove('is-shown'); }
+    });
+    var current = stage.querySelector('.screen.is-active');
+    var doSwap = function(){
+      screens.forEach(function(s){ s.classList.remove('is-active'); });
+      target.classList.add('is-active');
+      window.scrollTo({ top:0, behavior: 'instant' in document.documentElement.style ? 'instant' : 'auto' });
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){ target.classList.add('is-shown'); });
+      });
+      if (typeof after === 'function') after();
+    };
+    if (current && current !== target){
+      current.classList.remove('is-shown');
+      setTimeout(doSwap, 360);
+    } else {
+      doSwap();
+    }
+  }
+
+  function setMeter(frac){
+    meterFill.style.width = Math.max(0, Math.min(1, frac)) * 100 + '%';
+  }
+
+  function renderIntroBeat(){
+    var s = screen('intro');
+    s.innerHTML = '';
+    var wrap = document.createElement('div');
+    var line = document.createElement('p');
+    line.className = 'intro-line';
+    line.textContent = introBeats[introBeat];
+    wrap.appendChild(line);
+    var nav = document.createElement('div');
+    nav.style.marginTop = '2.6rem';
+    var btn = document.createElement('button');
+    btn.className = 'textlink';
+    btn.textContent = (introBeat < introBeats.length - 1) ? 'Continue' : 'Begin noticing';
+    btn.addEventListener('click', function(){
+      if (introBeat < introBeats.length - 1){
+        introBeat++;
+        s.classList.remove('is-shown');
+        setTimeout(function(){ renderIntroBeat(); s.classList.add('is-shown'); }, 380);
+      } else {
+        startQuestions();
+      }
+    });
+    nav.appendChild(btn);
+    wrap.appendChild(nav);
+    s.appendChild(wrap);
+  }
+
+  function startQuestions(){
+    qIndex = 0;
+    show('question', renderQuestion);
+  }
+
+  function renderQuestion(){
+    var q = QUESTIONS[qIndex];
+    document.getElementById('domainTag').textContent = DOMAINS[q.d].tag;
+    document.getElementById('qText').textContent = q.t;
+
+    var scale = document.getElementById('scale');
+    scale.innerHTML = '';
+    SCALE.forEach(function(opt){
+      var b = document.createElement('button');
+      b.className = 'opt' + (answers[qIndex] === opt.v ? ' is-chosen' : '');
+      b.setAttribute('role','radio');
+      b.setAttribute('aria-checked', answers[qIndex] === opt.v ? 'true':'false');
+      var dot = document.createElement('span'); dot.className='dot'; dot.setAttribute('aria-hidden','true');
+      var lab = document.createElement('span'); lab.textContent = opt.label;
+      b.appendChild(dot); b.appendChild(lab);
+      b.addEventListener('click', function(){ choose(opt.v); });
+      scale.appendChild(b);
+    });
+
+    var back = document.getElementById('backBtn');
+    back.hidden = (qIndex === 0);
+
+    setMeter(qIndex / QUESTIONS.length);
+  }
+
+  function choose(v){
+    answers[qIndex] = v;
+    var opts = document.getElementById('scale').querySelectorAll('.opt');
+    opts.forEach(function(o, i){
+      var chosen = SCALE[i].v === v;
+      o.classList.toggle('is-chosen', chosen);
+      o.setAttribute('aria-checked', chosen ? 'true':'false');
+    });
+    setTimeout(advance, 520);
+  }
+
+  function advance(){
+    var current = QUESTIONS[qIndex];
+    var isLastInDomain = (qIndex + 1 >= QUESTIONS.length) ||
+                         (QUESTIONS[qIndex+1].d !== current.d);
+    setMeter((qIndex + 1) / QUESTIONS.length);
+
+    if (qIndex + 1 >= QUESTIONS.length){
+      computeAndShowResults();
+      return;
+    }
+    if (isLastInDomain){
+      showPause(current.d, function(){
+        qIndex++;
+        show('question', renderQuestion);
+      });
+    } else {
+      qIndex++;
+      show('question', renderQuestion);
+    }
+  }
+
+  document.getElementById('backBtn').addEventListener('click', function(){
+    if (qIndex > 0){ qIndex--; show('question', renderQuestion); }
+  });
+
+  var pauseResume = null;
+  function showPause(domain, resume){
+    document.getElementById('pauseLine').textContent = PAUSE_LINES[domain] || "Take one breath.";
+    pauseResume = resume;
+    show('pause');
+  }
+  document.getElementById('pauseContinue').addEventListener('click', function(){
+    var r = pauseResume; pauseResume = null;
+    if (typeof r === 'function') r();
+  });
+
+  function domainFriction(domainCode){
+    var items = QUESTIONS.map(function(q,i){ return {q:q,i:i}; })
+                         .filter(function(o){ return o.q.d === domainCode; });
+    var sum = 0, n = 0;
+    items.forEach(function(o){
+      var v = answers[o.i];
+      if (v == null) return;
+      var f = (o.q.p === -1) ? (v - 1) / 3 : (4 - v) / 3;
+      sum += f; n++;
+    });
+    return n ? sum / n : 0;
+  }
+
+  function band(f){
+    if (f >= 0.55) return 'high';
+    if (f >= 0.28) return 'mid';
+    return 'low';
+  }
+
+  var lastResult = null;
+
+  function computeAndShowResults(){
+    setMeter(1);
+    var scores = ['T1','T2','T3'].map(function(d){
+      return { d:d, f: domainFriction(d) };
+    }).sort(function(a,b){ return b.f - a.f; });
+
+    var primary = scores[0];
+    var secondary = scores[1];
+
+    var primaryRead = READINGS[primary.d][band(primary.f)];
+    var secondaryRead = READINGS[secondary.d][band(secondary.f)];
+    var closing = CLOSINGS[Math.floor(Math.random()*CLOSINGS.length)];
+
+    document.getElementById('primaryRead').textContent = primaryRead;
+    document.getElementById('secondaryRead').textContent = secondaryRead;
+    document.getElementById('closingLine').textContent = closing;
+
+    lastResult = {
+      session_id: sessionId,
+      primary_transition: primary.d,
+      secondary_transition: secondary.d,
+      friction: { T1: round2(domainFriction('T1')), T2: round2(domainFriction('T2')), T3: round2(domainFriction('T3')) },
+      bands: { primary: band(primary.f), secondary: band(secondary.f) },
+      primary_reading: primaryRead,
+      secondary_reading: secondaryRead
+    };
+
+    show('results');
+  }
+
+  function round2(x){ return Math.round(x * 100) / 100; }
+
+  document.getElementById('toContribute').addEventListener('click', function(){
+    show('contribute');
+  });
+
+  function buildPayload(submitted){
+    var get = function(id){ return (document.getElementById(id).value || '').trim(); };
+    var most = get('cMost'), least = get('cLeast'), hard = get('cHard'), missed = get('cMissed');
+    var email = get('cEmail');
+
+    var observations = [];
+    function obs(body, transition, type){
+      if (!body) return;
+      observations.push({
+        body: body,
+        transition: transition,
+        obs_type: type,
+        source: 'mirror',
+        use_state: 'pre-purchase',
+        is_verbatim: true,
+        disruption_rating: null
+      });
+    }
+    obs(most,   lastResult ? lastResult.primary_transition : 'T0', 'friction');
+    obs(least,  lastResult ? lastResult.primary_transition : 'T0', 'friction');
+    obs(hard,   selfTagFromText(hard) || (lastResult ? lastResult.primary_transition : 'T0'), 'friction');
+    obs(missed, 'T0', 'friction');
+
+    return {
+      session_id: sessionId,
+      primary_transition: lastResult ? lastResult.primary_transition : null,
+      secondary_transition: lastResult ? lastResult.secondary_transition : null,
+      t1_friction: lastResult ? lastResult.friction.T1 : null,
+      t2_friction: lastResult ? lastResult.friction.T2 : null,
+      t3_friction: lastResult ? lastResult.friction.T3 : null,
+      friction_primary: lastResult ? lastResult.bands.primary : null,
+      friction_secondary: lastResult ? lastResult.bands.secondary : null,
+      mirror_version: 'v1_1',
+      email: email || null,
+      por_payload: lastResult,
+      observations: observations,
+      submitted: !!submitted
+    };
+  }
+
+  function selfTagFromText(t){
+    if (!t) return null;
+    var s = t.toLowerCase();
+    if (/\b(wake|waking|wake up|morning|alarm|out of bed|getting up)\b/.test(s)) return 'T1';
+    if (/\b(work|email|laptop|office|shut down|clock off|finish work|after work)\b/.test(s)) return 'T2';
+    if (/\b(sleep|rest|wind down|evening|scroll|screen|night|bed|switch off|unwind)\b/.test(s)) return 'T3';
+    return null;
+  }
+
+  function persist(payload){
+    var recordData = {
+      session_id: payload.session_id,
+      primary_transition: payload.primary_transition,
+      secondary_transition: payload.secondary_transition,
+      t1_friction: payload.t1_friction,
+      t2_friction: payload.t2_friction,
+      t3_friction: payload.t3_friction,
+      friction_primary: payload.friction_primary,
+      friction_secondary: payload.friction_secondary,
+      mirror_version: payload.mirror_version,
+      email: payload.email,
+      por_payload: payload.por_payload,
+      submitted_at: new Date().toISOString()
+    };
+
+    fetch(SUPABASE_URL + '/rest/v1/' + SUPABASE_TABLE, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_KEY,
+        'Authorization': 'Bearer ' + SUPABASE_KEY
+      },
+      body: JSON.stringify(recordData)
+    }).catch(function(e){
+      console.error('Error saving record:', e);
+    });
+
+    if (payload.observations && payload.observations.length > 0) {
+      payload.observations.forEach(function(obs) {
+        var obsData = {
+          session_id: payload.session_id,
+          body: obs.body,
+          transition: obs.transition,
+          obs_type: obs.obs_type,
+          source: obs.source,
+          use_state: obs.use_state,
+          is_verbatim: obs.is_verbatim,
+          disruption_rating: obs.disruption_rating,
+          created_at: new Date().toISOString()
+        };
+        fetch(SUPABASE_URL + '/rest/v1/observations', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_KEY,
+            'Authorization': 'Bearer ' + SUPABASE_KEY
+          },
+          body: JSON.stringify(obsData)
+        }).catch(function(e){
+          console.error('Error saving observation:', e);
+        });
+      });
+    }
+
+    try {
+      window.dispatchEvent(new CustomEvent('mirellis:observation', { detail: payload }));
+    } catch(e){}
+    if (window.console) console.log('[Observatory observation v1_1]', payload);
+  }
+
+  document.getElementById('submitContribution').addEventListener('click', function(){
+    persist(buildPayload(true));
+    show('ack');
+  });
+  document.getElementById('skipContribution').addEventListener('click', function(){
+    persist(buildPayload(false));
+    show('ack');
+  });
+
+  document.getElementById('beginBtn').addEventListener('click', function(){
+    renderIntroBeat();
+    show('intro');
+  });
+
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+      screen('landing').classList.add('is-shown');
+    });
+  });
+
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Observatory Mirror V2",
+  "presets": [{ "name": "Observatory Mirror V2" }]
+}
+{% endschema %}

@@ -1,0 +1,130 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "ingredient-hero",
+      "settings": {}
+    },
+
+    "philosophy": {
+      "type": "ingredient-philosophy",
+      "settings": {
+        "text": "<p>Coconut oil was selected not only for cleansing, but for the way it changes the emotional pace of ritual interaction. Mirellis formulations are designed around the understanding that the nervous system responds to texture, familiarity, temperature, and repetition long before conscious interpretation fully forms.</p><p>The softness of coconut oil creates a more gradual sensory transition into wakefulness. The texture slows the ritual down. Familiarity reduces resistance. The experience becomes calmer, quieter, and more coherent over repeated use.</p>"
+      }
+    },
+
+    "image_break_1": {
+      "type": "ingredient-image-break",
+      "settings": {
+        "image": "shopify://shop_images/mirellis-ashwagandha-part-of-the-restorative-experience.png",
+        "caption": "Texture slows the body before the mind becomes aware of it."
+      }
+    },
+
+    "ritual_practice": {
+      "type": "ingredient-ritual-practice",
+      "settings": {
+        "text": "<p>Within oil pulling practice, coconut oil creates a slower sensory beginning to the day. The texture is rounded rather than sharp. The movement feels gradual rather than stimulating.</p><p>Over repeated mornings, the body begins recognizing the sequence before conscious attention fully arrives. The ritual becomes less about cleansing alone and more about creating coherence between waking, sensation, and orientation.</p>"
+      }
+    },
+
+    "roles": {
+      "type": "ingredient-roles",
+      "blocks": {
+        "role_1": {
+          "type": "role",
+          "settings": {
+            "title": "Sensory Rhythm",
+            "description": "<p>Coconut oil slows the pace of the morning through softness, warmth, and familiarity.</p>"
+          }
+        },
+
+        "role_2": {
+          "type": "role",
+          "settings": {
+            "title": "Texture & Mouthfeel",
+            "description": "<p>The rounded texture creates a calmer oral experience during ritual use.</p>"
+          }
+        },
+
+        "role_3": {
+          "type": "role",
+          "settings": {
+            "title": "Formulation Balance",
+            "description": "<p>Coconut oil softens sharper aromatic ingredients while supporting a more coherent sensory profile.</p>"
+          }
+        },
+
+        "role_4": {
+          "type": "role",
+          "settings": {
+            "title": "Ritual Transition",
+            "description": "<p>Within Mirellis Morning Rituals, coconut oil helps create a gentler transition into wakefulness.</p>"
+          }
+        }
+      },
+
+      "block_order": [
+        "role_1",
+        "role_2",
+        "role_3",
+        "role_4"
+      ],
+
+      "settings": {}
+    },
+
+    "research": {
+      "type": "ingredient-research-notes",
+      "blocks": {
+        "note_1": {
+          "type": "note",
+          "settings": {
+            "title": "Oral Microbiome Research",
+            "text": "<p>Coconut oil has drawn increasing interest within oral microbiome discussions due to its naturally occurring fatty acid composition, particularly lauric acid.</p>"
+          }
+        },
+
+        "note_2": {
+          "type": "note",
+          "settings": {
+            "title": "Traditional Ritual Use",
+            "text": "<p>Traditional oil pulling practices have historically favored coconut oil for its familiarity, texture, and gentler sensory profile within repeated ritual use.</p>"
+          }
+        }
+      },
+
+      "block_order": [
+        "note_1",
+        "note_2"
+      ],
+
+      "settings": {}
+    },
+
+    "closing": {
+      "type": "ingredient-closing-statement",
+      "settings": {
+        "text": "The body responds to repeated sensory signals before conscious intention. Rituals begin long before the mind gives them language."
+      }
+    }
+  },
+
+  "order": [
+    "hero",
+    "philosophy",
+    "image_break_1",
+    "ritual_practice",
+    "roles",
+    "research",
+    "closing"
+  ]
+}

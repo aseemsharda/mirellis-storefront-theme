@@ -1,0 +1,683 @@
+{% liquid
+  assign hero_eyebrow = section.settings.hero_eyebrow
+  assign hero_heading = section.settings.hero_heading
+  assign hero_body = section.settings.hero_body
+
+  assign rhythm_heading = section.settings.rhythm_heading
+  assign rhythm_body = section.settings.rhythm_body
+
+  assign ritual_heading = section.settings.ritual_heading
+  assign ritual_body = section.settings.ritual_body
+
+  assign restoration_heading = section.settings.restoration_heading
+  assign restoration_body = section.settings.restoration_body
+
+  assign collab_heading = section.settings.collab_heading
+  assign collab_body = section.settings.collab_body
+
+  assign world_heading = section.settings.world_heading
+  assign world_intro = section.settings.world_intro
+
+  assign ending_eyebrow = section.settings.ending_eyebrow
+  assign ending_heading = section.settings.ending_heading
+  assign ending_body = section.settings.ending_body
+  assign ending_button = section.settings.ending_button
+  assign ending_link = section.settings.ending_link
+%}
+
+<section class="mirellis-about-immersive">
+
+  <!-- HERO -->
+  <section class="about-hero">
+
+    <div class="about-container narrow">
+
+      <div class="about-eyebrow">
+        {{ hero_eyebrow }}
+      </div>
+
+      <h1 class="about-hero-heading">
+        {{ hero_heading }}
+      </h1>
+
+      <div class="about-body-copy">
+        {{ hero_body }}
+      </div>
+
+    </div>
+
+    <div class="about-hero-image">
+
+      {% if section.settings.hero_image != blank %}
+        {{
+          section.settings.hero_image
+          | image_url: width: 2200
+          | image_tag:
+            loading: 'lazy',
+            alt: 'Mirellis Atmosphere'
+        }}
+      {% endif %}
+
+    </div>
+
+  </section>
+
+
+  <!-- RHYTHM -->
+  <section class="about-section rhythm-section">
+
+    <div class="about-grid">
+
+      <div class="about-image-block">
+
+        {% if section.settings.rhythm_image != blank %}
+          {{
+            section.settings.rhythm_image
+            | image_url: width: 1600
+            | image_tag:
+              loading: 'lazy',
+              alt: 'Rhythm'
+          }}
+        {% endif %}
+
+      </div>
+
+      <div class="about-text-block">
+
+        <h2>
+          {{ rhythm_heading }}
+        </h2>
+
+        <div class="about-body-copy">
+          {{ rhythm_body }}
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- RITUAL -->
+  <section class="about-section ritual-section">
+
+    <div class="about-container narrow">
+
+      <h2>
+        {{ ritual_heading }}
+      </h2>
+
+      <div class="about-body-copy">
+        {{ ritual_body }}
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ENVIRONMENT IMAGE -->
+  <section class="about-cinematic-image">
+
+    {% if section.settings.environment_image != blank %}
+      {{
+        section.settings.environment_image
+        | image_url: width: 2200
+        | image_tag:
+          loading: 'lazy',
+          alt: 'Environment'
+      }}
+    {% endif %}
+
+  </section>
+
+
+  <!-- RESTORATION -->
+  <section class="about-section restoration-section">
+
+    <div class="about-container narrow">
+
+      <h2>
+        {{ restoration_heading }}
+      </h2>
+
+      <div class="about-body-copy">
+        {{ restoration_body }}
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- COLLABORATION -->
+  <section class="about-section collaboration-section">
+
+    <div class="about-grid collaboration-grid">
+
+      <div class="about-text-block">
+
+        <h2>
+          {{ collab_heading }}
+        </h2>
+
+        <div class="about-body-copy">
+          {{ collab_body }}
+        </div>
+
+      </div>
+
+      <div class="collaboration-cards">
+
+        {% for block in section.blocks %}
+
+          {% if block.type == 'collaboration' %}
+
+            <div class="collab-card" {{ block.shopify_attributes }}>
+
+              <h3>
+                {{ block.settings.name }}
+              </h3>
+
+              <p>
+                {{ block.settings.title }}
+              </p>
+
+            </div>
+
+          {% endif %}
+
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- WORLD -->
+  <section class="about-section world-section">
+
+    <div class="about-container wide">
+
+      <div class="world-heading">
+
+        <h2>
+          {{ world_heading }}
+        </h2>
+
+        <p>
+          {{ world_intro }}
+        </p>
+
+      </div>
+
+      <div class="world-grid">
+
+        {% for block in section.blocks %}
+
+          {% if block.type == 'territory' %}
+
+            <div class="world-item" {{ block.shopify_attributes }}>
+
+              <h3>
+                {{ block.settings.title }}
+              </h3>
+
+              <p>
+                {{ block.settings.copy }}
+              </p>
+
+            </div>
+
+          {% endif %}
+
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ENDING -->
+  <section class="about-ending">
+
+    <div class="about-container narrow center">
+
+      <div class="about-eyebrow">
+        {{ ending_eyebrow }}
+      </div>
+
+      <h2 class="ending-heading">
+        {{ ending_heading }}
+      </h2>
+
+      <p class="ending-copy">
+        {{ ending_body }}
+      </p>
+
+      {% if ending_button != blank %}
+        <a href="{{ ending_link }}" class="about-button">
+          {{ ending_button }}
+        </a>
+      {% endif %}
+
+    </div>
+
+  </section>
+
+</section>
+
+
+<style>
+
+.mirellis-about-immersive {
+  background: #f8f5ef;
+  color: #2b2b2b;
+  overflow: hidden;
+}
+
+.about-container {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.about-container.narrow {
+  max-width: 760px;
+}
+
+.about-container.wide {
+  max-width: 1400px;
+}
+
+.about-section {
+  padding: 180px 48px;
+}
+
+.about-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #7b756b;
+  margin-bottom: 32px;
+}
+
+.about-hero {
+  padding: 140px 48px 220px;
+}
+
+.about-hero-heading,
+.about-section h2,
+.ending-heading {
+  font-size: 56px;
+  line-height: 1.08;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  margin-bottom: 48px;
+}
+
+.about-body-copy p,
+.world-heading p,
+.world-item p,
+.ending-copy,
+.collab-card p {
+  font-size: 18px;
+  line-height: 1.95;
+  font-weight: 300;
+  color: #5c574f;
+  margin-bottom: 28px;
+}
+
+.about-hero-image,
+.about-cinematic-image {
+  margin-top: 100px;
+}
+
+.about-hero-image img,
+.about-cinematic-image img,
+.about-image-block img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.about-hero-image img {
+  height: 78vh;
+  min-height: 720px;
+}
+
+.about-cinematic-image img {
+  height: 88vh;
+  min-height: 820px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 58% 42%;
+  gap: 72px;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.about-image-block img {
+  aspect-ratio: 4/5;
+  height: 760px;
+}
+
+.ritual-section {
+  background: #f4f0e8;
+}
+
+.collaboration-grid {
+  align-items: start;
+}
+
+.collaboration-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.collab-card h3,
+.world-item h3 {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 18px;
+}
+
+.world-heading {
+  max-width: 760px;
+  margin-bottom: 120px;
+}
+
+.world-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 72px 56px;
+}
+
+.about-ending {
+  padding: 240px 48px 260px;
+  text-align: center;
+}
+
+.about-button {
+  display: inline-block;
+  margin-top: 42px;
+  padding: 16px 38px;
+  border: 1px solid #2b2b2b;
+  text-decoration: none;
+  color: #2b2b2b;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.about-button:hover {
+  background: #2b2b2b;
+  color: #f8f5ef;
+}
+
+.center {
+  text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+
+  .about-image-block {
+    order: 2;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .about-section,
+  .about-hero,
+  .about-ending {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .about-section {
+    padding-top: 110px;
+    padding-bottom: 110px;
+  }
+
+  .about-ending {
+    padding-top: 140px;
+    padding-bottom: 180px;
+  }
+
+  .about-hero {
+    padding-top: 100px;
+    padding-bottom: 160px;
+  }
+
+  .about-hero-heading,
+  .about-section h2,
+  .ending-heading {
+    font-size: 34px;
+    line-height: 1.14;
+    margin-bottom: 36px;
+  }
+
+  .about-body-copy p,
+  .world-heading p,
+  .world-item p,
+  .ending-copy,
+  .collab-card p {
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  .about-hero-image img {
+    height: 62vh;
+    min-height: 480px;
+  }
+
+  .about-cinematic-image img {
+    height: 68vh;
+    min-height: 520px;
+  }
+
+  .about-image-block img {
+    height: auto;
+  }
+
+  .world-grid {
+    grid-template-columns: 1fr;
+    gap: 72px;
+  }
+
+}
+
+</style>
+
+
+{% schema %}
+{
+  "name": "About Mirellis Immersive",
+  "settings": [
+
+    {
+      "type": "text",
+      "id": "hero_eyebrow",
+      "label": "Hero Eyebrow",
+      "default": "About Mirellis"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_heading",
+      "label": "Hero Heading",
+      "default": "Modern life rarely slows gradually anymore."
+    },
+    {
+      "type": "richtext",
+      "id": "hero_body",
+      "label": "Hero Body"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+
+    {
+      "type": "textarea",
+      "id": "rhythm_heading",
+      "label": "Rhythm Heading",
+      "default": "The body still responds to rhythm."
+    },
+    {
+      "type": "richtext",
+      "id": "rhythm_body",
+      "label": "Rhythm Body"
+    },
+    {
+      "type": "image_picker",
+      "id": "rhythm_image",
+      "label": "Rhythm Image"
+    },
+
+    {
+      "type": "textarea",
+      "id": "ritual_heading",
+      "label": "Ritual Heading",
+      "default": "Rituals were never meant to optimize life."
+    },
+    {
+      "type": "richtext",
+      "id": "ritual_body",
+      "label": "Ritual Body"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "environment_image",
+      "label": "Environment Image"
+    },
+
+    {
+      "type": "textarea",
+      "id": "restoration_heading",
+      "label": "Restoration Heading",
+      "default": "Modern restoration needs new environments."
+    },
+    {
+      "type": "richtext",
+      "id": "restoration_body",
+      "label": "Restoration Body"
+    },
+
+    {
+      "type": "textarea",
+      "id": "collab_heading",
+      "label": "Collaboration Heading",
+      "default": "Built through interdisciplinary collaboration."
+    },
+    {
+      "type": "richtext",
+      "id": "collab_body",
+      "label": "Collaboration Body"
+    },
+
+    {
+      "type": "textarea",
+      "id": "world_heading",
+      "label": "World Heading",
+      "default": "A slower relationship with modern life."
+    },
+    {
+      "type": "textarea",
+      "id": "world_intro",
+      "label": "World Intro"
+    },
+
+    {
+      "type": "text",
+      "id": "ending_eyebrow",
+      "label": "Ending Eyebrow",
+      "default": "Return to Rhythm"
+    },
+    {
+      "type": "textarea",
+      "id": "ending_heading",
+      "label": "Ending Heading",
+      "default": "The body remembers what the environment repeats."
+    },
+    {
+      "type": "textarea",
+      "id": "ending_body",
+      "label": "Ending Body"
+    },
+    {
+      "type": "text",
+      "id": "ending_button",
+      "label": "Button Text",
+      "default": "Explore Rituals"
+    },
+    {
+      "type": "url",
+      "id": "ending_link",
+      "label": "Button Link"
+    }
+
+  ],
+
+  "blocks": [
+
+    {
+      "type": "collaboration",
+      "name": "Collaboration Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    },
+
+    {
+      "type": "territory",
+      "name": "World Territory",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "copy",
+          "label": "Copy"
+        }
+      ]
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "About Mirellis Immersive"
+    }
+  ]
+}
+{% endschema %}

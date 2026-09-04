@@ -1,6 +1,6 @@
 # After Work Pilot — Production Pack
 
-**Status:** prototype and content specification. Not approved for production release.  
+**Status:** origin pilot specification. Its exact screen sequence is superseded by `after-work-release-candidate-2026-08.md`; its private-companion, distinct-route, optional-media and qualitative-pilot boundaries remain governing. Not approved for production release until the current release gates pass.
 **Purpose:** define one complete, testable Mirellis transition session before any second transition or content-library expansion.
 
 ## 1. Pilot premise

@@ -1,0 +1,181 @@
+{% comment %}
+Transition Featured Findings Section
+Displays top 3 findings for this transition
+{% endcomment %}
+
+<section class="transition-featured-findings" id="featured-findings">
+  <div class="transition-featured-findings__container">
+    
+    <h2 class="transition-featured-findings__title">Key Findings</h2>
+    
+    <div class="transition-featured-findings__grid">
+      <article class="transition-finding-card">
+        
+        <div class="transition-finding-card__number">
+          FINDING 002
+        </div>
+
+        <h3 class="transition-finding-card__title">The First 30 Minutes After Waking Are Not Like The Rest Of The Day</h3>
+
+        <p class="transition-finding-card__excerpt">
+          The morning window determines the quality of your entire day. What you do in the first 30 minutes shapes your nervous system baseline for the next 16 hours.
+        </p>
+
+        <p class="transition-finding-card__published">
+          Published May 2026
+        </p>
+
+        <a href="/blogs/journal/the-first-30-minutes-after-waking-are-not-like-the-rest-of-the-day" class="transition-finding-card__link">
+          Read Finding →
+        </a>
+
+      </article>
+
+      <article class="transition-finding-card">
+        
+        <div class="transition-finding-card__number">
+          FINDING 001
+        </div>
+
+        <h3 class="transition-finding-card__title">Why Your Brain Turns On The Moment You Get Into Bed</h3>
+
+        <p class="transition-finding-card__excerpt">
+          What appears to be insomnia is often your nervous system doing exactly what it's designed to do. The activation you feel is a natural protective mechanism.
+        </p>
+
+        <p class="transition-finding-card__published">
+          Published April 2026
+        </p>
+
+        <a href="/blogs/journal/why-your-brain-turns-on-the-moment-you-get-into-bed" class="transition-finding-card__link">
+          Read Finding →
+        </a>
+
+      </article>
+
+      <article class="transition-finding-card">
+        
+        <div class="transition-finding-card__number">
+          FINDING 005
+        </div>
+
+        <h3 class="transition-finding-card__title">Morning Light Exposure & Circadian Anchoring</h3>
+
+        <p class="transition-finding-card__excerpt">
+          The first light exposure after waking is the strongest circadian signal available. Timing and intensity matter more than duration.
+        </p>
+
+        <p class="transition-finding-card__published">
+          Published March 2026
+        </p>
+
+        <a href="/blogs/journal/morning-light-exposure-and-circadian-anchoring" class="transition-finding-card__link">
+          Read Finding →
+        </a>
+
+      </article>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .transition-featured-findings {
+    padding: 4rem 2rem;
+    background: #fff;
+  }
+
+  .transition-featured-findings__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .transition-featured-findings__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: #1a1a18;
+    margin-bottom: 2rem;
+  }
+
+  .transition-featured-findings__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .transition-finding-card {
+    background: #faf7f2;
+    border: 1px solid rgba(26, 26, 24, 0.08);
+    border-radius: 4px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+  }
+
+  .transition-finding-card:hover {
+    background: #f5f2ed;
+  }
+
+  .transition-finding-card__number {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: #999;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .transition-finding-card__title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #1a1a18;
+    margin-bottom: 1rem;
+  }
+
+  .transition-finding-card__excerpt {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+  }
+
+  .transition-finding-card__published {
+    font-size: 0.8rem;
+    color: #999;
+    margin-bottom: 1.5rem;
+  }
+
+  .transition-finding-card__link {
+    color: #1a1a18;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .transition-finding-card__link:hover {
+    color: #666;
+  }
+
+  @media (max-width: 768px) {
+    .transition-featured-findings {
+      padding: 3rem 1.5rem;
+    }
+
+    .transition-featured-findings__title {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Featured Findings",
+  "settings": []
+}
+{% endschema %}

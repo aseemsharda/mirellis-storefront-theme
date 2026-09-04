@@ -1,0 +1,381 @@
+{% stylesheet %}
+.ed-dest {
+  background: #faf7f2;
+  padding: 8rem 0 0;
+}
+
+.ed-dest__head {
+  max-width: 1100px;
+  margin: 0 auto 4rem;
+  padding: 0 2rem;
+}
+
+.ed-dest__eyebrow {
+  font-family: var(--font-body-family);
+  font-size: 0.72rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(26, 26, 24, 0.45);
+  margin: 0 0 1.6rem;
+}
+
+.ed-dest__heading {
+  font-family: var(--font-heading-family);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+  color: #1a1a18;
+  margin: 0;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+
+.ed-dest__panels {
+  display: flex;
+  flex-direction: column;
+}
+
+.ed-dest__panel {
+  position: relative;
+  display: block;
+  min-height: 70vh;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background: #1a1a18;
+}
+
+.ed-dest__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ed-dest__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  transition: transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.ed-dest__panel:hover .ed-dest__media img,
+.ed-dest__panel:focus-visible .ed-dest__media img {
+  transform: scale(1);
+}
+
+.ed-dest__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(13, 12, 11, 0.62) 0%,
+      rgba(13, 12, 11, 0.34) 42%,
+      rgba(13, 12, 11, 0.12) 100%
+    );
+}
+
+.ed-dest__content {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.ed-dest__states {
+  font-family: var(--font-heading-family);
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #f7f3ed;
+  margin: 0 0 1rem;
+}
+
+.ed-dest__arrow {
+  color: #c79a6d;
+  margin: 0 0.4rem;
+}
+
+.ed-dest__line {
+  font-family: var(--font-body-family);
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  line-height: 1.6;
+  color: rgba(247, 243, 237, 0.86);
+  margin: 0 0 2.2rem;
+  max-width: 40ch;
+  text-wrap: pretty;
+}
+
+.ed-dest__link {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-body-family);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #f7f3ed;
+  padding-bottom: 0.4rem;
+}
+
+.ed-dest__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 2rem;
+  height: 1px;
+  background: rgba(247, 243, 237, 0.5);
+  transition: width 0.45s ease, background 0.45s ease;
+}
+
+.ed-dest__panel:hover .ed-dest__link::after,
+.ed-dest__panel:focus-visible .ed-dest__link::after {
+  width: 100%;
+  background: #c79a6d;
+}
+
+.ed-dest__arrow-inline { margin-left: 0.45rem; }
+
+.ed-dest__panel:focus-visible {
+  outline: 2px solid #c79a6d;
+  outline-offset: -4px;
+}
+
+.ed-dest__closing {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 7rem 2rem;
+  text-align: center;
+}
+
+.ed-dest__closing p {
+  font-family: var(--font-heading-family);
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  line-height: 1.34;
+  letter-spacing: -0.025em;
+  color: #1a1a18;
+  margin: 0;
+  text-wrap: balance;
+}
+
+/* Optional subtle parallax via scroll-driven animation. */
+.ed-dest--parallax .ed-dest__media img {
+  will-change: transform;
+  animation: ed-dest-drift linear both;
+  animation-timeline: view();
+  animation-range: cover 0% cover 100%;
+}
+
+@keyframes ed-dest-drift {
+  from { transform: scale(1.12) translateY(-3%); }
+  to { transform: scale(1.12) translateY(3%); }
+}
+
+@media screen and (max-width: 749px) {
+  .ed-dest {
+    padding-top: 5.5rem;
+  }
+  .ed-dest__head {
+    margin-bottom: 2.6rem;
+    padding: 0 1.5rem;
+  }
+  .ed-dest__heading { max-width: none; }
+  .ed-dest__panel { min-height: 64vh; }
+  .ed-dest__content {
+    min-height: 64vh;
+    padding: 3rem 1.5rem;
+  }
+  .ed-dest__closing { padding: 5rem 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ed-dest__media img {
+    transform: scale(1);
+    transition: none;
+    animation: none;
+  }
+  .ed-dest--parallax .ed-dest__media img {
+    animation: none;
+    transform: scale(1);
+  }
+}
+{% endstylesheet %}
+
+<section class="ed-dest{% if section.settings.enable_parallax %} ed-dest--parallax{% endif %}">
+
+  {% if section.settings.eyebrow != blank or section.settings.heading != blank %}
+    <div class="ed-dest__head">
+      {% if section.settings.eyebrow != blank %}
+        <p class="ed-dest__eyebrow">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="ed-dest__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <div class="ed-dest__panels">
+    {% for block in section.blocks %}
+      {%- liquid
+        assign tag = 'div'
+        if block.settings.link != blank
+          assign tag = 'a'
+        endif
+      -%}
+      <{{ tag }}
+        {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}
+        class="ed-dest__panel"
+        {{ block.shopify_attributes }}
+      >
+        <div class="ed-dest__media">
+          {% if block.settings.image != blank %}
+            {{ block.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy', sizes: '100vw', widths: '900, 1400, 2000, 2400' }}
+          {% endif %}
+        </div>
+        <div class="ed-dest__overlay" aria-hidden="true"></div>
+
+        <div class="ed-dest__content">
+          {% if block.settings.state_from != blank or block.settings.state_to != blank %}
+            <p class="ed-dest__states">
+              {{ block.settings.state_from }}<span class="ed-dest__arrow" aria-hidden="true">&rarr;</span>{{ block.settings.state_to }}
+            </p>
+          {% endif %}
+          {% if block.settings.line != blank %}
+            <p class="ed-dest__line">{{ block.settings.line }}</p>
+          {% endif %}
+          {% if block.settings.link != blank and block.settings.link_label != blank %}
+            <span class="ed-dest__link">
+              {{ block.settings.link_label }}<span class="ed-dest__arrow-inline" aria-hidden="true">&rarr;</span>
+            </span>
+          {% endif %}
+        </div>
+      </{{ tag }}>
+    {% endfor %}
+  </div>
+
+  {% if section.settings.closing != blank %}
+    <div class="ed-dest__closing">
+      <p>{{ section.settings.closing }}</p>
+    </div>
+  {% endif %}
+
+</section>
+
+{% schema %}
+{
+  "name": "Destination Panels",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Continue"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Continue Into A Transition"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_parallax",
+      "label": "Enable subtle parallax",
+      "info": "Slow background drift on scroll. Disabled automatically for reduced-motion users.",
+      "default": false
+    },
+    {
+      "type": "textarea",
+      "id": "closing",
+      "label": "Closing Line",
+      "default": "Every transition begins with recognition."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "panel",
+      "name": "Panel",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "state_from",
+          "label": "State (from)",
+          "default": "Sleep"
+        },
+        {
+          "type": "text",
+          "id": "state_to",
+          "label": "State (to)",
+          "default": "Wakefulness"
+        },
+        {
+          "type": "textarea",
+          "id": "line",
+          "label": "Line",
+          "default": "The beginning of the day."
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link Label",
+          "default": "Explore"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Destination Panels",
+      "blocks": [
+        {
+          "type": "panel",
+          "settings": {
+            "state_from": "Sleep",
+            "state_to": "Wakefulness",
+            "line": "The beginning of the day.",
+            "link_label": "Explore"
+          }
+        },
+        {
+          "type": "panel",
+          "settings": {
+            "state_from": "Work",
+            "state_to": "Recovery",
+            "line": "The moment work leaves the body.",
+            "link_label": "Explore"
+          }
+        },
+        {
+          "type": "panel",
+          "settings": {
+            "state_from": "Stimulation",
+            "state_to": "Restoration",
+            "line": "The return to restoration.",
+            "link_label": "Explore"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

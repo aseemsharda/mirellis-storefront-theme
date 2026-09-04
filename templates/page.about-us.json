@@ -1,0 +1,214 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "image_with_text_overlay_TKGM46": {
+      "type": "image-with-text-overlay",
+      "disabled": true,
+      "custom_css": [
+        "img {border-radius: 35px;}"
+      ],
+      "name": "Image with text overlay",
+      "settings": {
+        "full_width": false,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "auto",
+        "image": "shopify://shop_images/Why_Mirellis_Exists.png",
+        "mobile_image": "shopify://shop_images/Frame_2147239962_4.png",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "about_mirellis_immersive_pUPzdy": {
+      "type": "about-mirellis-immersive",
+      "blocks": {
+        "territory_xcRCUR": {
+          "type": "territory",
+          "settings": {
+            "title": "Ritual Objects & Environments",
+            "copy": "Intentional sensory objects, slower environments, textures, and atmospheric systems designed to reduce friction and soften the pace of modern life."
+          }
+        },
+        "territory_hWnCrQ": {
+          "type": "territory",
+          "settings": {
+            "title": "The Journal",
+            "copy": "An evolving editorial archive exploring ritual physiology, sensory environments, emotional pacing, circadian rhythm, and modern restoration."
+          }
+        },
+        "territory_QKftKX": {
+          "type": "territory",
+          "settings": {
+            "title": "Sound Environments",
+            "copy": "Frequency-informed sound experiences created to influence atmosphere, emotional pacing, nervous-system tone, and sensory continuity throughout the day."
+          }
+        },
+        "territory_fTPp7D": {
+          "type": "territory",
+          "settings": {
+            "title": "Evening Restoration",
+            "copy": "Slower evening environments shaped around decompression, warmth, emotional quietness, dimness, repetition, and restoration."
+          }
+        },
+        "territory_HQEwKe": {
+          "type": "territory",
+          "settings": {
+            "title": "Morning Rituals",
+            "copy": "Rituals designed around orientation, freshness, sensory clarity, breath, and coherent activation at the beginning of the day."
+          }
+        },
+        "collaboration_JhiFWG": {
+          "type": "collaboration",
+          "settings": {
+            "name": "Dr. Saurabh",
+            "title": "Department of Ayurveda"
+          }
+        },
+        "collaboration_mdqGq4": {
+          "type": "collaboration",
+          "settings": {
+            "name": "Dr. Nudrat",
+            "title": "Sensory Research, Emotional Pacing & Environmental Psychology"
+          }
+        },
+        "collaboration_Q3A8x9": {
+          "type": "collaboration",
+          "settings": {
+            "name": "Dr. Nitin",
+            "title": "Ayurveda, Botanical Systems & Ritual Intelligence"
+          }
+        }
+      },
+      "block_order": [
+        "territory_xcRCUR",
+        "territory_hWnCrQ",
+        "territory_QKftKX",
+        "territory_fTPp7D",
+        "territory_HQEwKe",
+        "collaboration_JhiFWG",
+        "collaboration_mdqGq4",
+        "collaboration_Q3A8x9"
+      ],
+      "name": "About Mirellis Immersive",
+      "settings": {
+        "hero_eyebrow": "RITUAL SCIENCE COMPANY",
+        "hero_heading": "We study Human State Transitions.",
+        "hero_body": "<p>Mirellis is a Ritual Science Company.</p><p>We study the moments between states — sleep and waking, work and recovery, stimulation and restoration — and build the rituals, sounds, and tools that help people navigate them.</p><p>Modern life removed the transitions that once regulated human beings. Continuous stimulation, fragmented attention, and compressed routines have changed how people focus, slow down, and recover.</p><p>The body still responds to repeated signals. The nervous system still learns through coherent sensory patterns. Mirellis exists to design those patterns.</p>",
+        "hero_image": "shopify://shop_images/aboutus-mirellis.png",
+        "rhythm_heading": "The body learns through repetition.",
+        "rhythm_body": "<p>The central finding of our research is simple: the body responds to signals faster than instructions.</p><p>Willpower does not close the day. A coherent sensory signal does.</p><p>When the same ritual occurs at the same transition point repeatedly — the same scent, the same sound, the same moment — the nervous system begins to recognize it as a boundary marker. The transition becomes familiar. Eventually, it becomes automatic.</p><p>This is not wellness theory. It is how the nervous system actually works.</p>",
+        "rhythm_image": "shopify://shop_images/rhythm-section-aboutus-mirellis.png",
+        "ritual_heading": "Products are not the method.",
+        "ritual_body": "<p>Sound is not the method. Articles are not the method.</p><p>The method is repeated, coherent sensory signaling — that teaches the nervous system where one chapter ends and the next begins.</p><p>Morning Clarity is the first signal of Sleep → Wakefulness. Stillness Elixir is the signal at Work → Recovery and Stimulation → Restoration. The sound environments are the acoustic layer of the same signal.</p><p>Used together, consistently, at the same transition points — they teach the body what comes next.</p>",
+        "environment_image": "shopify://shop_images/environment-aboutus-mirellis.png",
+        "restoration_heading": "Three transitions. Two tools. One method.",
+        "restoration_body": "<p>Mirellis currently owns three Human State Transitions:</p><p>Sleep → Wakefulness — the first 30 minutes of the morning, before the phone arrives.</p><p>Work → Recovery — the moment the professional chapter needs to close, and the body needs to learn the day is done.</p><p>Stimulation → Restoration — the late evening, when the door out of the day has disappeared.</p><p>Every product, every sound environment, every Observatory finding maps to one of these three boundaries.</p>",
+        "collab_heading": "Built through interdisciplinary collaboration.",
+        "collab_body": "<p>Modern restoration touches many disciplines at once.</p><p>The way people feel is influenced not only by physiology, but also by environment, sensory experience, emotional pacing, repetition, light exposure, sound, atmosphere, behavior, and the rhythms surrounding daily life.</p><p>Mirellis is built through collaboration across formulation science, circadian health, Ayurveda, sensory research, sound design, behavioral understanding, and environmental psychology.</p>",
+        "world_heading": "The Mirellis Observatory.",
+        "world_intro": "The Observatory is the research arm of Mirellis. It publishes numbered Findings from our observation pool — durable, interpreted truths about Human State Transitions. Four findings published. More in progress.",
+        "ending_eyebrow": "THE METHOD",
+        "ending_heading": "Every observation becomes a finding. Every finding becomes an action. Every action improves a transition.",
+        "ending_body": "Mirellis is a Ritual Science Company. We are at the beginning.",
+        "ending_button": "Enter the Observatory",
+        "ending_link": "/pages/the-observatory"
+      }
+    },
+    "formulation_system_WMety7": {
+      "type": "formulation-system",
+      "name": "Formulation System",
+      "settings": {
+        "eyebrow": "THE FOUNDING INSTRUMENTS",
+        "heading": "The first two ritual tools.",
+        "description": "Morning Clarity for Sleep → Wakefulness. Stillness Elixir for Work → Recovery. Each is a coherent sensory signal at the boundary where the nervous system needs one most. Both are formulated from Ayurvedic botanical intelligence — ancient wisdom, modern application.",
+        "link_text": "— Mirellis",
+        "link_url": "",
+        "bg_color": "#f5f1eb",
+        "heading_color": "#1f1a17",
+        "text_color": "#1f1a17",
+        "padding_top": 140,
+        "padding_bottom": 140
+      }
+    },
+    "research_notes_plus_Qn4PEh": {
+      "type": "research-notes-plus",
+      "blocks": {
+        "research_note_dcpqMy": {
+          "type": "research_note",
+          "settings": {
+            "title": "Stress, Rhythm & Nervous-System Regulation",
+            "description": "Research suggests that circadian systems and stress systems interact continuously. Repeated disruption of natural rhythms may influence stress response, emotional regulation, and restorative physiology over time.",
+            "source": "Interaction Between Circadian Rhythms and Stress",
+            "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5314421/"
+          }
+        },
+        "research_note_d46tLQ": {
+          "type": "research_note",
+          "settings": {
+            "title": "Light, Rhythm & Physiological Regulation",
+            "description": "Light exposure plays a major role in regulating wakefulness, recovery, emotional state, and biological timing systems. Environmental rhythm influences how the body transitions between activation and restoration.",
+            "source": "Circadian Rhythm Research Review",
+            "link": "https://www.researchgate.net/publication/285840623_Circadian_Rhythms_Influence_of_Light_in_Humans"
+          }
+        },
+        "research_note_VUFJhG": {
+          "type": "research_note",
+          "settings": {
+            "title": "Circadian Rhythm & Environmental Cues",
+            "description": "Human physiology continuously responds to environmental signals like light exposure, timing, and rhythm. Circadian disruption has been linked to changes in sleep quality, stress regulation, cognition, and emotional health.",
+            "source": "International Journal of Molecular Sciences, 2023",
+            "link": "https://www.mdpi.com/1422-0067/24/8/7579"
+          }
+        }
+      },
+      "block_order": [
+        "research_note_dcpqMy",
+        "research_note_d46tLQ",
+        "research_note_VUFJhG"
+      ],
+      "name": "Research Notes+",
+      "settings": {
+        "eyebrow": "Research Notes+",
+        "heading": "",
+        "intro": "Selected research territories exploring circadian rhythm, environmental signals, sensory pacing, and the body’s relationship with repeated patterns and restoration."
+      }
+    },
+    "custom_liquid_jzN6d8": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "<a href=\"https://www.startupindia.gov.in/bhaskar/profile?bhaskarid=OI-0526-9469WD\" \n   target=\"_blank\" \n   class=\"startup-india-link\">\n  Part of the Startup India Ecosystem\n</a>\n\n<style>\n.startup-india-link {\n  font-size: 12px;\n  letter-spacing: 0.5px;\n  color: #8b8b8b;\n  text-decoration: none;\n  transition: opacity 0.3s ease;\n}\n\n.startup-india-link:hover {\n  opacity: 0.7;\n}\n</style>",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_TKGM46",
+    "about_mirellis_immersive_pUPzdy",
+    "formulation_system_WMety7",
+    "research_notes_plus_Qn4PEh",
+    "custom_liquid_jzN6d8"
+  ]
+}

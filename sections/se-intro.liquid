@@ -1,0 +1,23 @@
+<section style="background:{{ section.settings.bg_color }};font-family:'Hanken Grotesk',system-ui,sans-serif">
+  <div style="max-width:880px;margin:0 auto;padding:clamp(72px,11vw,140px) clamp(20px,5vw,48px);text-align:center">
+    {%- if section.settings.eyebrow != blank -%}
+      <div data-reveal style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#b07f54;margin-bottom:28px">{{ section.settings.eyebrow }}</div>
+    {%- endif -%}
+    <p data-reveal style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(26px,4.2vw,46px);line-height:1.28;letter-spacing:-0.01em;margin:0;color:{{ section.settings.text_color }}">{{ section.settings.body_before -}}<span style="font-style:italic;color:#b07f54"> {{ section.settings.highlight_word }} </span>{{- section.settings.body_after }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SE — Intro Statement",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "This is not a sedative" },
+    { "type": "textarea", "id": "body_before", "label": "Text before highlighted word", "default": "Modern life rarely transitions gently into rest. As the day ends, the body doesn't always know how to stop — so Stillness becomes the" },
+    { "type": "text", "id": "highlight_word", "label": "Highlighted word", "default": "signal" },
+    { "type": "textarea", "id": "body_after", "label": "Text after highlighted word", "default": "that it is safe to slow down." },
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#faf7f4" },
+    { "type": "color", "id": "text_color", "label": "Text colour", "default": "#2a261f" }
+  ],
+  "presets": [{ "name": "SE — Intro Statement" }]
+}
+{% endschema %}

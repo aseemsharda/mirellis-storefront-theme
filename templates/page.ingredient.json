@@ -1,0 +1,1025 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "rich_text_XdijFC": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_F7jk4X": {
+          "type": "heading",
+          "settings": {
+            "text": "Brahmi",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_F7jk4X"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "images_with_text_scrolling_36Whgf": {
+      "type": "images-with-text-scrolling",
+      "blocks": {
+        "item_Dg8wtn": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-root-restoration.png",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "The Language of Mental Quieting",
+            "heading_bottom_content": "",
+            "content": "<p><strong>A traditional botanical long associated with mental stillness, cognitive slowing, and calmer restorative ritual environments.</strong></p><p>Brahmi has been used for centuries across traditional wellness systems because of its association with mental quieting, emotional steadiness, and slower sensory transitions during moments of restoration and reflection.</p><p>Within Mirellis formulations, it functions not only as a botanical extract, but as part of the ritual experience itself — supporting calmer mental pacing, atmospheric stillness, and slower transitions through sensory rhythm, ritual warmth, and environmental softness.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_Dg8wtn"
+      ],
+      "name": "Images and text scrolling",
+      "settings": {
+        "full_width": false,
+        "stack_on_mobile": true,
+        "show_counter": false,
+        "desktop_image_effect": "reveal",
+        "image_position": "end",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "rich_text_hPGxKi": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_WdCCTM": {
+          "type": "subheading",
+          "settings": {
+            "text": "The Mirellis Ingredient Philosophy"
+          }
+        },
+        "heading_hGhPNk": {
+          "type": "heading",
+          "settings": {
+            "text": "Why Mirellis Uses Brahmi",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_WdCCTM",
+        "heading_hGhPNk"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "multi_column_FB8pnH": {
+      "type": "multi-column",
+      "blocks": {
+        "item_xgkCNt": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-adaptogenic-tradition.png",
+            "show_controls": false,
+            "column_size": "4",
+            "title": "Restorative Tradition",
+            "heading_tag": "h5",
+            "content": "<p>Traditionally valued for its association with mental stillness, emotional steadiness, and restorative ritual environments.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_af9tpa": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-grounded-sensory-profile.png",
+            "show_controls": false,
+            "column_size": "4",
+            "title": "Cognitive Softness",
+            "heading_tag": "h5",
+            "content": "<p>Carries a grounded sensory profile associated with slower mental pacing and calmer internal transitions.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_tN9RUw": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-traditional-ritual-role.png",
+            "show_controls": false,
+            "column_size": "4",
+            "title": "Ritual Association",
+            "heading_tag": "h5",
+            "content": "<p>Historically used within contemplative rituals, restorative nighttime traditions, and slower sensory practices</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_9wwYVm": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-botanical-synergy.png",
+            "show_controls": false,
+            "column_size": "4",
+            "title": "Botanical Harmony",
+            "heading_tag": "h5",
+            "content": "<p>The calming botanical character of brahmi contributes sensory balance, atmospheric quietness, and formulation depth within layered rituals.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "item_xgkCNt",
+        "item_af9tpa",
+        "item_tN9RUw",
+        "item_9wwYVm"
+      ],
+      "name": "Multi-column",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "gap": "medium",
+        "text_alignment": "start",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "rich_text_3nnFjy": {
+      "type": "rich-text",
+      "blocks": {
+        "richtext_aPLfCV": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Every ingredient influences more than formulation alone.</p>"
+          }
+        },
+        "heading_rz68UW": {
+          "type": "heading",
+          "settings": {
+            "text": "What role does this ingredient play within the ritual experience?",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "richtext_aPLfCV",
+        "heading_rz68UW"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "rich_text_dEPBPk": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_qyirVF": {
+          "type": "subheading",
+          "settings": {
+            "text": "What role does this ingredient play within the ritual experience"
+          }
+        },
+        "heading_EGpqhY": {
+          "type": "heading",
+          "settings": {
+            "text": "The Role of Brahmi in Mirellis Formulations",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        },
+        "richtext_LyK4FY": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Brahmi is used within Mirellis formulations not only for botanical formulation purposes, but for its calming sensory profile, mental quieting associations, and compatibility with slower restorative environments.</p><p>Its role extends beyond ingredient function alone — becoming part of the sensory architecture and cognitive pacing of the formulation itself.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_qyirVF",
+        "heading_EGpqhY",
+        "richtext_LyK4FY"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "multi_column_KrHmdp": {
+      "type": "multi-column",
+      "blocks": {
+        "item_q3wjey": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/understanding_ayurveda.jpg",
+            "show_controls": false,
+            "column_size": "4",
+            "title": "Circadian Alignment",
+            "heading_tag": "h4",
+            "content": "<p>Formulations<br/>designed to respect the body's natural 24-hour biological rhythms.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_bGJniG": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/The_Ultimate_Guide_to_Essential_Oil_Blends__Benefits_Recipes_and_Tips_-_Holistic_Wellness_Quest.jpg",
+            "show_controls": false,
+            "column_size": "4",
+            "title": "Oils selected for absorption and bio-compatibility",
+            "heading_tag": "h4",
+            "content": "",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_jFgz3d": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Discovering_Serenity__The_Best_Aromatherapy_for_Stress_Relief.jpg",
+            "show_controls": false,
+            "column_size": "4",
+            "title": "Aromatics chosen for nervous system signalling",
+            "heading_tag": "h4",
+            "content": "",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_VjMyPp": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Rice_Water_for_Glowing_Skin_Ancient_Beauty_Secret__Soothes_Sensitive_Skin__Rice_water_helps_calm_redness_irritation_and_sensitive_skin_naturally___Is_your_skin_sensitive_or_strong.jpg",
+            "show_controls": false,
+            "column_size": "4",
+            "title": "Minimal formulations without unnecessary additives",
+            "heading_tag": "h4",
+            "content": "",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "item_q3wjey",
+        "item_bGJniG",
+        "item_jFgz3d",
+        "item_VjMyPp"
+      ],
+      "disabled": true,
+      "name": "Multi-column",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "gap": "medium",
+        "text_alignment": "start",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "images_with_text_scrolling_tkKBQH": {
+      "type": "images-with-text-scrolling",
+      "blocks": {
+        "item_3KxbE9": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-restorative-association.png",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Mental Quieting",
+            "heading_bottom_content": "",
+            "content": "<p>Traditionally associated with calmer internal environments and slower mental transitions.</p>"
+          }
+        },
+        "item_QyciPy": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-botanical-compatibility.png",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Botanical Compatibility",
+            "heading_bottom_content": "",
+            "content": "<p>Works effectively alongside oils, extracts, and aromatic compounds.</p>"
+          }
+        },
+        "item_iKmkhh": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-restorative-ritual-tradition1.png",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Ritual Tradition",
+            "heading_bottom_content": "",
+            "content": "<p>Historically associated with contemplative rituals and restorative sensory practices.</p>"
+          }
+        },
+        "item_PG4FfD": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-sensory-grounding.png",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Sensory Stillness",
+            "heading_bottom_content": "",
+            "content": "<p>Contributes atmospheric quietness and slower sensory pacing within ritual formulations.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_3KxbE9",
+        "item_QyciPy",
+        "item_iKmkhh",
+        "item_PG4FfD"
+      ],
+      "name": "Images and text scrolling",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "show_counter": true,
+        "desktop_image_effect": "reveal",
+        "image_position": "end",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "rich_text_cMdNde": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_YatMXt": {
+          "type": "subheading",
+          "settings": {
+            "text": "ROLE 01 — Mental Slowing"
+          }
+        },
+        "heading_KtE4LP": {
+          "type": "heading",
+          "settings": {
+            "text": "Brahmi and Sensory Transitions",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        },
+        "richtext_W8wRHL": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Rather than functioning as an isolated botanical ingredient, brahmi contributes to the overall sensory rhythm of the formulation — influencing atmosphere, ritual pacing, mental softness, and moments of cognitive slowing.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_YatMXt",
+        "heading_KtE4LP",
+        "richtext_W8wRHL"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "multi_column_FKBTKE": {
+      "type": "multi-column",
+      "blocks": {
+        "item_PGEPJD": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-grounded-sensory-depth.png",
+            "show_controls": false,
+            "column_size": "2",
+            "title": "Atmospheric Quietness",
+            "heading_tag": "h2",
+            "content": "<p>Supports slower ritual interaction through sensory stillness, grounded pacing, and calmer environmental rhythm.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_ADABdG": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-restorative-ritual-context.png",
+            "show_controls": false,
+            "column_size": "2",
+            "title": "Evening Ritual Context",
+            "heading_tag": "h2",
+            "content": "<p>Traditionally associated with restorative rituals intended to support mental quieting, emotional steadiness, and calmer nighttime transitions.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "item_PGEPJD",
+        "item_ADABdG"
+      ],
+      "name": "Multi-column",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "gap": "medium",
+        "text_alignment": "start",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "rich_text_V44PkG": {
+      "type": "rich-text",
+      "blocks": {
+        "richtext_mGkwEE": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Instead of one product doing everything, each formulation is designed for a specific moment in the body's daily rhythm.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "richtext_mGkwEE"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "rich_text_Y4EVPR": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_MypGzU": {
+          "type": "subheading",
+          "settings": {
+            "text": "ROLE 02 — Sensory Profile"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_MypGzU"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "images_with_text_scrolling_ipmEKm": {
+      "type": "images-with-text-scrolling",
+      "blocks": {
+        "item_a9bqPA": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-earthy-sensory-profile.png",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Sensory Profile",
+            "heading_bottom_content": "",
+            "content": "<p>Brahmi carries a grounded botanical profile that influences how a formulation feels during ritual use.</p><p>Its atmospheric softness, sensory familiarity, and slower ritual pacing contribute to calmer transitions and more mentally restorative environments.</p><p>Within Mirellis formulations, brahmi functions as part of a broader sensory and botanical system — supporting atmospheric quietness, ritual pacing, cognitive softness, and formulation harmony.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_a9bqPA"
+      ],
+      "name": "Images and text scrolling",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": true,
+        "show_counter": false,
+        "desktop_image_effect": "reveal",
+        "image_position": "end",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "rich_text_MnxbC8": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_gbcdFA": {
+          "type": "subheading",
+          "settings": {
+            "text": "Role 03 - Formulation Synergy"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_gbcdFA"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "images_with_text_scrolling_dWB4pr": {
+      "type": "images-with-text-scrolling",
+      "blocks": {
+        "item_rLw8Ji": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-formulation-synergy.png",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Formulation Synergy",
+            "heading_bottom_content": "",
+            "content": "<p>In many traditional systems of formulation, ingredients are rarely used in isolation.</p><p>Rather than relying on a single dominant botanical compound, formulations are often designed through complementary interactions between oils, botanicals, extracts, and aromatics.</p><p>Within Mirellis formulations, brahmi functions as part of a broader sensory and botanical system — supporting atmospheric balance, sensory pacing, cognitive softness, and formulation harmony.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_rLw8Ji"
+      ],
+      "name": "Images and text scrolling",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": true,
+        "show_counter": false,
+        "desktop_image_effect": "reveal",
+        "image_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "rich_text_JYyAqU": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_aTTUUA": {
+          "type": "subheading",
+          "settings": {
+            "text": "ROLE 04 — Cognitive Function"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_aTTUUA"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "images_with_text_scrolling_TRY39F": {
+      "type": "images-with-text-scrolling",
+      "blocks": {
+        "item_cKF4Mj": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-botanical-function.png",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Cognitive Function",
+            "heading_bottom_content": "",
+            "content": "<p>Botanical extracts can influence the sensory pace and atmospheric character of a formulation as much as the oils and aromatic ingredients surrounding them.</p><p>Brahmi has long been valued across traditional wellness systems because of its calming sensory profile, ritual familiarity, and association with slower restorative environments.</p><p>Within Mirellis formulations, brahmi supports gentler sensory interaction and contributes to a quieter ritual experience through atmospheric softness, mental slowing, and sensory balance.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_cKF4Mj"
+      ],
+      "name": "Images and text scrolling",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": true,
+        "show_counter": false,
+        "desktop_image_effect": "reveal",
+        "image_position": "end",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "rich_text_PRbeBL": {
+      "type": "rich-text",
+      "blocks": {
+        "liquid_ebLRUh": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<div class=\"mirellis-research-notes\">\n  <a \n    href=\"https://pubmed.ncbi.nlm.nih.gov/36235731/\" \n    target=\"_blank\" \n    rel=\"noopener noreferrer\"\n  >\n    Research Notes\n  </a>\n</div>\n\n<style>\n.mirellis-research-notes{\n  margin-top:50px;\n  padding-top:24px;\n  border-top:1px solid rgba(0,0,0,0.08);\n}\n\n.mirellis-research-notes a{\n  font-size:13px;\n  letter-spacing:0.08em;\n  text-transform:uppercase;\n  color:#8a8178;\n  text-decoration:none;\n  transition:opacity 0.3s ease;\n}\n\n.mirellis-research-notes a:hover{\n  opacity:0.7;\n}\n</style>"
+          }
+        },
+        "subheading_Xt7teL": {
+          "type": "subheading",
+          "settings": {
+            "text": "Why Brahmi?"
+          }
+        },
+        "heading_GCE4cy": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "text": "Many traditional wellness rituals rely on oils — not simply as texture, but as afunctional medium for botanical compounds.",
+            "heading_tag": "h3",
+            "text_color": "",
+            "gradient": ""
+          }
+        },
+        "richtext_FhDPi9": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Brahmi has been used across traditional wellness systems not simply as a botanical extract, but as part of restorative ritual traditions associated with mental quieting, emotional steadiness, and slower sensory transitions.</p><p>Within Mirellis formulations, it contributes atmospheric softness, ritual familiarity, sensory balance, and cognitive calm within layered formulations.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_ebLRUh",
+        "subheading_Xt7teL",
+        "heading_GCE4cy",
+        "richtext_FhDPi9"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "medium",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "multi_column_KteLCw": {
+      "type": "multi-column",
+      "blocks": {
+        "item_jiCYMw": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-restorative-botanical-tradition.png",
+            "show_controls": false,
+            "column_size": "2",
+            "title": "Restorative Ritual Tradition",
+            "heading_tag": "h3",
+            "content": "<p>Traditional wellness systems have long associated brahmi with contemplative sensory environments and restorative ritual practices.</p><p>Its calming botanical profile aligns naturally with slower nighttime rituals.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_3YiVca": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-grounded-sensory-interaction.png",
+            "show_controls": false,
+            "column_size": "2",
+            "title": "Sensory Atmosphere",
+            "heading_tag": "h3",
+            "content": "<p>Brahmi contributes atmospheric softness and grounded calm within ritual formulations.</p><p>Its presence supports slower transitions and gentler sensory pacing during ritual use.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_4AMbtE": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-botanical-integration.png",
+            "show_controls": false,
+            "column_size": "2",
+            "title": "Botanical Integration",
+            "heading_tag": "h3",
+            "content": "<p>Layered formulations allow botanical extracts, oils, and aromatic compounds to function together rather than in isolation.</p><p>Within Mirellis formulations, brahmi supports sensory harmony and formulation balance.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_iwNPMT": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-ritual-practice1.png",
+            "show_controls": false,
+            "column_size": "2",
+            "title": "Ritual & Stillness",
+            "heading_tag": "h4",
+            "content": "<p>Brahmi has historically been associated with rituals intended to support mental quieting, slower transitions, and restorative stillness.</p><p>Its role within ritual systems extends beyond formulation alone — contributing to the sensory character of the experience itself.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "item_jiCYMw",
+        "item_3YiVca",
+        "item_4AMbtE",
+        "item_iwNPMT"
+      ],
+      "name": "Multi-column",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "gap": "medium",
+        "text_alignment": "start",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "rich_text_QQChch": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_mUdek8": {
+          "type": "subheading",
+          "settings": {
+            "text": "Brahmi in Ritual Practice"
+          }
+        },
+        "heading_BP4Lm9": {
+          "type": "heading",
+          "settings": {
+            "text": "Repeated sensory experiences can shape how the body responds over time.",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": ""
+          }
+        },
+        "richtext_t3tHb4": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Human physiology responds continuously to sensory cues such as rhythm, warmth, aroma, texture, and environmental familiarity.</p><p>For centuries, brahmi has been associated with restorative ritual systems because of the mental quieting and atmospheric softness it contributes during use.</p><p>Over time, repeated restorative rituals can help create patterns of slowing, stillness, and sensory familiarity within the body.</p>"
+          }
+        },
+        "liquid_HAjdcc": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<div style=\"margin-top: 18px; font-size: 12px; line-height: 1.7; color: #8a7d74; text-align: left;\">\n\n  <details>\n    <summary style=\"cursor: pointer; list-style: none; font-weight: 500;\">\n      Research Notes +\n    </summary>\n\n    <div style=\"margin-top: 12px;\">\n\n      <p>\n      • Repeated sensory cues and behavioral patterns can influence physiological regulation, emotional familiarity, and stress response over time.\n      </p>\n\n      <p>\n      • Research in neuroscience and behavioral psychology suggests that predictable routines and environmental signals may support nervous system regulation and circadian consistency.\n      </p>\n\n      <p>\n      • Further Reading:<br>\n\n      <a href=\"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5449130/\" target=\"_blank\" style=\"color: #8a7d74; text-decoration: underline;\">\n      NCBI — Circadian Rhythms, Sleep, and Behavioral Regulation\n      </a><br>\n\n      <a href=\"https://www.health.harvard.edu/blog/why-your-brain-needs-routine-202210122829\" target=\"_blank\" style=\"color: #8a7d74; text-decoration: underline;\">\n      Harvard Health — Why the Brain Benefits From Routine\n      </a><br>\n\n      <a href=\"https://www.frontiersin.org/articles/10.3389/fpsyg.2021.624199/full\" target=\"_blank\" style=\"color: #8a7d74; text-decoration: underline;\">\n      Frontiers in Psychology — Rituals and Emotional Regulation\n      </a>\n\n      </p>\n\n    </div>\n  </details>\n\n</div>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_mUdek8",
+        "heading_BP4Lm9",
+        "richtext_t3tHb4",
+        "liquid_HAjdcc"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "medium",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "multi_column_FV7YaV": {
+      "type": "multi-column",
+      "blocks": {
+        "item_p6M7AX": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-grounded-restorative-rhythm.png",
+            "show_controls": false,
+            "column_size": "4",
+            "title": "Restorative Ritual Rhythm",
+            "heading_tag": "h3",
+            "content": "<p>The calming botanical profile of brahmi contributes to slower, quieter ritual interaction.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_zy9HUT": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-ritual-restoration-balance.png",
+            "show_controls": false,
+            "column_size": "4",
+            "title": "Sensory Familiarity",
+            "heading_tag": "h3",
+            "content": "<p>Repeated ritual pacing, atmospheric consistency, and sensory rhythm can contribute to predictable restorative experiences over time.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_3TLL8D": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-ritual-restoration-balance_33334a9b-d58e-4a7f-a80d-37cf6b670760.png",
+            "show_controls": false,
+            "column_size": "4",
+            "title": "Ritual Stillness",
+            "heading_tag": "h3",
+            "content": "<p>Traditionally associated with slower evening rituals intended to support calm transitions and mental restoration.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_Tr3Aeh": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-rooted-sensory-pace.png",
+            "show_controls": false,
+            "column_size": "4",
+            "title": "Gentle Sensory Pace",
+            "heading_tag": "h3",
+            "content": "<p>Supports a gradual ritual experience through atmospheric softness and cognitive quieting.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "item_p6M7AX",
+        "item_zy9HUT",
+        "item_3TLL8D",
+        "item_Tr3Aeh"
+      ],
+      "name": "Multi-column",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "gap": "medium",
+        "text_alignment": "start",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "rich_text_aT6jng": {
+      "type": "rich-text",
+      "blocks": {
+        "richtext_iCMQ37": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Brahmi contributes not only to formulation atmosphere, but to the sensory rhythm of the ritual itself.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "richtext_iCMQ37"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "images_with_text_scrolling_ULVYmk": {
+      "type": "images-with-text-scrolling",
+      "blocks": {
+        "item_6dqcXN": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-ashwagandha-part-of-the-restorative-experience.png",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "More Than a Botanical",
+            "heading_bottom_content": "<p><strong>Part of the Ritual Experience</strong></p>",
+            "content": "<p>Brahmi is not used within Mirellis formulations simply as an isolated botanical ingredient.</p><p>Its calming sensory profile, ritual familiarity, atmospheric softness, and formulation compatibility make it part of the ritual experience itself.</p><p>Within slower moments of restoration, sensory transition, and intentional ritual, the ingredient becomes more than functional — contributing to how the formulation feels, unfolds, and interacts with the body over time.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_6dqcXN"
+      ],
+      "name": "Images and text scrolling",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": true,
+        "show_counter": false,
+        "desktop_image_effect": "reveal",
+        "image_position": "end",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_XdijFC",
+    "images_with_text_scrolling_36Whgf",
+    "rich_text_hPGxKi",
+    "multi_column_FB8pnH",
+    "rich_text_3nnFjy",
+    "rich_text_dEPBPk",
+    "multi_column_KrHmdp",
+    "images_with_text_scrolling_tkKBQH",
+    "rich_text_cMdNde",
+    "multi_column_FKBTKE",
+    "rich_text_V44PkG",
+    "rich_text_Y4EVPR",
+    "images_with_text_scrolling_ipmEKm",
+    "rich_text_MnxbC8",
+    "images_with_text_scrolling_dWB4pr",
+    "rich_text_JYyAqU",
+    "images_with_text_scrolling_TRY39F",
+    "rich_text_PRbeBL",
+    "multi_column_KteLCw",
+    "rich_text_QQChch",
+    "multi_column_FV7YaV",
+    "rich_text_aT6jng",
+    "images_with_text_scrolling_ULVYmk"
+  ]
+}

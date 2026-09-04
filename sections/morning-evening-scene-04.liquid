@@ -1,0 +1,214 @@
+{% comment %}
+=========================================================
+MIRELLIS — SCENE 04 (REFINED)
+MORNING & EVENING WORLDS / SINGLE ATMOSPHERIC FIELD
+=========================================================
+{% endcomment %}
+
+<section
+  class="
+    ml-scene
+    ml-scene-continuous
+    ml-scene-descent-medium
+    ml-spatial-stillness
+    ml-scene-flow
+  "
+>
+
+  <!-- =====================================================
+       ATMOSPHERIC FOUNDATION (REFINED)
+       ===================================================== -->
+
+  <div
+    class="ml-depth-layer ml-depth-soft"
+    style="
+      background:
+        radial-gradient(
+          ellipse at top,
+          rgba(246,241,232,0.55) 0%,
+          rgba(246,241,232,0.20) 45%,
+          rgba(246,241,232,0) 75%
+        );
+      filter: blur(6px);
+      opacity: 0.95;
+    "
+  ></div>
+
+
+  <!-- =====================================================
+       MORNING → EVENING FLOW FIELD
+       ===================================================== -->
+
+  <div class="ml-container-reading">
+
+    <div class="ml-balanced-field ml-rhythm-atmospheric">
+
+
+      <!-- =================================================
+           MORNING FIELD
+           ================================================= -->
+
+      {% if section.settings.morning_image != blank %}
+
+        <div
+          class="ml-image-atmosphere ml-breathing-atmosphere ml-fade-soft is-visible"
+          style="opacity: 0.18; filter: saturate(0.95);"
+        >
+
+          {{
+            section.settings.morning_image
+            | image_url: width: 2200
+            | image_tag:
+              class: 'ml-atmospheric-image ml-soft-presence',
+              loading: 'lazy',
+              widths: '1200, 1600, 2200',
+              alt: section.settings.morning_heading
+          }}
+
+        </div>
+
+      {% endif %}
+
+
+      {% if section.settings.morning_heading != blank %}
+        <h2 class="ml-display-heading ml-headline-soft">
+          {{ section.settings.morning_heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.morning_copy != blank %}
+        <div class="ml-contemplative-copy ml-copy-soft">
+          {{ section.settings.morning_copy }}
+        </div>
+      {% endif %}
+
+
+      <!-- =================================================
+           ATMOSPHERIC TRANSITION (TIME PASSING FIELD)
+           ================================================= -->
+
+      <div class="ml-scene-transition-glow"></div>
+
+
+      <!-- =================================================
+           EVENING FIELD
+           ================================================= -->
+
+      {% if section.settings.evening_image != blank %}
+
+        <div
+          class="ml-image-atmosphere ml-light-drift ml-fade-soft is-visible"
+          style="opacity: 0.14; filter: saturate(0.85) contrast(0.95);"
+        >
+
+          {{
+            section.settings.evening_image
+            | image_url: width: 2200
+            | image_tag:
+              class: 'ml-atmospheric-image ml-soft-presence',
+              loading: 'lazy',
+              widths: '1200, 1600, 2200',
+              alt: section.settings.evening_heading
+          }}
+
+        </div>
+
+      {% endif %}
+
+
+      {% if section.settings.evening_heading != blank %}
+        <h2 class="ml-display-heading ml-headline-soft">
+          {{ section.settings.evening_heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.evening_copy != blank %}
+        <div class="ml-contemplative-copy ml-copy-soft">
+          {{ section.settings.evening_copy }}
+        </div>
+      {% endif %}
+
+
+      <div class="ml-visual-silence-lg"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       ATMOSPHERIC RESIDUAL FIELD
+       ===================================================== -->
+
+  <div
+    class="ml-depth-layer ml-shadow-breathing ml-depth-atmospheric"
+    style="
+      background:
+        radial-gradient(
+          ellipse at center,
+          rgba(255,255,255,0.06) 0%,
+          rgba(255,255,255,0) 72%
+        );
+      opacity: 0.8;
+    "
+  ></div>
+
+</section>
+
+
+{% schema %}
+{
+  "name": "Mirellis Scene 04",
+  "tag": "section",
+  "class": "section section-mirellis-morning-evening",
+  "settings": [
+
+    {
+      "type": "image_picker",
+      "id": "morning_image",
+      "label": "Morning Environment Image"
+    },
+
+    {
+      "type": "textarea",
+      "id": "morning_heading",
+      "label": "Morning Heading",
+      "default": "A slower beginning before the world begins asking things from you."
+    },
+
+    {
+      "type": "textarea",
+      "id": "morning_copy",
+      "label": "Morning Supporting Copy",
+      "default": "Some mornings deserve to emerge gradually — before urgency, before performance, before interruption fully returns."
+    },
+
+    {
+      "type": "image_picker",
+      "id": "evening_image",
+      "label": "Evening Environment Image"
+    },
+
+    {
+      "type": "textarea",
+      "id": "evening_heading",
+      "label": "Evening Heading",
+      "default": "The body was never meant to carry the entire day forward unchanged."
+    },
+
+    {
+      "type": "textarea",
+      "id": "evening_copy",
+      "label": "Evening Supporting Copy",
+      "default": "Evening once taught the nervous system how to release gradually. Stillness was never the absence of life — only the return of internal space."
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "Morning & Evening Scene 04"
+    }
+  ]
+}
+{% endschema %}

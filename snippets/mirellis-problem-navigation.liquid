@@ -1,0 +1,14 @@
+{%- assign mirellis_path = request.path -%}
+{%- if mobile -%}
+  <li class="h3 sm:h4"><a href="/sleep" class="group block w-full"{% if mirellis_path contains '/sleep' %} aria-current="page"{% endif %}><span><span class="reversed-link">Sleep</span></span></a></li>
+  <li class="h3 sm:h4"><a href="/focus" class="group block w-full"{% if mirellis_path contains '/focus' %} aria-current="page"{% endif %}><span><span class="reversed-link">Focus</span></span></a></li>
+  <li class="h3 sm:h4"><a href="/restoration" class="group block w-full"{% if mirellis_path contains '/restoration' %} aria-current="page"{% endif %}><span><span class="reversed-link">Restoration</span></span></a></li>
+  <li class="h3 sm:h4"><a href="/directory" class="group block w-full"{% if mirellis_path contains '/directory' %} aria-current="page"{% endif %}><span><span class="reversed-link">Directory</span></span></a></li>
+  <li class="h3 sm:h4"><a href="/pages/about" class="group block w-full"{% if mirellis_path contains '/about' %} aria-current="page"{% endif %}><span><span class="reversed-link">About</span></span></a></li>
+{%- else -%}
+  <li><a href="/sleep" class="bold link-faded-reverse"{% if mirellis_path contains '/sleep' %} aria-current="page"{% endif %}>Sleep</a></li>
+  <li><a href="/focus" class="bold link-faded-reverse"{% if mirellis_path contains '/focus' %} aria-current="page"{% endif %}>Focus</a></li>
+  <li><a href="/restoration" class="bold link-faded-reverse"{% if mirellis_path contains '/restoration' %} aria-current="page"{% endif %}>Restoration</a></li>
+  <li><a href="/directory" class="bold link-faded-reverse"{% if mirellis_path contains '/directory' %} aria-current="page"{% endif %}>Directory</a></li>
+  <li><a href="/pages/about" class="bold link-faded-reverse"{% if mirellis_path contains '/about' %} aria-current="page"{% endif %}>About</a></li>
+{%- endif -%}

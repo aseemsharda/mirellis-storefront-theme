@@ -1,0 +1,182 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "wwa_founding_v1": {
+      "type": "mirellis-wwa-founding",
+      "name": "What We Are - Founding",
+      "settings": {
+        "eyebrow": "WHY MIRELLIS EXISTS",
+        "heading": "Life once had a shape.",
+        "body": "Morning had a beginning.\nWork had an ending.\nEvening had a descent.\nNight had darkness.\n\nThe body always knew where it was in the day.\n\nToday those edges have largely disappeared.\n\nThe same device wakes us, works us, entertains us, informs us, and follows us into bed. The day continues long after it should have ended.\n\nWhat remains is continuity.\n\nAnd continuity is exhausting.\n\nNot because you are doing too much.\nBecause nothing ever ends.",
+        "show_section": true
+      }
+    },
+    "wwa_ritualscience_v1": {
+      "type": "mirellis-wwa-ritualscience",
+      "name": "What We Are - Ritual Science",
+      "settings": {
+        "eyebrow": "WHAT WE ARE",
+        "heading": "Mirellis is a Ritual Science Company.",
+        "body": "Most approaches to wellness try to change behaviour through information and intention.\n\nMore advice. More content.\nMore optimisation.\n\nMirellis works differently.\n\nWe study Human State Transitions — the moments between one state and another — and design coherent sensory systems that help the body recognize them.\n\nBecause the nervous system responds to signals faster than instructions.\n\nThe ritual.\nThe sound.\nThe environment.\nThe repetition.\n\nTogether they create coherence.\nAnd coherence is the method.",
+        "show_section": true
+      }
+    },
+    "wwa_foundations_v1": {
+      "type": "mirellis-wwa-foundations",
+      "name": "What We Are - Foundations",
+      "blocks": {
+        "pillar_1": {
+          "type": "pillar",
+          "settings": {
+            "title": "Ancient Wisdom",
+            "body": "Ayurveda and traditional ritual systems have studied human state transitions for thousands of years — daily rhythms, sensory inputs, and the relationship between environment and physiological state. This is the foundation."
+          }
+        },
+        "pillar_2": {
+          "type": "pillar",
+          "settings": {
+            "title": "Modern Science",
+            "body": "Circadian biology, neuroscience, sensory psychology, and habit formation research explain the mechanisms. Why repetition creates conditioning. Why the nervous system responds to scent, sound, and touch before the mind can evaluate them."
+          }
+        },
+        "pillar_3": {
+          "type": "pillar",
+          "settings": {
+            "title": "Environmental Design",
+            "body": "The spaces and sounds around us regulate attention, mood, and recovery — often without awareness. Designing the environment is designing the transition."
+          }
+        }
+      },
+      "block_order": ["pillar_1", "pillar_2", "pillar_3"],
+      "settings": {
+        "eyebrow": "THE FOUNDATIONS",
+        "heading": "Ancient wisdom. Modern science. Environmental design.",
+        "closing": "No single tradition is sufficient. The Mirellis method draws from all three.",
+        "show_section": true
+      }
+    },
+    "wwa_transitions_v1": {
+      "type": "mirellis-wwa-transitions",
+      "name": "What We Are - Transitions",
+      "blocks": {
+        "transition_1": {
+          "type": "transition",
+          "settings": {
+            "title": "Sleep → Wakefulness",
+            "body": "The first moments of the day determine the nervous system's baseline for everything that follows.\n\nMost people let the phone decide how morning begins. The first signal is a notification. The first action is reactive. The day names itself before you do.\n\nMorning Clarity is a deliberate beginning — an oral ritual for the first minutes of the day, before screens, before caffeine, before the world arrives.\n\nNot a cleanse. A beginning.",
+            "cta_text": "Explore Morning Clarity →",
+            "cta_link": "/products/morning-clarity"
+          }
+        },
+        "transition_2": {
+          "type": "transition",
+          "settings": {
+            "title": "Work → Recovery",
+            "body": "Work ends on the calendar.\nFor most people, it never ends in the body.\n\nThe mind keeps carrying the day — replaying conversations, anticipating tomorrow, rehearsing what was not said. The professional chapter stays open long after the laptop closes.\n\nStillness Elixir is an evening body ritual — applied to pulse points as the professional chapter closes. Scent, texture, and repetition combine to signal the nervous system: this part is finished.\n\nNot a sedative. A signal.",
+            "cta_text": "Explore Stillness →",
+            "cta_link": "/products/mirellis-stillness-elixir"
+          }
+        },
+        "transition_3": {
+          "type": "transition",
+          "settings": {
+            "title": "Stimulation → Restoration",
+            "body": "Restoration is not the absence of stimulation. It is the presence of a different signal.\n\nOne that says: you can become something else now.\n\nWithout that signal, the nervous system stays activated. Exhaustion accumulates. Rest becomes increasingly difficult to access.\n\nThe Stillness series and Ground series exist for this transition.",
+            "cta_text": "Explore Ritual Sound →",
+            "cta_link": "/pages/ritual-sound"
+          }
+        }
+      },
+      "block_order": ["transition_1", "transition_2", "transition_3"],
+      "settings": {
+        "eyebrow": "OUR RESEARCH DOMAIN",
+        "heading": "Three transitions modern life disrupts most.",
+        "intro": "These are not the only transitions that matter. They are the ones we have chosen to study first — because they affect nearly everyone, daily.",
+        "section_cta_text": "Explore all three transitions →",
+        "section_cta_link": "/pages/transitions",
+        "show_section": true
+      }
+    },
+    "wwa_method_v1": {
+      "type": "mirellis-wwa-method",
+      "name": "What We Are - Method",
+      "settings": {
+        "eyebrow": "THE MIRELLIS METHOD",
+        "heading": "The nervous system learns through repetition, not intensity.",
+        "body": "A single powerful experience rarely changes behaviour.\nRepeated experiences do.\n\nThe body learns through consistent signals.\n\nWhen the same scent appears.\nWhen the same sound begins.\nWhen the same ritual unfolds.\n\nOver time the nervous system learns:\n\nWhen this happens, this chapter is ending.\n\nThat is not motivation.\nThat is conditioning.\n\nThis is why the product is never the whole solution. The product participates in a larger ritual architecture. Used once, it is pleasant. Used consistently, at the same moment, in the same sequence — it becomes a signal.\n\nAnd signals change states.",
+        "show_section": true
+      }
+    },
+    "wwa_instruments_v1": {
+      "type": "mirellis-wwa-instruments",
+      "name": "What We Are - Instruments",
+      "blocks": {
+        "instrument_1": {
+          "type": "instrument",
+          "settings": {
+            "title": "Morning Clarity",
+            "transition": "Sleep → Wakefulness",
+            "body": "The transition from sleep into wakefulness is one of the most consequential moments of the day. The first signals the nervous system receives set the baseline for everything that follows.\n\nMorning Clarity is a daily oral ritual for this transition. Used in the first minutes of waking — before screens, before conversation, before the day has named itself — it creates a deliberate beginning rather than a reactive one.\n\nNot a cleanse. A beginning.",
+            "cta_text": "Explore Morning Clarity →",
+            "cta_link": "/products/morning-clarity"
+          }
+        },
+        "instrument_2": {
+          "type": "instrument",
+          "settings": {
+            "title": "Stillness Elixir",
+            "transition": "Work → Recovery · Stimulation → Restoration",
+            "body": "The transition out of work and sustained engagement is one modern life rarely supports. The professional chapter ends on the calendar. In the nervous system, it often continues for hours.\n\nStillness Elixir is an evening body ritual for this transition. Applied to pulse points as the workday closes, its scent, texture, and consistent repetition combine to create a signal the nervous system learns to recognize: this part is finished.\n\nNot a sedative. A signal.",
+            "cta_text": "Explore Stillness →",
+            "cta_link": "/products/mirellis-stillness-elixir"
+          }
+        },
+        "instrument_3": {
+          "type": "instrument",
+          "settings": {
+            "title": "Ritual Sound",
+            "transition": "All transitions",
+            "body": "Four acoustic series, each designed for a specific moment in the day. Not music for entertainment — environments for state change.\n\nMorning Clarity. Flow. Stillness. Ground.\n\nEach series maps to a transition. Each creates the acoustic conditions for the body to recognize that a shift is occurring.",
+            "cta_text": "Explore Ritual Sound →",
+            "cta_link": "/pages/ritual-sound"
+          }
+        }
+      },
+      "block_order": ["instrument_1", "instrument_2", "instrument_3"],
+      "settings": {
+        "eyebrow": "FROM RESEARCH TO RITUAL",
+        "heading": "Three instruments. Each built for a specific transition.",
+        "show_section": true
+      }
+    },
+    "wwa_observatory_v1": {
+      "type": "mirellis-wwa-observatory",
+      "name": "What We Are - Observatory",
+      "settings": {
+        "eyebrow": "THE OBSERVATORY",
+        "heading": "Research into Human State Transitions.",
+        "body": "The Observatory is the research arm of Mirellis.\n\nThe Observatory documents observations, patterns, experiments, and emerging hypotheses from the study of Human State Transitions.\n\nA growing body of work exploring the moments between sleep and waking, work and recovery, stimulation and restoration.\n\nNot wellness content.\nNot productivity advice.\n\nA deeper investigation into how humans change states — and what consistent ritual systems do to support those changes over time.",
+        "cta_text": "Enter the Observatory →",
+        "cta_link": "/pages/the-observatory",
+        "show_section": true
+      }
+    }
+  },
+  "order": [
+    "wwa_founding_v1",
+    "wwa_ritualscience_v1",
+    "wwa_foundations_v1",
+    "wwa_transitions_v1",
+    "wwa_method_v1",
+    "wwa_instruments_v1",
+    "wwa_observatory_v1"
+  ]
+}

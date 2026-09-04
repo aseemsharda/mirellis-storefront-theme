@@ -1,0 +1,365 @@
+{% stylesheet %}
+.ed-cards {
+  background: #faf7f2;
+  padding: 8rem 2rem;
+}
+
+.ed-cards__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.ed-cards__head {
+  max-width: 64ch;
+  margin: 0 0 4.5rem;
+}
+
+.ed-cards__eyebrow {
+  font-family: var(--font-body-family);
+  font-size: 0.72rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(26, 26, 24, 0.45);
+  margin: 0 0 1.6rem;
+}
+
+.ed-cards__intro {
+  font-family: var(--font-heading-family);
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  line-height: 1.34;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  color: #1a1a18;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.ed-cards__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
+
+.ed-cards__card {
+  display: flex;
+  flex-direction: column;
+  background: #fffdf9;
+  border: 1px solid rgba(26, 26, 24, 0.10);
+  border-radius: 4px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ed-cards__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #efe9e0;
+}
+
+.ed-cards__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+  transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+a.ed-cards__card:hover .ed-cards__media img,
+a.ed-cards__card:focus-visible .ed-cards__media img {
+  transform: scale(1);
+}
+
+.ed-cards__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 2.2rem 2rem 2.4rem;
+}
+
+.ed-cards__states {
+  font-family: var(--font-heading-family);
+  font-size: 1.3rem;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: #1a1a18;
+  margin: 0 0 1.4rem;
+}
+
+.ed-cards__arrow {
+  color: #8b6f47;
+  margin: 0 0.35rem;
+}
+
+.ed-cards__finding {
+  font-family: var(--font-body-family);
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: rgba(26, 26, 24, 0.78);
+  margin: 0 0 2rem;
+  text-wrap: pretty;
+}
+
+.ed-cards__footer {
+  margin-top: auto;
+  padding-top: 1.6rem;
+  border-top: 1px solid rgba(26, 26, 24, 0.10);
+}
+
+.ed-cards__inst-label {
+  font-family: var(--font-body-family);
+  font-size: 0.66rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(26, 26, 24, 0.42);
+  margin: 0 0 0.4rem;
+}
+
+.ed-cards__inst-name {
+  font-family: var(--font-heading-family);
+  font-size: 1.05rem;
+  color: #1a1a18;
+  margin: 0 0 1.4rem;
+}
+
+.ed-cards__link {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-body-family);
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #1a1a18;
+  padding-bottom: 0.35rem;
+}
+
+.ed-cards__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 1.8rem;
+  height: 1px;
+  background: rgba(26, 26, 24, 0.3);
+  transition: width 0.4s ease, background 0.4s ease;
+}
+
+a.ed-cards__card:hover .ed-cards__link::after,
+a.ed-cards__card:focus-visible .ed-cards__link::after {
+  width: 100%;
+  background: #8b6f47;
+}
+
+a.ed-cards__card:focus-visible {
+  outline: 2px solid rgba(139, 111, 71, 0.9);
+  outline-offset: 4px;
+}
+
+@media screen and (max-width: 989px) {
+  .ed-cards__grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .ed-cards {
+    padding: 5.5rem 1.5rem;
+  }
+  .ed-cards__head {
+    margin-bottom: 3rem;
+  }
+  .ed-cards__content {
+    padding: 2rem 1.6rem 2.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ed-cards__media img {
+    transform: scale(1);
+    transition: none;
+  }
+}
+{% endstylesheet %}
+
+<section class="ed-cards">
+  <div class="ed-cards__inner">
+
+    {% if section.settings.eyebrow != blank or section.settings.intro != blank %}
+      <div class="ed-cards__head">
+        {% if section.settings.eyebrow != blank %}
+          <p class="ed-cards__eyebrow">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+        {% if section.settings.intro != blank %}
+          <h2 class="ed-cards__intro">{{ section.settings.intro }}</h2>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="ed-cards__grid">
+      {% for block in section.blocks %}
+        {%- liquid
+          assign has_link = false
+          if block.settings.link != blank
+            assign has_link = true
+          endif
+        -%}
+
+        {%- capture card_inner -%}
+          {% if block.settings.image != blank %}
+            <div class="ed-cards__media">
+              {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(max-width: 989px) 90vw, 33vw', widths: '400, 600, 900' }}
+            </div>
+          {% endif %}
+
+          <div class="ed-cards__content">
+            {% if block.settings.state_from != blank or block.settings.state_to != blank %}
+              <p class="ed-cards__states">
+                {{ block.settings.state_from }}<span class="ed-cards__arrow" aria-hidden="true">&rarr;</span>{{ block.settings.state_to }}
+              </p>
+            {% endif %}
+
+            {% if block.settings.finding != blank %}
+              <p class="ed-cards__finding">{{ block.settings.finding }}</p>
+            {% endif %}
+
+            <div class="ed-cards__footer">
+              {% if block.settings.instrument != blank %}
+                <p class="ed-cards__inst-label">{{ section.settings.instrument_label }}</p>
+                <p class="ed-cards__inst-name">{{ block.settings.instrument }}</p>
+              {% endif %}
+              {% if has_link and block.settings.link_label != blank %}
+                <span class="ed-cards__link">{{ block.settings.link_label }}</span>
+              {% endif %}
+            </div>
+          </div>
+        {%- endcapture -%}
+
+        {% if has_link %}
+          <a href="{{ block.settings.link }}" class="ed-cards__card" {{ block.shopify_attributes }}>
+            {{ card_inner }}
+          </a>
+        {% else %}
+          <div class="ed-cards__card" {{ block.shopify_attributes }}>
+            {{ card_inner }}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Editorial Card Set",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "What we study"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro",
+      "default": "Rather than studying wellbeing as a whole, Mirellis focuses on three specific boundaries where modern life most consistently interrupts the movement between human states."
+    },
+    {
+      "type": "text",
+      "id": "instrument_label",
+      "label": "Instrument Label",
+      "default": "Instrument"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Boundary Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "state_from",
+          "label": "State (from)",
+          "default": "Sleep"
+        },
+        {
+          "type": "text",
+          "id": "state_to",
+          "label": "State (to)",
+          "default": "Wakefulness"
+        },
+        {
+          "type": "textarea",
+          "id": "finding",
+          "label": "Finding",
+          "default": "The first thirty minutes after waking appear to shape far more than the next thirty minutes."
+        },
+        {
+          "type": "text",
+          "id": "instrument",
+          "label": "Instrument",
+          "default": "Morning Clarity"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link Label",
+          "default": "Explore transition"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Editorial Card Set",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "state_from": "Sleep",
+            "state_to": "Wakefulness",
+            "finding": "The first thirty minutes after waking appear to shape far more than the next thirty minutes.",
+            "instrument": "Morning Clarity",
+            "link_label": "Explore transition"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "state_from": "Work",
+            "state_to": "Recovery",
+            "finding": "Recovery cannot begin until attention lets go.",
+            "instrument": "Stillness",
+            "link_label": "Explore transition"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "state_from": "Stimulation",
+            "state_to": "Restoration",
+            "finding": "The nervous system continues waiting for a signal that says: this chapter is finished.",
+            "instrument": "Stillness",
+            "link_label": "Explore transition"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

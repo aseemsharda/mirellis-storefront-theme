@@ -1,0 +1,57 @@
+<section style="background:{{ section.settings.bg_color }};font-family:'Hanken Grotesk',system-ui,sans-serif">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(72px,10vw,128px) clamp(20px,5vw,48px)">
+    <div data-reveal style="margin-bottom:clamp(40px,6vw,72px);max-width:620px">
+      {%- if section.settings.eyebrow != blank -%}
+        <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#b07f54;margin-bottom:18px">{{ section.settings.eyebrow }}</div>
+      {%- endif -%}
+      <h2 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(30px,4.4vw,52px);margin:0;letter-spacing:-0.01em;color:{{ section.settings.text_color }}">{{ section.settings.heading }}</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0 clamp(36px,5vw,72px)">
+      {%- for block in section.blocks -%}
+        <div {{ block.shopify_attributes }} data-reveal style="display:flex;gap:20px;padding:26px 0;border-top:1px solid #e2dacd">
+          <span style="font-family:'Newsreader',serif;font-style:italic;color:#cf9266;font-size:18px;min-width:24px;flex-shrink:0">{{ block.settings.number }}</span>
+          <div>
+            <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;margin:0 0 6px;color:{{ section.settings.text_color }}">{{ block.settings.name }}</h3>
+            <p style="font-size:14.5px;line-height:1.7;color:#6f665b;margin:0">{{ block.settings.description }}</p>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SE — Key Ingredients",
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Number", "default": "01" },
+        { "type": "text", "id": "name", "label": "Ingredient name", "default": "Ingredient" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Describe this ingredient." }
+      ]
+    }
+  ],
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Key Ingredients" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Grounding Ayurvedic botanicals." },
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#f2ede6" },
+    { "type": "color", "id": "text_color", "label": "Text colour", "default": "#26221d" }
+  ],
+  "presets": [
+    {
+      "name": "SE — Key Ingredients",
+      "blocks": [
+        { "type": "ingredient", "settings": { "number": "01", "name": "Ashwagandha", "description": "Traditionally associated with resilience, restoration, and emotional balance." } },
+        { "type": "ingredient", "settings": { "number": "02", "name": "Jatamansi", "description": "A grounding Himalayan botanical linked to calmness and evening stillness rituals." } },
+        { "type": "ingredient", "settings": { "number": "03", "name": "Tagar · Valerian Root", "description": "Traditionally used in practices associated with deep relaxation and rest." } },
+        { "type": "ingredient", "settings": { "number": "04", "name": "Vetiver & Lavender", "description": "Grounding aromatic oils known for their calming, emotionally settling profile." } },
+        { "type": "ingredient", "settings": { "number": "05", "name": "Blue Tansy", "description": "A rare botanical oil prized for its soft, soothing aromatic character." } },
+        { "type": "ingredient", "settings": { "number": "06", "name": "Sweet Almond & Vitamin E", "description": "Nourishing oils that create a silky, fast-absorbing ritual experience." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

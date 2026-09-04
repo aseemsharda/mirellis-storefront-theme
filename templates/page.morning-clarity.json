@@ -1,0 +1,578 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "mc-hero",
+      "blocks": {
+        "img1": {
+          "type": "gallery_image",
+          "settings": {
+            "alt": "Morning Clarity oil pulling elixir",
+            "fallback_url": "https://mirellis.in/cdn/shop/files/Image-2_Formulated-ayurvedic-ritual.png?v=1773638990"
+          }
+        },
+        "img2": {
+          "type": "gallery_image",
+          "settings": {
+            "alt": "Begin the day",
+            "fallback_url": "https://mirellis.in/cdn/shop/files/Image-3_-Begin-the-day.png?v=1773638990"
+          }
+        },
+        "img3": {
+          "type": "gallery_image",
+          "settings": {
+            "alt": "Crafted with black cumin oil",
+            "fallback_url": "https://mirellis.in/cdn/shop/files/Image-4_Crafted-with-black-cumin-oil.png?v=1773638990"
+          }
+        },
+        "img4": {
+          "type": "gallery_image",
+          "settings": {
+            "alt": "A multi-botanical",
+            "fallback_url": "https://mirellis.in/cdn/shop/files/Image-5_A-multi-botanical.png?v=1773638990"
+          }
+        },
+        "img5": {
+          "type": "gallery_image",
+          "settings": {
+            "alt": "Swish, hold, release",
+            "fallback_url": "https://mirellis.in/cdn/shop/files/Image-7_Swish-hold-release.png?v=1773638990"
+          }
+        },
+        "img6": {
+          "type": "gallery_image",
+          "settings": {
+            "alt": "Begin the day grounded",
+            "fallback_url": "https://mirellis.in/cdn/shop/files/Image-9_-Begin-the-day-grounded.png?v=1773638990"
+          }
+        },
+        "tag1": {
+          "type": "tag",
+          "settings": {
+            "label": "Black cumin"
+          }
+        },
+        "tag2": {
+          "type": "tag",
+          "settings": {
+            "label": "Clove"
+          }
+        },
+        "tag3": {
+          "type": "tag",
+          "settings": {
+            "label": "Cold-pressed"
+          }
+        },
+        "tag4": {
+          "type": "tag",
+          "settings": {
+            "label": "Caffeine-free"
+          }
+        }
+      },
+      "block_order": [
+        "img1",
+        "img2",
+        "img3",
+        "img4",
+        "img5",
+        "img6",
+        "tag1",
+        "tag2",
+        "tag3",
+        "tag4"
+      ],
+      "settings": {
+        "bg_color": "#faf7f4",
+        "brand": "Mirellis",
+        "heading": "Morning Clarity",
+        "subheading": "Oil Pulling Elixir",
+        "description": "A morning ritual designed to restore the transition between sleep and wakefulness — the first coherent sensory signal the nervous system receives each day. Warm oil. Slow movement. Five to ten minutes of purposeful, non-reactive action.",
+        "price": "Rs. 1,200",
+        "price_note": "incl. taxes · 150ml",
+        "variant_id": 42179687481410,
+        "atc_text": "Add to cart — Rs. 1,200",
+        "atc_success": "Added to cart ✓",
+        "badge_text": "Sleep → Wakefulness",
+        "note_1": "Ships in 2–3 days",
+        "note_2": "Cash on delivery",
+        "note_3": "30-day ritual guarantee",
+        "fallback_image_1": "https://mirellis.in/cdn/shop/files/Image-2_Formulated-ayurvedic-ritual.png?v=1773638990"
+      }
+    },
+    "narrative": {
+      "type": "mc-narrative",
+      "blocks": {
+        "b1": {
+          "type": "before_item",
+          "settings": {
+            "label": "Alarm"
+          }
+        },
+        "b2": {
+          "type": "before_item",
+          "settings": {
+            "label": "Phone"
+          }
+        },
+        "b3": {
+          "type": "before_item",
+          "settings": {
+            "label": "Messages"
+          }
+        },
+        "b4": {
+          "type": "before_item",
+          "settings": {
+            "label": "Reaction"
+          }
+        },
+        "a1": {
+          "type": "after_item",
+          "settings": {
+            "label": "Alarm"
+          }
+        },
+        "a2": {
+          "type": "after_item",
+          "settings": {
+            "label": "Light"
+          }
+        },
+        "a3": {
+          "type": "after_item",
+          "settings": {
+            "label": "Sound"
+          }
+        },
+        "a4": {
+          "type": "after_item",
+          "settings": {
+            "label": "Ritual"
+          }
+        },
+        "a5": {
+          "type": "after_item",
+          "settings": {
+            "label": "Orientation"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "a1",
+        "a2",
+        "a3",
+        "a4",
+        "a5"
+      ],
+      "settings": {
+        "bg_color": "#211d18",
+        "text_color": "#ece3d6",
+        "eyebrow_color": "#bb8b4d",
+        "eyebrow": "The first transition",
+        "heading": "Most mornings begin with a screen. Messages. Notifications. News.",
+        "subtext_1": "The nervous system receives the world before it receives itself.",
+        "subtext_2": "Morning Clarity exists to restore the moment before that happens.",
+        "col_left_label": "Most mornings",
+        "col_right_label": "A different beginning",
+        "quote": "The body waking the mind. Not the mind forcing the body.",
+        "quote_note": "Five to ten minutes · before screens, before caffeine"
+      }
+    },
+    "rush": {
+      "type": "mc-rush",
+      "blocks": {
+        "rc1": {
+          "type": "rush_card",
+          "settings": {
+            "fallback_url": "https://mirellis.in/cdn/shop/files/Caffeine_before_awareness.png?v=1779106941",
+            "number": "01",
+            "caption": "Caffeine before awareness."
+          }
+        },
+        "rc2": {
+          "type": "rush_card",
+          "settings": {
+            "fallback_url": "https://mirellis.in/cdn/shop/files/Screens_before_breath.png?v=1779106977",
+            "number": "02",
+            "caption": "Screens before breath."
+          }
+        },
+        "rc3": {
+          "type": "rush_card",
+          "settings": {
+            "fallback_url": "https://mirellis.in/cdn/shop/files/Activity_before_clarity.png?v=1779107026",
+            "number": "03",
+            "caption": "Activity before clarity."
+          }
+        }
+      },
+      "block_order": [
+        "rc1",
+        "rc2",
+        "rc3"
+      ],
+      "settings": {
+        "bg_color": "#faf7f4",
+        "eyebrow": "The cost of urgency",
+        "heading": "Mornings often begin in a rush.",
+        "body": "Over time, this disrupts digestion, focus, and the body's natural rhythm of waking. Morning Clarity was created to restore the first moment of the day — allowing the body and mind to transition into activity with intention rather than urgency."
+      }
+    },
+    "ritual-steps": {
+      "type": "mc-ritual-steps",
+      "blocks": {
+        "step1": {
+          "type": "step",
+          "settings": {
+            "step_label": "Step 1",
+            "title": "Take",
+            "body": "Pour one tablespoon of oil into your mouth after waking — before brushing, food, or caffeine."
+          }
+        },
+        "step2": {
+          "type": "step",
+          "settings": {
+            "step_label": "Step 2",
+            "title": "Swish gently",
+            "body": "Move the oil calmly through the mouth for five to ten minutes, without force, paired with slow breathing."
+          }
+        },
+        "step3": {
+          "type": "step",
+          "settings": {
+            "step_label": "Step 3",
+            "title": "Release & rinse",
+            "body": "Spit the oil out and rinse with warm water. Pause briefly before beginning your day."
+          }
+        }
+      },
+      "block_order": [
+        "step1",
+        "step2",
+        "step3"
+      ],
+      "settings": {
+        "bg_color": "#f1ebe1",
+        "eyebrow": "The practice",
+        "heading": "The oil pulling ritual",
+        "heading_note": "5–10 minutes. Performed daily upon waking."
+      }
+    },
+    "how-it-works": {
+      "type": "mc-how-it-works",
+      "blocks": {
+        "hiw-tag1": {
+          "type": "tag",
+          "settings": {
+            "label": "Oral balance"
+          }
+        },
+        "hiw-tag2": {
+          "type": "tag",
+          "settings": {
+            "label": "Digestion"
+          }
+        },
+        "hiw-tag3": {
+          "type": "tag",
+          "settings": {
+            "label": "Mental clarity"
+          }
+        }
+      },
+      "block_order": [
+        "hiw-tag1",
+        "hiw-tag2",
+        "hiw-tag3"
+      ],
+      "settings": {
+        "bg_color": "#faf7f4",
+        "fallback_url": "https://mirellis.in/cdn/shop/files/what_makes_it_work_oil_pulling.png?v=1779107904",
+        "eyebrow": "Why it works",
+        "heading": "What makes it work",
+        "body_1": "Oil pulling supports the body at one of its most sensitive transition points. A traditional Ayurvedic practice, it is used to support oral hygiene, stimulate digestion, and bring clarity to the mind — the slow, mindful swishing engages the senses and signals the body to wake gently and coherently.",
+        "body_2": "The formulation is designed to feel grounding, not aggressive — allowing clarity to emerge through consistency rather than intensity. This ritual doesn't rush the body into action. It prepares it.",
+        "quote": "This is not a cleanse. It is a beginning."
+      }
+    },
+    "who-for": {
+      "type": "mc-who-for",
+      "blocks": {
+        "wf1": {
+          "type": "card",
+          "settings": {
+            "fallback_url": "https://mirellis.in/cdn/shop/files/Wake_feeling_foggy_or_rushed.png?v=1779109016",
+            "caption": "Wake feeling foggy or rushed"
+          }
+        },
+        "wf2": {
+          "type": "card",
+          "settings": {
+            "fallback_url": "https://mirellis.in/cdn/shop/files/Rely_heavily_on_caffeine_to_feel_alert.png?v=1779109058",
+            "caption": "Rely heavily on caffeine to feel alert"
+          }
+        },
+        "wf3": {
+          "type": "card",
+          "settings": {
+            "fallback_url": "https://mirellis.in/cdn/shop/files/Want_better_digestion_without_extremes.png?v=1779109098",
+            "caption": "Want better digestion without extremes"
+          }
+        },
+        "wf4": {
+          "type": "card",
+          "settings": {
+            "fallback_url": "https://mirellis.in/cdn/shop/files/Prefer_grounding_rituals_over_aggressive_routines.png?v=1779109136",
+            "caption": "Prefer grounding rituals over aggressive routines"
+          }
+        }
+      },
+      "block_order": [
+        "wf1",
+        "wf2",
+        "wf3",
+        "wf4"
+      ],
+      "settings": {
+        "bg_color": "#211d18",
+        "eyebrow": "Who it's for",
+        "heading": "Morning Clarity is for those who—"
+      }
+    },
+    "ingredient-research": {
+      "type": "mc-ingredient-research",
+      "blocks": {
+        "ing1": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Aromatic rituals & morning orientation",
+            "body": "Repeated aromatic morning rituals may contribute to sensory familiarity, environmental orientation, and perceived transitions into wakefulness through associative sensory repetition.",
+            "source_label": "Behavioral & sensory research",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3505409/"
+          }
+        },
+        "ing2": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Sesame oil & traditional oil pulling",
+            "body": "Sesame oil has been historically associated with oil pulling traditions and oral cleansing rituals explored in both Ayurvedic literature and contemporary oral-care research.",
+            "source_label": "NIH / oil pulling research",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5198813/"
+          }
+        },
+        "ing3": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Clove oil & traditional oral rituals",
+            "body": "Clove-derived aromatic compounds have historically been associated with traditional oral rituals and sensory cleansing environments across multiple medicinal traditions.",
+            "source_label": "NCBI / clove oil research",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4927122/"
+          }
+        },
+        "ing4": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Peppermint aroma & sensory perception",
+            "body": "Peppermint aromatic compounds have been studied in sensory research related to perceived freshness, alertness, and environmental sensory stimulation.",
+            "source_label": "NIH / peppermint research",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4103722/"
+          }
+        },
+        "ing5": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Coconut oil & oral ecology",
+            "body": "Virgin coconut oil has been explored in oral-care and lipid research related to cleansing rituals, microbial balance, and traditional oral environments.",
+            "source_label": "NIH / coconut oil research",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5654187/"
+          }
+        }
+      },
+      "block_order": [
+        "ing1",
+        "ing2",
+        "ing3",
+        "ing4",
+        "ing5"
+      ],
+      "settings": {
+        "bg_color": "#faf7f4",
+        "eyebrow": "Ingredient research",
+        "heading": "Morning sensory ritual & botanical research",
+        "intro": "Oil Pulling Elixir combines botanical oils, aromatic compounds, and sensory ingredients traditionally associated with cleansing rituals, breath freshness, and morning orientation. Contemporary research continues exploring how plant oils and oral sensory environments may influence perception and physiological awareness."
+      }
+    },
+    "observatory": {
+      "type": "mc-observatory",
+      "blocks": {
+        "obs1": {
+          "type": "card",
+          "settings": {
+            "tag": "Sleep → Wakefulness",
+            "title": "The cortisol awakening response — why the first 30 minutes matter most",
+            "link_text": "Read →",
+            "url": ""
+          }
+        },
+        "obs2": {
+          "type": "card",
+          "settings": {
+            "tag": "Sleep → Wakefulness",
+            "title": "Phone-first mornings — what happens to the nervous system when the screen comes first",
+            "link_text": "Read →",
+            "url": ""
+          }
+        },
+        "obs3": {
+          "type": "card",
+          "settings": {
+            "tag": "Sleep → Wakefulness",
+            "title": "Oil pulling and the oral-gut-brain axis — the morning signal that works before caffeine",
+            "link_text": "Read →",
+            "url": ""
+          }
+        },
+        "obs4": {
+          "type": "card",
+          "settings": {
+            "tag": "Finding 002",
+            "title": "The first 30 minutes after waking are not like the rest of the day",
+            "link_text": "Read the finding →",
+            "url": ""
+          }
+        },
+        "obs5": {
+          "type": "card",
+          "settings": {
+            "tag": "Sleep → Wakefulness",
+            "title": "How circadian rhythm shapes the quality of waking",
+            "link_text": "Read →",
+            "url": ""
+          }
+        },
+        "obs6": {
+          "type": "card",
+          "settings": {
+            "tag": "Finding 004",
+            "title": "The boundary between states — an emerging theory of human state transitions",
+            "link_text": "Read the finding →",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "obs1",
+        "obs2",
+        "obs3",
+        "obs4",
+        "obs5",
+        "obs6"
+      ],
+      "settings": {
+        "bg_color": "#f1ebe1",
+        "eyebrow": "From the Observatory",
+        "heading": "The research behind this ritual",
+        "all_link": "/blogs/observatory"
+      }
+    },
+    "research-notes": {
+      "type": "mc-research-notes",
+      "blocks": {
+        "rn1": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Oral sensation & sensory processing",
+            "body": "Oral sensory pathways contribute to how the brain interprets taste, texture, temperature, and breath-related information during moments of environmental orientation and wakefulness.",
+            "source_label": "NCBI / sensory processing",
+            "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK279408/"
+          }
+        },
+        "rn2": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Ritual repetition & behavioral association",
+            "body": "Repeated sensory rituals gradually become associated with familiarity, predictability, and environmental orientation through behavioral repetition and nervous-system association.",
+            "source_label": "Behavioral psychology & habit research",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3505409/"
+          }
+        },
+        "rn3": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Morning light & circadian rhythm",
+            "body": "The nervous system responds strongly to the first environmental signals of the morning. Light exposure and early sensory cues may influence alertness, circadian timing, and the transition into wakefulness.",
+            "source_label": "Harvard Medical School / circadian research",
+            "source_url": "https://www.health.harvard.edu/staying-healthy/blue-light-has-a-dark-side"
+          }
+        },
+        "rn4": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Breath & nervous system rhythm",
+            "body": "Breathing patterns influence autonomic nervous-system activity and may affect physiological pacing during transitions between rest, alertness, and cognitive activation.",
+            "source_label": "NIH / breath physiology",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6137615/"
+          }
+        }
+      },
+      "block_order": [
+        "rn1",
+        "rn2",
+        "rn3",
+        "rn4"
+      ],
+      "settings": {
+        "bg_color": "#f1ebe1",
+        "eyebrow": "Research notes",
+        "heading": "Morning rhythm & sensory physiology",
+        "intro": "Morning rituals influence sensory orientation, breath rhythm, environmental awareness, and the body's gradual transition into wakefulness. Quiet scientific research increasingly supports the relationship between repeated sensory cues, nervous-system pacing, and biological rhythm."
+      }
+    },
+    "companion": {
+      "type": "mc-companion",
+      "settings": {
+        "bg_color": "#1b1a23",
+        "text_color": "#dcdae6",
+        "eyebrow_color": "#9aa0c4",
+        "body_color": "#a6a4b8",
+        "cta_note_color": "#7a7e9a",
+        "img_bg_color": "#26252f",
+        "eyebrow": "The transition before this one",
+        "heading": "The evening ritual that shapes the morning.",
+        "body": "The quality of Sleep → Wakefulness is shaped by how the previous evening ended. Stillness Elixir exists for the Work → Recovery transition — the signal that tells the nervous system the day is finished, before the morning can begin differently.",
+        "cta_url": "shopify://pages/stillness-elixir",
+        "cta_text": "Explore the evening →",
+        "cta_note": "Companion ritual",
+        "image": "shopify://shop_images/mirellis-ashwagandha-ritual-practice1.png",
+        "fallback_url": "",
+        "badge_text": "Stillness Elixir"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "narrative",
+    "rush",
+    "ritual-steps",
+    "how-it-works",
+    "who-for",
+    "ingredient-research",
+    "observatory",
+    "research-notes",
+    "companion"
+  ]
+}

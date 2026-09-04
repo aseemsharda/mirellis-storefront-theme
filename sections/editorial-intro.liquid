@@ -1,0 +1,88 @@
+<section class="editorial-intro">
+
+  <div class="page-width">
+
+    <div class="editorial-intro__inner">
+
+      <div class="editorial-intro__text">
+        {{ section.settings.text }}
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.editorial-intro {
+  padding: 110px 0;
+  background: #fcfaf7;
+}
+
+.editorial-intro__inner {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.editorial-intro__text {
+  font-size: 30px;
+  line-height: 1.8;
+  font-weight: 300;
+  color: #242424;
+}
+
+.editorial-intro__text p {
+  margin: 0 0 34px;
+}
+
+.editorial-intro__text p:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 990px) {
+
+  .editorial-intro {
+    padding: 90px 0;
+  }
+
+  .editorial-intro__text {
+    font-size: 24px;
+    line-height: 1.8;
+  }
+
+}
+
+@media screen and (max-width: 749px) {
+
+  .editorial-intro {
+    padding: 70px 0;
+  }
+
+  .editorial-intro__text {
+    font-size: 18px;
+    line-height: 1.9;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Editorial Intro",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Editorial Intro"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,122 @@
+{%- comment -%}
+  MIRELLIS — HOW WE WORK  (fully editable in theme editor)
+  Every field exposed as a section setting with defaults = canonical copy.
+  The seven stages are stage_1..stage_7 (title + body). Self-contained.
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+<div class="hww">
+
+  <section class="hww__hero">
+    <div class="hww__inner">
+      {%- if s.eyebrow != blank -%}<div class="hww__eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+      {%- if s.title != blank -%}<h1 class="hww__title">{{ s.title }}</h1>{%- endif -%}
+      {%- if s.lede != blank -%}<p class="hww__lede">{{ s.lede }}</p>{%- endif -%}
+    </div>
+  </section>
+
+  <section class="hww__stages">
+    <div class="hww__inner">
+      <ol class="hww__list">
+        {%- for i in (1..7) -%}
+          {%- assign tk = 'stage_' | append: i | append: '_title' -%}
+          {%- assign bk = 'stage_' | append: i | append: '_body' -%}
+          {%- assign st = section.settings[tk] -%}
+          {%- assign sb = section.settings[bk] -%}
+          {%- if st != blank -%}
+            <li class="hww__step">
+              <span class="hww__num">{{ i | prepend: '0' }}</span>
+              <div><h2>{{ st }}</h2>{%- if sb != blank -%}<p>{{ sb }}</p>{%- endif -%}</div>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ol>
+    </div>
+  </section>
+
+  <section class="hww__pipeline-wrap">
+    <div class="hww__inner">
+      <div class="hww__pipeline" aria-label="From observation to ritual">
+        {%- assign steps = s.pipeline_steps | default: 'Observation, Finding, Mechanism, Intervention, Delivery, Ritual, Outcome' | split: ',' -%}
+        {%- for step in steps -%}
+          <span class="hww__node">{{ step | strip }}</span>
+          {%- unless forloop.last -%}<span class="hww__arrow" aria-hidden="true">→</span>{%- endunless -%}
+        {%- endfor -%}
+        <span class="hww__loop" aria-hidden="true">↺</span>
+      </div>
+      {%- if s.pipeline_note != blank -%}<p class="hww__note">{{ s.pipeline_note }}</p>{%- endif -%}
+    </div>
+  </section>
+
+  <section class="hww__knowledge">
+    <div class="hww__inner">
+      {%- if s.knowledge_eyebrow != blank -%}<div class="hww__eyebrow">{{ s.knowledge_eyebrow }}</div>{%- endif -%}
+      {%- if s.knowledge_body != blank -%}<p class="hww__k-body">{{ s.knowledge_body }}</p>{%- endif -%}
+    </div>
+  </section>
+
+  {%- if s.cta_label != blank and s.cta_url != blank -%}
+    <section class="hww__cta-wrap">
+      <div class="hww__inner"><p class="hww__cta"><a href="{{ s.cta_url }}">{{ s.cta_label }}</a></p></div>
+    </section>
+  {%- endif -%}
+
+</div>
+
+<style>
+  .hww { background: var(--ml-color-warm-paper); }
+  .hww__inner { max-width: 720px; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2rem); }
+  .hww__hero { padding-block: clamp(5rem, 10vw, 8rem) clamp(3rem, 6vw, 5rem); }
+  .hww__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1.75rem; }
+  .hww__title { font-size: clamp(2.2rem, 5vw, 3.25rem); font-weight: 300; letter-spacing: -0.01em; line-height: 1.15; color: var(--ml-color-soft-charcoal); margin: 0 0 1.5rem; max-width: 20ch; }
+  .hww__lede { font-size: clamp(1.2rem, 2.6vw, 1.5rem); font-weight: 300; line-height: 1.5; color: var(--ml-color-text-secondary); max-width: 40ch; margin: 0; }
+  .hww__list { list-style: none; margin: 0; padding: 0; }
+  .hww__step { display: flex; gap: clamp(1rem, 4vw, 2.5rem); align-items: baseline; padding-block: 2.75rem; border-top: 1px solid var(--ml-color-border-soft); }
+  .hww__num { font-size: 0.8rem; letter-spacing: 0.15em; color: var(--ml-color-muted-earth); font-weight: 600; flex: 0 0 auto; }
+  .hww__step h2 { font-size: 1.35rem; font-weight: 400; color: var(--ml-color-soft-charcoal); margin: 0 0 0.75rem; }
+  .hww__step p { font-size: 1.0625rem; line-height: 1.85; color: var(--ml-color-text-secondary); margin: 0; max-width: 52ch; }
+  .hww__pipeline-wrap { padding-block: clamp(3rem, 7vw, 5.5rem); }
+  .hww__pipeline { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; padding-top: 2.5rem; border-top: 1px solid var(--ml-color-border-soft); margin-bottom: 1.75rem; }
+  .hww__node { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ml-color-soft-charcoal); font-weight: 500; white-space: nowrap; }
+  .hww__arrow, .hww__loop { color: var(--ml-color-muted-earth); opacity: 0.6; }
+  .hww__note { font-size: 1rem; font-style: italic; line-height: 1.8; color: var(--ml-color-text-secondary); max-width: 54ch; margin: 0; }
+  .hww__knowledge { padding-block: clamp(2rem, 5vw, 3.5rem) clamp(4rem, 8vw, 6rem); }
+  .hww__k-body { font-size: 1.0625rem; line-height: 1.9; color: var(--ml-color-text-secondary); max-width: 56ch; margin: 0; }
+  .hww__cta-wrap { padding-block: 0 clamp(5rem, 9vw, 7rem); }
+  .hww__cta { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0; }
+  .hww__cta a { color: var(--ml-color-soft-charcoal); text-underline-offset: 3px; }
+</style>
+
+{% schema %}
+{
+  "name": "How We Work",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "How we work" },
+    { "type": "text", "id": "title", "label": "Title", "default": "From observation to ritual." },
+    { "type": "inline_richtext", "id": "lede", "label": "Lede", "default": "Nothing at Mirellis begins as a product. Everything begins as something we noticed." },
+    { "type": "header", "content": "The seven stages" },
+    { "type": "text", "id": "stage_1_title", "label": "Stage 1 title", "default": "Observation" },
+    { "type": "inline_richtext", "id": "stage_1_body", "label": "Stage 1 body", "default": "We record what actually happens at a transition — in our own testing, in the research, in what people tell us. Only what was observed. No interpretation yet." },
+    { "type": "text", "id": "stage_2_title", "label": "Stage 2 title", "default": "Finding" },
+    { "type": "inline_richtext", "id": "stage_2_body", "label": "Stage 2 body", "default": "When the same thing appears again and again, it becomes a Finding — a pattern we can state plainly and stand behind." },
+    { "type": "text", "id": "stage_3_title", "label": "Stage 3 title", "default": "Mechanism" },
+    { "type": "inline_richtext", "id": "stage_3_body", "label": "Stage 3 body", "default": "We ask why it might happen, drawing on both traditional systems and modern science. We hold this as a careful explanation, never a certainty." },
+    { "type": "text", "id": "stage_4_title", "label": "Stage 4 title", "default": "Intervention" },
+    { "type": "inline_richtext", "id": "stage_4_body", "label": "Stage 4 body", "default": "We ask the real question: given what we now understand, what would help most here? This produces a set of possibilities — not products. Light, scent, sound, temperature, movement, timing, attention." },
+    { "type": "text", "id": "stage_5_title", "label": "Stage 5 title", "default": "Delivery" },
+    { "type": "inline_richtext", "id": "stage_5_body", "label": "Stage 5 body", "default": "Only now do we ask what form the answer should take. An oil. A sound. An environment. A ritual. Sometimes the honest answer is: nothing we can build yet." },
+    { "type": "text", "id": "stage_6_title", "label": "Stage 6 title", "default": "Ritual" },
+    { "type": "inline_richtext", "id": "stage_6_body", "label": "Stage 6 body", "default": "The strongest interventions become instruments you can actually use — and using them daily, at the same moment, is what teaches the body the transition." },
+    { "type": "text", "id": "stage_7_title", "label": "Stage 7 title", "default": "Outcome, and back again" },
+    { "type": "inline_richtext", "id": "stage_7_body", "label": "Stage 7 body", "default": "What people notice becomes the next observation. The loop closes and begins again." },
+    { "type": "header", "content": "Pipeline & close" },
+    { "type": "text", "id": "pipeline_steps", "label": "Pipeline steps (comma-separated)", "default": "Observation, Finding, Mechanism, Intervention, Delivery, Ritual, Outcome" },
+    { "type": "inline_richtext", "id": "pipeline_note", "label": "Pipeline note", "default": "There may be ten intervention opportunities for a transition. Only one becomes a product. The other nine are not failures — they are the pipeline. Products that don't yet exist are the point." },
+    { "type": "text", "id": "knowledge_eyebrow", "label": "Knowledge eyebrow", "default": "What each stage leaves behind" },
+    { "type": "inline_richtext", "id": "knowledge_body", "label": "Knowledge body", "default": "Every stage produces two things: a piece of knowledge that stays with the institution forever, and a decision about whether to continue. Even when a project is stopped, the knowledge is kept. Nothing is lost because a product was set aside." },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Enter the Observatory Mirror →" },
+    { "type": "url", "id": "cta_url", "label": "CTA link" }
+  ],
+  "presets": [{ "name": "How We Work" }]
+}
+{% endschema %}

@@ -1,0 +1,143 @@
+{% comment %}
+MIRELLIS — PHILOSOPHY + TRUST SECTION
+Minimal, high-authority brand articulation layer
+{% endcomment %}
+
+<section class="ml-philosophy">
+
+  <div class="ml-philosophy__container">
+
+    {% if section.settings.heading != blank %}
+      <h2 class="ml-philosophy-heading">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.statement != blank %}
+      <p class="ml-philosophy-statement">
+        {{ section.settings.statement }}
+      </p>
+    {% endif %}
+
+    <div class="ml-philosophy-grid">
+
+      <div class="ml-philosophy-item">
+        <h3>Ayurveda</h3>
+        <p>Ancient intelligence of rhythm, balance, and sensory alignment.</p>
+      </div>
+
+      <div class="ml-philosophy-item">
+        <h3>Science</h3>
+        <p>Modern validation of plant-based active systems and outcomes.</p>
+      </div>
+
+      <div class="ml-philosophy-item">
+        <h3>Ritual</h3>
+        <p>Daily repetition that restores nervous system coherence.</p>
+      </div>
+
+    </div>
+
+    {% if section.settings.note != blank %}
+      <div class="ml-philosophy-note">
+        {{ section.settings.note }}
+      </div>
+    {% endif %}
+
+  </div>
+
+</section>
+
+<style>
+/* ===============================
+   MIRELLIS PHILOSOPHY SYSTEM
+   =============================== */
+
+.ml-philosophy {
+  padding: 100px 24px;
+  background: #fcfaf7;
+  text-align: center;
+}
+
+.ml-philosophy__container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ml-philosophy-heading {
+  font-size: 26px;
+  font-weight: 300;
+  margin-bottom: 18px;
+}
+
+.ml-philosophy-statement {
+  font-size: 16px;
+  opacity: 0.75;
+  margin-bottom: 50px;
+}
+
+.ml-philosophy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.ml-philosophy-item h3 {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.ml-philosophy-item p {
+  font-size: 14px;
+  opacity: 0.7;
+  line-height: 1.5;
+}
+
+.ml-philosophy-note {
+  font-size: 13px;
+  opacity: 0.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .ml-philosophy-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Mirellis Philosophy",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "We design rituals, not products"
+    },
+    {
+      "type": "textarea",
+      "id": "statement",
+      "label": "Statement",
+      "default": "Mirellis exists to restore nervous system balance through science-led Ayurveda rituals designed for modern life."
+    },
+    {
+      "type": "textarea",
+      "id": "note",
+      "label": "Trust Note",
+      "default": "Formulated for daily sensory balance. Designed for consistency, not intensity."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mirellis Philosophy"
+    }
+  ]
+}
+{% endschema %}

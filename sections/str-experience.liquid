@@ -1,0 +1,67 @@
+{% if section.settings.show_section %}
+<section class="exp-section">
+  <div class="exp-container">
+    {% if section.settings.experience_text != blank %}
+    <div class="exp-text">{{ section.settings.experience_text | newline_to_br }}</div>
+    {% endif %}
+    {% if section.settings.transition_line != blank %}
+    <p class="exp-transition">{{ section.settings.transition_line }}</p>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+<style>
+.exp-section {
+  background: #faf7f2;
+  padding: 6rem 2rem 3rem 2rem;
+}
+.exp-container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.exp-text {
+  font-size: 1rem;
+  line-height: 2;
+  color: #1a1a18;
+  text-align: left;
+}
+.exp-transition {
+  margin-top: 3rem;
+  font-style: italic;
+  color: rgba(26,26,24,0.6);
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+@media (max-width: 640px) {
+  .exp-section {
+    padding: 4rem 1.5rem;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Transition Experience",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "experience_text",
+      "label": "Experience Text",
+      "default": "11:34pm.\n\nYou are tired.\n\nYou know you are tired. You have been tired since 9pm.\n\nAnd yet.\n\nThe phone is still in your hand. Not because there is something you need to see. Because you cannot find the door out.\n\nThe day never officially ended. The stimulation never fully stopped. The nervous system never received permission to become something else.\n\nSo you scroll. Not from curiosity. From the absence of a signal that says: this is over.\n\n—\n\nNow imagine 10:15pm.\n\nThe screens are off.\n\nThe Ground series is playing. Low. Warm. Unhurried.\n\nYou have applied Stillness Elixir to your wrists and the base of your throat.\n\nThe scent and the sound arrive together. The combination is familiar. Your nervous system has learned what it means.\n\nSomething in you exhales.\n\nNot sleep yet. Something better — the genuine desire for it.\n\nThe door out has appeared.\n\nYou walk through it."
+    },
+    {
+      "type": "text",
+      "id": "transition_line",
+      "label": "Transition Line",
+      "default": "This is what the Stimulation → Restoration ritual can feel like."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show section",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

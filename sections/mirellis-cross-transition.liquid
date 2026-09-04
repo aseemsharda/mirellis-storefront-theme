@@ -1,0 +1,133 @@
+{% if section.settings.show_section %}
+<section class="mct-section">
+  <div class="mct-inner">
+    {% if section.settings.eyebrow != blank %}
+    <p class="mct-eyebrow">
+      {{ section.settings.eyebrow }}
+    </p>
+    {% endif %}
+    {% if section.settings.heading != blank %}
+    <h2 class="mct-heading">
+      {{ section.settings.heading }}
+    </h2>
+    {% endif %}
+    {% if section.settings.body != blank %}
+    <div class="mct-body">
+      {{ section.settings.body | newline_to_br }}
+    </div>
+    {% endif %}
+    <div class="mct-product">
+      <p class="mct-product-label">COMPANION RITUAL</p>
+      <a href="{{ section.settings.product_link }}"
+         class="mct-product-name">
+        {{ section.settings.product_name }}
+      </a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<style>
+.mct-section {
+  background: #faf7f2;
+  padding: 5rem 2rem;
+  border-top: 1px solid rgba(26,26,24,0.08);
+  border-bottom: 1px solid rgba(26,26,24,0.08);
+}
+.mct-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.mct-eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(26,26,24,0.4);
+  margin-bottom: 1.25rem;
+  margin-top: 0;
+}
+.mct-heading {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 400;
+  color: #1a1a18;
+  margin-bottom: 1.5rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.mct-body {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: rgba(26,26,24,0.65);
+  margin-bottom: 0;
+}
+.mct-product {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(26,26,24,0.08);
+}
+.mct-product-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(26,26,24,0.35);
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+.mct-product-name {
+  font-size: 1rem;
+  color: #1a1a18;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(26,26,24,0.25);
+  padding-bottom: 1px;
+  transition: border-color 0.2s ease;
+}
+.mct-product-name:hover {
+  border-color: rgba(26,26,24,0.7);
+}
+@media (max-width: 640px) {
+  .mct-section {
+    padding: 4rem 1.5rem;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Cross-Transition",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "COMPANION RITUAL"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The other transition"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body"
+    },
+    {
+      "type": "text",
+      "id": "product_name",
+      "label": "Product Name"
+    },
+    {
+      "type": "url",
+      "id": "product_link",
+      "label": "Product Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show section",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

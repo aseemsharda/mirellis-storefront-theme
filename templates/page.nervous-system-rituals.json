@@ -1,0 +1,131 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "ingredient-hero",
+      "settings": {
+        "title": "Nervous System Rituals",
+        "description": "<p>Long before conscious thought fully forms, the body is already responding to rhythm, atmosphere, repetition, sensory familiarity, and emotional pacing. Rituals begin physiologically before they become psychological.</p>"
+      }
+    },
+
+    "intro": {
+      "type": "editorial-intro",
+      "settings": {
+        "text": "<p>Modern life often keeps the nervous system inside continuous stimulation — fragmented attention, accelerated transitions, artificial urgency, informational density, and sensory overload. The body rarely experiences coherent pacing for long enough to settle.</p><p>Mirellis approaches ritual differently. Ritual is not viewed as productivity optimization or aesthetic performance. It is approached as nervous-system orientation through repetition, atmosphere, and sensory familiarity.</p><p>The body begins recognizing repeated sensory environments long before conscious thought fully interprets them. Texture, warmth, aroma, pacing, breath, light, and emotional rhythm slowly become associated with specific physiological states through repetition.</p><p>Over time, rituals stop functioning as isolated actions. They become recognizable internal environments. The nervous system begins anticipating coherence before the conscious mind fully arrives.</p>"
+      }
+    },
+
+    "image_break_1": {
+      "type": "ingredient-image-break",
+      "settings": {
+        "caption": "The nervous system responds to repeated sensory environments before conscious interpretation fully forms."
+      }
+    },
+
+    "essay": {
+      "type": "editorial-essay",
+      "settings": {
+        "label": "Physiological Orientation",
+        "text": "<p>Before the mind fully organizes itself each morning, the body has already begun responding to atmosphere. Temperature, sound, texture, aroma, pacing, and sensory continuity shape physiological orientation before conscious attention stabilizes.</p><p>Modern routines often interrupt this process through abrupt stimulation — alarms, screens, urgency, informational overload, and fragmented transitions. The nervous system remains partially accelerated even during moments intended for recovery.</p><p>Rituals create a different relationship with attention. Through repetition, the body gradually learns to associate specific sensory sequences with steadiness, clarity, stillness, restoration, or emotional settling. Familiarity itself becomes regulatory.</p><p>Over time, rituals begin functioning less like tasks and more like physiological orientation systems. The nervous system recognizes the environment before the conscious mind fully explains it.</p>"
+      }
+    },
+
+    "framework": {
+      "type": "editorial-framework",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "title": "Sensory Familiarity",
+            "description": "<p>Repeated sensory environments gradually become recognizable physiological patterns through ritual repetition.</p>"
+          }
+        },
+
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "title": "Emotional Pacing",
+            "description": "<p>Rituals slow internal acceleration through steadier sensory transitions and reduced fragmentation.</p>"
+          }
+        },
+
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "title": "Nervous System Orientation",
+            "description": "<p>The body often recognizes coherence through atmosphere before conscious interpretation fully organizes itself.</p>"
+          }
+        },
+
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "title": "Physiological Memory",
+            "description": "<p>Over time, rituals become emotionally familiar internal environments rather than isolated repeated actions.</p>"
+          }
+        }
+      },
+
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4"
+      ],
+
+      "settings": {
+        "label": "Conceptual Framework"
+      }
+    },
+
+    "research": {
+      "type": "ingredient-research-notes",
+      "blocks": {
+        "note_1": {
+          "type": "note",
+          "settings": {
+            "title": "Sensory Processing & Nervous System Regulation",
+            "text": "<p>Emerging discussions across neuroscience, sensory psychology, and stress physiology increasingly explore how repeated sensory environments may influence emotional regulation, physiological familiarity, and perceived internal safety over time.</p>"
+          }
+        },
+
+        "note_2": {
+          "type": "note",
+          "settings": {
+            "title": "Ritual, Repetition & Physiological Coherence",
+            "text": "<p>Research surrounding ritual behavior continues examining how repetition, predictability, sensory pacing, and emotional continuity may influence cognitive load, stress response, attentional fragmentation, and nervous-system regulation.</p>"
+          }
+        }
+      },
+
+      "block_order": [
+        "note_1",
+        "note_2"
+      ],
+
+      "settings": {}
+    },
+
+    "closing": {
+      "type": "ingredient-closing-statement",
+      "settings": {
+        "text": "The body learns emotional environments through repetition, pacing, and sensory familiarity. Rituals often begin regulating the nervous system long before conscious thought fully understands them."
+      }
+    }
+  },
+
+  "order": [
+    "hero",
+    "intro",
+    "image_break_1",
+    "essay",
+    "framework",
+    "research",
+    "closing"
+  ]
+}

@@ -1,0 +1,88 @@
+<section class="ritual-section ritual-section--quiet">
+
+  <div class="ritual-container">
+
+    <div class="ritual-ending">
+
+      {% if section.settings.ending_image != blank %}
+
+        <div class="ritual-image-soft ritual-fade-up" style="margin-bottom:120px;">
+
+          <img
+            src="{{ section.settings.ending_image | image_url: width: 2200 }}"
+            alt="Quiet Ending"
+            loading="lazy"
+            width="{{ section.settings.ending_image.width }}"
+            height="{{ section.settings.ending_image.height }}"
+            style="width:100%; height:auto; display:block;"
+          >
+
+        </div>
+
+      {% endif %}
+
+      {% if section.settings.final_line != blank %}
+
+        <div class="ritual-ending__line ritual-fade-up">
+
+          {{ section.settings.final_line }}
+
+        </div>
+
+      {% endif %}
+
+      {% if section.settings.supporting_text != blank %}
+
+        <div
+          class="ritual-body ritual-muted ritual-fade-up"
+          style="
+            max-width:760px;
+            margin:60px auto 0;
+          "
+        >
+
+          {{ section.settings.supporting_text }}
+
+        </div>
+
+      {% endif %}
+
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Quiet Ending",
+  "settings": [
+
+    {
+      "type": "image_picker",
+      "id": "ending_image",
+      "label": "Ending Image"
+    },
+
+    {
+      "type": "textarea",
+      "id": "final_line",
+      "label": "Final Line",
+      "default": "The body remembers what life repeats."
+    },
+
+    {
+      "type": "richtext",
+      "id": "supporting_text",
+      "label": "Supporting Text",
+      "default": "<p>Modern life may continue accelerating.</p><p>But human physiology still responds quietly to rhythm, repetition, atmosphere, and coherent transitions.</p>"
+    }
+
+  ],
+  "presets": [
+    {
+      "name": "Quiet Ending"
+    }
+  ]
+}
+{% endschema %}

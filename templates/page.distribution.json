@@ -1,0 +1,156 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "distribution-richtext",
+      "settings": {
+        "subheading": "",
+        "heading": "Where Mirellis Belongs",
+        "text": "<p>Mirellis is designed for slower environments — hospitality spaces, wellness retreats, architectural residences, and sensory ecosystems where emotional pacing, atmosphere, and nervous system quietness are already valued.</p>"
+      }
+    },
+    "environment_grid": {
+      "type": "distribution-environment-grid",
+      "blocks": {
+        "hotel": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/BOUTIQUE_HOTELS.png",
+            "title": "Boutique Hotels",
+            "text": "<p>Designed for slower transitions, evening decompression, sensory quietness, and emotionally restorative hospitality environments.</p>"
+          }
+        },
+        "retreat": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/wellness_retreat.png",
+            "title": "Wellness Retreats",
+            "text": "<p>Environmental pacing for slower cognitive states, nervous system restoration, quiet mornings, and sensory regulation.</p>"
+          }
+        },
+        "homes": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/ARCHITECTURAL_RESIDENCES.png",
+            "title": "Architectural Homes",
+            "text": "<p>Integrated into intentional residential spaces where atmosphere, ritual, sound, lighting, and emotional pacing coexist naturally.</p>"
+          }
+        },
+        "spaces": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/READING_REFLECTION_SPACES.png",
+            "title": "Reading & Reflection Spaces",
+            "text": "<p>Designed for quieter forms of attention — journaling, reading, reflection, slower evenings, and emotional decompression.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "hotel",
+        "retreat",
+        "homes",
+        "spaces"
+      ],
+      "settings": {
+        "subheading": "",
+        "heading": "Designed For Slower Spaces",
+        "text": "<p>Rather than mass retail exposure, Mirellis is intended for emotionally intentional spaces where ritual, sound, atmosphere, and sensory restoration already exist as part of the environment itself.</p>"
+      }
+    },
+    "sound_philosophy": {
+      "type": "distribution-richtext",
+      "settings": {
+        "subheading": "",
+        "heading": "Environmental Sound, Not Entertainment",
+        "text": "<p>Mirellis sound environments are designed as atmospheric pacing systems rather than active listening experiences — supporting emotional decompression, slower cognition, reduced stimulation, and environmental continuity.</p>"
+      }
+    },
+    "distribution_model": {
+      "type": "distribution-columns",
+      "blocks": {
+        "direct": {
+          "type": "column",
+          "settings": {
+            "title": "Intentional Placement",
+            "text": "<p>Selective positioning through environments aligned with slower living, sensory awareness, and emotional restoration.</p>"
+          }
+        },
+        "ritual": {
+          "type": "column",
+          "settings": {
+            "title": "Ritual Integration",
+            "text": "<p>Products, sound, atmosphere, and environmental pacing functioning together as one sensory ecosystem.</p>"
+          }
+        },
+        "growth": {
+          "type": "column",
+          "settings": {
+            "title": "Slow Expansion",
+            "text": "<p>Growth through alignment rather than scale-first distribution or aggressive retail visibility.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "direct",
+        "ritual",
+        "growth"
+      ],
+      "settings": {
+        "title": "Distribution Philosophy"
+      }
+    },
+    "partnership_editorial": {
+      "type": "distribution-editorial-split",
+      "settings": {
+        "label": "PARTNERSHIP PHILOSOPHY",
+        "heading": "Built Around Atmosphere, Not Volume",
+        "text": "<p>Mirellis is not being distributed as a conventional wellness product line. The brand is intended for slower environments where atmosphere, sensory pacing, emotional quietness, and ritual continuity already exist as part of the spatial identity itself.</p><p>Rather than maximizing visibility through scale-first placement, Mirellis is designed to integrate selectively into environments that value restoration, architectural calm, nervous-system-aware experiences, and more intentional forms of hospitality.</p><p>The ecosystem extends beyond products into sound environments, emotional pacing, environmental rhythm, and sensory continuity — creating experiences that feel restorative without becoming performative.</p>"
+      }
+    },
+    "closing": {
+      "type": "distribution-richtext",
+      "settings": {
+        "subheading": "",
+        "heading": "Built Slowly. Distributed Intentionally.",
+        "text": "<p>Mirellis is not designed to compete for attention. The brand is being built for environments where people are already searching for less stimulation, softer pacing, emotional quietness, and more restorative forms of living.</p>"
+      }
+    },
+    "contact": {
+      "type": "contact",
+      "settings": {
+        "full_width": true,
+        "subheading": "Contact Us",
+        "title": "Do you have any question?",
+        "content": "",
+        "text_position": "start",
+        "contact_form_size": "large",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "contact_background": "",
+        "contact_text_color": "",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "environment_grid",
+    "sound_philosophy",
+    "distribution_model",
+    "partnership_editorial",
+    "closing",
+    "contact"
+  ]
+}

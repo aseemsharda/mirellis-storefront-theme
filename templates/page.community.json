@@ -1,0 +1,441 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "rich_text_77dXLn": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_nmmfHc": {
+          "type": "heading",
+          "settings": {
+            "text": "Where Shared Rhythm Creates Belonging",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_nmmfHc"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "images_with_text_scrolling_CrpkFD": {
+      "type": "images-with-text-scrolling",
+      "blocks": {
+        "item_Yk9k3E": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Why_Shared_Rhythm_Matters.png",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Why Shared Rhythm Matters",
+            "heading_bottom_content": "",
+            "content": "<p>Wellbeing is often treated as an individual pursuit.</p><p>But historically, rituals were rarely practiced alone.</p><p>Morning light, shared meals, evening quiet, breath, sound, silence, repetition — these experiences once existed within families, communities, and environments that reinforced rhythm through daily life.</p><p>Modern life has weakened many of these shared signals.</p><p>Mirellis community exists as a quieter response to that fragmentation — a space shaped around shared morning and evening rituals, slower pacing, and intentional return.</p><p>Community here is not built through noise or constant interaction.</p><p>It forms gradually through shared rhythm.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_Yk9k3E"
+      ],
+      "name": "Images and text scrolling",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": true,
+        "show_counter": false,
+        "desktop_image_effect": "reveal",
+        "image_position": "end",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "custom_liquid_hbBdCA": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "{% comment %}\nMIRELLIS — COMMUNITY PAGE RESEARCH NOTES\nPlacement:\n→ Add AFTER:\n\"Shared Rhythms Shape the Nervous System\"\n\nSmaller + softer than other Research Notes sections\nFocused on social rhythm, co-regulation, environment, and wellbeing\n{% endcomment %}\n\n<section class=\"mirellis-research-minimal\">\n\n  <details class=\"mirellis-research-details\">\n\n    <summary>\n      Research Notes +\n    </summary>\n\n    <div class=\"mirellis-research-content\">\n\n      <div class=\"mirellis-research-item\">\n        <h4>Social connection & emotional regulation</h4>\n        <p>\n          Research suggests that social connection and shared emotional environments may influence stress regulation, resilience, and overall psychological wellbeing.\n        </p>\n        <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC3150158/\" target=\"_blank\">\n          NIH / PMC →\n        </a>\n      </div>\n\n      <div class=\"mirellis-research-item\">\n        <h4>Shared behavioral rhythms & wellbeing</h4>\n        <p>\n          Studies exploring daily behavioral rhythms suggest that consistent routines and synchronized social timing may support emotional stability and physiological regulation.\n        </p>\n        <a href=\"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5449130/\" target=\"_blank\">\n          NIH / PMC →\n        </a>\n      </div>\n\n      <div class=\"mirellis-research-item\">\n        <h4>Environment, atmosphere & stress response</h4>\n        <p>\n          Environmental psychology research suggests that atmosphere, sensory surroundings, and environmental pacing can influence stress perception and emotional state.\n        </p>\n        <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC4873188/\" target=\"_blank\">\n          NIH / PMC →\n        </a>\n      </div>\n\n    </div>\n\n  </details>\n\n</section>\n\n<style>\n\n.mirellis-research-minimal {\n  width: 100%;\n  padding: 24px 20px;\n}\n\n.mirellis-research-details {\n  max-width: 580px;\n  margin: 0 auto;\n}\n\n.mirellis-research-details summary {\n  list-style: none;\n  cursor: pointer;\n  font-size: 11px;\n  letter-spacing: 0.22em;\n  text-transform: uppercase;\n  color: rgba(0,0,0,0.58);\n  font-family: serif;\n  transition: opacity 0.2s ease;\n  text-align: center;\n  width: 100%;\n}\n\n.mirellis-research-details summary:hover {\n  opacity: 0.7;\n}\n\n.mirellis-research-details summary::-webkit-details-marker {\n  display: none;\n}\n\n.mirellis-research-content {\n  padding-top: 20px;\n}\n\n.mirellis-research-item {\n  margin-bottom: 22px;\n}\n\n.mirellis-research-item h4 {\n  font-size: 14px;\n  line-height: 1.5;\n  font-weight: 400;\n  color: #1f1f1f;\n  margin-bottom: 7px;\n  font-family: serif;\n}\n\n.mirellis-research-item p {\n  font-size: 12px;\n  line-height: 1.75;\n  color: rgba(0,0,0,0.68);\n  margin-bottom: 7px;\n}\n\n.mirellis-research-item a {\n  font-size: 11px;\n  color: #1f1f1f;\n  text-decoration: underline;\n  text-underline-offset: 3px;\n}\n\n@media screen and (max-width: 768px) {\n\n  .mirellis-research-minimal {\n    padding: 22px 18px;\n  }\n\n  .mirellis-research-details {\n    max-width: 100%;\n  }\n\n  .mirellis-research-details summary {\n    font-size: 10px;\n    letter-spacing: 0.18em;\n  }\n\n  .mirellis-research-item h4 {\n    font-size: 13px;\n  }\n\n  .mirellis-research-item p {\n    font-size: 11px;\n    line-height: 1.7;\n  }\n\n}\n\n</style>",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "images_with_text_scrolling_iXnhUm": {
+      "type": "images-with-text-scrolling",
+      "blocks": {
+        "item_JFjrEF": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/fragrance-journey-process-illustration.png",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Ritual Comes First. Community Follows.",
+            "heading_bottom_content": "",
+            "content": "<p>We do not believe in building engagement for the sake of activity.</p><p>At Mirellis, community emerges naturally when people return to the same rituals, experience similar transitions, and begin noticing the subtle ways rhythm affects clarity, grounding, restoration, and emotional pacing.</p><p>Morning rituals create orientation.</p><p>Evening rituals create slowing.</p><p>Over time, shared practice creates shared understanding.</p><p>This keeps participation intentional rather than performative.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_JFjrEF"
+      ],
+      "name": "Images and text scrolling",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": true,
+        "show_counter": false,
+        "desktop_image_effect": "reveal",
+        "image_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "rich_text_zCQimj": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_eQjgc4": {
+          "type": "heading",
+          "settings": {
+            "text": "What this community is (and is not)",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": ""
+          }
+        },
+        "richtext_r7RBQQ": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>This community is designed around slower interaction, thoughtful participation, and rhythm-aware practice rather than constant visibility or performance.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_eQjgc4",
+        "richtext_r7RBQQ"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "medium",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "custom_html_VbPjWQ": {
+      "type": "custom-html",
+      "name": "Custom HTML",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "html": "<style>\n.am-compare-section-wrapper {\n  padding: 20px;\n  max-width: 1200px;\n  /* background: #f4f1e8; */\n  margin: 0 auto;\n}\n\n.am-compare-section-grid {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 40px;\n}\n\n.am-compare-section-card {\n  background: #ffffff;\n  padding: 40px;\n  border-radius: 18px;\n  box-shadow: 0 12px 30px rgba(0,0,0,0.06);\n  transition: all 0.3s ease;\n}\n\n.am-compare-section-card:hover {\n  transform: translateY(-6px);\n  box-shadow: 0 18px 45px rgba(0,0,0,0.08);\n}\n\n.am-compare-section-title {\n  text-align: center;\n  font-size: 28px;\n  font-weight: 500;\n  margin-bottom: 30px;\n}\n\n.am-compare-section-title-positive {\n  color: #2e5e2e;\n}\n\n.am-compare-section-title-negative {\n  color: #8b2e2e;\n}\n\n.am-compare-section-item {\n  display: flex;\n  align-items: flex-start;\n  font-size: 18px;\n  line-height: 1.6;\n  margin-bottom: 20px;\n}\n\n.am-compare-section-icon {\n  font-size: 20px;\n  margin-right: 14px;\n  margin-top: 3px;\n}\n\n.am-compare-section-icon-positive {\n  color: #2e7d32;\n}\n\n.am-compare-section-icon-negative {\n  color: #c62828;\n}\n\n/* Responsive */\n@media (max-width: 768px) {\n  .am-compare-section-grid {\n    grid-template-columns: 1fr;\n  }\n.am-compare-section-wrapper{\n  padding: 0;\n}\n}\n</style>\n\n\n<div class=\"am-compare-section-wrapper\">\n  <div class=\"am-compare-section-grid\">\n\n    <!-- What it is -->\n    <div class=\"am-compare-section-card\">\n      <h2 class=\"am-compare-section-title am-compare-section-title-positive\">\n        What it is\n      </h2>\n\n      <div class=\"am-compare-section-item\">\n        <span class=\"am-compare-section-icon am-compare-section-icon-positive\">✔</span>\n        <span>Quiet, not crowded</span>\n      </div>\n\n      <div class=\"am-compare-section-item\">\n        <span class=\"am-compare-section-icon am-compare-section-icon-positive\">✔</span>\n        <span>Practice-led, not opinion-driven</span>\n      </div>\n\n      <div class=\"am-compare-section-item\">\n        <span class=\"am-compare-section-icon am-compare-section-icon-positive\">✔</span>\n        <span>Guided, not algorithmic</span>\n      </div>\n\n      <div class=\"am-compare-section-item\">\n        <span class=\"am-compare-section-icon am-compare-section-icon-positive\">✔</span>\n        <span>Focused on depth, not scale</span>\n      </div>\n    </div>\n\n    <!-- What it is not -->\n    <div class=\"am-compare-section-card\">\n      <h2 class=\"am-compare-section-title am-compare-section-title-negative\">\n        What it is not\n      </h2>\n\n      <div class=\"am-compare-section-item\">\n        <span class=\"am-compare-section-icon am-compare-section-icon-negative\">✖</span>\n        <span>A social feed</span>\n      </div>\n\n      <div class=\"am-compare-section-item\">\n        <span class=\"am-compare-section-icon am-compare-section-icon-negative\">✖</span>\n        <span>A discussion board</span>\n      </div>\n\n      <div class=\"am-compare-section-item\">\n        <span class=\"am-compare-section-icon am-compare-section-icon-negative\">✖</span>\n        <span>Built for noise or constant activity</span>\n      </div>\n\n    </div>\n\n  </div>\n</div>",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "rich_text_B3PBbK": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_nbD9GJ": {
+          "type": "heading",
+          "settings": {
+            "text": "This is a space that supports:",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_nbD9GJ"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "multi_column_aJrMkq": {
+      "type": "multi-column",
+      "blocks": {
+        "item_G8L7MB": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Frame_11_1.png",
+            "show_controls": false,
+            "column_size": "3",
+            "title": "Shared rituals",
+            "heading_tag": "h4",
+            "content": "",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_APR4Dx": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Frame_12_1.png",
+            "show_controls": false,
+            "column_size": "3",
+            "title": "Guided learning moments",
+            "heading_tag": "h4",
+            "content": "",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_X77wkn": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Frame_13.png",
+            "show_controls": false,
+            "column_size": "3",
+            "title": "Reflection over reaction",
+            "heading_tag": "h4",
+            "content": "",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "item_G8L7MB",
+        "item_APR4Dx",
+        "item_X77wkn"
+      ],
+      "name": "Multi-column",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "gap": "medium",
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "images_with_text_scrolling_rxzWJf": {
+      "type": "images-with-text-scrolling",
+      "blocks": {
+        "item_CLrqVT": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/How_This_Community.png",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "How This Community Will Evolve",
+            "heading_bottom_content": "",
+            "content": "<p>We are building this community slowly and intentionally.</p><p>In its early stages, it will evolve through:</p><ul><li>guided ritual sessions<br/></li><li>shared reflections around practice and rhythm<br/></li><li>science-informed learning moments<br/></li><li>lived experience rather than advice<br/></li><li>slower participation rather than constant engagement<br/></li></ul><p>There is no pressure to perform here.</p><p>The goal is not visibility.</p><p>The goal is rhythm.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_CLrqVT"
+      ],
+      "name": "Images and text scrolling",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": true,
+        "show_counter": false,
+        "desktop_image_effect": "reveal",
+        "image_position": "end",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "rich_text_edw83R": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_FqXzpi": {
+          "type": "subheading",
+          "settings": {
+            "text": "WHO THIS IS FOR"
+          }
+        },
+        "heading_NKRUnx": {
+          "type": "heading",
+          "settings": {
+            "text": "This community is for people who:",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_FqXzpi",
+        "heading_NKRUnx"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "multi_column_b6M3wQ": {
+      "type": "multi-column",
+      "blocks": {
+        "item_nnCea8": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Value_consistency_over_intensity.png",
+            "show_controls": false,
+            "column_size": "4",
+            "title": "Value consistency over intensity",
+            "heading_tag": "h4",
+            "content": "",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_h9CTfH": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Prefer_depth_over_distraction.png",
+            "show_controls": false,
+            "column_size": "4",
+            "title": "Prefer depth over distraction",
+            "heading_tag": "h4",
+            "content": "",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_pa97mr": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Are_curious_but_grounded.png",
+            "show_controls": false,
+            "column_size": "4",
+            "title": "Are curious, but grounded",
+            "heading_tag": "h4",
+            "content": "",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_JRWnn8": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Believe_wellbeing_is_built_through_return_not_transformation.png",
+            "show_controls": false,
+            "column_size": "4",
+            "title": "Believe wellbeing is built through return, not transformation",
+            "heading_tag": "h4",
+            "content": "",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "item_nnCea8",
+        "item_h9CTfH",
+        "item_pa97mr",
+        "item_JRWnn8"
+      ],
+      "name": "Multi-column",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "gap": "medium",
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "rich_text_LtVTDk": {
+      "type": "rich-text",
+      "blocks": {
+        "richtext_HihVJY": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>This space is for people who:</p><ul><li>value consistency over intensity<br/></li><li>prefer rhythm over optimization<br/></li><li>seek clarity without overstimulation<br/></li><li>move toward slower, more intentional routines<br/></li><li>believe wellbeing is shaped through repeated daily practice<br/></li></ul><p>You do not need to be an expert.</p><p>You do not need to participate publicly.</p><p>You only need to return.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "richtext_HihVJY"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_77dXLn",
+    "images_with_text_scrolling_CrpkFD",
+    "custom_liquid_hbBdCA",
+    "images_with_text_scrolling_iXnhUm",
+    "rich_text_zCQimj",
+    "custom_html_VbPjWQ",
+    "rich_text_B3PBbK",
+    "multi_column_aJrMkq",
+    "images_with_text_scrolling_rxzWJf",
+    "rich_text_edw83R",
+    "multi_column_b6M3wQ",
+    "rich_text_LtVTDk"
+  ]
+}

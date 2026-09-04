@@ -1,0 +1,365 @@
+<!-- THE LIVING OBSERVATORY -->
+<style>
+  #mirellis-obs{
+    --cream:#FAF7F2; --beige:#EFE9E0; --stone:#DAD4CA; --ink:#1A1A18;
+    --muted:#6B6B66; --accent:#3A3A36; --line:#DDD6CC; --paper:#FCFAF6;
+    --t1:#C9B89A; --t2:#A9B0A2; --t3:#B6A6A6;
+    --serif:Georgia,'Times New Roman',serif;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+    --mono:'SFMono-Regular',Menlo,Consolas,monospace;
+    background:var(--cream); color:var(--ink); font-family:var(--serif);
+    -webkit-font-smoothing:antialiased; line-height:1.6;
+  }
+  #mirellis-obs *{box-sizing:border-box;}
+  #mirellis-obs .wrap{max-width:1000px; margin:0 auto; padding:0 28px;}
+  #mirellis-obs .eyebrow{font-family:var(--sans); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); font-weight:500;}
+  #mirellis-obs h1,#mirellis-obs h2,#mirellis-obs h3{font-weight:400; letter-spacing:-.01em;}
+  #mirellis-obs .rule{height:1px; background:var(--line); border:0; margin:0;}
+  #mirellis-obs .mono{font-family:var(--mono); font-variant-numeric:tabular-nums;}
+  #mirellis-obs button{font-family:var(--sans); cursor:pointer;}
+  @media (prefers-reduced-motion:no-preference){#mirellis-obs .fade{animation:mo-fade 1s ease both;}}
+  @keyframes mo-fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;}}
+  #mirellis-obs .hero{padding:100px 0 50px;}
+  #mirellis-obs .hero .eyebrow{margin-bottom:26px;}
+  #mirellis-obs .hero h1{font-size:clamp(31px,4.6vw,52px); line-height:1.1; max-width:17ch; margin:0 0 26px;}
+  #mirellis-obs .hero p{font-size:17px; color:var(--muted); max-width:52ch; margin:0;}
+  #mirellis-obs .ledger{display:flex; gap:40px; margin-top:46px; flex-wrap:wrap; font-family:var(--sans); font-size:12px; color:var(--muted); letter-spacing:.04em;}
+  #mirellis-obs .ledger b{display:block; font-family:var(--mono); font-size:24px; color:var(--ink); font-weight:400; letter-spacing:0; margin-bottom:4px;}
+  #mirellis-obs .ledger small{display:block; font-size:11px; color:var(--stone); margin-top:5px; letter-spacing:.02em;}
+  #mirellis-obs section{padding:60px 0;}
+  #mirellis-obs .shead{display:flex; align-items:baseline; gap:18px; margin-bottom:34px;}
+  #mirellis-obs .shead .idx{font-family:var(--mono); font-size:12px; color:var(--stone); padding-top:4px;}
+  #mirellis-obs .shead .eyebrow{margin-bottom:9px;}
+  #mirellis-obs .shead h2{font-size:clamp(22px,2.8vw,29px); line-height:1.18; max-width:24ch;}
+  #mirellis-obs .shead .sub{color:var(--muted); font-size:15px; margin-top:9px; max-width:48ch;}
+  #mirellis-obs textarea{width:100%; font-family:var(--serif); font-size:16px; color:var(--ink); background:var(--cream); border:1px solid var(--line); padding:15px 16px; resize:vertical; line-height:1.55;}
+  #mirellis-obs textarea:focus{outline:2px solid var(--accent); outline-offset:1px; border-color:var(--accent);}
+  #mirellis-obs textarea::placeholder{color:#a9a399;}
+  #mirellis-obs .prompt-form{display:flex; flex-direction:column; gap:14px; max-width:580px;}
+  #mirellis-obs .prompt-meta{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+  #mirellis-obs .btn{background:var(--ink); color:var(--cream); border:1px solid var(--ink); font-size:12px; letter-spacing:.14em; text-transform:uppercase; padding:13px 26px; transition:.25s;}
+  #mirellis-obs .btn:hover{background:var(--accent);}
+  #mirellis-obs .btn[disabled]{opacity:.4; cursor:default;}
+  #mirellis-obs .micro{font-family:var(--sans); font-size:11.5px; color:var(--muted); letter-spacing:.03em;}
+  #mirellis-obs .ack{font-family:var(--sans); font-size:13px; color:var(--muted); padding-top:6px;}
+  #mirellis-obs .tchips{display:flex; gap:8px; flex-wrap:wrap;}
+  #mirellis-obs .tchip{font-family:var(--sans); font-size:11.5px; letter-spacing:.04em; color:var(--muted); background:transparent; border:1px solid var(--line); padding:8px 13px; transition:.2s;}
+  #mirellis-obs .tchip[aria-pressed=true]{border-color:var(--accent); color:var(--ink); background:var(--beige);}
+  #mirellis-obs .prompt-card{background:var(--paper); border:1px solid var(--line); padding:46px 44px;}
+  #mirellis-obs .prompt-date{font-family:var(--sans); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:22px;}
+  #mirellis-obs .prompt-q{font-size:clamp(21px,2.8vw,29px); line-height:1.3; max-width:24ch; margin:0 0 30px;}
+  #mirellis-obs .map{background:var(--paper); border:1px solid var(--line); padding:44px 42px;}
+  #mirellis-obs .map-q{font-family:var(--sans); font-size:12px; letter-spacing:.06em; color:var(--muted); margin-bottom:30px;}
+  #mirellis-obs .field{position:relative; height:132px; border:1px solid var(--line); background:var(--cream); display:flex; overflow:hidden;}
+  #mirellis-obs .band{position:relative; transition:flex-grow 1.2s cubic-bezier(.22,.61,.36,1); display:flex; align-items:flex-end;}
+  #mirellis-obs .band .blabel{position:absolute; top:16px; left:18px; font-family:var(--sans); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink); opacity:.62;}
+  #mirellis-obs .band .bpct{position:absolute; bottom:14px; left:18px; font-family:var(--mono); font-size:20px; color:var(--ink);}
+  #mirellis-obs .vote-row{display:flex; gap:10px; margin-top:24px; flex-wrap:wrap;}
+  #mirellis-obs .vote{flex:1; min-width:150px; text-align:left; background:transparent; border:1px solid var(--line); padding:15px 16px; transition:.2s;}
+  #mirellis-obs .vote:hover{border-color:var(--accent); background:var(--beige);}
+  #mirellis-obs .vote .vt{font-family:var(--sans); font-size:13px; color:var(--ink); display:block; margin-bottom:3px;}
+  #mirellis-obs .vote .vs{font-family:var(--sans); font-size:11px; color:var(--muted);}
+  #mirellis-obs .map-foot{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:22px; letter-spacing:.03em;}
+  #mirellis-obs .contribute{background:var(--ink); color:var(--cream); padding:56px 46px;}
+  #mirellis-obs .contribute .eyebrow{color:#9a948a;}
+  #mirellis-obs .contribute h2{font-size:clamp(22px,2.8vw,29px); max-width:22ch; margin:14px 0 16px; color:var(--cream);}
+  #mirellis-obs .contribute p{color:#b8b2a8; font-size:15px; max-width:52ch; margin:0 0 30px;}
+  #mirellis-obs .contribute textarea{background:#26261f; border:1px solid #3a3a30; color:var(--cream);}
+  #mirellis-obs .contribute textarea::placeholder{color:#7a7468;}
+  #mirellis-obs .contribute textarea:focus{outline:2px solid var(--stone); border-color:var(--stone);}
+  #mirellis-obs .contribute .btn{background:var(--cream); color:var(--ink); border-color:var(--cream);}
+  #mirellis-obs .contribute .btn:hover{background:#fff;}
+  #mirellis-obs .contribute .tchip{border-color:#3a3a30; color:#9a948a;}
+  #mirellis-obs .contribute .tchip[aria-pressed=true]{background:#26261f; border-color:var(--stone); color:var(--cream);}
+  #mirellis-obs .contribute .micro{color:#8a8478;}
+  #mirellis-obs .contribute .ack{color:#b8b2a8;}
+  #mirellis-obs .dormant{border:1px dashed var(--stone); background:transparent; padding:34px 36px; display:flex; align-items:center; gap:26px; flex-wrap:wrap;}
+  #mirellis-obs .dormant .dleft{flex:1; min-width:240px;}
+  #mirellis-obs .dormant .deye{font-family:var(--sans); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--stone); margin-bottom:10px;}
+  #mirellis-obs .dormant h3{font-size:19px; margin:0 0 8px; color:var(--muted);}
+  #mirellis-obs .dormant p{font-size:14px; color:var(--muted); margin:0; max-width:52ch;}
+  #mirellis-obs .dormant .meter{min-width:200px;}
+  #mirellis-obs .dormant .mrow{display:flex; justify-content:space-between; font-family:var(--mono); font-size:11px; color:var(--muted); margin-bottom:7px;}
+  #mirellis-obs .dbar{height:3px; background:var(--line); position:relative;}
+  #mirellis-obs .dbar span{position:absolute; left:0; top:0; height:3px; background:var(--accent);}
+  #mirellis-obs .dnote{font-family:var(--sans); font-size:11px; color:var(--stone); margin-top:10px; letter-spacing:.03em;}
+  #mirellis-obs .closer{padding:78px 0 96px; text-align:center;}
+  #mirellis-obs .closer p{font-size:17px; color:var(--muted); max-width:42ch; margin:0 auto; line-height:1.7;}
+  #mirellis-obs .pill{display:inline-block; font-family:var(--sans); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); border:1px solid var(--line); padding:5px 11px; margin-bottom:30px;}
+</style>
+
+<div id="mirellis-obs">
+
+<div class="hero wrap fade">
+  <div class="eyebrow">The Observatory · Live</div>
+  <h1>The Living Observatory.</h1>
+  <p>The research surface where Mirellis studies how people move between states — kept alive, one observation at a time, by everyone who contributes. Small by design. Read slowly.</p>
+  <div class="ledger">
+    <div><b class="mono" id="l-total">—</b>observations gathered<small id="l-since">since opening</small></div>
+    <div><b class="mono" id="l-week">—</b>added this week<small>a quiet, deliberate pace</small></div>
+    <div><b class="mono" id="l-findings">4</b>findings published<small>from the pool, by review</small></div>
+  </div>
+</div>
+<hr class="rule"/>
+
+<section class="wrap">
+  <div class="shead">
+    <div class="idx">01</div>
+    <div>
+      <div class="eyebrow">Human State Map</div>
+      <h2>Where people are finding the most friction.</h2>
+      <div class="sub">A standing reading across the three transitions Mirellis studies. Every response leaves a mark that stays.</div>
+    </div>
+  </div>
+  <div class="map fade">
+    <div class="map-q">Which transition is hardest for you at the moment?</div>
+    <div class="field" id="field" role="img" aria-label="Standing distribution across three transitions">
+      <div class="band" id="band-t1" style="background:var(--t1); flex-grow:1;"><span class="blabel">Sleep → Wakefulness</span><span class="bpct" id="pct-t1">—</span></div>
+      <div class="band" id="band-t2" style="background:var(--t2); flex-grow:1;"><span class="blabel">Work → Recovery</span><span class="bpct" id="pct-t2">—</span></div>
+      <div class="band" id="band-t3" style="background:var(--t3); flex-grow:1;"><span class="blabel">Stimulation → Restoration</span><span class="bpct" id="pct-t3">—</span></div>
+    </div>
+    <div class="vote-row">
+      <button class="vote" data-t="t1"><span class="vt">Sleep → Wakefulness</span><span class="vs">The day enters before I do</span></button>
+      <button class="vote" data-t="t2"><span class="vt">Work → Recovery</span><span class="vs">Work ends, the body doesn't</span></button>
+      <button class="vote" data-t="t3"><span class="vt">Stimulation → Restoration</span><span class="vs">No door out of the day</span></button>
+    </div>
+    <div class="map-foot" id="map-foot">A standing reading of <span class="mono" id="map-n">—</span> responses gathered over time</div>
+  </div>
+</section>
+<hr class="rule"/>
+
+<section class="wrap">
+  <div class="shead">
+    <div class="idx">02</div>
+    <div>
+      <div class="eyebrow">Today's Reflection</div>
+      <h2>One question, held open for the day.</h2>
+      <div class="sub">A single prompt, changing each day. Your response is kept — not shown in a feed, but gathered into the Observatory's record.</div>
+    </div>
+  </div>
+  <div class="prompt-card fade">
+    <div class="prompt-date" id="prompt-date">—</div>
+    <p class="prompt-q" id="prompt-q">What helps your body recognise that the day is ending?</p>
+    <div class="prompt-form">
+      <textarea id="prompt-input" rows="3" maxlength="280" placeholder="In your own words. Kept anonymously, read by the research team."></textarea>
+      <div class="prompt-meta">
+        <span class="micro"><span class="mono" id="prompt-count">280</span> characters left · anonymous</span>
+        <button class="btn" id="prompt-submit">Add to the record</button>
+      </div>
+      <div class="ack" id="prompt-ack" hidden></div>
+    </div>
+  </div>
+</section>
+<hr class="rule"/>
+
+<section class="wrap">
+  <div class="contribute fade">
+    <div class="eyebrow">Contribute to the Observatory</div>
+    <h2>Noticed something about modern life and the body?</h2>
+    <p>The long-form instrument. An open observation about rhythm, attention, rest, or the boundaries between states. Read by the research team — and if it recurs across others, it may shape a future Finding.</p>
+    <div class="prompt-form">
+      <div class="tchips" id="contrib-chips" role="group" aria-label="Which transition does this concern?">
+        <button class="tchip" data-t="t1" aria-pressed="false">Sleep → Wakefulness</button>
+        <button class="tchip" data-t="t2" aria-pressed="false">Work → Recovery</button>
+        <button class="tchip" data-t="t3" aria-pressed="false">Stimulation → Restoration</button>
+        <button class="tchip" data-t="t0" aria-pressed="false">Something else</button>
+      </div>
+      <textarea id="contrib-input" rows="4" maxlength="600" placeholder="Describe what you've observed — plainly, as if noting it for a researcher."></textarea>
+      <div class="prompt-meta">
+        <span class="micro"><span class="mono" id="contrib-count">600</span> characters left · reviewed before it enters the pool</span>
+        <button class="btn" id="contrib-submit">Submit observation</button>
+      </div>
+      <div class="ack" id="contrib-ack" hidden></div>
+    </div>
+  </div>
+</section>
+<hr class="rule"/>
+
+<section class="wrap">
+  <div class="pill">Opening as the Observatory grows</div>
+  <div class="dormant fade" style="margin-bottom:18px;">
+    <div class="dleft">
+      <div class="deye">Phase 2 · Not yet open</div>
+      <h3>The Reflection Stream & Community Observatory</h3>
+      <p>Once enough observations are gathered, recent reflections and the patterns emerging across them will surface here — reviewed, never raw.</p>
+    </div>
+    <div class="meter">
+      <div class="mrow"><span>Observations gathered</span><span id="m2-now">—</span></div>
+      <div class="dbar"><span id="m2-bar" style="width:0%"></span></div>
+      <div class="dnote">Opens at 150 reviewed observations</div>
+    </div>
+  </div>
+  <div class="dormant fade">
+    <div class="dleft">
+      <div class="deye">Phase 3 · Not yet open</div>
+      <h3>Ritual Check-In</h3>
+      <p>When enough people are keeping daily rituals, a quiet shared mark of practice will open — synchrony, never streaks.</p>
+    </div>
+    <div class="meter">
+      <div class="mrow"><span>Daily ritual participants</span><span id="m3-now">—</span></div>
+      <div class="dbar"><span id="m3-bar" style="width:0%"></span></div>
+      <div class="dnote">Opens at 25 daily participants</div>
+    </div>
+  </div>
+</section>
+
+<div class="closer wrap">
+  <p>The Living Observatory grows slowly, on purpose. Thank you for being one of the instruments.</p>
+</div>
+
+<script>
+(function(){
+  var SUPA_URL='https://zathahofymjasgcsrxyz.supabase.co';
+  var SUPA_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InphdGhhaG9meW1qYXNnY3NyeHl6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA2NTM2NDAsImV4cCI6MjA5NjIyOTY0MH0.6d8fksIgEDtB4hf4_3vDeXViD5Zd5wnNhFWUindN6sM';
+
+  var local={};
+  try{local=JSON.parse(localStorage.getItem('mo_local')||'{}');}catch(e){}
+  function saveLocal(){try{localStorage.setItem('mo_local',JSON.stringify(local));}catch(e){}}
+  function today(){return new Date().toISOString().slice(0,10);}
+
+  var PROMPTS=[
+    "What helps your body recognise that the day is ending?",
+    "When did you first notice the day had entered you this morning?",
+    "What pulls you back when you try to put the day down?",
+    "Where in your day does the transition feel hardest to cross?",
+    "What signal tells your body it is allowed to rest?",
+    "What did you reach for before you decided to?",
+    "When does work actually end inside your body — if it does?"
+  ];
+  function dayIndex(){return (Math.floor(new Date()/8.64e7))%PROMPTS.length;}
+  function fmtDate(){return new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});}
+
+  var T2=150, T3=25;
+
+  async function supaFetch(path, opts){
+    var r=await fetch(SUPA_URL+path,Object.assign({
+      headers:{'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY,'Content-Type':'application/json'}
+    },opts));
+    return r.ok?r.json():null;
+  }
+
+  async function getVotes(){
+    var d=await supaFetch('/rest/v1/statevotes?select=transition');
+    if(!d)return {t1:9,t2:13,t3:16};
+    var v={t1:0,t2:0,t3:0};
+    d.forEach(function(r){if(v[r.transition]!==undefined)v[r.transition]++;});
+    if(!v.t1&&!v.t2&&!v.t3){v={t1:9,t2:13,t3:16};}
+    return v;
+  }
+
+  async function getCounts(){
+    var d=await supaFetch('/rest/v1/daily_reflections?select=id');
+    var total=d?d.length:38;
+    var wk=await supaFetch('/rest/v1/daily_reflections?select=id&created_at=gte.'+
+      new Date(Date.now()-7*864e5).toISOString());
+    var week=wk?wk.length:6;
+    return {total:total,week:week,ritualDaily:4};
+  }
+
+  async function init(){
+    var votes=await getVotes();
+    var counts=await getCounts();
+    renderMap(votes);
+    renderPrompt();
+    renderLedger(counts);
+    renderDormant(counts);
+  }
+
+  function renderMap(votes){
+    var tot=(votes.t1+votes.t2+votes.t3)||1;
+    ['t1','t2','t3'].forEach(function(t){
+      var pct=Math.round(votes[t]/tot*100);
+      document.getElementById('band-'+t).style.flexGrow=(votes[t]/tot*3).toFixed(3);
+      document.getElementById('pct-'+t).textContent=pct+'%';
+    });
+    document.getElementById('map-n').textContent=tot;
+    if(local.vote){
+      document.querySelectorAll('#mirellis-obs .vote').forEach(function(b){b.disabled=true;b.style.opacity=.55;});
+      document.getElementById('map-foot').innerHTML='Your reading is part of a standing field of <span class="mono">'+tot+'</span> responses';
+    }
+  }
+
+  document.querySelectorAll('#mirellis-obs .vote').forEach(function(btn){
+    btn.addEventListener('click',async function(){
+      if(local.vote)return;
+      var t=btn.dataset.t;
+      await supaFetch('/rest/v1/statevotes',{method:'POST',body:JSON.stringify({transition:t})});
+      local.vote=t; saveLocal();
+      var votes=await getVotes();
+      renderMap(votes);
+    });
+  });
+
+  var pIn=document.getElementById('prompt-input'),
+      pCt=document.getElementById('prompt-count'),
+      pSub=document.getElementById('prompt-submit'),
+      pAck=document.getElementById('prompt-ack');
+
+  function renderPrompt(){
+    document.getElementById('prompt-date').textContent=fmtDate()+" · Today's question";
+    document.getElementById('prompt-q').textContent=PROMPTS[dayIndex()];
+    if(local.prompt===today())lockP("You've added to the record today. A new question opens tomorrow.");
+  }
+  function lockP(m){pIn.disabled=true;pSub.disabled=true;pAck.hidden=false;pAck.textContent=m;}
+  pIn.addEventListener('input',function(){pCt.textContent=280-pIn.value.length;});
+  pSub.addEventListener('click',async function(){
+    var v=pIn.value.trim(); if(v.length<4){pIn.focus();return;}
+    var idx=dayIndex();
+    await supaFetch('/rest/v1/daily_reflections',{
+      method:'POST',
+      body:JSON.stringify({prompt_index:idx,response:v,transition:'t0'})
+    });
+    local.prompt=today(); saveLocal();
+    lockP("Added to the record. Your words are now part of what the Observatory is learning.");
+    var counts=await getCounts();
+    renderLedger(counts); renderDormant(counts);
+  });
+
+  var cIn=document.getElementById('contrib-input'),
+      cCt=document.getElementById('contrib-count'),
+      cSub=document.getElementById('contrib-submit'),
+      cAck=document.getElementById('contrib-ack'),
+      cT='t0';
+
+  document.querySelectorAll('#contrib-chips .tchip').forEach(function(chip){
+    chip.addEventListener('click',function(){
+      document.querySelectorAll('#contrib-chips .tchip').forEach(function(c){c.setAttribute('aria-pressed','false');});
+      chip.setAttribute('aria-pressed','true'); cT=chip.dataset.t;
+    });
+  });
+  cIn.addEventListener('input',function(){cCt.textContent=600-cIn.value.length;});
+  cSub.addEventListener('click',async function(){
+    var v=cIn.value.trim(); if(v.length<8){cIn.focus();return;}
+    await supaFetch('/rest/v1/community_submissions',{
+      method:'POST',
+      body:JSON.stringify({transition:cT,what_we_missed:v,status:'pending'})
+    });
+    cIn.disabled=true; cSub.disabled=true; cAck.hidden=false;
+    cAck.textContent="Received. Your observation enters the review pool — if it recurs across others, it may shape a future Finding.";
+  });
+
+  function renderLedger(counts){
+    document.getElementById('l-total').textContent=counts.total.toLocaleString();
+    document.getElementById('l-week').textContent=counts.week;
+  }
+  function renderDormant(counts){
+    var p2=Math.min(100,Math.round(counts.total/T2*100));
+    document.getElementById('m2-now').textContent=counts.total+' / '+T2;
+    document.getElementById('m2-bar').style.width=p2+'%';
+    var p3=Math.min(100,Math.round(counts.ritualDaily/T3*100));
+    document.getElementById('m3-now').textContent=counts.ritualDaily+' / '+T3;
+    document.getElementById('m3-bar').style.width=p3+'%';
+  }
+
+  init();
+})();
+</script>
+
+</div>
+
+{% schema %}
+{
+  "name": "Living Observatory",
+  "presets": [{ "name": "Living Observatory" }]
+}
+{% endschema %}

@@ -1,0 +1,126 @@
+{% comment %}
+Mirellis Observatory Publication Layout
+Single reusable layout for Foundation Documents.
+Uses page.handle to switch publication metadata.
+{% endcomment %}
+
+{{ 'observatory.css' | asset_url | stylesheet_tag }}
+
+{% assign pub_id = 'FOUNDATION 001' %}
+{% assign standfirst = 'Every field of study begins with an observation. The Mirellis Observatory began with one that repeated itself too consistently to ignore.' %}
+{% assign reading = '8 min' %}
+
+{% case page.handle %}
+{% when 'founder-thesis' %}
+  {% assign pub_id = 'FOUNDATION 002' %}
+  {% assign standfirst = 'Modern science has developed extraordinary understanding of individual human states. The Mirellis Observatory investigates something different: how the nervous system moves between them.' %}
+  {% assign reading = '10 min' %}
+{% when 'the-method' %}
+  {% assign pub_id = 'FOUNDATION 003' %}
+  {% assign standfirst = 'The Mirellis Observatory investigates through a transparent process that moves from observation to evidence review, interpretation, publication and continual refinement.' %}
+  {% assign reading = '9 min' %}
+{% endcase %}
+
+<section class="publication">
+
+<header class="publication__header">
+<div class="publication__container">
+
+<div class="publication__eyebrow">
+<div>MIRELLIS OBSERVATORY</div>
+<div>{{ pub_id }}</div>
+<div>FOUNDATIONAL DOCUMENT</div>
+</div>
+
+<h1 class="publication__title">{{ page.title }}</h1>
+
+<p class="publication__standfirst">{{ standfirst }}</p>
+
+<div class="publication__meta">
+<div><span>Version</span><strong>1.0</strong></div>
+<div><span>Status</span><strong>Active</strong></div>
+<div><span>Research Domain</span><strong>Human State Transitions</strong></div>
+<div><span>Reading Time</span><strong>{{ reading }}</strong></div>
+</div>
+
+</div>
+</header>
+
+<main class="publication__body">
+<div class="publication__reading-width">
+{{ page.content }}
+</div>
+</main>
+
+<section class="publication__continue">
+<div class="publication__container">
+
+<h2>Continue the Investigation</h2>
+
+<div class="publication__cards">
+
+<a class="publication__card" href="/pages/founder-prior">
+<small>FOUNDATION 001</small>
+<h3>The Origin of the Research Question</h3>
+<p>Why the Observatory began and the question that continues to guide its work.</p>
+</a>
+
+<a class="publication__card" href="/pages/founder-thesis">
+<small>FOUNDATION 002</small>
+<h3>Why Human State Transitions Matter</h3>
+<p>Defining the research territory investigated by the Observatory.</p>
+</a>
+
+<a class="publication__card" href="/pages/the-method">
+<small>FOUNDATION 003</small>
+<h3>The Mirellis Research Method</h3>
+<p>How observations become evidence, findings and ongoing investigation.</p>
+</a>
+
+</div>
+
+</div>
+</section>
+
+</section>
+
+<style>
+.publication{background:#f8f5f1;color:#222}
+.publication__container{max-width:1080px;margin:auto;padding:0 32px}
+.publication__header{padding:120px 0 56px}
+.publication__eyebrow{display:flex;gap:18px;flex-wrap:wrap;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#777;margin-bottom:32px}
+.publication__title{font-size:clamp(3.4rem,7vw,5.8rem);font-weight:300;line-height:.95;letter-spacing:-.04em;max-width:12ch;margin:0 0 28px}
+.publication__standfirst{max-width:42ch;font-size:1.35rem;line-height:1.8;color:#444;margin-bottom:48px}
+.publication__meta{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;border-top:1px solid rgba(0,0,0,.12);padding-top:28px}
+.publication__meta span{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.16em;color:#888;margin-bottom:6px}
+.publication__body{padding:24px 0 96px}
+.publication__reading-width{max-width:700px;margin:auto;padding:0 32px}
+.publication__reading-width p{font-size:1.125rem;line-height:2;color:#333;margin-bottom:2rem}
+.publication__reading-width h2{margin-top:5rem;padding-top:2rem;border-top:1px solid rgba(0,0,0,.08);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:#888}
+.publication__reading-width h3{font-size:1.6rem;font-weight:400;margin:1rem 0 1.5rem}
+.publication__reading-width blockquote{margin:4rem 0;padding-left:1.5rem;border-left:2px solid #bbb;font-size:1.8rem;line-height:1.5}
+.publication__continue{border-top:1px solid rgba(0,0,0,.08);padding:80px 0}
+.publication__continue h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.18em;color:#777;margin-bottom:32px}
+.publication__cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.publication__card{display:block;padding:28px;border:1px solid rgba(0,0,0,.08);text-decoration:none;color:inherit;transition:.25s}
+.publication__card:hover{transform:translateY(-3px);border-color:rgba(0,0,0,.18)}
+.publication__card small{letter-spacing:.18em;text-transform:uppercase;color:#888}
+.publication__card h3{margin:12px 0;font-size:1.3rem;font-weight:400}
+.publication__card p{color:#555;line-height:1.7}
+@media(max-width:768px){
+.publication__header{padding:72px 0 40px}
+.publication__title{font-size:2.8rem;max-width:100%}
+.publication__standfirst{font-size:1.15rem}
+.publication__meta{grid-template-columns:1fr 1fr}
+.publication__cards{grid-template-columns:1fr}
+}
+</style>
+
+{% schema %}
+{
+"name":"Publication Layout",
+"tag":"section",
+"class":"shopify-section--publication-layout",
+"settings":[]
+}
+{% endschema %}

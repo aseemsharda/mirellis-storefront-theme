@@ -1,0 +1,63 @@
+{% stylesheet %}
+.hst-s7-wrap{max-width:1280px;margin:0 auto;padding:clamp(56px,9vh,120px) clamp(20px,5vw,72px);}
+.hst-s7-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.2em;color:#978c7c;margin-bottom:14px;}
+.hst-s7-h2{font-family:'Newsreader',Georgia,serif;font-weight:200;font-size:clamp(1.9rem,3.4vw,3rem);line-height:1.06;margin:0;max-width:22ch;color:#1c1813;}
+.hst-s7-pathways{border-top:1px solid rgba(28,24,19,0.18);margin-top:40px;}
+.hst-s7-path{text-decoration:none;color:inherit;display:grid;grid-template-columns:54px minmax(0,1fr) auto;gap:24px;padding:28px 6px;border-bottom:1px solid rgba(28,24,19,0.12);align-items:baseline;transition:padding 0.18s;}
+.hst-s7-path:hover{padding-left:18px;}
+.hst-s7-path-id{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#978c7c;}
+.hst-s7-path-title{font-family:'Newsreader',Georgia,serif;font-size:clamp(1.3rem,2.2vw,1.9rem);font-weight:300;}
+.hst-s7-path-desc{display:block;color:#6a6256;font-size:1.02rem;margin-top:6px;line-height:1.5;max-width:60ch;}
+.hst-s7-path-arr{font-family:'IBM Plex Mono',monospace;font-size:18px;color:#35536c;}
+{% endstylesheet %}
+
+<section id="s7" style="scroll-margin-top:54px;background:#f4efe6;color:#1c1813;font-family:'Newsreader',Georgia,serif;">
+  <div class="hst-s7-wrap">
+    <div>
+      <div class="hst-s7-label">07 - PATHWAYS INTO DEEPER EXPLORATION</div>
+      <h2 class="hst-s7-h2">Routes further into the system.</h2>
+    </div>
+    <div class="hst-s7-pathways">
+      <a href="https://mirellis.in/pages/observatory-hub" class="hst-s7-path">
+        <span class="hst-s7-path-id">A</span>
+        <span>
+          <span class="hst-s7-path-title">Observatory Hub</span>
+          <span class="hst-s7-path-desc">The central index of all research output — the working surface of the institution.</span>
+        </span>
+        <span class="hst-s7-path-arr">&#8594;</span>
+      </a>
+      <a href="https://mirellis.in/pages/dossiers" class="hst-s7-path">
+        <span class="hst-s7-path-id">B</span>
+        <span>
+          <span class="hst-s7-path-title">Dossiers</span>
+          <span class="hst-s7-path-desc">Long-form case files compiling the observation behind a single domain.</span>
+        </span>
+        <span class="hst-s7-path-arr">&#8594;</span>
+      </a>
+      <a href="https://mirellis.in/pages/founder-thesis" class="hst-s7-path">
+        <span class="hst-s7-path-id">C</span>
+        <span>
+          <span class="hst-s7-path-title">Why Transitions Matter</span>
+          <span class="hst-s7-path-desc">The founding thesis — the argument for studying transitions as a discipline.</span>
+        </span>
+        <span class="hst-s7-path-arr">&#8594;</span>
+      </a>
+      <a href="https://mirellis.in/pages/the-observatory-mirror" class="hst-s7-path">
+        <span class="hst-s7-path-id">D</span>
+        <span>
+          <span class="hst-s7-path-title">Observatory Mirror</span>
+          <span class="hst-s7-path-desc">Turn the instruments on yourself — locate your own transitions in the framework.</span>
+        </span>
+        <span class="hst-s7-path-arr">&#8594;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Mirellis S7",
+  "settings": [],
+  "presets": [{"name": "Mirellis S7"}]
+}
+{% endschema %}

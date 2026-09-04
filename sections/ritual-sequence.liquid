@@ -1,0 +1,214 @@
+<section class="ritual-sequence">
+
+  <div class="page-width">
+
+    <div class="ritual-sequence__inner">
+
+      {% if section.settings.label != blank %}
+
+        <p class="ritual-sequence__label">
+          {{ section.settings.label }}
+        </p>
+
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+
+        <h2 class="ritual-sequence__heading">
+          {{ section.settings.heading }}
+        </h2>
+
+      {% endif %}
+
+      <div class="ritual-sequence__grid">
+
+        {% for block in section.blocks %}
+
+          <div class="ritual-sequence__item">
+
+            <div class="ritual-sequence__number">
+              {{ forloop.index }}
+            </div>
+
+            <h3 class="ritual-sequence__title">
+              {{ block.settings.title }}
+            </h3>
+
+            <div class="ritual-sequence__text">
+              {{ block.settings.text }}
+            </div>
+
+          </div>
+
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.ritual-sequence {
+  padding: 140px 0;
+  background: #fcfaf7;
+}
+
+.ritual-sequence__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.ritual-sequence__label {
+  margin-bottom: 24px;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #8b8378;
+}
+
+.ritual-sequence__heading {
+  max-width: 760px;
+  margin: 0 0 70px;
+
+  font-size: 42px;
+  line-height: 1.35;
+  font-weight: 300;
+
+  color: #1f1f1f;
+}
+
+.ritual-sequence__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.ritual-sequence__item {
+  padding: 42px;
+  background: #f7f3ee;
+}
+
+.ritual-sequence__number {
+  margin-bottom: 26px;
+
+  font-size: 14px;
+  letter-spacing: 2px;
+
+  color: #8b8378;
+}
+
+.ritual-sequence__title {
+  margin: 0 0 22px;
+
+  font-size: 28px;
+  line-height: 1.35;
+  font-weight: 300;
+
+  color: #202020;
+}
+
+.ritual-sequence__text {
+  font-size: 16px;
+  line-height: 1.95;
+
+  color: #5a5550;
+}
+
+.ritual-sequence__text p {
+  margin: 0 0 20px;
+}
+
+.ritual-sequence__text p:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 990px) {
+
+  .ritual-sequence {
+    padding: 110px 24px;
+  }
+
+  .ritual-sequence__grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media screen and (max-width: 749px) {
+
+  .ritual-sequence {
+    padding: 80px 24px;
+  }
+
+  .ritual-sequence__heading {
+    margin-bottom: 42px;
+    font-size: 30px;
+    line-height: 1.4;
+  }
+
+  .ritual-sequence__item {
+    padding: 34px 28px;
+  }
+
+  .ritual-sequence__title {
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+
+  .ritual-sequence__text {
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Ritual Sequence",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "Ritual Sequence"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Stillness often begins through slower sensory transitions rather than immediate mental control."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ritual Sequence"
+    }
+  ]
+}
+{% endschema %}

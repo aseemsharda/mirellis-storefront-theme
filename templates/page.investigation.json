@@ -1,0 +1,59 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "custom-liquid",
+      "name": "Investigation Hero",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "<!-- HERO SECTION -->\n<section class=\"investigation-hero\">\n  <div class=\"investigation-container\">\n    <h1 class=\"investigation-hero__title\">\n      {{ page.metafields.investigation.investigation_name }}\n    </h1>\n    <p class=\"investigation-hero__subtitle\">\n      {% if page.metafields.investigation.investigation_type == 'transition' %}\n        Investigating {{ page.title | split: ':' | first | downcase }}\n      {% else %}\n        An investigation into human state transitions\n      {% endif %}\n    </p>\n  </div>\n</section>"
+      }
+    },
+    "pull_quote": {
+      "type": "custom-liquid",
+      "name": "Pull Quote",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "{% if page.metafields.investigation.has_pull_quote and page.metafields.investigation.pull_quote %}\n<section class=\"investigation-pull-quote\">\n  <blockquote class=\"investigation-quote\">\n    {{ page.metafields.investigation.pull_quote }}\n  </blockquote>\n</section>\n{% endif %}"
+      }
+    },
+    "body": {
+      "type": "custom-liquid",
+      "name": "Investigation Body",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "{% for i in (1..7) %}\n  {% capture section_heading_key %}section_{{ i }}_heading{% endcapture %}\n  {% capture section_body_key %}section_{{ i }}_body{% endcapture %}\n\n  {% if page.metafields.investigation[section_heading_key] %}\n    <section class=\"investigation-section\">\n      <div class=\"investigation-container\">\n        <h2 class=\"investigation-section__heading\">\n          {{ page.metafields.investigation[section_heading_key] }}\n        </h2>\n        <div class=\"investigation-section__body\">\n          {{ page.metafields.investigation[section_body_key] }}\n        </div>\n      </div>\n    </section>\n  {% endif %}\n{% endfor %}"
+      }
+    },
+    "related_links": {
+      "type": "custom-liquid",
+      "name": "Related Links",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "<section class=\"investigation-related-links\">\n  <div class=\"investigation-container\">\n    <h2 class=\"investigation-section__heading\">Related Knowledge</h2>\n    <ul class=\"investigation-links-list\">\n      <li><a href=\"/pages/the-observatory\" class=\"investigation-link\">The Observatory →</a></li>\n      {% if page.metafields.investigation.finding_id %}\n        <li><a href=\"/pages/the-observatory\" class=\"investigation-link\">{{ page.metafields.investigation.finding_id | capitalize }} Finding →</a></li>\n      {% endif %}\n      {% if page.metafields.investigation.investigation_type == 'transition' %}\n        <li><a href=\"/pages/the-method\" class=\"investigation-link\">The Method →</a></li>\n      {% endif %}\n      {% if page.metafields.investigation.investigation_type == 'foundation' %}\n        <li><a href=\"/pages/formula-dossiers-morning-clarity\" class=\"investigation-link\">Morning Clarity Investigation →</a></li>\n        <li><a href=\"/pages/formula-dossiers-stillness\" class=\"investigation-link\">Stillness Investigation →</a></li>\n      {% endif %}\n      {% if page.metafields.investigation.product_handle %}\n        <li><a href=\"/products/{{ page.metafields.investigation.product_handle }}\" class=\"investigation-link\">{{ page.metafields.investigation.investigation_short_name }} Product →</a></li>\n      {% endif %}\n    </ul>\n  </div>\n</section>\n\n<style>\n  .investigation-wrapper { background: #ffffff; }\n  .investigation-container { max-width: 1200px; margin: 0 auto; padding: 0 60px; }\n  .investigation-hero { padding: 60px 60px 80px 60px; text-align: center; background: white; }\n  .investigation-hero__title { font-size: 64px; font-family: Georgia, 'Garamond', serif; color: #222222; letter-spacing: -0.5px; line-height: 1.2; margin: 0; font-weight: 400; }\n  .investigation-hero__subtitle { font-size: 24px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; color: #666666; margin: 20px 0 0 0; line-height: 1.4; font-weight: 400; }\n  .investigation-pull-quote { padding: 60px 60px 80px 60px; background: white; }\n  .investigation-quote { padding: 0 0 0 20px; border-left: 3px solid #8B6F47; font-size: 28px; font-family: Georgia, 'Garamond', serif; font-style: italic; color: #333333; line-height: 1.6; margin: 0 auto; max-width: 720px; }\n  .investigation-section { padding: 40px 60px 80px 60px; background: white; }\n  .investigation-section__heading { font-size: 20px; font-family: Georgia, 'Garamond', serif; color: #222222; margin: 0 0 16px 0; font-weight: 600; }\n  .investigation-section__body { max-width: 720px; margin: 0 auto; font-size: 18px; font-family: Georgia, 'Garamond', serif; line-height: 1.8; color: #222222; }\n  .investigation-section__body p { margin: 0 0 24px 0; }\n  .investigation-section__body p:last-child { margin-bottom: 0; }\n  .investigation-related-links { padding: 80px 60px; background: white; }\n  .investigation-links-list { list-style: none; padding: 0; margin: 24px 0 0 0; max-width: 720px; }\n  .investigation-links-list li { margin-bottom: 12px; }\n  .investigation-links-list li:last-child { margin-bottom: 0; }\n  .investigation-link { font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; color: #8B6F47; text-decoration: underline; cursor: pointer; }\n  .investigation-link:hover { opacity: 0.8; }\n  @media (max-width: 768px) {\n    .investigation-container { padding: 0 24px; }\n    .investigation-hero { padding: 40px 24px 60px 24px; }\n    .investigation-hero__title { font-size: 48px; }\n    .investigation-hero__subtitle { font-size: 18px; margin-top: 16px; }\n    .investigation-pull-quote { padding: 40px 24px 60px 24px; }\n    .investigation-quote { font-size: 22px; }\n    .investigation-section { padding: 32px 24px 60px 24px; }\n    .investigation-section__heading { font-size: 18px; margin-bottom: 12px; }\n    .investigation-section__body { font-size: 16px; line-height: 1.75; }\n    .investigation-section__body p { margin-bottom: 20px; }\n    .investigation-related-links { padding: 60px 24px; }\n    .investigation-link { font-size: 13px; }\n  }\n</style>"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "pull_quote",
+    "body",
+    "related_links"
+  ]
+}

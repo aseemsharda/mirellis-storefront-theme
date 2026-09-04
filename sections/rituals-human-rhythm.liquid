@@ -1,0 +1,79 @@
+<section class="ritual-section ritual-section--large">
+
+  <div class="ritual-container">
+
+    <div class="ritual-editorial-grid">
+
+      <!-- IMAGE -->
+      <div class="ritual-editorial-image ritual-image-soft ritual-fade-up">
+
+        {% if section.settings.image != blank %}
+
+          <img
+            src="{{ section.settings.image | image_url: width: 1600 }}"
+            alt="Human Rituals"
+            loading="lazy"
+            width="{{ section.settings.image.width }}"
+            height="{{ section.settings.image.height }}"
+          >
+
+        {% endif %}
+
+      </div>
+
+      <!-- CONTENT -->
+      <div class="ritual-editorial-content">
+
+        {% if section.settings.heading != blank %}
+          <h2 class="ritual-heading ritual-fade-up" style="margin-bottom:60px;">
+            {{ section.settings.heading }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.body != blank %}
+          <div class="ritual-body ritual-fade-up">
+            {{ section.settings.body }}
+          </div>
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Human Rituals",
+  "settings": [
+
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Editorial Image"
+    },
+
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Humans Create Rituals"
+    },
+
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Human beings have always used rituals to create continuity between states.</p><p>Long before modern wellness culture existed, rituals helped people orient mornings, close evenings, regulate uncertainty, process transitions, and create rhythm within daily life.</p><p>Many rituals were not originally designed for optimization or productivity. They existed to help the body and mind move coherently between different emotional, social, environmental, and physiological states.</p><p>The body responds deeply to repetition. Familiar environments, repeated sensory cues, and recurring behaviors gradually create psychological and physiological continuity.</p><p>Rituals were never only about symbolism.</p><p>They also shaped pacing, orientation, transition, and continuity within everyday life.</p>"
+    }
+
+  ],
+  "presets": [
+    {
+      "name": "Human Rituals"
+    }
+  ]
+}
+{% endschema %}

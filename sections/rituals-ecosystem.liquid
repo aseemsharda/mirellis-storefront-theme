@@ -1,0 +1,277 @@
+<section class="ritual-section ritual-section--large">
+
+  <div class="ritual-container">
+
+    <!-- INTRO -->
+    <div class="ritual-reading-width">
+
+      {% if section.settings.heading != blank %}
+        <h2 class="ritual-heading ritual-fade-up" style="margin-bottom:70px;">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.intro_body != blank %}
+        <div class="ritual-body ritual-fade-up">
+          {{ section.settings.intro_body }}
+        </div>
+      {% endif %}
+
+    </div>
+
+
+    <!-- ECOSYSTEM GRID -->
+    <div class="ritual-ecosystem-grid">
+
+      <!-- CARD 1 -->
+      <div class="ritual-ecosystem-card ritual-fade-up">
+
+        {% if section.settings.card_1_image != blank %}
+          <img
+            src="{{ section.settings.card_1_image | image_url: width: 1200 }}"
+            alt="Sound Environments"
+            loading="lazy"
+            width="{{ section.settings.card_1_image.width }}"
+            height="{{ section.settings.card_1_image.height }}"
+          >
+        {% endif %}
+
+        <h3 style="font-size:30px; margin-bottom:24px;">
+          {{ section.settings.card_1_heading }}
+        </h3>
+
+        <div class="ritual-body">
+          {{ section.settings.card_1_body }}
+        </div>
+
+      </div>
+
+
+      <!-- CARD 2 -->
+      <div class="ritual-ecosystem-card ritual-fade-up">
+
+        {% if section.settings.card_2_image != blank %}
+          <img
+            src="{{ section.settings.card_2_image | image_url: width: 1200 }}"
+            alt="Reflective Spaces"
+            loading="lazy"
+            width="{{ section.settings.card_2_image.width }}"
+            height="{{ section.settings.card_2_image.height }}"
+          >
+        {% endif %}
+
+        <h3 style="font-size:30px; margin-bottom:24px;">
+          {{ section.settings.card_2_heading }}
+        </h3>
+
+        <div class="ritual-body">
+          {{ section.settings.card_2_body }}
+        </div>
+
+      </div>
+
+
+      <!-- CARD 3 -->
+      <div class="ritual-ecosystem-card ritual-fade-up">
+
+        {% if section.settings.card_3_image != blank %}
+          <img
+            src="{{ section.settings.card_3_image | image_url: width: 1200 }}"
+            alt="Sensory Objects"
+            loading="lazy"
+            width="{{ section.settings.card_3_image.width }}"
+            height="{{ section.settings.card_3_image.height }}"
+          >
+        {% endif %}
+
+        <h3 style="font-size:30px; margin-bottom:24px;">
+          {{ section.settings.card_3_heading }}
+        </h3>
+
+        <div class="ritual-body">
+          {{ section.settings.card_3_body }}
+        </div>
+
+      </div>
+
+
+      <!-- CARD 4 -->
+      <div class="ritual-ecosystem-card ritual-fade-up">
+
+        {% if section.settings.card_4_image != blank %}
+          <img
+            src="{{ section.settings.card_4_image | image_url: width: 1200 }}"
+            alt="Rhythm & Reflection"
+            loading="lazy"
+            width="{{ section.settings.card_4_image.width }}"
+            height="{{ section.settings.card_4_image.height }}"
+          >
+        {% endif %}
+
+        <h3 style="font-size:30px; margin-bottom:24px;">
+          {{ section.settings.card_4_heading }}
+        </h3>
+
+        <div class="ritual-body">
+          {{ section.settings.card_4_body }}
+        </div>
+
+      </div>
+
+
+      <!-- CARD 5 -->
+      <div class="ritual-ecosystem-card ritual-fade-up">
+
+        {% if section.settings.card_5_image != blank %}
+          <img
+            src="{{ section.settings.card_5_image | image_url: width: 1200 }}"
+            alt="Environmental Pacing"
+            loading="lazy"
+            width="{{ section.settings.card_5_image.width }}"
+            height="{{ section.settings.card_5_image.height }}"
+          >
+        {% endif %}
+
+        <h3 style="font-size:30px; margin-bottom:24px;">
+          {{ section.settings.card_5_heading }}
+        </h3>
+
+        <div class="ritual-body">
+          {{ section.settings.card_5_body }}
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Ritual Ecosystem",
+  "settings": [
+
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Modern Ritual Ecosystem"
+    },
+
+    {
+      "type": "richtext",
+      "id": "intro_body",
+      "label": "Intro Body",
+      "default": "<p>Rituals are not limited to individual actions.</p><p>They are also shaped by environments, atmosphere, pacing, sound, objects, lighting, sensory continuity, and repeated emotional tone surrounding everyday life.</p><p>Mirellis explores rituals as environmental systems — where repeated sensory experiences gradually influence how the body transitions, slows, focuses, reflects, and restores over time.</p>"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "card_1_image",
+      "label": "Card 1 Image"
+    },
+
+    {
+      "type": "text",
+      "id": "card_1_heading",
+      "label": "Card 1 Heading",
+      "default": "Sound Environments"
+    },
+
+    {
+      "type": "richtext",
+      "id": "card_1_body",
+      "label": "Card 1 Body",
+      "default": "<p>Mirellis explores sound as environmental pacing — helping create continuity, emotional tone, sensory rhythm, and transition between different parts of the day.</p>"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "card_2_image",
+      "label": "Card 2 Image"
+    },
+
+    {
+      "type": "text",
+      "id": "card_2_heading",
+      "label": "Card 2 Heading",
+      "default": "Reflective Spaces"
+    },
+
+    {
+      "type": "richtext",
+      "id": "card_2_body",
+      "label": "Card 2 Body",
+      "default": "<p>Mirellis explores quieter environments designed around reflection, decompression, emotional continuity, and slower pacing.</p>"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "card_3_image",
+      "label": "Card 3 Image"
+    },
+
+    {
+      "type": "text",
+      "id": "card_3_heading",
+      "label": "Card 3 Heading",
+      "default": "Sensory Objects"
+    },
+
+    {
+      "type": "richtext",
+      "id": "card_3_body",
+      "label": "Card 3 Body",
+      "default": "<p>Texture, material, lighting, atmosphere, and repeated sensory interaction gradually influence pacing, familiarity, orientation, and emotional tone within everyday life.</p>"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "card_4_image",
+      "label": "Card 4 Image"
+    },
+
+    {
+      "type": "text",
+      "id": "card_4_heading",
+      "label": "Card 4 Heading",
+      "default": "Rhythm & Reflection"
+    },
+
+    {
+      "type": "richtext",
+      "id": "card_4_body",
+      "label": "Card 4 Body",
+      "default": "<p>Mirellis explores slower forms of journaling, observation, emotional processing, and intentional awareness as part of modern ritual continuity.</p>"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "card_5_image",
+      "label": "Card 5 Image"
+    },
+
+    {
+      "type": "text",
+      "id": "card_5_heading",
+      "label": "Card 5 Heading",
+      "default": "Environmental Pacing"
+    },
+
+    {
+      "type": "richtext",
+      "id": "card_5_body",
+      "label": "Card 5 Body",
+      "default": "<p>Mirellis explores how light, sound, spatial rhythm, pacing, and sensory continuity influence how the body experiences modern life internally.</p>"
+    }
+
+  ],
+  "presets": [
+    {
+      "name": "Ritual Ecosystem"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,194 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "ingredient-hero",
+      "settings": {
+        "title": "The Architecture of Stillness",
+        "description": "<p>Modern environments are engineered for acceleration — faster attention, faster transitions, faster stimulation. Stillness rarely disappears suddenly. It is gradually designed out of daily life.</p>"
+      }
+    },
+
+    "intro": {
+      "type": "editorial-intro",
+      "settings": {
+        "text": "<p>Most modern environments continuously compete for nervous-system attention. Notifications, fragmented media, artificial urgency, constant transitions, and informational density slowly condition the body toward acceleration as its default physiological state.</p><p>The consequence is not only mental exhaustion. The deeper effect is the gradual disappearance of emotional pacing itself. The nervous system loses prolonged contact with slowness, continuity, silence, and coherent sensory rhythm.</p><p>Mirellis approaches stillness not as absence, withdrawal, or passive inactivity. Stillness is approached as physiological coherence — a condition in which sensory experience, emotional pacing, breath, attention, and bodily rhythm stop competing against one another.</p><p>The architecture of stillness is therefore environmental before it becomes psychological. The body responds to light, texture, sound, pacing, repetition, and atmosphere long before conscious interpretation fully forms. Rituals slowly rebuild these conditions through repeated sensory familiarity.</p>"
+      }
+    },
+
+    "image_break_1": {
+      "type": "ingredient-image-break",
+      "settings": {
+        "caption": "The nervous system cannot sustain coherence inside environments built for perpetual acceleration."
+      }
+    },
+
+    "essay": {
+      "type": "editorial-essay",
+      "settings": {
+        "label": "Sensory Acceleration",
+        "text": "<p>Modern stimulation rarely allows the nervous system to complete emotional transitions fully. Attention is repeatedly interrupted before physiological settling can occur. The body remains partially activated even during moments intended for rest.</p><p>Stillness disappears gradually through fragmentation. Multiple sensory demands compete simultaneously — screens, alerts, noise, artificial light, urgency, rapid context-switching, informational overload, and emotional compression. The nervous system adapts by remaining continuously alert.</p><p>Over time, acceleration begins feeling normal while slowness starts feeling unfamiliar. Silence becomes uncomfortable. Rest begins resembling inactivity rather than coherence. Attention loses sustained depth.</p><p>Rituals create interruption against this acceleration. Repeated sensory pacing slowly teaches the body how to recognize continuity again — through atmosphere, rhythm, warmth, texture, repetition, breath, and reduced fragmentation.</p><p>Stillness is not created instantly. The nervous system gradually relearns it through repeated exposure to coherent sensory environments.</p>"
+      }
+    },
+
+    "framework": {
+      "type": "editorial-framework",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "title": "Fragmented Attention",
+            "description": "<p>Continuous sensory interruption prevents the nervous system from sustaining coherent emotional pacing for long periods.</p>"
+          }
+        },
+
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "title": "Artificial Urgency",
+            "description": "<p>Modern environments condition the body toward acceleration through repeated urgency signaling and informational overload.</p>"
+          }
+        },
+
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "title": "Sensory Coherence",
+            "description": "<p>Stillness emerges when sensory environments stop competing simultaneously for nervous-system attention.</p>"
+          }
+        },
+
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "title": "Ritual Reconditioning",
+            "description": "<p>Repeated sensory rituals gradually rebuild familiarity with slower emotional pacing and internal steadiness.</p>"
+          }
+        }
+      },
+
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4"
+      ],
+
+      "settings": {
+        "label": "Core Principles"
+      }
+    },
+
+    "research": {
+      "type": "ingredient-research-notes",
+      "blocks": {
+        "note_1": {
+          "type": "note",
+          "settings": {
+            "title": "Attention Fragmentation & Cognitive Load",
+            "text": "<p>Research across cognitive science and attentional psychology increasingly explores how fragmented digital environments may influence sustained attention, stress response, emotional fatigue, and cognitive overload.</p>"
+          }
+        },
+
+        "note_2": {
+          "type": "note",
+          "settings": {
+            "title": "Sensory Environments & Nervous System Regulation",
+            "text": "<p>Emerging discussions across neuroscience and sensory psychology continue examining how environmental pacing, repetition, sensory continuity, and emotional predictability may influence nervous-system regulation and perceived physiological safety.</p>"
+          }
+        }
+      },
+
+      "block_order": [
+        "note_1",
+        "note_2"
+      ],
+
+      "settings": {}
+    },
+
+    "ritual_connection": {
+      "type": "editorial-ritual-connection",
+      "settings": {
+        "label": "Ritual Environment",
+        "title": "Stillness begins as atmosphere before it becomes emotion.",
+        "text": "<p>Mirellis Stillness Elixir was developed around the understanding that the nervous system responds to repeated sensory environments long before conscious thought fully settles. The ritual is designed not as stimulation, but as a slower emotional transition into evening coherence.</p><p>Texture, aroma, pacing, warmth, and repetition gradually create familiarity around stillness itself. Over time, the body begins recognizing the ritual before conscious attention fully arrives.</p>",
+        "link_label": "Explore Stillness Elixir",
+        "link": "/products/stillness-elixir"
+      }
+    },
+
+    "related_reading": {
+      "type": "editorial-related-reading",
+      "blocks": {
+        "article_1": {
+          "type": "article",
+          "settings": {
+            "label": "Editorial",
+            "title": "Nervous System Rituals",
+            "description": "How repeated sensory environments slowly shape physiological coherence through ritual pacing and familiarity.",
+            "link": "/pages/nervous-system-rituals"
+          }
+        },
+
+        "article_2": {
+          "type": "article",
+          "settings": {
+            "label": "Editorial",
+            "title": "Sensory Memory & Ritual",
+            "description": "Why the body often remembers emotional environments before conscious thought fully explains them.",
+            "link": "/pages/sensory-memory-and-ritual"
+          }
+        },
+
+        "article_3": {
+          "type": "article",
+          "settings": {
+            "label": "Ingredient",
+            "title": "Vetiver — The Depth of Nervous System Stillness",
+            "description": "An exploration of emotional depth, slower pacing, and sensory settling through ritual atmosphere.",
+            "link": "/pages/vetiver-the-depth-of-nervous-system-stillness"
+          }
+        }
+      },
+
+      "block_order": [
+        "article_1",
+        "article_2",
+        "article_3"
+      ],
+
+      "settings": {
+        "heading": "Related Reading"
+      }
+    },
+
+    "closing": {
+      "type": "ingredient-closing-statement",
+      "settings": {
+        "text": "Stillness is rarely lost all at once. It disappears gradually through fragmentation, acceleration, and sensory overload — then slowly returns through repetition, pacing, and coherent ritual environments."
+      }
+    },
+    "mrr_stillness": {
+      "type": "mirellis-related-reading-stillness",
+      "settings": {}
+    }
+  },
+
+  "order": [
+    "hero",
+    "intro",
+    "image_break_1",
+    "essay",
+    "framework",
+    "research",
+    "ritual_connection",
+    "related_reading",
+    "closing",
+    "mrr_stillness"
+  ]
+}

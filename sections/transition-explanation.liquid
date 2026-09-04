@@ -1,0 +1,79 @@
+{% comment %}
+Transition Explanation Section
+Short context on what this transition is and why it matters
+{% endcomment %}
+
+<section class="transition-explanation">
+  <div class="transition-explanation__container">
+    
+    <div class="transition-explanation__content">
+      <h3>What Is This Transition?</h3>
+      
+      <p>Your brain doesn't wake up all at once. Sleep and wakefulness aren't binary states—they're overlapping neurological processes. When you open your eyes, you're in a state of partial activation. Your prefrontal cortex is still offline. Your nervous system is determining: "Is this safe? Should I engage?"</p>
+
+      <p>The Sleep → Wakefulness transition is the bridge between those two states.</p>
+
+      <h3>Why This Matters</h3>
+
+      <p>Most people spend this critical window checking their phone, jumping into work, or rushing through a morning routine. This signals the nervous system that the day is an emergency.</p>
+
+      <p>Instead, the first 30 minutes determine your nervous system's baseline for the entire day. The difference between a foggy, reactive morning and a clear, intentional one lives in this transition.</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .transition-explanation {
+    padding: 3rem 2rem;
+    background: #faf7f2;
+  }
+
+  .transition-explanation__container {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .transition-explanation__content {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #666;
+  }
+
+  .transition-explanation__content h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #1a1a18;
+    margin: 1.5rem 0 0.75rem 0;
+  }
+
+  .transition-explanation__content h3:first-child {
+    margin-top: 0;
+  }
+
+  .transition-explanation__content p {
+    margin-bottom: 1rem;
+  }
+
+  .transition-explanation__content p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .transition-explanation {
+      padding: 2rem 1.5rem;
+    }
+
+    .transition-explanation__content {
+      font-size: 0.95rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Explanation",
+  "settings": []
+}
+{% endschema %}

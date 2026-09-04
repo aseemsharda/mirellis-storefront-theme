@@ -1,0 +1,140 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "ingredient-hero",
+      "settings": {
+        "title": "Tulsi — The Atmosphere of Inner Clarity",
+        "description": "<p>Certain ingredients do not stimulate the body aggressively. They alter atmosphere instead — softening mental noise, opening breath, and creating a quieter sensory field around ritual itself.</p>"
+      }
+    },
+
+    "philosophy": {
+      "type": "ingredient-philosophy",
+      "settings": {
+        "text": "<p>Tulsi has historically existed at the intersection of ritual, breath, atmosphere, and sensory orientation. Within Mirellis formulations, Tulsi is approached not merely as a botanical ingredient, but as part of the emotional architecture of clarity itself.</p><p>The aromatic profile feels lighter, greener, and more spacious. Rather than overwhelming the nervous system into wakefulness, the experience creates a calmer sensory transition into attention and orientation.</p>"
+      }
+    },
+
+    "image_break_1": {
+      "type": "ingredient-image-break",
+      "settings": {
+        "caption": "Atmosphere shapes the nervous system long before conscious interpretation begins."
+      }
+    },
+
+    "ritual_practice": {
+      "type": "ingredient-ritual-practice",
+      "settings": {
+        "text": "<p>Before conscious focus fully arrives, the body is already responding to aroma, breath, air movement, and sensory pacing. Rituals are often recognized physiologically before they are interpreted mentally.</p><p>Within morning ritual practice, Tulsi creates a lighter sensory field around wakefulness. The experience becomes less about intensity and more about subtle atmospheric orientation through repetition.</p>"
+      }
+    },
+
+    "roles": {
+      "type": "ingredient-roles",
+      "blocks": {
+        "role_1": {
+          "type": "role",
+          "settings": {
+            "title": "Atmospheric Clarity",
+            "description": "<p>Tulsi creates a lighter sensory environment around wakefulness through freshness, openness, and aromatic spaciousness.</p>"
+          }
+        },
+
+        "role_2": {
+          "type": "role",
+          "settings": {
+            "title": "Breath & Orientation",
+            "description": "<p>The aromatic movement of Tulsi supports a calmer transition into conscious focus through subtle breath-associated sensory signaling.</p>"
+          }
+        },
+
+        "role_3": {
+          "type": "role",
+          "settings": {
+            "title": "Formulation Balance",
+            "description": "<p>Tulsi introduces lift and brightness into the formulation architecture while maintaining sensory softness and coherence.</p>"
+          }
+        },
+
+        "role_4": {
+          "type": "role",
+          "settings": {
+            "title": "Morning Ritual Rhythm",
+            "description": "<p>Within Mirellis Morning Rituals, Tulsi helps shape a more breathable emotional pace at the beginning of the day.</p>"
+          }
+        }
+      },
+
+      "block_order": [
+        "role_1",
+        "role_2",
+        "role_3",
+        "role_4"
+      ],
+
+      "settings": {}
+    },
+
+    "research": {
+      "type": "ingredient-research-notes",
+      "blocks": {
+        "note_1": {
+          "type": "note",
+          "settings": {
+            "title": "Tulsi & Stress Physiology",
+            "text": "<p>Tulsi has been widely studied within discussions around stress physiology, nervous system adaptation, and cognitive resilience.</p>"
+          }
+        },
+
+        "note_2": {
+          "type": "note",
+          "settings": {
+            "title": "Traditional Ritual Context",
+            "text": "<p>Historically, Tulsi has occupied an important place within ritual environments associated with stillness, breath, and attentional clarity.</p>"
+          }
+        }
+      },
+
+      "block_order": [
+        "note_1",
+        "note_2"
+      ],
+
+      "settings": {}
+    },
+
+    "ritual_connection": {
+      "type": "editorial-ritual-connection",
+      "settings": {
+        "label": "Ritual Connection",
+        "title": "Clarity emerges through calmer sensory orientation.",
+        "text": "<p>Tulsi exists within Mirellis not as isolated stimulation, but as part of a ritual atmosphere shaped around breath, openness, attentional steadiness, and sensory clarity.</p><p>Through repeated ritual pacing, the nervous system gradually begins recognizing lighter emotional environments before conscious focus fully arrives.</p>",
+        "link_label": "Explore Ingredient Atmospheres",
+        "link": "/pages/ingredient-atmospheres"
+      }
+    },
+
+    "closing": {
+      "type": "ingredient-closing-statement",
+      "settings": {
+        "text": "The nervous system recognizes atmosphere before conscious thought fully arrives. Rituals begin as sensory orientation long before they become language."
+      }
+    }
+  },
+
+  "order": [
+    "hero",
+    "philosophy",
+    "image_break_1",
+    "ritual_practice",
+    "roles",
+    "research",
+    "ritual_connection",
+    "closing"
+  ]
+}

@@ -1,0 +1,82 @@
+{% if section.settings.show_section %}
+<section class="wwa-founding">
+  <div class="wwa-inner">
+    {% if section.settings.eyebrow != blank %}
+    <p class="wwa-eyebrow">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    {% if section.settings.heading != blank %}
+    <h1 class="wwa-heading">{{ section.settings.heading }}</h1>
+    {% endif %}
+    {% if section.settings.body != blank %}
+    <div class="wwa-body">{{ section.settings.body | newline_to_br }}</div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+<style>
+.wwa-founding {
+  background: #faf7f2;
+  padding: 6rem 2rem;
+}
+.wwa-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.wwa-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(26,26,24,0.45);
+  margin: 0 0 1.5rem 0;
+}
+.wwa-heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: #1a1a18;
+  margin: 0 0 2.5rem 0;
+  line-height: 1.2;
+}
+.wwa-body {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: rgba(26,26,24,0.7);
+}
+@media (max-width: 640px) {
+  .wwa-founding {
+    padding: 4rem 1.5rem;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "WWA Founding",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "WHY MIRELLIS EXISTS"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Life once had a shape."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body",
+      "default": "Morning had a beginning.\nWork had an ending.\nEvening had a descent.\nNight had darkness.\n\nThe body always knew where it was in the day.\n\nToday those edges have largely disappeared.\n\nThe same device wakes us, works us, entertains us, informs us, and follows us into bed. The day continues long after it should have ended.\n\nWhat remains is continuity.\n\nAnd continuity is exhausting.\n\nNot because you are doing too much.\nBecause nothing ever ends."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show section",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

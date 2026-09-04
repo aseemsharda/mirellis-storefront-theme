@@ -1,0 +1,180 @@
+{% comment %}
+MIRELLIS — SECTION 3
+“What Mirellis Does Differently”
+Ritual System Explanation Layer
+{% endcomment %}
+
+<section class="mirellis-difference">
+  <div class="mirellis-container">
+
+    {% if section.settings.headline != blank %}
+      <h2 class="mirellis-headline">
+        {{ section.settings.headline }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.subhead != blank %}
+      <p class="mirellis-subhead">
+        {{ section.settings.subhead }}
+      </p>
+    {% endif %}
+
+    <div class="mirellis-grid">
+
+      <!-- MORNING COLUMN -->
+      <div class="mirellis-column">
+
+        <h3 class="mirellis-label">Morning System</h3>
+
+        <div class="mirellis-text">
+          {{ section.settings.morning_text }}
+        </div>
+
+      </div>
+
+      <!-- EVENING COLUMN -->
+      <div class="mirellis-column">
+
+        <h3 class="mirellis-label">Evening System</h3>
+
+        <div class="mirellis-text">
+          {{ section.settings.evening_text }}
+        </div>
+
+      </div>
+
+    </div>
+
+    {% if section.settings.closing != blank %}
+      <div class="mirellis-closing">
+        {{ section.settings.closing }}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<style>
+/* =========================
+   MIRELLIS — DIFFERENCE SECTION
+   ========================= */
+
+.mirellis-difference {
+  background: #fbf7f2;
+  padding: 120px 24px;
+}
+
+.mirellis-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Headline */
+.mirellis-headline {
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #1c1c1c;
+  margin-bottom: 18px;
+}
+
+/* Subhead */
+.mirellis-subhead {
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(28,28,28,0.7);
+  margin-bottom: 60px;
+}
+
+/* Grid */
+.mirellis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+/* Column */
+.mirellis-column {
+  padding: 0 10px;
+}
+
+/* Label */
+.mirellis-label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  color: #1c1c1c;
+}
+
+/* Text */
+.mirellis-text {
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(28,28,28,0.75);
+}
+
+/* Closing */
+.mirellis-closing {
+  font-size: 16px;
+  text-align: center;
+  color: rgba(28,28,28,0.65);
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding-top: 40px;
+}
+
+/* MOBILE */
+@media screen and (max-width: 768px) {
+  .mirellis-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .mirellis-headline {
+    font-size: 30px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Mirellis Difference",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Mirellis works differently"
+    },
+    {
+      "type": "textarea",
+      "id": "subhead",
+      "label": "Subhead",
+      "default": "We do not create skincare products. We design state transitions for the nervous system."
+    },
+    {
+      "type": "textarea",
+      "id": "morning_text",
+      "label": "Morning System Text",
+      "default": "Morning rituals are designed to shift the nervous system from inertia to clarity. They are not stimulants — they are alignment mechanisms."
+    },
+    {
+      "type": "textarea",
+      "id": "evening_text",
+      "label": "Evening System Text",
+      "default": "Evening rituals are designed to guide the nervous system from stimulation to release. They are not relaxation products — they are decompression systems."
+    },
+    {
+      "type": "textarea",
+      "id": "closing",
+      "label": "Closing Line",
+      "default": "Every product exists only to support a transition — not to add another layer of consumption."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mirellis Difference"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,84 @@
+{% comment %}
+MIRELLIS — SECTION 4
+The Pause / Transition Field
+Cinematic breathing architecture layer
+{% endcomment %}
+
+<section class="mirellis-pause">
+  <div class="mirellis-pause-container">
+
+    <div class="mirellis-pause-line"></div>
+
+    {% if section.settings.text != blank %}
+      <div class="mirellis-pause-text">
+        {{ section.settings.text }}
+      </div>
+    {% endif %}
+
+    <div class="mirellis-pause-line"></div>
+
+  </div>
+</section>
+
+<style>
+/* =========================
+   MIRELLIS — PAUSE FIELD
+   ========================= */
+
+.mirellis-pause {
+  background: #f6f1ea;
+  padding: 100px 24px;
+  text-align: center;
+}
+
+.mirellis-pause-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.mirellis-pause-line {
+  height: 1px;
+  background: rgba(0,0,0,0.08);
+  margin: 40px auto;
+  width: 60%;
+}
+
+.mirellis-pause-text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(28,28,28,0.6);
+  font-style: italic;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .mirellis-pause {
+    padding: 70px 20px;
+  }
+
+  .mirellis-pause-line {
+    width: 80%;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Mirellis Pause",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Pause Text",
+      "default": "Not everything in life is meant to be processed continuously."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mirellis Pause Section"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,201 @@
+<section class="research-notes">
+
+  <div class="page-width">
+
+    <div class="research-notes__inner">
+
+      {% if section.settings.label != blank %}
+
+        <p class="research-notes__label">
+          {{ section.settings.label }}
+        </p>
+
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+
+        <h2 class="research-notes__heading">
+          {{ section.settings.heading }}
+        </h2>
+
+      {% endif %}
+
+      <div class="research-notes__grid">
+
+        {% for block in section.blocks %}
+
+          <div class="research-notes__item">
+
+            <h3 class="research-notes__title">
+              {{ block.settings.title }}
+            </h3>
+
+            <div class="research-notes__text">
+              {{ block.settings.text }}
+            </div>
+
+          </div>
+
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.research-notes {
+  padding: 140px 0;
+  background: #f7f3ee;
+}
+
+.research-notes__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.research-notes__label {
+  margin-bottom: 24px;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #8b8378;
+}
+
+.research-notes__heading {
+  max-width: 760px;
+  margin: 0 0 70px;
+
+  font-size: 42px;
+  line-height: 1.35;
+  font-weight: 300;
+
+  color: #202020;
+}
+
+.research-notes__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.research-notes__item {
+  padding: 42px;
+  background: #fcfaf7;
+}
+
+.research-notes__title {
+  margin: 0 0 22px;
+
+  font-size: 28px;
+  line-height: 1.35;
+  font-weight: 300;
+
+  color: #202020;
+}
+
+.research-notes__text {
+  font-size: 16px;
+  line-height: 1.95;
+
+  color: #5b5550;
+}
+
+.research-notes__text p {
+  margin: 0 0 20px;
+}
+
+.research-notes__text p:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 990px) {
+
+  .research-notes {
+    padding: 110px 24px;
+  }
+
+  .research-notes__grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media screen and (max-width: 749px) {
+
+  .research-notes {
+    padding: 80px 24px;
+  }
+
+  .research-notes__heading {
+    margin-bottom: 42px;
+    font-size: 30px;
+    line-height: 1.4;
+  }
+
+  .research-notes__item {
+    padding: 34px 28px;
+  }
+
+  .research-notes__title {
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+
+  .research-notes__text {
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Research Notes",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "Research Notes"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Modern research increasingly explores how repeated sensory environments influence emotional regulation, nervous-system pacing, and behavioral familiarity."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "note",
+      "name": "Note",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Research Notes"
+    }
+  ]
+}
+{% endschema %}

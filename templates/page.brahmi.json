@@ -1,0 +1,144 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "ingredient-hero",
+      "settings": {
+        "title": "Brahmi — The Texture of Mental Stillness",
+        "description": "<p>Some ingredients do not sharpen the mind through stimulation. They soften internal noise instead — creating a slower, quieter relationship with attention itself.</p>"
+      }
+    },
+
+    "philosophy": {
+      "type": "ingredient-philosophy",
+      "settings": {
+        "text": "<p>Brahmi has historically been associated with memory, attention, contemplative practice, and mental quietness. Within Mirellis formulations, Brahmi is approached not simply as a cognitive ingredient, but as part of the emotional architecture of stillness itself.</p><p>Modern mental environments are increasingly fragmented. Attention is repeatedly interrupted through stimulation, acceleration, and informational density. Mirellis approaches cognition differently. The goal is not mental intensity, but softer continuity.</p><p>Brahmi introduces a slower emotional texture into ritual experience. The atmosphere feels quieter, steadier, less internally scattered. Rather than forcing sharper activation, the experience encourages subtle cognitive settling through repetition.</p>"
+      }
+    },
+
+    "image_break_1": {
+      "type": "ingredient-image-break",
+      "settings": {
+        "caption": "Stillness is often recognized by the nervous system before the mind fully understands it."
+      }
+    },
+
+    "ritual_practice": {
+      "type": "ingredient-ritual-practice",
+      "settings": {
+        "text": "<p>Before conscious thought fully organizes itself, the body has already begun responding to sensory pacing, atmosphere, repetition, and emotional rhythm. Rituals are often experienced physiologically before they become conceptual.</p><p>Within morning ritual practice, Brahmi creates a quieter internal environment around attention itself. The experience feels slower, softer, and less cognitively aggressive. Wakefulness unfolds with less friction.</p><p>Over repeated use, the ritual begins shaping familiarity around calm attentional states rather than stimulation-driven focus. The body gradually recognizes stillness as part of orientation itself.</p>"
+      }
+    },
+
+    "roles": {
+      "type": "ingredient-roles",
+      "blocks": {
+        "role_1": {
+          "type": "role",
+          "settings": {
+            "title": "Mental Softness",
+            "description": "<p>Brahmi creates a gentler emotional atmosphere around attention through sensory quietness and slower internal pacing.</p>"
+          }
+        },
+
+        "role_2": {
+          "type": "role",
+          "settings": {
+            "title": "Attentional Stillness",
+            "description": "<p>The ritual experience feels less fragmented and more internally coherent through repetition and sensory familiarity.</p>"
+          }
+        },
+
+        "role_3": {
+          "type": "role",
+          "settings": {
+            "title": "Formulation Balance",
+            "description": "<p>Brahmi introduces calm continuity into the formulation architecture while supporting emotional softness and ritual coherence.</p>"
+          }
+        },
+
+        "role_4": {
+          "type": "role",
+          "settings": {
+            "title": "Cognitive Rhythm",
+            "description": "<p>Within Mirellis Morning Rituals, Brahmi helps create a slower and quieter transition into conscious focus.</p>"
+          }
+        }
+      },
+
+      "block_order": [
+        "role_1",
+        "role_2",
+        "role_3",
+        "role_4"
+      ],
+
+      "settings": {}
+    },
+
+    "research": {
+      "type": "ingredient-research-notes",
+      "blocks": {
+        "note_1": {
+          "type": "note",
+          "settings": {
+            "title": "Brahmi & Cognitive Research",
+            "text": "<p>Brahmi has been studied within discussions around cognition, memory, attentional processing, and nervous system adaptation. Research continues exploring how repeated exposure to certain botanical compounds may influence mental performance and stress response over time.</p>"
+          }
+        },
+
+        "note_2": {
+          "type": "note",
+          "settings": {
+            "title": "Traditional Contemplative Context",
+            "text": "<p>Historically, Brahmi has been associated with contemplative environments emphasizing mental steadiness, sustained attention, and inward stillness. Within Mirellis formulations, Brahmi is approached through this wider relationship between ritual atmosphere, repetition, and emotional coherence.</p>"
+          }
+        }
+      },
+
+      "block_order": [
+        "note_1",
+        "note_2"
+      ],
+
+      "settings": {}
+    },
+
+    "ritual_connection": {
+      "type": "editorial-ritual-connection",
+      "settings": {
+        "label": "Ritual Connection",
+        "title": "Stillness is reinforced through repeated sensory environments.",
+        "text": "<p>Brahmi exists within Mirellis not as an isolated ingredient, but as part of a larger ritual architecture designed around slower emotional pacing, sensory quietness, and nervous-system settling.</p><p>Through repetition, atmosphere, and ritual familiarity, the body gradually begins recognizing calm attentional states as emotional orientation itself.</p>",
+        "link_label": "Explore Ingredient Atmospheres",
+        "link": "/pages/ingredient-atmospheres"
+      }
+    },
+
+    "closing": {
+      "type": "ingredient-closing-statement",
+      "settings": {
+        "text": "The mind settles gradually through repeated sensory rhythms. Rituals become recognizable to the nervous system long before they become conscious habits."
+      }
+    }
+  },
+
+  "order": [
+    "hero",
+    "philosophy",
+    "image_break_1",
+    "ritual_practice",
+    "roles",
+    "research",
+    "ritual_connection",
+    "closing"
+  ]
+}

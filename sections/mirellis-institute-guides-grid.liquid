@@ -1,0 +1,195 @@
+{% assign guides = shop.metaobjects.guide.values %}
+
+<section class="mi-guides">
+
+  <div class="container">
+
+<div class="mi-guides-header">
+
+  {% if section.settings.eyebrow != blank %}
+    <p class="mi-eyebrow">
+      {{ section.settings.eyebrow }}
+    </p>
+  {% endif %}
+
+  {% if section.settings.heading != blank %}
+    <h2>
+      {{ section.settings.heading }}
+    </h2>
+  {% endif %}
+
+  {% if section.settings.description != blank %}
+    <p>
+      {{ section.settings.description }}
+    </p>
+  {% endif %}
+
+</div>
+
+    <div class="mi-guides-grid">
+
+      {% for guide in guides %}
+
+        <a href="/pages/guide/{{ guide.slug }}" class="mi-guide-card">
+
+ {% if guide.featured_image.value %}
+  {{
+    guide.featured_image.value
+    | image_url: width: 800
+    | image_tag:
+      alt: guide.title
+  }}
+{% endif %}
+
+          <h3>{{ guide.title }}</h3>
+
+          <p>{{ guide.summary }}</p>
+
+          <span>
+  {{ section.settings.button_text }}
+</span>
+
+        </a>
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.mi-guides{
+  padding:
+  {{ section.settings.top_spacing }}px
+  0
+  {{ section.settings.bottom_spacing }}px;
+}
+
+.mi-eyebrow{
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  opacity:.6;
+  margin-bottom:12px;
+}
+
+.mi-guides-grid{
+  display:grid;
+  grid-template-columns:
+  repeat({{ section.settings.desktop_columns }},1fr);
+  gap:28px;
+}
+
+.mi-guide-card{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:24px;
+  overflow:hidden;
+  transition:.25s;
+}
+
+.mi-guide-card:hover{
+  transform:translateY(-4px);
+}
+
+.mi-guide-card img{
+  width:100%;
+  aspect-ratio:16/10;
+  object-fit:cover;
+}
+
+.mi-guide-card h3{
+  padding:24px 24px 12px;
+}
+
+.mi-guide-card p{
+  padding:0 24px;
+  opacity:.75;
+}
+
+.mi-guide-card span{
+  display:block;
+  padding:24px;
+}
+
+@media(max-width:990px){
+  .mi-guides-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:749px){
+  .mi-guides-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Institute Guides Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Mirellis Institute"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Institute Guides"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Explorations, observations and working models emerging from ongoing inquiry."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Card Link Text",
+      "default": "Read Guide →"
+    },
+    {
+      "type": "range",
+      "id": "desktop_columns",
+      "label": "Desktop Columns",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "label": "Top Spacing",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "label": "Bottom Spacing",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Institute Guides Grid"
+    }
+  ]
+}
+{% endschema %}

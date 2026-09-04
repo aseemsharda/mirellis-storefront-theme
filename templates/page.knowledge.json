@@ -1,0 +1,27 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "knowledge_library": {
+      "type": "knowledge-article-library",
+      "name": "Knowledge Article Library",
+      "settings": {
+        "eyebrow": "Curated Knowledge",
+        "title": "Knowledge",
+        "intro": "<p>Explore a carefully curated collection of in-depth articles on sleep, recovery, and wellbeing.</p>",
+        "featured_enabled": false,
+        "featured_article": ""
+      }
+    }
+  },
+  "order": [
+    "knowledge_library"
+  ]
+}

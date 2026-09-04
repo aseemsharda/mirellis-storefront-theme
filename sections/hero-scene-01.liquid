@@ -1,0 +1,201 @@
+{% comment %}
+=========================================================
+MIRELLIS — HERO SCENE 01
+ARRIVAL / NERVOUS-SYSTEM TRANSITION
+=========================================================
+{% endcomment %}
+
+<section class="ml-hero-scene ml-scroll-continuity ml-motion-restraint">
+
+  <!-- =====================================================
+       ATMOSPHERIC BACKGROUND FIELD
+       ===================================================== -->
+
+  <div class="ml-depth-layer ml-depth-soft">
+
+    <div class="ml-hero-atmosphere ml-breathing-atmosphere">
+
+      <picture>
+
+        {% if section.settings.hero_image_mobile != blank %}
+          <source
+            media="(max-width: 768px)"
+            srcset="{{ section.settings.hero_image_mobile | image_url: width: 1200 }}"
+          >
+        {% endif %}
+
+        {% if section.settings.hero_image != blank %}
+          {{
+            section.settings.hero_image
+            | image_url: width: 2400
+            | image_tag:
+              class: 'ml-atmospheric-image ml-soft-presence',
+              loading: 'eager',
+              widths: '1200, 1600, 2000, 2400',
+              alt: section.settings.hero_heading
+          }}
+        {% endif %}
+
+      </picture>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       ATMOSPHERIC OVERLAY SYSTEM
+       ===================================================== -->
+
+  <div
+    class="ml-depth-layer ml-atmospheric-overlay"
+    style="
+      background:
+        var(--ml-overlay-morning),
+        var(--ml-overlay-depth);
+    "
+  ></div>
+
+
+  <!-- =====================================================
+       HERO CONTENT FIELD
+       ===================================================== -->
+
+  <div class="ml-container-cinematic ml-hero-field">
+
+    <div class="ml-hero-inner">
+
+      <div class="ml-hero-copy ml-fade-soft is-visible">
+
+        <!-- Emotional Silence -->
+        <div class="ml-visual-silence"></div>
+
+        <!-- =================================================
+             HERO TYPOGRAPHY
+             ================================================= -->
+
+        <div class="ml-hero-typography">
+
+          {% if section.settings.hero_heading != blank %}
+            <h1 class="ml-hero-heading ml-headline-soft">
+              {{ section.settings.hero_heading }}
+            </h1>
+          {% endif %}
+
+          {% if section.settings.hero_subtext != blank %}
+            <div class="ml-contemplative-copy ml-copy-soft">
+              {{ section.settings.hero_subtext }}
+            </div>
+          {% endif %}
+
+        </div>
+
+
+        <!-- =================================================
+             PARTICIPATORY CTA
+             ================================================= -->
+
+        {% if section.settings.hero_cta_label != blank %}
+
+          <div class="ml-button-field ml-space-before-thought">
+
+            <a
+              href="{{ section.settings.hero_cta_link }}"
+              class="
+                ml-soft-cta
+                ml-soft-hover
+              "
+            >
+
+              {{ section.settings.hero_cta_label }}
+
+            </a>
+
+          </div>
+
+        {% endif %}
+
+        <!-- Emotional Silence -->
+        <div class="ml-visual-silence-lg"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       ATMOSPHERIC DEPTH GLOW
+       ===================================================== -->
+
+  <div
+    class="ml-depth-layer ml-shadow-breathing"
+    style="
+      background:
+        radial-gradient(
+          circle at 50% 40%,
+          rgba(255,255,255,0.08) 0%,
+          rgba(255,255,255,0) 72%
+        );
+    "
+  ></div>
+
+</section>
+
+
+{% schema %}
+{
+  "name": "Mirellis Hero Scene 01",
+  "tag": "section",
+  "class": "section section-mirellis-hero",
+  "settings": [
+
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Background Image"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "hero_image_mobile",
+      "label": "Hero Mobile Background Image"
+    },
+
+    {
+      "type": "text",
+      "id": "hero_heading",
+      "label": "Hero Heading",
+      "default": "Modern life lost its transitions."
+    },
+
+    {
+      "type": "textarea",
+      "id": "hero_subtext",
+      "label": "Hero Supporting Copy",
+      "default": "A slower environment designed for nervous-system coherence."
+    },
+
+    {
+      "type": "text",
+      "id": "hero_cta_label",
+      "label": "CTA Label",
+      "default": "Enter Slowly"
+    },
+
+    {
+      "type": "url",
+      "id": "hero_cta_link",
+      "label": "CTA Link"
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "Mirellis Hero Scene 01"
+    }
+  ]
+}
+{% endschema %}

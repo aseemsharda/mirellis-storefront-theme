@@ -1,0 +1,174 @@
+{% stylesheet %}
+
+.science-closing {
+  position: relative;
+  overflow: hidden;
+  background: #141210;
+  padding: 220px 60px;
+}
+
+.science-closing__ambient {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(198,155,102,0.10),
+      transparent 32%
+    );
+  mix-blend-mode: screen;
+}
+
+.science-closing__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.science-closing__eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.52);
+  margin-bottom: 28px;
+  font-weight: 500;
+}
+
+.science-closing__heading {
+  font-family: var(--heading-font-family);
+  font-size: clamp(52px, 7vw, 110px);
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+  color: #f8f4ef;
+  margin: 0;
+  font-weight: 400;
+}
+
+.science-closing__text {
+  margin: 44px auto 0;
+  max-width: 720px;
+  font-size: 19px;
+  line-height: 2;
+  color: rgba(255,255,255,0.78);
+}
+
+.science-closing__text p {
+  margin: 0 0 28px;
+}
+
+.science-closing__text p:last-child {
+  margin-bottom: 0;
+}
+
+.science-closing__quote {
+  margin-top: 90px;
+  font-family: var(--heading-font-family);
+  font-size: clamp(26px, 3vw, 42px);
+  line-height: 1.35;
+  letter-spacing: -0.03em;
+  color: rgba(255,255,255,0.88);
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 999px) {
+
+  .science-closing {
+    padding: 120px 24px;
+  }
+
+  .science-closing__heading {
+    font-size: 58px;
+    line-height: 0.98;
+  }
+
+  .science-closing__text {
+    font-size: 16px;
+    line-height: 1.9;
+    margin-top: 30px;
+  }
+
+  .science-closing__quote {
+    margin-top: 56px;
+    font-size: 28px;
+    line-height: 1.4;
+  }
+
+}
+
+{% endstylesheet %}
+
+<section class="science-closing">
+
+  <div class="science-closing__ambient"></div>
+
+  <div class="science-closing__inner">
+
+    {% if section.settings.eyebrow != blank %}
+      <div class="science-closing__eyebrow">
+        {{ section.settings.eyebrow }}
+      </div>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="science-closing__heading">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.text != blank %}
+      <div class="science-closing__text">
+        {{ section.settings.text }}
+      </div>
+    {% endif %}
+
+    {% if section.settings.quote != blank %}
+      <div class="science-closing__quote">
+        {{ section.settings.quote }}
+      </div>
+    {% endif %}
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Science Closing",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The Mirellis Philosophy"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Science at the Forefront. Ritual at the Center."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Mirellis explores the relationship between sensory environments, nervous system rhythms, ritual repetition, and modern restoration.</p><p>Rooted in both contemporary research and the slower intelligence of Ayurveda, our work focuses on how everyday signals shape the way the body feels, slows, and restores.</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Closing Quote",
+      "default": "The body remembers what the environment repeats."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Science Closing"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,18 @@
+<script>
+if (!window.mcBaseInit) {
+  window.mcBaseInit = true;
+  document.addEventListener('DOMContentLoaded', function() {
+    var io = null;
+    if ('IntersectionObserver' in window) {
+      io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { e.target.classList.add('mc-on'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+    }
+    document.querySelectorAll('[data-mc-reveal]').forEach(function(el) {
+      if (io) { io.observe(el); } else { el.classList.add('mc-on'); }
+    });
+  });
+}
+</script>

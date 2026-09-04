@@ -1,0 +1,87 @@
+{%- comment -%}
+  MIRELLIS — PDP RITUAL  (Product Experience OS · reusable)
+  Book I: Journey 5→8 (Evaluation→Post-purchase) · resolves Uncertainty 5 (Usage), 12 (Ritual) · Dim A+B.
+  The how, made effortless: a numbered sequence + the meaning of repetition. Up to 6 steps, empty-safe.
+  All copy is settings; no icons; institutional numerals.
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+<section class="pdrt">
+  <div class="pdrt__inner">
+    {%- if s.eyebrow != blank -%}<div class="pdrt__eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+    {%- if s.lead != blank -%}<p class="pdrt__lead">{{ s.lead }}</p>{%- endif -%}
+
+    <ol class="pdrt__steps">
+      {%- for i in (1..6) -%}
+        {%- assign tk = 'step_' | append: i | append: '_title' -%}
+        {%- assign title = s[tk] -%}
+        {%- if title != blank -%}
+          {%- assign bk = 'step_' | append: i | append: '_body' -%}
+          <li class="pdrt__step">
+            <span class="pdrt__num">{{ i }}</span>
+            <div class="pdrt__stepbody">
+              <span class="pdrt__steptitle">{{ title }}</span>
+              {%- if s[bk] != blank -%}<span class="pdrt__steptext">{{ s[bk] }}</span>{%- endif -%}
+            </div>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ol>
+
+    {%- if s.meaning != blank -%}<div class="pdrt__meaning">{{ s.meaning }}</div>{%- endif -%}
+
+    {%- if s.expand_label != blank and s.expand_url != blank -%}
+      <div class="pdrt__links"><a href="{{ s.expand_url }}">{{ s.expand_label }}</a></div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .pdrt { background: var(--ml-color-warm-paper); padding-block: clamp(3.5rem, 8vw, 6.5rem); border-top: 1px solid var(--ml-color-border-soft); }
+  .pdrt__inner { max-width: 680px; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2rem); }
+  .pdrt__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1.5rem; }
+  .pdrt__lead { font-size: clamp(1.15rem, 2.4vw, 1.4rem); font-weight: 300; line-height: 1.5; color: var(--ml-color-soft-charcoal); margin: 0 0 2.5rem; max-width: 42ch; }
+  .pdrt__steps { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ml-color-border-soft); }
+  .pdrt__step { display: grid; grid-template-columns: 2.5rem 1fr; gap: 1.25rem; padding: 1.6rem 0; border-bottom: 1px solid var(--ml-color-border-soft); align-items: start; }
+  .pdrt__num { font-size: 1.1rem; font-weight: 300; color: var(--ml-color-muted-earth); line-height: 1.3; }
+  .pdrt__stepbody { display: flex; flex-direction: column; gap: 0.4rem; }
+  .pdrt__steptitle { font-size: 1.05rem; font-weight: 500; color: var(--ml-color-soft-charcoal); }
+  .pdrt__steptext { font-size: 1rem; line-height: 1.8; color: var(--ml-color-text-secondary); }
+  .pdrt__meaning { margin-top: 2.5rem; }
+  .pdrt__meaning p { font-size: clamp(1.05rem, 2.2vw, 1.25rem); font-weight: 300; line-height: 1.65; color: var(--ml-color-soft-charcoal); margin: 0; max-width: 52ch; }
+  .pdrt__links { margin-top: 2rem; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .pdrt__links a { color: var(--ml-color-soft-charcoal); text-underline-offset: 3px; }
+</style>
+
+{% schema %}
+{
+  "name": "PDP · Ritual",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The ritual" },
+    { "type": "inline_richtext", "id": "lead", "label": "Lead", "default": "Five to ten minutes, performed on waking — before the phone, before food, before caffeine." },
+    { "type": "header", "content": "Step 1" },
+    { "type": "text", "id": "step_1_title", "label": "Title", "default": "Take" },
+    { "type": "text", "id": "step_1_body", "label": "Body", "default": "One tablespoon of oil into the mouth." },
+    { "type": "header", "content": "Step 2" },
+    { "type": "text", "id": "step_2_title", "label": "Title", "default": "Swish" },
+    { "type": "text", "id": "step_2_body", "label": "Body", "default": "Slowly, for five to ten minutes. Let it move without force. Let the mind be quiet." },
+    { "type": "header", "content": "Step 3" },
+    { "type": "text", "id": "step_3_title", "label": "Title", "default": "Release & rinse" },
+    { "type": "text", "id": "step_3_body", "label": "Body", "default": "Spit it out; rinse with warm water." },
+    { "type": "header", "content": "Step 4" },
+    { "type": "text", "id": "step_4_title", "label": "Title" },
+    { "type": "text", "id": "step_4_body", "label": "Body" },
+    { "type": "header", "content": "Step 5" },
+    { "type": "text", "id": "step_5_title", "label": "Title" },
+    { "type": "text", "id": "step_5_body", "label": "Body" },
+    { "type": "header", "content": "Step 6" },
+    { "type": "text", "id": "step_6_title", "label": "Title" },
+    { "type": "text", "id": "step_6_body", "label": "Body" },
+    { "type": "header", "content": "Meaning + link" },
+    { "type": "richtext", "id": "meaning", "label": "Why repetition matters", "default": "<p>The warmth, the taste, and the rhythm are the same each morning. That sameness is the point: repetition is what turns a pleasant few minutes into a signal the body begins to anticipate.</p>" },
+    { "type": "text", "id": "expand_label", "label": "Expand link label", "default": "Making the ritual stick — where to keep it, when exactly, what to expect →" },
+    { "type": "url", "id": "expand_url", "label": "Expand link url" }
+  ],
+  "presets": [{ "name": "PDP · Ritual" }]
+}
+{% endschema %}

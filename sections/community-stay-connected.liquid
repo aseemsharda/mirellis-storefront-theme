@@ -1,0 +1,69 @@
+<section class="community-connect">
+
+  <div class="community-connect-inner">
+
+    <div class="community-section-label">
+      STAY CONNECTED
+    </div>
+
+    <h2 class="community-connect-heading">
+      Stay connected to the slower conversation.
+    </h2>
+
+    <div class="community-connect-text">
+      Occasional reflections, rituals, sound environments,
+      and quieter observations from the evolving Mirellis ecosystem.
+    </div>
+
+    <!-- FORM -->
+
+    {% form 'customer', class: 'community-connect-form' %}
+
+      <input
+        type="hidden"
+        name="contact[tags]"
+        value="community"
+      >
+
+      <div class="community-connect-fields">
+
+        <input
+          type="email"
+          name="contact[email]"
+          class="community-connect-input"
+          placeholder="Your email"
+          required
+        >
+
+        <button
+          type="submit"
+          class="community-connect-button"
+        >
+          Stay Connected
+        </button>
+
+      </div>
+
+      {% if form.posted_successfully? %}
+        <div class="community-success-message">
+          You’re now connected to the slower conversation.
+        </div>
+      {% endif %}
+
+    {% endform %}
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Community Stay Connected",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Community Stay Connected"
+    }
+  ]
+}
+{% endschema %}

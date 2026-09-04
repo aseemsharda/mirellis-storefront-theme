@@ -1,0 +1,211 @@
+{% stylesheet %}
+.mirellis-ending {
+  position: relative;
+  padding: 12rem 2rem;
+  background: #0b0a09;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Single settling light, held — no loop. */
+.mirellis-ending::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      90% 70% at 50% 38%,
+      rgba(196, 112, 72, 0.07),
+      rgba(196, 112, 72, 0.02) 40%,
+      transparent 60%
+    );
+  pointer-events: none;
+  opacity: 0;
+  animation: mirellis-ending-settle 2.6s ease forwards;
+}
+
+@keyframes mirellis-ending-settle {
+  to { opacity: 1; }
+}
+
+.mirellis-ending__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* Signature: a closing stroke that draws down toward the statement. */
+.mirellis-ending__mark {
+  width: 1px;
+  height: 0;
+  margin: 0 auto 3.5rem;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(196, 112, 72, 0.85)
+  );
+  animation: mirellis-ending-draw 1.6s ease 0.4s forwards;
+}
+
+@keyframes mirellis-ending-draw {
+  to { height: 4.5rem; }
+}
+
+.mirellis-ending__text {
+  font-family: var(--font-heading-family);
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+  color: #f4efe8;
+  font-weight: 400;
+  margin: 0 0 2.4rem;
+  text-wrap: balance;
+}
+
+.mirellis-ending__subtext {
+  max-width: 56ch;
+  margin: 0 auto 3.5rem;
+  font-size: 1rem;
+  line-height: 1.95;
+  color: rgba(255, 255, 255, 0.56);
+  text-wrap: pretty;
+}
+
+.mirellis-ending__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  padding-bottom: 0.45rem;
+  transition: color 0.4s ease;
+}
+
+.mirellis-ending__link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: rgba(196, 112, 72, 0.9);
+  transform: translateX(-50%);
+  transition: width 0.45s ease;
+}
+
+.mirellis-ending__link:hover,
+.mirellis-ending__link:focus-visible {
+  color: #fff;
+}
+
+.mirellis-ending__link:hover::after,
+.mirellis-ending__link:focus-visible::after {
+  width: 100%;
+}
+
+.mirellis-ending__link:focus-visible {
+  outline: 2px solid rgba(196, 112, 72, 0.9);
+  outline-offset: 8px;
+}
+
+.mirellis-ending__arrow {
+  transition: transform 0.4s ease;
+}
+
+.mirellis-ending__link:hover .mirellis-ending__arrow {
+  transform: translateX(4px);
+}
+
+@media screen and (max-width: 749px) {
+  .mirellis-ending {
+    padding: 7rem 1.4rem;
+  }
+  .mirellis-ending__mark {
+    margin-bottom: 2.6rem;
+  }
+  .mirellis-ending__text {
+    font-size: clamp(1.8rem, 8.5vw, 2.8rem);
+    line-height: 1.22;
+  }
+  .mirellis-ending__subtext {
+    font-size: 0.96rem;
+    line-height: 1.85;
+    margin-bottom: 2.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mirellis-ending::before {
+    animation: none;
+    opacity: 1;
+  }
+  .mirellis-ending__mark {
+    animation: none;
+    height: 4.5rem;
+  }
+  .mirellis-ending__arrow {
+    transition: none;
+  }
+}
+{% endstylesheet %}
+
+<section class="mirellis-ending">
+
+  <div class="mirellis-ending__inner">
+
+    <div class="mirellis-ending__mark" aria-hidden="true"></div>
+
+    <h2 class="mirellis-ending__text">{{ section.settings.heading }}</h2>
+
+    <div class="mirellis-ending__subtext">{{ section.settings.text }}</div>
+
+    {% if section.settings.link_label != blank %}
+      <a href="{{ section.settings.link_url }}" class="mirellis-ending__link">
+        {{ section.settings.link_label }}
+        <span class="mirellis-ending__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    {% endif %}
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Quiet Ending",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The body remembers what it repeatedly feels."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Mirellis is a Ritual Science Company. We study the transitions between human states \u2014 and build the rituals, sounds, and tools that make them familiar."
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Link Label",
+      "default": "Explore the transitions"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quiet Ending"
+    }
+  ]
+}
+{% endschema %}

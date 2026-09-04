@@ -1,0 +1,262 @@
+{%- comment -%}
+  MIRELLIS — THE METHOD
+  Ritual Science: repeated coherent sensory signaling.
+  Companion styles: assets/core-pages.css
+{%- endcomment -%}
+
+{{ 'core-pages.css' | asset_url | stylesheet_tag }}
+
+{%- assign signal_blocks = section.blocks | where: 'type', 'signal_item' -%}
+{%- assign entry_blocks  = section.blocks | where: 'type', 'entry_cta'   -%}
+
+<div class="cp">
+
+
+  {%- comment -%} ══ S01: HEADER ══════════════════════════════ {%- endcomment -%}
+
+  <header class="cp__header">
+    <div class="ml-container-reading">
+      <div class="ml-text-breathing">
+
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="cp-eyebrow ml-supporting-text">{{- section.settings.eyebrow -}}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h1 class="ml-display-heading ml-headline-soft">{{- section.settings.heading -}}</h1>
+        {%- endif -%}
+
+        {%- if section.settings.body != blank -%}
+          <p class="ml-contemplative-copy ml-copy-soft">{{- section.settings.body -}}</p>
+        {%- endif -%}
+
+      </div>
+    </div>
+  </header>
+
+
+  {%- comment -%} ══ S02: WHAT IS RITUAL SCIENCE ══════════════ {%- endcomment -%}
+
+  {%- if section.settings.science_heading != blank or section.settings.science_body != blank -%}
+    <section class="cp__text-block cp__text-block--alt">
+      <div class="ml-container-narrow">
+
+        {%- if section.settings.science_eyebrow != blank -%}
+          <p class="cp-eyebrow ml-supporting-text">{{- section.settings.science_eyebrow -}}</p>
+        {%- endif -%}
+
+        {%- if section.settings.science_heading != blank -%}
+          <h2 class="cp__section-heading ml-section-heading ml-headline-soft">{{- section.settings.science_heading -}}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.science_body != blank -%}
+          <div class="cp__body rte">{{- section.settings.science_body -}}</div>
+        {%- endif -%}
+
+      </div>
+    </section>
+  {%- endif -%}
+
+
+  {%- comment -%} ══ S03: THE SIGNAL ══════════════════════════ {%- endcomment -%}
+
+  {%- if signal_blocks.size > 0 -%}
+    <section class="cp__text-block">
+      <div class="ml-container-reading">
+
+        {%- if section.settings.signal_eyebrow != blank -%}
+          <p class="cp-eyebrow ml-supporting-text">{{- section.settings.signal_eyebrow -}}</p>
+        {%- endif -%}
+
+        {%- if section.settings.signal_heading != blank -%}
+          <h2 class="cp__section-heading ml-section-heading ml-headline-soft">{{- section.settings.signal_heading -}}</h2>
+        {%- endif -%}
+
+        <ol class="cp__numbered-list">
+          {%- for block in signal_blocks -%}
+            <li class="cp__numbered-item" {{ block.shopify_attributes }}>
+              <span class="cp__item-number ml-supporting-text">0{{- forloop.index -}}</span>
+              <div class="cp__item-content">
+                {%- if block.settings.signal_name != blank -%}
+                  <h3 class="cp__item-name">{{- block.settings.signal_name -}}</h3>
+                {%- endif -%}
+                {%- if block.settings.signal_description != blank -%}
+                  <p class="cp__item-desc ml-body-copy ml-copy-soft">{{- block.settings.signal_description -}}</p>
+                {%- endif -%}
+              </div>
+            </li>
+          {%- endfor -%}
+        </ol>
+
+      </div>
+    </section>
+  {%- endif -%}
+
+
+  {%- comment -%} ══ S04: THE ARCHITECTURE ════════════════════ {%- endcomment -%}
+
+  {%- if section.settings.arch_stage_1_title != blank or section.settings.arch_stage_2_title != blank or section.settings.arch_stage_3_title != blank -%}
+    <section class="cp__text-block cp__text-block--alt">
+      <div class="ml-container-reading">
+
+        {%- if section.settings.arch_eyebrow != blank -%}
+          <p class="cp-eyebrow ml-supporting-text">{{- section.settings.arch_eyebrow -}}</p>
+        {%- endif -%}
+
+        {%- if section.settings.arch_heading != blank -%}
+          <h2 class="cp__section-heading ml-section-heading ml-headline-soft">{{- section.settings.arch_heading -}}</h2>
+        {%- endif -%}
+
+        <ol class="cp__numbered-list">
+
+          {%- if section.settings.arch_stage_1_title != blank or section.settings.arch_stage_1_body != blank -%}
+            <li class="cp__numbered-item">
+              <span class="cp__item-number ml-supporting-text">01</span>
+              <div class="cp__item-content">
+                {%- if section.settings.arch_stage_1_title != blank -%}
+                  <h3 class="cp__item-name">{{- section.settings.arch_stage_1_title -}}</h3>
+                {%- endif -%}
+                {%- if section.settings.arch_stage_1_body != blank -%}
+                  <p class="cp__item-desc ml-body-copy ml-copy-soft">{{- section.settings.arch_stage_1_body -}}</p>
+                {%- endif -%}
+              </div>
+            </li>
+          {%- endif -%}
+
+          {%- if section.settings.arch_stage_2_title != blank or section.settings.arch_stage_2_body != blank -%}
+            <li class="cp__numbered-item">
+              <span class="cp__item-number ml-supporting-text">02</span>
+              <div class="cp__item-content">
+                {%- if section.settings.arch_stage_2_title != blank -%}
+                  <h3 class="cp__item-name">{{- section.settings.arch_stage_2_title -}}</h3>
+                {%- endif -%}
+                {%- if section.settings.arch_stage_2_body != blank -%}
+                  <p class="cp__item-desc ml-body-copy ml-copy-soft">{{- section.settings.arch_stage_2_body -}}</p>
+                {%- endif -%}
+              </div>
+            </li>
+          {%- endif -%}
+
+          {%- if section.settings.arch_stage_3_title != blank or section.settings.arch_stage_3_body != blank -%}
+            <li class="cp__numbered-item">
+              <span class="cp__item-number ml-supporting-text">03</span>
+              <div class="cp__item-content">
+                {%- if section.settings.arch_stage_3_title != blank -%}
+                  <h3 class="cp__item-name">{{- section.settings.arch_stage_3_title -}}</h3>
+                {%- endif -%}
+                {%- if section.settings.arch_stage_3_body != blank -%}
+                  <p class="cp__item-desc ml-body-copy ml-copy-soft">{{- section.settings.arch_stage_3_body -}}</p>
+                {%- endif -%}
+              </div>
+            </li>
+          {%- endif -%}
+
+        </ol>
+
+      </div>
+    </section>
+  {%- endif -%}
+
+
+  {%- comment -%} ══ S05: THE INSTRUMENTS (entry CTAs) ════════ {%- endcomment -%}
+
+  {%- if entry_blocks.size > 0 -%}
+    <section class="cp__entry">
+      <div class="ml-container-cinematic">
+
+        {%- if section.settings.entry_eyebrow != blank -%}
+          <p class="cp-eyebrow ml-supporting-text">{{- section.settings.entry_eyebrow -}}</p>
+        {%- endif -%}
+
+        {%- if section.settings.entry_heading != blank -%}
+          <h2 class="cp__section-heading ml-section-heading ml-headline-soft">{{- section.settings.entry_heading -}}</h2>
+        {%- endif -%}
+
+        <div class="cp__cta-grid">
+          {%- for block in entry_blocks -%}
+            <a href="{{ block.settings.link }}" class="cp__cta-card ml-soft-hover" {{ block.shopify_attributes }}>
+              <p class="cp__cta-index ml-supporting-text">0{{- forloop.index -}}</p>
+              {%- if block.settings.heading != blank -%}
+                <h3 class="cp__cta-heading">{{- block.settings.heading -}}</h3>
+              {%- endif -%}
+              {%- if block.settings.description != blank -%}
+                <p class="cp__cta-desc ml-body-copy ml-copy-soft">{{- block.settings.description -}}</p>
+              {%- endif -%}
+              {%- if block.settings.link_label != blank -%}
+                <span class="cp__cta-label ml-soft-cta">{{- block.settings.link_label -}}</span>
+              {%- endif -%}
+            </a>
+          {%- endfor -%}
+        </div>
+
+      </div>
+    </section>
+  {%- endif -%}
+
+
+</div>
+
+
+{% schema %}
+{
+  "name": "The Method",
+  "settings": [
+    {
+      "type": "header", "content": "S01 — Header"
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "THE MIRELLIS METHOD" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "The body responds to signals faster than instructions." },
+    { "type": "textarea", "id": "body", "label": "Body" },
+    {
+      "type": "header", "content": "S02 — What Is Ritual Science"
+    },
+    { "type": "text", "id": "science_eyebrow", "label": "Eyebrow", "default": "RITUAL SCIENCE" },
+    { "type": "textarea", "id": "science_heading", "label": "Heading" },
+    { "type": "richtext", "id": "science_body", "label": "Body" },
+    {
+      "type": "header", "content": "S03 — The Signal"
+    },
+    { "type": "text", "id": "signal_eyebrow", "label": "Eyebrow", "default": "THE SIGNAL" },
+    { "type": "textarea", "id": "signal_heading", "label": "Heading" },
+    {
+      "type": "header", "content": "S04 — The Architecture"
+    },
+    { "type": "text", "id": "arch_eyebrow", "label": "Eyebrow", "default": "THE ARCHITECTURE" },
+    { "type": "textarea", "id": "arch_heading", "label": "Heading" },
+    { "type": "text", "id": "arch_stage_1_title", "label": "Stage 1 — title" },
+    { "type": "textarea", "id": "arch_stage_1_body", "label": "Stage 1 — body" },
+    { "type": "text", "id": "arch_stage_2_title", "label": "Stage 2 — title" },
+    { "type": "textarea", "id": "arch_stage_2_body", "label": "Stage 2 — body" },
+    { "type": "text", "id": "arch_stage_3_title", "label": "Stage 3 — title" },
+    { "type": "textarea", "id": "arch_stage_3_body", "label": "Stage 3 — body" },
+    {
+      "type": "header", "content": "S05 — The Instruments"
+    },
+    { "type": "text", "id": "entry_eyebrow", "label": "Eyebrow", "default": "THE INSTRUMENTS" },
+    { "type": "textarea", "id": "entry_heading", "label": "Heading", "default": "Three transitions. Three ritual tools." }
+  ],
+  "blocks": [
+    {
+      "type": "signal_item",
+      "name": "Signal",
+      "limit": 5,
+      "settings": [
+        { "type": "text", "id": "signal_name", "label": "Signal name" },
+        { "type": "textarea", "id": "signal_description", "label": "Description" }
+      ]
+    },
+    {
+      "type": "entry_cta",
+      "name": "Entry CTA",
+      "limit": 3,
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading" },
+        { "type": "textarea", "id": "description", "label": "Description" },
+        { "type": "url", "id": "link", "label": "Link" },
+        { "type": "text", "id": "link_label", "label": "Link label", "default": "Explore →" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "The Method" }]
+}
+{% endschema %}

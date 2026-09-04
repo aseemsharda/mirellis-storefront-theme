@@ -1,0 +1,146 @@
+<section class="ingredient-closing">
+
+  <div class="ingredient-closing__atmosphere"></div>
+
+  <div class="page-width">
+
+    <div class="ingredient-closing__inner">
+
+      <div class="ingredient-closing__line"></div>
+
+      <p class="ingredient-closing__text">
+        {{ section.settings.text }}
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.ingredient-closing {
+  position: relative;
+  overflow: hidden;
+  padding: 260px 0 280px;
+  background:
+    linear-gradient(
+      to bottom,
+      #efe9e1 0%,
+      #f8f4ef 100%
+    );
+}
+
+.ingredient-closing__atmosphere {
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  top: -420px;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: blur(130px);
+  pointer-events: none;
+}
+
+.ingredient-closing__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ingredient-closing__line {
+  width: 1px;
+  height: 90px;
+  background: rgba(0,0,0,0.08);
+  margin: 0 auto 80px;
+}
+
+.ingredient-closing__text {
+  max-width: 920px;
+  margin: 0 auto;
+  font-size: 58px;
+  line-height: 1.42;
+  letter-spacing: -2px;
+  color: #1f1b18;
+  font-weight: 300;
+}
+
+@media screen and (max-width: 1200px) {
+
+  .ingredient-closing__text {
+    font-size: 50px;
+  }
+
+}
+
+@media screen and (max-width: 990px) {
+
+  .ingredient-closing {
+    padding: 180px 28px 200px;
+  }
+
+  .ingredient-closing__line {
+    height: 70px;
+    margin-bottom: 60px;
+  }
+
+  .ingredient-closing__text {
+    font-size: 40px;
+    line-height: 1.48;
+    letter-spacing: -1.4px;
+  }
+
+}
+
+@media screen and (max-width: 749px) {
+
+  .ingredient-closing {
+    padding: 130px 22px 150px;
+  }
+
+  .ingredient-closing__atmosphere {
+    width: 700px;
+    height: 700px;
+    top: -320px;
+    filter: blur(90px);
+  }
+
+  .ingredient-closing__line {
+    height: 52px;
+    margin-bottom: 42px;
+  }
+
+  .ingredient-closing__text {
+    font-size: 28px;
+    line-height: 1.62;
+    letter-spacing: -0.6px;
+    max-width: 100%;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Closing Statement",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Closing Text",
+      "default": "The body responds to repeated sensory signals before conscious intention. Rituals begin long before the mind gives them language."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Closing Statement"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,119 @@
+<section class="sound-closing">
+
+  <div class="sound-closing__container">
+
+    <p class="sound-closing__eyebrow">
+      {{ section.settings.eyebrow }}
+    </p>
+
+    <h2 class="sound-closing__heading">
+      {{ section.settings.heading }}
+    </h2>
+
+    <div class="sound-closing__text rte">
+      {{ section.settings.text }}
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.sound-closing {
+  background: #faf7f2;
+  color: #1a1a18;
+  padding: 240px 80px;
+  text-align: center;
+  position: relative;
+}
+
+.sound-closing__container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.sound-closing__eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  opacity: 0.45;
+  margin-bottom: 34px;
+}
+
+.sound-closing__heading {
+  font-size: clamp(48px, 7vw, 110px);
+  line-height: 0.96;
+  letter-spacing: -0.05em;
+  font-weight: 400;
+  margin: 0 auto 42px;
+  max-width: 920px;
+}
+
+.sound-closing__text {
+  font-size: 18px;
+  line-height: 2;
+  color: rgba(245,241,235,0.68);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.sound-closing__text p {
+  margin-top: 0;
+  margin-bottom: 22px;
+}
+
+.sound-closing__text p:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 990px) {
+
+  .sound-closing {
+    padding: 160px 28px;
+  }
+
+  .sound-closing__heading {
+    font-size: 52px;
+    line-height: 1;
+    margin-bottom: 30px;
+  }
+
+  .sound-closing__text {
+    font-size: 15px;
+    line-height: 1.85;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Sound Closing",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "MIRELLIS SOUND"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Before the body slows, it listens."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sound Closing"
+    }
+  ]
+}
+{% endschema %}

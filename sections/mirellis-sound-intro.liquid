@@ -1,0 +1,104 @@
+<!-- MIRELLIS SOUND — LAYER 1: WHY SOUND? -->
+<style>
+.msi-section-{{ section.id }} {
+  background: {{ section.settings.bg_color }};
+  padding: 100px 2rem 80px;
+  border-bottom: 1px solid #ddd6cc;
+}
+.msi-wrap-{{ section.id }} {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.msi-eyebrow-{{ section.id }} {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #8b6f47;
+  margin: 0 0 28px 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.msi-eyebrow-{{ section.id }}::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ddd6cc;
+  max-width: 120px;
+}
+.msi-heading-{{ section.id }} {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  max-width: 16ch;
+  margin: 0 0 44px 0;
+  color: #1a1a18;
+}
+.msi-body-{{ section.id }} {
+  max-width: 52ch;
+  line-height: 1.85;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #3a3a36;
+}
+.msi-body-{{ section.id }} p {
+  margin: 0 0 1.6rem 0;
+}
+.msi-body-{{ section.id }} p:last-child {
+  margin: 0;
+  color: #6b6b66;
+}
+@media (max-width: 640px) {
+  .msi-section-{{ section.id }} { padding: 64px 1.5rem 52px; }
+  .msi-heading-{{ section.id }} { font-size: clamp(24px, 6vw, 34px); margin-bottom: 36px; }
+  .msi-eyebrow-{{ section.id }} { margin-bottom: 24px; }
+  .msi-eyebrow-{{ section.id }}::after { max-width: 64px; }
+  .msi-body-{{ section.id }} { line-height: 1.8; }
+}
+</style>
+
+<div class="msi-section-{{ section.id }}">
+  <div class="msi-wrap-{{ section.id }}">
+    <p class="msi-eyebrow-{{ section.id }}">{{ section.settings.eyebrow }}</p>
+    <h2 class="msi-heading-{{ section.id }}">{{ section.settings.heading }}</h2>
+    <div class="msi-body-{{ section.id }}">
+      {{ section.settings.body }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Sound Intro",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The Sound Observatory"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Sound?"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Sound is an environmental signal. It changes how a room feels before you consciously notice it.</p><p>When sound changes, attention changes. When attention changes, pace changes. The nervous system responds to these shifts faster than meaning arrives — before you interpret what's happening.</p><p>The question is not whether sound matters. The question is how sound participates in Human State Transitions — the moments between sleep and waking, between work and recovery, between stimulation and restoration.</p><p>Mirellis studies this relationship. The sections below show what we've learned. And how you can help us learn more.</p>"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#faf7f2"
+    }
+  ],
+  "presets": [{ "name": "Sound Intro" }]
+}
+{% endschema %}

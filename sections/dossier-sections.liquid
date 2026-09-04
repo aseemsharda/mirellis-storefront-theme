@@ -1,0 +1,274 @@
+{% comment %}
+Dossier Sections
+Main content sections for intervention logic dossiers
+{% endcomment %}
+
+<section class="dossier-content">
+  <div class="dossier-content__container">
+
+    <div class="dossier-content__section" id="protocol">
+      <h2 class="dossier-content__section-title">The Protocol</h2>
+
+      <div class="dossier-content__step">
+        <div class="dossier-content__step-number">1</div>
+        <div class="dossier-content__step-content">
+          <h3 class="dossier-content__step-title">Preparation (1 minute)</h3>
+          <p class="dossier-content__step-text">
+            Run cold water at your preferred starting temperature. If you're new to cold exposure, start at 15°C (59°F). Experienced users can begin at 10°C (50°F) or lower. Ensure the water reaches your entire body or at minimum your face, neck, and upper torso.
+          </p>
+          <p class="dossier-content__step-text">
+            Wear minimal clothing. You're about to activate your sympathetic nervous system—the physical sensation is part of the effect.
+          </p>
+        </div>
+      </div>
+
+      <div class="dossier-content__step">
+        <div class="dossier-content__step-number">2</div>
+        <div class="dossier-content__step-content">
+          <h3 class="dossier-content__step-title">Initial Exposure (1–2 minutes)</h3>
+          <p class="dossier-content__step-text">
+            Enter the cold water and immerse as much of your body as safely possible. The first 30 seconds will feel intense. Your breathing will spike, your heart rate will elevate. This is the activation signal.
+          </p>
+          <p class="dossier-content__step-text">
+            Focus on controlled breathing. Avoid gasping or hyperventilation. Your vagus nerve is detecting the stimulus and signaling an alert state. This is the desired effect.
+          </p>
+        </div>
+      </div>
+
+      <div class="dossier-content__step">
+        <div class="dossier-content__step-number">3</div>
+        <div class="dossier-content__step-content">
+          <h3 class="dossier-content__step-title">Graduated Exposure (3–10 minutes)</h3>
+          <p class="dossier-content__step-text">
+            Remain in the cold water for 3–10 minutes depending on your adaptation level. Beginners: 3–5 minutes. Intermediate: 5–8 minutes. Advanced: 8–15 minutes.
+          </p>
+          <p class="dossier-content__step-text">
+            Your body will begin to adapt. You'll notice your breathing normalizes, your core temperature stabilizes, and a sense of control emerges. You're training your nervous system to respond to stress without panic.
+          </p>
+        </div>
+      </div>
+
+      <div class="dossier-content__step">
+        <div class="dossier-content__step-number">4</div>
+        <div class="dossier-content__step-content">
+          <h3 class="dossier-content__step-title">Exit and Recovery (2–3 minutes)</h3>
+          <p class="dossier-content__step-text">
+            Exit the water gradually. Don't rush. Your core is now warmer than baseline, and your sympathetic nervous system is fully activated. Dry off quickly and put on warm clothes.
+          </p>
+          <p class="dossier-content__step-text">
+            You'll notice a warm flush spreading through your body as peripheral blood vessels dilate. This is thermogenesis—your body burning metabolic fuel to generate heat. This elevated state persists for 15–30 minutes, creating an ideal window for morning activity.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dossier-content__section">
+      <h2 class="dossier-content__section-title">Adaptation Timeline</h2>
+
+      <div class="dossier-content__timeline">
+        <div class="dossier-content__timeline-item">
+          <span class="dossier-content__timeline-week">Week 1–2</span>
+          <p>Shock and discomfort. Your first exposures will feel unpleasant. This is normal. Your body hasn't developed the adaptation response yet. Persist with shorter durations (3 minutes max).</p>
+        </div>
+        <div class="dossier-content__timeline-item">
+          <span class="dossier-content__timeline-week">Week 3–4</span>
+          <p>Habituation begins. The shock response diminishes. You'll notice shorter breath-hold latency and faster heart-rate recovery. Temperature tolerance increases.</p>
+        </div>
+        <div class="dossier-content__timeline-item">
+          <span class="dossier-content__timeline-week">Week 5+</span>
+          <p>Adaptation complete. Cold exposure becomes a controlled stimulus rather than a threat. You can extend duration and lower temperature. The wakefulness effect becomes more reliable and pronounced.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dossier-content__section">
+      <h2 class="dossier-content__section-title">Safety & Contraindications</h2>
+
+      <div class="dossier-content__warning">
+        <strong>Do not use cold exposure if you have:</strong>
+        <ul>
+          <li>Cardiovascular disease or uncontrolled hypertension</li>
+          <li>Respiratory conditions triggered by cold air (asthma, reactive airway disease)</li>
+          <li>Uncontrolled diabetes</li>
+          <li>Pregnancy</li>
+          <li>Open wounds or skin infections</li>
+        </ul>
+      </div>
+
+      <p class="dossier-content__section-text">
+        Cold exposure triggers a significant sympathetic nervous system response. If you have any cardiac risk factors, consult your physician before beginning. The initial shock can elevate blood pressure and heart rate substantially.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .dossier-content {
+    padding: 4rem 2rem;
+    background: #fff;
+  }
+
+  .dossier-content__container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .dossier-content__section {
+    margin-bottom: 3rem;
+  }
+
+  .dossier-content__section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #1a1a18;
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(26, 26, 24, 0.1);
+  }
+
+  .dossier-content__step {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .dossier-content__step-number {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #faf7f2;
+    border-radius: 50%;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #1a1a18;
+    font-weight: 400;
+  }
+
+  .dossier-content__step-content {
+    flex: 1;
+  }
+
+  .dossier-content__step-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a18;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .dossier-content__step-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #666;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .dossier-content__step-text:last-child {
+    margin-bottom: 0;
+  }
+
+  .dossier-content__timeline {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .dossier-content__timeline-item {
+    padding: 1.5rem;
+    background: #faf7f2;
+    border-radius: 4px;
+  }
+
+  .dossier-content__timeline-week {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: #1a1a18;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .dossier-content__timeline-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #666;
+    margin: 0;
+  }
+
+  .dossier-content__warning {
+    padding: 1.5rem;
+    background: rgba(245, 166, 35, 0.08);
+    border-left: 4px solid #f5a623;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+  }
+
+  .dossier-content__warning strong {
+    display: block;
+    color: #1a1a18;
+    margin-bottom: 0.75rem;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .dossier-content__warning ul {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+
+  .dossier-content__warning li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+
+  .dossier-content__section-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #666;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .dossier-content {
+      padding: 3rem 1.5rem;
+    }
+
+    .dossier-content__section-title {
+      font-size: 1.3rem;
+    }
+
+    .dossier-content__step {
+      gap: 1rem;
+      flex-direction: column;
+    }
+
+    .dossier-content__step-number {
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+    }
+
+    .dossier-content__step-title {
+      font-size: 1rem;
+    }
+
+    .dossier-content__warning {
+      padding: 1rem;
+      border-left-width: 3px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Dossier Sections",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,197 @@
+{% stylesheet %}
+
+.science-editorial {
+  padding: 160px 60px;
+  background: #f5f1eb;
+}
+
+.science-editorial__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 96px;
+  align-items: center;
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.science-editorial--reverse .science-editorial__media {
+  order: 2;
+}
+
+.science-editorial--reverse .science-editorial__content {
+  order: 1;
+}
+
+.science-editorial__media {
+  position: relative;
+}
+
+.science-editorial__image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.science-editorial__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.science-editorial__content {
+  max-width: 560px;
+}
+
+.science-editorial__eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(30, 26, 22, 0.52);
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.science-editorial__heading {
+  font-family: var(--heading-font-family);
+  font-size: clamp(40px, 4.6vw, 72px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #1d1a17;
+  margin: 0;
+  font-weight: 400;
+}
+
+.science-editorial__text {
+  margin-top: 36px;
+  font-size: 18px;
+  line-height: 1.95;
+  color: rgba(29, 26, 23, 0.78);
+}
+
+.science-editorial__text p {
+  margin: 0 0 26px;
+}
+
+.science-editorial__text p:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 999px) {
+
+  .science-editorial {
+    padding: 80px 24px;
+  }
+
+  .science-editorial__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .science-editorial--reverse .science-editorial__media,
+  .science-editorial--reverse .science-editorial__content {
+    order: initial;
+  }
+
+  .science-editorial__heading {
+    font-size: 46px;
+    line-height: 1.04;
+  }
+
+  .science-editorial__text {
+    font-size: 16px;
+    line-height: 1.85;
+    margin-top: 28px;
+  }
+
+}
+
+{% endstylesheet %}
+
+<section class="science-editorial {% if section.settings.reverse_layout %}science-editorial--reverse{% endif %}">
+
+  <div class="science-editorial__grid">
+
+    <div class="science-editorial__media">
+
+      {% if section.settings.image != blank %}
+        <div class="science-editorial__image-wrapper">
+          {{
+            section.settings.image
+            | image_url: width: 1800
+            | image_tag:
+            loading: 'lazy',
+            widths: '900, 1200, 1500, 1800',
+            class: 'science-editorial__image'
+          }}
+        </div>
+      {% endif %}
+
+    </div>
+
+    <div class="science-editorial__content">
+
+      {% if section.settings.eyebrow != blank %}
+        <div class="science-editorial__eyebrow">
+          {{ section.settings.eyebrow }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h2 class="science-editorial__heading">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.text != blank %}
+        <div class="science-editorial__text">
+          {{ section.settings.text }}
+        </div>
+      {% endif %}
+
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Science Editorial",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "reverse_layout",
+      "label": "Reverse Layout",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Nervous System Science"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Modern Life Rarely Slows Gradually"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>The nervous system was not designed for constant transitions between stimulation, information, light, sound, and interruption.</p><p>Modern environments compress the spaces between experiences — leaving very little room for gradual psychological slowing.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Science Editorial"
+    }
+  ]
+}
+{% endschema %}

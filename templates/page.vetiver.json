@@ -1,0 +1,140 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "ingredient-hero",
+      "settings": {
+        "title": "Vetiver — The Depth of Nervous System Stillness",
+        "description": "<p>Some ingredients do not create energy or clarity. They slow internal movement instead — creating depth, heaviness, and quieter emotional pacing within the body itself.</p>"
+      }
+    },
+
+    "philosophy": {
+      "type": "ingredient-philosophy",
+      "settings": {
+        "text": "<p>Vetiver has historically been associated with cooling, grounding, stillness, and emotional settling. Within Mirellis formulations, Vetiver is approached not simply as an aromatic ingredient, but as part of the sensory architecture of nervous-system depth itself.</p><p>Modern environments often keep the body in continuous stimulation — rapid attention shifts, informational density, sensory acceleration, and internal agitation. Mirellis approaches ritual differently. The intention is not activation, but descent.</p><p>Vetiver introduces slowness into the emotional atmosphere of ritual. The sensory profile feels deeper, quieter, more rooted beneath conscious thought. Rather than stimulating movement, the experience encourages settling.</p><p>Over repeated use, the body begins recognizing these slower sensory rhythms as familiar and emotionally stabilizing. The ritual becomes associated with internal stillness rather than stimulation.</p>"
+      }
+    },
+
+    "image_break_1": {
+      "type": "ingredient-image-break",
+      "settings": {
+        "caption": "Stillness often begins as a physical sensation long before it becomes conscious awareness."
+      }
+    },
+
+    "ritual_practice": {
+      "type": "ingredient-ritual-practice",
+      "settings": {
+        "text": "<p>Before conscious thought fully organizes itself, the body has already begun responding to depth, temperature, texture, aroma, and emotional pacing. Rituals are often recognized physiologically before they are consciously interpreted.</p><p>Within ritual practice, Vetiver creates a slower and more grounded internal atmosphere. The experience feels cooler, deeper, and less mentally accelerated. Sensory movement becomes quieter through repetition.</p><p>Over time, the nervous system begins associating these repeated sensory environments with emotional settling itself. The ritual becomes less about activity and more about internal descent into coherence.</p>"
+      }
+    },
+
+    "roles": {
+      "type": "ingredient-roles",
+      "blocks": {
+        "role_1": {
+          "type": "role",
+          "settings": {
+            "title": "Nervous System Settling",
+            "description": "<p>Vetiver creates a slower emotional atmosphere through depth, coolness, and grounded sensory pacing.</p>"
+          }
+        },
+
+        "role_2": {
+          "type": "role",
+          "settings": {
+            "title": "Emotional Depth",
+            "description": "<p>The aromatic profile introduces stillness beneath conscious mental activity through repeated ritual familiarity.</p>"
+          }
+        },
+
+        "role_3": {
+          "type": "role",
+          "settings": {
+            "title": "Formulation Grounding",
+            "description": "<p>Vetiver stabilizes lighter aromatic notes within the formulation architecture while supporting emotional coherence.</p>"
+          }
+        },
+
+        "role_4": {
+          "type": "role",
+          "settings": {
+            "title": "Ritual Descent",
+            "description": "<p>Within Mirellis Ritual Systems, Vetiver helps create a slower transition away from internal overstimulation.</p>"
+          }
+        }
+      },
+
+      "block_order": [
+        "role_1",
+        "role_2",
+        "role_3",
+        "role_4"
+      ],
+
+      "settings": {}
+    },
+
+    "research": {
+      "type": "ingredient-research-notes",
+      "blocks": {
+        "note_1": {
+          "type": "note",
+          "settings": {
+            "title": "Vetiver & Aromatic Nervous System Research",
+            "text": "<p>Vetiver has been explored within aromatic and sensory research discussions related to emotional regulation, environmental grounding, and perceived calmness. Certain aromatic profiles may influence how the nervous system interprets sensory safety and pacing over repeated exposure.</p>"
+          }
+        },
+
+        "note_2": {
+          "type": "note",
+          "settings": {
+            "title": "Traditional Cooling & Grounding Context",
+            "text": "<p>Historically, Vetiver has been associated with cooling environments, grounding rituals, and slower sensory pacing across traditional practices. Within Mirellis formulations, Vetiver is approached through this wider relationship between atmosphere, repetition, and emotional settling.</p>"
+          }
+        }
+      },
+
+      "block_order": [
+        "note_1",
+        "note_2"
+      ],
+
+      "settings": {}
+    },
+
+    "ritual_connection": {
+      "type": "editorial-ritual-connection",
+      "settings": {
+        "label": "Ritual Connection",
+        "title": "Stillness deepens through slower emotional descent.",
+        "text": "<p>Vetiver exists within Mirellis not simply as an aromatic ingredient, but as part of a ritual environment shaped around nervous-system slowing, sensory depth, emotional grounding, and internal settling.</p><p>Through repeated ritual exposure, the body gradually begins recognizing slower sensory rhythms as emotionally stabilizing. Stillness becomes associated with depth rather than absence.</p>",
+        "link_label": "Explore Ingredient Atmospheres",
+        "link": "/pages/ingredient-atmospheres"
+      }
+    },
+
+    "closing": {
+      "type": "ingredient-closing-statement",
+      "settings": {
+        "text": "The nervous system recognizes depth through repetition, slowness, and sensory familiarity. Stillness often begins beneath conscious thought."
+      }
+    }
+  },
+
+  "order": [
+    "hero",
+    "philosophy",
+    "image_break_1",
+    "ritual_practice",
+    "roles",
+    "research",
+    "ritual_connection",
+    "closing"
+  ]
+}

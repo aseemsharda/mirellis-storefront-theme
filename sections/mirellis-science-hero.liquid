@@ -1,0 +1,144 @@
+<section class="mi-science-hero">
+
+  <div class="container">
+
+    <div class="mi-science-inner">
+
+      {% if section.settings.eyebrow != blank %}
+        <p class="mi-science-eyebrow">
+          {{ section.settings.eyebrow }}
+        </p>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h1 class="mi-science-title">
+          {{ section.settings.heading }}
+        </h1>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <div class="mi-science-description">
+          {{ section.settings.description }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.button_label != blank %}
+        <a
+          href="{{ section.settings.button_link }}"
+          class="mi-science-button"
+        >
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.mi-science-hero{
+  padding:140px 0;
+}
+
+.mi-science-inner{
+  max-width:900px;
+}
+
+.mi-science-eyebrow{
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  opacity:.6;
+  margin-bottom:16px;
+}
+
+.mi-science-title{
+  font-size:72px;
+  line-height:1.05;
+  margin-bottom:32px;
+}
+
+.mi-science-description{
+  font-size:22px;
+  line-height:1.8;
+  opacity:.8;
+  max-width:750px;
+}
+
+.mi-science-button{
+  display:inline-flex;
+  margin-top:40px;
+  text-decoration:none;
+  color:inherit;
+  border-bottom:1px solid currentColor;
+  padding-bottom:4px;
+}
+
+@media(max-width:990px){
+
+  .mi-science-title{
+    font-size:52px;
+  }
+
+}
+
+@media(max-width:749px){
+
+  .mi-science-hero{
+    padding:90px 0;
+  }
+
+  .mi-science-title{
+    font-size:40px;
+  }
+
+  .mi-science-description{
+    font-size:18px;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Mirellis Science Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Mirellis Institute"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Science, Observation & Human Experience"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Explore Research Domains"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mirellis Science Hero"
+    }
+  ]
+}
+{% endschema %}

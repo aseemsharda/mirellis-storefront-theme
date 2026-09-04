@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { MirellisBrand } from '@/components/MirellisBrand';
 
 type ExerciseId = 'return-point' | 'cue-break' | 'boundary-sort';
 type View = 'today' | 'commit' | 'exercise' | 'field' | 'complete';
@@ -132,7 +133,7 @@ export function TrainingPrototype() {
   return <main className="training-shell">
     <p className="sr-status" role="status" aria-live="polite">{status}</p>
     <header className="training-header">
-      <button className="wordmark" onClick={() => setView('today')} aria-label="Return to training today">MIRELLIS</button>
+      <button className="wordmark" onClick={() => setView('today')} aria-label="Return to training today"><MirellisBrand /></button>
       <span>Training prototype</span>
       <button className="training-text-control" onClick={() => setView('today')}>Today</button>
     </header>

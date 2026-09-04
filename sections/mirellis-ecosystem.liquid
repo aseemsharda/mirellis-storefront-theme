@@ -1,0 +1,97 @@
+{%- comment -%}
+  MIRELLIS — ECOSYSTEM  (fully editable in theme editor)
+  Every field exposed as a section setting. Participants are persona_1..persona_8
+  (who + what). Self-contained styles, tokens.
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+<div class="eco">
+
+  <section class="eco__hero">
+    <div class="eco__inner">
+      {%- if s.eyebrow != blank -%}<div class="eco__eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+      {%- if s.title != blank -%}<h1 class="eco__title">{{ s.title }}</h1>{%- endif -%}
+      {%- if s.lede != blank -%}<p class="eco__lede">{{ s.lede }}</p>{%- endif -%}
+    </div>
+  </section>
+
+  <section class="eco__body">
+    <div class="eco__inner">
+      <ul class="eco__list">
+        {%- for i in (1..8) -%}
+          {%- assign wk = 'persona_' | append: i | append: '_who' -%}
+          {%- assign xk = 'persona_' | append: i | append: '_what' -%}
+          {%- assign who = section.settings[wk] -%}
+          {%- assign what = section.settings[xk] -%}
+          {%- if who != blank -%}
+            <li class="eco__row"><div class="eco__who">{{ who }}</div><div class="eco__what">{{ what }}</div></li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+  </section>
+
+  <section class="eco__cta-wrap">
+    <div class="eco__inner">
+      {%- if s.cta_eyebrow != blank -%}<div class="eco__eyebrow">{{ s.cta_eyebrow }}</div>{%- endif -%}
+      {%- if s.cta_line != blank -%}<p class="eco__cta-line">{{ s.cta_line }}</p>{%- endif -%}
+      {%- if s.cta_label != blank and s.cta_url != blank -%}
+        <p class="eco__cta"><a href="{{ s.cta_url }}">{{ s.cta_label }}</a></p>
+      {%- endif -%}
+    </div>
+  </section>
+
+</div>
+
+<style>
+  .eco { background: var(--ml-color-warm-paper); }
+  .eco__inner { max-width: 760px; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2rem); }
+  .eco__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1.75rem; }
+  .eco__hero { padding-block: clamp(5rem, 10vw, 8rem) clamp(2rem, 4vw, 3rem); }
+  .eco__title { font-size: clamp(2rem, 4.4vw, 3rem); font-weight: 300; letter-spacing: -0.01em; line-height: 1.2; color: var(--ml-color-soft-charcoal); margin: 0 0 1.5rem; max-width: 20ch; }
+  .eco__lede { font-size: clamp(1.15rem, 2.4vw, 1.4rem); font-weight: 300; line-height: 1.55; color: var(--ml-color-text-secondary); max-width: 52ch; margin: 0; }
+  .eco__body { padding-block: clamp(2rem, 4vw, 3rem) clamp(3rem, 6vw, 5rem); }
+  .eco__list { list-style: none; margin: 0; padding: 0; }
+  .eco__row { display: grid; grid-template-columns: 1fr; gap: 0.4rem; padding-block: 1.75rem; border-top: 1px solid var(--ml-color-border-soft); }
+  @media (min-width: 720px) { .eco__row { grid-template-columns: 220px 1fr; gap: 2rem; align-items: start; } }
+  .eco__who { font-size: 1.05rem; font-weight: 500; color: var(--ml-color-soft-charcoal); }
+  .eco__what { font-size: 1rem; line-height: 1.75; color: var(--ml-color-text-secondary); }
+  .eco__cta-wrap { padding-block: clamp(3rem, 6vw, 5rem) clamp(5rem, 9vw, 7rem); border-top: 1px solid var(--ml-color-border-soft); }
+  .eco__cta-line { font-size: clamp(1.2rem, 2.6vw, 1.5rem); font-weight: 300; line-height: 1.5; color: var(--ml-color-soft-charcoal); max-width: 34ch; margin: 0 0 1.75rem; }
+  .eco__cta { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0; }
+  .eco__cta a { color: var(--ml-color-soft-charcoal); text-underline-offset: 3px; }
+</style>
+
+{% schema %}
+{
+  "name": "Ecosystem",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The ecosystem" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Mirellis is not only for customers." },
+    { "type": "inline_richtext", "id": "lede", "label": "Lede", "default": "An institution studying human state transitions needs more than buyers. It needs people who observe, question, make, and validate. Every participant contributes something the research could not produce alone — and receives something in return." },
+    { "type": "header", "content": "Participants" },
+    { "type": "text", "id": "persona_1_who", "label": "1 · Who", "default": "People living the transitions" },
+    { "type": "inline_richtext", "id": "persona_1_what", "label": "1 · What", "default": "Ease a difficult crossing — and, by recording what they notice, become the first source of every future observation." },
+    { "type": "text", "id": "persona_2_who", "label": "2 · Who", "default": "Researchers" },
+    { "type": "inline_richtext", "id": "persona_2_what", "label": "2 · What", "default": "Study the boundaries between states with us. Propose findings, challenge our mechanisms, and share data. In return: co-authorship and citation." },
+    { "type": "text", "id": "persona_3_who", "label": "3 · Who", "default": "Scientific advisors" },
+    { "type": "inline_richtext", "id": "persona_3_what", "label": "3 · What", "default": "Review and ratify what we publish. Their sign-off is the gate before any mechanism becomes active. In return: named scientific authority." },
+    { "type": "text", "id": "persona_4_who", "label": "4 · Who", "default": "Healthcare professionals" },
+    { "type": "inline_richtext", "id": "persona_4_what", "label": "4 · What", "default": "Bring evidence-based practice and field observation. In return: careful, observational tools they can stand behind." },
+    { "type": "text", "id": "persona_5_who", "label": "5 · Who", "default": "Artists & musicians" },
+    { "type": "inline_richtext", "id": "persona_5_what", "label": "5 · What", "default": "Make the sensory work — sound environments, visual atmospheres — that carries an intervention. In return: commissioned work within a serious frame." },
+    { "type": "text", "id": "persona_6_who", "label": "6 · Who", "default": "Writers" },
+    { "type": "inline_richtext", "id": "persona_6_what", "label": "6 · What", "default": "Practise observation-led writing for the Observatory. In return: a byline inside an institution, not a content mill." },
+    { "type": "text", "id": "persona_7_who", "label": "7 · Who", "default": "Students & universities" },
+    { "type": "inline_richtext", "id": "persona_7_what", "label": "7 · What", "default": "Learn from and build on the canon — studies, theses, projects. In return: access to our research and mentorship." },
+    { "type": "text", "id": "persona_8_who", "label": "8 · Who", "default": "Practitioners & partners" },
+    { "type": "inline_richtext", "id": "persona_8_what", "label": "8 · What", "default": "Apply the rituals, or place Mirellis where it belongs — reading rooms, quiet spaces, considered homes. In return: a system, and a distinctive offering." },
+    { "type": "header", "content": "Take part" },
+    { "type": "text", "id": "cta_eyebrow", "label": "CTA eyebrow", "default": "Take part" },
+    { "type": "inline_richtext", "id": "cta_line", "label": "CTA line", "default": "Contribution begins the same way research does — with an observation." },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Enter the Observatory Mirror →" },
+    { "type": "url", "id": "cta_url", "label": "CTA link" }
+  ],
+  "presets": [{ "name": "Ecosystem" }]
+}
+{% endschema %}

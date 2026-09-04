@@ -1,0 +1,138 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rituals_hero_LrhWVB": {
+      "type": "rituals-hero",
+      "name": "Rituals Hero",
+      "settings": {
+        "hero_image": "shopify://shop_images/environment-aboutus-mirellis.png",
+        "eyebrow": "Modern Rituals",
+        "heading": "Modern Life Lost Its Transitions",
+        "body": "<p>Modern life rarely moves with clear beginnings or endings anymore.</p><p>One moment flows into the next without enough transition between activation and recovery, focus and slowing, input and silence.</p><p>Over time, many people lose not only rest, but rhythm.</p>"
+      }
+    },
+    "rituals_loss_of_transitions_XRKVtp": {
+      "type": "rituals-loss-of-transitions",
+      "name": "Loss of Transitions",
+      "settings": {
+        "heading": "The Loss of Transitions",
+        "body": "<p>Modern life increasingly moves without clear transitions.</p><p>Mornings often begin abruptly. Evenings rarely end fully. Attention moves continuously between screens, conversations, notifications, responsibilities, information, and low-level urgency without enough separation between one state and the next.</p><p>Many people now move through entire days without fully arriving anywhere psychologically.</p><p>Over time, the nervous system adapts to continuity without closure.</p><p>Rituals historically helped restore continuity between states.</p>"
+      }
+    },
+    "day_architecture_UCEkqL": {
+      "type": "day-architecture",
+      "name": "Day Architecture",
+      "settings": {
+        "morning_image": "shopify://shop_images/rituals-morning-mirellis.png",
+        "day_image": "shopify://shop_images/rituals-day-mirellis.png",
+        "evening_image": "shopify://shop_images/rituals-evening-mirellis.png",
+        "night_image": "shopify://shop_images/rituals-night-mirellis.png"
+      }
+    },
+    "guided_experience_evening_transition_zPcatL": {
+      "type": "guided-experience-evening-transition",
+      "name": "Guided Experience - Evening Transition",
+      "settings": {
+        "evening_phase": "Evening",
+        "evening_heading": "The Evening Transition",
+        "evening_description": "Observe how activity becomes restoration through environmental signals, sensory cues and attention shifts.",
+        "evening_meta": "3 Minutes · Guided Observation",
+        "evening_button": "Begin Observation",
+        "evening_link": "https://mirellis.in/pages/the-first-signals-of-the-morning"
+      }
+    },
+    "ritual_builder_tq9FkV": {
+      "type": "ritual-builder",
+      "name": "Ritual Builder",
+      "settings": {}
+    },
+    "rituals_ending_3EahaC": {
+      "type": "rituals-ending",
+      "name": "Quiet Ending",
+      "settings": {
+        "ending_image": "shopify://shop_images/closing-image-mirellis.png",
+        "final_line": "The body remembers what life repeats.",
+        "supporting_text": "<p>Modern life may continue accelerating.</p><p>But human physiology still responds quietly to rhythm, repetition, atmosphere, and coherent transitions.</p>"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "custom_liquid_yLbgXJ": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "name": "Custom Liquid",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "{% comment %}\nMIRELLIS — RITUAL WELLNESS RESEARCH NOTES\nCentered + Mobile Responsive\n{% endcomment %}\n\n<section class=\"mirellis-research-minimal\">\n\n  <details class=\"mirellis-research-details\">\n\n    <summary>\n      Research Notes +\n    </summary>\n\n    <div class=\"mirellis-research-content\">\n\n      <div class=\"mirellis-research-item\">\n        <h4>Circadian rhythm & behavioral timing</h4>\n        <p>\n          Research suggests that the body’s internal rhythms are closely influenced by light exposure, behavioral timing, and environmental consistency throughout the day.\n        </p>\n        <a href=\"https://www.health.harvard.edu/staying-healthy/blue-light-has-a-dark-side\" target=\"_blank\">\n          Harvard Health →\n        </a>\n      </div>\n\n      <div class=\"mirellis-research-item\">\n        <h4>Repetition & nervous-system regulation</h4>\n        <p>\n          Studies in stress physiology suggest that predictability and repeated environmental patterns may support emotional regulation and nervous-system stability.\n        </p>\n        <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC5859128/\" target=\"_blank\">\n          NIH / PMC →\n        </a>\n      </div>\n\n      <div class=\"mirellis-research-item\">\n        <h4>Breath rhythm & parasympathetic activation</h4>\n        <p>\n          Structured slow breathing practices have been associated with reduced physiological stress and increased parasympathetic nervous-system activity.\n        </p>\n        <a href=\"https://pubmed.ncbi.nlm.nih.gov/36630953/\" target=\"_blank\">\n          PubMed →\n        </a>\n      </div>\n\n      <div class=\"mirellis-research-item\">\n        <h4>Environment & emotional state</h4>\n        <p>\n          Environmental psychology research suggests that sensory surroundings — including light, sound, atmosphere, and spatial calm — can influence emotional state and physiological stress responses.\n        </p>\n        <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC7214210/\" target=\"_blank\">\n          NIH / PMC →\n        </a>\n      </div>\n\n    </div>\n\n  </details>\n\n</section>\n\n<style>\n\n.mirellis-research-minimal {\n  width: 100%;\n  padding: 28px 20px;\n}\n\n.mirellis-research-details {\n  max-width: 620px;\n  margin: 0 auto;\n}\n\n.mirellis-research-details summary {\n  list-style: none;\n  cursor: pointer;\n  font-size: 11px;\n  letter-spacing: 0.22em;\n  text-transform: uppercase;\n  color: rgba(0,0,0,0.58);\n  font-family: serif;\n  transition: opacity 0.2s ease;\n  text-align: center;\n  width: 100%;\n}\n\n.mirellis-research-details summary:hover {\n  opacity: 0.7;\n}\n\n.mirellis-research-details summary::-webkit-details-marker {\n  display: none;\n}\n\n.mirellis-research-content {\n  padding-top: 22px;\n}\n\n.mirellis-research-item {\n  margin-bottom: 26px;\n}\n\n.mirellis-research-item h4 {\n  font-size: 15px;\n  line-height: 1.5;\n  font-weight: 400;\n  color: #1f1f1f;\n  margin-bottom: 8px;\n  font-family: serif;\n}\n\n.mirellis-research-item p {\n  font-size: 13px;\n  line-height: 1.8;\n  color: rgba(0,0,0,0.68);\n  margin-bottom: 8px;\n}\n\n.mirellis-research-item a {\n  font-size: 12px;\n  color: #1f1f1f;\n  text-decoration: underline;\n  text-underline-offset: 3px;\n}\n\n@media screen and (max-width: 768px) {\n\n  .mirellis-research-minimal {\n    padding: 24px 18px;\n  }\n\n  .mirellis-research-details {\n    max-width: 100%;\n  }\n\n  .mirellis-research-details summary {\n    font-size: 10px;\n    letter-spacing: 0.18em;\n  }\n\n  .mirellis-research-item h4 {\n    font-size: 14px;\n  }\n\n  .mirellis-research-item p {\n    font-size: 12px;\n    line-height: 1.7;\n  }\n\n}\n\n</style>",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "rich_text_bnVNRA": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_yrKGDi": {
+          "type": "subheading",
+          "settings": {
+            "text": "Modern environments rarely allow the nervous system to transition slowly between states of stimulation and rest."
+          }
+        },
+        "heading_8Vic3M": {
+          "type": "heading",
+          "settings": {
+            "text": "",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        },
+        "richtext_zQidME": {
+          "type": "richtext",
+          "settings": {
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_yrKGDi",
+        "heading_8Vic3M",
+        "richtext_zQidME"
+      ],
+      "disabled": true,
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    }
+  },
+  "order": [
+    "rituals_hero_LrhWVB",
+    "rituals_loss_of_transitions_XRKVtp",
+    "day_architecture_UCEkqL",
+    "guided_experience_evening_transition_zPcatL",
+    "ritual_builder_tq9FkV",
+    "rituals_ending_3EahaC",
+    "main",
+    "custom_liquid_yLbgXJ",
+    "rich_text_bnVNRA"
+  ]
+}

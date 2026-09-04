@@ -1,0 +1,104 @@
+<section class="omc-section">
+  <div class="omc-container">
+    {% if section.settings.eyebrow != blank %}
+    <p class="omc-eyebrow">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    {% assign heading = section.settings.heading | default: "The Observatory Mirror" %}
+    <h2 class="omc-heading">{{ heading }}</h2>
+    {% assign body = section.settings.body | default: "The Mirror is the first research instrument of the Mirellis Observatory.\n\nIt identifies which of the three foundational transitions is most disrupted in your daily experience — and returns a Personal Observatory Record.\n\nTakes four minutes.\nNo account required." %}
+    <p class="omc-body">{{ body }}</p>
+    {% assign cta_text = section.settings.cta_text | default: "Begin the observation →" %}
+    {% assign cta_link = section.settings.cta_link | default: "/pages/the-observatory-mirror" %}
+    <a href="{{ cta_link }}" class="omc-cta">{{ cta_text }}</a>
+  </div>
+</section>
+
+<style>
+.omc-section {
+  background: #faf7f2;
+  padding: 6rem 2rem;
+}
+.omc-container {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: left;
+}
+.omc-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(26,26,24,0.45);
+  margin: 0 0 1.5rem 0;
+}
+.omc-heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: #1a1a18;
+  margin: 0 0 2rem 0;
+  line-height: 1.2;
+}
+.omc-body {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: rgba(26,26,24,0.75);
+  margin: 0 0 2.5rem 0;
+  white-space: pre-line;
+}
+.omc-cta {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid rgba(26,26,24,0.35);
+  color: #1a1a18;
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+}
+.omc-cta:hover {
+  background: rgba(26,26,24,0.04);
+  border-color: rgba(26,26,24,0.7);
+}
+@media (max-width: 768px) {
+  .omc-section {
+    padding: 4rem 1.5rem;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Observatory Mirror CTA",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "THE FIRST INSTRUMENT"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Observatory Mirror"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body",
+      "default": "The Mirror is the first research instrument of the Mirellis Observatory.\n\nIt identifies which of the three foundational transitions is most disrupted in your daily experience — and returns a Personal Observatory Record.\n\nTakes four minutes.\nNo account required."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Text",
+      "default": "Begin the observation →"
+    },
+    {
+      "type": "text",
+      "id": "cta_link",
+      "label": "CTA Link",
+      "default": "/pages/the-observatory-mirror"
+    }
+  ]
+}
+{% endschema %}

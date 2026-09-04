@@ -1,0 +1,155 @@
+{%- comment -%}
+  MIRELLIS — ASSESSMENT RESULT
+  Reads ?t= parameter, renders result from JS object
+{%- endcomment -%}
+
+{{ 'assessment-result.css' | asset_url | stylesheet_tag }}
+
+<div id="ar-root"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  var RESULTS = {
+    sw: {
+      headline: "The day starts before you arrive in it.",
+      recognition: "Before you have made a single decision, the day is already moving. The phone has woken up. The messages have arrived. The mind is already behind something it hasn't chosen yet.",
+      framework: "Within Ritual Science, this is the Sleep → Wakefulness transition — the moment when the nervous system moves from rest to engagement. When it is disrupted, the day begins in reaction rather than orientation.",
+      product_slug: "mirellis-oil-pulling-elixir",
+      transition_page: "/pages/sleep-to-wakefulness",
+      email_tag: "assessment-sw"
+    },
+    wr: {
+      headline: "The day doesn't end when work ends.",
+      recognition: "The meeting finishes. The laptop closes. But internally, nothing shifts. The mind continues carrying the day — replaying conversations, anticipating tomorrow — long after the body has stopped moving.",
+      framework: "Within Ritual Science, this is the Work → Recovery transition — the moment when sustained engagement is meant to release into genuine recovery. When it is disrupted, the chapter stays open.",
+      product_slug: "mirellis-stillness-elixir",
+      transition_page: "/pages/work-to-recovery",
+      email_tag: "assessment-wr"
+    },
+    str: {
+      headline: "Nothing fully closes. So nothing fully restores.",
+      recognition: "You are not scrolling because you are entertained. You are scrolling because you cannot find the door out of the day. The stimulation continues because the signal to stop has never arrived.",
+      framework: "Within Ritual Science, this is the Stimulation → Restoration transition — the movement from accumulated sensory load back to a state where rest is genuinely possible.",
+      product_slug: "mirellis-stillness-elixir",
+      transition_page: "/pages/stimulation-to-restoration",
+      email_tag: "assessment-str"
+    },
+    "sw-wr": {
+      headline: "The day doesn't begin or end on your terms.",
+      recognition: "Two transitions are disrupted equally. The morning starts before you arrive in it. And when the day ends, work does not end with it. You are caught on both sides.",
+      framework: "This is a compound disruption across Sleep → Wakefulness and Work → Recovery. Address one transition first. The practice compounds.",
+      email_tag: "assessment-sw-wr"
+    },
+    "sw-str": {
+      headline: "The day neither begins nor closes cleanly.",
+      recognition: "The morning is reactive before you are ready. And by evening, nothing has fully finished — stimulation continues where rest should be. The nervous system never finds its shape.",
+      framework: "This is a compound disruption across Sleep → Wakefulness and Stimulation → Restoration.",
+      email_tag: "assessment-sw-str"
+    },
+    "wr-str": {
+      headline: "Work doesn't end. And neither does the day.",
+      recognition: "The professional chapter doesn't close when the workday does. And later, when you finally stop moving, the stimulation continues. You are exhausted but cannot find the exit.",
+      framework: "This is a compound disruption across Work → Recovery and Stimulation → Restoration. Both transitions are broken. Stillness addresses both.",
+      product_slug: "mirellis-stillness-elixir",
+      transition_page: "/pages/work-to-recovery",
+      email_tag: "assessment-wr-str"
+    }
+  };
+
+  var adapter = {
+    async save(submission) {
+      try {
+        var note = JSON.stringify(submission);
+        await fetch('/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: new URLSearchParams({
+            form_type: 'customer',
+            utf8: '✓',
+            'contact[note]': note,
+            'contact[tags]': submission.email_tag
+          })
+        });
+        return { ok: true };
+      } catch (e) {
+        console.error('Submission failed:', e);
+        return { ok: false, error: e };
+      }
+    }
+  };
+
+  function getUrlParam(key) {
+    var params = new URLSearchParams(window.location.search);
+    return params.get(key);
+  }
+
+  function renderResult() {
+    var code = getUrlParam('t');
+    if (!code || !RESULTS[code]) {
+      document.getElementById('ar-root').innerHTML = '<div style="padding: 2rem; text-align: center;"><p>Assessment not found.</p></div>';
+      return;
+    }
+
+    var result = RESULTS[code];
+    var isCompound = code.includes('-');
+
+    var html = '<div class="ar">';
+    html += '<section class="ar-hero"><div class="ml-container-reading"><h1 class="ar-headline">' + escapeHtml(result.headline) + '</h1></div></section>';
+    html += '<section class="ar-body"><div class="ml-container-narrow"><p class="ar-recognition">' + escapeHtml(result.recognition) + '</p><p class="ar-framework">' + escapeHtml(result.framework) + '</p></div></section>';
+
+    if (isCompound) {
+      var transitions = code.split('-');
+      var names = {
+        'sw': 'Sleep → Wakefulness',
+        'wr': 'Work → Recovery',
+        'str': 'Stimulation → Restoration'
+      };
+      html += '<section class="ar-choice"><div class="ml-container-narrow"><p class="ar-choice-label ml-supporting-text">Choose which transition to address first:</p><div class="ar-choice-buttons">';
+      transitions.forEach(function (t) {
+        html += '<a href="/pages/assessment-confirmed?t=' + code + '&focus=' + t + '" class="ar-choice-btn ml-soft-hover">' + escapeHtml(names[t]) + '</a>';
+      });
+      html += '</div></div></section>';
+    }
+
+    html += '<section class="ar-capture"><div class="ml-container-narrow"><form id="ar-form" class="ar-form"><input type="hidden" name="code" value="' + escapeHtml(code) + '" /><div class="ar-input-group"><input type="email" name="email" placeholder="your@email.com" class="ar-input" required /><button type="submit" class="ar-submit">Continue</button></div></form></div></section>';
+    html += '<section class="ar-articles"><div class="ml-container-reading"><p class="ar-articles-label ml-supporting-text">Related research</p><div class="ar-articles-grid"><a href="' + escapeHtml(RESULTS[code.split('-')[0]].transition_page) + '" class="ar-article-link ml-soft-hover">Learn about this transition →</a></div></div></section>';
+    html += '</div>';
+
+    var root = document.getElementById('ar-root');
+    root.innerHTML = html;
+
+    document.getElementById('ar-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = document.querySelector('input[name="email"]').value;
+      adapter.save({
+        email: email,
+        code: code,
+        email_tag: result.email_tag,
+        timestamp: new Date().toISOString()
+      }).then(function () {
+        window.location.href = '/pages/assessment-confirmed?t=' + code;
+      });
+    });
+  }
+
+  function escapeHtml(text) {
+    var div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  document.addEventListener('DOMContentLoaded', renderResult);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Assessment Result",
+  "settings": [],
+  "presets": [{ "name": "Assessment Result" }]
+}
+{% endschema %}

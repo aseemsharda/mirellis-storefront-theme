@@ -1,0 +1,161 @@
+<section class="ritual-section ritual-section--large">
+
+  <div class="ritual-container">
+
+    <!-- INTRO -->
+    <div class="ritual-reading-width">
+
+      {% if section.settings.heading != blank %}
+        <h2 class="ritual-heading ritual-fade-up" style="margin-bottom:70px;">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.intro_body != blank %}
+        <div class="ritual-body ritual-fade-up">
+          {{ section.settings.intro_body }}
+        </div>
+      {% endif %}
+
+    </div>
+
+
+    <!-- RESEARCH GRID -->
+    <div class="ritual-research-grid">
+
+      <!-- NOTE 1 -->
+      <div class="ritual-research-card ritual-fade-up">
+
+        <h3>{{ section.settings.note_1_heading }}</h3>
+
+        <div class="ritual-body">
+          {{ section.settings.note_1_body }}
+        </div>
+
+      </div>
+
+
+      <!-- NOTE 2 -->
+      <div class="ritual-research-card ritual-fade-up">
+
+        <h3>{{ section.settings.note_2_heading }}</h3>
+
+        <div class="ritual-body">
+          {{ section.settings.note_2_body }}
+        </div>
+
+      </div>
+
+
+      <!-- NOTE 3 -->
+      <div class="ritual-research-card ritual-fade-up">
+
+        <h3>{{ section.settings.note_3_heading }}</h3>
+
+        <div class="ritual-body">
+          {{ section.settings.note_3_body }}
+        </div>
+
+      </div>
+
+
+      <!-- NOTE 4 -->
+      <div class="ritual-research-card ritual-fade-up">
+
+        <h3>{{ section.settings.note_4_heading }}</h3>
+
+        <div class="ritual-body">
+          {{ section.settings.note_4_body }}
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Research Notes",
+  "settings": [
+
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Research Notes+"
+    },
+
+    {
+      "type": "richtext",
+      "id": "intro_body",
+      "label": "Intro Body",
+      "default": "<p>Modern research increasingly suggests that environments influence human physiology more continuously than most people consciously realize.</p><p>Light, repetition, atmosphere, sensory association, timing, sound, environmental rhythm, and repeated behavioral cues all appear to influence how the body experiences activation, attention, decompression, stress, and restoration over time.</p><p>Mirellis approaches research as a way to better understand how modern environments shape human transitions.</p>"
+    },
+
+    {
+      "type": "text",
+      "id": "note_1_heading",
+      "label": "Note 1 Heading",
+      "default": "Circadian Rhythm & Light"
+    },
+
+    {
+      "type": "richtext",
+      "id": "note_1_body",
+      "label": "Note 1 Body",
+      "default": "<p>Changes in light exposure help regulate circadian timing, alertness, hormonal rhythm, and physiological orientation throughout the day. Gradual shifts in light often influence how the body transitions between activation and slowing.</p>"
+    },
+
+    {
+      "type": "text",
+      "id": "note_2_heading",
+      "label": "Note 2 Heading",
+      "default": "Sensory Association & Repetition"
+    },
+
+    {
+      "type": "richtext",
+      "id": "note_2_body",
+      "label": "Note 2 Body",
+      "default": "<p>Repeated sensory experiences gradually become associated with emotional and physiological states over time. Familiar environments, sounds, scents, pacing patterns, and repeated rituals may influence how the nervous system anticipates different transitions.</p>"
+    },
+
+    {
+      "type": "text",
+      "id": "note_3_heading",
+      "label": "Note 3 Heading",
+      "default": "Environmental Psychology"
+    },
+
+    {
+      "type": "richtext",
+      "id": "note_3_body",
+      "label": "Note 3 Body",
+      "default": "<p>Environmental psychology increasingly explores how spatial rhythm, atmosphere, sound, visual density, and sensory environments influence emotional regulation, cognitive pacing, attention, and perceived restoration.</p>"
+    },
+
+    {
+      "type": "text",
+      "id": "note_4_heading",
+      "label": "Note 4 Heading",
+      "default": "Nervous-System Rhythm"
+    },
+
+    {
+      "type": "richtext",
+      "id": "note_4_body",
+      "label": "Note 4 Body",
+      "default": "<p>Human physiology appears to respond not only to isolated moments of rest, but also to the continuity of pacing surrounding daily life. Repeated interruption, overstimulation, and unresolved transitions may gradually influence internal rhythm over time.</p>"
+    }
+
+  ],
+  "presets": [
+    {
+      "name": "Research Notes"
+    }
+  ]
+}
+{% endschema %}

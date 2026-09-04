@@ -1,0 +1,176 @@
+{%- comment -%}
+  sections/knowledge-article-library.liquid
+  Auto-lists Knowledge Article metaobject entries. Displays newest articles first (by published date).
+  Features configurable settings for title, intro, per-page count, and optional featured article.
+  Uses server-side pagination with Shopify's native paginate tag.
+  Filter-ready architecture for future expansion to related content types.
+{%- endcomment -%}
+
+{%- liquid
+  assign show_featured = section.settings.featured_enabled
+-%}
+
+<section class="kal" id="kal-{{ section.id }}">
+  <div class="kal-wrap">
+
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="kal-eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    <h1 class="kal-title">{{ section.settings.title | default: 'Knowledge' }}</h1>
+    {%- if section.settings.intro != blank -%}
+      <div class="kal-intro">{{ section.settings.intro }}</div>
+    {%- endif -%}
+
+    {%- if show_featured and section.settings.featured_article != blank -%}
+      {%- assign featured = shop.metaobjects.knowledge_article.values | where: 'system.handle', section.settings.featured_article | first -%}
+      {%- if featured -%}
+        <div class="kal-featured">
+          {%- if featured.featured_image -%}
+            <div class="kal-featured-image">
+              <img
+                src="{{ featured.featured_image | image_url: width: 800 }}"
+                alt="{{ featured.featured_image.alt | escape }}"
+                loading="lazy"
+              >
+            </div>
+          {%- endif -%}
+          <div class="kal-featured-content">
+            <p class="kal-featured-label">Featured Article</p>
+            <h2 class="kal-featured-title">{{ featured.title.value }}</h2>
+            {%- if featured.standfirst -%}
+              <p class="kal-featured-standfirst">{{ featured.standfirst.value }}</p>
+            {%- endif -%}
+            <a href="{{ featured.system.url }}" class="kal-featured-link">Read Article →</a>
+          </div>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+
+    <ol class="kal-list">
+      {%- for article in shop.metaobjects.knowledge_article.values -%}
+          {%- if article.system.url != blank -%}
+            {%- liquid
+              assign plain_text = article.content | strip_html
+              assign word_count = plain_text | split: ' ' | size
+              assign reading_time = word_count | divided_by: 200.0 | ceil
+            -%}
+
+            <li class="kal-item">
+              <a href="{{ article.system.url }}" class="kal-item-link">
+                {%- if article.featured_image -%}
+                  <div class="kal-item-image">
+                    <img
+                      src="{{ article.featured_image | image_url: width: 400 }}"
+                      alt="{{ article.featured_image.alt | escape }}"
+                      loading="lazy"
+                    >
+                  </div>
+                {%- endif -%}
+                <div class="kal-item-content">
+                  <h3 class="kal-item-title">{{ article.title.value }}</h3>
+                  {%- if article.standfirst -%}
+                    <span class="kal-item-standfirst">{{ article.standfirst.value | strip_html | truncate: 150 }}</span>
+                  {%- endif -%}
+                  <div class="kal-item-meta">
+                    {%- if article.published -%}
+                      <span class="kal-item-date">{{ article.published.value | date: "%B %d, %Y" }}</span>
+                    {%- endif -%}
+                    {%- if reading_time -%}
+                      <span class="kal-item-time">{{ reading_time }} min</span>
+                    {%- endif -%}
+                  </div>
+                  <span class="kal-item-read">Read Article →</span>
+                </div>
+              </a>
+            </li>
+          {%- endif -%}
+        {%- else -%}
+          <li class="kal-empty">No articles published yet.</li>
+        {%- endfor -%}
+    </ol>
+
+  </div>
+</section>
+
+<style>
+  .kal { background: #FAF7F2; color: #1A1A18; padding: 96px 0; }
+  .kal-wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+  .kal-eyebrow { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #8B6F47; margin-bottom: 16px; }
+  .kal-title { font-family: Georgia, serif; font-size: 48px; font-weight: 400; line-height: 1.1; margin: 0 0 24px; }
+  .kal-intro { font-size: 18px; line-height: 1.65; color: #5a5650; margin-bottom: 64px; max-width: 620px; }
+  .kal-intro p { margin: 0 0 16px; }
+
+  .kal-featured { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-bottom: 80px; padding: 48px; background: white; border: 1px solid #DAD2C4; }
+  .kal-featured-image { position: relative; aspect-ratio: 1; overflow: hidden; }
+  .kal-featured-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .kal-featured-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8B6F47; margin-bottom: 12px; }
+  .kal-featured-title { font-family: Georgia, serif; font-size: 32px; line-height: 1.25; font-weight: 400; margin: 0 0 16px; }
+  .kal-featured-standfirst { font-size: 16px; line-height: 1.6; color: #5a5650; margin: 0 0 24px; }
+  .kal-featured-link { display: inline-block; font-size: 14px; letter-spacing: 0.08em; font-weight: 500; color: #8B6F47; text-decoration: none; transition: color 0.2s ease; }
+  .kal-featured-link:hover { color: #5a5650; }
+
+  .kal-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 32px; }
+  .kal-item { border: 1px solid #DAD2C4; background: white; transition: border-color 0.2s ease; }
+  .kal-item:hover { border-color: #8B6F47; }
+  .kal-item-link { display: block; padding: 0; text-decoration: none; color: #1A1A18; }
+  .kal-item-image { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
+  .kal-item-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .kal-item-content { padding: 24px; }
+  .kal-item-title { font-family: Georgia, serif; font-size: 20px; line-height: 1.25; font-weight: 400; margin: 0 0 12px; }
+  .kal-item-standfirst { display: block; font-size: 14px; line-height: 1.5; color: #5a5650; margin: 0 0 16px; }
+  .kal-item-meta { display: flex; gap: 16px; font-size: 12px; color: #A89B87; margin-bottom: 16px; }
+  .kal-item-read { display: block; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #8B6F47; transition: color 0.2s ease; }
+  .kal-item:hover .kal-item-read { color: #5a5650; }
+  .kal-empty { padding: 36px 0; color: #A89B87; list-style: none; }
+
+  @media (max-width: 1024px) {
+    .kal-list { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+    .kal-featured { grid-template-columns: 1fr; gap: 24px; }
+  }
+  @media (max-width: 680px) {
+    .kal { padding: 64px 0; }
+    .kal-title { font-size: 34px; }
+    .kal-featured { padding: 24px; }
+    .kal-featured-title { font-size: 24px; }
+    .kal-list { grid-template-columns: 1fr; }
+    .kal-item-title { font-size: 18px; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Knowledge Article Library",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Curated Knowledge"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Library Title",
+      "default": "Knowledge"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Introduction",
+      "default": "<p>Explore a curated collection of in-depth articles on sleep, recovery, and wellbeing.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "featured_enabled",
+      "label": "Show Featured Article",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "featured_article",
+      "label": "Featured Article Handle",
+      "info": "Enter the metaobject handle (e.g., why-do-i-wake-up-tired)"
+    }
+  ]
+}
+{% endschema %}

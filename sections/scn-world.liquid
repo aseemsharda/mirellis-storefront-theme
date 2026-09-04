@@ -1,0 +1,171 @@
+{% comment %}
+SCN 04 — WORLDS
+Mirellis System
+{% endcomment %}
+
+<section class="ml-worlds">
+
+  <!-- MORNING -->
+  <div class="ml-world ml-morning">
+
+    {% if section.settings.morning_image != blank %}
+      {{
+        section.settings.morning_image
+        | image_url: width: 2400
+        | image_tag: class: 'ml-img'
+      }}
+    {% endif %}
+
+    <div class="ml-overlay ml-morning-o"></div>
+
+    <div class="ml-content">
+
+      <h2>Morning World</h2>
+
+      <p>{{ section.settings.morning_copy }}</p>
+
+      <div class="ml-feel">
+        {{ section.settings.morning_feel }}
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- EVENING -->
+  <div class="ml-world ml-evening">
+
+    {% if section.settings.evening_image != blank %}
+      {{
+        section.settings.evening_image
+        | image_url: width: 2400
+        | image_tag: class: 'ml-img'
+      }}
+    {% endif %}
+
+    <div class="ml-overlay ml-evening-o"></div>
+
+    <div class="ml-content">
+
+      <h2>Evening World</h2>
+
+      <p>{{ section.settings.evening_copy }}</p>
+
+      <div class="ml-feel">
+        {{ section.settings.evening_feel }}
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.ml-worlds { width:100%; }
+
+.ml-world {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.ml-img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  position:absolute;
+}
+
+.ml-overlay {
+  position:absolute;
+  inset:0;
+}
+
+/* MORNING */
+.ml-morning-o {
+  background: linear-gradient(
+    180deg,
+    rgba(246,241,232,0.35),
+    rgba(246,241,232,0.9)
+  );
+}
+
+/* EVENING */
+.ml-evening-o {
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.2),
+    rgba(0,0,0,0.85)
+  );
+}
+
+.ml-content {
+  position:relative;
+  z-index:2;
+  text-align:center;
+  padding:120px 24px;
+  max-width:800px;
+  margin:auto;
+}
+
+.ml-feel {
+  margin-top:20px;
+  font-style:italic;
+  opacity:0.8;
+  border-top:1px solid rgba(0,0,0,0.1);
+  padding-top:20px;
+}
+
+.ml-evening .ml-content,
+.ml-evening h2,
+.ml-evening p,
+.ml-evening .ml-feel {
+  color: rgba(255,255,255,0.9);
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "SCN 04 WORLDS",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "morning_image",
+      "label": "Morning Image"
+    },
+    {
+      "type": "textarea",
+      "id": "morning_copy",
+      "label": "Morning Copy"
+    },
+    {
+      "type": "textarea",
+      "id": "morning_feel",
+      "label": "Morning Feel"
+    },
+    {
+      "type": "image_picker",
+      "id": "evening_image",
+      "label": "Evening Image"
+    },
+    {
+      "type": "textarea",
+      "id": "evening_copy",
+      "label": "Evening Copy"
+    },
+    {
+      "type": "textarea",
+      "id": "evening_feel",
+      "label": "Evening Feel"
+    }
+  ],
+  "presets": [
+    {
+      "name": "SCN 04 WORLDS"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,157 @@
+{% comment %}
+SCN 08 — QUIET CLOSURE
+Homepage Dissolution Layer
+{% endcomment %}
+
+<section class="ml-closure">
+
+  <!-- ATMOSPHERIC FADE -->
+  <div class="ml-closure-bg"></div>
+
+  <div class="ml-container">
+
+    <!-- SPACIOUS EXIT -->
+    <div class="ml-closure-content">
+
+      {% if section.settings.heading != blank %}
+        <h2 class="ml-closure-title">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.subtext != blank %}
+        <p class="ml-closure-subtext">
+          {{ section.settings.subtext }}
+        </p>
+      {% endif %}
+
+      <!-- FINAL MEMORY LINE -->
+      <div class="ml-closure-line">
+        {{ section.settings.closing_line }}
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+/* =========================
+   SCN 08 — QUIET CLOSURE
+========================= */
+
+.ml-closure {
+  position: relative;
+  padding: 160px 24px;
+  background: #f6f1ea;
+  overflow: hidden;
+}
+
+/* SOFT ATMOSPHERIC DISSOLVE */
+.ml-closure-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 40%,
+    rgba(255,255,255,0.7),
+    rgba(246,241,232,0.95)
+  );
+}
+
+/* CONTAINER */
+.ml-container {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* CONTENT */
+.ml-closure-content {
+  text-align: center;
+}
+
+/* TITLE */
+.ml-closure-title {
+  font-size: clamp(28px, 3vw, 48px);
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: rgba(28,28,28,0.85);
+}
+
+/* SUBTEXT */
+.ml-closure-subtext {
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 650px;
+  margin: 0 auto 40px auto;
+  color: rgba(28,28,28,0.65);
+}
+
+/* FINAL LINE (MEMORY ANCHOR) */
+.ml-closure-line {
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.9;
+  color: rgba(28,28,28,0.75);
+  max-width: 520px;
+  margin: 0 auto;
+
+  padding-top: 30px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+/* VERY SOFT FADE FEEL */
+.ml-closure {
+  opacity: 0.98;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .ml-closure {
+    padding: 120px 20px;
+  }
+
+  .ml-closure-title {
+    font-size: 28px;
+  }
+
+  .ml-closure-subtext {
+    font-size: 15px;
+  }
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "SCN 08 CLOSURE",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The homepage does not end abruptly."
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "It dissolves slowly into atmosphere, leaving only internal quiet."
+    },
+    {
+      "type": "textarea",
+      "id": "closing_line",
+      "label": "Final Line",
+      "default": "The body remembers what life repeats."
+    }
+  ],
+  "presets": [
+    {
+      "name": "SCN 08 CLOSURE"
+    }
+  ]
+}
+{% endschema %}

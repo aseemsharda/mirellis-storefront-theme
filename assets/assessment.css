@@ -1,0 +1,172 @@
+/* =========================================================
+   MIRELLIS ASSESSMENT — QUIZ CSS
+   All values use --ml-* tokens from mirellis-tokens.css.
+   No hardcoded hex values.
+   ========================================================= */
+
+.assess {
+  background: var(--ml-color-warm-paper);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--ml-space-xl);
+}
+
+.assess__header {
+  flex-shrink: 0;
+  margin-bottom: var(--ml-space-2xl);
+}
+
+.assess__progress-bar {
+  max-width: 100px;
+  height: 3px;
+  background: var(--ml-color-border-soft);
+  margin: 0 auto var(--ml-space-lg);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.assess__progress-fill {
+  width: 0%;
+  height: 100%;
+  background: var(--ml-color-text-secondary);
+  transition: width var(--ml-motion-slow) var(--ml-ease-soft);
+}
+
+.assess__counter {
+  text-align: center;
+  color: var(--ml-color-text-soft);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.assess__body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: var(--ml-space-lg);
+}
+
+.assess__question-wrap {
+  width: 100%;
+  max-width: 640px;
+  animation: fadeIn var(--ml-motion-medium) var(--ml-ease-soft);
+}
+
+.assess__question-wrap.is-exiting {
+  animation: fadeOut var(--ml-motion-medium) var(--ml-ease-soft);
+}
+
+.assess__question-wrap.is-entering {
+  animation: fadeIn var(--ml-motion-medium) var(--ml-ease-soft);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+.assess__question {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 400;
+  line-height: var(--ml-leading-relaxed);
+  color: var(--ml-color-soft-charcoal);
+  letter-spacing: var(--ml-letter-breathing);
+  text-align: center;
+  margin: 0 0 var(--ml-space-xl);
+}
+
+.assess__options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ml-space-md);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.assess__option {
+  appearance: none;
+  border: none;
+  background: transparent;
+  padding: var(--ml-space-lg);
+  border-radius: var(--ml-radius-soft-lg);
+  border: 1px solid var(--ml-color-border-soft);
+  text-align: left;
+  font-size: var(--ml-text-body);
+  line-height: var(--ml-leading-relaxed);
+  color: var(--ml-color-text-secondary);
+  cursor: pointer;
+  transition:
+    background var(--ml-motion-medium) var(--ml-ease-soft),
+    border-color var(--ml-motion-medium) var(--ml-ease-soft),
+    color var(--ml-motion-medium) var(--ml-ease-soft),
+    box-shadow var(--ml-motion-medium) var(--ml-ease-soft);
+}
+
+.assess__option:hover:not(:disabled) {
+  border-color: var(--ml-color-text-secondary);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.assess__option:disabled {
+  opacity: 0.5;
+}
+
+.assess__option.is-selected {
+  background: var(--ml-color-linen-cream);
+  border-color: var(--ml-color-text-secondary);
+  color: var(--ml-color-soft-charcoal);
+  font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+  .assess {
+    padding-block: var(--ml-space-lg);
+  }
+
+  .assess__body {
+    padding-inline: var(--ml-space-md);
+  }
+
+  .assess__question {
+    margin-bottom: var(--ml-space-lg);
+  }
+
+  .assess__option {
+    padding: var(--ml-space-md);
+    font-size: var(--ml-text-body-sm);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .assess__progress-fill,
+  .assess__question-wrap,
+  .assess__option {
+    transition: none;
+  }
+
+  .assess__question-wrap.is-exiting,
+  .assess__question-wrap.is-entering {
+    animation: none;
+  }
+}

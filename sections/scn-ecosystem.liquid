@@ -1,0 +1,280 @@
+{% comment %}
+SCN 07 — ECOSYSTEM EXPANSION
+Mirellis System Layer Index
+{% endcomment %}
+
+<section class="ml-ecosystem">
+
+  <div class="ml-eco-bg"></div>
+
+  <div class="ml-container">
+
+    <!-- INTRO -->
+    <div class="ml-eco-intro">
+
+      <h2 class="ml-eco-title">
+        {{ section.settings.heading }}
+      </h2>
+
+      <p class="ml-eco-subtext">
+        {{ section.settings.subtext }}
+      </p>
+
+    </div>
+
+    <!-- =========================
+         ECOSYSTEM PORTALS
+    ========================== -->
+
+    <div class="ml-eco-grid">
+
+      <!-- JOURNAL -->
+      <a href="{{ section.settings.journal_link }}" class="ml-eco-card">
+
+        <div class="ml-eco-label">Journal</div>
+
+        <p class="ml-eco-text">
+          Observational neuroscience fragments of daily transitions and perception states.
+        </p>
+
+      </a>
+
+      <!-- SOUNDSCAPES -->
+      <a href="{{ section.settings.sound_link }}" class="ml-eco-card">
+
+        <div class="ml-eco-label">Soundscapes</div>
+
+        <p class="ml-eco-text">
+          Pacing infrastructures that guide nervous-system descent and environmental rhythm.
+        </p>
+
+      </a>
+
+      <!-- RITUAL NOTES -->
+      <a href="{{ section.settings.ritual_link }}" class="ml-eco-card">
+
+        <div class="ml-eco-label">Ritual Notes</div>
+
+        <p class="ml-eco-text">
+          Field observations of repeated sensory transitions across morning and evening states.
+        </p>
+
+      </a>
+
+      <!-- INGREDIENT ATMOSPHERES -->
+      <a href="{{ section.settings.ingredient_link }}" class="ml-eco-card">
+
+        <div class="ml-eco-label">Ingredient Atmospheres</div>
+
+        <p class="ml-eco-text">
+          Botanical and material intelligence expressed as environmental perception layers.
+        </p>
+
+      </a>
+
+      <!-- ARCHITECTURE OF CALM -->
+      <a href="{{ section.settings.arch_link }}" class="ml-eco-card">
+
+        <div class="ml-eco-label">Architecture of Calm</div>
+
+        <p class="ml-eco-text">
+          Spatial and sensory frameworks that shape internal regulation through environment.
+        </p>
+
+      </a>
+
+      <!-- ENVIRONMENTAL RHYTHM -->
+      <a href="{{ section.settings.rhythm_link }}" class="ml-eco-card">
+
+        <div class="ml-eco-label">Environmental Rhythm</div>
+
+        <p class="ml-eco-text">
+          Temporal patterns that define how perception expands and softens over time.
+        </p>
+
+      </a>
+
+    </div>
+
+    <!-- CLOSING STATEMENT -->
+    <div class="ml-eco-close">
+
+      {{ section.settings.closing }}
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+/* =========================
+   SCN 07 — ECOSYSTEM
+========================= */
+
+.ml-ecosystem {
+  position: relative;
+  padding: 140px 24px;
+  background: #f6f1ea;
+}
+
+/* SOFT ATMOSPHERE */
+.ml-eco-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 10%,
+    rgba(255,255,255,0.7),
+    rgba(246,241,232,0.95)
+  );
+}
+
+.ml-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* INTRO */
+.ml-eco-intro {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.ml-eco-title {
+  font-size: clamp(30px, 3vw, 52px);
+  font-weight: 400;
+  margin-bottom: 18px;
+}
+
+.ml-eco-subtext {
+  font-size: 16px;
+  max-width: 720px;
+  margin: 0 auto;
+  color: rgba(28,28,28,0.7);
+  line-height: 1.7;
+}
+
+/* GRID */
+.ml-eco-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+/* CARD */
+.ml-eco-card {
+  padding: 30px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: rgba(255,255,255,0.35);
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+/* HOVER */
+.ml-eco-card:hover {
+  background: rgba(255,255,255,0.55);
+  transform: translateY(-2px);
+}
+
+/* LABEL */
+.ml-eco-label {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(28,28,28,0.55);
+  margin-bottom: 10px;
+}
+
+/* TEXT */
+.ml-eco-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(28,28,28,0.75);
+}
+
+/* CLOSING */
+.ml-eco-close {
+  text-align: center;
+  margin-top: 80px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(28,28,28,0.75);
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .ml-eco-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "SCN 07 ECOSYSTEM",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A slower digital ecosystem of perception, rhythm, and transition."
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Mirellis is not a brand experience. It is an environment of repeated sensory states."
+    },
+
+    {
+      "type": "url",
+      "id": "journal_link",
+      "label": "Journal Link"
+    },
+    {
+      "type": "url",
+      "id": "sound_link",
+      "label": "Sound Link"
+    },
+    {
+      "type": "url",
+      "id": "ritual_link",
+      "label": "Ritual Notes Link"
+    },
+    {
+      "type": "url",
+      "id": "ingredient_link",
+      "label": "Ingredient Link"
+    },
+    {
+      "type": "url",
+      "id": "arch_link",
+      "label": "Architecture Link"
+    },
+    {
+      "type": "url",
+      "id": "rhythm_link",
+      "label": "Rhythm Link"
+    },
+
+    {
+      "type": "textarea",
+      "id": "closing",
+      "label": "Closing Statement",
+      "default": "I could stay inside this world."
+    }
+  ],
+  "presets": [
+    {
+      "name": "SCN 07 ECOSYSTEM"
+    }
+  ]
+}
+{% endschema %}

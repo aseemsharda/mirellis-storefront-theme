@@ -1,0 +1,245 @@
+<section class="homepage-editorial-pathways">
+
+  <div class="page-width">
+
+    <div class="homepage-editorial-pathways__inner">
+
+      {% if section.settings.label != blank %}
+
+        <p class="homepage-editorial-pathways__label">
+          {{ section.settings.label }}
+        </p>
+
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+
+        <h2 class="homepage-editorial-pathways__heading">
+          {{ section.settings.heading }}
+        </h2>
+
+      {% endif %}
+
+      <div class="homepage-editorial-pathways__grid">
+
+        {% for block in section.blocks %}
+
+          <a href="{{ block.settings.link }}" class="homepage-editorial-pathways__item">
+
+            <p class="homepage-editorial-pathways__item-label">
+              {{ block.settings.item_label }}
+            </p>
+
+            <h3 class="homepage-editorial-pathways__title">
+              {{ block.settings.title }}
+            </h3>
+
+            <div class="homepage-editorial-pathways__description">
+              {{ block.settings.description }}
+            </div>
+
+          </a>
+
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.homepage-editorial-pathways {
+  padding: 140px 0;
+  background: #fcfaf7;
+}
+
+.homepage-editorial-pathways__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.homepage-editorial-pathways__label {
+  margin-bottom: 24px;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #8b8378;
+}
+
+.homepage-editorial-pathways__heading {
+  max-width: 760px;
+  margin: 0 0 64px;
+
+  font-size: 42px;
+  line-height: 1.35;
+  font-weight: 300;
+
+  color: #1f1f1f;
+}
+
+.homepage-editorial-pathways__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.homepage-editorial-pathways__item {
+  display: block;
+
+  padding: 42px;
+
+  background: #f7f3ee;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease;
+}
+
+.homepage-editorial-pathways__item:hover {
+  transform: translateY(-3px);
+  background: #f2ede7;
+}
+
+.homepage-editorial-pathways__item-label {
+  margin: 0 0 20px;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #8b8378;
+}
+
+.homepage-editorial-pathways__title {
+  margin: 0 0 22px;
+
+  font-size: 30px;
+  line-height: 1.35;
+  font-weight: 300;
+
+  color: #202020;
+}
+
+.homepage-editorial-pathways__description {
+  font-size: 16px;
+  line-height: 1.9;
+
+  color: #5a5550;
+}
+
+@media screen and (max-width: 990px) {
+
+  .homepage-editorial-pathways {
+    padding: 110px 24px;
+  }
+
+  .homepage-editorial-pathways__grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media screen and (max-width: 749px) {
+
+  .homepage-editorial-pathways {
+    padding: 80px 24px;
+  }
+
+  .homepage-editorial-pathways__label {
+    margin-bottom: 20px;
+  }
+
+  .homepage-editorial-pathways__heading {
+    margin-bottom: 44px;
+    font-size: 30px;
+    line-height: 1.4;
+  }
+
+  .homepage-editorial-pathways__grid {
+    gap: 20px;
+  }
+
+  .homepage-editorial-pathways__item {
+    padding: 34px 28px;
+  }
+
+  .homepage-editorial-pathways__item-label {
+    margin-bottom: 18px;
+  }
+
+  .homepage-editorial-pathways__title {
+    font-size: 24px;
+    line-height: 1.4;
+    margin-bottom: 18px;
+  }
+
+  .homepage-editorial-pathways__description {
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Editorial Pathways",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "Editorial Pathways"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Rituals begin as emotional environments long before they become conscious routines."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pathway",
+      "name": "Pathway",
+      "settings": [
+        {
+          "type": "text",
+          "id": "item_label",
+          "label": "Item Label",
+          "default": "Editorial"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Editorial Pathways"
+    }
+  ]
+}
+{% endschema %}

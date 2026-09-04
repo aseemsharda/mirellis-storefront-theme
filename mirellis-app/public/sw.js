@@ -1,7 +1,20 @@
-const CACHE = 'mirellis-v4';
+const CACHE = 'mirellis-companion-pwa-20260826';
+
+const APP_SHELL = [
+  '/',
+  '/welcome',
+  '/after-work',
+  '/manifest.webmanifest',
+  '/icon.png',
+  '/apple-icon.png',
+  '/brand/mirellis-symbol-gold.png',
+  '/brand/mirellis-wordmark-gold.png',
+  '/brand/mirellis-app-icon-192.png',
+  '/brand/mirellis-app-icon-512.png',
+];
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(['/'])));
+  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(APP_SHELL)));
   self.skipWaiting();
 });
 

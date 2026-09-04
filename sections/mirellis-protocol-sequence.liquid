@@ -1,0 +1,259 @@
+{% stylesheet %}
+.mirellis-protocol {
+  position: relative;
+  padding: 8rem 2rem;
+  background:
+    linear-gradient(
+      180deg,
+      #12100f 0%,
+      #100f0d 100%
+    );
+  overflow: hidden;
+}
+
+.mirellis-protocol::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at bottom left,
+    rgba(180,140,90,0.05),
+    transparent 42%);
+  pointer-events: none;
+}
+
+.mirellis-protocol__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.mirellis-protocol__label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.42);
+  margin-bottom: 1.2rem;
+}
+
+.mirellis-protocol__heading {
+  font-family: var(--font-heading-family);
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: #f4efe8;
+  margin: 0 0 1.5rem;
+  font-weight: 500;
+  max-width: 760px;
+}
+
+.mirellis-protocol__text {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.68);
+  max-width: 700px;
+  margin-bottom: 5rem;
+}
+
+.mirellis-protocol__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.mirellis-protocol__step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 2rem;
+  align-items: flex-start;
+  padding: 2rem;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease;
+}
+
+.mirellis-protocol__step:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.045);
+}
+
+.mirellis-protocol__number {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(196,112,72,0.78);
+  padding-top: 0.4rem;
+}
+
+.mirellis-protocol__content h3 {
+  margin: 0 0 0.7rem;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  color: #f5f1ea;
+  font-weight: 500;
+}
+
+.mirellis-protocol__content p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.66);
+}
+
+@media screen and (max-width: 749px) {
+  .mirellis-protocol {
+    padding: 5rem 1.4rem;
+  }
+
+  .mirellis-protocol__heading {
+    font-size: clamp(1.9rem, 9vw, 3rem);
+    line-height: 1.12;
+  }
+
+  .mirellis-protocol__text {
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+  }
+
+  .mirellis-protocol__step {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.6rem;
+    border-radius: 24px;
+  }
+
+  .mirellis-protocol__content h3 {
+    font-size: 1.1rem;
+  }
+
+  .mirellis-protocol__content p {
+    font-size: 0.96rem;
+    line-height: 1.75;
+  }
+}
+{% endstylesheet %}
+
+<section class="mirellis-protocol">
+
+  <div class="mirellis-protocol__inner">
+
+    <div class="mirellis-protocol__label">
+      {{ section.settings.label }}
+    </div>
+
+    <h2 class="mirellis-protocol__heading">
+      {{ section.settings.heading }}
+    </h2>
+
+    <div class="mirellis-protocol__text">
+      {{ section.settings.text }}
+    </div>
+
+    <div class="mirellis-protocol__steps">
+
+      {% for block in section.blocks %}
+        <div class="mirellis-protocol__step">
+
+          <div class="mirellis-protocol__number">
+            {{ block.settings.number }}
+          </div>
+
+          <div class="mirellis-protocol__content">
+
+            <h3>{{ block.settings.title }}</h3>
+
+            <p>{{ block.settings.description }}</p>
+
+          </div>
+
+        </div>
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Protocol Sequence",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "EVENING DESCENT"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A slower transition into rest often begins before sleep itself."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Many nervous systems today move directly from stimulation into attempted rest. Gradual slowing may help create clearer transitions into restoration.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Protocol Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Step Number",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Step Title",
+          "default": "Reduce informational intensity"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Step Description",
+          "default": "Move away from rapid scrolling, endless switching, and continuous incoming stimulation."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Protocol Sequence",
+      "blocks": [
+        {
+          "type": "step"
+        },
+        {
+          "type": "step"
+        },
+        {
+          "type": "step"
+        },
+        {
+          "type": "step"
+        },
+        {
+          "type": "step"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

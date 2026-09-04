@@ -1,0 +1,531 @@
+/* =========================================================
+   MIRELLIS TRANSITION DEEP PAGE — COMPANION CSS
+   All values use --ml-* tokens from mirellis-tokens.css.
+   No hardcoded hex values.
+   ========================================================= */
+
+
+/* ── SHARED ──────────────────────────────────────────────── */
+
+.td {
+  background: var(--ml-color-warm-paper);
+}
+
+.td-eyebrow {
+  display: block;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: var(--ml-space-md);
+}
+
+
+/* ── S01: HERO ───────────────────────────────────────────── */
+
+.td-hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  background: var(--ml-color-soft-charcoal);
+  overflow: hidden;
+}
+
+.td-hero__bg-wrap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.td-hero__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.72;
+  filter: saturate(0.88) contrast(0.96);
+}
+
+.td-hero__overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 25%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+.td-hero__inner {
+  position: relative;
+  z-index: var(--ml-z-content);
+  width: 100%;
+  padding-bottom: var(--ml-space-2xl);
+  padding-top: var(--ml-space-3xl);
+}
+
+.td-hero__time {
+  color: rgba(255, 255, 255, 0.58);
+  margin-bottom: var(--ml-space-sm);
+}
+
+.td-hero__title {
+  color: var(--ml-color-warm-paper);
+  max-width: 14ch;
+  margin-bottom: var(--ml-space-lg);
+}
+
+.td-hero__description {
+  color: rgba(255, 255, 255, 0.76);
+  max-width: 44ch;
+  margin-bottom: 0;
+}
+
+
+/* ── S02: THE EXPERIENCE ─────────────────────────────────── */
+
+.td-experience {
+  background: var(--ml-color-warm-paper);
+  padding-block: var(--ml-space-2xl);
+}
+
+.td-experience__heading {
+  max-width: 100%;
+  margin-bottom: var(--ml-space-xl);
+}
+
+.td-experience__body {
+  max-width: 100%;
+}
+
+.td-experience__body p {
+  font-size: var(--ml-text-body-lg);
+  line-height: var(--ml-leading-relaxed);
+  color: var(--ml-color-text-secondary);
+  margin-bottom: var(--ml-space-lg);
+}
+
+
+/* ── S03: THE MECHANISM ──────────────────────────────────── */
+
+.td-mechanism {
+  background: var(--ml-color-linen-cream);
+  padding-block: var(--ml-space-2xl);
+}
+
+.td-mechanism__heading {
+  margin-bottom: var(--ml-space-xl);
+}
+
+.td-mechanism__items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: var(--ml-space-2xl);
+}
+
+.td-mechanism__item {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: var(--ml-space-md);
+  align-items: start;
+  padding-block: var(--ml-space-lg);
+  border-top: 1px solid var(--ml-color-border-soft);
+}
+
+.td-mechanism__item:last-child {
+  border-bottom: 1px solid var(--ml-color-border-soft);
+}
+
+.td-mechanism__number {
+  color: var(--ml-color-text-soft);
+  padding-top: 0.25em;
+}
+
+.td-mechanism__title {
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--ml-color-soft-charcoal);
+  letter-spacing: var(--ml-letter-breathing);
+  margin-bottom: var(--ml-space-sm);
+}
+
+.td-mechanism__body {
+  max-width: 100%;
+  margin-bottom: 0;
+}
+
+.td-mechanism__reading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ml-space-md);
+  padding-top: var(--ml-space-xl);
+  border-top: 1px solid var(--ml-color-border-soft);
+}
+
+.td-mechanism__article-link {
+  display: flex;
+  align-items: baseline;
+  gap: var(--ml-space-sm);
+  text-decoration: none;
+  color: inherit;
+}
+
+.td-mechanism__read {
+  flex-shrink: 0;
+}
+
+.td-mechanism__article-title {
+  font-size: var(--ml-text-body);
+  color: var(--ml-color-soft-charcoal);
+  letter-spacing: var(--ml-letter-breathing);
+  border-bottom: 1px solid var(--ml-color-border-soft);
+  padding-bottom: 1px;
+  transition: border-color var(--ml-motion-medium) var(--ml-ease-soft);
+}
+
+.td-mechanism__article-link:hover .td-mechanism__article-title {
+  border-color: var(--ml-color-text-secondary);
+}
+
+
+/* ── S04: RITUAL ARCHITECTURE ────────────────────────────── */
+
+.td-ritual-arch {
+  background: var(--ml-color-warm-paper);
+  padding-block: var(--ml-space-2xl);
+}
+
+.td-ritual-arch__heading {
+  margin-bottom: 0;
+}
+
+.td-ritual-arch__list {
+  list-style: none;
+  margin: var(--ml-space-xl) 0 0;
+  padding: 0;
+}
+
+.td-ritual-arch__item {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: var(--ml-space-md);
+  align-items: start;
+  padding-block: var(--ml-space-lg);
+  border-top: 1px solid var(--ml-color-border-soft);
+}
+
+.td-ritual-arch__item:last-child {
+  border-bottom: 1px solid var(--ml-color-border-soft);
+}
+
+.td-ritual-arch__number {
+  color: var(--ml-color-text-soft);
+  padding-top: 0.25em;
+}
+
+.td-ritual-arch__name {
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--ml-color-soft-charcoal);
+  letter-spacing: var(--ml-letter-breathing);
+  margin-bottom: var(--ml-space-sm);
+}
+
+.td-ritual-arch__desc {
+  max-width: 100%;
+  margin-bottom: 0;
+}
+
+
+/* ── S05: SOUND ──────────────────────────────────────────── */
+
+.td-sound {
+  background: var(--ml-color-linen-cream);
+  padding-block: var(--ml-space-2xl);
+  text-align: center;
+}
+
+.td-sound__title {
+  max-width: 24ch;
+  margin-inline: auto;
+  margin-bottom: var(--ml-space-md);
+}
+
+.td-sound__frequency {
+  margin-bottom: var(--ml-space-lg);
+}
+
+.td-sound__description {
+  max-width: 52ch;
+  margin-inline: auto;
+  margin-bottom: var(--ml-space-xl);
+}
+
+.td-sound__player {
+  border-radius: var(--ml-radius-soft-md);
+  overflow: hidden;
+  border: 1px solid var(--ml-color-border-soft);
+  background: var(--ml-color-warm-paper);
+}
+
+
+/* ── S06: THE RITUAL TOOL ────────────────────────────────── */
+
+.td-tool {
+  background: var(--ml-color-soft-charcoal);
+  padding-block: var(--ml-space-2xl);
+  text-align: center;
+}
+
+.td-tool .td-eyebrow {
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.td-tool__title {
+  max-width: 18ch;
+  margin-inline: auto;
+  margin-bottom: var(--ml-space-lg);
+  color: var(--ml-color-warm-paper);
+}
+
+.td-tool__founding {
+  max-width: 44ch;
+  margin-inline: auto;
+  margin-bottom: var(--ml-space-lg);
+  color: rgba(255, 255, 255, 0.72);
+  font-style: italic;
+}
+
+.td-tool__description {
+  max-width: 48ch;
+  margin-inline: auto;
+  margin-bottom: var(--ml-space-xl);
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.td-tool__cta {
+  display: inline-block;
+  padding: 1rem 2.2rem;
+  border-radius: var(--ml-radius-soft-xl);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: transparent;
+  color: var(--ml-color-warm-paper);
+  text-decoration: none;
+  font-size: var(--ml-text-body-sm);
+  letter-spacing: 0.06em;
+  transition:
+    background var(--ml-motion-medium) var(--ml-ease-soft),
+    border-color var(--ml-motion-medium) var(--ml-ease-soft),
+    opacity var(--ml-motion-medium) var(--ml-ease-soft),
+    transform var(--ml-motion-medium) var(--ml-ease-soft);
+}
+
+.td-tool__cta:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.38);
+  transform: translateY(-1px);
+}
+
+
+/* ── S07: OBSERVATORY ────────────────────────────────────── */
+
+.td-observatory {
+  background: var(--ml-color-warm-paper);
+  padding-block: var(--ml-space-2xl);
+}
+
+.td-observatory__heading {
+  margin-bottom: var(--ml-space-xl);
+}
+
+.td-observatory__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--ml-space-lg);
+}
+
+.td-obs-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ml-space-md);
+  text-decoration: none;
+  color: inherit;
+}
+
+.td-obs-card__image {
+  overflow: hidden;
+  border-radius: var(--ml-radius-soft-md);
+  aspect-ratio: 3 / 2;
+  background: var(--ml-color-faded-sand);
+}
+
+.td-obs-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--ml-motion-slow) var(--ml-ease-atmospheric);
+}
+
+.td-obs-card:hover .td-obs-card__img {
+  transform: scale(1.025);
+}
+
+.td-obs-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ml-space-sm);
+}
+
+.td-obs-card__tag {
+  color: var(--ml-color-text-soft);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.td-obs-card__title {
+  font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--ml-color-soft-charcoal);
+  letter-spacing: var(--ml-letter-breathing);
+}
+
+.td-obs-card__excerpt {
+  max-width: 100%;
+  margin-bottom: 0;
+}
+
+.td-obs-card__meta {
+  color: var(--ml-color-text-soft);
+}
+
+.td-observatory__footer {
+  margin-top: var(--ml-space-xl);
+  text-align: center;
+}
+
+.td-observatory__link {
+  display: inline-block;
+  color: var(--ml-color-text-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ml-color-border-soft);
+  padding-bottom: 0.2em;
+  transition:
+    border-color var(--ml-motion-medium) var(--ml-ease-soft),
+    color var(--ml-motion-medium) var(--ml-ease-soft);
+}
+
+.td-observatory__link:hover {
+  border-color: var(--ml-color-text-secondary);
+  color: var(--ml-color-soft-charcoal);
+}
+
+
+/* ── S08: THE PROMISE ────────────────────────────────────── */
+
+.td-promise {
+  background: var(--ml-color-linen-cream);
+  padding-block: var(--ml-space-2xl);
+  text-align: center;
+}
+
+.td-promise__heading {
+  max-width: 26ch;
+  margin-inline: auto;
+  margin-bottom: var(--ml-space-lg);
+}
+
+.td-promise__body {
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.td-promise__cta {
+  display: inline-block;
+  padding: 1rem 2.2rem;
+  border-radius: var(--ml-radius-soft-xl);
+  border: 1px solid var(--ml-color-border-soft);
+  background: var(--ml-color-soft-charcoal);
+  color: var(--ml-color-warm-paper);
+  text-decoration: none;
+  font-size: var(--ml-text-body-sm);
+  letter-spacing: 0.06em;
+  transition:
+    opacity var(--ml-motion-medium) var(--ml-ease-soft),
+    transform var(--ml-motion-medium) var(--ml-ease-soft);
+}
+
+.td-promise__cta:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+
+/* ── RESPONSIVE: TABLET ──────────────────────────────────── */
+
+@media screen and (max-width: 1024px) {
+  .td-observatory__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* ── RESPONSIVE: MOBILE ──────────────────────────────────── */
+
+@media screen and (max-width: 768px) {
+  .td-hero__title {
+    max-width: 12ch;
+  }
+
+  .td-hero__description {
+    max-width: 100%;
+  }
+
+  .td-mechanism__item,
+  .td-ritual-arch__item {
+    grid-template-columns: 2.5rem 1fr;
+  }
+
+  .td-observatory__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .td-sound {
+    text-align: left;
+  }
+
+  .td-sound__title,
+  .td-sound__description {
+    margin-inline: 0;
+  }
+
+  .td-tool {
+    text-align: left;
+  }
+
+  .td-tool__title,
+  .td-tool__founding,
+  .td-tool__description {
+    margin-inline: 0;
+  }
+
+  .td-promise {
+    text-align: left;
+  }
+
+  .td-promise__heading,
+  .td-promise__body {
+    margin-inline: 0;
+  }
+}
+
+
+/* ── REDUCED MOTION ──────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .td-obs-card__img {
+    transition: none;
+  }
+}

@@ -1,0 +1,68 @@
+{%- liquid
+  assign f = page.metafields.custom.finding.value
+-%}
+{%- if f == blank -%}
+  <section style="padding:80px 24px;text-align:center;color:#A89B87;font-family:Georgia,serif;">No Finding linked yet. Set page metafield custom.finding.</section>
+{%- else -%}
+{%- liquid
+  assign num = f.number.value | default: ''
+  assign status = f.status.value | default: 'OPEN' | upcase
+  assign transition = f.transition.value | default: ''
+  assign title = f.title.value | default: ''
+  assign standfirst = f.standfirst.value
+  assign type_label = f.type_label.value | default: 'Foundational Document'
+  assign domain = f.domain.value | default: 'Human State Transitions'
+  assign confidence = f.confidence.value | default: 'Provisional'
+  assign published_state = f.published_state.value | default: 'Observatory Archive'
+  assign closer_look_heading = f.closer_look_heading.value
+  assign pull_quote = f.pull_quote.value
+-%}
+<section class="mf-finding" id="mf-{{ section.id }}">
+  <div class="mf-wrap">
+    <nav class="mf-crumb"><a href="/pages/findings">Findings</a><span> / </span><span>Finding {{ num }}</span></nav>
+    <p class="mf-eyebrow">Finding {{ num }} &nbsp;·&nbsp; Status — {{ status }}</p>
+    {%- if transition != blank -%}<p class="mf-transition">{{ transition }}</p>{%- endif -%}
+    <h1 class="mf-title">{{ title }}</h1>
+    {%- if standfirst != blank -%}<div class="mf-standfirst">{{ standfirst | newline_to_br }}</div>{%- endif -%}
+    <dl class="mf-meta">
+      <div><dt>Type</dt><dd>{{ type_label }}</dd></div>
+      <div><dt>Domain</dt><dd>{{ domain }}</dd></div>
+      <div><dt>Confidence</dt><dd>{{ confidence }}</dd></div>
+      <div><dt>Published</dt><dd>{{ published_state }}</dd></div>
+    </dl>
+    <hr class="mf-rule">
+    {%- if f.observation != empty -%}<div class="mf-section"><p class="mf-section-num">01 — The Observation</p><div class="mf-body">{{ f.observation | metafield_tag }}</div></div>{%- endif -%}
+    {%- if f.pattern != empty -%}<div class="mf-section"><p class="mf-section-num">02 — The Pattern</p><div class="mf-body">{{ f.pattern | metafield_tag }}</div>{%- if pull_quote != blank -%}<blockquote class="mf-quote">{{ pull_quote }}</blockquote>{%- endif -%}</div>{%- endif -%}
+    {%- if f.closer_look != empty -%}<div class="mf-section"><p class="mf-section-num">03 — A Closer Look{% if closer_look_heading != blank %} · {{ closer_look_heading }}{% endif %}</p><div class="mf-body">{{ f.closer_look | metafield_tag }}</div></div>{%- endif -%}
+    {%- if f.interpretation != empty -%}<div class="mf-section"><p class="mf-section-num">04 — Interpretation</p><div class="mf-body">{{ f.interpretation | metafield_tag }}</div></div>{%- endif -%}
+    {%- if f.what_this_suggests != empty -%}<div class="mf-section"><p class="mf-section-num">05 — What This Suggests</p><div class="mf-body">{{ f.what_this_suggests | metafield_tag }}</div></div>{%- endif -%}
+    <div class="mf-formed"><p class="mf-formed-label">How a Finding is Formed</p><p class="mf-formed-flow">Observation → Pattern → Interpretation → Finding → New Observation</p></div>
+  </div>
+</section>
+<style>
+  #mf-{{ section.id }}.mf-finding { background:#FAF7F2; color:#1A1A18; padding:80px 0; }
+  #mf-{{ section.id }} .mf-wrap { max-width:720px; margin:0 auto; padding:0 24px; }
+  #mf-{{ section.id }} .mf-crumb { font-size:13px; color:#A89B87; margin-bottom:48px; }
+  #mf-{{ section.id }} .mf-crumb a { color:#A89B87; text-decoration:none; }
+  #mf-{{ section.id }} .mf-eyebrow { font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:#8B6F47; margin-bottom:16px; }
+  #mf-{{ section.id }} .mf-transition { font-size:14px; letter-spacing:.1em; color:#A89B87; margin-bottom:24px; }
+  #mf-{{ section.id }} .mf-title { font-family:Georgia,serif; font-size:44px; line-height:1.15; font-weight:400; margin:0 0 28px; }
+  #mf-{{ section.id }} .mf-standfirst { font-size:19px; line-height:1.6; color:#5a5650; margin-bottom:48px; }
+  #mf-{{ section.id }} .mf-meta { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin:0 0 48px; padding:24px 0; border-top:1px solid #DAD2C4; border-bottom:1px solid #DAD2C4; }
+  #mf-{{ section.id }} .mf-meta dt { font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#A89B87; margin-bottom:6px; }
+  #mf-{{ section.id }} .mf-meta dd { font-size:15px; margin:0; }
+  #mf-{{ section.id }} .mf-rule { border:0; border-top:1px solid #DAD2C4; margin:0 0 48px; }
+  #mf-{{ section.id }} .mf-section { margin-bottom:48px; }
+  #mf-{{ section.id }} .mf-section-num { font-size:13px; letter-spacing:.1em; color:#8B6F47; margin-bottom:16px; }
+  #mf-{{ section.id }} .mf-body { font-size:18px; line-height:1.7; }
+  #mf-{{ section.id }} .mf-body p { margin:0 0 18px; }
+  #mf-{{ section.id }} .mf-quote { font-family:Georgia,serif; font-size:22px; font-style:italic; border-left:2px solid #8B6F47; padding-left:24px; margin:32px 0; }
+  #mf-{{ section.id }} .mf-formed { text-align:center; padding:40px 0; border-top:1px solid #DAD2C4; margin:56px 0 0; }
+  #mf-{{ section.id }} .mf-formed-label { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#A89B87; margin-bottom:12px; }
+  #mf-{{ section.id }} .mf-formed-flow { font-size:15px; color:#5a5650; }
+  @media (max-width:680px){ #mf-{{ section.id }} .mf-title { font-size:32px; } #mf-{{ section.id }} .mf-meta { grid-template-columns:repeat(2,1fr); } }
+</style>
+{%- endif -%}
+{% schema %}
+{ "name": "Finding Page", "settings": [], "presets": [{ "name": "Finding Page" }] }
+{% endschema %}

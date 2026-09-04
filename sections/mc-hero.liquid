@@ -1,0 +1,644 @@
+{% stylesheet %}
+.mc-hero {
+  --mc-ink: #1f1c17;
+  --mc-ink-soft: #48433a;
+  --mc-muted: #6c6358;
+  --mc-faint: #8a7f70;
+  --mc-accent: #bb7a33;
+  --mc-line: #e2d8ca;
+  --mc-line-soft: #ddd3c6;
+}
+
+.mc-hero__wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 32px 76px;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* ---------- Gallery ---------- */
+.mc-gallery {
+  display: grid;
+  grid-template-columns: 74px 1fr;
+  gap: 18px;
+  position: sticky;
+  top: 84px;
+}
+
+.mc-thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mc-thumb-btn {
+  padding: 0;
+  border: 1px solid var(--mc-line);
+  border-radius: 3px;
+  overflow: hidden;
+  background: #f0e9e0;
+  aspect-ratio: 3 / 4;
+  width: 100%;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.mc-thumb-btn[aria-current="true"] {
+  border-color: var(--mc-accent);
+}
+
+.mc-thumb-btn:hover {
+  border-color: var(--mc-accent);
+}
+
+.mc-thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.62;
+  transition: opacity 0.25s;
+}
+
+.mc-thumb-btn[aria-current="true"] img {
+  opacity: 1;
+}
+
+.mc-stage {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #ede5da;
+}
+
+/* horizontal scroll-snap track: native swipe on touch, drag on desktop */
+.mc-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
+}
+
+.mc-track::-webkit-scrollbar { display: none; }
+.mc-track.is-dragging { cursor: grabbing; scroll-behavior: auto; }
+.mc-track.is-dragging .mc-slide img { pointer-events: none; }
+
+.mc-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  aspect-ratio: 4 / 5;
+  background: #ede5da;
+}
+
+.mc-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.mc-badge {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  z-index: 2;
+  font-family: var(--font-body-family);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mc-ink);
+  background: rgba(250, 247, 244, 0.85);
+  padding: 6px 10px;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.mc-counter {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2;
+  font-family: var(--font-body-family);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--mc-ink);
+  background: rgba(250, 247, 244, 0.85);
+  padding: 6px 10px;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+/* arrow controls */
+.mc-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(250, 247, 244, 0.85);
+  color: var(--mc-ink);
+  font-size: 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 1;
+  transition: background 0.25s;
+}
+
+.mc-arrow:hover { background: rgba(250, 247, 244, 0.98); }
+.mc-arrow:focus-visible { outline: 2px solid var(--mc-accent); outline-offset: 2px; }
+.mc-arrow--prev { left: 12px; }
+.mc-arrow--next { right: 12px; }
+.mc-arrow[disabled] { opacity: 0; pointer-events: none; }
+
+/* ---------- Info column ---------- */
+.mc-info { padding-top: 6px; }
+
+.mc-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-body-family);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mc-faint);
+}
+
+.mc-meta__rule { flex: 1; height: 1px; background: var(--mc-line); }
+.mc-meta__rating { display: flex; align-items: center; gap: 6px; color: var(--mc-accent); }
+.mc-meta__rating span { color: var(--mc-muted); letter-spacing: 0.08em; }
+
+.mc-title {
+  margin: 22px 0 4px;
+  font-family: var(--font-heading-family);
+  font-weight: 400;
+  font-size: clamp(40px, 6vw, 60px);
+  line-height: 1.0;
+  letter-spacing: -0.015em;
+  color: var(--mc-ink);
+}
+
+.mc-subtitle {
+  margin: 0;
+  font-family: var(--font-body-family);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mc-accent);
+}
+
+.mc-price {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 26px 0 4px;
+}
+
+.mc-price__amount { font-family: var(--font-heading-family); font-size: 30px; color: var(--mc-ink); }
+.mc-price__note { font-family: var(--font-body-family); font-size: 13px; color: var(--mc-faint); letter-spacing: 0.02em; }
+
+.mc-divider { height: 1px; background: var(--mc-line); margin: 26px 0; }
+
+.mc-desc {
+  margin: 0;
+  font-family: var(--font-body-family);
+  font-size: 18px;
+  line-height: 1.62;
+  color: var(--mc-ink-soft);
+  max-width: 46ch;
+}
+
+.mc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 28px 0 30px;
+}
+
+.mc-tag {
+  font-family: var(--font-body-family);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5b5346;
+  border: 1px solid var(--mc-line-soft);
+  border-radius: 100px;
+  padding: 7px 13px;
+}
+
+.mc-buy {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  font-family: var(--font-body-family);
+}
+
+.mc-qty {
+  display: flex;
+  align-items: center;
+  border: 1px solid #cfc4b4;
+  border-radius: 3px;
+  background: #fff;
+}
+
+.mc-qty button {
+  width: 46px;
+  height: 54px;
+  border: none;
+  background: none;
+  font-size: 20px;
+  color: var(--mc-ink);
+  cursor: pointer;
+}
+
+.mc-qty button:focus-visible { outline: 2px solid var(--mc-accent); outline-offset: -2px; }
+.mc-qty__val { width: 34px; text-align: center; font-size: 16px; color: var(--mc-ink); }
+
+.mc-atc {
+  flex: 1 1 auto;
+  min-width: 180px;
+  min-height: 54px;
+  height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  border: none;
+  border-radius: 3px;
+  background: #1f1c17;
+  color: #faf7f4;
+  font-family: var(--font-body-family, sans-serif);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.3s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.mc-atc:hover { background: #3a342b; }
+.mc-atc:focus-visible { outline: 2px solid var(--mc-accent); outline-offset: 2px; }
+
+.mc-notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 24px;
+  font-family: var(--font-body-family);
+  font-size: 12.5px;
+  color: var(--mc-muted);
+}
+
+.mc-notes span { display: flex; align-items: center; gap: 8px; }
+.mc-notes__dot { width: 5px; height: 5px; border-radius: 50%; background: var(--mc-accent); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .mc-hero__wrap {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 32px 20px 56px;
+  }
+  .mc-gallery {
+    grid-template-columns: 1fr;
+    position: static;
+    top: auto;
+  }
+  /* thumbnails move below the image as a horizontal row on mobile */
+  .mc-thumbs {
+    flex-direction: row;
+    order: 2;
+    overflow-x: auto;
+    gap: 10px;
+    scrollbar-width: none;
+  }
+  .mc-thumbs::-webkit-scrollbar { display: none; }
+  .mc-thumb-btn {
+    flex: 0 0 64px;
+    aspect-ratio: 3 / 4;
+  }
+  .mc-stage { order: 1; }
+  .mc-arrow { width: 36px; height: 36px; }
+  .mc-title { margin-top: 18px; }
+  .mc-desc { font-size: 16px; }
+}
+
+@media (max-width: 520px) {
+  .mc-hero__wrap { padding: 24px 16px 48px; }
+  .mc-buy { flex-wrap: wrap; }
+  .mc-atc { flex: 1 0 100%; order: 2; }
+  .mc-qty { order: 1; }
+  .mc-notes { gap: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mc-track { scroll-behavior: auto; }
+}
+{% endstylesheet %}
+
+{%- assign gallery_blocks = section.blocks | where: 'type', 'gallery_image' -%}
+{%- assign gallery_count = gallery_blocks | size -%}
+
+<section class="mc-hero" id="mc-hero-{{ section.id }}" data-mc-root style="background:{{ section.settings.bg_color }}">
+  <div class="mc-hero__wrap">
+
+    <div class="mc-gallery">
+
+      <div class="mc-thumbs" data-mc-thumbs role="tablist" aria-label="Product images"></div>
+
+      <div class="mc-stage">
+        <div class="mc-badge">{{ section.settings.badge_text }}</div>
+
+        <div class="mc-track" data-mc-track tabindex="0" aria-label="Product image gallery">
+          {% if gallery_count > 0 %}
+            {% for block in gallery_blocks %}
+              <div class="mc-slide" {{ block.shopify_attributes }}>
+                {%- assign img_alt = block.settings.alt | default: section.settings.heading -%}
+                {% if block.settings.image != blank %}
+                  {%- if forloop.first -%}
+                    {{ block.settings.image | image_url: width: 1080 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '540, 800, 1080', sizes: '(max-width: 900px) 100vw, 45vw', alt: img_alt }}
+                  {%- else -%}
+                    {{ block.settings.image | image_url: width: 1080 | image_tag: loading: 'lazy', widths: '540, 800, 1080', sizes: '(max-width: 900px) 100vw, 45vw', alt: img_alt }}
+                  {%- endif -%}
+                {% elsif block.settings.fallback_url != blank %}
+                  <img src="{{ block.settings.fallback_url }}" alt="{{ img_alt | escape }}" loading="lazy" width="1080" height="1350">
+                {% endif %}
+              </div>
+            {% endfor %}
+          {% else %}
+            <div class="mc-slide">
+              <img src="{{ section.settings.fallback_image_1 }}" alt="{{ section.settings.heading }}" width="1080" height="1350">
+            </div>
+          {% endif %}
+        </div>
+
+        {% if gallery_count > 1 %}
+          <button class="mc-arrow mc-arrow--prev" data-mc-prev aria-label="Previous image">&larr;</button>
+          <button class="mc-arrow mc-arrow--next" data-mc-next aria-label="Next image">&rarr;</button>
+        {% endif %}
+
+        <div class="mc-counter" data-mc-counter>1 / {{ gallery_count | default: 1 }}</div>
+      </div>
+
+    </div>
+
+    <div class="mc-info">
+
+      <div class="mc-meta">
+        <span>{{ section.settings.brand }}</span>
+        <span class="mc-meta__rule"></span>
+      </div>
+
+      <h1 class="mc-title">{{ section.settings.heading }}</h1>
+      <p class="mc-subtitle">{{ section.settings.subheading }}</p>
+
+      <div class="mc-price">
+        <span class="mc-price__amount">{{ section.settings.price }}</span>
+        <span class="mc-price__note">{{ section.settings.price_note }}</span>
+      </div>
+
+      <div class="mc-divider"></div>
+
+      <p class="mc-desc">{{ section.settings.description }}</p>
+
+      {% assign tag_blocks = section.blocks | where: 'type', 'tag' %}
+      {% if tag_blocks.size > 0 %}
+        <div class="mc-tags">
+          {% for block in tag_blocks %}
+            <span class="mc-tag" {{ block.shopify_attributes }}>{{ block.settings.label }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <div class="mc-buy">
+        <div class="mc-qty">
+          <button data-mc-dec type="button" aria-label="Decrease quantity">&ndash;</button>
+          <span data-mc-qty class="mc-qty__val" aria-live="polite">1</span>
+          <button data-mc-inc type="button" aria-label="Increase quantity">+</button>
+        </div>
+        <button data-mc-atc class="mc-atc" type="button">{{ section.settings.atc_text | default: 'Add to cart' }}</button>
+      </div>
+
+      <div class="mc-notes">
+        {% if section.settings.note_1 != blank %}<span><span class="mc-notes__dot"></span>{{ section.settings.note_1 }}</span>{% endif %}
+        {% if section.settings.note_2 != blank %}<span><span class="mc-notes__dot"></span>{{ section.settings.note_2 }}</span>{% endif %}
+        {% if section.settings.note_3 != blank %}<span><span class="mc-notes__dot"></span>{{ section.settings.note_3 }}</span>{% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  var SECTION_ID = {{ section.id | json }};
+  var ATC_TEXT = {{ section.settings.atc_text | json }};
+  var ATC_SUCCESS = {{ section.settings.atc_success | json }};
+  var VARIANT_ID = {{ section.settings.variant_id | json }};
+
+  function init() {
+    var root = document.getElementById('mc-hero-' + SECTION_ID);
+    if (!root || root.dataset.mcReady === '1') return;
+    root.dataset.mcReady = '1';
+
+    var track = root.querySelector('[data-mc-track]');
+    var slides = track ? Array.prototype.slice.call(track.querySelectorAll('.mc-slide')) : [];
+    var counter = root.querySelector('[data-mc-counter]');
+    var thumbsWrap = root.querySelector('[data-mc-thumbs]');
+    var prevBtn = root.querySelector('[data-mc-prev]');
+    var nextBtn = root.querySelector('[data-mc-next]');
+    var total = slides.length;
+    var index = 0;
+
+    function updateUI(i) {
+      index = i;
+      if (counter) counter.textContent = (i + 1) + ' / ' + total;
+      if (thumbsWrap) {
+        thumbsWrap.querySelectorAll('.mc-thumb-btn').forEach(function(b, j) {
+          b.setAttribute('aria-current', j === i ? 'true' : 'false');
+        });
+      }
+      if (prevBtn) prevBtn.disabled = i <= 0;
+      if (nextBtn) nextBtn.disabled = i >= total - 1;
+    }
+
+    function goTo(i) {
+      if (!track || !slides[i]) return;
+      i = Math.max(0, Math.min(total - 1, i));
+      track.scrollTo({ left: slides[i].offsetLeft, behavior: 'smooth' });
+      updateUI(i);
+    }
+
+    if (thumbsWrap && total > 1) {
+      slides.forEach(function(slide, i) {
+        var srcImg = slide.querySelector('img');
+        var btn = document.createElement('button');
+        btn.className = 'mc-thumb-btn';
+        btn.type = 'button';
+        btn.setAttribute('role', 'tab');
+        btn.setAttribute('aria-current', i === 0 ? 'true' : 'false');
+        btn.setAttribute('aria-label', 'View image ' + (i + 1));
+        var img = document.createElement('img');
+        img.src = srcImg ? (srcImg.currentSrc || srcImg.src) : '';
+        img.alt = '';
+        btn.appendChild(img);
+        btn.addEventListener('click', function() { goTo(i); });
+        thumbsWrap.appendChild(btn);
+      });
+    }
+
+    if (track) {
+      var scrollTimer;
+      track.addEventListener('scroll', function() {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(function() {
+          var nearest = Math.round(track.scrollLeft / track.clientWidth);
+          if (nearest !== index) updateUI(Math.max(0, Math.min(total - 1, nearest)));
+        }, 90);
+      }, { passive: true });
+
+      track.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(index - 1); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); goTo(index + 1); }
+      });
+
+      var down = false, startX = 0, startScroll = 0, moved = false;
+      track.addEventListener('mousedown', function(e) {
+        down = true; moved = false;
+        startX = e.pageX;
+        startScroll = track.scrollLeft;
+        track.classList.add('is-dragging');
+      });
+      window.addEventListener('mousemove', function(e) {
+        if (!down) return;
+        var dx = e.pageX - startX;
+        if (Math.abs(dx) > 4) moved = true;
+        track.scrollLeft = startScroll - dx;
+      });
+      window.addEventListener('mouseup', function() {
+        if (!down) return;
+        down = false;
+        track.classList.remove('is-dragging');
+        if (moved) goTo(Math.round(track.scrollLeft / track.clientWidth));
+      });
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function() { goTo(index - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function() { goTo(index + 1); });
+
+    updateUI(0);
+
+    // ---- Quantity + add to cart ----
+    var qty = 1;
+    var qtyEl = root.querySelector('[data-mc-qty]');
+    var dec = root.querySelector('[data-mc-dec]');
+    var inc = root.querySelector('[data-mc-inc]');
+    var atc = root.querySelector('[data-mc-atc]');
+    var atcTimer;
+
+    function setQty(v) { qty = Math.max(1, v); if (qtyEl) qtyEl.textContent = qty; }
+    if (dec) dec.addEventListener('click', function() { setQty(qty - 1); });
+    if (inc) inc.addEventListener('click', function() { setQty(qty + 1); });
+
+    if (atc) atc.addEventListener('click', function() {
+      atc.disabled = true;
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ items: [{ id: VARIANT_ID, quantity: qty }] })
+      }).then(function(r) {
+        if (!r.ok) throw new Error('cart');
+        return r.json();
+      }).then(function() {
+        atc.textContent = ATC_SUCCESS;
+        atc.style.background = '#5b6b4e';
+        document.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
+        clearTimeout(atcTimer);
+        atcTimer = setTimeout(function() {
+          atc.textContent = ATC_TEXT;
+          atc.style.background = '';
+          atc.disabled = false;
+        }, 1800);
+      }).catch(function() {
+        atc.textContent = 'Try again';
+        atc.disabled = false;
+        clearTimeout(atcTimer);
+        atcTimer = setTimeout(function() { atc.textContent = ATC_TEXT; }, 1800);
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  // Re-init when re-rendered inside the theme editor
+  document.addEventListener('shopify:section:load', function(e) {
+    if (e.detail && e.detail.sectionId === SECTION_ID) {
+      var r = document.getElementById('mc-hero-' + SECTION_ID);
+      if (r) r.dataset.mcReady = '';
+      init();
+    }
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "MC — Hero",
+  "settings": [
+    {"type": "color", "id": "bg_color", "label": "Background color", "default": "#faf7f4"},
+    {"type": "text", "id": "brand", "label": "Brand name", "default": "Mirellis"},
+    {"type": "text", "id": "heading", "label": "Product name", "default": "Morning Clarity"},
+    {"type": "text", "id": "subheading", "label": "Product type", "default": "Oil Pulling Elixir"},
+    {"type": "textarea", "id": "description", "label": "Description", "default": "A morning ritual designed to restore the transition between sleep and wakefulness — the first coherent sensory signal the nervous system receives each day. Warm oil. Slow movement. Five to ten minutes of purposeful, non-reactive action."},
+    {"type": "text", "id": "price", "label": "Price", "default": "Rs. 1,200"},
+    {"type": "text", "id": "price_note", "label": "Price note", "default": "incl. taxes · 200ml"},
+    {"type": "number", "id": "variant_id", "label": "Product variant ID", "default": 42179687481410},
+    {"type": "text", "id": "atc_text", "label": "Add to cart button text", "default": "Add to cart — Rs. 1,200"},
+    {"type": "text", "id": "atc_success", "label": "Success message", "default": "Added to cart ✓"},
+    {"type": "text", "id": "badge_text", "label": "Image badge text", "default": "Sleep → Wakefulness"},
+    {"type": "text", "id": "note_1", "label": "Trust note 1", "default": "Ships in 2–3 days"},
+    {"type": "text", "id": "note_2", "label": "Trust note 2", "default": "Cash on delivery"},
+    {"type": "text", "id": "note_3", "label": "Trust note 3", "default": "30-day ritual guarantee"},
+    {"type": "header", "content": "Fallback image URLs (used if no image picker set)"},
+    {"type": "text", "id": "fallback_image_1", "label": "Fallback hero image URL", "default": "https://mirellis.in/cdn/shop/files/Image-2_Formulated-ayurvedic-ritual.png?v=1773638990"}
+  ],
+  "blocks": [
+    {
+      "type": "gallery_image",
+      "name": "Gallery image",
+      "settings": [
+        {"type": "image_picker", "id": "image", "label": "Image"},
+        {"type": "text", "id": "alt", "label": "Alt text"},
+        {"type": "text", "id": "fallback_url", "label": "Fallback URL (if no image picked)"}
+      ]
+    },
+    {
+      "type": "tag",
+      "name": "Ingredient tag",
+      "settings": [
+        {"type": "text", "id": "label", "label": "Tag label"}
+      ]
+    }
+  ],
+  "presets": [{"name": "MC — Hero"}]
+}
+{% endschema %}

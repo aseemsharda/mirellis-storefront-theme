@@ -1,0 +1,250 @@
+{% comment %}
+=========================================================
+MIRELLIS — SCENE 08
+QUIET CLOSURE
+THE EMOTIONAL EXHALE
+=========================================================
+{% endcomment %}
+
+<section
+  class="
+    ml-scene
+    ml-scene-continuous
+    ml-scene-descent-soft
+    ml-spatial-stillness
+  "
+>
+
+  <!-- =====================================================
+       ATMOSPHERIC FOUNDATION
+       ===================================================== -->
+
+  <div
+    class="ml-depth-layer ml-depth-soft"
+    style="
+      background:
+        linear-gradient(
+          180deg,
+          rgba(239,231,219,0.96) 0%,
+          rgba(246,241,232,0.99) 100%
+        );
+    "
+  ></div>
+
+
+  <!-- =====================================================
+       ATMOSPHERIC CLOSURE IMAGE
+       ===================================================== -->
+
+  {% if section.settings.scene_image != blank %}
+
+    <div
+      class="
+        ml-depth-layer
+        ml-depth-atmospheric
+        ml-light-drift
+      "
+      style="
+        opacity: 0.14;
+      "
+    >
+
+      {{
+        section.settings.scene_image
+        | image_url: width: 2200
+        | image_tag:
+          class: 'ml-atmospheric-image ml-soft-presence',
+          loading: 'lazy',
+          widths: '1200, 1600, 2200',
+          alt: section.settings.scene_heading
+      }}
+
+    </div>
+
+  {% endif %}
+
+
+  <!-- =====================================================
+       QUIET CLOSURE FIELD
+       ===================================================== -->
+
+  <div class="ml-container-reading">
+
+    <div
+      class="
+        ml-balanced-field
+        ml-rhythm-atmospheric
+        ml-cinematic-breathing
+      "
+    >
+
+      <!-- Emotional Silence -->
+      <div class="ml-visual-silence-lg"></div>
+
+
+      <!-- =================================================
+           CONTEMPLATIVE CLOSING STATEMENT
+           ================================================= -->
+
+      <div
+        class="
+          ml-reading-width-narrow
+          ml-fade-soft
+          is-visible
+        "
+      >
+
+        {% if section.settings.scene_heading != blank %}
+
+          <h2
+            class="
+              ml-display-heading
+              ml-headline-soft
+            "
+          >
+            {{ section.settings.scene_heading }}
+          </h2>
+
+        {% endif %}
+
+      </div>
+
+
+      <!-- =================================================
+           QUIET REFLECTION
+           ================================================= -->
+
+      <div
+        class="
+          ml-reading-width
+          ml-copy-whisper
+          ml-fade-soft
+          is-visible
+        "
+      >
+
+        {% if section.settings.scene_copy != blank %}
+
+          <div class="ml-supporting-text">
+
+            {{ section.settings.scene_copy }}
+
+          </div>
+
+        {% endif %}
+
+      </div>
+
+
+      <!-- =================================================
+           SUBTLE CONTINUATION INVITATION
+           ================================================= -->
+
+      {% if section.settings.scene_cta_label != blank %}
+
+        <div
+          class="
+            ml-button-field
+            ml-fade-soft
+            is-visible
+          "
+        >
+
+          <a
+            href="{{ section.settings.scene_cta_link }}"
+            class="
+              ml-soft-cta
+              ml-soft-hover
+            "
+          >
+
+            {{ section.settings.scene_cta_label }}
+
+          </a>
+
+        </div>
+
+      {% endif %}
+
+
+      <!-- Atmospheric Silence -->
+      <div class="ml-visual-silence-lg"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       ATMOSPHERIC FADE INTO FOOTER
+       ===================================================== -->
+
+  <div
+    class="
+      ml-depth-layer
+      ml-shadow-breathing
+      ml-depth-atmospheric
+    "
+    style="
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,0) 0%,
+          rgba(246,241,232,0.42) 100%
+        );
+      opacity: 0.78;
+    "
+  ></div>
+
+</section>
+
+
+{% schema %}
+{
+  "name": "Mirellis Scene 08",
+  "tag": "section",
+  "class": "section section-mirellis-closure",
+  "settings": [
+
+    {
+      "type": "image_picker",
+      "id": "scene_image",
+      "label": "Closure Atmosphere Image"
+    },
+
+    {
+      "type": "textarea",
+      "id": "scene_heading",
+      "label": "Closing Statement",
+      "default": "Some environments stay with the body even after we leave them."
+    },
+
+    {
+      "type": "textarea",
+      "id": "scene_copy",
+      "label": "Quiet Reflection",
+      "default": "Not every part of life needs to move at the speed surrounding it."
+    },
+
+    {
+      "type": "text",
+      "id": "scene_cta_label",
+      "label": "Subtle Continuation CTA",
+      "default": "Continue Slowly"
+    },
+
+    {
+      "type": "url",
+      "id": "scene_cta_link",
+      "label": "Continuation CTA Link"
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "Mirellis Scene 08"
+    }
+  ]
+}
+{% endschema %}

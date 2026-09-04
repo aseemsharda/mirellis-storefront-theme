@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { SignInForm } from "@/app/_components/sign-in-form";
 import { studioConfig } from "@/lib/config";
 import { getStudioIdentity } from "@/lib/auth";
+import { MirellisBrand } from "@/app/_components/mirellis-brand";
 
 export default async function SignInPage({
   searchParams,
@@ -19,7 +20,7 @@ export default async function SignInPage({
     <main className="arrival-shell">
       <section className="arrival-story" aria-labelledby="studio-title">
         <a className="wordmark" href="https://mirellis.in" aria-label="Mirellis website">
-          MIRELLIS
+          <MirellisBrand />
         </a>
         <p className="eyebrow">Private editorial workspace</p>
         <h1 id="studio-title">Contribute carefully. Review accountably.</h1>

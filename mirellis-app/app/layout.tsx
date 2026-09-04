@@ -4,18 +4,25 @@ import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://app.mirellis.in'),
-  title: 'After Work — End the Workday Clearly | Mirellis',
-  description: 'Choose what is keeping work open, take one relevant action now, or build a private 21-day workday-exit practice.',
-  applicationName: 'Mirellis After Work',
+  title: 'Mirellis — A Private Companion for Difficult Moments',
+  description: 'Choose what is difficult now and begin one practical action for waking, focus, leaving work or stopping for sleep.',
+  applicationName: 'Mirellis',
+  icons: {
+    icon: [
+      { url: '/icon.png?v=20260826', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: '/apple-icon.png?v=20260826',
+    shortcut: '/icon.png?v=20260826',
+  },
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'After Work — End the Workday Clearly',
-    description: 'A private, action-first Mirellis practice for people who find that work continues after the workday ends.',
+    title: 'Mirellis — A Private Companion for Difficult Moments',
+    description: 'A private, action-first companion for waking, focus, leaving work and stopping for sleep.',
     url: 'https://app.mirellis.in',
     siteName: 'Mirellis',
     type: 'website',
   },
-  appleWebApp: { capable: true, statusBarStyle: 'default', title: 'Mirellis After Work' },
+  appleWebApp: { capable: true, statusBarStyle: 'default', title: 'Mirellis' },
 };
 
 export const viewport: Viewport = {

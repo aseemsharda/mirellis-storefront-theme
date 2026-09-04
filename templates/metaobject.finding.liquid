@@ -1,0 +1,158 @@
+{%- comment -%}
+  templates/metaobject.finding.liquid
+  Renders ONE Finding from the "finding" metaobject definition.
+  Design tokens match the live Finding 001 page. CSS namespaced.
+{%- endcomment -%}
+
+{%- liquid
+  assign f = metaobject
+  assign num = f.number.value | default: ''
+  assign status = f.status.value | default: 'OPEN' | upcase
+  assign transition = f.transition.value | default: ''
+  assign title = f.title.value | default: ''
+  assign standfirst = f.standfirst.value
+  assign type_label = f.type_label.value | default: 'Foundational Document'
+  assign domain = f.domain.value | default: 'Human State Transitions'
+  assign confidence = f.confidence.value | default: 'Provisional'
+  assign published_state = f.published_state.value | default: 'Observatory Archive'
+  assign observation = f.observation.value
+  assign pattern = f.pattern.value
+  assign closer_look_heading = f.closer_look_heading.value
+  assign closer_look = f.closer_look.value
+  assign interpretation = f.interpretation.value
+  assign what_this_suggests = f.what_this_suggests.value
+  assign pull_quote = f.pull_quote.value
+  assign next_finding = f.next_finding.value
+-%}
+
+<section class="mf-finding" id="mf-{{ f.system.handle }}">
+  <div class="mf-wrap">
+
+    <nav class="mf-crumb" aria-label="Breadcrumb">
+      <a href="{{ pages['the-observatory'].url | default: '/pages/the-observatory' }}">Observatory</a>
+      <span>/</span>
+      <a href="{{ pages.findings.url | default: '/pages/findings' }}">Findings</a>
+      <span>/</span>
+      <span>Finding {{ num }}</span>
+    </nav>
+
+    <p class="mf-eyebrow">Finding {{ num }} &nbsp;·&nbsp; Status — {{ status }}</p>
+    {%- if transition != blank -%}
+      <p class="mf-transition">{{ transition }}</p>
+    {%- endif -%}
+
+    <h1 class="mf-title">{{ title }}</h1>
+    {%- if standfirst != blank -%}
+      <div class="mf-standfirst">{{ standfirst }}</div>
+    {%- endif -%}
+
+    <dl class="mf-meta">
+      <div><dt>Type</dt><dd>{{ type_label }}</dd></div>
+      <div><dt>Domain</dt><dd>{{ domain }}</dd></div>
+      <div><dt>Confidence</dt><dd>{{ confidence }}</dd></div>
+      <div><dt>Published</dt><dd>{{ published_state }}</dd></div>
+    </dl>
+
+    <hr class="mf-rule">
+
+    {%- if observation != blank -%}
+      <div class="mf-section">
+        <p class="mf-section-num">01 — The Observation</p>
+        <div class="mf-body">{{ observation }}</div>
+      </div>
+    {%- endif -%}
+
+    {%- if pattern != blank -%}
+      <div class="mf-section">
+        <p class="mf-section-num">02 — The Pattern</p>
+        <div class="mf-body">{{ pattern }}</div>
+        {%- if pull_quote != blank -%}
+          <blockquote class="mf-quote">{{ pull_quote }}</blockquote>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if closer_look != blank -%}
+      <div class="mf-section">
+        <p class="mf-section-num">03 — A Closer Look{% if closer_look_heading != blank %} · {{ closer_look_heading }}{% endif %}</p>
+        <div class="mf-body">{{ closer_look }}</div>
+      </div>
+    {%- endif -%}
+
+    {%- if interpretation != blank -%}
+      <div class="mf-section">
+        <p class="mf-section-num">04 — Interpretation</p>
+        <div class="mf-body">{{ interpretation }}</div>
+      </div>
+    {%- endif -%}
+
+    {%- if what_this_suggests != blank -%}
+      <div class="mf-section">
+        <p class="mf-section-num">05 — What This Suggests</p>
+        <div class="mf-body">{{ what_this_suggests }}</div>
+      </div>
+    {%- endif -%}
+
+    <div class="mf-formed">
+      <p class="mf-formed-label">How a Finding is Formed</p>
+      <p class="mf-formed-flow">Observation → Pattern → Interpretation → Finding → New Observation</p>
+      <p class="mf-formed-note">This Finding remains {{ status | downcase }}. New observations may refine it.</p>
+    </div>
+
+    {%- if next_finding != blank -%}
+      <a class="mf-next" href="{{ next_finding.system.url }}">
+        <span>Next · Finding {{ next_finding.number.value }}</span>
+        <span class="mf-next-trans">{{ next_finding.transition.value }}</span>
+        <span class="mf-next-title">{{ next_finding.title.value }} →</span>
+      </a>
+    {%- endif -%}
+
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ title | json }},
+  "description": {{ standfirst | strip_html | truncate: 200 | json }},
+  "author": { "@type": "Organization", "name": "Mirellis Observatory" },
+  "publisher": { "@type": "Organization", "name": "Mirellis" },
+  "isPartOf": { "@type": "CreativeWorkSeries", "name": "Mirellis Research Findings" },
+  "url": {{ shop.url | append: f.system.url | json }}
+}
+</script>
+
+<style>
+  #mf-{{ f.system.handle }} { background:#FAF7F2; color:#1A1A18; padding:80px 0; }
+  #mf-{{ f.system.handle }} .mf-wrap { max-width:720px; margin:0 auto; padding:0 24px; }
+  #mf-{{ f.system.handle }} .mf-crumb { font-size:13px; letter-spacing:.04em; color:#A89B87; margin-bottom:48px; }
+  #mf-{{ f.system.handle }} .mf-crumb a { color:#A89B87; text-decoration:none; }
+  #mf-{{ f.system.handle }} .mf-crumb span { margin:0 8px; }
+  #mf-{{ f.system.handle }} .mf-eyebrow { font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:#8B6F47; margin-bottom:16px; }
+  #mf-{{ f.system.handle }} .mf-transition { font-size:14px; letter-spacing:.1em; color:#A89B87; margin-bottom:24px; }
+  #mf-{{ f.system.handle }} .mf-title { font-family:Georgia,serif; font-size:44px; line-height:1.15; font-weight:400; margin:0 0 28px; }
+  #mf-{{ f.system.handle }} .mf-standfirst { font-size:19px; line-height:1.6; color:#5a5650; margin-bottom:48px; }
+  #mf-{{ f.system.handle }} .mf-meta { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin:0 0 48px; padding:24px 0; border-top:1px solid #DAD2C4; border-bottom:1px solid #DAD2C4; }
+  #mf-{{ f.system.handle }} .mf-meta dt { font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#A89B87; margin-bottom:6px; }
+  #mf-{{ f.system.handle }} .mf-meta dd { font-size:15px; margin:0; }
+  #mf-{{ f.system.handle }} .mf-rule { border:0; border-top:1px solid #DAD2C4; margin:0 0 48px; }
+  #mf-{{ f.system.handle }} .mf-section { margin-bottom:48px; }
+  #mf-{{ f.system.handle }} .mf-section-num { font-size:13px; letter-spacing:.1em; color:#8B6F47; margin-bottom:16px; }
+  #mf-{{ f.system.handle }} .mf-body { font-size:18px; line-height:1.7; }
+  #mf-{{ f.system.handle }} .mf-body p { margin:0 0 18px; }
+  #mf-{{ f.system.handle }} .mf-quote { font-family:Georgia,serif; font-size:22px; line-height:1.5; font-style:italic; color:#1A1A18; border-left:2px solid #8B6F47; padding-left:24px; margin:32px 0; }
+  #mf-{{ f.system.handle }} .mf-formed { text-align:center; padding:40px 0; border-top:1px solid #DAD2C4; margin:56px 0 0; }
+  #mf-{{ f.system.handle }} .mf-formed-label { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#A89B87; margin-bottom:12px; }
+  #mf-{{ f.system.handle }} .mf-formed-flow { font-size:15px; color:#5a5650; margin-bottom:8px; }
+  #mf-{{ f.system.handle }} .mf-formed-note { font-size:14px; font-style:italic; color:#A89B87; }
+  #mf-{{ f.system.handle }} .mf-next { display:block; margin-top:56px; padding:32px; border:1px solid #DAD2C4; text-decoration:none; color:#1A1A18; }
+  #mf-{{ f.system.handle }} .mf-next span { display:block; }
+  #mf-{{ f.system.handle }} .mf-next > span:first-child { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#8B6F47; margin-bottom:8px; }
+  #mf-{{ f.system.handle }} .mf-next-trans { font-size:13px; color:#A89B87; margin-bottom:4px; }
+  #mf-{{ f.system.handle }} .mf-next-title { font-family:Georgia,serif; font-size:20px; }
+  @media (max-width:680px){
+    #mf-{{ f.system.handle }} .mf-title { font-size:32px; }
+    #mf-{{ f.system.handle }} .mf-meta { grid-template-columns:repeat(2,1fr); }
+  }
+</style>

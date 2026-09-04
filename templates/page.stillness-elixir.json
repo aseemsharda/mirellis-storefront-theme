@@ -1,0 +1,290 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "se_hero": {
+      "type": "se-hero",
+      "settings": {
+        "product": "mirellis-stillness-elixir",
+        "badge": "Evening · 50 ml",
+        "eyebrow": "Work → Recovery · Evening Ritual",
+        "title": "Stillness Elixir",
+        "subtitle": "A grounding evening body oil — the signal that the day has ended.",
+        "price_text": "Rs. 1,100",
+        "price_subtext": "50 ml · inclusive of all taxes",
+        "description": "Crafted with grounding Ayurvedic botanicals — Ashwagandha, Jatamansi, Vetiver, Lavender, Blue Tansy. More than a fragrance, it is a nightly cue to pause.",
+        "add_text": "Add to cart",
+        "trust_1": "",
+        "trust_2": "Made in India",
+        "trust_3": "12-month shelf life",
+        "bg_color": "#12171f"
+      }
+    },
+    "se_intro": {
+      "type": "se-intro",
+      "settings": {
+        "eyebrow": "This is not a sedative",
+        "body_before": "Modern life rarely transitions gently into rest. As the day ends, the body doesn't always know how to stop — so Stillness becomes the",
+        "highlight_word": "signal",
+        "body_after": "that it is safe to slow down.",
+        "bg_color": "#faf7f4",
+        "text_color": "#2a261f"
+      }
+    },
+    "se_band_image": {
+      "type": "se-band-image",
+      "settings": {
+        "image": "shopify://shop_images/eening-image-mirellis.png",
+        "eyebrow": "The Transition",
+        "heading": "A calming aromatic oil designed to support the transition from day to night.",
+        "height_min": 280,
+        "height_vw": 42,
+        "height_max": 520
+      }
+    },
+    "se_ritual": {
+      "type": "se-ritual",
+      "blocks": {
+        "step_CWjnwh": {
+          "type": "step",
+          "settings": {
+            "number": "01",
+            "title": "Apply",
+            "body": "Warm a few drops between your palms. Apply to pulse points — wrists, behind the ears, the soles of the feet."
+          }
+        },
+        "step_Lp3xgg": {
+          "type": "step",
+          "settings": {
+            "number": "02",
+            "title": "Breathe",
+            "body": "Take slow, deliberate breaths. Let the aroma guide the breath downward and soften the body."
+          }
+        },
+        "step_NBf8eH": {
+          "type": "step",
+          "settings": {
+            "number": "03",
+            "title": "Release",
+            "body": "Pause. Let the nervous system receive the signal that the day is complete — and it is safe to slow down."
+          }
+        }
+      },
+      "block_order": [
+        "step_CWjnwh",
+        "step_Lp3xgg",
+        "step_NBf8eH"
+      ],
+      "settings": {
+        "eyebrow": "The Evening Ritual",
+        "heading": "Three movements. Five to ten minutes.",
+        "bg_color": "#faf7f4",
+        "text_color": "#26221d"
+      }
+    },
+    "se_what_works": {
+      "type": "se-what-works",
+      "settings": {
+        "image": "shopify://shop_images/mirellis-ashwagandha-part-of-the-restorative-experience.png",
+        "image_position": "left",
+        "eyebrow": "What makes it work",
+        "heading": "Scent, touch, and breath — the senses most closely tied to rest.",
+        "body_1": "Stillness engages grounding botanical extracts and essential oils traditionally used to calm the mind and ease the body. Rather than forcing sleep, the ritual supports the nervous system's natural ability to transition into stillness.",
+        "body_2": "Consistency matters more than intensity. The ritual is designed to be repeated gently, every evening.",
+        "bg_color": "#12171f"
+      }
+    },
+    "se_ingredients": {
+      "type": "se-ingredients",
+      "blocks": {
+        "ingredient_TQARNV": {
+          "type": "ingredient",
+          "settings": {
+            "number": "01",
+            "name": "Ashwagandha",
+            "description": "Traditionally associated with resilience, restoration, and emotional balance."
+          }
+        },
+        "ingredient_DQHrez": {
+          "type": "ingredient",
+          "settings": {
+            "number": "02",
+            "name": "Jatamansi",
+            "description": "A grounding Himalayan botanical linked to calmness and evening stillness rituals."
+          }
+        },
+        "ingredient_cafWNA": {
+          "type": "ingredient",
+          "settings": {
+            "number": "03",
+            "name": "Tagar · Valerian Root",
+            "description": "Traditionally used in practices associated with deep relaxation and rest."
+          }
+        },
+        "ingredient_8KnmTN": {
+          "type": "ingredient",
+          "settings": {
+            "number": "04",
+            "name": "Vetiver & Lavender",
+            "description": "Grounding aromatic oils known for their calming, emotionally settling profile."
+          }
+        },
+        "ingredient_x67V9g": {
+          "type": "ingredient",
+          "settings": {
+            "number": "05",
+            "name": "Blue Tansy",
+            "description": "A rare botanical oil prized for its soft, soothing aromatic character."
+          }
+        },
+        "ingredient_tT3c3q": {
+          "type": "ingredient",
+          "settings": {
+            "number": "06",
+            "name": "Sweet Almond & Vitamin E",
+            "description": "Nourishing oils that create a silky, fast-absorbing ritual experience."
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_TQARNV",
+        "ingredient_DQHrez",
+        "ingredient_cafWNA",
+        "ingredient_8KnmTN",
+        "ingredient_x67V9g",
+        "ingredient_tT3c3q"
+      ],
+      "settings": {
+        "eyebrow": "Key Ingredients",
+        "heading": "Grounding Ayurvedic botanicals.",
+        "bg_color": "#f2ede6",
+        "text_color": "#26221d"
+      }
+    },
+    "se_who_for": {
+      "type": "se-who-for",
+      "blocks": {
+        "persona_ydktMQ": {
+          "type": "persona",
+          "settings": {
+            "image": "shopify://shop_images/why-rituals-matter.png",
+            "caption": "Struggle to switch off at night"
+          }
+        },
+        "persona_G3gkG8": {
+          "type": "persona",
+          "settings": {
+            "image": "shopify://shop_images/meaningful-transitions-mirellis.png",
+            "caption": "Feel overstimulated after long days"
+          }
+        },
+        "persona_7BYrFV": {
+          "type": "persona",
+          "settings": {
+            "image": "shopify://shop_images/rituals-day-mirellis.png",
+            "caption": "Want rest without force or medication"
+          }
+        },
+        "persona_EJaPMi": {
+          "type": "persona",
+          "settings": {
+            "image": "shopify://shop_images/meaningful-transitions-mirellis.png",
+            "caption": "Value consistency over quick fixes"
+          }
+        }
+      },
+      "block_order": [
+        "persona_ydktMQ",
+        "persona_G3gkG8",
+        "persona_7BYrFV",
+        "persona_EJaPMi"
+      ],
+      "settings": {
+        "eyebrow": "Who this ritual is for",
+        "heading": "For those who find the day won't end.",
+        "bg_color": "#faf7f4",
+        "text_color": "#26221d"
+      }
+    },
+    "se_research": {
+      "type": "se-research",
+      "blocks": {
+        "item_tN6Dqr": {
+          "type": "item",
+          "settings": {
+            "title": "Ashwagandha & cortisol reduction",
+            "body": "Multiple clinical trials have explored Ashwagandha's role in stress response. A 2019 study published in Medicine found significant reductions in perceived stress and cortisol levels among participants who took standardised root extract over 8 weeks.",
+            "source": "Chandrasekhar et al., Indian Journal of Psychological Medicine, 2012."
+          }
+        },
+        "item_jcJifV": {
+          "type": "item",
+          "settings": {
+            "title": "Valerian root & sleep quality",
+            "body": "Valerian (Tagar) has been studied for its potential role in sleep onset and quality. Research suggests compounds including valerenic acid may interact with GABA receptors, supporting relaxation without sedation.",
+            "source": "Fernández-San-Martín et al., Sleep Medicine, 2010."
+          }
+        },
+        "item_MpndjU": {
+          "type": "item",
+          "settings": {
+            "title": "Aromatic compounds & the limbic system",
+            "body": "Olfactory receptors have a direct neural pathway to the limbic system — the brain's emotional centre. This is why scent can shift emotional states more rapidly than visual or auditory cues.",
+            "source": "Herz, R.S., Chemical Senses, 2009."
+          }
+        },
+        "item_qgeD4P": {
+          "type": "item",
+          "settings": {
+            "title": "Lavender & autonomic nervous system",
+            "body": "Inhalation of lavender essential oil has been associated with reduced heart rate variability markers of stress and increased parasympathetic (rest-and-digest) nervous system activity.",
+            "source": "Sayorwan et al., Journal of the Medical Association of Thailand, 2012."
+          }
+        }
+      },
+      "block_order": [
+        "item_tN6Dqr",
+        "item_jcJifV",
+        "item_MpndjU",
+        "item_qgeD4P"
+      ],
+      "settings": {
+        "eyebrow": "The Evidence",
+        "heading": "Centuries of use. Emerging science.",
+        "bg_color": "#faf7f4",
+        "text_color": "#26221d"
+      }
+    },
+    "se_companion": {
+      "type": "se-companion",
+      "settings": {
+        "image": "shopify://shop_images/morning-oil-pulling-mirellis.png",
+        "eyebrow": "Complete the ritual",
+        "product_name": "Morning Clarity Elixir",
+        "body": "Begin the day with the same intentionality that closed the night. The Morning Clarity Elixir pairs directly with Stillness — a full-circle aromatic ritual from dusk to dawn.",
+        "cta_label": "Explore Morning Clarity",
+        "cta_url": "",
+        "bg_color": "#faf7f4",
+        "text_color": "#26221d"
+      }
+    }
+  },
+  "order": [
+    "se_hero",
+    "se_intro",
+    "se_band_image",
+    "se_ritual",
+    "se_what_works",
+    "se_ingredients",
+    "se_who_for",
+    "se_research",
+    "se_companion"
+  ]
+}

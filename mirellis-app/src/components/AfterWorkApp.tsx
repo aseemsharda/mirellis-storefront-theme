@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { MirellisBrand } from '@/components/MirellisBrand';
+import { buildPrivateRecordExport } from '@/lib/private-record-export';
 import { isRecoveryEntryId, workRecoveryProtocolFor, workRecoveryProtocols, type RecoveryEntryId } from '@/lib/work-recovery-protocol';
 
 type Tab = 'today' | 'programme' | 'library' | 'record' | 'settings';
@@ -145,6 +147,16 @@ function downloadCalendarReminder(time: string) {
   window.setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
+function downloadPrivateRecord(data: AppData) {
+  const exportRecord = buildPrivateRecordExport(data);
+  const url = URL.createObjectURL(new Blob([`${JSON.stringify(exportRecord, null, 2)}\n`], { type: 'application/json;charset=utf-8' }));
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `mirellis-private-record-${new Date().toISOString().slice(0, 10)}.json`;
+  link.click();
+  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
 const emptyDraft: Omit<Draft, 'view'> = {
   unfinishedItem: '', tomorrowAction: '', urgentChoice: '', urgentItem: '', urgentAction: '', urgentHandled: false,
   closingAction: '', nextActivity: '', otherActivity: '', day2Review: '', day2Cue: '', day2Action: '', laterAnswer: '', laterAction: '',
@@ -163,6 +175,7 @@ export function AfterWorkApp() {
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [draft, setDraft] = useState(emptyDraft);
   const deleteTriggerRef = useRef<HTMLButtonElement>(null);
+  const deleteDialogRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     try {
@@ -221,6 +234,34 @@ export function AfterWorkApp() {
     }
     window.localStorage.setItem(DRAFT_KEY, JSON.stringify({ ...draft, view: active } satisfies Draft));
   }, [draft, hydrated, resumeView, view]);
+
+  useEffect(() => {
+    if (!deleteOpen) return;
+    const dialog = deleteDialogRef.current;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setDeleteOpen(false);
+        setStatus('Deletion cancelled.');
+        window.setTimeout(() => deleteTriggerRef.current?.focus(), 0);
+        return;
+      }
+      if (event.key !== 'Tab' || !dialog) return;
+      const controls = Array.from(dialog.querySelectorAll<HTMLElement>('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'));
+      if (controls.length === 0) return;
+      const first = controls[0];
+      const last = controls[controls.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [deleteOpen]);
 
   const dayNumber = Math.min(data.day, 21);
   const day = programmeDays[dayNumber - 1];
@@ -323,6 +364,11 @@ export function AfterWorkApp() {
     setStatus('Calendar reminder downloaded. Open it to add the 21 daily events to your calendar.');
   };
 
+  const exportPrivateRecord = () => {
+    downloadPrivateRecord(data);
+    setStatus('Private record downloaded as a JSON file. Nothing was sent to Mirellis.');
+  };
+
   const copyTomorrowPlan = async () => {
     try {
       await navigator.clipboard.writeText(draft.tomorrowAction);
@@ -345,7 +391,7 @@ export function AfterWorkApp() {
 
   if (!data.hasStarted && tab === 'today') return <main className="after-work-shell onboarding-shell">
     <p className="sr-status" role="status" aria-live="polite">{status}</p>
-    <header className="after-work-header"><span className="after-work-wordmark">MIRELLIS</span><span>After work</span></header>
+    <header className="after-work-header"><span className="after-work-wordmark"><MirellisBrand label="Mirellis" /></span><span>After work</span></header>
     {onboarding === 0 && <section className="onboarding-copy onboarding-v2 entry-screen">
       <p className="eyebrow">Help for right now · 2–8 minutes</p>
       <h1>What is keeping work open tonight?</h1>
@@ -364,6 +410,7 @@ export function AfterWorkApp() {
         <button className="primary-button" onClick={() => setOnboarding(3)}>Build my 21-day ending</button>
         <a className="secondary-button resource-action" href="https://open.spotify.com/playlist/6VG02jtawiXTcOGi0nZzp6" target="_blank" rel="noreferrer">Listen while I leave work</a>
         <a className="secondary-button resource-action" href="https://mirellis.in/pages/work-to-recovery">Understand why work stays open</a>
+        <a className="secondary-button resource-action" href="https://directory.mirellis.in/problems/cant-switch-off-after-work">Find support beyond tonight</a>
         <a className="text-button leave-link" href="https://mirellis.in">Leave for tonight</a>
       </div>
       <p className="after-work-footnote">Spotify opens in a new tab. Mirellis does not record what you play.</p>
@@ -400,7 +447,7 @@ export function AfterWorkApp() {
 
   return <main className="after-work-shell">
     <p className="sr-status" role="status" aria-live="polite">{status}</p>
-    <header className="after-work-header"><button className="after-work-wordmark" onClick={() => setTab('today')}>MIRELLIS</button><span>After Work · Day {completedRecord && view === 'complete' ? completedRecord.day : dayNumber}</span><button className="after-work-plain-button" onClick={() => setTab('settings')}>Settings</button></header>
+    <header className="after-work-header"><button className="after-work-wordmark" onClick={() => setTab('today')} aria-label="Return to After Work today"><MirellisBrand /></button><span>After Work · Day {completedRecord && view === 'complete' ? completedRecord.day : dayNumber}</span><button className="after-work-plain-button" onClick={() => setTab('settings')}>Settings</button></header>
 
     {tab === 'today' && view === 'home' && <section className="after-work-screen today-screen today-v2">
       <p className="eyebrow">Day {dayNumber} of 21 · One practice today</p><h1>{data.completedDays.length >= 21 ? 'Your programme is complete.' : day.title}</h1><p className="after-work-lead">{data.completedDays.length >= 21 ? 'Your private record contains the actions you chose across all 21 days.' : day.purpose}</p>
@@ -482,11 +529,11 @@ export function AfterWorkApp() {
 
     {tab === 'programme' && <section className="after-work-screen compact-screen"><p className="eyebrow">The complete programme</p><h1>One practice each day for 21 days.</h1><p className="after-work-lead">Every day has three steps and takes about seven minutes. Missing a day does not reset your programme.</p>{!data.hasStarted && <button className="primary-button" onClick={() => { setTab('today'); setOnboarding(0); setStatus('Choose what is keeping work open to begin.'); }}>Begin with what is difficult tonight</button>}<div className="programme-list-v2">{programmeDays.map((item) => { const state = data.completedDays.includes(item.day) ? 'complete' : item.day === dayNumber ? 'today' : item.day > dayNumber ? 'later' : 'available'; return <button key={item.day} className={`programme-row-v2 ${state}`} onClick={() => { if (!data.hasStarted) { setTab('today'); setOnboarding(0); setStatus('Choose what is keeping work open to begin.'); } else if (item.day === dayNumber && data.completedDays.length < 21) startPractice(); else setStatus(state === 'complete' ? `Day ${item.day} was completed.` : state === 'later' ? `Day ${item.day} becomes available after the earlier days.` : `Day ${item.day} is available.`); }}><span>Day {item.day}</span><strong>{item.title}</strong><small>{state === 'complete' ? 'Complete' : state === 'today' ? 'Today' : 'Later'}</small></button>; })}</div></section>}
 
-    {tab === 'library' && <section className="after-work-screen compact-screen"><p className="eyebrow">Support in different forms</p><h1>Choose what helps you act.</h1><p className="after-work-lead">The programme is not the only way to leave work. These are optional, direct supports for the same moment.</p><div className="resource-list"><article><p className="eyebrow">Listen · Spotify</p><h2>Stillness</h2><p>Use the playlist while you close the work surface, move rooms, or begin the evening.</p><a className="secondary-button resource-action" href="https://open.spotify.com/playlist/6VG02jtawiXTcOGi0nZzp6" target="_blank" rel="noreferrer">Open the Stillness playlist</a><small>Opens Spotify. Mirellis does not record what you play.</small></article><article><p className="eyebrow">Understand · Mirellis</p><h2>Why work can remain mentally open</h2><p>Read the current explanation, its limits, and the practical connection to closure.</p><a className="secondary-button resource-action" href="https://mirellis.in/pages/work-to-recovery">Read the Workday Exit guide</a></article><article><p className="eyebrow">Optional ritual instrument</p><h2>Stillness Elixir</h2><p>A scent-and-touch cue for people who want a physical signal at the end of work. The programme works without it.</p><a className="secondary-button resource-action" href="https://mirellis.in/products/mirellis-stillness-elixir">See the product and price</a></article></div></section>}
+    {tab === 'library' && <section className="after-work-screen compact-screen"><p className="eyebrow">Support in different forms</p><h1>Choose what helps you act.</h1><p className="after-work-lead">The programme is not the only way to leave work. These are optional, direct supports for the same moment.</p><div className="resource-list"><article><p className="eyebrow">Listen · Spotify</p><h2>Stillness</h2><p>Use the playlist while you close the work surface, move rooms, or begin the evening.</p><a className="secondary-button resource-action" href="https://open.spotify.com/playlist/6VG02jtawiXTcOGi0nZzp6" target="_blank" rel="noreferrer">Open the Stillness playlist</a><small>Opens Spotify. Mirellis does not record what you play.</small></article><article><p className="eyebrow">Understand · Mirellis</p><h2>Why work can remain mentally open</h2><p>Read the current explanation, its limits, and the practical connection to closure.</p><a className="secondary-button resource-action" href="https://mirellis.in/pages/work-to-recovery">Read the Workday Exit guide</a></article><article><p className="eyebrow">Read · Journal</p><h2>Why the body can struggle to leave work</h2><p>Read the Observatory’s practical explanation of the shift from work into recovery.</p><a className="secondary-button resource-action" href="https://mirellis.in/blogs/journal/the-parasympathetic-shift-why-the-body-struggles-to-leave-work">Read the Journal article</a></article><article><p className="eyebrow">Find support · Mirellis Directory</p><h2>When you need a person or place</h2><p>Explore options for the specific difficulty of not being able to switch off after work.</p><a className="secondary-button resource-action" href="https://directory.mirellis.in/problems/cant-switch-off-after-work">Explore the Directory</a></article><article><p className="eyebrow">Optional ritual instrument</p><h2>Stillness Elixir</h2><p>A scent-and-touch cue for people who want a physical signal at the end of work. The programme works without it.</p><a className="secondary-button resource-action" href="https://mirellis.in/products/mirellis-stillness-elixir">See the product and price</a></article></div></section>}
 
-    {tab === 'record' && <section className="after-work-screen compact-screen"><p className="eyebrow">Private record</p><h1>Only what you chose and confirmed.</h1><p className="after-work-lead">No score, diagnosis, or inferred progress appears here.</p>{data.records.length === 0 ? <section className="record-empty"><h2>Nothing recorded yet.</h2><p>Complete one daily practice to create your first practical ending record.</p><button className="primary-button" onClick={() => { setTab('today'); setOnboarding(0); setStatus('Choose what is keeping work open to begin.'); }}>Begin with what is difficult tonight</button></section> : <div className="record-list-new">{[...data.records].reverse().map((record) => <article key={record.day}><p className="eyebrow">Day {record.day} · {record.date}</p><h2>{record.title}</h2>{record.tomorrowAction && <p><span>Tomorrow</span>{record.tomorrowAction}</p>}{record.review && <p><span>Selected</span>{record.review}</p>}{record.cue && <p><span>Work returned through</span>{record.cue}</p>}<p><span>Closing action</span>{record.chosenAction}</p>{record.nextActivity && <p><span>Evening began with</span>{record.nextActivity}</p>}</article>)}</div>}</section>}
+    {tab === 'record' && <section className="after-work-screen compact-screen"><p className="eyebrow">Private record</p><h1>Only what you chose and confirmed.</h1><p className="after-work-lead">No score, diagnosis, or inferred progress appears here.</p>{data.records.length === 0 ? <section className="record-empty"><h2>Nothing recorded yet.</h2><p>Complete one daily practice to create your first practical ending record.</p><button className="primary-button" onClick={() => { setTab('today'); setOnboarding(0); setStatus('Choose what is keeping work open to begin.'); }}>Begin with what is difficult tonight</button></section> : <><button className="secondary-button record-export" onClick={exportPrivateRecord}>Download my private record</button><p className="record-export-note">Downloads a JSON file to this device. Nothing is sent to Mirellis.</p><div className="record-list-new">{[...data.records].reverse().map((record) => <article key={record.day}><p className="eyebrow">Day {record.day} · {record.date}</p><h2>{record.title}</h2>{record.tomorrowAction && <p><span>Tomorrow</span>{record.tomorrowAction}</p>}{record.review && <p><span>Selected</span>{record.review}</p>}{record.cue && <p><span>Work returned through</span>{record.cue}</p>}<p><span>Closing action</span>{record.chosenAction}</p>{record.nextActivity && <p><span>Evening began with</span>{record.nextActivity}</p>}</article>)}</div></>}</section>}
 
-    {tab === 'settings' && <section className="after-work-screen compact-screen"><p className="eyebrow">Settings</p><h1>Your time, reminder, and data.</h1><section className="settings-list-new"><div><h2>Daily time</h2><p>Your chosen end-of-work time is {data.time}.</p><label className="time-control">Change time<input type="time" value={data.time} onChange={(event) => { setData((current) => ({ ...current, time: event.target.value })); setStatus('Time saved. Download a new calendar reminder if you want your calendar to use it.'); }} /></label></div><div><h2>Reminder</h2><p>Mirellis cannot ring an alarm or send a web push notification. A calendar reminder is delivered by your own calendar app.</p><button className="secondary-button" onClick={addCalendarReminder}>Download a 21-day calendar reminder</button><button className="text-button settings-text-button" onClick={() => { setData((current) => ({ ...current, reminderMode: 'none' })); setStatus('Mirellis will not create a reminder. Remove any previously added event in your calendar app separately.'); }}>Use Mirellis without a reminder</button></div><div><h2>Analytics</h2><p>Analytics are not active in this build.</p></div><div><h2>Local data</h2><p>Your programme, answers, and practice record are stored only in this browser.</p><button ref={deleteTriggerRef} className="secondary-button" onClick={() => setDeleteOpen(true)}>Delete local data</button></div></section>{deleteOpen && <section className="delete-dialog" role="alertdialog" aria-labelledby="delete-title" aria-describedby="delete-description"><h2 id="delete-title">Delete this browser’s practice data?</h2><p id="delete-description">This removes your programme, saved answers, and practice record from this browser. It cannot be undone.</p><div><button autoFocus className="secondary-button" onClick={() => { setDeleteOpen(false); setStatus('Deletion cancelled.'); window.setTimeout(() => deleteTriggerRef.current?.focus(), 0); }}>Cancel</button><button className="primary-button destructive" onClick={deleteData}>Delete everything</button></div></section>}</section>}
+    {tab === 'settings' && <section className="after-work-screen compact-screen"><p className="eyebrow">Settings</p><h1>Your time, reminder, and data.</h1><section className="settings-list-new"><div><h2>Daily time</h2><p>Your chosen end-of-work time is {data.time}.</p><label className="time-control">Change time<input type="time" value={data.time} onChange={(event) => { setData((current) => ({ ...current, time: event.target.value })); setStatus('Time saved. Download a new calendar reminder if you want your calendar to use it.'); }} /></label></div><div><h2>Reminder</h2><p>Mirellis cannot ring an alarm or send a web push notification. A calendar reminder is delivered by your own calendar app.</p><button className="secondary-button" onClick={addCalendarReminder}>Download a 21-day calendar reminder</button><button className="text-button settings-text-button" onClick={() => { setData((current) => ({ ...current, reminderMode: 'none' })); setStatus('Mirellis will not create a reminder. Remove any previously added event in your calendar app separately.'); }}>Use Mirellis without a reminder</button></div><div><h2>Analytics</h2><p>Analytics are not active in this build.</p></div><div><h2>Local data</h2><p>Your programme, answers, and practice record are stored only in this browser.</p><button ref={deleteTriggerRef} className="secondary-button" onClick={() => setDeleteOpen(true)}>Delete local data</button></div></section>{deleteOpen && <section ref={deleteDialogRef} className="delete-dialog" role="alertdialog" aria-modal="true" aria-labelledby="delete-title" aria-describedby="delete-description"><h2 id="delete-title">Delete this browser’s practice data?</h2><p id="delete-description">This removes your programme, saved answers, and practice record from this browser. It cannot be undone.</p><div><button autoFocus className="secondary-button" onClick={() => { setDeleteOpen(false); setStatus('Deletion cancelled.'); window.setTimeout(() => deleteTriggerRef.current?.focus(), 0); }}>Cancel</button><button className="primary-button destructive" onClick={deleteData}>Delete everything</button></div></section>}</section>}
 
     <nav className="after-work-nav" aria-label="After Work navigation"><button aria-current={tab === 'today' ? 'page' : undefined} className={tab === 'today' ? 'is-active' : ''} onClick={() => { setTab('today'); if (view === 'quick-reset') setView('home'); }}>Today</button><button aria-current={tab === 'programme' ? 'page' : undefined} className={tab === 'programme' ? 'is-active' : ''} onClick={() => setTab('programme')}>21 days</button><button aria-current={tab === 'library' ? 'page' : undefined} className={tab === 'library' ? 'is-active' : ''} onClick={() => setTab('library')}>Library</button><button aria-current={tab === 'record' ? 'page' : undefined} className={tab === 'record' ? 'is-active' : ''} onClick={() => setTab('record')}>Record</button></nav>
   </main>;

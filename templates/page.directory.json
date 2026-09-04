@@ -1,0 +1,28 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "directory": {
+      "type": "mirellis-problem-hub",
+      "settings": {
+        "eyebrow":"Directory",
+        "heading":"People who work with the problem you actually have.",
+        "body":"<p>This directory will show doctors, researchers and practitioners by the programmes they run—not by a broad label alone.</p>",
+        "primary_label":"Help me choose a starting point",
+        "primary_url":"/what-is-going-on",
+        "secondary_label":"Return home",
+        "secondary_url":"/",
+        "list_heading":"",
+        "note":"Only people and places running a named programme for sleep, stress, focus or recovery are included. Verified profiles will be published here as they become available."
+      }
+    }
+  },
+  "order": ["directory"]
+}

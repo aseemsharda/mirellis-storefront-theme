@@ -1,0 +1,176 @@
+{% comment %}
+MIRELLIS — SECTION 5
+The Ritual System
+Behavioral Bridge Layer (Philosophy → Product)
+{% endcomment %}
+
+<section class="mirellis-ritual-system">
+  <div class="mirellis-container">
+
+    {% if section.settings.headline != blank %}
+      <h2 class="mirellis-headline">
+        {{ section.settings.headline }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.subhead != blank %}
+      <p class="mirellis-subhead">
+        {{ section.settings.subhead }}
+      </p>
+    {% endif %}
+
+    <div class="mirellis-grid">
+
+      <!-- MORNING -->
+      <div class="mirellis-card">
+
+        <h3 class="mirellis-label">Morning Ritual</h3>
+
+        <div class="mirellis-text">
+          {{ section.settings.morning }}
+        </div>
+
+      </div>
+
+      <!-- EVENING -->
+      <div class="mirellis-card">
+
+        <h3 class="mirellis-label">Evening Ritual</h3>
+
+        <div class="mirellis-text">
+          {{ section.settings.evening }}
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="mirellis-divider"></div>
+
+    {% if section.settings.bridge != blank %}
+      <div class="mirellis-bridge">
+        {{ section.settings.bridge }}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<style>
+.mirellis-ritual-system {
+  background: #f6f1ea;
+  padding: 120px 24px;
+}
+
+.mirellis-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.mirellis-headline {
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #1c1c1c;
+  margin-bottom: 16px;
+}
+
+.mirellis-subhead {
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(28,28,28,0.7);
+  margin-bottom: 60px;
+}
+
+.mirellis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.mirellis-card {
+  padding: 10px;
+}
+
+.mirellis-label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  color: #1c1c1c;
+}
+
+.mirellis-text {
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(28,28,28,0.75);
+}
+
+.mirellis-divider {
+  height: 1px;
+  background: rgba(0,0,0,0.08);
+  margin: 60px 0;
+}
+
+.mirellis-bridge {
+  font-size: 16px;
+  text-align: center;
+  color: rgba(28,28,28,0.65);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+@media screen and (max-width: 768px) {
+  .mirellis-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .mirellis-headline {
+    font-size: 30px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Mirellis Ritual System",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "The Ritual System"
+    },
+    {
+      "type": "textarea",
+      "id": "subhead",
+      "label": "Subhead",
+      "default": "Two daily transitions designed to restore nervous system rhythm."
+    },
+    {
+      "type": "textarea",
+      "id": "morning",
+      "label": "Morning Ritual",
+      "default": "Morning rituals are designed to shift the nervous system from inertia to clarity. They support structured activation without overstimulation."
+    },
+    {
+      "type": "textarea",
+      "id": "evening",
+      "label": "Evening Ritual",
+      "default": "Evening rituals guide the nervous system from stimulation to release. They support decompression without forcing rest."
+    },
+    {
+      "type": "textarea",
+      "id": "bridge",
+      "label": "Bridge Line",
+      "default": "These are not routines. They are structured transitions between physiological states."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mirellis Ritual System"
+    }
+  ]
+}
+{% endschema %}

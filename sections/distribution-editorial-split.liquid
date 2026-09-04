@@ -1,0 +1,138 @@
+<section class="distribution-editorial">
+
+  <div class="page-width">
+
+    <div class="distribution-editorial__grid">
+
+      <div class="distribution-editorial__left">
+
+        {% if section.settings.label != blank %}
+          <p class="distribution-editorial__label">
+            {{ section.settings.label }}
+          </p>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="distribution-editorial__heading">
+            {{ section.settings.heading }}
+          </h2>
+        {% endif %}
+
+      </div>
+
+      <div class="distribution-editorial__right">
+
+        {% if section.settings.text != blank %}
+          <div class="distribution-editorial__text rte">
+            {{ section.settings.text }}
+          </div>
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.distribution-editorial {
+  background: #f5f1eb;
+  padding: 180px 0;
+}
+
+.distribution-editorial__grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 120px;
+  align-items: start;
+}
+
+.distribution-editorial__label {
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #9f8f80;
+  margin-bottom: 26px;
+}
+
+.distribution-editorial__heading {
+  font-size: clamp(42px, 5vw, 78px);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  color: #2b2927;
+  max-width: 420px;
+}
+
+.distribution-editorial__text {
+  max-width: 640px;
+}
+
+.distribution-editorial__text p {
+  font-size: 20px;
+  line-height: 2;
+  color: #5f5a55;
+  margin: 0 0 34px;
+}
+
+.distribution-editorial__text p:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 990px) {
+
+  .distribution-editorial {
+    padding: 110px 0;
+  }
+
+  .distribution-editorial__grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .distribution-editorial__heading {
+    font-size: 46px;
+    max-width: 100%;
+  }
+
+  .distribution-editorial__text p {
+    font-size: 18px;
+    line-height: 1.9;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Dist Editorial",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "PARTNERSHIP PHILOSOPHY"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Built Around Atmosphere, Not Volume"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dist Editorial"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,170 @@
+{% comment %}
+Transition Hub Hero Section
+Displays transition title, article/finding counts, and navigation CTAs
+{% endcomment %}
+
+<section class="transition-hero">
+  <div class="transition-hero__container">
+    
+    <div class="transition-hero__breadcrumb">
+      <a href="/pages/the-observatory">Observatory</a>
+      <span class="transition-hero__breadcrumb-separator">›</span>
+      <span>Sleep → Wakefulness</span>
+    </div>
+
+    <h1 class="transition-hero__title">Sleep → Wakefulness</h1>
+
+    <div class="transition-hero__metrics">
+      <div class="transition-hero__metric">
+        <span class="transition-hero__metric-number">30</span>
+        <span class="transition-hero__metric-label">Articles</span>
+      </div>
+      <div class="transition-hero__metric">
+        <span class="transition-hero__metric-number">3</span>
+        <span class="transition-hero__metric-label">Findings</span>
+      </div>
+      <div class="transition-hero__metric">
+        <span class="transition-hero__metric-number">1</span>
+        <span class="transition-hero__metric-label">Dossier</span>
+      </div>
+    </div>
+
+    <div class="transition-hero__ctas">
+      <a href="#featured-findings" class="transition-hero__cta transition-hero__cta--primary">Browse Findings</a>
+      <a href="#research-archive" class="transition-hero__cta">Browse Research</a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .transition-hero {
+    background: linear-gradient(135deg, #faf7f2 0%, #f5f2ed 100%);
+    padding: 3rem 2rem;
+  }
+
+  .transition-hero__container {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .transition-hero__breadcrumb {
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 2rem;
+  }
+
+  .transition-hero__breadcrumb a {
+    color: #999;
+    text-decoration: none;
+  }
+
+  .transition-hero__breadcrumb a:hover {
+    color: #1a1a18;
+  }
+
+  .transition-hero__breadcrumb-separator {
+    margin: 0 0.5rem;
+  }
+
+  .transition-hero__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: #1a1a18;
+    margin-bottom: 2rem;
+  }
+
+  .transition-hero__metrics {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+  }
+
+  .transition-hero__metric {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .transition-hero__metric-number {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #1a1a18;
+  }
+
+  .transition-hero__metric-label {
+    color: #999;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .transition-hero__ctas {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .transition-hero__cta {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: 1px solid #1a1a18;
+    color: #1a1a18;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+  }
+
+  .transition-hero__cta:hover {
+    background: #1a1a18;
+    color: #fff;
+  }
+
+  .transition-hero__cta--primary {
+    background: #1a1a18;
+    color: #fff;
+    border-color: #1a1a18;
+  }
+
+  .transition-hero__cta--primary:hover {
+    background: #333;
+    border-color: #333;
+  }
+
+  @media (max-width: 768px) {
+    .transition-hero {
+      padding: 2rem 1.5rem;
+    }
+
+    .transition-hero__title {
+      font-size: 2rem;
+    }
+
+    .transition-hero__metrics {
+      gap: 2rem;
+    }
+
+    .transition-hero__ctas {
+      flex-direction: column;
+    }
+
+    .transition-hero__cta {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Transition Hub Hero",
+  "settings": []
+}
+{% endschema %}

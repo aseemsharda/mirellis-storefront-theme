@@ -1,0 +1,82 @@
+{% if section.settings.show_section %}
+<section class="wwa-method">
+  <div class="wwa-inner">
+    {% if section.settings.eyebrow != blank %}
+    <p class="wwa-eyebrow">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    {% if section.settings.heading != blank %}
+    <h2 class="wwa-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+    {% if section.settings.body != blank %}
+    <div class="wwa-body">{{ section.settings.body | newline_to_br }}</div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+<style>
+.wwa-method {
+  background: #faf7f2;
+  padding: 6rem 2rem;
+}
+.wwa-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.wwa-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(26,26,24,0.45);
+  margin: 0 0 1.5rem 0;
+}
+.wwa-heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: #1a1a18;
+  margin: 0 0 2.5rem 0;
+  line-height: 1.2;
+}
+.wwa-body {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: rgba(26,26,24,0.7);
+}
+@media (max-width: 640px) {
+  .wwa-method {
+    padding: 4rem 1.5rem;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "WWA Method",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "THE MIRELLIS METHOD"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The nervous system learns through repetition, not intensity."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body",
+      "default": "A single powerful experience rarely changes behaviour.\nRepeated experiences do.\n\nThe body learns through consistent signals.\n\nWhen the same scent appears.\nWhen the same sound begins.\nWhen the same ritual unfolds.\n\nOver time the nervous system learns:\n\nWhen this happens, this chapter is ending.\n\nThat is not motivation.\nThat is conditioning.\n\nThis is why the product is never the whole solution. The product participates in a larger ritual architecture. Used once, it is pleasant. Used consistently, at the same moment, in the same sequence — it becomes a signal.\n\nAnd signals change states."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show section",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

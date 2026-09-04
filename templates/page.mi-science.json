@@ -1,0 +1,187 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "mirellis_science_hero_Bd8kP3": {
+      "type": "mirellis-science-hero",
+      "name": "Mirellis Science Hero",
+      "settings": {
+        "eyebrow": "Mirellis Institute",
+        "heading": "Science, Observation & Human Experience",
+        "description": "",
+        "button_label": "Explore Research Domains",
+        "button_link": ""
+      }
+    },
+    "mirellis_institute_philosophy_DQBAwH": {
+      "type": "mirellis-institute-philosophy",
+      "name": "Institute Philosophy",
+      "settings": {
+        "eyebrow": "The Institute",
+        "heading": "An Environment For Observation, Not Prescription",
+        "content": "<p>The Mirellis Institute explores the patterns, transitions, signals and rhythms that shape human experience.<br/><br/>Rather than producing instructions, the Institute collects observations, frameworks and working models emerging from ongoing inquiry.<br/><br/>The goal is not to tell people how to live.<br/><br/>The goal is to better understand the conditions through which experience unfolds.</p>",
+        "alignment": "center",
+        "content_width": 800,
+        "top_spacing": 120,
+        "bottom_spacing": 120
+      }
+    },
+    "mirellis_research_methodology_VnEVHT": {
+      "type": "mirellis-research-methodology",
+      "blocks": {
+        "step_iwyEmy": {
+          "type": "step",
+          "settings": {
+            "title": "Observation",
+            "description": "Patterns often emerge long before explanations appear."
+          }
+        },
+        "step_AWgcKY": {
+          "type": "step",
+          "settings": {
+            "title": "Inquiry",
+            "description": "Questions are explored through scientific literature, environmental psychology, physiology and lived experience."
+          }
+        },
+        "step_b3Gzyj": {
+          "type": "step",
+          "settings": {
+            "title": "Frameworks",
+            "description": "Observations are organized into working models that can be challenged, refined or expanded."
+          }
+        },
+        "step_AChcxi": {
+          "type": "step",
+          "settings": {
+            "title": "Application",
+            "description": "Insights are translated into rituals, environments and sensory practices."
+          }
+        }
+      },
+      "block_order": [
+        "step_iwyEmy",
+        "step_AWgcKY",
+        "step_b3Gzyj",
+        "step_AChcxi"
+      ],
+      "name": "Research Methodology",
+      "settings": {
+        "eyebrow": "Research Approach",
+        "heading": "How The Institute Works",
+        "description": "",
+        "top_spacing": 120,
+        "bottom_spacing": 120
+      }
+    },
+    "mirellis_active_inquiries_EiirYU": {
+      "type": "mirellis-active-inquiries",
+      "blocks": {
+        "question_WKVMRB": {
+          "type": "question",
+          "settings": {
+            "question": "Why do transitions feel increasingly difficult in modern environments?",
+            "description": ""
+          }
+        },
+        "question_NYgNxF": {
+          "type": "question",
+          "settings": {
+            "question": "Can sensory rituals alter the quality of state transitions?",
+            "description": ""
+          }
+        },
+        "question_cbKkyQ": {
+          "type": "question",
+          "settings": {
+            "question": "What signals help the nervous system recognize closure?",
+            "description": ""
+          }
+        },
+        "question_UpHBCk": {
+          "type": "question",
+          "settings": {
+            "question": "How does environmental design influence restoration?",
+            "description": ""
+          }
+        },
+        "question_qXM9f4": {
+          "type": "question",
+          "settings": {
+            "question": "Why do some routines become meaningful rituals while others disappear?",
+            "description": ""
+          }
+        },
+        "question_RKRAVK": {
+          "type": "question",
+          "settings": {
+            "question": "What role does repetition play in physiological regulation?",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "question_WKVMRB",
+        "question_NYgNxF",
+        "question_cbKkyQ",
+        "question_UpHBCk",
+        "question_qXM9f4",
+        "question_RKRAVK"
+      ],
+      "name": "Active Inquiries",
+      "settings": {
+        "eyebrow": "Current Inquiry",
+        "heading": "Questions Currently Being Explored",
+        "description": "",
+        "top_spacing": 120,
+        "bottom_spacing": 120
+      }
+    },
+    "mirellis_research_domains_33xVPz": {
+      "type": "mirellis-research-domains",
+      "name": "Mirellis Research Domains",
+      "settings": {
+        "eyebrow": "Mirellis Institute",
+        "heading": "Research Domains",
+        "description": "The primary areas of inquiry explored by the Institute.",
+        "card_link_text": "Explore Domain →",
+        "desktop_columns": 3,
+        "top_spacing": 80,
+        "bottom_spacing": 120
+      }
+    },
+    "mirellis_institute_guides_grid_HEdpXB": {
+      "type": "mirellis-institute-guides-grid",
+      "name": "Institute Guides Grid",
+      "settings": {
+        "eyebrow": "Mirellis Institute",
+        "heading": "Institute Guides",
+        "description": "Explorations, observations and working models emerging from ongoing inquiry.",
+        "button_text": "Read Guide →",
+        "desktop_columns": 3,
+        "top_spacing": 100,
+        "bottom_spacing": 100
+      }
+    }
+  },
+  "order": [
+    "main",
+    "mirellis_science_hero_Bd8kP3",
+    "mirellis_institute_philosophy_DQBAwH",
+    "mirellis_research_methodology_VnEVHT",
+    "mirellis_active_inquiries_EiirYU",
+    "mirellis_research_domains_33xVPz",
+    "mirellis_institute_guides_grid_HEdpXB"
+  ]
+}

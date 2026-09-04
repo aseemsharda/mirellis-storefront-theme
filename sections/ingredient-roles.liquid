@@ -1,0 +1,173 @@
+<section class="ingredient-roles">
+
+  <div class="page-width">
+
+    <div class="ingredient-roles__inner">
+
+      <p class="ingredient-roles__label">
+        Ingredient Roles
+      </p>
+
+      <div class="ingredient-roles__grid">
+
+        {% for block in section.blocks %}
+
+          <div class="ingredient-role">
+
+            <h3 class="ingredient-role__title">
+              {{ block.settings.title }}
+            </h3>
+
+            <div class="ingredient-role__description">
+              {{ block.settings.description }}
+            </div>
+
+          </div>
+
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.ingredient-roles {
+  background: #fcfaf7;
+  padding: 90px 0;
+}
+
+.ingredient-roles__inner {
+  max-width: 1000px;
+}
+
+.ingredient-roles__label {
+  margin-bottom: 40px;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #8b8378;
+}
+
+.ingredient-roles__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.ingredient-role {
+  padding: 32px;
+
+  background: #f7f3ee;
+  border-radius: 2px;
+}
+
+.ingredient-role__title {
+  margin: 0 0 16px;
+
+  font-size: 24px;
+  line-height: 1.3;
+  font-weight: 400;
+
+  color: #1f1f1f;
+}
+
+.ingredient-role__description {
+  font-size: 16px;
+  line-height: 1.8;
+
+  color: #5f5952;
+}
+
+.ingredient-role__description p {
+  margin: 0;
+}
+
+@media screen and (max-width: 990px) {
+
+  .ingredient-roles {
+    padding: 75px 0;
+  }
+
+  .ingredient-role {
+    padding: 26px;
+  }
+
+  .ingredient-role__title {
+    font-size: 21px;
+  }
+
+}
+
+@media screen and (max-width: 749px) {
+
+  .ingredient-roles {
+    padding: 60px 0;
+  }
+
+  .ingredient-roles__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .ingredient-role {
+    padding: 22px;
+  }
+
+  .ingredient-role__title {
+    font-size: 19px;
+  }
+
+  .ingredient-role__description {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Ingredient Roles",
+  "blocks": [
+    {
+      "type": "role",
+      "name": "Role",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Sensory Rhythm"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Coconut oil slows the pace of the morning through softness and familiarity.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredient Roles",
+      "blocks": [
+        {
+          "type": "role"
+        },
+        {
+          "type": "role"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

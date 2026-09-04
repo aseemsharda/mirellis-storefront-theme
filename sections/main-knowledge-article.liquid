@@ -1,0 +1,129 @@
+{%- comment -%}
+  sections/main-knowledge-article.liquid
+  Renders a published Knowledge Article metaobject.
+  Design tokens match the Mirellis Observatory. CSS namespaced.
+{%- endcomment -%}
+
+{%- liquid
+  assign ka = metaobject
+  assign featured_image = ka.featured_image
+  assign title = ka.title.value | default: ''
+  assign standfirst = ka.standfirst.value | default: ''
+  assign content = ka.content.value
+  assign seo_title = ka.seo_title.value | default: title
+  assign meta_description = ka.meta_description.value
+  assign published_date = ka.published.value
+
+  assign plain_text = content | strip_html
+  assign word_count = plain_text | split: ' ' | size
+  assign reading_time = word_count | divided_by: 200.0 | ceil
+-%}
+
+<section class="ka-article" id="ka-{{ ka.system.handle }}">
+  <div class="ka-wrap">
+
+    <nav class="ka-crumb" aria-label="Breadcrumb">
+      <a href="/knowledge">Knowledge</a>
+      <span>/</span>
+      <span>{{ title }}</span>
+    </nav>
+
+    {%- if featured_image -%}
+      <div class="ka-hero">
+        <img
+          src="{{ featured_image | image_url: width: 1200 }}"
+          alt="{{ featured_image.alt | escape }}"
+          loading="eager"
+          class="ka-hero-image"
+        >
+      </div>
+    {%- endif -%}
+
+    <h1 class="ka-title">{{ title }}</h1>
+
+    {%- if standfirst != blank -%}
+      <div class="ka-standfirst">{{ standfirst }}</div>
+    {%- endif -%}
+
+    <dl class="ka-meta">
+      {%- if published_date -%}
+        <div><dt>Published</dt><dd>{{ published_date | date: "%B %d, %Y" }}</dd></div>
+      {%- endif -%}
+      {%- if reading_time -%}
+        <div><dt>Reading Time</dt><dd>{{ reading_time }} min</dd></div>
+      {%- endif -%}
+    </dl>
+
+    <hr class="ka-rule">
+
+    {%- if content != blank -%}
+      <div class="ka-body">{{ ka.content | metafield_tag }}</div>
+    {%- endif -%}
+
+    <div class="ka-related">
+      <p class="ka-related-label">More Knowledge Articles</p>
+      <p class="ka-related-note">Explore additional resources to deepen your understanding.</p>
+    </div>
+
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ title | json }},
+  "description": {{ meta_description | default: standfirst | strip_html | truncate: 200 | json }},
+  "datePublished": "{{ published_date | date: '%Y-%m-%dT%H:%M:%S%z' }}",
+  "author": { "@type": "Organization", "name": "{{ shop.name }}" },
+  "publisher": { "@type": "Organization", "name": "{{ shop.name }}" },
+  "isPartOf": { "@type": "CollectionPage", "name": "Knowledge Articles", "url": "{{ shop.url }}/knowledge" },
+  "url": {{ shop.url | append: ka.system.url | json }}
+}
+</script>
+
+<style>
+  #ka-{{ ka.system.handle }} { background: #FAF7F2; color: #1A1A18; padding: 80px 0; }
+  #ka-{{ ka.system.handle }} .ka-wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  #ka-{{ ka.system.handle }} .ka-crumb { font-size: 13px; letter-spacing: 0.04em; color: #A89B87; margin-bottom: 48px; }
+  #ka-{{ ka.system.handle }} .ka-crumb a { color: #A89B87; text-decoration: none; }
+  #ka-{{ ka.system.handle }} .ka-crumb a:hover { color: #8B6F47; }
+  #ka-{{ ka.system.handle }} .ka-crumb span { margin: 0 8px; }
+
+  #ka-{{ ka.system.handle }} .ka-hero { margin: 48px -24px 48px -24px; overflow: hidden; }
+  #ka-{{ ka.system.handle }} .ka-hero-image { display: block; width: 100%; height: auto; max-height: 500px; object-fit: cover; }
+
+  #ka-{{ ka.system.handle }} .ka-title { font-family: Georgia, serif; font-size: 44px; line-height: 1.15; font-weight: 400; margin: 0 0 28px; }
+
+  #ka-{{ ka.system.handle }} .ka-standfirst { font-size: 19px; line-height: 1.6; color: #5a5650; margin-bottom: 48px; }
+
+  #ka-{{ ka.system.handle }} .ka-meta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 0 0 48px; padding: 24px 0; border-top: 1px solid #DAD2C4; border-bottom: 1px solid #DAD2C4; }
+  #ka-{{ ka.system.handle }} .ka-meta dt { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #A89B87; margin-bottom: 6px; }
+  #ka-{{ ka.system.handle }} .ka-meta dd { font-size: 15px; margin: 0; }
+
+  #ka-{{ ka.system.handle }} .ka-rule { border: 0; border-top: 1px solid #DAD2C4; margin: 0 0 48px; }
+
+  #ka-{{ ka.system.handle }} .ka-body { font-size: 18px; line-height: 1.7; }
+  #ka-{{ ka.system.handle }} .ka-body p { margin: 0 0 18px; }
+  #ka-{{ ka.system.handle }} .ka-body h2 { font-family: Georgia, serif; font-size: 28px; line-height: 1.25; font-weight: 400; margin: 40px 0 18px; color: #1A1A18; }
+  #ka-{{ ka.system.handle }} .ka-body h3 { font-family: Georgia, serif; font-size: 22px; line-height: 1.3; font-weight: 400; margin: 36px 0 16px; color: #1A1A18; }
+  #ka-{{ ka.system.handle }} .ka-body h4 { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin: 28px 0 14px; color: #8B6F47; }
+  #ka-{{ ka.system.handle }} .ka-body ul, #ka-{{ ka.system.handle }} .ka-body ol { margin: 18px 0; padding-left: 28px; }
+  #ka-{{ ka.system.handle }} .ka-body li { margin-bottom: 10px; }
+  #ka-{{ ka.system.handle }} .ka-body blockquote { font-family: Georgia, serif; font-size: 22px; line-height: 1.5; font-style: italic; color: #1A1A18; border-left: 2px solid #8B6F47; padding-left: 24px; margin: 32px 0; }
+  #ka-{{ ka.system.handle }} .ka-body a { color: #5a5650; text-decoration: underline; }
+  #ka-{{ ka.system.handle }} .ka-body a:hover { color: #8B6F47; }
+  #ka-{{ ka.system.handle }} .ka-body img { display: block; max-width: 100%; height: auto; margin: 32px 0; }
+  #ka-{{ ka.system.handle }} .ka-body hr { border: 0; border-top: 1px solid #DAD2C4; margin: 40px 0; }
+
+  #ka-{{ ka.system.handle }} .ka-related { text-align: center; padding: 40px 0; border-top: 1px solid #DAD2C4; margin: 56px 0 0; }
+  #ka-{{ ka.system.handle }} .ka-related-label { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #A89B87; margin-bottom: 12px; }
+  #ka-{{ ka.system.handle }} .ka-related-note { font-size: 14px; font-style: italic; color: #A89B87; margin: 0; }
+
+  @media (max-width: 680px) {
+    #ka-{{ ka.system.handle }} { padding: 64px 0; }
+    #ka-{{ ka.system.handle }} .ka-title { font-size: 32px; }
+    #ka-{{ ka.system.handle }} .ka-meta { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,129 @@
+{%- comment -%}
+  sections/main-dossier.liquid (v1 — mirrors main-finding.liquid)
+  Renders individual Dossier metaobject entries. Uses metafield_tag for rich text.
+{%- endcomment -%}
+
+{%- liquid
+  assign d = metaobject
+  assign num = d.number.value | default: ''
+  assign status = d.status.value | default: 'OPEN' | upcase
+  assign title = d.title.value | default: ''
+  assign confidence_level = d.confidence_level.value | default: 'Provisional'
+  assign supporting_findings = d.supporting_findings.value
+-%}
+
+<section class="md-dossier" id="md-{{ section.id }}">
+  <div class="md-wrap">
+
+    <nav class="md-crumb" aria-label="Breadcrumb">
+      <a href="/pages/the-observatory">Observatory</a>
+      <span>/</span>
+      <a href="/pages/observatory-dossiers">Dossiers</a>
+      <span>/</span>
+      <span>Dossier {{ num }}</span>
+    </nav>
+
+    <p class="md-eyebrow">Dossier {{ num }} &nbsp;·&nbsp; Status — {{ status }}</p>
+
+    <h1 class="md-title">{{ title }}</h1>
+    {%- if d.executive_summary != empty -%}
+      <div class="md-standfirst">{{ d.executive_summary | metafield_tag }}</div>
+    {%- endif -%}
+
+    <dl class="md-meta">
+      <div><dt>Confidence</dt><dd>{{ confidence_level }}</dd></div>
+      <div><dt>Status</dt><dd>{{ status }}</dd></div>
+    </dl>
+
+    <hr class="md-rule">
+
+    {%- if supporting_findings != blank -%}
+      <div class="md-section">
+        <p class="md-section-num">This investigation draws on:</p>
+        <ul class="md-findings-list">
+          {%- for fnd in supporting_findings -%}
+            <li><a href="{{ fnd.system.url }}">Finding {{ fnd.number.value }} — {{ fnd.title.value }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+
+    <hr class="md-rule">
+
+    {%- if d.body != empty -%}
+      <div class="md-section">
+        <p class="md-section-num">The Investigation</p>
+        <div class="md-body">{{ d.body | metafield_tag }}</div>
+      </div>
+    {%- endif -%}
+
+    {%- if d.contradictory_evidence != empty -%}
+      <div class="md-section">
+        <p class="md-section-num">Contradictory Evidence</p>
+        <div class="md-body">{{ d.contradictory_evidence | metafield_tag }}</div>
+      </div>
+    {%- endif -%}
+
+    {%- if d.mirellis_interpretation != empty -%}
+      <div class="md-section">
+        <p class="md-section-num">Mirellis Interpretation</p>
+        <div class="md-body">{{ d.mirellis_interpretation | metafield_tag }}</div>
+      </div>
+    {%- endif -%}
+
+    <div class="md-formed">
+      <p class="md-formed-label">What a Dossier Is</p>
+      <p class="md-formed-note">A Dossier synthesizes multiple Findings into an evidence investigation. It presents what the literature supports, what remains uncertain, and what contradicts the thesis — keeping the Observatory honest.</p>
+    </div>
+
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ title | json }},
+  "description": {{ executive_summary | strip_html | truncate: 200 | json }},
+  "author": { "@type": "Organization", "name": "Mirellis Observatory" },
+  "publisher": { "@type": "Organization", "name": "Mirellis" },
+  "isPartOf": { "@type": "CreativeWorkSeries", "name": "Mirellis Research Dossiers" }
+}
+</script>
+
+<style>
+  #md-{{ section.id }}.md-dossier { background:#FAF7F2; color:#1A1A18; padding:80px 0; }
+  #md-{{ section.id }} .md-wrap { max-width:720px; margin:0 auto; padding:0 24px; }
+  #md-{{ section.id }} .md-crumb { font-size:13px; letter-spacing:.04em; color:#A89B87; margin-bottom:48px; }
+  #md-{{ section.id }} .md-crumb a { color:#A89B87; text-decoration:none; }
+  #md-{{ section.id }} .md-crumb span { margin:0 8px; }
+  #md-{{ section.id }} .md-eyebrow { font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:#8B6F47; margin-bottom:16px; }
+  #md-{{ section.id }} .md-title { font-family:Georgia,serif; font-size:44px; line-height:1.15; font-weight:400; margin:0 0 28px; }
+  #md-{{ section.id }} .md-standfirst { font-size:19px; line-height:1.6; color:#5a5650; margin-bottom:48px; }
+  #md-{{ section.id }} .md-meta { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:0 0 48px; padding:24px 0; border-top:1px solid #DAD2C4; border-bottom:1px solid #DAD2C4; }
+  #md-{{ section.id }} .md-meta dt { font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#A89B87; margin-bottom:6px; }
+  #md-{{ section.id }} .md-meta dd { font-size:15px; margin:0; }
+  #md-{{ section.id }} .md-rule { border:0; border-top:1px solid #DAD2C4; margin:0 0 48px; }
+  #md-{{ section.id }} .md-section { margin-bottom:48px; }
+  #md-{{ section.id }} .md-section-num { font-size:13px; letter-spacing:.1em; color:#8B6F47; margin-bottom:16px; }
+  #md-{{ section.id }} .md-findings-list { list-style:none; margin:0 0 24px; padding:0 0 0 24px; }
+  #md-{{ section.id }} .md-findings-list li { margin-bottom:12px; font-size:15px; }
+  #md-{{ section.id }} .md-findings-list a { color:#1A1A18; text-decoration:none; border-bottom:1px solid #DAD2C4; }
+  #md-{{ section.id }} .md-findings-list a:hover { border-bottom:1px solid #8B6F47; }
+  #md-{{ section.id }} .md-body { font-size:18px; line-height:1.7; }
+  #md-{{ section.id }} .md-body p { margin:0 0 18px; }
+  #md-{{ section.id }} .md-formed { text-align:center; padding:40px 0; border-top:1px solid #DAD2C4; margin:56px 0 0; }
+  #md-{{ section.id }} .md-formed-label { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#A89B87; margin-bottom:12px; }
+  #md-{{ section.id }} .md-formed-note { font-size:14px; font-style:italic; color:#A89B87; }
+  @media (max-width:680px){
+    #md-{{ section.id }} .md-title { font-size:32px; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Dossier",
+  "settings": [],
+  "presets": [{ "name": "Dossier" }]
+}
+{% endschema %}

@@ -1,0 +1,44 @@
+<section style="background:{{ section.settings.bg_color }};font-family:'Hanken Grotesk',system-ui,sans-serif">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(72px,10vw,128px) clamp(20px,5vw,48px)">
+    <div style="display:flex;flex-wrap:wrap;gap:clamp(36px,5vw,72px);align-items:center">
+
+      <div data-reveal style="flex:1 1 340px;min-width:280px;border-radius:8px;overflow:hidden;aspect-ratio:4/3;background:#e8e0d5">
+        {%- if section.settings.image != blank -%}
+          {%- assign comp_img_src = section.settings.image | image_url: width: 900 -%}
+          <img src="{{ comp_img_src }}" width="900" height="675" alt="{{ section.settings.product_name }}" loading="lazy" style="width:100%;height:100%;object-fit:cover"/>
+        {%- endif -%}
+      </div>
+
+      <div data-reveal style="flex:1 1 340px;min-width:280px">
+        {%- if section.settings.eyebrow != blank -%}
+          <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#b07f54;margin-bottom:18px">{{ section.settings.eyebrow }}</div>
+        {%- endif -%}
+        <h2 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(28px,3.6vw,44px);margin:0 0 20px;letter-spacing:-0.01em;color:{{ section.settings.text_color }}">{{ section.settings.product_name }}</h2>
+        {%- if section.settings.body != blank -%}
+          <p style="font-size:15.5px;line-height:1.8;color:#6f665b;margin:0 0 32px">{{ section.settings.body }}</p>
+        {%- endif -%}
+        {%- if section.settings.cta_label != blank and section.settings.cta_url != blank -%}
+          <a href="{{ section.settings.cta_url }}" style="display:inline-block;padding:14px 32px;background:{{ section.settings.text_color }};color:{{ section.settings.bg_color }};text-decoration:none;font-size:13px;letter-spacing:.1em;text-transform:uppercase;border-radius:2px">{{ section.settings.cta_label }}</a>
+        {%- endif -%}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SE — Companion Product",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Product image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Complete the ritual" },
+    { "type": "text", "id": "product_name", "label": "Product name", "default": "Morning Clarity Elixir" },
+    { "type": "textarea", "id": "body", "label": "Description", "default": "Begin the day with the same intentionality that closed the night. The Morning Clarity Elixir pairs directly with Stillness — a full-circle aromatic ritual from dusk to dawn." },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Explore Morning Clarity" },
+    { "type": "url", "id": "cta_url", "label": "Button link" },
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#faf7f4" },
+    { "type": "color", "id": "text_color", "label": "Text colour", "default": "#26221d" }
+  ],
+  "presets": [{ "name": "SE — Companion Product" }]
+}
+{% endschema %}

@@ -1,0 +1,206 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "masthead": {
+      "type": "mirellis-masthead",
+      "disabled": true,
+      "settings": {}
+    },
+    "s1": {
+      "type": "mirellis-s1",
+      "settings": {
+        "eyebrow": "Field of study",
+        "heading": "Human State Transitions",
+        "standfirst": "Sleep to waking. Work to recovery. Stimulation to restoration. Mirellis studies the moments the body moves between states — and the signals that make those moments easier.",
+        "index_label": "",
+        "edition_label": ""
+      }
+    },
+    "s2": {
+      "type": "mirellis-s2",
+      "blocks": {
+        "card_jmePAe": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/image-scene-05-mirellis.png",
+            "state_from": "Sleep",
+            "state_to": "Wakefulness",
+            "finding": "The first thirty minutes after waking appear to shape far more than the next thirty minutes. The way the nervous system enters the day often influences everything that follows.",
+            "instrument": "Morning Clarity",
+            "link_label": "Explore transition",
+            "link": "shopify://pages/morning-clarity"
+          }
+        },
+        "card_hqPpEf": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/scene-7-mirellis.png",
+            "state_from": "Work",
+            "state_to": "Recovery",
+            "finding": "Leaving work physically is not always the same as leaving it mentally. Recovery begins when attention is finally able to let go.",
+            "instrument": "Stillness Elixir",
+            "link_label": "Explore transition",
+            "link": "shopify://pages/stillness-elixir"
+          }
+        },
+        "card_8dV8xp": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/ARCHITECTURAL_RESIDENCES.png",
+            "state_from": "Stimulation",
+            "state_to": "Restoration",
+            "finding": "Modern life rarely announces that the day has ended. Restoration begins when the nervous system receives a clear signal that one chapter is complete.",
+            "instrument": "Stillness Elixir",
+            "link_label": "Explore transition",
+            "link": "shopify://pages/stillness-elixir"
+          }
+        }
+      },
+      "block_order": [
+        "card_jmePAe",
+        "card_hqPpEf",
+        "card_8dV8xp"
+      ],
+      "settings": {
+        "eyebrow": "What We Study",
+        "intro": "Rather than studying wellbeing as a whole, Mirellis focuses on three transitions where modern life most consistently interrupts the movement between human states.",
+        "instrument_label": "Instrument"
+      }
+    },
+    "s3": {
+      "type": "mirellis-s3",
+      "blocks": {
+        "step_77y8jD": {
+          "type": "step",
+          "settings": {
+            "label": "Human Experience",
+            "description": "People describe where the movement between states feels disrupted."
+          }
+        },
+        "step_6QaWPp": {
+          "type": "step",
+          "settings": {
+            "label": "Observation",
+            "description": "Experiences are collected through the Observatory and studied as recurring patterns."
+          }
+        },
+        "step_YCMMwQ": {
+          "type": "step",
+          "settings": {
+            "label": "Interpretation",
+            "description": "Recurring observations are interpreted into research findings that explain the underlying transition."
+          }
+        },
+        "step_FAUgrP": {
+          "type": "step",
+          "settings": {
+            "label": "Ritual Tool",
+            "description": "Findings inform the design of ritual tools that deliver coherent sensory signals at that boundary."
+          }
+        },
+        "step_NpWtHP": {
+          "type": "step",
+          "settings": {
+            "label": "Daily Practice",
+            "description": "The ritual is repeated within everyday life, allowing the nervous system to learn through consistency."
+          }
+        },
+        "step_cePGXN": {
+          "type": "step",
+          "settings": {
+            "label": "Outcome",
+            "description": "Changes are observed over time to understand what improved, what remained difficult, and what emerged."
+          }
+        },
+        "step_7wdMy3": {
+          "type": "step",
+          "settings": {
+            "label": "New Understanding",
+            "description": "Every outcome returns to the Observatory, where it becomes part of the next generation of observations and findings."
+          }
+        }
+      },
+      "block_order": [
+        "step_77y8jD",
+        "step_6QaWPp",
+        "step_YCMMwQ",
+        "step_FAUgrP",
+        "step_NpWtHP",
+        "step_cePGXN",
+        "step_7wdMy3"
+      ],
+      "settings": {
+        "eyebrow": "How we study them",
+        "heading": "Observation Before Intervention",
+        "intro": "<p>Mirellis was built as a learning system rather than a product catalogue. <strong>Every ritual tool begins as an observation.</strong> Every observation is interpreted into a finding. Every finding is tested through daily ritual — and returns to the Observatory as new understanding.</p>",
+        "is_loop": true,
+        "loop_label": "— and the cycle begins again",
+        "closing": "The goal is not to collect more information. The goal is to understand human transitions more precisely over time."
+      }
+    },
+    "s4": {
+      "type": "mirellis-s4",
+      "blocks": {
+        "panel_k8HUAK": {
+          "type": "panel",
+          "settings": {
+            "image": "shopify://shop_images/morning-architecture-mirellis.png",
+            "state_from": "Sleep",
+            "state_to": "Wakefulness",
+            "line": "The beginning of the day.",
+            "link_label": "Explore",
+            "link": "shopify://pages/morning-clarity"
+          }
+        },
+        "panel_Mh4xR8": {
+          "type": "panel",
+          "settings": {
+            "image": "shopify://shop_images/oil-pulling-mirellis.png",
+            "state_from": "Work",
+            "state_to": "Recovery",
+            "line": "Where performance gives way to restoration.",
+            "link_label": "Explore",
+            "link": "shopify://pages/work-recovery"
+          }
+        },
+        "panel_U4iJaB": {
+          "type": "panel",
+          "settings": {
+            "image": "shopify://shop_images/observation1-mirellis.png",
+            "state_from": "Stimulation",
+            "state_to": "Restoration",
+            "line": "The quiet return to stillness.",
+            "link_label": "Explore",
+            "link": "shopify://pages/stimulation-restoration"
+          }
+        }
+      },
+      "block_order": [
+        "panel_k8HUAK",
+        "panel_Mh4xR8",
+        "panel_U4iJaB"
+      ],
+      "settings": {
+        "eyebrow": "Continue",
+        "heading": "Continue Into A Transition",
+        "enable_parallax": false,
+        "closing": "Every transition begins with recognition."
+      }
+    }
+  },
+  "order": [
+    "masthead",
+    "s1",
+    "s2",
+    "s3",
+    "s4"
+  ]
+}

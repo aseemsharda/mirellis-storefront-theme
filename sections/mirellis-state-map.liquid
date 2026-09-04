@@ -1,0 +1,286 @@
+{% stylesheet %}
+.mirellis-state-map {
+  position: relative;
+  padding: 7rem 2rem;
+  background:
+    linear-gradient(
+      180deg,
+      #151311 0%,
+      #12100f 100%
+    );
+  overflow: hidden;
+}
+
+.mirellis-state-map::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right,
+    rgba(180,140,90,0.06),
+    transparent 38%);
+  pointer-events: none;
+}
+
+.mirellis-state-map__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.mirellis-state-map__label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.42);
+  margin-bottom: 1.2rem;
+}
+
+.mirellis-state-map__heading {
+  font-family: var(--font-heading-family);
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: #f4efe8;
+  margin: 0 0 1.5rem;
+  font-weight: 500;
+  max-width: 760px;
+}
+
+.mirellis-state-map__text {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.68);
+  max-width: 700px;
+  margin-bottom: 5rem;
+}
+
+.mirellis-state-map__flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.mirellis-state-map__card {
+  position: relative;
+  padding: 2rem;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.mirellis-state-map__card--active {
+  border-color: rgba(196,112,72,0.26);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(196,112,72,0.08),
+      rgba(255,255,255,0.03)
+    );
+  box-shadow:
+    0 0 50px rgba(196,112,72,0.08);
+}
+
+.mirellis-state-map__step {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.36);
+  margin-bottom: 1rem;
+}
+
+.mirellis-state-map__title {
+  font-size: 1.35rem;
+  line-height: 1.25;
+  color: #f5f1ea;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.mirellis-state-map__desc {
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.64);
+}
+
+.mirellis-state-map__signal {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  font-size: 0.82rem;
+  color: rgba(196,112,72,0.82);
+  letter-spacing: 0.01em;
+}
+
+@media screen and (max-width: 1100px) {
+  .mirellis-state-map__flow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .mirellis-state-map {
+    padding: 5rem 1.4rem;
+  }
+
+  .mirellis-state-map__heading {
+    font-size: clamp(1.9rem, 9vw, 3rem);
+    line-height: 1.12;
+  }
+
+  .mirellis-state-map__text {
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+  }
+
+  .mirellis-state-map__flow {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .mirellis-state-map__card {
+    min-height: auto;
+    padding: 1.6rem;
+    border-radius: 24px;
+  }
+
+  .mirellis-state-map__title {
+    font-size: 1.2rem;
+  }
+
+  .mirellis-state-map__desc {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+}
+{% endstylesheet %}
+
+<section class="mirellis-state-map">
+
+  <div class="mirellis-state-map__inner">
+
+    <div class="mirellis-state-map__label">
+      {{ section.settings.label }}
+    </div>
+
+    <h2 class="mirellis-state-map__heading">
+      {{ section.settings.heading }}
+    </h2>
+
+    <div class="mirellis-state-map__text">
+      {{ section.settings.text }}
+    </div>
+
+    <div class="mirellis-state-map__flow">
+
+      <div class="mirellis-state-map__card">
+
+        <div class="mirellis-state-map__step">
+          State 01
+        </div>
+
+        <div class="mirellis-state-map__title">
+          Engagement
+        </div>
+
+        <div class="mirellis-state-map__desc">
+          Attention becomes directed toward work, stimulation, communication, and cognitive activity.
+        </div>
+
+      </div>
+
+      <div class="mirellis-state-map__card">
+
+        <div class="mirellis-state-map__step">
+          State 02
+        </div>
+
+        <div class="mirellis-state-map__title">
+          Recovery
+        </div>
+
+        <div class="mirellis-state-map__desc">
+          The nervous system begins reducing stimulation and transitioning away from sustained engagement.
+        </div>
+
+      </div>
+
+      <div class="mirellis-state-map__card mirellis-state-map__card--active">
+
+        <div class="mirellis-state-map__step">
+          State 03
+        </div>
+
+        <div class="mirellis-state-map__title">
+          Descent
+        </div>
+
+        <div class="mirellis-state-map__desc">
+          Environmental quietness, slower pacing, and reduced incoming demand help support gradual slowing.
+        </div>
+
+        <div class="mirellis-state-map__signal">
+          interruption often happens here
+        </div>
+
+      </div>
+
+      <div class="mirellis-state-map__card">
+
+        <div class="mirellis-state-map__step">
+          State 04
+        </div>
+
+        <div class="mirellis-state-map__title">
+          Closure
+        </div>
+
+        <div class="mirellis-state-map__desc">
+          Attention begins releasing unfinished stimulation, allowing psychological completion before rest.
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "State Map",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "STATE ORIENTATION"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Modern exhaustion often begins long before sleep."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Many people today move through stimulation continuously without fully completing the transitions that help the nervous system slow down and recalibrate.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "State Map"
+    }
+  ]
+}
+{% endschema %}

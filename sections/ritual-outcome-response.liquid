@@ -1,0 +1,136 @@
+<div class="ror-container">
+  <div class="ror-content">
+    <h1 class="ror-heading">Thank you.</h1>
+    <p class="ror-body" id="ror-message"></p>
+    <a href="/pages/the-observatory" class="ror-link">Return to the Observatory →</a>
+  </div>
+</div>
+
+<style>
+html, body {
+  background: #faf7f2;
+}
+
+header, footer {
+  display: none !important;
+}
+
+.ror-container {
+  background: #faf7f2;
+  padding: 6rem 2rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ror-content {
+  max-width: 600px;
+  width: 100%;
+  text-align: left;
+}
+
+.ror-heading {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #1a1a18;
+  margin: 0 0 2rem 0;
+  line-height: 1.2;
+}
+
+.ror-body {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: rgba(26,26,24,0.75);
+  margin: 0 0 3rem 0;
+  white-space: pre-line;
+}
+
+.ror-link {
+  font-size: 0.85rem;
+  color: rgba(26,26,24,0.45);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(26,26,24,0.2);
+  padding-bottom: 1px;
+  transition: all 0.2s ease;
+}
+
+.ror-link:hover {
+  color: rgba(26,26,24,0.7);
+  border-color: rgba(26,26,24,0.4);
+}
+
+@media (max-width: 640px) {
+  .ror-container {
+    padding: 4rem 1.5rem;
+  }
+
+  .ror-heading {
+    font-size: 1.5rem;
+  }
+}
+</style>
+
+<script>
+(function() {
+  const SUPABASE_URL = 'https://zathahofymjasgcsrxyz.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InphdGhhaG9meW1qYXNnY3NyeHl6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA2NTM2NDAsImV4cCI6MjA5NjIyOTY0MH0.6d8fksIgEDtB4hf4_3vDeXViD5Zd5wnNhFWUindN6sM';
+
+  const messages = {
+    'yes': "Your observation has been recorded.\nThe ritual is working.\nThe Observatory will document\nwhat consistent practice produces\nover time.",
+    'partially': "Your observation has been recorded.\nPartial improvement is the beginning\nof a pattern. The Observatory\ncontinues to watch.",
+    'not-yet': "Your observation has been recorded.\nConsistency is the mechanism.\nThe transition takes time to learn\nthe signal.",
+    'inconsistent': "Your observation has been recorded.\nWhen you are ready to begin consistently,\nthe ritual will be here."
+  };
+
+  function getUrlParameter(name) {
+    const url = new URL(window.location);
+    return url.searchParams.get(name);
+  }
+
+  async function saveOutcome(product, response, email) {
+    try {
+      const response_obj = {
+        product: product || 'unknown',
+        response: response || 'unknown',
+        email: email || null
+      };
+
+      await fetch(`${SUPABASE_URL}/rest/v1/ritual_outcomes`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_KEY,
+          'Authorization': `Bearer ${SUPABASE_KEY}`
+        },
+        body: JSON.stringify(response_obj)
+      });
+    } catch (error) {
+      console.error('Error saving outcome:', error);
+    }
+  }
+
+  function displayMessage(response) {
+    const messageElement = document.getElementById('ror-message');
+    if (messageElement && messages[response]) {
+      messageElement.textContent = messages[response];
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', async function() {
+    const product = getUrlParameter('product');
+    const response = getUrlParameter('response');
+    const email = getUrlParameter('email');
+
+    await saveOutcome(product, response, email);
+    displayMessage(response);
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Ritual Outcome Response",
+  "settings": []
+}
+{% endschema %}

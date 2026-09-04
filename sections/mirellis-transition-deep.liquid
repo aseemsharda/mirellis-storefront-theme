@@ -1,0 +1,710 @@
+{%- comment -%}
+  MIRELLIS — TRANSITION DEEP PAGE
+  Single reusable section for all three transition deep pages.
+  Content controlled entirely via settings and blocks.
+  Companion styles: assets/transition-deep.css
+{%- endcomment -%}
+
+{{ 'transition-deep.css' | asset_url | stylesheet_tag }}
+
+{%- assign ritual_product = section.settings.ritual_product -%}
+
+<div class="td">
+
+
+  {%- comment -%} ══ S01: TRANSITION IDENTITY ═════════════════ {%- endcomment -%}
+
+  <section class="td-hero">
+
+    {%- if section.settings.hero_image != blank -%}
+      <div class="td-hero__bg-wrap ml-depth-layer">
+        {{-
+          section.settings.hero_image
+          | image_url: width: 2400
+          | image_tag:
+            loading: 'eager',
+            widths: '800, 1200, 1600, 2400',
+            class: 'td-hero__bg-img ml-soft-presence'
+        -}}
+      </div>
+    {%- endif -%}
+
+    <div class="td-hero__overlay ml-depth-layer"></div>
+
+    <div class="td-hero__inner">
+      <div class="ml-container-reading">
+
+        {%- if section.settings.time_label != blank -%}
+          <p class="td-hero__time ml-supporting-text">
+            {{- section.settings.time_label -}}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.transition_name != blank -%}
+          <h1 class="td-hero__title ml-hero-heading">
+            {{- section.settings.transition_name -}}
+          </h1>
+        {%- endif -%}
+
+        {%- if section.settings.hero_description != blank -%}
+          <p class="td-hero__description ml-contemplative-copy">
+            {{- section.settings.hero_description -}}
+          </p>
+        {%- endif -%}
+
+      </div>
+    </div>
+
+  </section>
+
+
+  {%- comment -%} ══ S02: THE EXPERIENCE ══════════════════════ {%- endcomment -%}
+
+  {%- if section.settings.experience_heading != blank or section.settings.experience_body != blank -%}
+
+    <section class="td-experience">
+      <div class="ml-container-narrow">
+
+        {%- if section.settings.experience_eyebrow != blank -%}
+          <p class="td-eyebrow ml-supporting-text">
+            {{- section.settings.experience_eyebrow -}}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.experience_heading != blank -%}
+          <h2 class="td-experience__heading ml-display-heading ml-headline-soft">
+            {{- section.settings.experience_heading -}}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.experience_body != blank -%}
+          <div class="td-experience__body rte">
+            {{- section.settings.experience_body -}}
+          </div>
+        {%- endif -%}
+
+      </div>
+    </section>
+
+  {%- endif -%}
+
+
+  {%- comment -%} ══ S03: THE MECHANISM ═══════════════════════ {%- endcomment -%}
+
+  {%- if section.settings.mechanism_1_title != blank or section.settings.mechanism_1_body != blank or section.settings.mechanism_2_title != blank or section.settings.mechanism_3_title != blank -%}
+
+    <section class="td-mechanism">
+      <div class="ml-container-reading">
+
+        {%- if section.settings.mechanism_eyebrow != blank -%}
+          <p class="td-eyebrow ml-supporting-text">
+            {{- section.settings.mechanism_eyebrow -}}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.mechanism_heading != blank -%}
+          <h2 class="td-mechanism__heading ml-section-heading ml-headline-soft">
+            {{- section.settings.mechanism_heading -}}
+          </h2>
+        {%- endif -%}
+
+        <div class="td-mechanism__items">
+
+          {%- if section.settings.mechanism_1_title != blank or section.settings.mechanism_1_body != blank -%}
+            <div class="td-mechanism__item">
+              <p class="td-mechanism__number ml-supporting-text">01</p>
+              <div class="td-mechanism__content">
+                {%- if section.settings.mechanism_1_title != blank -%}
+                  <h3 class="td-mechanism__title">{{- section.settings.mechanism_1_title -}}</h3>
+                {%- endif -%}
+                {%- if section.settings.mechanism_1_body != blank -%}
+                  <p class="td-mechanism__body ml-body-copy ml-copy-soft">{{- section.settings.mechanism_1_body -}}</p>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.mechanism_2_title != blank or section.settings.mechanism_2_body != blank -%}
+            <div class="td-mechanism__item">
+              <p class="td-mechanism__number ml-supporting-text">02</p>
+              <div class="td-mechanism__content">
+                {%- if section.settings.mechanism_2_title != blank -%}
+                  <h3 class="td-mechanism__title">{{- section.settings.mechanism_2_title -}}</h3>
+                {%- endif -%}
+                {%- if section.settings.mechanism_2_body != blank -%}
+                  <p class="td-mechanism__body ml-body-copy ml-copy-soft">{{- section.settings.mechanism_2_body -}}</p>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.mechanism_3_title != blank or section.settings.mechanism_3_body != blank -%}
+            <div class="td-mechanism__item">
+              <p class="td-mechanism__number ml-supporting-text">03</p>
+              <div class="td-mechanism__content">
+                {%- if section.settings.mechanism_3_title != blank -%}
+                  <h3 class="td-mechanism__title">{{- section.settings.mechanism_3_title -}}</h3>
+                {%- endif -%}
+                {%- if section.settings.mechanism_3_body != blank -%}
+                  <p class="td-mechanism__body ml-body-copy ml-copy-soft">{{- section.settings.mechanism_3_body -}}</p>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endif -%}
+
+        </div>
+
+        {%- assign ma1 = section.settings.mechanism_article_1 -%}
+        {%- assign ma2 = section.settings.mechanism_article_2 -%}
+        {%- if ma1 != blank or ma2 != blank -%}
+          <div class="td-mechanism__reading">
+            <p class="td-eyebrow ml-supporting-text">FROM THE OBSERVATORY</p>
+            {%- if ma1 != blank -%}
+              <a href="{{ ma1.url }}" class="td-mechanism__article-link ml-soft-hover">
+                <span class="td-mechanism__read ml-supporting-text ml-copy-soft">Read →</span>
+                <span class="td-mechanism__article-title">{{- ma1.title -}}</span>
+              </a>
+            {%- endif -%}
+            {%- if ma2 != blank -%}
+              <a href="{{ ma2.url }}" class="td-mechanism__article-link ml-soft-hover">
+                <span class="td-mechanism__read ml-supporting-text ml-copy-soft">Read →</span>
+                <span class="td-mechanism__article-title">{{- ma2.title -}}</span>
+              </a>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+      </div>
+    </section>
+
+  {%- endif -%}
+
+
+  {%- comment -%} ══ S04: RITUAL ARCHITECTURE ════════════════ {%- endcomment -%}
+
+  {%- assign ritual_blocks = section.blocks | where: 'type', 'ritual_element' -%}
+  {%- if ritual_blocks.size > 0 -%}
+
+    <section class="td-ritual-arch">
+      <div class="ml-container-reading">
+
+        {%- if section.settings.ritual_arch_eyebrow != blank -%}
+          <p class="td-eyebrow ml-supporting-text">
+            {{- section.settings.ritual_arch_eyebrow -}}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.ritual_arch_heading != blank -%}
+          <h2 class="td-ritual-arch__heading ml-section-heading ml-headline-soft">
+            {{- section.settings.ritual_arch_heading -}}
+          </h2>
+        {%- endif -%}
+
+        <ol class="td-ritual-arch__list">
+          {%- for block in ritual_blocks -%}
+            <li class="td-ritual-arch__item" {{ block.shopify_attributes }}>
+              <span class="td-ritual-arch__number ml-supporting-text">0{{- forloop.index -}}</span>
+              <div class="td-ritual-arch__content">
+                {%- if block.settings.element_name != blank -%}
+                  <h3 class="td-ritual-arch__name">{{- block.settings.element_name -}}</h3>
+                {%- endif -%}
+                {%- if block.settings.element_description != blank -%}
+                  <p class="td-ritual-arch__desc ml-body-copy ml-copy-soft">{{- block.settings.element_description -}}</p>
+                {%- endif -%}
+              </div>
+            </li>
+          {%- endfor -%}
+        </ol>
+
+      </div>
+    </section>
+
+  {%- endif -%}
+
+
+  {%- comment -%} ══ S05: SOUND ══════════════════════════════ {%- endcomment -%}
+
+  {%- if section.settings.sound_series_name != blank or section.settings.sound_embed_url != blank -%}
+
+    <section class="td-sound">
+      <div class="ml-container-narrow">
+
+        {%- if section.settings.sound_eyebrow != blank -%}
+          <p class="td-eyebrow ml-supporting-text">
+            {{- section.settings.sound_eyebrow -}}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.sound_series_name != blank -%}
+          <h2 class="td-sound__title ml-section-heading ml-headline-soft">
+            {{- section.settings.sound_series_name -}}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.sound_frequency != blank -%}
+          <p class="td-sound__frequency ml-supporting-text ml-copy-soft">
+            {{- section.settings.sound_frequency -}}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.sound_description != blank -%}
+          <p class="td-sound__description ml-body-copy ml-copy-soft">
+            {{- section.settings.sound_description -}}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.sound_embed_url != blank -%}
+          <div class="td-sound__player">
+            <iframe
+              src="{{ section.settings.sound_embed_url }}"
+              width="100%"
+              height="152"
+              frameborder="0"
+              allowtransparency="true"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              title="{{ section.settings.sound_series_name | escape }}"
+            ></iframe>
+          </div>
+        {%- endif -%}
+
+      </div>
+    </section>
+
+  {%- endif -%}
+
+
+  {%- comment -%} ══ S06: THE RITUAL TOOL ════════════════════ {%- endcomment -%}
+
+  {%- if ritual_product != blank -%}
+
+    <section class="td-tool">
+      <div class="ml-container-narrow">
+
+        {%- if section.settings.transition_name != blank -%}
+          <p class="td-eyebrow ml-supporting-text">
+            {{- section.settings.transition_name -}}
+          </p>
+        {%- endif -%}
+
+        <h2 class="td-tool__title ml-display-heading ml-headline-soft">
+          {{- ritual_product.title -}}
+        </h2>
+
+        {%- assign founding_line = ritual_product.metafields.custom.founding_line -%}
+        {%- if founding_line != blank -%}
+          <p class="td-tool__founding ml-contemplative-copy ml-copy-soft">
+            {{- founding_line -}}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.product_description != blank -%}
+          <p class="td-tool__description ml-body-copy ml-copy-soft">
+            {{- section.settings.product_description -}}
+          </p>
+        {%- endif -%}
+
+        <a href="{{ ritual_product.url }}" class="td-tool__cta ml-soft-hover">
+          {{- section.settings.product_cta | default: 'Begin the ritual →' -}}
+        </a>
+
+      </div>
+    </section>
+
+  {%- endif -%}
+
+
+  {%- comment -%} ══ S07: OBSERVATORY ════════════════════════ {%- endcomment -%}
+
+  {%- assign oa1 = section.settings.obs_article_1 -%}
+  {%- assign oa2 = section.settings.obs_article_2 -%}
+  {%- if oa1 != blank or oa2 != blank -%}
+
+    <section class="td-observatory">
+      <div class="ml-container-cinematic">
+
+        {%- if section.settings.observatory_eyebrow != blank -%}
+          <p class="td-eyebrow ml-supporting-text">
+            {{- section.settings.observatory_eyebrow -}}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.observatory_heading != blank -%}
+          <h2 class="td-observatory__heading ml-section-heading ml-headline-soft">
+            {{- section.settings.observatory_heading -}}
+          </h2>
+        {%- endif -%}
+
+        <div class="td-observatory__grid">
+
+          {%- for i in (1..2) -%}
+            {%- if i == 1 -%}{%- assign oa = oa1 -%}{%- else -%}{%- assign oa = oa2 -%}{%- endif -%}
+
+            {%- if oa != blank -%}
+              {%- assign oa_words   = oa.content | strip_html | split: ' ' | size -%}
+              {%- assign oa_minutes = oa_words | divided_by: 200 | at_least: 1 | at_most: 30 -%}
+
+              <a href="{{ oa.url }}" class="td-obs-card ml-soft-hover">
+
+                {%- if oa.image != blank -%}
+                  <div class="td-obs-card__image">
+                    {{-
+                      oa.image
+                      | image_url: width: 900
+                      | image_tag:
+                        loading: 'lazy',
+                        widths: '400, 600, 900',
+                        class: 'td-obs-card__img ml-atmospheric-image'
+                    -}}
+                  </div>
+                {%- endif -%}
+
+                <div class="td-obs-card__body ml-rhythm-soft">
+                  {%- if oa.tags.size > 0 -%}
+                    <p class="td-obs-card__tag ml-supporting-text">{{- oa.tags.first -}}</p>
+                  {%- endif -%}
+                  <h3 class="td-obs-card__title">{{- oa.title -}}</h3>
+                  {%- if oa.excerpt != blank -%}
+                    <p class="td-obs-card__excerpt ml-body-copy ml-copy-soft">
+                      {{- oa.excerpt | strip_html | truncate: 120 -}}
+                    </p>
+                  {%- endif -%}
+                  <p class="td-obs-card__meta ml-supporting-text ml-copy-soft">
+                    {{- oa_minutes -}} min read
+                  </p>
+                </div>
+
+              </a>
+
+            {%- endif -%}
+          {%- endfor -%}
+
+        </div>
+
+        {%- if section.settings.observatory_link != blank and section.settings.observatory_link_label != blank -%}
+          <div class="td-observatory__footer">
+            <a href="{{ section.settings.observatory_link }}" class="td-observatory__link ml-soft-cta ml-soft-hover">
+              {{- section.settings.observatory_link_label -}}
+            </a>
+          </div>
+        {%- endif -%}
+
+      </div>
+    </section>
+
+  {%- endif -%}
+
+
+  {%- comment -%} ══ S08: THE PROMISE ═════════════════════════ {%- endcomment -%}
+
+  {%- if section.settings.promise_heading != blank or section.settings.promise_body != blank -%}
+
+    <section class="td-promise">
+      <div class="ml-container-narrow">
+        <div class="ml-text-breathing">
+
+          {%- if section.settings.promise_eyebrow != blank -%}
+            <p class="td-eyebrow ml-supporting-text">
+              {{- section.settings.promise_eyebrow -}}
+            </p>
+          {%- endif -%}
+
+          {%- if section.settings.promise_heading != blank -%}
+            <h2 class="td-promise__heading ml-section-heading ml-headline-soft">
+              {{- section.settings.promise_heading -}}
+            </h2>
+          {%- endif -%}
+
+          {%- if section.settings.promise_body != blank -%}
+            <div class="td-promise__body rte ml-reading-flow">
+              {{- section.settings.promise_body -}}
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.promise_cta_label != blank -%}
+            {%- if section.settings.promise_cta_link != blank -%}
+              {%- assign cta_href = section.settings.promise_cta_link -%}
+            {%- elsif ritual_product != blank -%}
+              {%- assign cta_href = ritual_product.url -%}
+            {%- endif -%}
+            {%- if cta_href != blank -%}
+              <a href="{{ cta_href }}" class="td-promise__cta ml-soft-hover">
+                {{- section.settings.promise_cta_label -}}
+              </a>
+            {%- endif -%}
+          {%- endif -%}
+
+        </div>
+      </div>
+    </section>
+
+  {%- endif -%}
+
+
+</div>
+
+
+{% schema %}
+{
+  "name": "Transition Deep Page",
+  "settings": [
+    {
+      "type": "header",
+      "content": "S01 — Transition Identity"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero background image"
+    },
+    {
+      "type": "text",
+      "id": "transition_name",
+      "label": "Transition name",
+      "default": "Sleep → Wakefulness"
+    },
+    {
+      "type": "text",
+      "id": "time_label",
+      "label": "Time-of-day label",
+      "info": "e.g. Morning / Evening / Night",
+      "default": "Morning"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_description",
+      "label": "Hero one-line description"
+    },
+    {
+      "type": "header",
+      "content": "S02 — The Experience"
+    },
+    {
+      "type": "text",
+      "id": "experience_eyebrow",
+      "label": "Eyebrow",
+      "default": "THE EXPERIENCE"
+    },
+    {
+      "type": "textarea",
+      "id": "experience_heading",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "experience_body",
+      "label": "Body"
+    },
+    {
+      "type": "header",
+      "content": "S03 — The Mechanism"
+    },
+    {
+      "type": "text",
+      "id": "mechanism_eyebrow",
+      "label": "Eyebrow",
+      "default": "THE MECHANISM"
+    },
+    {
+      "type": "text",
+      "id": "mechanism_heading",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "mechanism_1_title",
+      "label": "Mechanism 1 — title"
+    },
+    {
+      "type": "textarea",
+      "id": "mechanism_1_body",
+      "label": "Mechanism 1 — body"
+    },
+    {
+      "type": "text",
+      "id": "mechanism_2_title",
+      "label": "Mechanism 2 — title"
+    },
+    {
+      "type": "textarea",
+      "id": "mechanism_2_body",
+      "label": "Mechanism 2 — body"
+    },
+    {
+      "type": "text",
+      "id": "mechanism_3_title",
+      "label": "Mechanism 3 — title (optional)"
+    },
+    {
+      "type": "textarea",
+      "id": "mechanism_3_body",
+      "label": "Mechanism 3 — body (optional)"
+    },
+    {
+      "type": "article",
+      "id": "mechanism_article_1",
+      "label": "Observatory article 1"
+    },
+    {
+      "type": "article",
+      "id": "mechanism_article_2",
+      "label": "Observatory article 2"
+    },
+    {
+      "type": "header",
+      "content": "S04 — Ritual Architecture"
+    },
+    {
+      "type": "text",
+      "id": "ritual_arch_eyebrow",
+      "label": "Eyebrow",
+      "default": "THE RITUAL ARCHITECTURE"
+    },
+    {
+      "type": "textarea",
+      "id": "ritual_arch_heading",
+      "label": "Heading"
+    },
+    {
+      "type": "header",
+      "content": "S05 — Sound"
+    },
+    {
+      "type": "text",
+      "id": "sound_eyebrow",
+      "label": "Eyebrow",
+      "default": "RITUAL SOUND"
+    },
+    {
+      "type": "text",
+      "id": "sound_series_name",
+      "label": "Series name"
+    },
+    {
+      "type": "text",
+      "id": "sound_frequency",
+      "label": "Frequency / subtitle"
+    },
+    {
+      "type": "textarea",
+      "id": "sound_description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "sound_embed_url",
+      "label": "Spotify embed URL",
+      "info": "Use the Spotify embed URL: open.spotify.com/embed/..."
+    },
+    {
+      "type": "header",
+      "content": "S06 — The Ritual Tool"
+    },
+    {
+      "type": "product",
+      "id": "ritual_product",
+      "label": "Ritual product"
+    },
+    {
+      "type": "textarea",
+      "id": "product_description",
+      "label": "Product context (optional)"
+    },
+    {
+      "type": "text",
+      "id": "product_cta",
+      "label": "Product CTA label",
+      "default": "Begin the ritual →"
+    },
+    {
+      "type": "header",
+      "content": "S07 — Observatory"
+    },
+    {
+      "type": "text",
+      "id": "observatory_eyebrow",
+      "label": "Eyebrow",
+      "default": "FROM THE OBSERVATORY"
+    },
+    {
+      "type": "text",
+      "id": "observatory_heading",
+      "label": "Heading"
+    },
+    {
+      "type": "article",
+      "id": "obs_article_1",
+      "label": "Observatory article 1"
+    },
+    {
+      "type": "article",
+      "id": "obs_article_2",
+      "label": "Observatory article 2"
+    },
+    {
+      "type": "url",
+      "id": "observatory_link",
+      "label": "View all link"
+    },
+    {
+      "type": "text",
+      "id": "observatory_link_label",
+      "label": "View all label",
+      "default": "View all research →"
+    },
+    {
+      "type": "header",
+      "content": "S08 — The Promise"
+    },
+    {
+      "type": "text",
+      "id": "promise_eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "textarea",
+      "id": "promise_heading",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "promise_body",
+      "label": "Body"
+    },
+    {
+      "type": "text",
+      "id": "promise_cta_label",
+      "label": "CTA label"
+    },
+    {
+      "type": "url",
+      "id": "promise_cta_link",
+      "label": "CTA link (leave blank to use product URL)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ritual_element",
+      "name": "Ritual Element",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "text",
+          "id": "element_name",
+          "label": "Element name"
+        },
+        {
+          "type": "textarea",
+          "id": "element_description",
+          "label": "Element description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Transition Deep Page"
+    }
+  ]
+}
+{% endschema %}

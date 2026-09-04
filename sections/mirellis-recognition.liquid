@@ -1,0 +1,404 @@
+{% stylesheet %}
+.mirellis-recognition {
+  position: relative;
+  padding: 7rem 2rem;
+  background: linear-gradient(
+    180deg,
+    #141210 0%,
+    #181512 100%
+  );
+}
+
+.mirellis-recognition__inner {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.mirellis-recognition__eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 1.2rem;
+}
+
+.mirellis-recognition__heading {
+  font-family: var(--font-heading-family);
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #f4efe8;
+  margin: 0 0 1.5rem;
+  font-weight: 500;
+  max-width: 720px;
+}
+
+.mirellis-recognition__intro {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.68);
+  max-width: 680px;
+  margin-bottom: 4rem;
+}
+
+.mirellis-recognition__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.mirellis-recognition__card {
+  position: relative;
+  padding: 2rem;
+  border-radius: 28px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(12px);
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease;
+}
+
+.mirellis-recognition__card--expandable {
+  cursor: pointer;
+}
+
+.mirellis-recognition__card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.045);
+}
+
+.mirellis-recognition__card-title {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: #f7f2ec;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+
+.mirellis-recognition__card-text {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.66);
+}
+
+.mirellis-recognition__card-expand {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 0.4s ease,
+    opacity 0.3s ease;
+  margin-top: 0;
+}
+
+.mirellis-recognition__card.is-expanded .mirellis-recognition__card-expand {
+  max-height: 400px;
+  opacity: 1;
+  margin-top: var(--ml-space-md, 1rem);
+}
+
+.mirellis-recognition__insight {
+  font-size: var(--ml-text-body-sm);
+  line-height: var(--ml-leading-relaxed);
+  color: rgba(255,255,255,0.72);
+  margin-bottom: var(--ml-space-sm, 0.5rem);
+}
+
+.mirellis-recognition__insight-link {
+  display: inline-block;
+  font-size: var(--ml-text-body-sm);
+  color: rgba(255,255,255,0.58);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 1px;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.mirellis-recognition__insight-link:hover {
+  color: rgba(255,255,255,0.88);
+  border-color: rgba(255,255,255,0.5);
+}
+
+.mirellis-recognition__footer {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.mirellis-recognition__link {
+  display: inline-block;
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.68);
+  text-decoration: none;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.mirellis-recognition__link:hover {
+  opacity: 0.58;
+  transform: translateX(3px);
+}
+
+@media screen and (max-width: 749px) {
+
+  .mirellis-recognition {
+    padding: 5rem 1.4rem;
+  }
+
+  .mirellis-recognition__heading {
+    font-size: clamp(1.9rem, 9vw, 3rem);
+    line-height: 1.14;
+  }
+
+  .mirellis-recognition__intro {
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+  }
+
+  .mirellis-recognition__card {
+    padding: 1.6rem;
+    border-radius: 24px;
+  }
+
+  .mirellis-recognition__card-title {
+    font-size: 1rem;
+  }
+
+  .mirellis-recognition__card-text {
+    font-size: 0.96rem;
+    line-height: 1.75;
+  }
+
+  .mirellis-recognition__footer {
+    margin-top: 4rem;
+  }
+
+}
+{% endstylesheet %}
+
+<section class="mirellis-recognition">
+
+  <div class="mirellis-recognition__inner">
+
+    <div class="mirellis-recognition__eyebrow">
+      {{ section.settings.eyebrow }}
+    </div>
+
+    <h2 class="mirellis-recognition__heading">
+      {{ section.settings.heading }}
+    </h2>
+
+    <div class="mirellis-recognition__intro">
+      {{ section.settings.intro }}
+    </div>
+
+    <div class="mirellis-recognition__grid">
+
+      {% for block in section.blocks %}
+
+        {%- if block.settings.research_insight != blank -%}
+          <div class="mirellis-recognition__card mirellis-recognition__card--expandable"
+               role="button"
+               tabindex="0"
+               aria-expanded="false"
+               {{ block.shopify_attributes }}>
+        {%- else -%}
+          <div class="mirellis-recognition__card"
+               {{ block.shopify_attributes }}>
+        {%- endif -%}
+
+          <div class="mirellis-recognition__card-title">
+            {{ block.settings.title }}
+          </div>
+
+          <div class="mirellis-recognition__card-text">
+            {{ block.settings.text }}
+          </div>
+
+          {%- if block.settings.research_insight != blank -%}
+            <div class="mirellis-recognition__card-expand"
+                 aria-hidden="true">
+              <p class="mirellis-recognition__insight">
+                {{ block.settings.research_insight }}
+              </p>
+              {%- if block.settings.research_link != blank -%}
+                <a href="{{ block.settings.research_link }}"
+                   class="mirellis-recognition__insight-link"
+                   onclick="event.stopPropagation()">
+                  {{ block.settings.research_link_label
+                     | default: 'Read the research →' }}
+                </a>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+    {% if section.settings.link_text != blank and section.settings.link_url != blank %}
+      <div class="mirellis-recognition__footer">
+
+        <a
+          href="{{ section.settings.link_url }}"
+          class="mirellis-recognition__link"
+        >
+          {{ section.settings.link_text }}
+        </a>
+
+      </div>
+    {% endif %}
+
+  </div>
+
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var sections = document.querySelectorAll('.mirellis-recognition');
+
+  sections.forEach(function(section) {
+    var cards = section.querySelectorAll(
+      '.mirellis-recognition__card--expandable'
+    );
+
+    cards.forEach(function(card) {
+      card.addEventListener('click', function() {
+        var isExpanded =
+          card.classList.contains('is-expanded');
+
+        // Close all cards in this section
+        cards.forEach(function(c) {
+          c.classList.remove('is-expanded');
+          c.setAttribute('aria-expanded', 'false');
+          var expand = c.querySelector(
+            '.mirellis-recognition__card-expand'
+          );
+          if (expand) {
+            expand.setAttribute('aria-hidden', 'true');
+          }
+        });
+
+        // Open clicked card if it was closed
+        if (!isExpanded) {
+          card.classList.add('is-expanded');
+          card.setAttribute('aria-expanded', 'true');
+          var expand = card.querySelector(
+            '.mirellis-recognition__card-expand'
+          );
+          if (expand) {
+            expand.setAttribute('aria-hidden', 'false');
+          }
+        }
+      });
+
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Mirellis Recognition",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "RECOGNITION"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Modern exhaustion is not always loud."
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro Text",
+      "default": "<p>Many people today are physically inactive by evening, yet mentally unable to fully slow down. Attention often continues long after the body has stopped moving.</p>"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link Text",
+      "default": "Explore Modern Overstimulation"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Recognition Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card Title",
+          "default": "Physically tired. Mentally active."
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Card Text",
+          "default": "Even after the body slows down, attention may continue moving through unfinished thoughts, stimulation, and anticipatory loops."
+        },
+        {
+          "type": "textarea",
+          "id": "research_insight",
+          "label": "Research Insight",
+          "info": "2-3 sentences shown on expand. Leave blank for non-expandable."
+        },
+        {
+          "type": "url",
+          "id": "research_link",
+          "label": "Research Link"
+        },
+        {
+          "type": "text",
+          "id": "research_link_label",
+          "label": "Research Link Label",
+          "default": "Read the research →"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mirellis Recognition",
+      "blocks": [
+        {
+          "type": "card"
+        },
+        {
+          "type": "card"
+        },
+        {
+          "type": "card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,47 @@
+{%- comment -%}
+  MIRELLIS — PDP RECOGNITION  (Product Experience OS · reusable)
+  Book I: Journey 2 (Recognition) · resolves Uncertainty 4 (Personal relevance), 6 (Outcome setup) · Dim A.
+  "Do they understand my actual problem?" — the lived experience in the Observatory voice.
+  All copy is settings; empty-safe; self-contained.
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+<section class="pdr">
+  <div class="pdr__inner">
+    {%- if s.eyebrow != blank -%}<div class="pdr__eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+    {%- if s.body != blank -%}<div class="pdr__body">{{ s.body }}</div>{%- endif -%}
+    {%- if s.contrast_a != blank or s.contrast_b != blank -%}
+      <div class="pdr__contrast">
+        {%- if s.contrast_a != blank -%}<div class="pdr__col"><div class="pdr__label">{{ s.contrast_a_label | default: 'Most mornings' }}</div><div class="pdr__flow">{{ s.contrast_a }}</div></div>{%- endif -%}
+        {%- if s.contrast_b != blank -%}<div class="pdr__col"><div class="pdr__label">{{ s.contrast_b_label | default: 'A different beginning' }}</div><div class="pdr__flow">{{ s.contrast_b }}</div></div>{%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .pdr { background: var(--ml-color-warm-paper); padding-block: clamp(3.5rem, 8vw, 6.5rem); border-top: 1px solid var(--ml-color-border-soft); }
+  .pdr__inner { max-width: 680px; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2rem); }
+  .pdr__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1.75rem; }
+  .pdr__body p { font-size: clamp(1.15rem, 2.4vw, 1.4rem); font-weight: 300; line-height: 1.6; color: var(--ml-color-soft-charcoal); margin: 0 0 1.5rem; max-width: 40ch; }
+  .pdr__contrast { display: grid; grid-template-columns: 1fr; gap: 1.75rem; margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid var(--ml-color-border-soft); }
+  @media (min-width: 640px) { .pdr__contrast { grid-template-columns: 1fr 1fr; gap: 2.5rem; } }
+  .pdr__label { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1rem; }
+  .pdr__flow { font-size: 1rem; line-height: 1.9; color: var(--ml-color-text-secondary); }
+  .pdr__flow p { margin: 0; }
+</style>
+
+{% schema %}
+{
+  "name": "PDP · Recognition",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The morning most of us have" },
+    { "type": "richtext", "id": "body", "label": "Body", "default": "<p>The alarm ends. Before the day has named itself, the phone is already in your hand — a message from last night, a headline, a notification you don't remember enabling.</p><p>By the time you are fully awake, the day is already running someone else's agenda. It started two minutes ago, and it is already not yours.</p>" },
+    { "type": "text", "id": "contrast_a_label", "label": "Contrast A — label", "default": "Most mornings" },
+    { "type": "richtext", "id": "contrast_a", "label": "Contrast A — flow", "default": "<p>Alarm → phone → messages → reaction</p>" },
+    { "type": "text", "id": "contrast_b_label", "label": "Contrast B — label", "default": "A different beginning" },
+    { "type": "richtext", "id": "contrast_b", "label": "Contrast B — flow", "default": "<p>Alarm → light → a small ritual → orientation → the day, entered on purpose</p>" }
+  ],
+  "presets": [{ "name": "PDP · Recognition" }]
+}
+{% endschema %}

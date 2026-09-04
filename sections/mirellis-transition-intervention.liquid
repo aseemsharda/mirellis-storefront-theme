@@ -1,0 +1,71 @@
+{%- comment -%}
+  MIRELLIS — TRANSITION · INTERVENTION LANDSCAPE  (Slice 3)
+  --------------------------------------------------------------
+  Turns a transition page into a research journey: shows the landscape of
+  possibilities the finding opened, then points to the chosen intervention.
+  Reads PAGE metafields (namespace custom):
+    tr_landscape · tr_finding_label · tr_finding_url
+    tr_intervention_label · tr_intervention_url
+  Build-alongside: new file, self-contained styles, zero new CSS/JS, empty-safe.
+  Renders nothing unless tr_landscape is present (inert on all other pages).
+{%- endcomment -%}
+
+{%- assign m = page.metafields.custom -%}
+{%- if m.tr_landscape != blank -%}
+  <section class="tr-intervention">
+    <div class="tr-intervention__inner">
+      <div class="tr-intervention__eyebrow">The intervention landscape</div>
+      <div class="tr-intervention__body"><p>{{ m.tr_landscape | newline_to_br }}</p></div>
+
+      <p class="tr-intervention__lead">
+        From this landscape we chose one intervention.
+      </p>
+      <p class="tr-intervention__links">
+        {%- if m.tr_intervention_url -%}
+          <a href="{{ m.tr_intervention_url }}">{{ m.tr_intervention_label | default: 'See why the ritual exists' }} →</a>
+        {%- endif -%}
+        {%- if m.tr_finding_label and m.tr_finding_url -%}
+          <span class="tr-intervention__dot">·</span>
+          <a href="{{ m.tr_finding_url }}">{{ m.tr_finding_label }}</a>
+        {%- endif -%}
+      </p>
+    </div>
+  </section>
+
+  <style>
+    .tr-intervention {
+      background: var(--ml-color-warm-paper);
+      border-top: 1px solid var(--ml-color-border-soft);
+      padding-block: 5rem;
+    }
+    .tr-intervention__inner {
+      max-width: 680px; margin-inline: auto;
+      padding-inline: clamp(1rem, 5vw, 2rem);
+    }
+    .tr-intervention__eyebrow {
+      font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1.5rem;
+    }
+    .tr-intervention__body { line-height: 2; color: var(--ml-color-text-secondary); }
+    .tr-intervention__body p { font-size: 1.0625rem; margin: 0 0 2rem; }
+    .tr-intervention__lead {
+      font-size: clamp(1.15rem, 2.6vw, 1.4rem); font-weight: 300;
+      color: var(--ml-color-soft-charcoal); line-height: 1.55;
+      max-width: 34ch; margin: 0 0 1.25rem;
+    }
+    .tr-intervention__links {
+      font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--ml-color-muted-earth); margin: 0;
+    }
+    .tr-intervention__links a { color: var(--ml-color-soft-charcoal); text-underline-offset: 3px; }
+    .tr-intervention__dot { margin-inline: 0.75rem; opacity: 0.5; }
+  </style>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Transition Intervention",
+  "settings": [],
+  "presets": [{ "name": "Transition Intervention" }]
+}
+{% endschema %}

@@ -1,0 +1,215 @@
+<section class="mi-methodology">
+
+  <div class="container">
+
+    <div class="mi-methodology-header">
+
+      {% if section.settings.eyebrow != blank %}
+        <p class="mi-eyebrow">
+          {{ section.settings.eyebrow }}
+        </p>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h2>
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <div class="mi-methodology-description">
+          {{ section.settings.description }}
+        </div>
+      {% endif %}
+
+    </div>
+
+    <div class="mi-methodology-grid">
+
+      {% for block in section.blocks %}
+
+        <div class="mi-methodology-card">
+
+          <h3>
+            {{ block.settings.title }}
+          </h3>
+
+          <p>
+            {{ block.settings.description }}
+          </p>
+
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.mi-methodology{
+  padding:
+  {{ section.settings.top_spacing }}px
+  0
+  {{ section.settings.bottom_spacing }}px;
+}
+
+.mi-methodology-header{
+  max-width:900px;
+  margin:0 auto 70px;
+  text-align:center;
+}
+
+.mi-eyebrow{
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  opacity:.6;
+  margin-bottom:12px;
+}
+
+.mi-methodology-header h2{
+  margin-bottom:24px;
+}
+
+.mi-methodology-description{
+  max-width:700px;
+  margin:0 auto;
+  opacity:.8;
+}
+
+.mi-methodology-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+
+.mi-methodology-card{
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:24px;
+  padding:32px;
+}
+
+.mi-methodology-card h3{
+  margin-bottom:16px;
+}
+
+.mi-methodology-card p{
+  opacity:.75;
+}
+
+@media(max-width:990px){
+
+  .mi-methodology-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:749px){
+
+  .mi-methodology-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Research Methodology",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Research Approach"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How The Institute Works"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "label": "Top Spacing",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "label": "Bottom Spacing",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "default": 120
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Methodology Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Research Methodology",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "title": "Observation",
+            "description": "Patterns often emerge long before explanations appear."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Inquiry",
+            "description": "Questions are explored through scientific literature, environmental psychology, physiology and lived experience."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Frameworks",
+            "description": "Observations are organized into working models that can be challenged, refined or expanded."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Application",
+            "description": "Insights are translated into rituals, environments and sensory practices."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

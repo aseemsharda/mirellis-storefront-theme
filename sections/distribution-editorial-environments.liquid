@@ -1,0 +1,270 @@
+<section class="distribution-editorial">
+
+  <div class="page-width">
+
+    {% if section.settings.subheading != blank %}
+      <p class="distribution-editorial__subheading">
+        {{ section.settings.subheading }}
+      </p>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="distribution-editorial__heading">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+  </div>
+
+  <div class="distribution-editorial__blocks">
+
+    {% for block in section.blocks %}
+
+      <div class="distribution-editorial__row {% cycle 'normal', 'reverse' %}" {{ block.shopify_attributes }}>
+
+        <div class="distribution-editorial__image-wrapper">
+
+          {% if block.settings.image != blank %}
+            {{
+              block.settings.image
+              | image_url: width: 1600
+              | image_tag:
+                loading: 'lazy',
+                class: 'distribution-editorial__image'
+            }}
+          {% endif %}
+
+        </div>
+
+        <div class="distribution-editorial__content">
+
+          {% if block.settings.label != blank %}
+            <p class="distribution-editorial__label">
+              {{ block.settings.label }}
+            </p>
+          {% endif %}
+
+          {% if block.settings.title != blank %}
+            <h3 class="distribution-editorial__title">
+              {{ block.settings.title }}
+            </h3>
+          {% endif %}
+
+          {% if block.settings.text != blank %}
+            <div class="distribution-editorial__text">
+              {{ block.settings.text }}
+            </div>
+          {% endif %}
+
+        </div>
+
+      </div>
+
+    {% endfor %}
+
+  </div>
+
+</section>
+
+<style>
+
+.distribution-editorial {
+  background: #f5f1ec;
+  padding: 140px 0;
+}
+
+.distribution-editorial .page-width {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding-left: 48px;
+  padding-right: 48px;
+  box-sizing: border-box;
+}
+
+.distribution-editorial__subheading {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 12px;
+  color: #9b8a7a;
+  margin-bottom: 24px;
+}
+
+.distribution-editorial__heading {
+  text-align: center;
+  font-size: clamp(52px, 8vw, 110px);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  font-weight: 400;
+  color: #1f1f1f;
+  max-width: 1100px;
+  margin: 0 auto 120px;
+}
+
+.distribution-editorial__blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 160px;
+}
+
+.distribution-editorial__row {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.distribution-editorial__row.reverse {
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+.distribution-editorial__row.reverse .distribution-editorial__image-wrapper {
+  order: 2;
+}
+
+.distribution-editorial__row.reverse .distribution-editorial__content {
+  order: 1;
+}
+
+.distribution-editorial__image-wrapper {
+  position: relative;
+}
+
+.distribution-editorial__image {
+  width: 100%;
+  height: 760px;
+  object-fit: cover;
+  border-radius: 30px;
+  display: block;
+}
+
+.distribution-editorial__content {
+  max-width: 520px;
+}
+
+.distribution-editorial__label {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 11px;
+  color: #9b8a7a;
+  margin-bottom: 24px;
+}
+
+.distribution-editorial__title {
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+  font-weight: 400;
+  color: #1f1f1f;
+  margin-bottom: 36px;
+}
+
+.distribution-editorial__text {
+  font-size: 20px;
+  line-height: 1.95;
+  color: #5f5a55;
+}
+
+.distribution-editorial__text p {
+  margin-bottom: 28px;
+}
+
+@media screen and (max-width: 989px) {
+
+  .distribution-editorial {
+    padding: 90px 0;
+  }
+
+  .distribution-editorial .page-width {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .distribution-editorial__heading {
+    font-size: 52px;
+    margin-bottom: 70px;
+  }
+
+  .distribution-editorial__blocks {
+    gap: 90px;
+  }
+
+  .distribution-editorial__row,
+  .distribution-editorial__row.reverse {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .distribution-editorial__row.reverse .distribution-editorial__image-wrapper,
+  .distribution-editorial__row.reverse .distribution-editorial__content {
+    order: initial;
+  }
+
+  .distribution-editorial__image {
+    height: 460px;
+    border-radius: 22px;
+  }
+
+  .distribution-editorial__title {
+    font-size: 42px;
+  }
+
+  .distribution-editorial__text {
+    font-size: 17px;
+    line-height: 1.85;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Dist Editorial",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "environment",
+      "name": "Environment",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dist Editorial"
+    }
+  ]
+}
+{% endschema %}

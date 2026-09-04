@@ -1,0 +1,64 @@
+<section class="mcl-section">
+  <div class="mcl-inner">
+    <p class="mcl-text">
+      The Observatory grows through observation.
+    </p>
+    <a href="/pages/community-hub"
+       class="mcl-link">
+      The Living Observatory →
+    </a>
+  </div>
+</section>
+
+<style>
+.mcl-section {
+  background: #faf7f2;
+  padding: 3rem 2rem;
+  border-top: 1px solid rgba(26,26,24,0.08);
+}
+.mcl-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.mcl-text {
+  font-size: 0.95rem;
+  color: rgba(26,26,24,0.55);
+  margin: 0;
+  font-style: italic;
+}
+.mcl-link {
+  font-size: 0.85rem;
+  color: rgba(26,26,24,0.5);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(26,26,24,0.2);
+  padding-bottom: 1px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+.mcl-link:hover {
+  color: #1a1a18;
+  border-color: rgba(26,26,24,0.6);
+}
+@media (max-width: 640px) {
+  .mcl-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .mcl-section {
+    padding: 2.5rem 1.5rem;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Community Link",
+  "presets": [{ "name": "Community Link" }]
+}
+{% endschema %}

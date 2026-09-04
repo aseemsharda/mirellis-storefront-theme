@@ -1,0 +1,77 @@
+<section class="ritual-section ritual-section--large">
+
+  <div class="ritual-container">
+
+    <!-- IMMERSIVE IMAGE -->
+    <div class="ritual-image-soft ritual-fade-up" style="margin-bottom:120px;">
+
+      {% if section.settings.future_image != blank %}
+
+        <img
+          src="{{ section.settings.future_image | image_url: width: 2200 }}"
+          alt="The Future of Rituals"
+          loading="lazy"
+          width="{{ section.settings.future_image.width }}"
+          height="{{ section.settings.future_image.height }}"
+          style="width:100%; height:auto; display:block;"
+        >
+
+      {% endif %}
+
+    </div>
+
+
+    <!-- CONTENT -->
+    <div class="ritual-reading-width">
+
+      {% if section.settings.heading != blank %}
+        <h2 class="ritual-heading ritual-fade-up" style="margin-bottom:70px;">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.body != blank %}
+        <div class="ritual-body ritual-fade-up">
+          {{ section.settings.body }}
+        </div>
+      {% endif %}
+
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Future of Rituals",
+  "settings": [
+
+    {
+      "type": "image_picker",
+      "id": "future_image",
+      "label": "Future Image"
+    },
+
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Future of Rituals"
+    },
+
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Modern rituals do not need to recreate the past literally.</p><p>The goal is not to romanticize older ways of living or reject modern life entirely.</p><p>The goal is to understand which human needs remain unchanged beneath changing environments.</p><p>Human physiology still responds to rhythm, pacing, atmosphere, repetition, sensory continuity, decompression, orientation, and environmental transitions — even as modern life becomes increasingly accelerated, digital, and fragmented.</p><p>Modern rituals can evolve intelligently alongside contemporary life.</p><p>Mirellis explores rituals as part of a broader philosophy of environmental restoration — through atmosphere, sensory systems, pacing, sound, reflection, transitions, and repeated daily continuity.</p><p>The intention is not to add more stimulation to modern life.</p><p>The intention is to help create environments that feel more coherent to move through.</p>"
+    }
+
+  ],
+  "presets": [
+    {
+      "name": "Future of Rituals"
+    }
+  ]
+}
+{% endschema %}

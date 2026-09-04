@@ -669,6 +669,42 @@ hr,
   }
 }
 
+.mirellis-header-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 0;
+}
+
+.mirellis-header-brand__symbol,
+.mirellis-header-brand__wordmark {
+  display: block;
+  height: auto;
+  object-fit: contain;
+}
+
+.mirellis-header-brand__symbol {
+  width: 26px;
+}
+
+.mirellis-header-brand__wordmark {
+  /*
+   * The supplied wordmark artwork reaches the first and last source pixels.
+   * Give the image a 1px optical safety area on each side while preserving
+   * the same 90px visible artwork width and the existing 124px lockup width.
+   */
+  width: 92px;
+  height: 11.4258px;
+  max-width: none;
+  margin-inline: -1px;
+}
+
+@media screen and (max-width: 699px) {
+  .mirellis-header-brand { gap: 8px; }
+  .mirellis-header-brand__symbol { width: 26px; }
+  .mirellis-header-brand__wordmark { width: 92px; }
+}
+
 .mirellis-public-menu__group > details > summary {
   min-height: 44px;
   cursor: pointer;
@@ -803,4 +839,39 @@ hr,
 .mirellis-footer-mission__nav a:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 3px;
+}
+
+.mirellis-footer-support {
+  display: grid;
+  gap: 0;
+  padding-block: 1.5rem;
+  border-block: 1px solid rgba(46, 43, 40, 0.14);
+  color: var(--ml-color-text-secondary);
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+
+.mirellis-footer-support p {
+  margin: 0;
+}
+
+.mirellis-footer-support p + p {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(46, 43, 40, 0.1);
+}
+
+.mirellis-footer-support strong {
+  color: var(--ml-color-soft-charcoal);
+}
+
+.mirellis-footer-support a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.mirellis-footer-support__crisis {
+  color: var(--ml-color-muted-earth);
 }

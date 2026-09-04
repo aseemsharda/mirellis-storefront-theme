@@ -1,0 +1,120 @@
+{{ 'rituals-page.css' | asset_url | stylesheet_tag }}
+
+<section class="rituals-page">
+
+  <section class="ritual-hero">
+
+    <!-- HERO IMAGE -->
+    <div class="ritual-hero__media">
+
+      {% if section.settings.hero_image != blank %}
+
+        <img
+          src="{{ section.settings.hero_image | image_url: width: 2400 }}"
+          alt="Modern Rituals"
+          loading="eager"
+          width="{{ section.settings.hero_image.width }}"
+          height="{{ section.settings.hero_image.height }}"
+        >
+
+      {% endif %}
+
+      <div class="ritual-hero__overlay"></div>
+
+    </div>
+
+    <!-- HERO CONTENT -->
+    <div class="ritual-container">
+
+      <div class="ritual-hero__content ritual-fade-up">
+
+        {% if section.settings.eyebrow != blank %}
+          <div class="ritual-eyebrow">
+            {{ section.settings.eyebrow }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h1 class="ritual-heading">
+            {{ section.settings.heading }}
+          </h1>
+        {% endif %}
+
+        {% if section.settings.body != blank %}
+          <div class="ritual-body" style="margin-top:40px;">
+            {{ section.settings.body }}
+          </div>
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  </section>
+
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const fadeEls = document.querySelectorAll('.ritual-fade-up');
+
+  const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+
+    });
+
+  }, {
+    threshold: 0.2
+  });
+
+  fadeEls.forEach(el => observer.observe(el));
+
+});
+</script>
+
+{% schema %}
+{
+  "name": "Rituals Hero",
+  "settings": [
+
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Modern Rituals"
+    },
+
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Modern Life Lost Its Transitions"
+    },
+
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Modern life rarely moves with clear beginnings or endings anymore.</p><p>One moment flows into the next without enough transition between activation and recovery, focus and slowing, input and silence.</p><p>Over time, many people lose not only rest, but rhythm.</p>"
+    }
+
+  ],
+  "presets": [
+    {
+      "name": "Rituals Hero"
+    }
+  ]
+}
+{% endschema %}

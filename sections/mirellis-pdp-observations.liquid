@@ -1,0 +1,101 @@
+{%- comment -%}
+  MIRELLIS — PDP OBSERVATIONS  ("What people begin to notice" · reusable)
+  Book I: Journey 5→6 (Evaluation→Decision) · resolves Uncertainty 6 (Outcome) · Dim A.
+  VOICE LAW: real, verified observations ONLY. No fabricated ratings, counts, or testimonials.
+  Ships EMPTY by default — an honest empty-state shows until genuine observations are added.
+  Each slot renders only when it holds a real quote. All copy is settings; empty-safe.
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+{%- assign shown = 0 -%}
+{%- for i in (1..6) -%}
+  {%- assign qk = 'obs_' | append: i | append: '_quote' -%}
+  {%- if s[qk] != blank -%}{%- assign shown = shown | plus: 1 -%}{%- endif -%}
+{%- endfor -%}
+
+<section class="pdob">
+  <div class="pdob__inner">
+    {%- if s.eyebrow != blank -%}<div class="pdob__eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+    {%- if s.intro != blank -%}<div class="pdob__intro">{{ s.intro }}</div>{%- endif -%}
+
+    {%- if shown > 0 -%}
+      <div class="pdob__list">
+        {%- for i in (1..6) -%}
+          {%- assign qk = 'obs_' | append: i | append: '_quote' -%}
+          {%- assign quote = s[qk] -%}
+          {%- if quote != blank -%}
+            {%- assign ak = 'obs_' | append: i | append: '_attribution' -%}
+            {%- assign ck = 'obs_' | append: i | append: '_context' -%}
+            <figure class="pdob__item">
+              <blockquote class="pdob__quote">{{ quote }}</blockquote>
+              {%- if s[ak] != blank or s[ck] != blank -%}
+                <figcaption class="pdob__cite">
+                  {%- if s[ak] != blank -%}<span class="pdob__attr">{{ s[ak] }}</span>{%- endif -%}
+                  {%- if s[ck] != blank -%}<span class="pdob__ctx">{{ s[ck] }}</span>{%- endif -%}
+                </figcaption>
+              {%- endif -%}
+            </figure>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- elsif s.empty_state != blank -%}
+      <p class="pdob__empty">{{ s.empty_state }}</p>
+    {%- endif -%}
+
+    {%- if s.note != blank -%}<p class="pdob__note">{{ s.note }}</p>{%- endif -%}
+  </div>
+</section>
+
+<style>
+  .pdob { background: var(--ml-color-warm-paper); padding-block: clamp(3.5rem, 8vw, 6.5rem); border-top: 1px solid var(--ml-color-border-soft); }
+  .pdob__inner { max-width: 680px; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2rem); }
+  .pdob__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1.5rem; }
+  .pdob__intro p { font-size: clamp(1.1rem, 2.3vw, 1.3rem); font-weight: 300; line-height: 1.6; color: var(--ml-color-soft-charcoal); margin: 0 0 2rem; max-width: 50ch; }
+  .pdob__list { border-top: 1px solid var(--ml-color-border-soft); }
+  .pdob__item { margin: 0; padding: 2rem 0; border-bottom: 1px solid var(--ml-color-border-soft); }
+  .pdob__quote { margin: 0; font-size: clamp(1.15rem, 2.5vw, 1.4rem); font-weight: 300; line-height: 1.55; color: var(--ml-color-soft-charcoal); max-width: 46ch; }
+  .pdob__cite { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.15rem; }
+  .pdob__attr { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; }
+  .pdob__ctx { font-size: 0.9rem; color: var(--ml-color-text-secondary); }
+  .pdob__empty { font-size: 1rem; line-height: 1.8; color: var(--ml-color-muted-earth); font-style: italic; max-width: 48ch; padding: 1.5rem 0; border-top: 1px solid var(--ml-color-border-soft); border-bottom: 1px solid var(--ml-color-border-soft); }
+  .pdob__note { margin-top: 1.5rem; font-size: 0.85rem; line-height: 1.7; color: var(--ml-color-muted-earth); max-width: 52ch; }
+</style>
+
+{% schema %}
+{
+  "name": "PDP · Observations",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "What people begin to notice" },
+    { "type": "richtext", "id": "intro", "label": "Intro (optional)" },
+    { "type": "paragraph", "content": "VOICE LAW: add only real, verified observations. No ratings or counts unless genuine. Leave slots empty until you have real quotes — the honest empty-state shows in the meantime." },
+    { "type": "textarea", "id": "empty_state", "label": "Empty-state line (shown until real observations exist)", "default": "Verified observations will appear here as they are collected. No rating or count is shown until it is real." },
+    { "type": "header", "content": "Observation 1" },
+    { "type": "textarea", "id": "obs_1_quote", "label": "Quote (verbatim, verified)" },
+    { "type": "text", "id": "obs_1_attribution", "label": "Attribution" },
+    { "type": "text", "id": "obs_1_context", "label": "Context (optional)" },
+    { "type": "header", "content": "Observation 2" },
+    { "type": "textarea", "id": "obs_2_quote", "label": "Quote (verbatim, verified)" },
+    { "type": "text", "id": "obs_2_attribution", "label": "Attribution" },
+    { "type": "text", "id": "obs_2_context", "label": "Context (optional)" },
+    { "type": "header", "content": "Observation 3" },
+    { "type": "textarea", "id": "obs_3_quote", "label": "Quote (verbatim, verified)" },
+    { "type": "text", "id": "obs_3_attribution", "label": "Attribution" },
+    { "type": "text", "id": "obs_3_context", "label": "Context (optional)" },
+    { "type": "header", "content": "Observation 4" },
+    { "type": "textarea", "id": "obs_4_quote", "label": "Quote (verbatim, verified)" },
+    { "type": "text", "id": "obs_4_attribution", "label": "Attribution" },
+    { "type": "text", "id": "obs_4_context", "label": "Context (optional)" },
+    { "type": "header", "content": "Observation 5" },
+    { "type": "textarea", "id": "obs_5_quote", "label": "Quote (verbatim, verified)" },
+    { "type": "text", "id": "obs_5_attribution", "label": "Attribution" },
+    { "type": "text", "id": "obs_5_context", "label": "Context (optional)" },
+    { "type": "header", "content": "Observation 6" },
+    { "type": "textarea", "id": "obs_6_quote", "label": "Quote (verbatim, verified)" },
+    { "type": "text", "id": "obs_6_attribution", "label": "Attribution" },
+    { "type": "text", "id": "obs_6_context", "label": "Context (optional)" },
+    { "type": "header", "content": "Footer note" },
+    { "type": "textarea", "id": "note", "label": "Note (optional)" }
+  ],
+  "presets": [{ "name": "PDP · Observations" }]
+}
+{% endschema %}

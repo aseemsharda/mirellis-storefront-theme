@@ -1,0 +1,361 @@
+{%- comment -%}
+  MIRELLIS — TRANSITIONS GATEWAY
+  Hub page introducing the three transitions.
+  Companion styles: assets/transitions.css
+{%- endcomment -%}
+
+{{ 'transitions.css' | asset_url | stylesheet_tag }}
+
+<div class="tg">
+
+
+  {%- comment -%} ══ SECTION 1: HEADER ════════════════════════ {%- endcomment -%}
+
+  <header class="tg__header">
+    <div class="ml-container-reading">
+      <div class="ml-text-breathing">
+
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="tg-eyebrow ml-supporting-text">
+            {{- section.settings.eyebrow -}}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h1 class="ml-display-heading ml-headline-soft">
+            {{- section.settings.heading -}}
+          </h1>
+        {%- endif -%}
+
+        {%- if section.settings.body != blank -%}
+          <p class="ml-contemplative-copy ml-copy-soft">
+            {{- section.settings.body -}}
+          </p>
+        {%- endif -%}
+
+      </div>
+    </div>
+  </header>
+
+
+  {%- comment -%} ══ SECTION 2: TRANSITION CARDS ══════════════ {%- endcomment -%}
+
+  {%- assign card_blocks = section.blocks | where: 'type', 'transition' -%}
+  {%- if card_blocks.size > 0 -%}
+
+    <div class="tg__cards">
+
+      {%- for block in card_blocks -%}
+
+        {%- assign has_image = false -%}
+        {%- if block.settings.image != blank -%}
+          {%- assign has_image = true -%}
+        {%- endif -%}
+
+        <div
+          class="tg-card{%- if forloop.index == 2 %} tg-card--alt{%- endif -%}"
+          {{ block.shopify_attributes }}
+        >
+          <div class="tg-card__inner{%- unless has_image %} tg-card__inner--content-only{%- endunless -%}">
+
+            {%- if has_image -%}
+              <div class="tg-card__media">
+                {{-
+                  block.settings.image
+                  | image_url: width: 1400
+                  | image_tag:
+                    loading: 'lazy',
+                    widths: '600, 900, 1200, 1400',
+                    class: 'tg-card__img ml-atmospheric-image'
+                -}}
+              </div>
+            {%- endif -%}
+
+            <div class="tg-card__content">
+
+              <p class="tg-card__index ml-supporting-text">
+                0{{- forloop.index -}}
+              </p>
+
+              {%- if block.settings.transition_label != blank -%}
+                <h2 class="tg-card__label ml-display-heading ml-headline-soft">
+                  {{- block.settings.transition_label -}}
+                </h2>
+              {%- endif -%}
+
+              {%- if block.settings.experience != blank -%}
+                <p class="tg-card__experience">
+                  {{- block.settings.experience -}}
+                </p>
+              {%- endif -%}
+
+              {%- if block.settings.tool_name != blank -%}
+                <p class="tg-card__tool ml-supporting-text">
+                  Ritual tool — {{- block.settings.tool_name -}}
+                </p>
+              {%- endif -%}
+
+              {%- if block.settings.link != blank -%}
+                <a
+                  href="{{ block.settings.link }}"
+                  class="tg-card__cta ml-soft-cta ml-soft-hover"
+                >
+                  {{- block.settings.link_label | default: 'Explore this transition →' -}}
+                </a>
+              {%- endif -%}
+
+            </div>
+
+          </div>
+        </div>
+
+      {%- endfor -%}
+
+    </div>
+
+  {%- endif -%}
+
+
+  {%- comment -%} ══ SECTION 3: THE METHOD ════════════════════ {%- endcomment -%}
+
+  {%- if section.settings.method_heading != blank or section.settings.method_body != blank -%}
+
+    <div class="tg__method">
+      <div class="ml-container-narrow">
+        <div class="ml-text-breathing">
+
+          {%- if section.settings.method_heading != blank -%}
+            <h2 class="ml-section-heading ml-headline-soft">
+              {{- section.settings.method_heading -}}
+            </h2>
+          {%- endif -%}
+
+          {%- if section.settings.method_body != blank -%}
+            <p class="ml-body-copy ml-copy-soft">
+              {{- section.settings.method_body -}}
+            </p>
+          {%- endif -%}
+
+          {%- if section.settings.method_link != blank and section.settings.method_link_label != blank -%}
+            <a
+              href="{{ section.settings.method_link }}"
+              class="tg__text-link ml-soft-cta ml-soft-hover"
+            >
+              {{- section.settings.method_link_label -}}
+            </a>
+          {%- endif -%}
+
+        </div>
+      </div>
+    </div>
+
+  {%- endif -%}
+
+
+  {%- comment -%} ══ SECTION 4: OBSERVATORY CALLOUT ══════════ {%- endcomment -%}
+
+  <div class="tg__observatory">
+    <div class="ml-container-reading">
+      <div class="ml-text-breathing">
+
+        {%- if section.settings.obs_eyebrow != blank -%}
+          <p class="tg-eyebrow ml-supporting-text">
+            {{- section.settings.obs_eyebrow -}}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.obs_heading != blank -%}
+          <h2 class="ml-section-heading ml-headline-soft">
+            {{- section.settings.obs_heading -}}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.obs_body != blank -%}
+          <p class="ml-body-copy ml-copy-soft">
+            {{- section.settings.obs_body -}}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.obs_link != blank and section.settings.obs_link_label != blank -%}
+          <a
+            href="{{ section.settings.obs_link }}"
+            class="tg__text-link ml-soft-cta ml-soft-hover"
+          >
+            {{- section.settings.obs_link_label -}}
+          </a>
+        {%- endif -%}
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+{% schema %}
+{
+  "name": "Transitions Gateway",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "THE THREE TRANSITIONS"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Three moments. Three ritual tools. One system."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body",
+      "default": "Modern life removed the transitions that once regulated human beings. Mirellis studies three of them — and builds the ritual tools to restore them."
+    },
+    {
+      "type": "header",
+      "content": "The Method"
+    },
+    {
+      "type": "textarea",
+      "id": "method_heading",
+      "label": "Heading",
+      "default": "The body responds to signals faster than instructions."
+    },
+    {
+      "type": "textarea",
+      "id": "method_body",
+      "label": "Body",
+      "default": "Repeated, coherent sensory signaling teaches the nervous system where one chapter ends and the next begins."
+    },
+    {
+      "type": "url",
+      "id": "method_link",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "method_link_label",
+      "label": "Link label",
+      "default": "Read about the method →"
+    },
+    {
+      "type": "header",
+      "content": "Observatory Callout"
+    },
+    {
+      "type": "text",
+      "id": "obs_eyebrow",
+      "label": "Eyebrow",
+      "default": "THE OBSERVATORY"
+    },
+    {
+      "type": "textarea",
+      "id": "obs_heading",
+      "label": "Heading",
+      "default": "The research behind the transitions."
+    },
+    {
+      "type": "textarea",
+      "id": "obs_body",
+      "label": "Body",
+      "default": "Mirellis studies Human State Transitions through Ritual Science. The Observatory is where that research is published."
+    },
+    {
+      "type": "url",
+      "id": "obs_link",
+      "label": "Observatory link"
+    },
+    {
+      "type": "text",
+      "id": "obs_link_label",
+      "label": "Link label",
+      "default": "Explore the Observatory →"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "transition",
+      "name": "Transition Card",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "transition_label",
+          "label": "Transition label",
+          "default": "Sleep → Wakefulness"
+        },
+        {
+          "type": "textarea",
+          "id": "experience",
+          "label": "Experience sentence",
+          "default": "The alarm goes off. The phone wakes up first. The day enters before you do."
+        },
+        {
+          "type": "text",
+          "id": "tool_name",
+          "label": "Ritual tool name",
+          "default": "Morning Clarity"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Deep page link"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label",
+          "default": "Explore this transition →"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Transitions Gateway",
+      "blocks": [
+        {
+          "type": "transition",
+          "settings": {
+            "transition_label": "Sleep → Wakefulness",
+            "experience": "The alarm goes off. The phone wakes up first. The day enters before you do.",
+            "tool_name": "Morning Clarity",
+            "link_label": "Explore this transition →"
+          }
+        },
+        {
+          "type": "transition",
+          "settings": {
+            "transition_label": "Work → Recovery",
+            "experience": "Work ends on the calendar. It does not end in the body.",
+            "tool_name": "Stillness Elixir",
+            "link_label": "Explore this transition →"
+          }
+        },
+        {
+          "type": "transition",
+          "settings": {
+            "transition_label": "Stimulation → Restoration",
+            "experience": "You are not scrolling because you are entertained. You are scrolling because you cannot find the doorway out of the day.",
+            "tool_name": "Stillness Elixir",
+            "link_label": "Explore this transition →"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

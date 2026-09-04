@@ -1,0 +1,67 @@
+{% if section.settings.show_section %}
+<section class="exp-section">
+  <div class="exp-container">
+    {% if section.settings.experience_text != blank %}
+    <div class="exp-text">{{ section.settings.experience_text | newline_to_br }}</div>
+    {% endif %}
+    {% if section.settings.transition_line != blank %}
+    <p class="exp-transition">{{ section.settings.transition_line }}</p>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+<style>
+.exp-section {
+  background: #faf7f2;
+  padding: 6rem 2rem 3rem 2rem;
+}
+.exp-container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.exp-text {
+  font-size: 1rem;
+  line-height: 2;
+  color: #1a1a18;
+  text-align: left;
+}
+.exp-transition {
+  margin-top: 3rem;
+  font-style: italic;
+  color: rgba(26,26,24,0.6);
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+@media (max-width: 640px) {
+  .exp-section {
+    padding: 4rem 1.5rem;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Transition Experience",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "experience_text",
+      "label": "Experience Text",
+      "default": "10:47pm.\n\nThe laptop closed two hours ago.\n\nYou are lying in bed. Not asleep. Not quite awake. Somewhere between the two — but not in the restful way.\n\nYour mind is replaying the 4pm meeting. Drafting tomorrow's email. Calculating what needs to happen before Thursday.\n\nYour body stopped working at 6pm. Your nervous system never received the message.\n\nThe professional chapter is still open. It has been open for sixteen hours.\n\n—\n\nNow imagine 6:04pm.\n\nThe laptop closes.\n\nYou move to a different room — or simply a different corner of the same room.\n\nYou take the small amber bottle from the shelf. Apply it to the inside of your wrists. The back of your neck.\n\nThe scent is familiar. Vetiver. Lavender. Something deeper. The same scent as yesterday evening. The same scent as the evening before.\n\nYou put on the Stillness series. Not loud. Sparse. Unhurried.\n\nYou sit for ten minutes. Not meditating. Not optimising. Just sitting.\n\nSomething begins to release.\n\nBy 6:15pm your nervous system has received a signal it is learning to trust:\n\nThis chapter is closing."
+    },
+    {
+      "type": "text",
+      "id": "transition_line",
+      "label": "Transition Line",
+      "default": "This is what the Work → Recovery ritual can feel like."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show section",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

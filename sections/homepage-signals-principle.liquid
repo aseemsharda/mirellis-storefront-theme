@@ -1,0 +1,236 @@
+{%- comment -%}
+  Section: homepage-signals-principle
+  Vertical spine with three marker nodes (the descent), centered thesis above,
+  turn statement below the spine, coda at the foot.
+  Marker colours pulled into the Mirellis palette and made meaningful:
+  accent = light/waking, ink = darkness/rest, stone = the cue.
+  No cards, icons, imagery, coloured backgrounds by design.
+{%- endcomment -%}
+
+<section
+  class="signals-principle"
+  aria-labelledby="signals-principle-heading-{{ section.id }}"
+  {% if section.settings.enable_fade %}data-sp-fade{% endif %}
+>
+  <div class="signals-principle__inner">
+
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="signals-principle__eyebrow"><span>{{ section.settings.eyebrow }}</span></p>
+    {%- endif -%}
+
+    {%- if section.settings.heading != blank -%}
+      <h2 id="signals-principle-heading-{{ section.id }}" class="signals-principle__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.lede != blank -%}
+      <p class="signals-principle__lede">{{ section.settings.lede }}</p>
+    {%- endif -%}
+
+    <div class="signals-principle__spine">
+      <ol class="signals-principle__nodes">
+        {%- if section.settings.beat_1 != blank -%}
+          <li class="signals-principle__node signals-principle__node--light">
+            <span class="signals-principle__dot" aria-hidden="true"></span>
+            <p class="signals-principle__beat">{{ section.settings.beat_1 }}</p>
+          </li>
+        {%- endif -%}
+        {%- if section.settings.beat_2 != blank -%}
+          <li class="signals-principle__node signals-principle__node--dark">
+            <span class="signals-principle__dot" aria-hidden="true"></span>
+            <p class="signals-principle__beat">{{ section.settings.beat_2 }}</p>
+          </li>
+        {%- endif -%}
+        {%- if section.settings.beat_3 != blank -%}
+          <li class="signals-principle__node signals-principle__node--cue">
+            <span class="signals-principle__dot" aria-hidden="true"></span>
+            <p class="signals-principle__beat">{{ section.settings.beat_3 }}</p>
+          </li>
+        {%- endif -%}
+      </ol>
+    </div>
+
+    {%- if section.settings.beat_4 != blank -%}
+      <p class="signals-principle__turn">{{ section.settings.beat_4 }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.closing_line != blank -%}
+      <p class="signals-principle__closing"><span class="signals-principle__rule" aria-hidden="true"></span>{{ section.settings.closing_line }}</p>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .signals-principle {
+    --sp-accent: {{ section.settings.color_accent }};
+    --sp-ink: {{ section.settings.color_ink }};
+    --sp-stone: {{ section.settings.color_stone }};
+    --sp-line: {{ section.settings.color_line }};
+    padding: {{ section.settings.padding_top }}px 24px {{ section.settings.padding_bottom }}px;
+  }
+  #shopify-section-{{ section.id }} .signals-principle__inner {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .signals-principle__eyebrow {
+    display: flex; align-items: center; justify-content: center; gap: 0.9rem;
+    text-transform: uppercase; letter-spacing: 0.26em;
+    font-size: 0.68rem; font-weight: 500; margin: 0 0 1.75rem; opacity: 0.55;
+  }
+  #shopify-section-{{ section.id }} .signals-principle__eyebrow::before,
+  #shopify-section-{{ section.id }} .signals-principle__eyebrow::after {
+    content: ""; width: 28px; height: 1px; background: var(--sp-accent); opacity: 0.7;
+  }
+
+  #shopify-section-{{ section.id }} .signals-principle__heading {
+    margin: 0 0 1.75rem; line-height: 1.1; letter-spacing: -0.01em;
+    font-size: clamp(2rem, 1.4rem + 2.8vw, 3.3rem);
+  }
+  #shopify-section-{{ section.id }} .signals-principle__lede {
+    font-size: clamp(1.15rem, 1rem + 0.7vw, 1.45rem);
+    line-height: 1.5; max-width: 34ch; margin: 0 auto; opacity: 0.85; text-wrap: balance;
+  }
+
+  /* Spine */
+  #shopify-section-{{ section.id }} .signals-principle__spine {
+    position: relative; margin: clamp(2.5rem, 5vw, 4rem) auto clamp(3rem, 6vw, 5rem);
+    max-width: 620px; padding-top: clamp(2.5rem, 5vw, 4rem);
+  }
+  #shopify-section-{{ section.id }} .signals-principle__spine::before {
+    content: ""; position: absolute; top: 0; bottom: -1px;
+    left: 50%; transform: translateX(-50%);
+    width: 1px; background: var(--sp-line);
+  }
+  #shopify-section-{{ section.id }} .signals-principle__nodes {
+    list-style: none; margin: 0; padding: 0; position: relative;
+  }
+  #shopify-section-{{ section.id }} .signals-principle__node {
+    position: relative; display: grid;
+    grid-template-columns: 1fr 1fr; align-items: center;
+    margin: 0 0 clamp(2rem, 4vw, 3rem);
+  }
+  #shopify-section-{{ section.id }} .signals-principle__node:last-child { margin-bottom: 0; }
+  #shopify-section-{{ section.id }} .signals-principle__dot {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    width: 13px; height: 13px; border-radius: 50%;
+    background: var(--sp-stone);
+    box-shadow: 0 0 0 5px {{ section.settings.color_line }}, 0 0 0 6px var(--sp-line);
+  }
+  #shopify-section-{{ section.id }} .signals-principle__node--light .signals-principle__dot { background: var(--sp-accent); }
+  #shopify-section-{{ section.id }} .signals-principle__node--dark .signals-principle__dot { background: var(--sp-ink); }
+  #shopify-section-{{ section.id }} .signals-principle__node--cue .signals-principle__dot { background: var(--sp-stone); }
+
+  #shopify-section-{{ section.id }} .signals-principle__beat {
+    grid-column: 2; text-align: left; margin: 0;
+    padding-left: clamp(1.5rem, 4vw, 2.75rem);
+    font-size: clamp(0.98rem, 0.92rem + 0.25vw, 1.12rem);
+    line-height: 1.55; opacity: 0.78; max-width: 30ch; text-wrap: pretty;
+  }
+
+  /* The turn */
+  #shopify-section-{{ section.id }} .signals-principle__turn {
+    max-width: 30ch; margin: 0 auto;
+    font-size: clamp(1.12rem, 1rem + 0.55vw, 1.4rem);
+    line-height: 1.5; opacity: 0.95; text-wrap: balance;
+  }
+
+  /* Coda */
+  #shopify-section-{{ section.id }} .signals-principle__closing {
+    margin: clamp(3.5rem, 7vw, 5.5rem) auto 0; max-width: 40ch;
+    font-size: 0.9rem; line-height: 1.6; font-style: italic; opacity: 0.45; text-wrap: balance;
+  }
+  #shopify-section-{{ section.id }} .signals-principle__rule {
+    display: block; width: 34px; height: 1px; margin: 0 auto 1.5rem;
+    background: var(--sp-accent); opacity: 0.6;
+  }
+
+  @media screen and (max-width: 600px) {
+    #shopify-section-{{ section.id }} .signals-principle {
+      padding-left: 22px; padding-right: 22px;
+      padding-top: {{ section.settings.padding_top | times: 0.5 | round }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round }}px;
+    }
+    #shopify-section-{{ section.id }} .signals-principle__spine { max-width: 100%; }
+    #shopify-section-{{ section.id }} .signals-principle__spine::before { left: 7px; transform: none; }
+    #shopify-section-{{ section.id }} .signals-principle__node { grid-template-columns: 1fr; }
+    #shopify-section-{{ section.id }} .signals-principle__dot { left: 7px; }
+    #shopify-section-{{ section.id }} .signals-principle__beat {
+      grid-column: 1; padding-left: 2rem; max-width: 100%;
+    }
+    #shopify-section-{{ section.id }} .signals-principle__eyebrow { font-size: 0.64rem; letter-spacing: 0.2em; }
+    #shopify-section-{{ section.id }} .signals-principle__eyebrow::before,
+    #shopify-section-{{ section.id }} .signals-principle__eyebrow::after { width: 18px; }
+  }
+
+  {%- if section.settings.enable_fade -%}
+    #shopify-section-{{ section.id }} .signals-principle[data-sp-fade] .signals-principle__inner > * {
+      opacity: 0; transform: translateY(8px); transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    #shopify-section-{{ section.id }} .signals-principle[data-sp-fade].is-visible .signals-principle__inner > * {
+      opacity: 1; transform: none;
+    }
+    #shopify-section-{{ section.id }} .signals-principle[data-sp-fade].is-visible .signals-principle__eyebrow { transition-delay: 0s; }
+    #shopify-section-{{ section.id }} .signals-principle[data-sp-fade].is-visible .signals-principle__heading { transition-delay: 0.1s; }
+    #shopify-section-{{ section.id }} .signals-principle[data-sp-fade].is-visible .signals-principle__lede { transition-delay: 0.2s; }
+    #shopify-section-{{ section.id }} .signals-principle[data-sp-fade].is-visible .signals-principle__spine { transition-delay: 0.3s; }
+    #shopify-section-{{ section.id }} .signals-principle[data-sp-fade].is-visible .signals-principle__turn { transition-delay: 0.45s; }
+    #shopify-section-{{ section.id }} .signals-principle[data-sp-fade].is-visible .signals-principle__closing { transition-delay: 0.55s; }
+    @media (prefers-reduced-motion: reduce) {
+      #shopify-section-{{ section.id }} .signals-principle[data-sp-fade] .signals-principle__inner > * {
+        opacity: 1 !important; transform: none !important; transition: none !important;
+      }
+    }
+  {%- endif -%}
+{%- endstyle -%}
+
+{%- if section.settings.enable_fade -%}
+  <script>
+    (function () {
+      var el = document.querySelector('#shopify-section-{{ section.id }} .signals-principle[data-sp-fade]');
+      if (!el) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { el.classList.add('is-visible'); return; }
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('is-visible'); obs.unobserve(entry.target); }
+        });
+      }, { threshold: 0.2 });
+      obs.observe(el);
+    })();
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Signals Principle",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Foundational Principle" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The Role of Signals" },
+    { "type": "text", "id": "lede", "label": "Lede (thesis)", "default": "The nervous system responds to signals before it responds to conscious instruction." },
+    { "type": "header", "content": "The spine (three nodes)" },
+    { "type": "text", "id": "beat_1", "label": "Node 1 \u2014 light / waking", "default": "Light marks the beginning of the day." },
+    { "type": "text", "id": "beat_2", "label": "Node 2 \u2014 darkness / rest", "default": "Darkness prepares the body for rest." },
+    { "type": "text", "id": "beat_3", "label": "Node 3 \u2014 the cue", "default": "Repeated sensory cues help the nervous system recognize what comes next." },
+    { "type": "header", "content": "The turn (below the spine)" },
+    { "type": "text", "id": "beat_4", "label": "Turn statement (the loss)", "default": "Modern life has become increasingly rich in stimulation, yet increasingly poor in the signals that once helped these transitions occur naturally." },
+    { "type": "header", "content": "Closing" },
+    { "type": "text", "id": "closing_line", "label": "Closing transition line", "default": "This principle forms the foundation of the Mirellis Method." },
+    { "type": "header", "content": "Colour (Mirellis palette)" },
+    { "type": "color", "id": "color_accent", "label": "Accent (light node, rules)", "default": "#8B6F47" },
+    { "type": "color", "id": "color_ink", "label": "Ink (dark node)", "default": "#1A1A18" },
+    { "type": "color", "id": "color_stone", "label": "Stone (cue node)", "default": "#A89B87" },
+    { "type": "color", "id": "color_line", "label": "Spine line", "default": "#DAD2C4" },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "min": 640, "max": 900, "step": 20, "unit": "px", "label": "Maximum content width", "default": 760 },
+    { "type": "range", "id": "padding_top", "min": 40, "max": 220, "step": 4, "unit": "px", "label": "Padding top", "default": 160 },
+    { "type": "range", "id": "padding_bottom", "min": 40, "max": 220, "step": 4, "unit": "px", "label": "Padding bottom", "default": 160 },
+    { "type": "header", "content": "Motion" },
+    { "type": "checkbox", "id": "enable_fade", "label": "Enable subtle fade-in on scroll", "info": "Respects reduced-motion. Off by default.", "default": false }
+  ],
+  "presets": [ { "name": "Signals Principle" } ]
+}
+{% endschema %}

@@ -1,0 +1,157 @@
+{%- comment -%}
+  MIRELLIS — PDP EVIDENCE  (Product Experience OS · reusable · highest Voice-Law sensitivity)
+  Book I: Journey 5 (Evaluation) · resolves Uncertainty 8 (Evidence) · Dim A+B.
+  The two-axis model made literal: every claim graded by TYPE (kind of knowledge) and STRENGTH (how strong).
+  Open questions shown on purpose — the opposite of "clinically proven". Strength renders as a 3-segment meter.
+  Claim lines are observational; each awaits ratification before go-live. All copy is settings; empty-safe.
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+<section class="pdev">
+  <div class="pdev__inner">
+    {%- if s.eyebrow != blank -%}<div class="pdev__eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+    {%- if s.intro != blank -%}<div class="pdev__intro">{{ s.intro }}</div>{%- endif -%}
+
+    {%- if s.type_key != blank or s.strength_key != blank -%}
+      <div class="pdev__key">
+        {%- if s.type_key != blank -%}<div class="pdev__keyrow"><span class="pdev__keylabel">Type</span><span class="pdev__keyval">{{ s.type_key }}</span></div>{%- endif -%}
+        {%- if s.strength_key != blank -%}<div class="pdev__keyrow"><span class="pdev__keylabel">Strength</span><span class="pdev__keyval">{{ s.strength_key }}</span></div>{%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="pdev__list">
+      {%- for i in (1..8) -%}
+        {%- assign tk = 'claim_' | append: i | append: '_text' -%}
+        {%- assign text = s[tk] -%}
+        {%- if text != blank -%}
+          {%- assign yk = 'claim_' | append: i | append: '_type' -%}
+          {%- assign gk = 'claim_' | append: i | append: '_strength' -%}
+          {%- assign bk = 'claim_' | append: i | append: '_basis' -%}
+          {%- assign lk = 'claim_' | append: i | append: '_source_label' -%}
+          {%- assign uk = 'claim_' | append: i | append: '_source_url' -%}
+          {%- assign ctype = s[yk] -%}{%- assign cstr = s[gk] -%}
+          {%- assign basis = s[bk] -%}{%- assign slabel = s[lk] -%}{%- assign surl = s[uk] -%}
+          {%- assign lv = 0 -%}{%- assign sd = cstr | downcase -%}
+          {%- if sd contains 'strong' -%}{%- assign lv = 3 -%}{%- elsif sd contains 'supported' -%}{%- assign lv = 2 -%}{%- elsif sd contains 'emerging' -%}{%- assign lv = 1 -%}{%- endif -%}
+          <div class="pdev__claim">
+            <p class="pdev__ctext">{{ text }}</p>
+            <div class="pdev__tags">
+              {%- if ctype != blank -%}<span class="pdev__type">{{ ctype }}</span>{%- endif -%}
+              {%- if lv > 0 -%}
+                <span class="pdev__strength" title="{{ cstr }}">
+                  <span class="pdev__meter" aria-hidden="true">
+                    {%- for seg in (1..3) -%}<span class="pdev__seg{% if seg <= lv %} is-on{% endif %}"></span>{%- endfor -%}
+                  </span>
+                  <span class="pdev__strlabel">{{ cstr }}</span>
+                </span>
+              {%- elsif cstr != blank -%}<span class="pdev__type pdev__type--open">{{ cstr }}</span>{%- endif -%}
+            </div>
+            {%- if basis != blank or surl != blank -%}
+              <details class="pdev__more">
+                <summary>The basis <span class="pdev__chev" aria-hidden="true">+</span></summary>
+                <div class="pdev__basis">
+                  {%- if basis != blank -%}{{ basis }}{%- endif -%}
+                  {%- if slabel != blank and surl != blank -%}<p class="pdev__src"><a href="{{ surl }}">{{ slabel }}</a></p>{%- endif -%}
+                </div>
+              </details>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    {%- if s.link_label != blank and s.link_url != blank -%}
+      <div class="pdev__links"><a href="{{ s.link_url }}">{{ s.link_label }}</a></div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .pdev { background: var(--ml-color-warm-paper); padding-block: clamp(3.5rem, 8vw, 6.5rem); border-top: 1px solid var(--ml-color-border-soft); }
+  .pdev__inner { max-width: 680px; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2rem); }
+  .pdev__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1.5rem; }
+  .pdev__intro p { font-size: clamp(1.1rem, 2.3vw, 1.3rem); font-weight: 300; line-height: 1.6; color: var(--ml-color-soft-charcoal); margin: 0 0 2rem; max-width: 50ch; }
+  .pdev__key { border: 1px solid var(--ml-color-border-soft); border-radius: 2px; padding: 1.1rem 1.25rem; margin-bottom: 2.5rem; background: rgba(0,0,0,0.012); }
+  .pdev__keyrow { display: grid; grid-template-columns: 5rem 1fr; gap: 1rem; padding: 0.35rem 0; }
+  .pdev__keylabel { font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; padding-top: 0.15rem; }
+  .pdev__keyval { font-size: 0.85rem; line-height: 1.6; color: var(--ml-color-text-secondary); }
+  .pdev__list { border-top: 1px solid var(--ml-color-border-soft); }
+  .pdev__claim { padding: 1.6rem 0; border-bottom: 1px solid var(--ml-color-border-soft); }
+  .pdev__ctext { font-size: 1.0625rem; line-height: 1.7; color: var(--ml-color-soft-charcoal); margin: 0 0 0.9rem; max-width: 58ch; }
+  .pdev__tags { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; }
+  .pdev__type { font-size: 0.6rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; border: 1px solid var(--ml-color-border-soft); border-radius: 999px; padding: 0.25rem 0.65rem; }
+  .pdev__type--open { font-style: normal; border-style: dashed; }
+  .pdev__strength { display: inline-flex; align-items: center; gap: 0.5rem; }
+  .pdev__meter { display: inline-flex; gap: 2px; }
+  .pdev__seg { width: 14px; height: 4px; border-radius: 2px; background: var(--ml-color-border-soft); }
+  .pdev__seg.is-on { background: var(--ml-color-muted-earth); }
+  .pdev__strlabel { font-size: 0.6rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; }
+  .pdev__more { margin-top: 0.9rem; }
+  .pdev__more summary { list-style: none; cursor: pointer; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ml-color-muted-earth); display: inline-flex; align-items: center; gap: 0.4rem; }
+  .pdev__more summary::-webkit-details-marker { display: none; }
+  .pdev__chev { font-weight: 300; transition: transform var(--ml-motion-fast, 200ms) ease; }
+  .pdev__more[open] .pdev__chev { transform: rotate(45deg); }
+  .pdev__basis { padding-top: 0.8rem; }
+  .pdev__basis p { font-size: 0.95rem; line-height: 1.8; color: var(--ml-color-text-secondary); margin: 0 0 0.6rem; max-width: 58ch; }
+  .pdev__src a { font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ml-color-soft-charcoal); text-underline-offset: 3px; }
+  .pdev__links { margin-top: 2rem; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .pdev__links a { color: var(--ml-color-soft-charcoal); text-underline-offset: 3px; }
+</style>
+
+{% schema %}
+{
+  "name": "PDP · Evidence",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "What we know, and what we don't" },
+    { "type": "richtext", "id": "intro", "label": "Intro", "default": "<p>We grade every claim two ways — by the kind of knowledge it is, and by how strong that knowledge is. We show the open questions too. This is the opposite of \"clinically proven,\" and it is deliberate.</p>" },
+    { "type": "text", "id": "type_key", "label": "Legend — Type", "default": "Classical Ayurvedic · Modern evidence · Mirellis interpretation · Open question" },
+    { "type": "text", "id": "strength_key", "label": "Legend — Strength", "default": "Emerging · Supported · Strong" },
+    { "type": "header", "content": "Claim 1" },
+    { "type": "text", "id": "claim_1_text", "label": "Claim", "default": "The first thirty minutes after waking appear to be a distinct, receptive window." },
+    { "type": "text", "id": "claim_1_type", "label": "Type", "default": "Modern evidence" },
+    { "type": "text", "id": "claim_1_strength", "label": "Strength (Emerging / Supported / Strong)", "default": "Emerging" },
+    { "type": "richtext", "id": "claim_1_basis", "label": "The basis (expand)" },
+    { "type": "text", "id": "claim_1_source_label", "label": "Source label" },
+    { "type": "url", "id": "claim_1_source_url", "label": "Source url" },
+    { "type": "header", "content": "Claim 2" },
+    { "type": "text", "id": "claim_2_text", "label": "Claim", "default": "A repeated, coherent morning sensory ritual may function as a transition marker for the nervous system." },
+    { "type": "text", "id": "claim_2_type", "label": "Type", "default": "Mirellis interpretation" },
+    { "type": "text", "id": "claim_2_strength", "label": "Strength (Emerging / Supported / Strong)" },
+    { "type": "richtext", "id": "claim_2_basis", "label": "The basis (expand)" },
+    { "type": "text", "id": "claim_2_source_label", "label": "Source label" },
+    { "type": "url", "id": "claim_2_source_url", "label": "Source url" },
+    { "type": "header", "content": "Claim 3" },
+    { "type": "text", "id": "claim_3_text", "label": "Claim", "default": "Oil pulling is traditionally associated with oral cleanliness and freshness." },
+    { "type": "text", "id": "claim_3_type", "label": "Type", "default": "Classical Ayurvedic + Modern evidence" },
+    { "type": "text", "id": "claim_3_strength", "label": "Strength (Emerging / Supported / Strong)", "default": "Emerging" },
+    { "type": "richtext", "id": "claim_3_basis", "label": "The basis (expand)" },
+    { "type": "text", "id": "claim_3_source_label", "label": "Source label" },
+    { "type": "url", "id": "claim_3_source_url", "label": "Source url" },
+    { "type": "header", "content": "Claim 4" },
+    { "type": "text", "id": "claim_4_text", "label": "Claim", "default": "Whether a scent-and-oral morning signal supports the Sleep→Wakefulness transition more than other cues is something we are still studying." },
+    { "type": "text", "id": "claim_4_type", "label": "Type", "default": "Open question" },
+    { "type": "text", "id": "claim_4_strength", "label": "Strength (Emerging / Supported / Strong)" },
+    { "type": "richtext", "id": "claim_4_basis", "label": "The basis (expand)" },
+    { "type": "text", "id": "claim_4_source_label", "label": "Source label" },
+    { "type": "url", "id": "claim_4_source_url", "label": "Source url" },
+    { "type": "header", "content": "Claim 5" },
+    { "type": "text", "id": "claim_5_text", "label": "Claim" },
+    { "type": "text", "id": "claim_5_type", "label": "Type" },
+    { "type": "text", "id": "claim_5_strength", "label": "Strength (Emerging / Supported / Strong)" },
+    { "type": "richtext", "id": "claim_5_basis", "label": "The basis (expand)" },
+    { "type": "text", "id": "claim_5_source_label", "label": "Source label" },
+    { "type": "url", "id": "claim_5_source_url", "label": "Source url" },
+    { "type": "header", "content": "Claim 6" },
+    { "type": "text", "id": "claim_6_text", "label": "Claim" },
+    { "type": "text", "id": "claim_6_type", "label": "Type" },
+    { "type": "text", "id": "claim_6_strength", "label": "Strength (Emerging / Supported / Strong)" },
+    { "type": "richtext", "id": "claim_6_basis", "label": "The basis (expand)" },
+    { "type": "text", "id": "claim_6_source_label", "label": "Source label" },
+    { "type": "url", "id": "claim_6_source_url", "label": "Source url" },
+    { "type": "header", "content": "Footer link" },
+    { "type": "text", "id": "link_label", "label": "Link label", "default": "The research behind this ritual, in the Observatory →" },
+    { "type": "url", "id": "link_url", "label": "Link url" }
+  ],
+  "presets": [{ "name": "PDP · Evidence" }]
+}
+{% endschema %}

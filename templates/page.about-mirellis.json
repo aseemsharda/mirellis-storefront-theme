@@ -1,0 +1,166 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "about-hero",
+      "settings": {
+        "image": "shopify://shop_images/fc714591-ac3b-4196-8b59-8e63cda166cb.png",
+        "eyebrow": "WHY MIRELLIS EXISTS",
+        "heading": "Modern life rarely gives us clear moments of transition.",
+        "body": "<p>The same devices that wake us in the morning often remain present until sleep.</p><p>Work follows us home. Messages continue arriving. Information remains available at every hour.</p><p>Even when the day appears to end, attention often remains engaged.</p><p>Over time, many people describe feeling physically tired while remaining mentally engaged—as though one part of the day never fully gives way to the next.</p><p>As we began studying everyday routines, a recurring pattern emerged: many of the natural boundaries that once separated the day had become increasingly blurred.</p><p>Not because people lacked information.</p><p>Not because they lacked productivity tools.</p><p>But because moments of orientation, slowing, reflection and recovery were becoming less distinct in everyday life.</p><p><strong>From that observation grew the question that continues to guide Mirellis: what happens when the transitions between human states begin to disappear?</strong></p>"
+      }
+    },
+    "belief": {
+      "type": "about-editorial-split",
+      "settings": {
+        "image": "shopify://shop_images/aboutus-mirellis-hero.png",
+        "image_position": "right",
+        "eyebrow": "OUR RESEARCH PHILOSOPHY",
+        "heading": "Everyday Life Is Shaped by Repeated Experience",
+        "highlight_quote": "Our work begins with the observation that everyday wellbeing is shaped not only by occasional events, but by the experiences that life repeats most often.",
+        "body": "<p>Much of everyday life unfolds through repeated encounters with the same environments, routines and sensory experiences. Over time, these repeated experiences become part of the background conditions that shape how daily life is felt.</p><p>The light we wake up to.</p><p>The pace of our mornings.</p><p>The sounds that fill our evenings.</p><p>The routines we repeat.</p><p>The spaces we spend time in.</p><p>Over time, repeated experiences contribute to whether daily life feels familiar, hurried, calm or restorative.</p><p>This observation guides everything we study, design and publish.</p><p>Rather than beginning with outcomes, we begin with the experiences that precede them—the moments of orientation, slowing, reflection and restoration that quietly shape the rhythm of everyday life.</p>"
+      }
+    },
+    "approach": {
+      "type": "about-editorial-split",
+      "settings": {
+        "image": "shopify://shop_images/meaningful-transitions-mirellis.png",
+        "image_position": "left",
+        "eyebrow": "FROM OBSERVATION TO RITUAL",
+        "heading": "How research becomes ritual tools.",
+        "highlight_quote": "Every ritual begins as an observation. Through research, interpretation and careful formulation, that observation becomes something people can experience in everyday life.",
+        "body": "<p>We study recurring patterns in everyday life, particularly the sensory experiences, routines and environments that accompany transitions between human states.</p><p>Rather than designing products around isolated outcomes, we design rituals that participate in those transitions. Each formulation is intended to become part of a repeatable experience that gives the beginning or end of a state greater clarity.</p><p>Every formulation, article, soundscape and sensory environment begins with the same question:</p><p><strong>How can this help make a human transition more recognisable?</strong></p>"
+      }
+    },
+    "rituals": {
+      "type": "about-editorial-split",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/why-rituals-matter.png",
+        "image_position": "right",
+        "eyebrow": "WHY RITUALS MATTER",
+        "heading": "Rituals Create Moments Of Transition",
+        "highlight_quote": "For us, rituals are not habits to be perfected. They are repeated sensory experiences that help create gentler transitions through everyday life.",
+        "body": "<p>For most of human history, daily life contained natural transitions.</p><p>Morning light signalled the beginning of the day.</p><p>Shared meals created pauses between activities.</p><p>Evenings gradually softened into darkness and rest.</p><p>These moments helped create a rhythm between effort and recovery, attention and reflection, activity and rest.</p><p>Today many of those transitions have become less distinct.</p><p>Work continues beyond the workplace. Information remains constantly available. The same screens often accompany us from morning until sleep.</p><p>As the boundaries between different parts of the day become less defined, moments of recovery can become harder to access.</p>"
+      }
+    },
+    "science": {
+      "type": "about-editorial-split",
+      "settings": {
+        "image": "shopify://shop_images/science-and-tradition.png",
+        "image_position": "left",
+        "eyebrow": "SCIENCE & TRADITION",
+        "heading": "Science First. Wisdom Always Present.",
+        "highlight_quote": "We see modern science and traditional knowledge as complementary ways of observing human experience. Each contributes something the other cannot.",
+        "body": "<p>Modern scientific research continues to deepen our understanding of how light, sound, sensory environments, daily routines and repeated behaviours influence human experience.</p><p>Long before many of these questions entered modern laboratories, traditional systems had already spent centuries observing how rhythm, environment and daily rituals appeared to shape human wellbeing.</p><p>Ayurveda is one such tradition.</p><p>Although they differ in method, both science and traditional systems begin with careful observation. Science helps investigate mechanisms, test hypotheses and refine understanding. Traditional knowledge preserves generations of accumulated observation about the rhythms of everyday life.</p><p><strong>Our work is informed by both.</strong></p>"
+      }
+    },
+    "formulation": {
+      "type": "about-editorial-split",
+      "settings": {
+        "image": "shopify://shop_images/formulation-philosophy-mirellis.png",
+        "image_position": "right",
+        "eyebrow": "FORMULATION PHILOSOPHY",
+        "heading": "We Formulate Relationships, Not Hero Ingredients.",
+        "highlight_quote": "A formulation is more than a collection of ingredients. It exists within a relationship between botanicals, routine, environment and repeated experience.",
+        "body": "<p>Many wellness products are built around a single ingredient.</p><p>A single herb.</p><p>A single extract.</p><p>A single promise.</p><p><strong>We begin somewhere different.</strong></p><p>Because we begin with rituals rather than ingredients, formulation becomes a question of relationships rather than individual components.</p><p>We design formulations around the relationships ingredients create with one another, with the rituals they support, and with the everyday experiences in which they are used.</p>"
+      }
+    },
+    "standards": {
+      "type": "about-standards",
+      "blocks": {
+        "item_a8zcCa": {
+          "type": "item",
+          "settings": {
+            "title": "Rhythm Over Intensity",
+            "text": "We believe enduring change is more often shaped by consistent rhythms than occasional extremes."
+          }
+        },
+        "item_QpjfNb": {
+          "type": "item",
+          "settings": {
+            "title": "Science With Humility",
+            "text": "Research informs our thinking, while every conclusion remains open to refinement as evidence evolves."
+          }
+        },
+        "item_yCWHJX": {
+          "type": "item",
+          "settings": {
+            "title": "Ritual Before Optimisation",
+            "text": "We design for practices people can return to, not systems that demand constant optimisation."
+          }
+        },
+        "item_qjrPhL": {
+          "type": "item",
+          "settings": {
+            "title": "Sensory Awareness",
+            "text": "Human experience is shaped not only by ideas, but by the sensory environments in which everyday life unfolds."
+          }
+        },
+        "item_7UazRf": {
+          "type": "item",
+          "settings": {
+            "title": "Restraint Over Excess",
+            "text": "We believe clarity often comes through thoughtful restraint rather than continual addition—in formulation, communication and design."
+          }
+        },
+        "item_mh9BGD": {
+          "type": "item",
+          "settings": {
+            "title": "Trust Takes Time",
+            "text": "Trust is earned gradually through consistent actions rather than isolated moments."
+          }
+        }
+      },
+      "block_order": [
+        "item_a8zcCa",
+        "item_QpjfNb",
+        "item_yCWHJX",
+        "item_qjrPhL",
+        "item_7UazRf",
+        "item_mh9BGD"
+      ],
+      "settings": {
+        "eyebrow": "OPERATING PRINCIPLES",
+        "heading": "Thoughtfully Designed. Deliberately Restrained."
+      }
+    },
+    "ecosystem": {
+      "type": "about-editorial-split",
+      "settings": {
+        "image": "shopify://shop_images/scene-7-mirellis.png",
+        "image_position": "left",
+        "eyebrow": "BEYOND PRODUCTS",
+        "heading": "Beyond Products, Towards Understanding",
+        "highlight_quote": "Products are one expression of our work. The larger goal is to deepen our understanding of Human State Transitions and share what we learn.",
+        "body": "<p>Mirellis is more than a collection of formulations.</p><p>Our work extends beyond products into a growing programme of observation, interpretation and publication. Through the Observatory, published findings, sensory environments, ingredient studies and ongoing research, we continue exploring how Human State Transitions shape everyday life.</p><p>Products are one expression of that work.</p><p><strong>Our broader ambition is to contribute to a deeper understanding of the transitions that shape everyday human experience.</strong></p>"
+      }
+    },
+    "closing": {
+      "type": "about-closing",
+      "settings": {
+        "heading": "Human State Transitions Shape Everyday Life.",
+        "body": "<p>The environments we inhabit.</p><p>The rhythms we follow.</p><p>The rituals we repeat.</p><p>The transitions that connect one part of the day to the next.</p><p><strong>Mirellis exists to understand one overlooked part of everyday life: the transitions between human states. Everything we create begins there.</strong></p>"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "belief",
+    "approach",
+    "rituals",
+    "science",
+    "formulation",
+    "standards",
+    "ecosystem",
+    "closing"
+  ]
+}

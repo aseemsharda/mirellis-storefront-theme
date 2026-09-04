@@ -1,0 +1,10 @@
+# Local secrets and deployment metadata
+.env*
+.vercel/
+
+# Generated dependencies and build output
+node_modules/
+.next/
+*.tsbuildinfo
+__pycache__/
+*.py[cod]

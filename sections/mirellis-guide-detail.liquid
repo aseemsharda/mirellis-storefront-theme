@@ -1,0 +1,155 @@
+<section class="mi-guide">
+
+  <div class="container">
+
+    {% assign guide = metaobject %}
+
+    {% if guide.featured_image %}
+
+      <div class="mi-guide-image">
+        {{
+          guide.featured_image
+          | image_url: width: 1800
+          | image_tag
+        }}
+      </div>
+
+    {% endif %}
+
+    <div class="mi-guide-header">
+
+      {% if guide.related_domain %}
+        <p class="mi-guide-domain">
+          {{ guide.related_domain.title }}
+        </p>
+      {% endif %}
+
+<h1 class="mi-guide-title">
+  {{ guide.title }}
+</h1>
+
+<p class="mi-guide-summary">
+  {{ guide.summary }}
+</p>
+
+    </div>
+
+    <div class="mi-guide-content">
+
+      {{ guide.content | metafield_tag }}
+
+    </div>
+
+    {% if guide.related_guides.value.count > 0 %}
+
+      <div class="mi-related-guides">
+
+        <h2>
+          Related Guides
+        </h2>
+
+        <div class="mi-related-grid">
+
+          {% for related in guide.related_guides.value %}
+
+            <article class="mi-related-card">
+
+              <h3>
+                {{ related.title }}
+              </h3>
+
+              <p>
+                {{ related.summary }}
+              </p>
+
+            </article>
+
+          {% endfor %}
+
+        </div>
+
+      </div>
+
+    {% endif %}
+
+  </div>
+
+</section>
+
+<style>
+
+.mi-guide{
+  padding:80px 0;
+}
+
+.mi-guide-image{
+  margin-bottom:60px;
+}
+
+.mi-guide-image img{
+  width:100%;
+  border-radius:24px;
+}
+
+.mi-guide-header{
+  max-width:900px;
+  margin:0 auto 60px;
+}
+
+.mi-guide-domain{
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  opacity:.6;
+  margin-bottom:12px;
+}
+
+.mi-guide-title{
+  font-size:56px;
+  line-height:1.05;
+  margin-bottom:24px;
+}
+
+.mi-guide-summary{
+  font-size:24px;
+  line-height:1.5;
+  opacity:.75;
+}
+
+.mi-guide-content{
+  max-width:900px;
+  margin:0 auto;
+}
+
+.mi-related-guides{
+  margin-top:120px;
+}
+
+.mi-related-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-top:30px;
+}
+
+.mi-related-card{
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:20px;
+  padding:24px;
+}
+
+@media(max-width:990px){
+
+  .mi-related-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Mirellis Guide Detail",
+  "settings": []
+}
+{% endschema %}

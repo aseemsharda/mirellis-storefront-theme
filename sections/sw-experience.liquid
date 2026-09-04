@@ -1,0 +1,67 @@
+{% if section.settings.show_section %}
+<section class="exp-section">
+  <div class="exp-container">
+    {% if section.settings.experience_text != blank %}
+    <div class="exp-text">{{ section.settings.experience_text | newline_to_br }}</div>
+    {% endif %}
+    {% if section.settings.transition_line != blank %}
+    <p class="exp-transition">{{ section.settings.transition_line }}</p>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+<style>
+.exp-section {
+  background: #faf7f2;
+  padding: 6rem 2rem 3rem 2rem;
+}
+.exp-container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.exp-text {
+  font-size: 1rem;
+  line-height: 2;
+  color: #1a1a18;
+  text-align: left;
+}
+.exp-transition {
+  margin-top: 3rem;
+  font-style: italic;
+  color: rgba(26,26,24,0.6);
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+@media (max-width: 640px) {
+  .exp-section {
+    padding: 4rem 1.5rem;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Transition Experience",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "experience_text",
+      "label": "Experience Text",
+      "default": "6:23am.\n\nBefore the alarm has fully registered.\nBefore the day has named itself.\n\nYou reach for the phone.\n\nThe first thing you see is a message that arrived at 11pm. The second is a news headline. The third is a notification you don't remember enabling.\n\nBy 6:25am your nervous system is already running someone else's agenda.\n\nThe day started two minutes ago.\nIt is already not yours.\n\n—\n\nNow imagine a different 6:23am.\n\nThe alarm ends.\n\nYou sit at the edge of the bed for thirty seconds. No phone. No screen. No input.\n\nYou pull a small bottle from the bedside table. Draw a measured amount. Hold it for sixty seconds. The taste is clean, botanical, slightly warm.\n\nThe same taste as yesterday morning.\nThe same taste as the morning before.\n\nSomething in you recognizes it.\n\nThis is the beginning.\n\nYou put on the Morning Clarity series. Not loud. Not demanding. Just present.\n\nYou have given your nervous system its first signal of the day — and it came from you."
+    },
+    {
+      "type": "text",
+      "id": "transition_line",
+      "label": "Transition Line",
+      "default": "This is what the Sleep → Wakefulness ritual can feel like."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show section",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

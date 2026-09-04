@@ -1,0 +1,451 @@
+/* =========================================================
+   MIRELLIS — TYPOGRAPHY ENGINE
+   ATTENTIONAL PACING SYSTEM
+   ========================================================= */
+
+/* =========================================================
+   FONT FOUNDATION
+   ========================================================= */
+
+/*
+Recommended Direction:
+
+Primary Serif:
+- Canela
+- Cormorant Garamond
+- Saol Display
+- EB Garamond (fallback)
+
+Supporting Sans:
+- Suisse Intl
+- Inter
+- Neue Haas Grotesk
+- Manrope (fallback)
+
+Typography should feel:
+- warm
+- spacious
+- contemplative
+- emotionally breathable
+*/
+
+
+/* =========================================================
+   GLOBAL TYPOGRAPHY BEHAVIOR
+   ========================================================= */
+
+body {
+  color: var(--ml-color-text-primary);
+
+  font-size: var(--ml-text-body);
+
+  line-height: var(--ml-leading-body);
+
+  font-weight: 400;
+
+  letter-spacing: var(--ml-letter-soft);
+
+  -webkit-font-smoothing: antialiased;
+
+  text-rendering: optimizeLegibility;
+
+  background-color: var(--ml-color-warm-paper);
+}
+
+
+/* =========================================================
+   TYPOGRAPHIC SELECTION SOFTNESS
+   ========================================================= */
+
+::selection {
+  background: rgba(216, 198, 177, 0.28);
+  color: var(--ml-color-soft-charcoal);
+}
+
+
+/* =========================================================
+   HEADLINE SYSTEM
+   ========================================================= */
+
+.ml-hero-heading,
+.ml-display-heading,
+.ml-section-heading {
+
+  font-family: var(--font-heading-family);
+
+  color: var(--ml-color-soft-charcoal);
+
+  font-weight: 400;
+
+  letter-spacing: var(--ml-letter-breathing);
+
+  text-wrap: balance;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   HERO HEADLINE
+   ========================================================= */
+
+.ml-hero-heading {
+
+  font-size: var(--ml-text-hero);
+
+  line-height: var(--ml-leading-hero);
+
+  max-width: 11ch;
+
+  margin-bottom: var(--ml-space-lg);
+
+}
+
+
+/* =========================================================
+   DISPLAY HEADLINE
+   ========================================================= */
+
+.ml-display-heading {
+
+  font-size: var(--ml-text-display);
+
+  line-height: var(--ml-leading-display);
+
+  max-width: 13ch;
+
+  margin-bottom: var(--ml-space-md);
+
+}
+
+
+/* =========================================================
+   SECTION HEADLINE
+   ========================================================= */
+
+.ml-section-heading {
+
+  font-size: var(--ml-text-heading);
+
+  line-height: 1.18;
+
+  max-width: 14ch;
+
+  margin-bottom: var(--ml-space-md);
+
+}
+
+
+/* =========================================================
+   BODY READING SYSTEM
+   ========================================================= */
+
+.ml-reading-flow,
+.ml-body-copy,
+.rte p {
+
+  font-size: var(--ml-text-body);
+
+  line-height: var(--ml-leading-body);
+
+  color: var(--ml-color-text-secondary);
+
+  max-width: var(--ml-reading-width);
+
+  margin-bottom: var(--ml-space-lg);
+
+  letter-spacing: var(--ml-letter-soft);
+
+}
+
+
+/* =========================================================
+   CONTEMPLATIVE COPY
+   ========================================================= */
+
+.ml-contemplative-copy {
+
+  font-size: var(--ml-text-body-lg);
+
+  line-height: var(--ml-leading-relaxed);
+
+  color: var(--ml-color-text-secondary);
+
+  max-width: var(--ml-reading-width-narrow);
+
+  margin-bottom: var(--ml-space-xl);
+
+}
+
+
+/* =========================================================
+   SOFT SUPPORTING TEXT
+   ========================================================= */
+
+.ml-supporting-text {
+
+  font-size: var(--ml-text-body-sm);
+
+  line-height: 1.9;
+
+  color: var(--ml-color-text-soft);
+
+  max-width: 52ch;
+
+}
+
+
+/* =========================================================
+   TYPOGRAPHIC BREATHING
+   ========================================================= */
+
+.ml-text-breathing > * + * {
+  margin-top: var(--ml-space-lg);
+}
+
+
+/* =========================================================
+   ATMOSPHERIC PARAGRAPH SPACING
+   ========================================================= */
+
+.ml-reading-flow p + p,
+.rte p + p {
+  margin-top: var(--ml-space-md);
+}
+
+
+/* =========================================================
+   EMOTIONAL SILENCE UTILITIES
+   ========================================================= */
+
+.ml-space-after-thought {
+  margin-bottom: var(--ml-space-xl);
+}
+
+.ml-space-before-thought {
+  margin-top: var(--ml-space-xl);
+}
+
+.ml-cinematic-pause {
+  margin-top: var(--ml-space-2xl);
+  margin-bottom: var(--ml-space-2xl);
+}
+
+
+/* =========================================================
+   READING WIDTH UTILITIES
+   ========================================================= */
+
+.ml-reading-width {
+  max-width: var(--ml-reading-width);
+}
+
+.ml-reading-width-narrow {
+  max-width: var(--ml-reading-width-narrow);
+}
+
+
+/* =========================================================
+   TYPOGRAPHIC ATMOSPHERE
+   ========================================================= */
+
+.ml-headline-soft {
+  opacity: 0.96;
+}
+
+.ml-copy-soft {
+  opacity: 0.84;
+}
+
+.ml-copy-whisper {
+  opacity: 0.68;
+}
+
+
+/* =========================================================
+   HERO TYPOGRAPHY FIELD
+   ========================================================= */
+
+.ml-hero-typography {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  justify-content: center;
+
+  gap: var(--ml-space-md);
+
+}
+
+
+/* =========================================================
+   CTA TYPOGRAPHIC SOFTNESS
+   ========================================================= */
+
+.ml-soft-cta {
+
+  font-size: 0.95rem;
+
+  letter-spacing: 0.02em;
+
+  line-height: 1.4;
+
+  font-weight: 500;
+
+}
+
+
+/* =========================================================
+   QUOTE / ATMOSPHERIC TEXT
+   ========================================================= */
+
+.ml-atmospheric-quote {
+
+  font-size: clamp(1.4rem, 2vw, 2rem);
+
+  line-height: 1.6;
+
+  letter-spacing: -0.02em;
+
+  color: var(--ml-color-soft-charcoal);
+
+  max-width: 18ch;
+
+}
+
+
+/* =========================================================
+   LIST RHYTHM
+   ========================================================= */
+
+.ml-reading-flow ul,
+.ml-reading-flow ol {
+
+  margin-top: var(--ml-space-md);
+
+  margin-bottom: var(--ml-space-lg);
+
+  padding-left: 1.5rem;
+
+}
+
+.ml-reading-flow li + li {
+  margin-top: 0.75rem;
+}
+
+
+/* =========================================================
+   LINK SOFTNESS
+   ========================================================= */
+
+a {
+
+  color: inherit;
+
+  text-decoration-color: rgba(46,43,40,0.18);
+
+  text-underline-offset: 0.16em;
+
+  transition:
+    color var(--ml-motion-medium) var(--ml-ease-soft),
+    text-decoration-color var(--ml-motion-medium) var(--ml-ease-soft);
+
+}
+
+a:hover {
+
+  text-decoration-color: rgba(46,43,40,0.42);
+
+}
+
+
+/* =========================================================
+   RESPONSIVE TYPOGRAPHY
+   ========================================================= */
+
+@media screen and (max-width: 1024px) {
+
+  .ml-hero-heading {
+    max-width: 12ch;
+  }
+
+  .ml-contemplative-copy {
+    max-width: 100%;
+  }
+
+}
+
+
+@media screen and (max-width: 768px) {
+
+  body {
+
+    font-size: 1rem;
+
+    line-height: 2;
+
+  }
+
+  .ml-hero-heading {
+
+    max-width: 9ch;
+
+    margin-bottom: var(--ml-space-md);
+
+  }
+
+  .ml-display-heading {
+
+    max-width: 11ch;
+
+  }
+
+  .ml-section-heading {
+
+    max-width: 12ch;
+
+  }
+
+  .ml-reading-flow,
+  .ml-body-copy,
+  .rte p {
+
+    line-height: 2;
+
+    margin-bottom: var(--ml-space-md);
+
+  }
+
+  .ml-contemplative-copy {
+
+    font-size: 1.12rem;
+
+    line-height: 2.1;
+
+  }
+
+  .ml-cinematic-pause {
+
+    margin-top: var(--ml-space-xl);
+
+    margin-bottom: var(--ml-space-xl);
+
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION RESPECT
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  * {
+    transition-duration: 0ms !important;
+  }
+
+}

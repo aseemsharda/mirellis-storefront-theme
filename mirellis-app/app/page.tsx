@@ -1,5 +1,5 @@
-import { AfterWorkApp } from '@/components/AfterWorkApp';
+import { ConcernRouteApp } from '@/components/ConcernRouteApp';
 
 export default function Home() {
-  return <AfterWorkApp />;
+  return <ConcernRouteApp />;
 }

@@ -1,0 +1,188 @@
+{% stylesheet %}
+.tr-hero {
+  background: #faf7f2;
+  padding: 12rem 2rem 7rem;
+}
+
+.tr-hero__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.tr-hero__eyebrow {
+  font-family: var(--font-body-family);
+  font-size: 0.72rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(26, 26, 24, 0.45);
+  margin: 0 0 2.4rem;
+}
+
+.tr-hero__heading {
+  font-family: var(--font-heading-family);
+  font-size: clamp(2.6rem, 7vw, 6rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  color: #1a1a18;
+  margin: 0 0 2.8rem;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+
+.tr-hero__standfirst {
+  font-family: var(--font-body-family);
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  line-height: 1.75;
+  color: rgba(26, 26, 24, 0.72);
+  max-width: 48ch;
+  margin: 0 0 6rem;
+  text-wrap: pretty;
+}
+
+.tr-hero__footer {
+  display: flex;
+  align-items: baseline;
+  gap: 1.4rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid rgba(26, 26, 24, 0.14);
+}
+
+.tr-hero__index {
+  font-family: var(--font-heading-family);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: rgba(26, 26, 24, 0.5);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.tr-hero__edition {
+  font-family: var(--font-body-family);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(26, 26, 24, 0.4);
+}
+
+/* Subtle settle on load. Honors reduced-motion. */
+.tr-hero__heading,
+.tr-hero__standfirst {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: tr-hero-rise 1s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+.tr-hero__standfirst {
+  animation-delay: 0.12s;
+}
+
+@keyframes tr-hero-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .tr-hero {
+    padding: 8rem 1.5rem 5rem;
+  }
+  .tr-hero__eyebrow {
+    margin-bottom: 1.8rem;
+  }
+  .tr-hero__heading {
+    font-size: clamp(2.4rem, 11vw, 3.6rem);
+    margin-bottom: 2rem;
+  }
+  .tr-hero__standfirst {
+    margin-bottom: 4rem;
+  }
+  .tr-hero__footer {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tr-hero__heading,
+  .tr-hero__standfirst {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+{% endstylesheet %}
+
+<section class="tr-hero">
+  <div class="tr-hero__inner">
+
+    {% if section.settings.eyebrow != blank %}
+      <p class="tr-hero__eyebrow">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h1 class="tr-hero__heading">{{ section.settings.heading }}</h1>
+    {% endif %}
+
+    {% if section.settings.standfirst != blank %}
+      <p class="tr-hero__standfirst">{{ section.settings.standfirst }}</p>
+    {% endif %}
+
+    {% if section.settings.index_label != blank or section.settings.edition_label != blank %}
+      <div class="tr-hero__footer">
+        {% if section.settings.index_label != blank %}
+          <span class="tr-hero__index">{{ section.settings.index_label }}</span>
+        {% endif %}
+        {% if section.settings.edition_label != blank %}
+          <span class="tr-hero__edition">{{ section.settings.edition_label }}</span>
+        {% endif %}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Transitions Hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Field of study"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The transitions between human states."
+    },
+    {
+      "type": "textarea",
+      "id": "standfirst",
+      "label": "Standfirst",
+      "default": "Sleep to waking. Work to recovery. Stimulation to restoration. Mirellis studies the moments the body moves between states \u2014 and the signals that make those moments easier."
+    },
+    {
+      "type": "text",
+      "id": "index_label",
+      "label": "Index Label",
+      "default": "01 \u2014 Transitions"
+    },
+    {
+      "type": "text",
+      "id": "edition_label",
+      "label": "Edition Label",
+      "default": "The Observatory"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Transitions Hero"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,241 @@
+{% if section.settings.show_section %}
+<section class="wwa-transitions">
+  <div class="wwa-inner">
+    {% if section.settings.eyebrow != blank %}
+    <p class="wwa-eyebrow">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    {% if section.settings.heading != blank %}
+    <h2 class="wwa-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+    {% if section.settings.intro != blank %}
+    <p class="wwa-intro">{{ section.settings.intro }}</p>
+    {% endif %}
+
+    <div class="wwa-transitions-grid">
+      {% for block in section.blocks %}
+      <div class="wwa-transition-card">
+        <h3 class="wwa-card-title">{{ block.settings.title }}</h3>
+        <p class="wwa-card-body">{{ block.settings.body }}</p>
+        {% if block.settings.cta_text != blank and block.settings.cta_link != blank %}
+        <a href="{{ block.settings.cta_link }}" class="wwa-cta-primary">{{ block.settings.cta_text }}</a>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.section_cta_text != blank and section.settings.section_cta_link != blank %}
+    <div class="wwa-section-cta">
+      <a href="{{ section.settings.section_cta_link }}" class="wwa-cta-secondary">{{ section.settings.section_cta_text }}</a>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+<style>
+.wwa-transitions {
+  background: #faf7f2;
+  padding: 6rem 2rem;
+}
+.wwa-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.wwa-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(26,26,24,0.45);
+  margin: 0 0 1.5rem 0;
+}
+.wwa-heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: #1a1a18;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+}
+.wwa-intro {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: rgba(26,26,24,0.65);
+  margin-bottom: 3rem;
+}
+.wwa-transitions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+.wwa-transition-card {
+  padding: 2rem;
+  border-left: 2px solid rgba(26,26,24,0.1);
+}
+.wwa-card-title {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #1a1a18;
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
+}
+.wwa-card-body {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(26,26,24,0.7);
+  margin-bottom: 1.5rem;
+}
+.wwa-cta-primary {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid rgba(26,26,24,0.35);
+  color: #1a1a18;
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+}
+.wwa-cta-primary:hover {
+  background: rgba(26,26,24,0.05);
+  border-color: rgba(26,26,24,0.7);
+}
+.wwa-section-cta {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(26,26,24,0.1);
+}
+.wwa-cta-secondary {
+  font-size: 0.9rem;
+  color: rgba(26,26,24,0.55);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(26,26,24,0.25);
+  padding-bottom: 1px;
+  transition: all 0.2s ease;
+}
+.wwa-cta-secondary:hover {
+  color: #1a1a18;
+  border-color: rgba(26,26,24,0.6);
+}
+@media (max-width: 640px) {
+  .wwa-transitions {
+    padding: 4rem 1.5rem;
+  }
+  .wwa-transitions-grid {
+    grid-template-columns: 1fr;
+  }
+  .wwa-transition-card {
+    padding: 1.5rem 0;
+    border-left: none;
+    border-bottom: 1px solid rgba(26,26,24,0.1);
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "WWA Transitions",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "OUR RESEARCH DOMAIN"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Three transitions modern life disrupts most."
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro",
+      "default": "These are not the only transitions that matter. They are the ones we have chosen to study first — because they affect nearly everyone, daily."
+    },
+    {
+      "type": "text",
+      "id": "section_cta_text",
+      "label": "Section CTA Text",
+      "default": "Explore all three transitions →"
+    },
+    {
+      "type": "text",
+      "id": "section_cta_link",
+      "label": "Section CTA Link",
+      "default": "/pages/transitions"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show section",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "transition",
+      "name": "Transition",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Sleep → Wakefulness"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Body",
+          "default": "The first moments of the day determine the nervous system's baseline for everything that follows.\n\nMost people let the phone decide how morning begins. The first signal is a notification. The first action is reactive. The day names itself before you do.\n\nMorning Clarity is a deliberate beginning — an oral ritual for the first minutes of the day, before screens, before caffeine, before the world arrives.\n\nNot a cleanse. A beginning."
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Text",
+          "default": "Explore Morning Clarity →"
+        },
+        {
+          "type": "text",
+          "id": "cta_link",
+          "label": "CTA Link",
+          "default": "/products/morning-clarity"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "What We Are - Transitions",
+      "blocks": [
+        {
+          "type": "transition",
+          "settings": {
+            "title": "Sleep → Wakefulness",
+            "body": "The first moments of the day determine the nervous system's baseline for everything that follows.\n\nMost people let the phone decide how morning begins. The first signal is a notification. The first action is reactive. The day names itself before you do.\n\nMorning Clarity is a deliberate beginning — an oral ritual for the first minutes of the day, before screens, before caffeine, before the world arrives.\n\nNot a cleanse. A beginning.",
+            "cta_text": "Explore Morning Clarity →",
+            "cta_link": "/products/morning-clarity"
+          }
+        },
+        {
+          "type": "transition",
+          "settings": {
+            "title": "Work → Recovery",
+            "body": "Work ends on the calendar.\nFor most people, it never ends in the body.\n\nThe mind keeps carrying the day — replaying conversations, anticipating tomorrow, rehearsing what was not said. The professional chapter stays open long after the laptop closes.\n\nStillness Elixir is an evening body ritual — applied to pulse points as the professional chapter closes. Scent, texture, and repetition combine to signal the nervous system: this part is finished.\n\nNot a sedative. A signal.",
+            "cta_text": "Explore Stillness →",
+            "cta_link": "/products/mirellis-stillness-elixir"
+          }
+        },
+        {
+          "type": "transition",
+          "settings": {
+            "title": "Stimulation → Restoration",
+            "body": "Restoration is not the absence of stimulation. It is the presence of a different signal.\n\nOne that says: you can become something else now.\n\nWithout that signal, the nervous system stays activated. Exhaustion accumulates. Rest becomes increasingly difficult to access.\n\nThe Stillness series and Ground series exist for this transition.",
+            "cta_text": "Explore Ritual Sound →",
+            "cta_link": "/pages/ritual-sound"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

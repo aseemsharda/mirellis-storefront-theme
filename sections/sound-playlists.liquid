@@ -1,0 +1,252 @@
+<section class="sound-playlists">
+
+  <div class="sound-playlists__container">
+
+    <div class="sound-playlists__intro">
+
+      <p class="sound-playlists__eyebrow">
+        MIRELLIS SOUND
+      </p>
+
+      <h2 class="sound-playlists__heading">
+        Curated auditory environments designed around rhythm, atmosphere, and sensory pacing.
+      </h2>
+
+    </div>
+
+    <div class="sound-playlists__grid">
+
+      {% for block in section.blocks %}
+
+        <a
+          href="{{ block.settings.playlist_url }}"
+          class="sound-playlists__card"
+          target="_blank"
+        >
+
+          {% if block.settings.image != blank %}
+
+            <img
+              src="{{ block.settings.image | image_url: width: 1400 }}"
+              alt="{{ block.settings.title }}"
+              class="sound-playlists__image"
+              width="700"
+              height="700"
+              loading="lazy"
+            >
+
+          {% endif %}
+
+          <div class="sound-playlists__content">
+
+            <p class="sound-playlists__label">
+              {{ block.settings.label }}
+            </p>
+
+            <h3 class="sound-playlists__title">
+              {{ block.settings.title }}
+            </h3>
+
+            <div class="sound-playlists__text rte">
+              {{ block.settings.text }}
+            </div>
+
+            <span class="sound-playlists__cta">
+              Listen on Spotify
+            </span>
+
+          </div>
+
+        </a>
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.sound-playlists {
+  position: relative;
+  background: #faf7f2;
+  color: #1a1a18;
+  padding: 180px 80px;
+  overflow: hidden;
+}
+
+.sound-playlists__container {
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.sound-playlists__intro {
+  max-width: 760px;
+  margin-bottom: 96px;
+}
+
+.sound-playlists__eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  opacity: 0.58;
+  margin-bottom: 24px;
+}
+
+.sound-playlists__heading {
+  font-size: clamp(42px, 5vw, 76px);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  margin: 0;
+}
+
+.sound-playlists__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 38px;
+}
+
+.sound-playlists__card {
+  position: relative;
+  background: rgba(26,26,24,0.04);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.5s ease;
+}
+
+.sound-playlists__card:hover {
+  transform: translateY(-4px);
+}
+
+.sound-playlists__image {
+  width: 100%;
+  height: 540px;
+  object-fit: cover;
+  display: block;
+}
+
+.sound-playlists__content {
+  padding: 42px;
+}
+
+.sound-playlists__label {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin-bottom: 18px;
+}
+
+.sound-playlists__title {
+  font-size: 34px;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+  margin: 0 0 24px;
+}
+
+.sound-playlists__text {
+  max-width: 500px;
+  font-size: 16px;
+  line-height: 1.9;
+  opacity: 0.78;
+}
+
+.sound-playlists__text p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.sound-playlists__cta {
+  display: inline-block;
+  margin-top: 34px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.84;
+}
+
+@media screen and (max-width: 990px) {
+
+  .sound-playlists {
+    padding: 110px 24px;
+  }
+
+  .sound-playlists__intro {
+    margin-bottom: 64px;
+  }
+
+  .sound-playlists__grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .sound-playlists__image {
+    height: 420px;
+  }
+
+  .sound-playlists__content {
+    padding: 30px;
+  }
+
+  .sound-playlists__title {
+    font-size: 28px;
+  }
+
+  .sound-playlists__text {
+    font-size: 15px;
+    line-height: 1.85;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Sound Playlists",
+  "blocks": [
+    {
+      "type": "playlist",
+      "name": "Playlist",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "MIRELLIS SOUND"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "url",
+          "id": "playlist_url",
+          "label": "Spotify Playlist URL"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Cover Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sound Playlists"
+    }
+  ]
+}
+{% endschema %}

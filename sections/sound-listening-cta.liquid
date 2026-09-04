@@ -1,0 +1,119 @@
+<section class="sound-listening-cta">
+  <div class="sound-listening-cta__container">
+
+    <p class="sound-listening-cta__eyebrow">Mirellis Listening System</p>
+
+    <h2 class="sound-listening-cta__headline">What are you transitioning from?</h2>
+
+    <p class="sound-listening-cta__body">Select your state. The system finds your environment.</p>
+
+    <div class="sound-listening-cta__grid">
+      <a href="/pages/listening?transition=waking" class="sound-listening-cta__card">Waking Up</a>
+      <a href="/pages/listening?transition=starting" class="sound-listening-cta__card">Starting Work</a>
+      <a href="/pages/listening?transition=focus" class="sound-listening-cta__card">Deep Focus</a>
+      <a href="/pages/listening?transition=ending" class="sound-listening-cta__card">Ending Work</a>
+      <a href="/pages/listening?transition=overwhelmed" class="sound-listening-cta__card">Feeling Overwhelmed</a>
+      <a href="/pages/listening?transition=rest" class="sound-listening-cta__card">Preparing for Rest</a>
+      <a href="/pages/listening?transition=restore" class="sound-listening-cta__card">Restoring Energy</a>
+      <a href="/pages/listening?transition=reflect" class="sound-listening-cta__card">Open Reflection</a>
+    </div>
+
+    <a href="/pages/listening" class="sound-listening-cta__link">Or enter without selecting →</a>
+
+  </div>
+</section>
+
+<style>
+
+.sound-listening-cta {
+  background: #faf7f2;
+  padding: 6rem 2rem;
+  color: #1a1a18;
+}
+
+.sound-listening-cta__container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sound-listening-cta__eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(26,26,24,0.45);
+  margin: 0 0 1.5rem 0;
+  line-height: 1.75;
+}
+
+.sound-listening-cta__headline {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
+}
+
+.sound-listening-cta__body {
+  font-size: 1rem;
+  color: rgba(26,26,24,0.6);
+  margin: 0 0 3rem 0;
+  line-height: 1.75;
+}
+
+.sound-listening-cta__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.sound-listening-cta__card {
+  padding: 1rem 1.5rem;
+  border: 1px solid rgba(26,26,24,0.12);
+  background: transparent;
+  font-size: 0.95rem;
+  color: #1a1a18;
+  text-align: left;
+  display: block;
+  text-decoration: none;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.sound-listening-cta__card:hover {
+  background: rgba(26,26,24,0.04);
+}
+
+.sound-listening-cta__link {
+  font-size: 0.85rem;
+  color: rgba(26,26,24,0.45);
+  margin-top: 2rem;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.sound-listening-cta__link:hover {
+  color: rgba(26,26,24,0.7);
+}
+
+@media (max-width: 768px) {
+  .sound-listening-cta {
+    padding: 4rem 1.5rem;
+  }
+
+  .sound-listening-cta__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Sound Listening CTA"
+}
+{% endschema %}

@@ -1,0 +1,86 @@
+{%- comment -%}
+  sections/findings-index.liquid
+  Auto-lists every Finding metaobject entry. Add to the /pages/findings page.
+  New Findings appear automatically. Order = admin entry order (create 001..00N in order).
+{%- endcomment -%}
+
+<section class="mfi" id="mfi-{{ section.id }}">
+  <div class="mfi-wrap">
+
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="mfi-eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    <h1 class="mfi-title">{{ section.settings.heading | default: 'Findings' }}</h1>
+    {%- if section.settings.intro != blank -%}
+      <div class="mfi-intro">{{ section.settings.intro }}</div>
+    {%- endif -%}
+
+    <ol class="mfi-list">
+      {%- for f in shop.metaobjects.finding.values -%}
+        {%- if f.system.url != blank -%}
+          <li class="mfi-item">
+            <a href="{{ f.system.url }}">
+              <span class="mfi-line">
+                <span class="mfi-num">Finding {{ f.number.value }}</span>
+                {%- if f.status.value != blank -%}
+                  <span class="mfi-status">{{ f.status.value | upcase }}</span>
+                {%- endif -%}
+              </span>
+              {%- if f.transition.value != blank -%}
+                <span class="mfi-trans">{{ f.transition.value }}</span>
+              {%- endif -%}
+              <span class="mfi-item-title">{{ f.title.value }}</span>
+              {%- if f.standfirst.value != blank -%}
+                <span class="mfi-standfirst">{{ f.standfirst.value | strip_html | truncate: 150 }}</span>
+              {%- endif -%}
+              <span class="mfi-read">Read Finding →</span>
+            </a>
+          </li>
+        {%- endif -%}
+      {%- else -%}
+        <li class="mfi-empty">No findings published yet.</li>
+      {%- endfor -%}
+    </ol>
+
+  </div>
+</section>
+
+<style>
+  #mfi-{{ section.id }} { background:#FAF7F2; color:#1A1A18; padding:96px 0; }
+  #mfi-{{ section.id }} .mfi-wrap { max-width:780px; margin:0 auto; padding:0 24px; }
+  #mfi-{{ section.id }} .mfi-eyebrow { font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:#8B6F47; margin-bottom:16px; }
+  #mfi-{{ section.id }} .mfi-title { font-family:Georgia,serif; font-size:48px; font-weight:400; line-height:1.1; margin:0 0 24px; }
+  #mfi-{{ section.id }} .mfi-intro { font-size:18px; line-height:1.65; color:#5a5650; margin-bottom:64px; max-width:620px; }
+  #mfi-{{ section.id }} .mfi-intro p { margin:0 0 16px; }
+  #mfi-{{ section.id }} .mfi-list { list-style:none; margin:0; padding:0; }
+  #mfi-{{ section.id }} .mfi-item { border-top:1px solid #DAD2C4; }
+  #mfi-{{ section.id }} .mfi-item:last-child { border-bottom:1px solid #DAD2C4; }
+  #mfi-{{ section.id }} .mfi-item a { display:block; padding:36px 0; text-decoration:none; color:#1A1A18; transition:opacity .2s ease; }
+  #mfi-{{ section.id }} .mfi-item a:hover { opacity:.6; }
+  #mfi-{{ section.id }} .mfi-line { display:flex; align-items:baseline; gap:14px; margin-bottom:12px; }
+  #mfi-{{ section.id }} .mfi-num { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#8B6F47; }
+  #mfi-{{ section.id }} .mfi-status { font-size:11px; letter-spacing:.1em; color:#A89B87; }
+  #mfi-{{ section.id }} .mfi-trans { display:block; font-size:13px; letter-spacing:.06em; color:#A89B87; margin-bottom:8px; }
+  #mfi-{{ section.id }} .mfi-item-title { display:block; font-family:Georgia,serif; font-size:26px; line-height:1.25; margin-bottom:10px; }
+  #mfi-{{ section.id }} .mfi-standfirst { display:block; font-size:15px; line-height:1.6; color:#5a5650; margin-bottom:16px; }
+  #mfi-{{ section.id }} .mfi-read { display:block; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#8B6F47; }
+  #mfi-{{ section.id }} .mfi-empty { padding:36px 0; color:#A89B87; border-top:1px solid #DAD2C4; }
+  @media (max-width:680px){
+    #mfi-{{ section.id }} { padding:64px 0; }
+    #mfi-{{ section.id }} .mfi-title { font-size:34px; }
+    #mfi-{{ section.id }} .mfi-item-title { font-size:22px; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Findings Index",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Observatory" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Findings" },
+    { "type": "richtext", "id": "intro", "label": "Intro paragraph",
+      "default": "<p>The Observatory studies one domain: Human State Transitions. Each Finding begins as an observation, matures into a pattern, and is published when it appears durable enough to explain a recurring feature of modern life.</p>" }
+  ],
+  "presets": [{ "name": "Findings Index" }]
+}
+{% endschema %}

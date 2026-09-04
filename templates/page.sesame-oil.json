@@ -1,0 +1,140 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "ingredient-hero",
+      "settings": {
+        "title": "Sesame Oil — The Warmth of Ritual Continuity",
+        "description": "<p>Some ingredients do not immediately change the mind. They create familiarity within the body instead — through warmth, repetition, texture, and sensory continuity.</p>"
+      }
+    },
+
+    "philosophy": {
+      "type": "ingredient-philosophy",
+      "settings": {
+        "text": "<p>Sesame oil has historically existed within rituals associated with grounding, nourishment, continuity, and bodily familiarity. Within Mirellis formulations, sesame oil is approached not only as a functional ingredient, but as part of the sensory architecture of ritual repetition itself.</p><p>Modern routines are often experienced through fragmentation — rapid transitions, overstimulation, and disconnection from physical rhythm. Mirellis approaches ritual differently. The goal is not intensity, but continuity.</p><p>Sesame oil introduces warmth and steadiness into the formulation environment. The texture feels slower, more rooted, more physically recognizable. Rather than creating sensory interruption, the experience encourages familiarity through repeated interaction.</p><p>Over time, the body begins recognizing these tactile rhythms before conscious attention fully arrives. Ritual becomes less about isolated actions and more about embodied continuity.</p>"
+      }
+    },
+
+    "image_break_1": {
+      "type": "ingredient-image-break",
+      "settings": {
+        "caption": "The body remembers repeated warmth long before ritual becomes conscious habit."
+      }
+    },
+
+    "ritual_practice": {
+      "type": "ingredient-ritual-practice",
+      "settings": {
+        "text": "<p>Before the mind fully organizes itself, the body has already begun responding to warmth, texture, pacing, repetition, and sensory familiarity. Rituals are often recognized physiologically before they are consciously interpreted.</p><p>Within morning ritual practice, sesame oil creates a slower and more grounded sensory orientation. The experience feels warm rather than stimulating, continuous rather than abrupt. The ritual begins shaping bodily familiarity through repetition.</p><p>Over repeated mornings, the nervous system starts recognizing the sequence itself as safe, coherent, and emotionally predictable. Ritual continuity becomes part of how the body enters wakefulness.</p>"
+      }
+    },
+
+    "roles": {
+      "type": "ingredient-roles",
+      "blocks": {
+        "role_1": {
+          "type": "role",
+          "settings": {
+            "title": "Grounding Warmth",
+            "description": "<p>Sesame oil creates a slower and more embodied sensory atmosphere through warmth, density, and tactile familiarity.</p>"
+          }
+        },
+
+        "role_2": {
+          "type": "role",
+          "settings": {
+            "title": "Ritual Continuity",
+            "description": "<p>The repeated texture and pacing of sesame oil helps the nervous system recognize ritual rhythm through familiarity.</p>"
+          }
+        },
+
+        "role_3": {
+          "type": "role",
+          "settings": {
+            "title": "Formulation Foundation",
+            "description": "<p>Sesame oil acts as a stabilizing sensory base within the formulation architecture, supporting warmth and coherence.</p>"
+          }
+        },
+
+        "role_4": {
+          "type": "role",
+          "settings": {
+            "title": "Body Memory",
+            "description": "<p>Within Mirellis Morning Rituals, sesame oil helps create emotional continuity through repeated bodily recognition.</p>"
+          }
+        }
+      },
+
+      "block_order": [
+        "role_1",
+        "role_2",
+        "role_3",
+        "role_4"
+      ],
+
+      "settings": {}
+    },
+
+    "research": {
+      "type": "ingredient-research-notes",
+      "blocks": {
+        "note_1": {
+          "type": "note",
+          "settings": {
+            "title": "Sesame Oil & Traditional Ritual Practice",
+            "text": "<p>Sesame oil has historically been used within ritual environments emphasizing nourishment, grounding, bodily continuity, and sensory warmth. Its repeated use across traditional practices reflects not only functional considerations, but emotional familiarity through tactile repetition.</p>"
+          }
+        },
+
+        "note_2": {
+          "type": "note",
+          "settings": {
+            "title": "Texture, Familiarity & Nervous System Response",
+            "text": "<p>Emerging discussions within sensory psychology and nervous system regulation increasingly explore how repeated tactile experiences may influence emotional familiarity, predictability, and physiological ease. Mirellis approaches sesame oil through this broader relationship between warmth, repetition, and ritual continuity.</p>"
+          }
+        }
+      },
+
+      "block_order": [
+        "note_1",
+        "note_2"
+      ],
+
+      "settings": {}
+    },
+
+    "ritual_connection": {
+      "type": "editorial-ritual-connection",
+      "settings": {
+        "label": "Ritual Connection",
+        "title": "Restoration begins through repeated sensory grounding.",
+        "text": "<p>Sesame oil exists within Mirellis not simply as a formulation ingredient, but as part of a slower ritual environment shaped around warmth, nourishment, sensory weight, and emotional settling.</p><p>Through repeated ritual contact, the nervous system gradually begins associating restoration with familiarity, pacing, and grounded sensory continuity.</p>",
+        "link_label": "Explore Ingredient Atmospheres",
+        "link": "/pages/ingredient-atmospheres"
+      }
+    },
+
+    "closing": {
+      "type": "ingredient-closing-statement",
+      "settings": {
+        "text": "The body learns rituals through repetition, warmth, and sensory familiarity. Continuity is often felt physically long before it becomes conscious understanding."
+      }
+    }
+  },
+
+  "order": [
+    "hero",
+    "philosophy",
+    "image_break_1",
+    "ritual_practice",
+    "roles",
+    "research",
+    "ritual_connection",
+    "closing"
+  ]
+}

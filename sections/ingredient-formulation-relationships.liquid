@@ -1,0 +1,115 @@
+<section class="ingredient-formulation-relationships">
+  <div class="page-width">
+
+    <div class="ingredient-formulation-relationships__grid">
+
+      <div class="ingredient-formulation-relationships__left">
+
+        <p class="ingredient-formulation-relationships__eyebrow">
+          Formulation Relationships
+        </p>
+
+      </div>
+
+      <div class="ingredient-formulation-relationships__right">
+
+        <div class="ingredient-formulation-relationships__text">
+          {{ section.settings.text }}
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+.ingredient-formulation-relationships {
+  padding: 140px 0;
+  background: #fcfaf7;
+}
+
+.ingredient-formulation-relationships__grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ingredient-formulation-relationships__eyebrow {
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #8a7f73;
+  position: sticky;
+  top: 120px;
+}
+
+.ingredient-formulation-relationships__text {
+  max-width: 760px;
+  font-size: 28px;
+  line-height: 1.8;
+  color: #1f1f1f;
+  font-weight: 300;
+}
+
+.ingredient-formulation-relationships__text p {
+  margin-bottom: 36px;
+}
+
+@media screen and (max-width: 990px) {
+
+  .ingredient-formulation-relationships {
+    padding: 100px 24px;
+  }
+
+  .ingredient-formulation-relationships__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .ingredient-formulation-relationships__eyebrow {
+    position: relative;
+    top: 0;
+  }
+
+  .ingredient-formulation-relationships__text {
+    font-size: 23px;
+  }
+
+}
+
+@media screen and (max-width: 749px) {
+
+  .ingredient-formulation-relationships {
+    padding: 80px 20px;
+  }
+
+  .ingredient-formulation-relationships__text {
+    font-size: 19px;
+    line-height: 1.85;
+  }
+
+}
+</style>
+
+{% schema %}
+{
+  "name": "Formulation Relationships",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Within Mirellis Morning Rituals, coconut oil is not formulated in isolation. Its softness is intentionally balanced against brighter aromatic ingredients like peppermint and clove to create coherence rather than overstimulation.</p><p>The formulation is designed not only for cleansing, but for pacing. Texture, warmth, freshness, and sensory familiarity work together to shape how the ritual is experienced by the nervous system over repeated use.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Formulation Relationships"
+    }
+  ]
+}
+{% endschema %}

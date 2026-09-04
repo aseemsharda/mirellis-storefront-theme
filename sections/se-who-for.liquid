@@ -1,0 +1,56 @@
+<section style="background:{{ section.settings.bg_color }};font-family:'Hanken Grotesk',system-ui,sans-serif">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(72px,10vw,128px) clamp(20px,5vw,48px)">
+    <div data-reveal style="text-align:center;margin-bottom:clamp(40px,6vw,72px)">
+      {%- if section.settings.eyebrow != blank -%}
+        <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#b07f54;margin-bottom:18px">{{ section.settings.eyebrow }}</div>
+      {%- endif -%}
+      <h2 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(30px,4.4vw,52px);margin:0;letter-spacing:-0.01em;color:{{ section.settings.text_color }}">{{ section.settings.heading }}</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(20px,3vw,32px)">
+      {%- for block in section.blocks -%}
+        <figure {{ block.shopify_attributes }} data-reveal style="margin:0">
+          <div style="border-radius:6px;overflow:hidden;aspect-ratio:1;background:#efe9e1">
+            {%- if block.settings.image != blank -%}
+              {%- assign persona_src = block.settings.image | image_url: width: 900 -%}
+              <img src="{{ persona_src }}" width="900" height="900" alt="{{ block.settings.caption }}" loading="lazy" style="width:100%;height:100%;object-fit:cover"/>
+            {%- endif -%}
+          </div>
+          <figcaption style="font-size:15px;color:#3b362e;margin-top:16px;line-height:1.5">{{ block.settings.caption }}</figcaption>
+        </figure>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SE — Who It's For",
+  "blocks": [
+    {
+      "type": "persona",
+      "name": "Persona",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "caption", "label": "Caption", "default": "Describe this person" }
+      ]
+    }
+  ],
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Who this ritual is for" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "For those who find the day won't end." },
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#faf7f4" },
+    { "type": "color", "id": "text_color", "label": "Heading colour", "default": "#26221d" }
+  ],
+  "presets": [
+    {
+      "name": "SE — Who It's For",
+      "blocks": [
+        { "type": "persona", "settings": { "caption": "Struggle to switch off at night" } },
+        { "type": "persona", "settings": { "caption": "Feel overstimulated after long days" } },
+        { "type": "persona", "settings": { "caption": "Want rest without force or medication" } },
+        { "type": "persona", "settings": { "caption": "Value consistency over quick fixes" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

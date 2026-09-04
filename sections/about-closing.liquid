@@ -1,0 +1,103 @@
+<section class="about-closing">
+
+  <div class="about-closing__inner">
+
+    {% if section.settings.heading != blank %}
+      <h2 class="about-closing__heading">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.body != blank %}
+      <div class="about-closing__body rte">
+        {{ section.settings.body }}
+      </div>
+    {% endif %}
+
+  </div>
+
+</section>
+
+<style>
+
+.about-closing{
+  background:#F8F4EE;
+  padding:120px 48px 160px;
+}
+
+.about-closing__inner{
+  max-width:980px;
+  margin:0 auto;
+  text-align:center;
+}
+
+.about-closing__heading{
+  font-size:clamp(48px,6vw,88px);
+  line-height:1.08;
+  letter-spacing:-0.04em;
+  margin:0 auto 40px;
+  max-width:900px;
+}
+
+.about-closing__body{
+  max-width:700px;
+  margin:0 auto;
+  font-size:18px;
+  line-height:2;
+  color:rgba(0,0,0,.75);
+}
+
+.about-closing__body p{
+  margin-bottom:14px;
+}
+
+.about-closing__body p:last-child{
+  margin-bottom:0;
+}
+
+.about-closing__body strong{
+  font-weight:600;
+}
+
+@media screen and (max-width:999px){
+
+  .about-closing{
+    padding:80px 24px 120px;
+  }
+
+  .about-closing__heading{
+    font-size:42px;
+    margin-bottom:32px;
+  }
+
+  .about-closing__body{
+    font-size:17px;
+    line-height:1.9;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "About Closing",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Closing"
+    }
+  ]
+}
+{% endschema %}

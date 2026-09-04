@@ -1,0 +1,78 @@
+{% comment %}
+Observatory Footer Section
+Trust signals and methodology link
+{% endcomment %}
+
+<section class="observatory-footer">
+  <div class="observatory-footer__container">
+    
+    <div class="observatory-footer__content">
+      <h3 class="observatory-footer__title">How We Research</h3>
+      
+      <p class="observatory-footer__description">
+        The Mirellis Observatory publishes research on how humans navigate state transitions. Our approach is grounded in neurobiology and behavioral science, transparent about methodology and limitations, and updated as new research emerges.
+      </p>
+
+      <a href="/pages/the-method" class="observatory-footer__link">
+        Read Our Research Methodology →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .observatory-footer {
+    padding: 4rem 2rem;
+    background: #faf7f2;
+    border-top: 1px solid rgba(26, 26, 24, 0.08);
+  }
+
+  .observatory-footer__container {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .observatory-footer__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #1a1a18;
+    margin-bottom: 1rem;
+  }
+
+  .observatory-footer__description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+
+  .observatory-footer__link {
+    color: #1a1a18;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .observatory-footer__link:hover {
+    color: #666;
+  }
+
+  @media (max-width: 768px) {
+    .observatory-footer {
+      padding: 3rem 1.5rem;
+    }
+
+    .observatory-footer__title {
+      font-size: 1.25rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Observatory Footer",
+  "settings": []
+}
+{% endschema %}

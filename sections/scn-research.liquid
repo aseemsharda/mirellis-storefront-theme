@@ -1,0 +1,209 @@
+{% comment %}
+SCN 05 — RESEARCH
+Nervous System Grounding Layer
+{% endcomment %}
+
+<section class="ml-research">
+
+  <!-- BACKGROUND -->
+  <div class="ml-research-bg"></div>
+
+  <div class="ml-container">
+
+    <!-- INTRO STATEMENT -->
+    <div class="ml-research-intro">
+
+      {% if section.settings.heading != blank %}
+        <h2 class="ml-research-title">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.subtext != blank %}
+        <p class="ml-research-subtext">
+          {{ section.settings.subtext }}
+        </p>
+      {% endif %}
+
+    </div>
+
+    <!-- RESEARCH BLOCKS -->
+    <div class="ml-research-grid">
+
+      <div class="ml-research-item">
+        <h3>Circadian Rhythm</h3>
+        <p>Internal biological timing systems that regulate transitions between states of alertness and rest.</p>
+      </div>
+
+      <div class="ml-research-item">
+        <h3>Transition Physiology</h3>
+        <p>The body’s continuous recalibration between environmental inputs and internal equilibrium.</p>
+      </div>
+
+      <div class="ml-research-item">
+        <h3>Sensory Repetition</h3>
+        <p>Repeated signals that train nervous-system recognition over time.</p>
+      </div>
+
+      <div class="ml-research-item">
+        <h3>Environmental Psychology</h3>
+        <p>How spatial and sensory environments shape cognition and emotional regulation.</p>
+      </div>
+
+      <div class="ml-research-item">
+        <h3>Olfactory Signaling</h3>
+        <p>Scent-based triggers that bypass cognition and influence emotional state directly.</p>
+      </div>
+
+      <div class="ml-research-item">
+        <h3>Nervous System Pacing</h3>
+        <p>The speed at which the body transitions between stimulation and recovery.</p>
+      </div>
+
+    </div>
+
+    <!-- CORE INSIGHT -->
+    <div class="ml-research-core">
+
+      {% if section.settings.core != blank %}
+        <p>
+          {{ section.settings.core }}
+        </p>
+      {% endif %}
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+/* =========================
+   SCN 05 — RESEARCH
+========================= */
+
+.ml-research {
+  position: relative;
+  padding: 120px 24px;
+  background: #f6f1ea;
+}
+
+/* SUBTLE BACKGROUND */
+.ml-research-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 20%,
+    rgba(255,255,255,0.6),
+    rgba(246,241,232,0.95)
+  );
+  pointer-events: none;
+}
+
+/* CONTAINER */
+.ml-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* INTRO */
+.ml-research-intro {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.ml-research-title {
+  font-size: clamp(28px, 3vw, 48px);
+  font-weight: 400;
+  margin-bottom: 18px;
+  color: #1c1c1c;
+}
+
+.ml-research-subtext {
+  font-size: 16px;
+  max-width: 700px;
+  margin: 0 auto;
+  color: rgba(28,28,28,0.7);
+  line-height: 1.7;
+}
+
+/* GRID */
+.ml-research-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-bottom: 70px;
+}
+
+/* ITEM */
+.ml-research-item h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.ml-research-item p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(28,28,28,0.7);
+}
+
+/* CORE STATEMENT */
+.ml-research-core {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(28,28,28,0.75);
+  padding-top: 40px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .ml-research-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .ml-research {
+    padding: 90px 20px;
+  }
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "SCN 05 RESEARCH",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Transitions are physiological, not symbolic."
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "The nervous system continuously responds to repeated environmental signals throughout the day."
+    },
+    {
+      "type": "textarea",
+      "id": "core",
+      "label": "Core Insight",
+      "default": "Science here is not authority — it is observation. A mapping of how environment becomes internal state over time."
+    }
+  ],
+  "presets": [
+    {
+      "name": "SCN 05 RESEARCH"
+    }
+  ]
+}
+{% endschema %}

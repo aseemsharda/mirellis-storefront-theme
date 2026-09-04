@@ -1,0 +1,477 @@
+{%- style -%}
+  /* --- FONT FACE DECLARATIONS --- */
+  {{ section.settings.main_headline_font | font_face: font_display: 'swap' }}
+  {{ section.settings.main_subline_font | font_face: font_display: 'swap' }}
+  
+  {{ section.settings.card_1_subheading_font | font_face: font_display: 'swap' }}
+  {{ section.settings.card_1_title_font | font_face: font_display: 'swap' }}
+  {{ section.settings.card_1_body_font | font_face: font_display: 'swap' }}
+  {{ section.settings.card_1_btn_font | font_face: font_display: 'swap' }}
+
+  {{ section.settings.card_2_subheading_font | font_face: font_display: 'swap' }}
+  {{ section.settings.card_2_title_font | font_face: font_display: 'swap' }}
+  {{ section.settings.card_2_body_font | font_face: font_display: 'swap' }}
+  {{ section.settings.card_2_btn_font | font_face: font_display: 'swap' }}
+
+  /* --- SECTION LEVEL STYLES --- */
+  .custom-section-{{ section.id }} {
+    background-color: {{ section.settings.section_background_color }};
+    padding-top: {{ section.settings.section_padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_mobile }}px;
+  }
+
+  .custom-container-{{ section.id }} {
+    max-width: {{ section.settings.container_max_width }}px;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+
+  /* --- MAIN HEADER STYLES --- */
+  .main-header-block-{{ section.id }} {
+    text-align: {{ section.settings.main_header_alignment_mobile }};
+    margin-bottom: {{ section.settings.main_header_bottom_gap_mobile }}px;
+  }
+
+  .main-headline-{{ section.id }} {
+    /* font-family: {{ section.settings.main_headline_font.family }}, {{ section.settings.main_headline_font.fallback_families }}; */
+    font-weight: {{ section.settings.main_headline_font_weight }};
+    font-size: {{ section.settings.main_headline_size_mobile }}px;
+    line-height: {{ section.settings.main_headline_line_height }};
+    letter-spacing: {{ section.settings.main_headline_letter_spacing }}px;
+    color: {{ section.settings.main_headline_color }};
+    margin-top: 0px;
+    margin-bottom: {{ section.settings.main_headline_margin_bottom }}px;
+  }
+
+  .main-subline-{{ section.id }} {
+    /* font-family: {{ section.settings.main_subline_font.family }}, {{ section.settings.main_subline_font.fallback_families }}; */
+    font-weight: {{ section.settings.main_subline_font_weight }};
+    font-size: {{ section.settings.main_subline_size_mobile }}px;
+    line-height: {{ section.settings.main_subline_line_height }};
+    color: {{ section.settings.main_subline_color }};
+    margin: 0px;
+  }
+
+  /* --- GRID LAYOUT --- */
+  .ritual-grid-{{ section.id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ section.settings.grid_gap_mobile }}px;
+  }
+
+  /* --- CARD 1 SPECIFIC STYLES --- */
+  .ritual-card-1-{{ section.id }} {
+    background-color: {{ section.settings.card_1_background_color }};
+    border-width: {{ section.settings.card_1_border_width }}px;
+    border-style: solid;
+    border-color: {{ section.settings.card_1_border_color }};
+    border-radius: {{ section.settings.card_1_corner_radius }}px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-1-image-wrapper {
+    height: {{ section.settings.card_1_image_height_mobile }}px;
+    margin: {{ section.settings.card_1_image_margin }}px;
+    border-radius: {{ section.settings.card_1_image_radius }}px;
+    overflow: hidden;
+  }
+
+  .card-1-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+  .card-1-content-area {
+    padding: {{ section.settings.card_1_content_padding_mobile }}px;
+    text-align: {{ section.settings.card_1_text_alignment_mobile }};
+    display: flex;
+    flex-direction: column;
+    align-items: {% if section.settings.card_1_text_alignment_mobile == 'center' %}center{% elsif section.settings.card_1_text_alignment_mobile == 'right' %}flex-end{% else %}flex-start{% endif %};
+  }
+
+  .card-1-subheading {
+    /* font-family: {{ section.settings.card_1_subheading_font.family }}, {{ section.settings.card_1_subheading_font.fallback_families }}; */
+    font-weight: {{ section.settings.card_1_subheading_weight }};
+    font-size: {{ section.settings.card_1_subheading_size_mobile }}px;
+    line-height: {{ section.settings.card_1_subheading_line_height }};
+    letter-spacing: {{ section.settings.card_1_subheading_letter_spacing }}px;
+    color: {{ section.settings.card_1_subheading_color }};
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .card-1-title {
+    font-family: {{ section.settings.card_1_title_font.family }}, {{ section.settings.card_1_title_font.fallback_families }};
+    font-weight: {{ section.settings.card_1_title_weight }};
+    font-size: {{ section.settings.card_1_title_size_mobile }}px;
+    line-height: {{ section.settings.card_1_title_line_height }};
+    color: {{ section.settings.card_1_title_color }};
+    margin-top: 0px;
+    margin-bottom: 15px;
+  }
+
+  .card-1-body-text {
+    font-family: {{ section.settings.card_1_body_font.family }}, {{ section.settings.card_1_body_font.fallback_families }};
+    font-weight: {{ section.settings.card_1_body_weight }};
+    font-size: {{ section.settings.card_1_body_size_mobile }}px;
+    line-height: {{ section.settings.card_1_body_line_height }};
+    color: {{ section.settings.card_1_body_color }};
+    margin-bottom: 20px;
+  }
+
+  .card-1-btn {
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    font-family: {{ section.settings.card_1_btn_font.family }}, {{ section.settings.card_1_btn_font.fallback_families }};
+    background-color: {{ section.settings.card_1_btn_bg }};
+    color: {{ section.settings.card_1_btn_tx }};
+    padding: {{ section.settings.card_1_btn_pv }}px {{ section.settings.card_1_btn_ph }}px;
+    border-radius: {{ section.settings.card_1_btn_r }}px;
+    font-size: {{ section.settings.card_1_btn_fs }}px;
+    width: {{ section.settings.card_1_btn_w_mb }}%;
+  }
+
+  /* --- CARD 2 SPECIFIC STYLES --- */
+  .ritual-card-2-{{ section.id }} {
+    background-color: {{ section.settings.card_2_background_color }};
+    border-width: {{ section.settings.card_2_border_width }}px;
+    border-style: solid;
+    border-color: {{ section.settings.card_2_border_color }};
+    border-radius: {{ section.settings.card_2_corner_radius }}px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-2-image-wrapper {
+    height: {{ section.settings.card_2_image_height_mobile }}px;
+    margin: {{ section.settings.card_2_image_margin }}px;
+    border-radius: {{ section.settings.card_2_image_radius }}px;
+    overflow: hidden;
+  }
+
+  .card-2-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+  .card-2-content-area {
+    padding: {{ section.settings.card_2_content_padding_mobile }}px;
+    text-align: {{ section.settings.card_2_text_alignment_mobile }};
+    display: flex;
+    flex-direction: column;
+    align-items: {% if section.settings.card_2_text_alignment_mobile == 'center' %}center{% elsif section.settings.card_2_text_alignment_mobile == 'right' %}flex-end{% else %}flex-start{% endif %};
+  }
+
+  .card-2-subheading {
+    font-family: {{ section.settings.card_2_subheading_font.family }}, {{ section.settings.card_2_subheading_font.fallback_families }};
+    font-weight: {{ section.settings.card_2_subheading_weight }};
+    font-size: {{ section.settings.card_2_subheading_size_mobile }}px;
+    line-height: {{ section.settings.card_2_subheading_line_height }};
+    letter-spacing: {{ section.settings.card_2_subheading_letter_spacing }}px;
+    color: {{ section.settings.card_2_subheading_color }};
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .card-2-title {
+    font-family: {{ section.settings.card_2_title_font.family }}, {{ section.settings.card_2_title_font.fallback_families }};
+    font-weight: {{ section.settings.card_2_title_weight }};
+    font-size: {{ section.settings.card_2_title_size_mobile }}px;
+    line-height: {{ section.settings.card_2_title_line_height }};
+    color: {{ section.settings.card_2_title_color }};
+    margin-top: 0px;
+    margin-bottom: 15px;
+  }
+
+  .card-2-body-text {
+    font-family: {{ section.settings.card_2_body_font.family }}, {{ section.settings.card_2_body_font.fallback_families }};
+    font-weight: {{ section.settings.card_2_body_weight }};
+    font-size: {{ section.settings.card_2_body_size_mobile }}px;
+    line-height: {{ section.settings.card_2_body_line_height }};
+    color: {{ section.settings.card_2_body_color }};
+    margin-bottom: 20px;
+  }
+
+  .card-2-btn {
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    font-family: {{ section.settings.card_2_btn_font.family }}, {{ section.settings.card_2_btn_font.fallback_families }};
+    background-color: {{ section.settings.card_2_btn_bg }};
+    color: {{ section.settings.card_2_btn_tx }};
+    padding: {{ section.settings.card_2_btn_pv }}px {{ section.settings.card_2_btn_ph }}px;
+    border-radius: {{ section.settings.card_2_btn_r }}px;
+    font-size: {{ section.settings.card_2_btn_fs }}px;
+    width: {{ section.settings.card_2_btn_w_mb }}%;
+  }
+
+  /* --- DESKTOP QUERIES --- */
+  @media screen and (min-width: 768px) {
+    .custom-section-{{ section.id }} {
+      padding-top: {{ section.settings.section_padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_desktop }}px;
+    }
+
+    .main-header-block-{{ section.id }} {
+      text-align: {{ section.settings.main_header_alignment_desktop }};
+      margin-bottom: {{ section.settings.main_header_bottom_gap_desktop }}px;
+    }
+
+    .main-headline-{{ section.id }} { font-size: {{ section.settings.main_headline_size_desktop }}px; }
+    .main-subline-{{ section.id }} { font-size: {{ section.settings.main_subline_size_desktop }}px; }
+
+    .ritual-grid-{{ section.id }} {
+      flex-direction: row;
+      gap: {{ section.settings.grid_gap_desktop }}px;
+    }
+
+    .ritual-card-1-{{ section.id }}, .ritual-card-2-{{ section.id }} { flex: 1; }
+
+    .card-1-image-wrapper { height: {{ section.settings.card_1_image_height_desktop }}px; }
+    .card-1-content-area { 
+      padding-top: 20px !important;
+      padding: {{ section.settings.card_1_content_padding_desktop }}px; 
+      text-align: {{ section.settings.card_1_text_alignment_desktop }};
+      align-items: {% if section.settings.card_1_text_alignment_desktop == 'center' %}center{% elsif section.settings.card_1_text_alignment_desktop == 'right' %}flex-end{% else %}flex-start{% endif %};
+    }
+    .card-1-subheading { font-size: {{ section.settings.card_1_subheading_size_desktop }}px; }
+    .card-1-title { font-size: {{ section.settings.card_1_title_size_desktop }}px; }
+    .card-1-body-text { font-size: {{ section.settings.card_1_body_size_desktop }}px; }
+    .card-1-btn { width: {{ section.settings.card_1_btn_w_dt }}%; }
+
+    .card-2-image-wrapper { height: {{ section.settings.card_2_image_height_desktop }}px; }
+    .card-2-content-area { 
+      padding-top: 20px !important;
+      padding: {{ section.settings.card_2_content_padding_desktop }}px; 
+      text-align: {{ section.settings.card_2_text_alignment_desktop }};
+      align-items: {% if section.settings.card_2_text_alignment_desktop == 'center' %}center{% elsif section.settings.card_2_text_alignment_desktop == 'right' %}flex-end{% else %}flex-start{% endif %};
+    }
+    .card-2-subheading { font-size: {{ section.settings.card_2_subheading_size_desktop }}px; }
+    .card-2-title { font-size: {{ section.settings.card_2_title_size_desktop }}px; }
+    .card-2-body-text { font-size: {{ section.settings.card_2_body_size_desktop }}px; }
+    .card-2-btn { width: {{ section.settings.card_2_btn_w_dt }}%; }
+  }
+
+  @media(max-width: 767px){
+    .ritual-tags{
+      gap: 5px !important;
+    }
+
+    .ritual-tags li{
+      font-size: 10px !important;
+    padding: 6px 10px !important;
+    }
+ .card-2-image-wrapper,
+ .card-1-image-wrapper {
+    padding: 0 10px;
+  }
+{%- endstyle -%}
+
+<section class="custom-section-{{ section.id }}">
+  <div class="custom-container-{{ section.id }}">
+    
+    <div class="main-header-block-{{ section.id }}">
+      <h2 class="main-headline-{{ section.id }}">{{ section.settings.main_headline_text }}</h2>
+      <div class="main-subline-{{ section.id }}">{{ section.settings.main_subline_text }}</div>
+    </div>
+
+    <div class="ritual-grid-{{ section.id }}">
+      
+      <div class="ritual-card-1-{{ section.id }}">
+        <div class="card-1-image-wrapper">
+          {% if section.settings.card_1_image != blank %}
+            {{ section.settings.card_1_image | image_url: width: 1200 | image_tag }}
+          {% else %}
+            {{ 'lifestyle-1' | placeholder_svg_tag }}
+          {% endif %}
+        </div>
+        <div class="card-1-content-area">
+          {% if section.settings.card_1_subheading_position == 'above' %}
+            <span class="card-1-subheading">{{ section.settings.card_1_subheading_text }}</span>
+          {% endif %}
+          <h3 class="card-1-title">{{ section.settings.card_1_title_text }}</h3>
+          {% if section.settings.card_1_subheading_position == 'below' %}
+            <span class="card-1-subheading">{{ section.settings.card_1_subheading_text }}</span>
+          {% endif %}
+          <div class="card-1-body-text">{{ section.settings.card_1_body_text }}</div>
+          <a href="{{ section.settings.card_1_btn_link }}" class="card-1-btn">{{ section.settings.card_1_btn_text }}</a>
+        </div>
+      </div>
+
+      <div class="ritual-card-2-{{ section.id }}">
+        <div class="card-2-image-wrapper">
+          {% if section.settings.card_2_image != blank %}
+            {{ section.settings.card_2_image | image_url: width: 1200 | image_tag }}
+          {% else %}
+            {{ 'lifestyle-2' | placeholder_svg_tag }}
+          {% endif %}
+        </div>
+        <div class="card-2-content-area">
+          {% if section.settings.card_2_subheading_position == 'above' %}
+            <span class="card-2-subheading">{{ section.settings.card_2_subheading_text }}</span>
+          {% endif %}
+          <h3 class="card-2-title">{{ section.settings.card_2_title_text }}</h3>
+          {% if section.settings.card_2_subheading_position == 'below' %}
+            <span class="card-2-subheading">{{ section.settings.card_2_subheading_text }}</span>
+          {% endif %}
+          <div class="card-2-body-text">{{ section.settings.card_2_body_text }}</div>
+          <a href="{{ section.settings.card_2_btn_link }}" class="card-2-btn">{{ section.settings.card_2_btn_text }}</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Absolute Custom V3",
+  "settings": [
+    { "type": "header", "content": "Global Layout & Section" },
+    { "type": "range", "id": "container_max_width", "label": "Container Max Width", "min": 800, "max": 1600, "step": 10, "default": 1200 },
+    { "type": "color", "id": "section_background_color", "label": "Section Background Color", "default": "#ffffff" },
+    { "type": "range", "id": "section_padding_top_desktop", "label": "Section Top Padding (Desktop)", "min": 0, "max": 200, "step": 2, "default": 100 },
+    { "type": "range", "id": "section_padding_bottom_desktop", "label": "Section Bottom Padding (Desktop)", "min": 0, "max": 200, "step": 2, "default": 100 },
+    { "type": "range", "id": "section_padding_top_mobile", "label": "Section Top Padding (Mobile)", "min": 0, "max": 100, "default": 50 },
+    { "type": "range", "id": "section_padding_bottom_mobile", "label": "Section Bottom Padding (Mobile)", "min": 0, "max": 100, "default": 50 },
+    { "type": "range", "id": "grid_gap_desktop", "label": "Gap Between Cards (Desktop)", "min": 0, "max": 100, "step": 2, "default": 40 },
+    { "type": "range", "id": "grid_gap_mobile", "label": "Gap Between Cards (Mobile)", "min": 0, "max": 50, "default": 20 },
+
+    { "type": "header", "content": "Main Header - Text & Alignment" },
+    { "type": "inline_richtext", "id": "main_headline_text", "label": "Headline Text", "default": "Our Rituals" },
+    { "type": "richtext", "id": "main_subline_text", "label": "Subline Text" },
+    { "type": "select", "id": "main_header_alignment_desktop", "label": "Header Alignment (Desktop)", "options": [{"value":"left","label":"Left"},{"value":"center","label":"Center"}], "default": "center" },
+    { "type": "select", "id": "main_header_alignment_mobile", "label": "Header Alignment (Mobile)", "options": [{"value":"left","label":"Left"},{"value":"center","label":"Center"}], "default": "center" },
+    { "type": "range", "id": "main_header_bottom_gap_desktop", "label": "Header Bottom Gap (Desktop)", "min": 0, "max": 150, "step": 2, "default": 60 },
+    { "type": "range", "id": "main_header_bottom_gap_mobile", "label": "Header Bottom Gap (Mobile)", "min": 0, "max": 100, "default": 40 },
+
+    { "type": "header", "content": "Main Headline - Typography Detail" },
+    { "type": "font_picker", "id": "main_headline_font", "label": "Headline Font Family", "default": "serif" },
+    { "type": "range", "id": "main_headline_font_weight", "label": "Headline Font Weight", "min": 100, "max": 900, "step": 100, "default": 700 },
+    { "type": "range", "id": "main_headline_size_desktop", "label": "Headline Font Size (Desktop)", "min": 20, "max": 100, "default": 50 },
+    { "type": "range", "id": "main_headline_size_mobile", "label": "Headline Font Size (Mobile)", "min": 15, "max": 60, "default": 30 },
+    { "type": "range", "id": "main_headline_line_height", "label": "Headline Line Height", "min": 0.8, "max": 2.0, "step": 0.1, "default": 1.1 },
+    { "type": "range", "id": "main_headline_letter_spacing", "label": "Headline Letter Spacing", "min": -5, "max": 15, "default": 0 },
+    { "type": "range", "id": "main_headline_margin_bottom", "label": "Headline Margin Bottom", "min": 0, "max": 50, "default": 10 },
+    { "type": "color", "id": "main_headline_color", "label": "Headline Color", "default": "#000000" },
+
+    { "type": "header", "content": "Main Subline - Typography Detail" },
+    { "type": "font_picker", "id": "main_subline_font", "label": "Subline Font Family", "default": "sans-serif" },
+    { "type": "range", "id": "main_subline_font_weight", "label": "Subline Font Weight", "min": 100, "max": 900, "step": 100, "default": 400 },
+    { "type": "range", "id": "main_subline_size_desktop", "label": "Subline Font Size (Desktop)", "min": 10, "max": 40, "default": 18 },
+    { "type": "range", "id": "main_subline_size_mobile", "label": "Subline Font Size (Mobile)", "min": 8, "max": 30, "default": 16 },
+    { "type": "range", "id": "main_subline_line_height", "label": "Subline Line Height", "min": 1.0, "max": 2.5, "step": 0.1, "default": 1.6 },
+    { "type": "color", "id": "main_subline_color", "label": "Subline Color", "default": "#555555" },
+
+    { "type": "header", "content": "CARD 1 - Content & Alignment" },
+    { "type": "image_picker", "id": "card_1_image", "label": "Card 1 Image" },
+    { "type": "liquid", "id": "card_1_subheading_text", "label": "Subheading Text", "default": "Morning" },
+    { "type": "select", "id": "card_1_subheading_position", "label": "Subheading Position", "options": [{"value":"above","label":"Above Title"},{"value":"below","label":"Below Title"}], "default": "above" },
+    { "type": "text", "id": "card_1_title_text", "label": "Title Text", "default": "Ritual One" },
+    { "type": "richtext", "id": "card_1_body_text", "label": "Body Text" },
+    { "type": "text", "id": "card_1_btn_text", "label": "Button Text", "default": "Explore" },
+    { "type": "url", "id": "card_1_btn_link", "label": "Button Link" },
+    { "type": "select", "id": "card_1_text_alignment_desktop", "label": "Alignment (Desktop)", "options": [{"value":"left","label":"Left"},{"value":"center","label":"Center"},{"value":"right","label":"Right"}], "default": "left" },
+    { "type": "select", "id": "card_1_text_alignment_mobile", "label": "Alignment (Mobile)", "options": [{"value":"left","label":"Left"},{"value":"center","label":"Center"},{"value":"right","label":"Right"}], "default": "left" },
+
+    { "type": "header", "content": "Card 1 - Button Design" },
+    { "type": "font_picker", "id": "card_1_btn_font", "label": "Button Font", "default": "sans-serif" },
+    { "type": "color", "id": "card_1_btn_bg", "label": "Button Background", "default": "#000000" },
+    { "type": "color", "id": "card_1_btn_tx", "label": "Button Text Color", "default": "#ffffff" },
+    { "type": "range", "id": "card_1_btn_pv", "label": "Padding Vertical", "min": 5, "max": 50, "default": 15 },
+    { "type": "range", "id": "card_1_btn_ph", "label": "Padding Horizontal", "min": 10, "max": 100, "default": 40 },
+    { "type": "range", "id": "card_1_btn_r", "label": "Corner Radius", "min": 0, "max": 100, "default": 0 },
+    { "type": "range", "id": "card_1_btn_fs", "label": "Font Size", "min": 10, "max": 40, "default": 16 },
+    { "type": "range", "id": "card_1_btn_w_dt", "label": "Width % (Desktop)", "min": 10, "max": 100, "default": 50 },
+    { "type": "range", "id": "card_1_btn_w_mb", "label": "Width % (Mobile)", "min": 10, "max": 100, "default": 100 },
+
+    { "type": "header", "content": "Card 1 - Typography Detail" },
+    { "type": "font_picker", "id": "card_1_subheading_font", "label": "SH Font", "default": "sans-serif" },
+    { "type": "range", "id": "card_1_subheading_weight", "label": "SH Weight", "min": 100, "max": 900, "step": 100, "default": 700 },
+    { "type": "range", "id": "card_1_subheading_size_desktop", "label": "SH Size (DT)", "min": 8, "max": 40, "default": 14 },
+    { "type": "range", "id": "card_1_subheading_size_mobile", "label": "SH Size (MB)", "min": 8, "max": 30, "default": 12 },
+    { "type": "range", "id": "card_1_subheading_line_height", "label": "SH Line Height", "min": 0.8, "max": 2.0, "step": 0.1, "default": 1.2 },
+    { "type": "range", "id": "card_1_subheading_letter_spacing", "label": "SH Letter Spacing", "min": 0, "max": 10, "default": 1 },
+    { "type": "color", "id": "card_1_subheading_color", "label": "SH Color", "default": "#888888" },
+    { "type": "font_picker", "id": "card_1_title_font", "label": "Title Font", "default": "serif" },
+    { "type": "range", "id": "card_1_title_weight", "label": "Title Weight", "min": 100, "max": 900, "step": 100, "default": 600 },
+    { "type": "range", "id": "card_1_title_size_desktop", "label": "Title Size (DT)", "min": 10, "max": 80, "default": 32 },
+    { "type": "range", "id": "card_1_title_size_mobile", "label": "Title Size (MB)", "min": 10, "max": 50, "default": 24 },
+    { "type": "range", "id": "card_1_title_line_height", "label": "Title Line Height", "min": 0.8, "max": 2.0, "step": 0.1, "default": 1.1 },
+    { "type": "color", "id": "card_1_title_color", "label": "Title Color", "default": "#000000" },
+    { "type": "font_picker", "id": "card_1_body_font", "label": "Body Font", "default": "sans-serif" },
+    { "type": "range", "id": "card_1_body_weight", "label": "Body Weight", "min": 100, "max": 900, "step": 100, "default": 400 },
+    { "type": "range", "id": "card_1_body_size_desktop", "label": "Body Size (DT)", "min": 8, "max": 30, "default": 16 },
+    { "type": "range", "id": "card_1_body_size_mobile", "label": "Body Size (MB)", "min": 8, "max": 24, "default": 14 },
+    { "type": "range", "id": "card_1_body_line_height", "label": "Body Line Height", "min": 1.0, "max": 2.5, "step": 0.1, "default": 1.6 },
+    { "type": "color", "id": "card_1_body_color", "label": "Body Color", "default": "#444444" },
+
+    { "type": "header", "content": "Card 1 - Visual Styling" },
+    { "type": "color", "id": "card_1_background_color", "label": "Card BG Color", "default": "#ffffff" },
+    { "type": "range", "id": "card_1_border_width", "label": "Border Width", "min": 0, "max": 10, "default": 1 },
+    { "type": "color", "id": "card_1_border_color", "label": "Border Color", "default": "#eeeeee" },
+    { "type": "range", "id": "card_1_corner_radius", "label": "Card Radius", "min": 0, "max": 100, "default": 0 },
+    { "type": "range", "id": "card_1_image_height_desktop", "label": "Img Height (DT)", "min": 100, "max": 800, "step": 10, "default": 450 },
+    { "type": "range", "id": "card_1_image_height_mobile", "label": "Img Height (MB)", "min": 100, "max": 500, "step": 10, "default": 300 },
+    { "type": "range", "id": "card_1_image_margin", "label": "Img Outer Margin", "min": 0, "max": 50, "default": 0 },
+    { "type": "range", "id": "card_1_image_radius", "label": "Img Radius", "min": 0, "max": 50, "default": 0 },
+    { "type": "range", "id": "card_1_content_padding_desktop", "label": "Content Pad (DT)", "min": 0, "max": 100, "default": 40 },
+    { "type": "range", "id": "card_1_content_padding_mobile", "label": "Content Pad (MB)", "min": 0, "max": 60, "default": 20 },
+
+    { "type": "header", "content": "CARD 2 - Content & Alignment" },
+    { "type": "image_picker", "id": "card_2_image", "label": "Card 2 Image" },
+    { "type": "liquid", "id": "card_2_subheading_text", "label": "Subheading Text", "default": "Evening" },
+    { "type": "select", "id": "card_2_subheading_position", "label": "Subheading Position", "options": [{"value":"above","label":"Above Title"},{"value":"below","label":"Below Title"}], "default": "above" },
+    { "type": "text", "id": "card_2_title_text", "label": "Title Text", "default": "Ritual Two" },
+    { "type": "richtext", "id": "card_2_body_text", "label": "Body Text" },
+    { "type": "text", "id": "card_2_btn_text", "label": "Button Text", "default": "Explore" },
+    { "type": "url", "id": "card_2_btn_link", "label": "Button Link" },
+    { "type": "select", "id": "card_2_text_alignment_desktop", "label": "Alignment (Desktop)", "options": [{"value":"left","label":"Left"},{"value":"center","label":"Center"},{"value":"right","label":"Right"}], "default": "left" },
+    { "type": "select", "id": "card_2_text_alignment_mobile", "label": "Alignment (Mobile)", "options": [{"value":"left","label":"Left"},{"value":"center","label":"Center"},{"value":"right","label":"Right"}], "default": "left" },
+
+    { "type": "header", "content": "Card 2 - Button Design" },
+    { "type": "font_picker", "id": "card_2_btn_font", "label": "Button Font", "default": "sans-serif" },
+    { "type": "color", "id": "card_2_btn_bg", "label": "Button Background", "default": "#000000" },
+    { "type": "color", "id": "card_2_btn_tx", "label": "Button Text Color", "default": "#ffffff" },
+    { "type": "range", "id": "card_2_btn_pv", "label": "Padding Vertical", "min": 5, "max": 50, "default": 15 },
+    { "type": "range", "id": "card_2_btn_ph", "label": "Padding Horizontal", "min": 10, "max": 100, "default": 40 },
+    { "type": "range", "id": "card_2_btn_r", "label": "Corner Radius", "min": 0, "max": 100, "default": 0 },
+    { "type": "range", "id": "card_2_btn_fs", "label": "Font Size", "min": 10, "max": 40, "default": 16 },
+    { "type": "range", "id": "card_2_btn_w_dt", "label": "Width % (Desktop)", "min": 10, "max": 100, "default": 50 },
+    { "type": "range", "id": "card_2_btn_w_mb", "label": "Width % (Mobile)", "min": 10, "max": 100, "default": 100 },
+
+    { "type": "header", "content": "Card 2 - Typography Detail" },
+    { "type": "font_picker", "id": "card_2_subheading_font", "label": "SH Font", "default": "sans-serif" },
+    { "type": "range", "id": "card_2_subheading_weight", "label": "SH Weight", "min": 100, "max": 900, "step": 100, "default": 700 },
+    { "type": "range", "id": "card_2_subheading_size_desktop", "label": "SH Size (DT)", "min": 8, "max": 40, "default": 14 },
+    { "type": "range", "id": "card_2_subheading_size_mobile", "label": "SH Size (MB)", "min": 8, "max": 30, "default": 12 },
+    { "type": "range", "id": "card_2_subheading_line_height", "label": "SH Line Height", "min": 0.8, "max": 2.0, "step": 0.1, "default": 1.2 },
+    { "type": "range", "id": "card_2_subheading_letter_spacing", "label": "SH Letter Spacing", "min": 0, "max": 10, "default": 1 },
+    { "type": "color", "id": "card_2_subheading_color", "label": "SH Color", "default": "#888888" },
+    { "type": "font_picker", "id": "card_2_title_font", "label": "Title Font", "default": "serif" },
+    { "type": "range", "id": "card_2_title_weight", "label": "Title Weight", "min": 100, "max": 900, "step": 100, "default": 600 },
+    { "type": "range", "id": "card_2_title_size_desktop", "label": "Title Size (DT)", "min": 10, "max": 80, "default": 32 },
+    { "type": "range", "id": "card_2_title_size_mobile", "label": "Title Size (MB)", "min": 10, "max": 50, "default": 24 },
+    { "type": "range", "id": "card_2_title_line_height", "label": "Title Line Height", "min": 0.8, "max": 2.0, "step": 0.1, "default": 1.1 },
+    { "type": "color", "id": "card_2_title_color", "label": "Title Color", "default": "#000000" },
+    { "type": "font_picker", "id": "card_2_body_font", "label": "Body Font", "default": "sans-serif" },
+    { "type": "range", "id": "card_2_body_weight", "label": "Body Weight", "min": 100, "max": 900, "step": 100, "default": 400 },
+    { "type": "range", "id": "card_2_body_size_desktop", "label": "Body Size (DT)", "min": 8, "max": 30, "default": 16 },
+    { "type": "range", "id": "card_2_body_size_mobile", "label": "Body Size (MB)", "min": 8, "max": 24, "default": 14 },
+    { "type": "range", "id": "card_2_body_line_height", "label": "Body Line Height", "min": 1.0, "max": 2.5, "step": 0.1, "default": 1.6 },
+    { "type": "color", "id": "card_2_body_color", "label": "Body Color", "default": "#444444" },
+
+    { "type": "header", "content": "Card 2 - Visual Styling" },
+    { "type": "color", "id": "card_2_background_color", "label": "Card BG Color", "default": "#ffffff" },
+    { "type": "range", "id": "card_2_border_width", "label": "Border Width", "min": 0, "max": 10, "default": 1 },
+    { "type": "color", "id": "card_2_border_color", "label": "Border Color", "default": "#eeeeee" },
+    { "type": "range", "id": "card_2_corner_radius", "label": "Card Radius", "min": 0, "max": 100, "default": 0 },
+    { "type": "range", "id": "card_2_image_height_desktop", "label": "Img Height (DT)", "min": 100, "max": 800, "step": 10, "default": 450 },
+    { "type": "range", "id": "card_2_image_height_mobile", "label": "Img Height (MB)", "min": 100, "max": 500, "step": 10, "default": 300 },
+    { "type": "range", "id": "card_2_image_margin", "label": "Img Outer Margin", "min": 0, "max": 50, "default": 0 },
+    { "type": "range", "id": "card_2_image_radius", "label": "Img Radius", "min": 0, "max": 50, "default": 0 },
+    { "type": "range", "id": "card_2_content_padding_desktop", "label": "Content Pad (DT)", "min": 0, "max": 100, "default": 40 },
+    { "type": "range", "id": "card_2_content_padding_mobile", "label": "Content Pad (MB)", "min": 0, "max": 60, "default": 20 }
+  ],
+  "presets": [{ "name": "Absolute Custom V3" }]
+}
+{% endschema %}

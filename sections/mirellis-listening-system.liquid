@@ -1,0 +1,768 @@
+<section class="mirellis-listening">
+  <div id="listening-app"></div>
+</section>
+
+<style>
+
+header,
+footer,
+.shopify-section-header,
+.site-header {
+  display: none !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.mirellis-listening {
+  background: #faf7f2;
+  min-height: 100vh;
+  padding: 60px 20px;
+  color: #1a1a18;
+  font-family: inherit;
+}
+
+.listening-screen {
+  display: none;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.listening-screen.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Screen 0 - Selector */
+.listening-selector__heading {
+  font-size: 28px;
+  line-height: 1.3;
+  margin: 0 0 60px 0;
+  font-weight: 500;
+  max-width: 540px;
+}
+
+.listening-selector__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.listening-state-card {
+  display: block;
+  background: white;
+  border: 1px solid rgba(26,26,24,0.12);
+  padding: 32px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.listening-state-card:hover {
+  border-color: rgba(26,26,24,0.25);
+  transform: translateY(-2px);
+}
+
+/* Screen 1 - Recognition */
+.listening-recognition {
+  text-align: center;
+}
+
+.listening-recognition__label {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(26,26,24,0.5);
+  margin-bottom: 40px;
+}
+
+.listening-recognition__text {
+  font-size: 22px;
+  line-height: 1.6;
+  margin-bottom: 80px;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.listening-environments {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Screen 2 - Environment Cards */
+.listening-environment-card {
+  display: block;
+  background: white;
+  border: 1px solid rgba(26,26,24,0.12);
+  padding: 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.listening-environment-card:hover {
+  border-color: rgba(26,26,24,0.25);
+}
+
+.listening-environment-card__name {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0 0 12px 0;
+}
+
+.listening-environment-card__description {
+  font-size: 15px;
+  color: rgba(26,26,24,0.6);
+  margin: 0 0 16px 0;
+  line-height: 1.5;
+}
+
+.listening-environment-card__meta {
+  display: flex;
+  gap: 24px;
+  font-size: 13px;
+  color: rgba(26,26,24,0.5);
+  margin-bottom: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(26,26,24,0.08);
+}
+
+.listening-environment-card__button {
+  display: inline-block;
+  background: #1a1a18;
+  color: #faf7f2;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.2s ease;
+}
+
+.listening-environment-card__button:hover {
+  background: rgba(26,26,24,0.85);
+}
+
+.listening-back-link {
+  display: block;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 13px;
+  color: rgba(26,26,24,0.5);
+}
+
+.listening-back-link a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(26,26,24,0.2);
+  cursor: pointer;
+}
+
+.listening-back-link a:hover {
+  border-color: rgba(26,26,24,0.4);
+}
+
+/* Screen 3 - Active Session */
+.listening-session {
+  text-align: center;
+}
+
+.listening-session__header {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(26,26,24,0.5);
+  margin-bottom: 40px;
+}
+
+.listening-session__header span {
+  font-weight: 500;
+}
+
+.listening-spotify-embed {
+  width: 100%;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.listening-session__duration {
+  font-size: 14px;
+  color: rgba(26,26,24,0.6);
+  margin-bottom: 60px;
+}
+
+.listening-session__button {
+  display: inline-block;
+  background: #1a1a18;
+  color: #faf7f2;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.2s ease;
+}
+
+.listening-session__button:hover {
+  background: rgba(26,26,24,0.85);
+}
+
+/* Screen 4 - Reflection */
+.listening-reflection {
+  text-align: center;
+}
+
+.listening-reflection__text {
+  font-size: 28px;
+  margin-bottom: 80px;
+  font-weight: 500;
+}
+
+.listening-reflection__options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 60px;
+}
+
+.listening-reflection__option {
+  display: block;
+  background: white;
+  border: 1px solid rgba(26,26,24,0.12);
+  padding: 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: left;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+.listening-reflection__option:hover {
+  border-color: rgba(26,26,24,0.25);
+  background: #ffffff;
+}
+
+.listening-reflection__skip {
+  font-size: 13px;
+  color: rgba(26,26,24,0.5);
+}
+
+.listening-reflection__skip a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(26,26,24,0.2);
+  cursor: pointer;
+}
+
+/* Screen 5 - Complete */
+.listening-complete {
+  text-align: center;
+}
+
+.listening-complete__text {
+  font-size: 22px;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+.listening-complete__divider {
+  border: none;
+  border-top: 1px solid rgba(26,26,24,0.12);
+  margin: 40px 0;
+}
+
+.listening-complete__summary {
+  font-size: 15px;
+  color: rgba(26,26,24,0.6);
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.listening-complete__button {
+  display: inline-block;
+  background: #1a1a18;
+  color: #faf7f2;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.2s ease;
+}
+
+.listening-complete__button:hover {
+  background: rgba(26,26,24,0.85);
+}
+
+@media (max-width: 640px) {
+  .mirellis-listening {
+    padding: 40px 16px;
+  }
+
+  .listening-selector__heading {
+    font-size: 22px;
+    margin-bottom: 40px;
+  }
+
+  .listening-selector__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .listening-state-card {
+    padding: 24px 20px;
+    font-size: 15px;
+  }
+
+  .listening-recognition__text {
+    font-size: 18px;
+    margin-bottom: 60px;
+  }
+
+  .listening-environment-card {
+    padding: 24px;
+  }
+
+  .listening-session__header {
+    margin-bottom: 30px;
+  }
+
+  .listening-reflection__text {
+    font-size: 22px;
+    margin-bottom: 60px;
+  }
+
+  .listening-reflection__option {
+    padding: 20px;
+    font-size: 16px;
+  }
+
+  .listening-complete__text {
+    font-size: 18px;
+  }
+}
+
+</style>
+
+<script>
+
+const STATES = {
+  waking: {
+    label: 'Waking Up',
+    recognition: 'The day has already begun before you have decided to enter it. The first signals the nervous system receives shape everything that follows.',
+    environments: ['Dawn', 'Orienting', 'Threshold']
+  },
+  starting: {
+    label: 'Starting Work',
+    recognition: 'Attention is available but unfocused. The transition into sustained presence requires a threshold — a moment that signals: this is where depth begins.',
+    environments: ['Entry', 'Focus Gate', 'Threshold']
+  },
+  focus: {
+    label: 'Deep Focus',
+    recognition: 'The environment around you is designed to interrupt. Sustained presence is not a discipline problem — it is an architecture problem.',
+    environments: ['Sustained', 'Deep Field', 'Return']
+  },
+  ending: {
+    label: 'Ending Work',
+    recognition: 'The day ends on the calendar. Not in the nervous system. Without a signal that the chapter has closed, recovery cannot begin.',
+    environments: ['Descent', 'Ground', 'Close']
+  },
+  overwhelmed: {
+    label: 'Feeling Overwhelmed',
+    recognition: 'The nervous system has received more signals than it can process in sequence. This is not weakness. This is what accumulated stimulation feels like from the inside.',
+    environments: ['Return', 'Space', 'Anchor']
+  },
+  rest: {
+    label: 'Preparing for Rest',
+    recognition: 'The descent into genuine rest requires a designed ending. Without one, the nervous system stays activated long past the point where sleep becomes possible.',
+    environments: ['Evening', 'Release', 'Threshold']
+  },
+  restore: {
+    label: 'Restoring Energy',
+    recognition: 'Not all depletion requires sleep. Some transitions require only a different quality of attention — one that moves inward rather than outward.',
+    environments: ['Restore', 'Renewal', 'Pause']
+  },
+  reflect: {
+    label: 'Open Reflection',
+    recognition: 'Some transitions do not have a name. They are simply the experience of needing to be somewhere quieter than where you currently are.',
+    environments: ['Quiet', 'Drift', 'Presence']
+  }
+};
+
+const ENVIRONMENTS = {
+  'Dawn': {
+    description: 'Before the phone. Before the day names itself.',
+    duration: '10 min',
+    series: 'Morning Clarity'
+  },
+  'Orienting': {
+    description: 'Gentle activation without urgency.',
+    duration: '15 min',
+    series: 'Flow'
+  },
+  'Threshold': {
+    description: 'The moment between sleep and wakefulness.',
+    duration: '8 min',
+    series: 'Ground'
+  },
+  'Entry': {
+    description: 'A clear signal that depth begins here.',
+    duration: '20 min',
+    series: 'Flow'
+  },
+  'Focus Gate': {
+    description: 'For transitioning into sustained presence.',
+    duration: '30 min',
+    series: 'Fire'
+  },
+  'Sustained': {
+    description: 'For work that requires uninterrupted presence.',
+    duration: '45 min',
+    series: 'Flow'
+  },
+  'Deep Field': {
+    description: 'Extended concentration without fatigue.',
+    duration: '60 min',
+    series: 'Fire'
+  },
+  'Return': {
+    description: 'Coming back after interruption.',
+    duration: '20 min',
+    series: 'Flow'
+  },
+  'Descent': {
+    description: 'For the transition out of sustained engagement.',
+    duration: '20 min',
+    series: 'Stillness'
+  },
+  'Ground': {
+    description: 'For when the mind is still moving.',
+    duration: '15 min',
+    series: 'Ground'
+  },
+  'Close': {
+    description: 'A defined ending for the professional chapter.',
+    duration: '25 min',
+    series: 'Stillness'
+  },
+  'Space': {
+    description: 'Not silence. Held space.',
+    duration: '20 min',
+    series: 'Stillness'
+  },
+  'Anchor': {
+    description: 'Something to hold while the activation subsides.',
+    duration: '10 min',
+    series: 'Ground'
+  },
+  'Evening': {
+    description: 'The designed descent begins here.',
+    duration: '30 min',
+    series: 'Stillness'
+  },
+  'Release': {
+    description: 'For releasing the accumulated tension of the day.',
+    duration: '25 min',
+    series: 'Stillness'
+  },
+  'Restore': {
+    description: 'Not sleep. A different quality of stillness.',
+    duration: '20 min',
+    series: 'Ground'
+  },
+  'Renewal': {
+    description: 'For depletion that requires inward attention.',
+    duration: '25 min',
+    series: 'Stillness'
+  },
+  'Pause': {
+    description: 'The intentional stop that makes continuation possible.',
+    duration: '15 min',
+    series: 'Ground'
+  },
+  'Quiet': {
+    description: 'No agenda. No outcome. Just space.',
+    duration: 'Open',
+    series: 'Stillness'
+  },
+  'Drift': {
+    description: 'For when direction is unclear.',
+    duration: 'Open',
+    series: 'Ground'
+  },
+  'Presence': {
+    description: 'Simply being somewhere quieter.',
+    duration: 'Open',
+    series: 'Stillness'
+  }
+};
+
+const STATE = {
+  stage: 0,
+  selectedState: null,
+  selectedEnvironment: null,
+  reflection: null,
+  preloaded: false
+};
+
+function init() {
+  const params = new URLSearchParams(window.location.search);
+  const transition = params.get('transition');
+
+  if (transition) {
+    STATE.preloaded = true;
+    STATE.selectedState = mapTransition(transition);
+    if (STATE.selectedState) {
+      STATE.stage = 2;
+    }
+  }
+
+  render();
+}
+
+function mapTransition(param) {
+  const mapping = {
+    'sw': 'waking', 'waking': 'waking',
+    'fl': 'starting', 'starting': 'starting', 'focus': 'focus',
+    'wr': 'ending', 'ending': 'ending',
+    'str': 'overwhelmed', 'overwhelmed': 'overwhelmed',
+    'rest': 'rest', 'restore': 'restore', 'reflect': 'reflect'
+  };
+  return mapping[param] || null;
+}
+
+function render() {
+  const app = document.getElementById('listening-app');
+  app.innerHTML = '';
+
+  if (STATE.stage === 0) {
+    renderSelector(app);
+  } else if (STATE.stage === 1) {
+    renderRecognition(app);
+  } else if (STATE.stage === 2) {
+    renderEnvironments(app);
+  } else if (STATE.stage === 3) {
+    renderSession(app);
+  } else if (STATE.stage === 4) {
+    renderReflection(app);
+  } else if (STATE.stage === 5) {
+    renderComplete(app);
+  }
+}
+
+function renderSelector(app) {
+  const html = `
+    <div class="listening-screen active">
+      <h1 class="listening-selector__heading">What are you transitioning from?</h1>
+      <div class="listening-selector__grid">
+        ${Object.entries(STATES).map(([key, state]) => `
+          <button class="listening-state-card" onclick="selectState('${key}')">
+            ${state.label}
+          </button>
+        `).join('')}
+      </div>
+    </div>
+  `;
+  app.innerHTML = html;
+}
+
+function selectState(key) {
+  STATE.selectedState = key;
+  STATE.stage = 1;
+  render();
+}
+
+function renderRecognition(app) {
+  const state = STATES[STATE.selectedState];
+  const html = `
+    <div class="listening-screen active">
+      <div class="listening-recognition">
+        <p class="listening-recognition__label">${state.label}</p>
+        <p class="listening-recognition__text">${state.recognition}</p>
+        <div class="listening-environments">
+          ${state.environments.map(env => `
+            <button class="listening-environment-card" onclick="selectEnvironment('${env}')">
+              <h3 class="listening-environment-card__name">${env}</h3>
+              <p class="listening-environment-card__description">${ENVIRONMENTS[env].description}</p>
+              <div class="listening-environment-card__meta">
+                <span>${ENVIRONMENTS[env].duration}</span>
+                <span>${ENVIRONMENTS[env].series}</span>
+              </div>
+              <button class="listening-environment-card__button" onclick="event.stopPropagation(); selectEnvironment('${env}')">
+                Begin this environment
+              </button>
+            </button>
+          `).join('')}
+        </div>
+        ${STATE.preloaded ? `
+          <div class="listening-back-link">
+            <a onclick="goBack()">Not this transition? →</a>
+          </div>
+        ` : ''}
+      </div>
+    </div>
+  `;
+  app.innerHTML = html;
+}
+
+function renderEnvironments(app) {
+  const state = STATES[STATE.selectedState];
+  const html = `
+    <div class="listening-screen active">
+      <div class="listening-recognition">
+        <p class="listening-recognition__label">${state.label}</p>
+        <p class="listening-recognition__text">${state.recognition}</p>
+        <div class="listening-environments">
+          ${state.environments.map(env => `
+            <button class="listening-environment-card" onclick="selectEnvironment('${env}')">
+              <h3 class="listening-environment-card__name">${env}</h3>
+              <p class="listening-environment-card__description">${ENVIRONMENTS[env].description}</p>
+              <div class="listening-environment-card__meta">
+                <span>${ENVIRONMENTS[env].duration}</span>
+                <span>${ENVIRONMENTS[env].series}</span>
+              </div>
+              <button class="listening-environment-card__button" onclick="event.stopPropagation(); selectEnvironment('${env}')">
+                Begin this environment
+              </button>
+            </button>
+          `).join('')}
+        </div>
+        ${STATE.preloaded ? `
+          <div class="listening-back-link">
+            <a onclick="goBack()">Not this transition? →</a>
+          </div>
+        ` : ''}
+      </div>
+    </div>
+  `;
+  app.innerHTML = html;
+}
+
+function selectEnvironment(env) {
+  STATE.selectedEnvironment = env;
+  STATE.stage = 3;
+  render();
+}
+
+function goBack() {
+  STATE.stage = 0;
+  STATE.selectedState = null;
+  STATE.preloaded = false;
+  window.history.replaceState({}, '', window.location.pathname);
+  render();
+}
+
+function renderSession(app) {
+  const env = ENVIRONMENTS[STATE.selectedEnvironment];
+  const state = STATES[STATE.selectedState];
+  const html = `
+    <div class="listening-screen active">
+      <div class="listening-session">
+        <p class="listening-session__header">
+          <span>${state.label}</span> → ${STATE.selectedEnvironment}
+        </p>
+        <iframe class="listening-spotify-embed" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX3Ogo9pFvBkY" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        <p class="listening-session__duration">${env.duration}</p>
+        <button class="listening-session__button" onclick="endSession()">I am done</button>
+      </div>
+    </div>
+  `;
+  app.innerHTML = html;
+}
+
+function endSession() {
+  STATE.stage = 4;
+  render();
+}
+
+function renderReflection(app) {
+  const html = `
+    <div class="listening-screen active">
+      <div class="listening-reflection">
+        <p class="listening-reflection__text">Did something shift?</p>
+        <div class="listening-reflection__options">
+          <button class="listening-reflection__option" onclick="setReflection('Yes')">Yes</button>
+          <button class="listening-reflection__option" onclick="setReflection('Partially')">Partially</button>
+          <button class="listening-reflection__option" onclick="setReflection('Not yet')">Not yet</button>
+        </div>
+        <p class="listening-reflection__skip">
+          <a onclick="setReflection(null)">Continue →</a>
+        </p>
+      </div>
+    </div>
+  `;
+  app.innerHTML = html;
+}
+
+function setReflection(answer) {
+  STATE.reflection = answer;
+  STATE.stage = 5;
+  render();
+}
+
+function renderComplete(app) {
+  const state = STATES[STATE.selectedState];
+  const html = `
+    <div class="listening-screen active">
+      <div class="listening-complete">
+        <p class="listening-complete__text">The transition is recorded.</p>
+        <hr class="listening-complete__divider">
+        <div class="listening-complete__summary">
+          <p><strong>${state.label}</strong> → <strong>${STATE.selectedEnvironment}</strong></p>
+          ${STATE.reflection ? `<p>${STATE.reflection}</p>` : ''}
+        </div>
+        <hr class="listening-complete__divider">
+        <button class="listening-complete__button" onclick="restart()">Begin another transition</button>
+      </div>
+    </div>
+  `;
+  app.innerHTML = html;
+}
+
+function restart() {
+  STATE.stage = 0;
+  STATE.selectedState = null;
+  STATE.selectedEnvironment = null;
+  STATE.reflection = null;
+  render();
+}
+
+document.addEventListener('DOMContentLoaded', init);
+
+</script>
+
+{% schema %}
+{
+  "name": "Mirellis Listening System"
+}
+{% endschema %}

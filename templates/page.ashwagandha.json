@@ -1,0 +1,128 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "ingredient-hero",
+      "settings": {
+        "title": "Ashwagandha — The Feeling of Internal Restoration",
+        "description": "<p>Some ingredients do not energize the body immediately. They create the feeling of recovery instead — slower breathing, reduced internal strain, and the gradual return of emotional steadiness.</p>"
+      }
+    },
+
+    "philosophy": {
+      "type": "ingredient-philosophy",
+      "settings": {
+        "text": "<p>Ashwagandha has historically been associated with restoration, adaptation, recovery, and nervous-system resilience. Within Mirellis formulations, Ashwagandha is approached not simply as a functional botanical ingredient, but as part of the sensory architecture of internal repair itself.</p><p>Modern life often keeps the body inside prolonged physiological strain — accelerated schedules, fragmented attention, chronic stimulation, and emotional exhaustion. Mirellis approaches ritual differently. The intention is not performance optimization, but restoration.</p><p>Ashwagandha introduces steadiness into the emotional atmosphere of ritual. The sensory experience feels calmer, slower, and less internally effortful. Rather than pushing the nervous system forward, the experience encourages gradual recovery through repetition.</p><p>Over repeated use, the body begins recognizing these slower sensory environments as emotionally restorative. Ritual becomes associated with repair rather than output.</p>"
+      }
+    },
+
+    "image_break_1": {
+      "type": "ingredient-image-break",
+      "settings": {
+        "caption": "Restoration often begins as the absence of internal strain rather than the presence of stimulation."
+      }
+    },
+
+    "ritual_practice": {
+      "type": "ingredient-ritual-practice",
+      "settings": {
+        "text": "<p>Before conscious thought fully organizes itself, the body has already begun responding to emotional pacing, sensory familiarity, repetition, and physiological atmosphere. Rituals are often recognized physically before they become conceptual.</p><p>Within ritual practice, Ashwagandha creates a slower emotional environment around recovery itself. The experience feels steady rather than urgent, restorative rather than activating. Internal movement gradually softens through repetition.</p><p>Over time, the nervous system begins associating these sensory rhythms with restoration and emotional steadiness. The ritual becomes part of how the body exits prolonged internal strain.</p>"
+      }
+    },
+
+    "roles": {
+      "type": "ingredient-roles",
+      "blocks": {
+        "role_1": {
+          "type": "role",
+          "settings": {
+            "title": "Internal Restoration",
+            "description": "<p>Ashwagandha creates a calmer sensory atmosphere around recovery through slower emotional pacing and nervous-system steadiness.</p>"
+          }
+        },
+
+        "role_2": {
+          "type": "role",
+          "settings": {
+            "title": "Adaptational Support",
+            "description": "<p>The ritual experience encourages emotional resilience through repetition, familiarity, and reduced internal friction.</p>"
+          }
+        },
+
+        "role_3": {
+          "type": "role",
+          "settings": {
+            "title": "Formulation Stability",
+            "description": "<p>Ashwagandha introduces emotional steadiness into the formulation architecture while supporting restorative ritual pacing.</p>"
+          }
+        },
+
+        "role_4": {
+          "type": "role",
+          "settings": {
+            "title": "Recovery Rhythm",
+            "description": "<p>Within Mirellis Ritual Systems, Ashwagandha helps create a slower transition away from accumulated internal strain.</p>"
+          }
+        }
+      },
+
+      "block_order": [
+        "role_1",
+        "role_2",
+        "role_3",
+        "role_4"
+      ],
+
+      "settings": {}
+    },
+
+    "research": {
+      "type": "ingredient-research-notes",
+      "blocks": {
+        "note_1": {
+          "type": "note",
+          "settings": {
+            "title": "Ashwagandha & Stress Adaptation Research",
+            "text": "<p>Ashwagandha has been widely studied within discussions related to stress physiology, nervous-system adaptation, emotional resilience, and recovery processes. Emerging research continues exploring how repeated exposure to certain botanical compounds may influence perceived stress response and physiological restoration over time.</p>"
+          }
+        },
+
+        "note_2": {
+          "type": "note",
+          "settings": {
+            "title": "Traditional Restorative Context",
+            "text": "<p>Historically, Ashwagandha has occupied an important role within restorative and strengthening ritual environments emphasizing recovery, nourishment, steadiness, and long-term resilience. Within Mirellis formulations, Ashwagandha is approached through this broader relationship between atmosphere, repetition, and emotional restoration.</p>"
+          }
+        }
+      },
+
+      "block_order": [
+        "note_1",
+        "note_2"
+      ],
+
+      "settings": {}
+    },
+
+    "closing": {
+      "type": "ingredient-closing-statement",
+      "settings": {
+        "text": "The nervous system restores itself gradually through repetition, familiarity, and reduced internal strain. Recovery is often recognized by the body long before the mind fully understands it."
+      }
+    }
+  },
+
+  "order": [
+    "hero",
+    "philosophy",
+    "image_break_1",
+    "ritual_practice",
+    "roles",
+    "research",
+    "closing"
+  ]
+}

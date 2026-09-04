@@ -1,0 +1,47 @@
+{%- comment -%}
+  MIRELLIS — PDP COMPANION  ("The transition before this one" · reusable)
+  Book I: Journey 6 (Decision) · resolves Uncertainty 4 (Personal relevance), 11 (Philosophy) · Dim B.
+  Not an upsell — a systems statement: this product sits inside a set of transitions.
+  All copy is settings; empty-safe; quiet bordered panel, no icons.
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+<section class="pdcp">
+  <div class="pdcp__inner">
+    <div class="pdcp__panel">
+      {%- if s.eyebrow != blank -%}<div class="pdcp__eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+      {%- if s.body != blank -%}<div class="pdcp__body">{{ s.body }}</div>{%- endif -%}
+      <div class="pdcp__links">
+        {%- if s.link1_label != blank and s.link1_url != blank -%}<a href="{{ s.link1_url }}">{{ s.link1_label }}</a>{%- endif -%}
+        {%- if s.link2_label != blank and s.link2_url != blank -%}<span class="pdcp__dot">·</span><a href="{{ s.link2_url }}">{{ s.link2_label }}</a>{%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pdcp { background: var(--ml-color-warm-paper); padding-block: clamp(3rem, 7vw, 5.5rem); border-top: 1px solid var(--ml-color-border-soft); }
+  .pdcp__inner { max-width: 680px; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2rem); }
+  .pdcp__panel { padding: clamp(1.75rem, 4vw, 2.5rem); border: 1px solid var(--ml-color-border-soft); border-radius: 2px; background: rgba(0,0,0,0.012); }
+  .pdcp__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1.25rem; }
+  .pdcp__body p { font-size: clamp(1.1rem, 2.3vw, 1.3rem); font-weight: 300; line-height: 1.6; color: var(--ml-color-soft-charcoal); margin: 0 0 1rem; max-width: 52ch; }
+  .pdcp__body strong { font-weight: 500; }
+  .pdcp__links { margin-top: 1.25rem; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ml-color-muted-earth); }
+  .pdcp__links a { color: var(--ml-color-soft-charcoal); text-underline-offset: 3px; }
+  .pdcp__dot { margin-inline: 0.7rem; opacity: 0.5; }
+</style>
+
+{% schema %}
+{
+  "name": "PDP · Companion",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The transition before this one" },
+    { "type": "richtext", "id": "body", "label": "Body", "default": "<p>The clarity of a morning is shaped by how the evening ended. <strong>Stillness Elixir</strong> exists for the Work → Recovery crossing — the signal that tells the nervous system the day is finished, so the morning can begin differently.</p>" },
+    { "type": "text", "id": "link1_label", "label": "Link 1 label", "default": "Stillness Elixir →" },
+    { "type": "url", "id": "link1_url", "label": "Link 1 url" },
+    { "type": "text", "id": "link2_label", "label": "Link 2 label", "default": "The three transitions →" },
+    { "type": "url", "id": "link2_url", "label": "Link 2 url" }
+  ],
+  "presets": [{ "name": "PDP · Companion" }]
+}
+{% endschema %}

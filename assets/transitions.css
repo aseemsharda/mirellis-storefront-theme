@@ -1,0 +1,278 @@
+/* =========================================================
+   MIRELLIS TRANSITIONS GATEWAY — COMPANION CSS
+   All values use --ml-* tokens from mirellis-tokens.css.
+   No hardcoded hex values.
+   ========================================================= */
+
+
+/* ── SHARED ──────────────────────────────────────────────── */
+
+.tg-eyebrow {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.tg__text-link {
+  display: inline-block;
+  color: var(--ml-color-text-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ml-color-border-soft);
+  padding-bottom: 0.2em;
+  transition:
+    border-color var(--ml-motion-medium) var(--ml-ease-soft),
+    color var(--ml-motion-medium) var(--ml-ease-soft);
+}
+
+.tg__text-link:hover {
+  border-color: var(--ml-color-text-secondary);
+  color: var(--ml-color-soft-charcoal);
+}
+
+
+/* ── HEADER ──────────────────────────────────────────────── */
+
+.tg__header {
+  background: var(--ml-color-warm-paper);
+  padding-block: var(--ml-space-2xl);
+  text-align: center;
+}
+
+.tg__header .ml-display-heading {
+  max-width: 18ch;
+  margin-inline: auto;
+}
+
+.tg__header .ml-contemplative-copy {
+  margin-inline: auto;
+}
+
+
+/* ── TRANSITION CARDS: CONTAINER ─────────────────────────── */
+
+.tg__cards {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ── TRANSITION CARD ─────────────────────────────────────── */
+
+.tg-card {
+  background: var(--ml-color-warm-paper);
+  border-top: 1px solid var(--ml-color-border-soft);
+}
+
+.tg-card--alt {
+  background: var(--ml-color-linen-cream);
+}
+
+.tg-card__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 540px;
+  max-width: var(--ml-container-wide);
+  margin-inline: auto;
+}
+
+.tg-card__inner--content-only {
+  grid-template-columns: 1fr;
+  min-height: auto;
+  max-width: var(--ml-container-reading);
+  padding-block: var(--ml-space-2xl);
+  padding-inline: var(--ml-container-padding-desktop);
+}
+
+
+/* ── CARD: IMAGE ─────────────────────────────────────────── */
+
+.tg-card__media {
+  position: relative;
+  overflow: hidden;
+}
+
+.tg-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition:
+    transform var(--ml-motion-slow) var(--ml-ease-atmospheric);
+}
+
+.tg-card:hover .tg-card__img {
+  transform: scale(1.02);
+}
+
+
+/* ── CARD: CONTENT ───────────────────────────────────────── */
+
+.tg-card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--ml-space-lg);
+  padding: var(--ml-space-2xl) var(--ml-container-padding-desktop);
+}
+
+.tg-card__index {
+  color: var(--ml-color-text-soft);
+}
+
+.tg-card__label {
+  max-width: 100%;
+  margin-bottom: 0;
+  color: var(--ml-color-soft-charcoal);
+}
+
+.tg-card__experience {
+  max-width: 40ch;
+  margin-bottom: 0;
+  font-style: italic;
+  color: var(--ml-color-text-secondary);
+  font-size: var(--ml-text-body-lg);
+  line-height: var(--ml-leading-relaxed);
+}
+
+.tg-card__tool {
+  color: var(--ml-color-text-soft);
+  letter-spacing: 0.06em;
+}
+
+.tg-card__cta {
+  display: inline-block;
+  align-self: flex-start;
+  color: var(--ml-color-text-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ml-color-border-soft);
+  padding-bottom: 0.2em;
+  transition:
+    border-color var(--ml-motion-medium) var(--ml-ease-soft),
+    color var(--ml-motion-medium) var(--ml-ease-soft);
+}
+
+.tg-card__cta:hover {
+  border-color: var(--ml-color-text-secondary);
+  color: var(--ml-color-soft-charcoal);
+}
+
+
+/* ── METHOD ──────────────────────────────────────────────── */
+
+.tg__method {
+  background: var(--ml-color-warm-paper);
+  border-top: 1px solid var(--ml-color-border-soft);
+  padding-block: var(--ml-space-2xl);
+  text-align: center;
+}
+
+.tg__method .ml-section-heading {
+  max-width: 24ch;
+  margin-inline: auto;
+}
+
+.tg__method .ml-body-copy {
+  margin-inline: auto;
+}
+
+
+/* ── OBSERVATORY CALLOUT ─────────────────────────────────── */
+
+.tg__observatory {
+  background: var(--ml-color-linen-cream);
+  border-top: 1px solid var(--ml-color-border-soft);
+  padding-block: var(--ml-space-2xl);
+  text-align: center;
+}
+
+.tg__observatory .ml-section-heading {
+  max-width: 24ch;
+  margin-inline: auto;
+}
+
+.tg__observatory .ml-body-copy {
+  margin-inline: auto;
+}
+
+
+/* ── RESPONSIVE: TABLET ──────────────────────────────────── */
+
+@media screen and (max-width: 1024px) {
+  .tg-card__inner {
+    grid-template-columns: 1fr 1fr;
+    min-height: 440px;
+  }
+
+  .tg-card__content {
+    padding-inline: var(--ml-container-padding-tablet);
+    gap: var(--ml-space-md);
+  }
+
+  .tg-card__inner--content-only {
+    padding-inline: var(--ml-container-padding-tablet);
+  }
+}
+
+
+/* ── RESPONSIVE: MOBILE ──────────────────────────────────── */
+
+@media screen and (max-width: 768px) {
+  .tg__header {
+    padding-block: var(--ml-space-xl);
+    text-align: left;
+  }
+
+  .tg__header .ml-display-heading,
+  .tg__header .ml-contemplative-copy {
+    margin-inline: 0;
+  }
+
+  .tg-card__inner {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .tg-card__media {
+    min-height: 280px;
+    position: relative;
+  }
+
+  .tg-card__content {
+    padding: var(--ml-space-xl) var(--ml-container-padding-mobile);
+    gap: var(--ml-space-md);
+  }
+
+  .tg-card__inner--content-only {
+    padding: var(--ml-space-xl) var(--ml-container-padding-mobile);
+  }
+
+  .tg__method {
+    text-align: left;
+    padding-block: var(--ml-space-xl);
+  }
+
+  .tg__method .ml-section-heading,
+  .tg__method .ml-body-copy {
+    margin-inline: 0;
+  }
+
+  .tg__observatory {
+    text-align: left;
+    padding-block: var(--ml-space-xl);
+  }
+
+  .tg__observatory .ml-section-heading,
+  .tg__observatory .ml-body-copy {
+    margin-inline: 0;
+  }
+}
+
+
+/* ── REDUCED MOTION ──────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .tg-card__img {
+    transition: none;
+  }
+}

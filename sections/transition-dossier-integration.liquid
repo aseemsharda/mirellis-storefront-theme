@@ -1,0 +1,254 @@
+{% comment %}
+Transition Dossier Integration Section
+Related dossiers for a transition (intervention logic)
+{% endcomment %}
+
+<section class="transition-dossiers">
+  <div class="transition-dossiers__container">
+    
+    <div class="transition-dossiers__header">
+      <h2 class="transition-dossiers__title">Intervention Logic</h2>
+      <p class="transition-dossiers__subtitle">
+        From observation to action. Dossiers translate research into tools, approaches, and frameworks you can implement.
+      </p>
+    </div>
+
+    <div class="transition-dossiers__grid">
+      
+      <div class="transition-dossier-card">
+        
+        <div class="transition-dossier-card__header">
+          <h3 class="transition-dossier-card__title">
+            <a href="/pages/the-cold-exposure-protocol">The Cold Exposure Protocol</a>
+          </h3>
+        </div>
+
+        <p class="transition-dossier-card__description">
+          A structured cold-water exposure sequence designed to rapidly elevate core body temperature and activate your nervous system for wakefulness. Evidence-based timing, duration, and implementation guidance.
+        </p>
+
+        <ul class="transition-dossier-card__features">
+          <li>Step-by-step protocol (duration: 5-15 min)</li>
+          <li>Adaptation timeline and progression</li>
+          <li>Nervous system activation metrics</li>
+          <li>Safety contraindications and modifications</li>
+        </ul>
+
+        <div class="transition-dossier-card__cta">
+          <a href="/pages/the-cold-exposure-protocol" class="transition-dossier-card__link">
+            Explore Protocol →
+          </a>
+        </div>
+
+      </div>
+
+      <div class="transition-dossier-card">
+        
+        <div class="transition-dossier-card__header">
+          <h3 class="transition-dossier-card__title">
+            <a href="/pages/the-light-timing-framework">The Light Timing Framework</a>
+          </h3>
+        </div>
+
+        <p class="transition-dossier-card__description">
+          Leverage circadian biology by timing light exposure correctly. This framework maps your personal chronotype to optimal light timing, intensity, and duration for faster wakefulness onset.
+        </p>
+
+        <ul class="transition-dossier-card__features">
+          <li>Chronotype assessment checklist</li>
+          <li>Light intensity recommendations (lux)</li>
+          <li>Window timing for different seasons</li>
+          <li>Device and location guidance</li>
+        </ul>
+
+        <div class="transition-dossier-card__cta">
+          <a href="/pages/the-light-timing-framework" class="transition-dossier-card__link">
+            Explore Framework →
+          </a>
+        </div>
+
+      </div>
+
+      <div class="transition-dossier-card">
+        
+        <div class="transition-dossier-card__header">
+          <h3 class="transition-dossier-card__title">
+            <a href="/pages/the-anchor-sequence">The Anchor Sequence</a>
+          </h3>
+        </div>
+
+        <p class="transition-dossier-card__description">
+          Build an automatic transition into wakefulness using micro-habits. This dossier provides templates for designing a personal anchor sequence that trains your nervous system to respond predictably.
+        </p>
+
+        <ul class="transition-dossier-card__features">
+          <li>Anchor selection criteria (sensory vs. behavioral)</li>
+          <li>Sequence design template</li>
+          <li>Implementation timeline (14-30 days)</li>
+          <li>Progress tracking and troubleshooting</li>
+        </ul>
+
+        <div class="transition-dossier-card__cta">
+          <a href="/pages/the-anchor-sequence" class="transition-dossier-card__link">
+            Explore Sequence →
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .transition-dossiers {
+    padding: 4rem 2rem;
+    background: #fff;
+  }
+
+  .transition-dossiers__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .transition-dossiers__header {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .transition-dossiers__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: #1a1a18;
+    margin: 0 0 1rem 0;
+  }
+
+  .transition-dossiers__subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .transition-dossiers__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .transition-dossier-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background: #faf7f2;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+
+  .transition-dossier-card:hover {
+    background: #f5f2ed;
+  }
+
+  .transition-dossier-card__header {
+    margin-bottom: 1rem;
+  }
+
+  .transition-dossier-card__title {
+    margin: 0;
+  }
+
+  .transition-dossier-card__title a {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #1a1a18;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+  }
+
+  .transition-dossier-card__title a:hover {
+    color: #666;
+  }
+
+  .transition-dossier-card__description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #666;
+    margin: 0 0 1.25rem 0;
+    flex-grow: 1;
+  }
+
+  .transition-dossier-card__features {
+    list-style: none;
+    margin: 0 0 1.5rem 0;
+    padding: 0;
+  }
+
+  .transition-dossier-card__features li {
+    font-size: 0.9rem;
+    color: #666;
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .transition-dossier-card__features li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: #999;
+    font-size: 0.6rem;
+    line-height: 1.4;
+  }
+
+  .transition-dossier-card__cta {
+    margin-top: auto;
+  }
+
+  .transition-dossier-card__link {
+    display: inline-block;
+    color: #1a1a18;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .transition-dossier-card__link:hover {
+    color: #666;
+  }
+
+  @media (max-width: 768px) {
+    .transition-dossiers {
+      padding: 3rem 1.5rem;
+    }
+
+    .transition-dossiers__title {
+      font-size: 1.5rem;
+    }
+
+    .transition-dossiers__subtitle {
+      font-size: 0.95rem;
+    }
+
+    .transition-dossiers__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .transition-dossier-card {
+      padding: 1.5rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Dossier Integration",
+  "settings": []
+}
+{% endschema %}

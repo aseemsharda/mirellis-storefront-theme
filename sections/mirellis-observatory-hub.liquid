@@ -1,0 +1,70 @@
+{%- comment -%}
+  MIRELLIS — OBSERVATORY HUB  (Slice 9)
+  The Observatory as the connecting heart: links out to every part of the
+  campus — how we work, the three transitions, findings, dossiers, the Mirror,
+  and why each ritual exists. Self-contained styles, tokens, zero new CSS/JS.
+{%- endcomment -%}
+
+<section class="obh">
+  <div class="obh__inner">
+    <div class="obh__eyebrow">The map</div>
+    <h2 class="obh__heading">Everything connects back here.</h2>
+    <p class="obh__lede">The Observatory is where observations become findings, findings become interventions, and interventions become rituals. Every part of Mirellis is one node in that loop.</p>
+
+    <div class="obh__grid">
+      <div class="obh__col">
+        <div class="obh__label">The method</div>
+        <ul>
+          <li><a href="/pages/how-we-work">How we work</a></li>
+          <li><a href="/pages/why-we-exist">Why we exist</a></li>
+          <li><a href="/pages/about">About Mirellis</a></li>
+        </ul>
+      </div>
+      <div class="obh__col">
+        <div class="obh__label">The transitions</div>
+        <ul>
+          <li><a href="/pages/sleep-to-wakefulness">Sleep → Wakefulness</a></li>
+          <li><a href="/pages/work-to-recovery">Work → Recovery</a></li>
+          <li><a href="/pages/stimulation-to-restoration">Stimulation → Restoration</a></li>
+        </ul>
+      </div>
+      <div class="obh__col">
+        <div class="obh__label">The research</div>
+        <ul>
+          <li><a href="/pages/observatory-findings">Findings</a></li>
+          <li><a href="/pages/observatory-dossiers">Dossiers</a></li>
+          <li><a href="/pages/the-observatory-mirror">The Mirror</a></li>
+        </ul>
+      </div>
+      <div class="obh__col">
+        <div class="obh__label">Why the rituals exist</div>
+        <ul>
+          <li><a href="/pages/intervention-morning-clarity">Morning Clarity — the record</a></li>
+          <li><a href="/pages/intervention-stillness">Stillness Elixir — the record</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .obh { background: var(--ml-color-warm-paper); padding-block: clamp(3.5rem, 7vw, 6rem); border-top: 1px solid var(--ml-color-border-soft); }
+  .obh__inner { max-width: 960px; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2rem); }
+  .obh__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1.5rem; }
+  .obh__heading { font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 300; letter-spacing: -0.01em; line-height: 1.2; color: var(--ml-color-soft-charcoal); margin: 0 0 1.25rem; max-width: 20ch; }
+  .obh__lede { font-size: 1.0625rem; line-height: 1.9; color: var(--ml-color-text-secondary); max-width: 58ch; margin: 0 0 3rem; }
+  .obh__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2.5rem 2rem; }
+  .obh__label { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--ml-color-border-soft); }
+  .obh__col ul { list-style: none; margin: 0; padding: 0; }
+  .obh__col li { margin-bottom: 0.85rem; }
+  .obh__col a { font-size: 1rem; line-height: 1.5; color: var(--ml-color-soft-charcoal); text-underline-offset: 3px; text-decoration: none; }
+  .obh__col a:hover { text-decoration: underline; }
+</style>
+
+{% schema %}
+{
+  "name": "Observatory Hub",
+  "settings": [],
+  "presets": [{ "name": "Observatory Hub" }]
+}
+{% endschema %}

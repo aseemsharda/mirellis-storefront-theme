@@ -1,0 +1,82 @@
+{%- comment -%}
+  sections/dossiers-index.liquid
+  Auto-lists every Dossier metaobject entry. Goes on /pages/observatory-dossiers.
+  New Dossiers appear automatically. Order = admin entry order.
+{%- endcomment -%}
+
+<section class="mdi" id="mdi-{{ section.id }}">
+  <div class="mdi-wrap">
+
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="mdi-eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    <h1 class="mdi-title">{{ section.settings.heading | default: 'Dossiers' }}</h1>
+    {%- if section.settings.intro != blank -%}
+      <div class="mdi-intro">{{ section.settings.intro }}</div>
+    {%- endif -%}
+
+    <ol class="mdi-list">
+      {%- for d in shop.metaobjects.dossier.values -%}
+        {%- if d.system.url != blank -%}
+          <li class="mdi-item">
+            <a href="{{ d.system.url }}">
+              <span class="mdi-line">
+                <span class="mdi-num">Dossier {{ d.number.value }}</span>
+                {%- if d.status.value != blank -%}
+                  <span class="mdi-status">{{ d.status.value | upcase }}</span>
+                {%- endif -%}
+              </span>
+              <span class="mdi-item-title">{{ d.title.value }}</span>
+              {%- if d.executive_summary != empty -%}
+                <span class="mdi-standfirst">{{ d.executive_summary | metafield_tag | strip_html | truncate: 150 }}</span>
+              {%- endif -%}
+              <span class="mdi-read">Read Dossier →</span>
+            </a>
+          </li>
+        {%- endif -%}
+      {%- else -%}
+        <li class="mdi-empty">No dossiers published yet.</li>
+      {%- endfor -%}
+    </ol>
+
+  </div>
+</section>
+
+<style>
+  #mdi-{{ section.id }} { background:#FAF7F2; color:#1A1A18; padding:96px 0; }
+  #mdi-{{ section.id }} .mdi-wrap { max-width:780px; margin:0 auto; padding:0 24px; }
+  #mdi-{{ section.id }} .mdi-eyebrow { font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:#8B6F47; margin-bottom:16px; }
+  #mdi-{{ section.id }} .mdi-title { font-family:Georgia,serif; font-size:48px; font-weight:400; line-height:1.1; margin:0 0 24px; }
+  #mdi-{{ section.id }} .mdi-intro { font-size:18px; line-height:1.65; color:#5a5650; margin-bottom:64px; max-width:620px; }
+  #mdi-{{ section.id }} .mdi-intro p { margin:0 0 16px; }
+  #mdi-{{ section.id }} .mdi-list { list-style:none; margin:0; padding:0; }
+  #mdi-{{ section.id }} .mdi-item { border-top:1px solid #DAD2C4; }
+  #mdi-{{ section.id }} .mdi-item:last-child { border-bottom:1px solid #DAD2C4; }
+  #mdi-{{ section.id }} .mdi-item a { display:block; padding:36px 0; text-decoration:none; color:#1A1A18; transition:opacity .2s ease; }
+  #mdi-{{ section.id }} .mdi-item a:hover { opacity:.6; }
+  #mdi-{{ section.id }} .mdi-line { display:flex; align-items:baseline; gap:14px; margin-bottom:12px; }
+  #mdi-{{ section.id }} .mdi-num { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#8B6F47; }
+  #mdi-{{ section.id }} .mdi-status { font-size:11px; letter-spacing:.1em; color:#A89B87; }
+  #mdi-{{ section.id }} .mdi-item-title { display:block; font-family:Georgia,serif; font-size:26px; line-height:1.25; margin-bottom:10px; }
+  #mdi-{{ section.id }} .mdi-standfirst { display:block; font-size:15px; line-height:1.6; color:#5a5650; margin-bottom:16px; }
+  #mdi-{{ section.id }} .mdi-read { display:block; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#8B6F47; }
+  #mdi-{{ section.id }} .mdi-empty { padding:36px 0; color:#A89B87; border-top:1px solid #DAD2C4; }
+  @media (max-width:680px){
+    #mdi-{{ section.id }} { padding:64px 0; }
+    #mdi-{{ section.id }} .mdi-title { font-size:34px; }
+    #mdi-{{ section.id }} .mdi-item-title { font-size:22px; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Dossiers Index",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Observatory" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Dossiers" },
+    { "type": "richtext", "id": "intro", "label": "Intro paragraph",
+      "default": "<p>An investigation into the literature and evidence supporting each Finding. Dossiers synthesize observations into evidence arguments, complete with what the research supports, what remains uncertain, and what contradicts the thesis.</p>" }
+  ],
+  "presets": [{ "name": "Dossiers Index" }]
+}
+{% endschema %}

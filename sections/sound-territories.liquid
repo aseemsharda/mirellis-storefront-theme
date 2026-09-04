@@ -1,0 +1,272 @@
+<section class="sound-territories">
+
+  <div class="sound-territories__intro">
+
+    <p class="sound-territories__eyebrow">
+      {{ section.settings.eyebrow }}
+    </p>
+
+    <h2 class="sound-territories__heading">
+      {{ section.settings.heading }}
+    </h2>
+
+  </div>
+
+  <div class="sound-territories__list">
+
+    {% for block in section.blocks %}
+
+      <div class="sound-territories__item">
+
+        <div class="sound-territories__media">
+
+          {% if block.settings.image != blank %}
+            <img
+              src="{{ block.settings.image | image_url: width: 1600 }}"
+              alt="{{ block.settings.title | escape }}"
+              loading="lazy"
+              width="{{ block.settings.image.width }}"
+              height="{{ block.settings.image.height }}"
+            >
+          {% endif %}
+
+        </div>
+
+        <div class="sound-territories__content">
+
+          <p class="sound-territories__label">
+            {{ block.settings.label }}
+          </p>
+
+          <h3 class="sound-territories__title">
+            {{ block.settings.title }}
+          </h3>
+
+          <div class="sound-territories__text rte">
+            {{ block.settings.text }}
+          </div>
+
+          {% if block.settings.spotify_embed != blank %}
+            <div class="sound-territories__spotify">
+              {{ block.settings.spotify_embed }}
+            </div>
+          {% endif %}
+
+        </div>
+
+      </div>
+
+    {% endfor %}
+
+  </div>
+
+</section>
+
+<style>
+
+.sound-territories {
+  background: #faf7f2;
+  color: #1a1a18;
+  padding: 180px 80px;
+}
+
+.sound-territories__intro {
+  max-width: 900px;
+  margin: 0 auto 120px;
+}
+
+.sound-territories__eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin-bottom: 24px;
+}
+
+.sound-territories__heading {
+  font-size: clamp(42px, 5vw, 76px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  margin: 0;
+  max-width: 760px;
+}
+
+.sound-territories__list {
+  display: flex;
+  flex-direction: column;
+  gap: 180px;
+}
+
+.sound-territories__item {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.sound-territories__item:nth-child(even) {
+  direction: rtl;
+}
+
+.sound-territories__item:nth-child(even) .sound-territories__content {
+  direction: ltr;
+}
+
+.sound-territories__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.sound-territories__label {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin-bottom: 22px;
+}
+
+.sound-territories__title {
+  font-size: clamp(34px, 4vw, 58px);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  margin: 0 0 30px;
+}
+
+.sound-territories__text {
+  font-size: 17px;
+  line-height: 1.95;
+  color: rgba(245,241,235,0.78);
+  max-width: 520px;
+}
+
+.sound-territories__text p {
+  margin-top: 0;
+  margin-bottom: 22px;
+}
+
+.sound-territories__spotify {
+  margin-top: 42px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.sound-territories__spotify iframe {
+  width: 100%;
+  min-height: 352px;
+  border: 0;
+}
+
+@media screen and (max-width: 990px) {
+
+  .sound-territories {
+    padding: 110px 28px;
+  }
+
+  .sound-territories__intro {
+    margin-bottom: 72px;
+  }
+
+  .sound-territories__list {
+    gap: 110px;
+  }
+
+  .sound-territories__item {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .sound-territories__item:nth-child(even) {
+    direction: ltr;
+  }
+
+  .sound-territories__title {
+    font-size: 40px;
+  }
+
+  .sound-territories__text {
+    font-size: 15px;
+    line-height: 1.85;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Sound Territories",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "RITUAL SOUND TERRITORIES"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Designed around moments of orientation, slowing, reflection, and restoration."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "territory",
+      "name": "Territory",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "MORNING CLARITY"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "The first sensory signals of the day."
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "spotify_embed",
+          "label": "Spotify Embed Code"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sound Territories",
+      "blocks": [
+        {
+          "type": "territory"
+        },
+        {
+          "type": "territory"
+        },
+        {
+          "type": "territory"
+        },
+        {
+          "type": "territory"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

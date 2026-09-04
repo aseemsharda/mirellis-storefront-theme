@@ -1,0 +1,149 @@
+{% comment %}
+MIRELLIS — HERO SECTION (LUXURY MINIMAL SYSTEM)
+Clean, Impact-compatible, no motion systems
+{% endcomment %}
+
+<section class="ml-hero">
+
+  <div class="ml-hero__media">
+    {% if section.settings.image != blank %}
+      {{
+        section.settings.image
+        | image_url: width: 2400
+        | image_tag:
+          class: 'ml-hero__image',
+          loading: 'eager'
+      }}
+    {% endif %}
+  </div>
+
+  <div class="ml-hero__content">
+
+    {% if section.settings.heading != blank %}
+      <h1 class="ml-hero__heading">
+        {{ section.settings.heading }}
+      </h1>
+    {% endif %}
+
+    {% if section.settings.subheading != blank %}
+      <p class="ml-hero__subheading">
+        {{ section.settings.subheading }}
+      </p>
+    {% endif %}
+
+    {% if section.settings.button_label != blank %}
+      <a href="{{ section.settings.button_link }}" class="ml-hero__button">
+        {{ section.settings.button_label }}
+      </a>
+    {% endif %}
+
+  </div>
+
+</section>
+
+<style>
+/* ===============================
+   MIRELLIS HERO — MINIMAL STYLING
+   =============================== */
+
+.ml-hero {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fcfaf7;
+  overflow: hidden;
+}
+
+.ml-hero__media {
+  position: absolute;
+  inset: 0;
+}
+
+.ml-hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(0.98) saturate(0.95);
+}
+
+.ml-hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 720px;
+  padding: 40px;
+}
+
+.ml-hero__heading {
+  font-size: clamp(28px, 4vw, 54px);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: #1f1f1f;
+  margin-bottom: 16px;
+}
+
+.ml-hero__subheading {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(31,31,31,0.7);
+  margin-bottom: 28px;
+}
+
+.ml-hero__button {
+  display: inline-block;
+  padding: 12px 22px;
+  border: 1px solid rgba(0,0,0,0.15);
+  text-decoration: none;
+  color: #1f1f1f;
+  font-weight: 300;
+  transition: all 0.3s ease;
+}
+
+.ml-hero__button:hover {
+  border-color: rgba(0,0,0,0.4);
+}
+</style>
+
+{% schema %}
+{
+  "name": "Mirellis Hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Rituals for a quieter nervous system"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Science-led Ayurveda for modern restoration"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Explore Rituals"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mirellis Hero"
+    }
+  ]
+}
+{% endschema %}

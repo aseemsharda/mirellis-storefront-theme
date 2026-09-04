@@ -1,0 +1,104 @@
+<section class="ingredient-philosophy">
+
+  <div class="page-width">
+
+    <div class="ingredient-philosophy__inner">
+
+      <p class="ingredient-philosophy__label">
+        Why Mirellis Uses This Ingredient
+      </p>
+
+      <div class="ingredient-philosophy__text">
+        {{ section.settings.text }}
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.ingredient-philosophy {
+  background: #fcfaf7;
+  padding: 90px 0;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.ingredient-philosophy__inner {
+  max-width: 760px;
+}
+
+.ingredient-philosophy__label {
+  margin-bottom: 28px;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #8b8378;
+}
+
+.ingredient-philosophy__text {
+  font-size: 24px;
+  line-height: 1.75;
+  font-weight: 300;
+
+  color: #2b2b2b;
+}
+
+.ingredient-philosophy__text p {
+  margin: 0 0 24px;
+}
+
+.ingredient-philosophy__text p:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 990px) {
+
+  .ingredient-philosophy {
+    padding: 75px 0;
+  }
+
+  .ingredient-philosophy__text {
+    font-size: 21px;
+    line-height: 1.75;
+  }
+
+}
+
+@media screen and (max-width: 749px) {
+
+  .ingredient-philosophy {
+    padding: 60px 0;
+  }
+
+  .ingredient-philosophy__text {
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Ingredient Philosophy",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Coconut oil was selected not only for cleansing, but for the way it changes the emotional pace of ritual interaction.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredient Philosophy"
+    }
+  ]
+}
+{% endschema %}

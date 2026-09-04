@@ -1,0 +1,180 @@
+<section class="editorial-framework">
+
+  <div class="page-width">
+
+    <div class="editorial-framework__inner">
+
+      {% if section.settings.label != blank %}
+
+        <p class="editorial-framework__label">
+          {{ section.settings.label }}
+        </p>
+
+      {% endif %}
+
+      <div class="editorial-framework__grid">
+
+        {% for block in section.blocks %}
+
+          <div class="editorial-framework__item">
+
+            <h3 class="editorial-framework__title">
+              {{ block.settings.title }}
+            </h3>
+
+            <div class="editorial-framework__description">
+              {{ block.settings.description }}
+            </div>
+
+          </div>
+
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.editorial-framework {
+  padding: 110px 0;
+  background: #fcfaf7;
+}
+
+.editorial-framework__inner {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.editorial-framework__label {
+  margin-bottom: 40px;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #8b8378;
+}
+
+.editorial-framework__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.editorial-framework__item {
+  padding: 34px;
+
+  background: #f7f3ee;
+  border-radius: 2px;
+}
+
+.editorial-framework__title {
+  margin: 0 0 18px;
+
+  font-size: 24px;
+  line-height: 1.35;
+  font-weight: 400;
+
+  color: #1f1f1f;
+}
+
+.editorial-framework__description {
+  font-size: 16px;
+  line-height: 1.85;
+
+  color: #5d5852;
+}
+
+.editorial-framework__description p {
+  margin: 0;
+}
+
+@media screen and (max-width: 990px) {
+
+  .editorial-framework {
+    padding: 90px 0;
+  }
+
+  .editorial-framework__title {
+    font-size: 21px;
+  }
+
+}
+
+@media screen and (max-width: 749px) {
+
+  .editorial-framework {
+    padding: 70px 0;
+  }
+
+  .editorial-framework__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .editorial-framework__item {
+    padding: 24px;
+  }
+
+  .editorial-framework__title {
+    font-size: 19px;
+  }
+
+  .editorial-framework__description {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Editorial Framework",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "Framework"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Framework Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Editorial Framework",
+      "blocks": [
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

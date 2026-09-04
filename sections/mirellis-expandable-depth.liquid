@@ -1,0 +1,250 @@
+{% stylesheet %}
+.mirellis-depth {
+  position: relative;
+  padding: 8rem 2rem;
+  background:
+    linear-gradient(
+      180deg,
+      #141210 0%,
+      #100f0d 100%
+    );
+  overflow: hidden;
+}
+
+.mirellis-depth::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right,
+    rgba(180,140,90,0.04),
+    transparent 40%);
+  pointer-events: none;
+}
+
+.mirellis-depth__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.mirellis-depth__label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.42);
+  margin-bottom: 1.2rem;
+}
+
+.mirellis-depth__heading {
+  font-family: var(--font-heading-family);
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: #f4efe8;
+  margin: 0 0 1.5rem;
+  font-weight: 500;
+  max-width: 760px;
+}
+
+.mirellis-depth__text {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.68);
+  max-width: 700px;
+  margin-bottom: 4rem;
+}
+
+.mirellis-depth__accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mirellis-depth__item {
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+}
+
+.mirellis-depth__toggle {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 1.6rem 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  text-align: left;
+}
+
+.mirellis-depth__toggle span {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #f4efe8;
+  font-weight: 500;
+}
+
+.mirellis-depth__icon {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.42);
+  transition: transform 0.35s ease;
+  flex-shrink: 0;
+}
+
+.mirellis-depth__item[open] .mirellis-depth__icon {
+  transform: rotate(45deg);
+}
+
+.mirellis-depth__content {
+  padding: 0 1.8rem 1.8rem;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.66);
+}
+
+.mirellis-depth__content p:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 749px) {
+  .mirellis-depth {
+    padding: 5rem 1.4rem;
+  }
+
+  .mirellis-depth__heading {
+    font-size: clamp(1.9rem, 9vw, 3rem);
+    line-height: 1.12;
+  }
+
+  .mirellis-depth__text {
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+  }
+
+  .mirellis-depth__toggle {
+    padding: 1.4rem 1.4rem;
+  }
+
+  .mirellis-depth__toggle span {
+    font-size: 1rem;
+  }
+
+  .mirellis-depth__content {
+    padding: 0 1.4rem 1.4rem;
+    font-size: 0.96rem;
+    line-height: 1.75;
+  }
+}
+{% endstylesheet %}
+
+<section class="mirellis-depth">
+
+  <div class="mirellis-depth__inner">
+
+    <div class="mirellis-depth__label">
+      {{ section.settings.label }}
+    </div>
+
+    <h2 class="mirellis-depth__heading">
+      {{ section.settings.heading }}
+    </h2>
+
+    <div class="mirellis-depth__text">
+      {{ section.settings.text }}
+    </div>
+
+    <div class="mirellis-depth__accordion">
+
+      {% for block in section.blocks %}
+        <details class="mirellis-depth__item">
+
+          <summary class="mirellis-depth__toggle">
+
+            <span>{{ block.settings.title }}</span>
+
+            <div class="mirellis-depth__icon">+</div>
+
+          </summary>
+
+          <div class="mirellis-depth__content">
+            {{ block.settings.content }}
+          </div>
+
+        </details>
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Expandable Depth",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "OPTIONAL DEPTH"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "There may be deeper mechanisms underneath modern exhaustion."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>For those who wish to explore further, modern nervous-system research increasingly points toward the role of transitions, environmental pacing, attentional continuation, and sensory signaling in how restoration is experienced.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "depth",
+      "name": "Depth Topic",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Topic Title",
+          "default": "Why attention continues into rest"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Modern environments often maintain low-grade attentional engagement long after physical activity has stopped. Notifications, scrolling, anticipatory thinking, and unresolved cognitive loops may contribute to continued internal activation.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Expandable Depth",
+      "blocks": [
+        {
+          "type": "depth"
+        },
+        {
+          "type": "depth"
+        },
+        {
+          "type": "depth"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

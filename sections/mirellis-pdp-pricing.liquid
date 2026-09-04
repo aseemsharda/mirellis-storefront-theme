@@ -1,0 +1,39 @@
+{%- comment -%}
+  MIRELLIS — PDP PRICING  ("Why it costs what it costs" · reusable)
+  Book I: Journey 6 (Decision) · resolves Uncertainty 10 (Pricing) · Dim A+B.
+  Value made transparent: where the price goes + the honest trade-off we refused.
+  No false urgency, no discount theatre. Carries ⟦price / allocation⟧ data gates. Empty-safe.
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+<section class="pdpr">
+  <div class="pdpr__inner">
+    {%- if s.eyebrow != blank -%}<div class="pdpr__eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+    {%- if s.price != blank -%}<div class="pdpr__price">{{ s.price }}</div>{%- endif -%}
+    {%- if s.allocation != blank -%}<div class="pdpr__alloc">{{ s.allocation }}</div>{%- endif -%}
+    {%- if s.tradeoff != blank -%}<div class="pdpr__tradeoff">{{ s.tradeoff }}</div>{%- endif -%}
+  </div>
+</section>
+
+<style>
+  .pdpr { background: var(--ml-color-warm-paper); padding-block: clamp(3.5rem, 8vw, 6.5rem); border-top: 1px solid var(--ml-color-border-soft); }
+  .pdpr__inner { max-width: 680px; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2rem); }
+  .pdpr__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1.5rem; }
+  .pdpr__price { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 300; color: var(--ml-color-soft-charcoal); margin-bottom: 1.75rem; }
+  .pdpr__alloc p { font-size: 1.0625rem; line-height: 1.9; color: var(--ml-color-text-secondary); margin: 0 0 1.5rem; max-width: 58ch; }
+  .pdpr__tradeoff { padding-top: 1.75rem; border-top: 1px solid var(--ml-color-border-soft); }
+  .pdpr__tradeoff p { font-size: clamp(1.05rem, 2.2vw, 1.2rem); font-weight: 300; line-height: 1.65; color: var(--ml-color-soft-charcoal); margin: 0; max-width: 54ch; }
+</style>
+
+{% schema %}
+{
+  "name": "PDP · Pricing",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why it costs what it costs" },
+    { "type": "text", "id": "price", "label": "Price", "default": "⟦₹1,200⟧" },
+    { "type": "richtext", "id": "allocation", "label": "Where it goes", "default": "<p>Here is where that goes: ⟦the formulation and its sourcing⟧, ⟦batch testing and the certificate of analysis⟧, ⟦small-batch manufacture⟧ — and a standing decision never to discount.</p>" },
+    { "type": "richtext", "id": "tradeoff", "label": "The trade-off we refused", "default": "<p>A simpler, cheaper product was possible. It would have meant a longer-lasting but lower-grade oil, an undisclosed blend, or skipped testing — and it would have compromised the one reason Morning Clarity exists. We chose not to.</p>" }
+  ],
+  "presets": [{ "name": "PDP · Pricing" }]
+}
+{% endschema %}

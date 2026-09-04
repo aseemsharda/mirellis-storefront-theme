@@ -1,0 +1,67 @@
+{%- comment -%}
+  MIRELLIS — PDP MADE  (Product Experience OS · reusable)
+  Book I: Journey 4 (Trust) · resolves Uncertainty 3 (Manufacturing), 9 (Safety), 7 (Brand) · Dim A.
+  Institutional definition-list: Manufacture / Testing / Sourcing. Carries ⟦AYUSH licence · batch-test · COA⟧
+  data gates as visible placeholders. All copy is settings; empty-safe; no icons.
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+<section class="pdmd">
+  <div class="pdmd__inner">
+    {%- if s.eyebrow != blank -%}<div class="pdmd__eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+
+    <dl class="pdmd__rows">
+      {%- if s.manufacture != blank -%}
+        <div class="pdmd__row"><dt class="pdmd__label">{{ s.manufacture_label | default: 'Manufacture' }}</dt><dd class="pdmd__body">{{ s.manufacture }}</dd></div>
+      {%- endif -%}
+      {%- if s.testing != blank -%}
+        <div class="pdmd__row"><dt class="pdmd__label">{{ s.testing_label | default: 'Testing' }}</dt><dd class="pdmd__body">{{ s.testing }}</dd></div>
+      {%- endif -%}
+      {%- if s.sourcing != blank -%}
+        <div class="pdmd__row"><dt class="pdmd__label">{{ s.sourcing_label | default: 'Sourcing' }}</dt><dd class="pdmd__body">{{ s.sourcing }}</dd></div>
+      {%- endif -%}
+    </dl>
+
+    <div class="pdmd__links">
+      {%- if s.expand_label != blank and s.expand_url != blank -%}<a href="{{ s.expand_url }}">{{ s.expand_label }}</a>{%- endif -%}
+      {%- if s.coa_label != blank and s.coa_url != blank -%}<span class="pdmd__dot">·</span><a href="{{ s.coa_url }}">{{ s.coa_label }}</a>{%- endif -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .pdmd { background: var(--ml-color-warm-paper); padding-block: clamp(3.5rem, 8vw, 6.5rem); border-top: 1px solid var(--ml-color-border-soft); }
+  .pdmd__inner { max-width: 680px; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2rem); }
+  .pdmd__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 2rem; }
+  .pdmd__rows { margin: 0; }
+  .pdmd__row { display: grid; grid-template-columns: 1fr; gap: 0.4rem; padding: 1.5rem 0; border-top: 1px solid var(--ml-color-border-soft); }
+  .pdmd__row:last-child { border-bottom: 1px solid var(--ml-color-border-soft); }
+  @media (min-width: 640px) { .pdmd__row { grid-template-columns: 9rem 1fr; gap: 2rem; } }
+  .pdmd__label { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; padding-top: 0.2rem; }
+  .pdmd__body { margin: 0; }
+  .pdmd__body p { font-size: 1.0625rem; line-height: 1.85; color: var(--ml-color-text-secondary); margin: 0 0 0.75rem; }
+  .pdmd__body p:last-child { margin-bottom: 0; }
+  .pdmd__links { margin-top: 2rem; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ml-color-muted-earth); }
+  .pdmd__links a { color: var(--ml-color-soft-charcoal); text-underline-offset: 3px; }
+  .pdmd__dot { margin-inline: 0.7rem; opacity: 0.5; }
+</style>
+
+{% schema %}
+{
+  "name": "PDP · Made",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "How it is made" },
+    { "type": "text", "id": "manufacture_label", "label": "Row 1 label", "default": "Manufacture" },
+    { "type": "richtext", "id": "manufacture", "label": "Manufacture", "default": "<p>Morning Clarity is manufactured as a licensed Ayurvedic product — ⟦AYUSH manufacturing licence no. ____, held by ____⟧ — at ⟦facility / location⟧, ⟦GMP / relevant certifications⟧.</p>" },
+    { "type": "text", "id": "testing_label", "label": "Row 2 label", "default": "Testing" },
+    { "type": "richtext", "id": "testing", "label": "Testing", "default": "<p>Each batch is ⟦tested for ____ (e.g. purity, heavy metals, microbial limits)⟧. The certificate of analysis for the batch you receive is available ⟦here / on request⟧.</p>" },
+    { "type": "text", "id": "sourcing_label", "label": "Row 3 label", "default": "Sourcing" },
+    { "type": "richtext", "id": "sourcing", "label": "Sourcing", "default": "<p>⟦Provenance for the key oils and botanicals.⟧</p>" },
+    { "type": "text", "id": "expand_label", "label": "Expand link label", "default": "Our testing regime, in full →" },
+    { "type": "url", "id": "expand_url", "label": "Expand link url" },
+    { "type": "text", "id": "coa_label", "label": "Certificate link label", "default": "View a certificate of analysis →" },
+    { "type": "url", "id": "coa_url", "label": "Certificate link url" }
+  ],
+  "presets": [{ "name": "PDP · Made" }]
+}
+{% endschema %}

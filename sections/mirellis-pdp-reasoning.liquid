@@ -1,0 +1,73 @@
+{%- comment -%}
+  MIRELLIS — PDP REASONING  (Product Experience OS · reusable · the Dimension-B spine)
+  Book I: Journey 3 (Understanding) · resolves Uncertainty 1 (Product), 11 (Philosophy), 8 (Evidence setup) · Dim B (foregrounded).
+  Shows the THINKING, not the product: transition → finding → question → intervention landscape → chosen intervention.
+  This is the section competitors cannot copy. All copy is settings; empty-safe; institutional diagram, no icons/animation.
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+<section class="pdrsn">
+  <div class="pdrsn__inner">
+    {%- if s.eyebrow != blank -%}<div class="pdrsn__eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+    {%- if s.intro != blank -%}<div class="pdrsn__intro">{{ s.intro }}</div>{%- endif -%}
+
+    {%- if s.finding_label != blank or s.finding_line != blank -%}
+      <div class="pdrsn__finding">
+        {%- if s.finding_label != blank -%}<span class="pdrsn__fbadge">{{ s.finding_label }}</span>{%- endif -%}
+        {%- if s.finding_line != blank -%}<span class="pdrsn__fline">{{ s.finding_line }}</span>{%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if s.body != blank -%}<div class="pdrsn__body">{{ s.body }}</div>{%- endif -%}
+
+    {%- comment -%} the reasoning pipeline — institutional diagram {%- endcomment -%}
+    {%- assign steps = s.steps | default: 'Transition, Observation, Finding, Question, Intervention, Ritual, Product' | split: ',' -%}
+    <div class="pdrsn__pipe" aria-label="From transition to product">
+      {%- for step in steps -%}
+        <span class="pdrsn__node">{{ step | strip }}</span>
+        {%- unless forloop.last -%}<span class="pdrsn__arrow" aria-hidden="true">→</span>{%- endunless -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="pdrsn__links">
+      {%- if s.link1_label != blank and s.link1_url != blank -%}<a href="{{ s.link1_url }}">{{ s.link1_label }}</a>{%- endif -%}
+      {%- if s.link2_label != blank and s.link2_url != blank -%}<span class="pdrsn__dot">·</span><a href="{{ s.link2_url }}">{{ s.link2_label }}</a>{%- endif -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .pdrsn { background: var(--ml-color-warm-paper); padding-block: clamp(3.5rem, 8vw, 6.5rem); border-top: 1px solid var(--ml-color-border-soft); }
+  .pdrsn__inner { max-width: 680px; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2rem); }
+  .pdrsn__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1.75rem; }
+  .pdrsn__intro p { font-size: clamp(1.3rem, 3vw, 1.7rem); font-weight: 300; line-height: 1.4; color: var(--ml-color-soft-charcoal); margin: 0 0 2rem; max-width: 26ch; }
+  .pdrsn__finding { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1rem; padding: 1.25rem 0; border-block: 1px solid var(--ml-color-border-soft); margin-bottom: 2rem; }
+  .pdrsn__fbadge { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; }
+  .pdrsn__fline { font-size: 1.05rem; font-weight: 400; color: var(--ml-color-soft-charcoal); }
+  .pdrsn__body p { font-size: 1.0625rem; line-height: 2; color: var(--ml-color-text-secondary); margin: 0 0 1.75rem; max-width: 60ch; }
+  .pdrsn__pipe { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.7rem; margin: 2.5rem 0 1.75rem; padding-top: 2.25rem; border-top: 1px solid var(--ml-color-border-soft); }
+  .pdrsn__node { font-size: 0.7rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ml-color-soft-charcoal); font-weight: 500; white-space: nowrap; }
+  .pdrsn__arrow { color: var(--ml-color-muted-earth); opacity: 0.6; }
+  .pdrsn__links { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ml-color-muted-earth); }
+  .pdrsn__links a { color: var(--ml-color-soft-charcoal); text-underline-offset: 3px; }
+  .pdrsn__dot { margin-inline: 0.7rem; opacity: 0.5; }
+</style>
+
+{% schema %}
+{
+  "name": "PDP · Reasoning",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "How this came to exist" },
+    { "type": "richtext", "id": "intro", "label": "Intro", "default": "<p>Nothing here began as a product. It began with an observation.</p>" },
+    { "type": "text", "id": "finding_label", "label": "Finding label", "default": "Finding 002" },
+    { "type": "text", "id": "finding_line", "label": "Finding line", "default": "The first thirty minutes after waking are not like the rest of the day." },
+    { "type": "richtext", "id": "body", "label": "Body (the reasoning)", "default": "<p>The nervous system, in that window, appears unusually receptive — it takes on whatever signal arrives first. Modern life fills that window with a screen.</p><p>So we asked one question: given that, what would most help the body cross from sleep into wakefulness — before screens, before caffeine, before language?</p><p>That question opens a landscape of possibilities — light, hydration, temperature, breath, scent, sound, and slow oral-sensory activity. None is obviously correct on its own. We were drawn to a slow, repetitive, oral-sensory ritual performed before the first screen: it occupies attention gently, sits before language and notification, and is easy to repeat at the same moment each day.</p><p>Only then did we ask what form it should take. The answer was an Ayurvedic practice older than any of this research.</p>" },
+    { "type": "text", "id": "steps", "label": "Pipeline steps (comma-separated)", "default": "Transition, Observation, Finding, Question, Intervention, Ritual, Product" },
+    { "type": "text", "id": "link1_label", "label": "Link 1 label", "default": "Read Finding 002 →" },
+    { "type": "url", "id": "link1_url", "label": "Link 1 url" },
+    { "type": "text", "id": "link2_label", "label": "Link 2 label", "default": "The full reasoning →" },
+    { "type": "url", "id": "link2_url", "label": "Link 2 url" }
+  ],
+  "presets": [{ "name": "PDP · Reasoning" }]
+}
+{% endschema %}

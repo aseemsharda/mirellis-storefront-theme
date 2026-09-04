@@ -1,0 +1,26 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "observatory-index",
+      "settings": {
+        "eyebrow": "THE OBSERVATORY",
+        "heading": "Human State Transitions",
+        "intro": "Research on how humans move between states — and what modern life has done to those transitions.",
+        "articles_per_page": 9,
+        "empty_message": "No articles published yet.",
+        "pagination_next": "Next →",
+        "pagination_prev": "← Previous"
+      }
+    }
+  },
+  "order": ["main"]
+}

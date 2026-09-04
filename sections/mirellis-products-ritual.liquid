@@ -1,0 +1,258 @@
+{% comment %}
+MIRELLIS — SECTION 6
+Products as Ritual Outcomes
+Conversion Layer (System → Material Form)
+{% endcomment %}
+
+<section class="mirellis-products-ritual">
+  <div class="mirellis-container">
+
+    {% if section.settings.headline != blank %}
+      <h2 class="mirellis-headline">
+        {{ section.settings.headline }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.subhead != blank %}
+      <p class="mirellis-subhead">
+        {{ section.settings.subhead }}
+      </p>
+    {% endif %}
+
+    <div class="mirellis-grid">
+
+      <!-- PRODUCT 1 -->
+      <div class="mirellis-product-card">
+
+        {% if section.settings.morning_image != blank %}
+          <div class="mirellis-product-image">
+            {{
+              section.settings.morning_image
+              | image_url: width: 1600
+              | image_tag: class: 'mirellis-img'
+            }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.morning_title != blank %}
+          <h3 class="mirellis-product-title">
+            {{ section.settings.morning_title }}
+          </h3>
+        {% endif %}
+
+        {% if section.settings.morning_text != blank %}
+          <p class="mirellis-product-text">
+            {{ section.settings.morning_text }}
+          </p>
+        {% endif %}
+
+        {% if section.settings.morning_link != blank %}
+          <a class="mirellis-product-link" href="{{ section.settings.morning_link }}">
+            Experience Morning Ritual
+          </a>
+        {% endif %}
+
+      </div>
+
+      <!-- PRODUCT 2 -->
+      <div class="mirellis-product-card">
+
+        {% if section.settings.evening_image != blank %}
+          <div class="mirellis-product-image">
+            {{
+              section.settings.evening_image
+              | image_url: width: 1600
+              | image_tag: class: 'mirellis-img'
+            }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.evening_title != blank %}
+          <h3 class="mirellis-product-title">
+            {{ section.settings.evening_title }}
+          </h3>
+        {% endif %}
+
+        {% if section.settings.evening_text != blank %}
+          <p class="mirellis-product-text">
+            {{ section.settings.evening_text }}
+          </p>
+        {% endif %}
+
+        {% if section.settings.evening_link != blank %}
+          <a class="mirellis-product-link" href="{{ section.settings.evening_link }}">
+            Experience Evening Ritual
+          </a>
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+/* =========================
+   MIRELLIS — PRODUCTS RITUAL
+   ========================= */
+
+.mirellis-products-ritual {
+  background: #f6f1ea;
+  padding: 120px 24px;
+}
+
+.mirellis-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mirellis-headline {
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 500;
+  margin-bottom: 16px;
+  color: #1c1c1c;
+}
+
+.mirellis-subhead {
+  font-size: 17px;
+  color: rgba(28,28,28,0.7);
+  margin-bottom: 60px;
+  line-height: 1.6;
+}
+
+.mirellis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.mirellis-product-card {
+  text-align: center;
+}
+
+.mirellis-product-image {
+  margin-bottom: 24px;
+}
+
+.mirellis-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  filter: contrast(0.98) saturate(0.95);
+  border-radius: 2px;
+}
+
+.mirellis-product-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #1c1c1c;
+}
+
+.mirellis-product-text {
+  font-size: 15px;
+  color: rgba(28,28,28,0.7);
+  margin-bottom: 18px;
+  line-height: 1.6;
+  padding: 0 10px;
+}
+
+.mirellis-product-link {
+  display: inline-block;
+  font-size: 14px;
+  padding: 10px 16px;
+  border: 1px solid rgba(0,0,0,0.15);
+  text-decoration: none;
+  color: #1c1c1c;
+  transition: 0.3s ease;
+}
+
+.mirellis-product-link:hover {
+  border-color: rgba(0,0,0,0.35);
+}
+
+@media screen and (max-width: 768px) {
+  .mirellis-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .mirellis-img {
+    height: 300px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Mirellis Products Ritual",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Products as Ritual Outcomes"
+    },
+    {
+      "type": "textarea",
+      "id": "subhead",
+      "label": "Subhead",
+      "default": "These are not isolated products. They are the material expression of two daily nervous system transitions."
+    },
+
+    {
+      "type": "image_picker",
+      "id": "morning_image",
+      "label": "Morning Product Image"
+    },
+    {
+      "type": "text",
+      "id": "morning_title",
+      "label": "Morning Title",
+      "default": "Morning Clarity Elixir"
+    },
+    {
+      "type": "textarea",
+      "id": "morning_text",
+      "label": "Morning Text",
+      "default": "Supports structured activation and cognitive alignment during the morning transition."
+    },
+    {
+      "type": "url",
+      "id": "morning_link",
+      "label": "Morning Link"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "evening_image",
+      "label": "Evening Product Image"
+    },
+    {
+      "type": "text",
+      "id": "evening_title",
+      "label": "Evening Title",
+      "default": "Stillness Elixir"
+    },
+    {
+      "type": "textarea",
+      "id": "evening_text",
+      "label": "Evening Text",
+      "default": "Supports decompression and nervous system release during the evening transition."
+    },
+    {
+      "type": "url",
+      "id": "evening_link",
+      "label": "Evening Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mirellis Products Ritual"
+    }
+  ]
+}
+{% endschema %}

@@ -1,9 +1,10 @@
 import Link from "next/link";
+import { MirellisBrand } from "@/app/_components/mirellis-brand";
 
 export default function CheckEmailPage() {
   return (
     <main className="centered-shell">
-      <a className="wordmark" href="https://mirellis.in">MIRELLIS</a>
+      <a className="wordmark" href="https://mirellis.in" aria-label="Mirellis website"><MirellisBrand /></a>
       <section className="message-card">
         <p className="eyebrow">Secure sign in</p>
         <h1>Check your email.</h1>

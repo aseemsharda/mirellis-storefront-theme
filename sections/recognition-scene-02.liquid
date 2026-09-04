@@ -1,0 +1,154 @@
+{% comment %}
+=========================================================
+MIRELLIS — SCENE 02 (REFINED)
+RECOGNITION / ATMOSPHERIC FIELD
+=========================================================
+{% endcomment %}
+
+<section
+  class="
+    ml-scene
+    ml-scene-continuous
+    ml-scene-descent-soft
+    ml-spatial-stillness
+    ml-scene-text-flow
+  "
+>
+
+  <!-- =====================================================
+       ATMOSPHERIC CONTINUITY FIELD (REFINED)
+       ===================================================== -->
+
+  <div
+    class="ml-depth-layer ml-depth-soft"
+    style="
+      background:
+        radial-gradient(
+          ellipse at top,
+          rgba(246,241,232,0.55) 0%,
+          rgba(246,241,232,0.18) 40%,
+          rgba(246,241,232,0) 75%
+        );
+      filter: blur(6px);
+      opacity: 0.95;
+    "
+  ></div>
+
+
+  <!-- =====================================================
+       RECOGNITION FIELD
+       ===================================================== -->
+
+  <div class="ml-container-reading">
+
+    <div class="ml-balanced-field ml-rhythm-atmospheric">
+
+      <div class="ml-visual-silence"></div>
+
+
+      <!-- =================================================
+           CONTEMPLATIVE OBSERVATION
+           ================================================= -->
+
+      {% if section.settings.scene_heading != blank %}
+        <h2 class="ml-display-heading ml-headline-soft">
+          {{ section.settings.scene_heading }}
+        </h2>
+      {% endif %}
+
+
+      <!-- =================================================
+           SUPPORTING OBSERVATION
+           ================================================= -->
+
+      {% if section.settings.scene_copy != blank %}
+        <div class="ml-contemplative-copy ml-copy-soft">
+          {{ section.settings.scene_copy }}
+        </div>
+      {% endif %}
+
+
+      <!-- =================================================
+           ATMOSPHERIC PAUSE
+           ================================================= -->
+
+      <div class="ml-cinematic-pause"></div>
+
+
+      <!-- =================================================
+           QUIET CONTINUATION
+           ================================================= -->
+
+      {% if section.settings.scene_note != blank %}
+        <div class="ml-copy-whisper ml-fade-soft">
+          <div class="ml-supporting-text">
+            {{ section.settings.scene_note }}
+          </div>
+        </div>
+      {% endif %}
+
+
+      <div class="ml-visual-silence-lg"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       ATMOSPHERIC RESIDUE LAYER (REFINED)
+       ===================================================== -->
+
+  <div
+    class="ml-depth-layer ml-shadow-breathing ml-depth-atmospheric"
+    style="
+      background:
+        radial-gradient(
+          ellipse at 60% 30%,
+          rgba(255,255,255,0.06) 0%,
+          rgba(246,241,232,0.02) 35%,
+          rgba(255,255,255,0) 80%
+        );
+    "
+  ></div>
+
+</section>
+
+
+{% schema %}
+{
+  "name": "Recognition Scene 02",
+  "tag": "section",
+  "class": "section section-mirellis-recognition",
+  "settings": [
+
+    {
+      "type": "textarea",
+      "id": "scene_heading",
+      "label": "Recognition Heading",
+      "default": "We moved from one demand to another without learning how to arrive anywhere fully."
+    },
+
+    {
+      "type": "textarea",
+      "id": "scene_copy",
+      "label": "Recognition Copy",
+      "default": "Morning became notification. Evening became exhaustion. Somewhere between acceleration and interruption, many transitions quietly disappeared from modern life."
+    },
+
+    {
+      "type": "textarea",
+      "id": "scene_note",
+      "label": "Quiet Supporting Note",
+      "default": "The nervous system still remembers slower forms of arrival."
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "Recognition Scene 02"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,249 @@
+{% comment %}
+Dossier Footer Section
+Related findings and transition hub navigation for dossier pages
+{% endcomment %}
+
+<section class="dossier-footer">
+  <div class="dossier-footer__container">
+
+    <div class="dossier-footer__section">
+      <h2 class="dossier-footer__title">Research Behind This Protocol</h2>
+      <p class="dossier-footer__subtitle">
+        The cold exposure protocol is grounded in these key findings and research articles.
+      </p>
+
+      <div class="dossier-footer__findings">
+        
+        <article class="dossier-finding">
+          <div class="dossier-finding__header">
+            <span class="dossier-finding__badge">Finding 003</span>
+            <h3 class="dossier-finding__title">
+              <a href="/blogs/journal/cold-immersion-sympathetic-activation">Cold Immersion Triggers Rapid Sympathetic Nervous System Activation</a>
+            </h3>
+          </div>
+          <p class="dossier-finding__excerpt">
+            Cold water exposure activates the sympathetic nervous system within 30 seconds. The effect is acute and measurable: increased norepinephrine, elevated heart rate, and thermogenic response.
+          </p>
+          <div class="dossier-finding__meta">
+            <span class="dossier-finding__date">Published Feb 2026</span>
+          </div>
+        </article>
+
+        <article class="dossier-finding">
+          <div class="dossier-finding__header">
+            <span class="dossier-finding__badge">Finding 001</span>
+            <h3 class="dossier-finding__title">
+              <a href="/blogs/journal/thermogenesis-and-metabolic-priming">Thermogenesis and Metabolic Priming: How Cold Exposure Extends Wakefulness</a>
+            </h3>
+          </div>
+          <p class="dossier-finding__excerpt">
+            The elevated metabolic state triggered by cold exposure persists for 15–30 minutes post-exposure. During this window, your core temperature remains elevated and your nervous system remains in heightened readiness.
+          </p>
+          <div class="dossier-finding__meta">
+            <span class="dossier-finding__date">Published Jan 2026</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="dossier-footer__section">
+      <h2 class="dossier-footer__title">Explore the Full Transition</h2>
+      <p class="dossier-footer__subtitle">
+        This protocol is one intervention within the Sleep → Wakefulness transition. Explore the complete framework.
+      </p>
+
+      <div class="dossier-footer__ctas">
+        <a href="/pages/sleep-to-wakefulness" class="dossier-footer__cta">
+          <span class="dossier-footer__cta-title">Sleep → Wakefulness Hub</span>
+          <span class="dossier-footer__cta-description">View findings, research, and other protocols</span>
+        </a>
+        <a href="/" class="dossier-footer__cta">
+          <span class="dossier-footer__cta-title">Mirellis Observatory</span>
+          <span class="dossier-footer__cta-description">Browse all transitions and findings</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .dossier-footer {
+    padding: 4rem 2rem;
+    background: #faf7f2;
+  }
+
+  .dossier-footer__container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .dossier-footer__section {
+    margin-bottom: 3rem;
+  }
+
+  .dossier-footer__section:last-child {
+    margin-bottom: 0;
+  }
+
+  .dossier-footer__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #1a1a18;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .dossier-footer__subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .dossier-footer__findings {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .dossier-finding {
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+
+  .dossier-finding:hover {
+    background: #f5f2ed;
+  }
+
+  .dossier-finding__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .dossier-finding__badge {
+    display: inline-block;
+    flex-shrink: 0;
+    padding: 0.4rem 0.8rem;
+    background: #4a90e2;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .dossier-finding__title {
+    margin: 0;
+    flex: 1;
+  }
+
+  .dossier-finding__title a {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1a1a18;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+  }
+
+  .dossier-finding__title a:hover {
+    color: #666;
+  }
+
+  .dossier-finding__excerpt {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #666;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .dossier-finding__meta {
+    font-size: 0.85rem;
+    color: #999;
+  }
+
+  .dossier-footer__ctas {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .dossier-footer__cta {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .dossier-footer__cta:hover {
+    background: #f5f2ed;
+  }
+
+  .dossier-footer__cta-title {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a18;
+    margin-bottom: 0.5rem;
+  }
+
+  .dossier-footer__cta-description {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #666;
+  }
+
+  @media (max-width: 768px) {
+    .dossier-footer {
+      padding: 3rem 1.5rem;
+    }
+
+    .dossier-footer__title {
+      font-size: 1.3rem;
+    }
+
+    .dossier-footer__subtitle {
+      font-size: 0.95rem;
+    }
+
+    .dossier-footer__finding-header {
+      flex-direction: column;
+    }
+
+    .dossier-footer__ctas {
+      grid-template-columns: 1fr;
+    }
+
+    .dossier-finding {
+      padding: 1.25rem;
+    }
+
+    .dossier-finding__title a {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Dossier Footer",
+  "settings": []
+}
+{% endschema %}

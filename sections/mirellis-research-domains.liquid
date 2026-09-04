@@ -1,0 +1,199 @@
+{% assign domains = shop.metaobjects.research_domain.values %}
+
+<section class="mi-domains">
+
+  <div class="container">
+
+<div class="mi-header">
+
+  {% if section.settings.eyebrow != blank %}
+    <p class="mi-eyebrow">
+      {{ section.settings.eyebrow }}
+    </p>
+  {% endif %}
+
+  {% if section.settings.heading != blank %}
+    <h1>
+      {{ section.settings.heading }}
+    </h1>
+  {% endif %}
+
+  {% if section.settings.description != blank %}
+    <p>
+      {{ section.settings.description }}
+    </p>
+  {% endif %}
+
+</div>
+
+<div class="mi-grid">
+
+  {% for domain in domains %}
+
+    <article class="mi-card">
+
+      <h2>
+        {{ domain.title }}
+      </h2>
+
+      <p>
+        {{ domain.summary }}
+      </p>
+
+      <div class="mi-link">
+        {{ section.settings.card_link_text }}
+      </div>
+
+    </article>
+
+  {% endfor %}
+
+</div>
+```
+
+  </div>
+
+</section>
+
+<style>
+
+.mi-domains{
+  padding:{{ section.settings.top_spacing }}px 0 {{ section.settings.bottom_spacing }}px;
+}
+
+.mi-header{
+  text-align:center;
+  max-width:800px;
+  margin:0 auto 70px;
+}
+
+.mi-eyebrow{
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  opacity:.6;
+  margin-bottom:12px;
+}
+
+.mi-header h1{
+  margin-bottom:20px;
+}
+
+.mi-header p{
+  max-width:650px;
+  margin:0 auto;
+  opacity:.75;
+}
+
+.mi-grid{
+  display:grid;
+  grid-template-columns:repeat({{ section.settings.desktop_columns }},1fr);
+  gap:24px;
+}
+
+.mi-card{
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:24px;
+  padding:32px;
+  transition:.25s ease;
+  background:var(--background);
+}
+
+.mi-card:hover{
+  transform:translateY(-4px);
+}
+
+.mi-card h2{
+  margin-bottom:16px;
+}
+
+.mi-card p{
+  margin-bottom:24px;
+  opacity:.75;
+}
+
+.mi-link{
+  font-size:14px;
+  letter-spacing:.05em;
+}
+
+@media(max-width:990px){
+
+  .mi-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:749px){
+
+  .mi-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+"name": "Mirellis Research Domains",
+"settings": [
+{
+"type": "text",
+"id": "eyebrow",
+"label": "Eyebrow",
+"default": "Mirellis Institute"
+},
+{
+"type": "text",
+"id": "heading",
+"label": "Heading",
+"default": "Research Domains"
+},
+{
+"type": "textarea",
+"id": "description",
+"label": "Description",
+"default": "The primary areas of inquiry explored by the Institute."
+},
+{
+"type": "text",
+"id": "card_link_text",
+"label": "Card Link Text",
+"default": "Explore Domain →"
+},
+{
+"type": "range",
+"id": "desktop_columns",
+"label": "Desktop Columns",
+"min": 2,
+"max": 4,
+"step": 1,
+"default": 3
+},
+{
+"type": "range",
+"id": "top_spacing",
+"label": "Top Spacing",
+"min": 0,
+"max": 200,
+"step": 10,
+"default": 80
+},
+{
+"type": "range",
+"id": "bottom_spacing",
+"label": "Bottom Spacing",
+"min": 0,
+"max": 200,
+"step": 10,
+"default": 120
+}
+],
+"presets": [
+  {
+    "name": "Mirellis Research Domains"
+  }
+]
+}
+{% endschema %}

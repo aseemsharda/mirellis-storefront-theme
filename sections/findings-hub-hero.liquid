@@ -1,0 +1,160 @@
+{% comment %}
+Findings Hub Hero Section
+Hero for the published findings directory page
+{% endcomment %}
+
+<section class="findings-hero">
+  <div class="findings-hero__container">
+    
+    <div class="findings-hero__breadcrumb">
+      <a href="/">Observatory</a> / Findings Directory
+    </div>
+
+    <h1 class="findings-hero__title">Published Findings</h1>
+
+    <p class="findings-hero__description">
+      Curated discoveries that form the research foundation of the Mirellis Observatory. Each finding is validated research distilled into a single, actionable insight. Findings drive intervention logic and shape the dossiers.
+    </p>
+
+    <div class="findings-hero__stats">
+      <div class="findings-hero__stat">
+        <span class="findings-hero__stat-number">15+</span>
+        <span class="findings-hero__stat-label">Published Findings</span>
+      </div>
+      <div class="findings-hero__stat">
+        <span class="findings-hero__stat-number">3</span>
+        <span class="findings-hero__stat-label">Transition Domains</span>
+      </div>
+      <div class="findings-hero__stat">
+        <span class="findings-hero__stat-number">300+</span>
+        <span class="findings-hero__stat-label">Supporting Articles</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="findings-hero__background"></div>
+</section>
+
+<style>
+  .findings-hero {
+    position: relative;
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, #faf7f2 0%, #f5f2ed 100%);
+    overflow: hidden;
+  }
+
+  .findings-hero__background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(74, 144, 226, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .findings-hero__container {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .findings-hero__breadcrumb {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: #999;
+    margin-bottom: 1.5rem;
+  }
+
+  .findings-hero__breadcrumb a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .findings-hero__breadcrumb a:hover {
+    color: #1a1a18;
+  }
+
+  .findings-hero__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #1a1a18;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .findings-hero__description {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #666;
+    margin: 0 0 2.5rem 0;
+    max-width: 700px;
+  }
+
+  .findings-hero__stats {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .findings-hero__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .findings-hero__stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #1a1a18;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .findings-hero__stat-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  @media (max-width: 768px) {
+    .findings-hero {
+      padding: 4rem 1.5rem;
+    }
+
+    .findings-hero__title {
+      font-size: 2.5rem;
+    }
+
+    .findings-hero__description {
+      font-size: 1rem;
+    }
+
+    .findings-hero__stats {
+      gap: 2rem;
+    }
+
+    .findings-hero__stat-number {
+      font-size: 1.75rem;
+    }
+
+    .findings-hero__background {
+      width: 250px;
+      height: 250px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Findings Hub Hero",
+  "settings": []
+}
+{% endschema %}

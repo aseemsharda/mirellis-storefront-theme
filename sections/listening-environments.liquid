@@ -1,0 +1,233 @@
+<section class="listening-environments">
+
+  <div class="listening-environments__intro">
+
+    <p class="listening-environments__eyebrow">
+      {{ section.settings.eyebrow }}
+    </p>
+
+    <h2 class="listening-environments__heading">
+      {{ section.settings.heading }}
+    </h2>
+
+  </div>
+
+  <div class="listening-environments__grid">
+
+    {% for block in section.blocks %}
+
+      <div class="listening-environments__card">
+
+        {% if block.settings.image != blank %}
+          <div class="listening-environments__image-wrapper">
+            <img
+              src="{{ block.settings.image | image_url: width: 1200 }}"
+              alt="{{ block.settings.title | escape }}"
+              loading="lazy"
+              width="{{ block.settings.image.width }}"
+              height="{{ block.settings.image.height }}"
+            >
+          </div>
+        {% endif %}
+
+        <div class="listening-environments__content">
+
+          <p class="listening-environments__label">
+            {{ block.settings.label }}
+          </p>
+
+          <h3 class="listening-environments__title">
+            {{ block.settings.title }}
+          </h3>
+
+          <div class="listening-environments__text rte">
+            {{ block.settings.text }}
+          </div>
+
+        </div>
+
+      </div>
+
+    {% endfor %}
+
+  </div>
+
+</section>
+
+<style>
+
+.listening-environments {
+  background: #111111;
+  color: #f5f1eb;
+  padding: 180px 80px;
+}
+
+.listening-environments__intro {
+  max-width: 880px;
+  margin: 0 auto 110px;
+}
+
+.listening-environments__eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin-bottom: 24px;
+}
+
+.listening-environments__heading {
+  font-size: clamp(42px, 5vw, 74px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  margin: 0;
+  max-width: 760px;
+}
+
+.listening-environments__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+}
+
+.listening-environments__card {
+  display: flex;
+  flex-direction: column;
+}
+
+.listening-environments__image-wrapper {
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.listening-environments__image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.listening-environments__label {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin-bottom: 18px;
+}
+
+.listening-environments__title {
+  font-size: 34px;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  margin: 0 0 20px;
+}
+
+.listening-environments__text {
+  font-size: 16px;
+  line-height: 1.9;
+  color: rgba(245,241,235,0.76);
+  max-width: 520px;
+}
+
+.listening-environments__text p {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 990px) {
+
+  .listening-environments {
+    padding: 110px 28px;
+  }
+
+  .listening-environments__intro {
+    margin-bottom: 72px;
+  }
+
+  .listening-environments__grid {
+    grid-template-columns: 1fr;
+    gap: 72px;
+  }
+
+  .listening-environments__title {
+    font-size: 32px;
+  }
+
+  .listening-environments__text {
+    font-size: 15px;
+    line-height: 1.85;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Listening Environments",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "LISTENING ENVIRONMENTS"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Sound becomes part of the atmosphere through repetition."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "environment",
+      "name": "Environment",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "SLOW MORNINGS"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Before the pace of the day begins."
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Listening Environments",
+      "blocks": [
+        {
+          "type": "environment"
+        },
+        {
+          "type": "environment"
+        },
+        {
+          "type": "environment"
+        },
+        {
+          "type": "environment"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

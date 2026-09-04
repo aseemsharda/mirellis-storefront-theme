@@ -7,10 +7,13 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "test": "tsx --test src/lib/route-policy.test.ts src/lib/route-engine.test.ts src/lib/observatory.test.ts src/lib/product-experience.test.ts src/lib/v1-transition-model.test.ts src/lib/work-recovery-protocol.test.ts src/curriculum/stewardship.test.ts src/operations/launch.test.ts",
+    "test": "tsx --test src/lib/route-policy.test.ts src/lib/route-engine.test.ts src/lib/observatory.test.ts src/lib/private-record-export.test.ts src/lib/product-experience.test.ts src/lib/v1-transition-model.test.ts src/lib/work-recovery-protocol.test.ts src/lib/unified-product.test.ts src/lib/unified-store.test.ts src/curriculum/stewardship.test.ts src/operations/launch.test.ts",
     "content:generate": "python3 scripts/generate-content.py"
   },
   "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
+    "@supabase/ssr": "0.12.5",
+    "@supabase/supabase-js": "2.112.4",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
@@ -19,7 +22,11 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "supabase": "2.115.0",
     "tsx": "latest",
     "typescript": "latest"
+  },
+  "overrides": {
+    "nanoid": "3.3.18"
   }
 }

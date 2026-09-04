@@ -1,0 +1,156 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "science_hero_QTYgfh": {
+      "type": "science-hero",
+      "name": "Science Hero",
+      "settings": {
+        "hero_image": "shopify://shop_images/HERO_IMAGE_science_1.png",
+        "eyebrow": "Ritual Science",
+        "title": "The Body Responds to Signals Before Intention",
+        "text": "Modern life changed the rhythm of the nervous system through light, sound, stimulation, pacing, atmosphere, and repeated sensory environments."
+      }
+    },
+    "science_overstimulation_x7KdL2": {
+      "type": "science-editorial-split",
+      "name": "Modern Overstimulation",
+      "settings": {
+        "reverse_layout": true,
+        "image": "shopify://shop_images/modern-overstimulation-mirellis.png",
+        "eyebrow": "Modern Nervous System Fatigue",
+        "heading": "The Day Rarely Fully Ends Anymore",
+        "text": "<p>Modern environments keep the nervous system continuously engaged through screens, notifications, artificial light, rapid information exposure, and emotional continuation long after the body begins seeking rest.</p><p>Many evenings no longer feel psychologically distinct from the day itself. The nervous system often continues receiving stimulation without clear sensory transitions into slowing, quietness, or restoration.</p>"
+      }
+    },
+    "science_editorial_split_tPqdgJ": {
+      "type": "science-editorial-split",
+      "name": "Science Editorial",
+      "settings": {
+        "reverse_layout": false,
+        "image": "shopify://shop_images/Nervous_System_Science.png",
+        "eyebrow": "Transition Deprivation",
+        "heading": "Modern Life Rarely Slows Gradually",
+        "text": "<p>The nervous system evolved through slower transitions between activity, rest, darkness, silence, social rhythm, and environmental pacing.</p><p>Modern environments compress the spaces between stimulation and restoration — leaving very little room for gradual psychological slowing or emotional decompression.</p><p>Many people are physically resting while the nervous system continues processing sensory input, emotional continuation, and cognitive stimulation.</p>"
+      }
+    },
+    "science_transition_grid_FHKCmE": {
+      "type": "science-transition-grid",
+      "name": "Science Transition",
+      "settings": {
+        "eyebrow": "Transition Physiology",
+        "heading": "Morning and Evening Are Biological Transitions",
+        "text": "<p>The nervous system responds differently to the first and last signals of the day. Light, sound, scent, rhythm, breath, and environmental pacing influence how the body gradually awakens or slows.</p>",
+        "morning_image": "shopify://shop_images/morning-transition-science-page-mirellis.png",
+        "morning_heading": "Orientation Before Stimulation",
+        "morning_text": "<p>Morning rituals influence circadian orientation, breath rhythm, sensory clarity, and the body’s transition into alertness.</p>",
+        "evening_image": "shopify://shop_images/evening-transition-science-mirellis.png",
+        "evening_heading": "Slowing Is a Biological Process",
+        "evening_text": "<p>Dim light, reduced stimulation, slower sound environments, warmth, and repetition help the nervous system transition toward restoration.</p>"
+      }
+    },
+    "science_environment_section_kg4EJq": {
+      "type": "science-environment-section",
+      "name": "Science Environment",
+      "settings": {
+        "image": "shopify://shop_images/environment-science-mirellis.png",
+        "eyebrow": "Environmental Psychology",
+        "heading": "Environments Quietly Shape Internal States",
+        "text": "<p>Light, sound, temperature, texture, rhythm, sensory repetition, and environmental pacing continuously influence how the nervous system feels and responds.</p><p>The body does not only respond to thoughts. It responds to atmosphere, transitions, sensory continuity, and repeated environmental signals.</p><p>Modern neuroscience, circadian biology, and environmental psychology increasingly support the idea that the nervous system is deeply shaped by surroundings.</p>"
+      }
+    },
+    "science_ritual_signals_KLm29Q": {
+      "type": "science-editorial-split",
+      "name": "Repeated Sensory Signals",
+      "settings": {
+        "reverse_layout": true,
+        "image": "shopify://shop_images/ritual-signals-mirellis.png",
+        "eyebrow": "Ritual Physiology",
+        "heading": "Rituals Are Repeated Sensory Signals",
+        "text": "<p>The nervous system learns through repetition, familiarity, rhythm, and environmental predictability.</p><p>Repeated sensory patterns — including light, scent, sound, breath, touch, warmth, and pacing — gradually become associated with orientation, slowing, emotional safety, and restoration.</p><p>Rituals are not only symbolic experiences. They are repeated sensory environments that influence how the body transitions between states.</p>"
+      }
+    },
+    "science_research_notes_Kitwcq": {
+      "type": "science-research-notes",
+      "blocks": {
+        "note_DjMrdz": {
+          "type": "note",
+          "settings": {
+            "label": "Circadian Rhythm",
+            "title": "Light Influences Melatonin Timing",
+            "text": "<p>Even relatively modest artificial light exposure at night may delay melatonin release and influence circadian timing.</p>"
+          }
+        },
+        "note_Rfwnij": {
+          "type": "note",
+          "settings": {
+            "label": "Breath & Physiology",
+            "title": "Slow Breathing Influences Nervous System State",
+            "text": "<p>Slower breathing patterns are associated with parasympathetic activation and reduced physiological arousal.</p>"
+          }
+        },
+        "note_z7nwEA": {
+          "type": "note",
+          "settings": {
+            "label": "Environmental Psychology",
+            "title": "Predictable Environments Reduce Cognitive Load",
+            "text": "<p>Repetition, familiarity, and sensory predictability may help the nervous system feel more regulated and emotionally settled.</p>"
+          }
+        },
+        "note_cLUNE7": {
+          "type": "note",
+          "settings": {
+            "label": "Sound Environment",
+            "title": "Sound Influences Emotional Pacing",
+            "text": "<p>Slower sound environments and low-intensity auditory pacing may support emotional decompression and cognitive slowing.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "note_DjMrdz",
+        "note_Rfwnij",
+        "note_z7nwEA",
+        "note_cLUNE7"
+      ],
+      "name": "Science Notes",
+      "settings": {
+        "eyebrow": "Research Notes",
+        "heading": "Quiet Scientific Context",
+        "text": "<p>Modern neuroscience, circadian biology, environmental psychology, and sensory research increasingly support the idea that atmosphere influences physiology.</p>"
+      }
+    },
+    "science_closing_philosophy_Q9njBe": {
+      "type": "science-closing-philosophy",
+      "name": "Science Closing",
+      "settings": {
+        "eyebrow": "The Mirellis Philosophy",
+        "heading": "Science at the Forefront. Ritual at the Center.",
+        "text": "<p>Mirellis explores the relationship between sensory environments, nervous system rhythms, ritual repetition, and modern restoration.</p><p>Rooted in both contemporary research and the slower intelligence of Ayurveda, our work focuses on how everyday signals shape the way the body feels, slows, restores, and remembers rhythm again.</p>",
+        "quote": "The body remembers what the environment repeats."
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "science_hero_QTYgfh",
+    "science_overstimulation_x7KdL2",
+    "science_editorial_split_tPqdgJ",
+    "science_transition_grid_FHKCmE",
+    "science_environment_section_kg4EJq",
+    "science_ritual_signals_KLm29Q",
+    "science_research_notes_Kitwcq",
+    "science_closing_philosophy_Q9njBe",
+    "main"
+  ]
+}

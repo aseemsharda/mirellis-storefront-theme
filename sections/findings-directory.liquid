@@ -1,0 +1,358 @@
+{% comment %}
+Findings Directory Section
+Grid display of all published findings with transition filtering
+{% endcomment %}
+
+<section class="findings-directory">
+  <div class="findings-directory__container">
+    
+    <h2 class="findings-directory__title">Browse All Findings</h2>
+
+    <div class="findings-directory__filters">
+      <button class="findings-directory__filter-button findings-directory__filter-button--active" data-transition="all">
+        All Findings
+      </button>
+      <button class="findings-directory__filter-button" data-transition="sleep-wake">
+        Sleep → Wakefulness
+      </button>
+      <button class="findings-directory__filter-button" data-transition="work-recovery">
+        Work → Recovery
+      </button>
+      <button class="findings-directory__filter-button" data-transition="stimulation-restoration">
+        Stimulation → Restoration
+      </button>
+    </div>
+
+    <div class="findings-directory__grid">
+      
+      <article class="findings-card" data-transition="sleep-wake">
+        <div class="findings-card__header">
+          <span class="findings-card__number">Finding 003</span>
+          <span class="findings-card__transition-badge findings-card__transition-badge--sleep">Sleep → Wakefulness</span>
+        </div>
+        <h3 class="findings-card__title">
+          <a href="/blogs/journal/cold-immersion-sympathetic-activation">Cold Immersion Triggers Rapid Sympathetic Nervous System Activation</a>
+        </h3>
+        <p class="findings-card__excerpt">
+          Cold water exposure activates the sympathetic nervous system within 30 seconds. The effect is acute and measurable: increased norepinephrine, elevated heart rate, and thermogenic response.
+        </p>
+        <div class="findings-card__meta">
+          <span class="findings-card__date">Published Feb 2026</span>
+        </div>
+        <a href="/blogs/journal/cold-immersion-sympathetic-activation" class="findings-card__link">
+          Read Finding →
+        </a>
+      </article>
+
+      <article class="findings-card" data-transition="sleep-wake">
+        <div class="findings-card__header">
+          <span class="findings-card__number">Finding 002</span>
+          <span class="findings-card__transition-badge findings-card__transition-badge--sleep">Sleep → Wakefulness</span>
+        </div>
+        <h3 class="findings-card__title">
+          <a href="/blogs/journal/sleep-inertia-and-neurological-stages">Sleep Inertia Persists Until Full Prefrontal Cortex Activation</a>
+        </h3>
+        <p class="findings-card__excerpt">
+          Your brain doesn't wake up all at once. Sleep inertia—the grogginess upon waking—reflects the delayed activation of your prefrontal cortex and executive function systems.
+        </p>
+        <div class="findings-card__meta">
+          <span class="findings-card__date">Published Jan 2026</span>
+        </div>
+        <a href="/blogs/journal/sleep-inertia-and-neurological-stages" class="findings-card__link">
+          Read Finding →
+        </a>
+      </article>
+
+      <article class="findings-card" data-transition="sleep-wake">
+        <div class="findings-card__header">
+          <span class="findings-card__number">Finding 001</span>
+          <span class="findings-card__transition-badge findings-card__transition-badge--sleep">Sleep → Wakefulness</span>
+        </div>
+        <h3 class="findings-card__title">
+          <a href="/blogs/journal/thermogenesis-and-metabolic-priming">Thermogenesis and Metabolic Priming: How Cold Exposure Extends Wakefulness</a>
+        </h3>
+        <p class="findings-card__excerpt">
+          The elevated metabolic state triggered by cold exposure persists for 15–30 minutes post-exposure. During this window, your core temperature remains elevated and your nervous system remains in heightened readiness.
+        </p>
+        <div class="findings-card__meta">
+          <span class="findings-card__date">Published Jan 2026</span>
+        </div>
+        <a href="/blogs/journal/thermogenesis-and-metabolic-priming" class="findings-card__link">
+          Read Finding →
+        </a>
+      </article>
+
+      <article class="findings-card" data-transition="work-recovery">
+        <div class="findings-card__header">
+          <span class="findings-card__number">Finding 004</span>
+          <span class="findings-card__transition-badge findings-card__transition-badge--work">Work → Recovery</span>
+        </div>
+        <h3 class="findings-card__title">
+          <a href="/blogs/journal/parasympathetic-activation-evening">Evening Parasympathetic Activation Requires Sensory Downshift</a>
+        </h3>
+        <p class="findings-card__excerpt">
+          Your parasympathetic nervous system doesn't activate simply by stopping work. It requires active sensory downregulation—reducing light, sound, and cognitive stimulation.
+        </p>
+        <div class="findings-card__meta">
+          <span class="findings-card__date">Published Feb 2026</span>
+        </div>
+        <a href="/blogs/journal/parasympathetic-activation-evening" class="findings-card__link">
+          Read Finding →
+        </a>
+      </article>
+
+      <article class="findings-card" data-transition="work-recovery">
+        <div class="findings-card__header">
+          <span class="findings-card__number">Finding 005</span>
+          <span class="findings-card__transition-badge findings-card__transition-badge--work">Work → Recovery</span>
+        </div>
+        <h3 class="findings-card__title">
+          <a href="/blogs/journal/blue-light-and-melatonin-suppression">Blue Light Suppresses Melatonin Production for Hours</a>
+        </h3>
+        <p class="findings-card__excerpt">
+          Evening screen exposure delays melatonin onset by 1–2 hours. The effect is dose-dependent: brighter screens and longer exposure create longer delays.
+        </p>
+        <div class="findings-card__meta">
+          <span class="findings-card__date">Published Feb 2026</span>
+        </div>
+        <a href="/blogs/journal/blue-light-and-melatonin-suppression" class="findings-card__link">
+          Read Finding →
+        </a>
+      </article>
+
+      <article class="findings-card" data-transition="stimulation-restoration">
+        <div class="findings-card__header">
+          <span class="findings-card__number">Finding 006</span>
+          <span class="findings-card__transition-badge findings-card__transition-badge--stimulation">Stimulation → Restoration</span>
+        </div>
+        <h3 class="findings-card__title">
+          <a href="/blogs/journal/attentional-restoration-theory">Brief Restoration Periods Reset Cognitive Load Capacity</a>
+        </h3>
+        <p class="findings-card__excerpt">
+          Micro-breaks of 5–10 minutes in low-stimulation environments measurably restore focused attention capacity. The effect accumulates throughout the day.
+        </p>
+        <div class="findings-card__meta">
+          <span class="findings-card__date">Published Mar 2026</span>
+        </div>
+        <a href="/blogs/journal/attentional-restoration-theory" class="findings-card__link">
+          Read Finding →
+        </a>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .findings-directory {
+    padding: 4rem 2rem;
+    background: #fff;
+  }
+
+  .findings-directory__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .findings-directory__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: #1a1a18;
+    margin: 0 0 2rem 0;
+  }
+
+  .findings-directory__filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .findings-directory__filter-button {
+    padding: 0.6rem 1.2rem;
+    border: 1px solid rgba(26, 26, 24, 0.2);
+    background: #fff;
+    color: #1a1a18;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+
+  .findings-directory__filter-button:hover {
+    border-color: #1a1a18;
+    background: #faf7f2;
+  }
+
+  .findings-directory__filter-button--active {
+    background: #1a1a18;
+    color: #fff;
+    border-color: #1a1a18;
+  }
+
+  .findings-directory__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .findings-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem;
+    background: #faf7f2;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+
+  .findings-card:hover {
+    background: #f5f2ed;
+  }
+
+  .findings-card.hidden {
+    display: none;
+  }
+
+  .findings-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .findings-card__number {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .findings-card__transition-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 3px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .findings-card__transition-badge--sleep {
+    background: #4a90e2;
+    color: #fff;
+  }
+
+  .findings-card__transition-badge--work {
+    background: #f5a623;
+    color: #fff;
+  }
+
+  .findings-card__transition-badge--stimulation {
+    background: #7ed321;
+    color: #fff;
+  }
+
+  .findings-card__title {
+    margin: 0 0 0.75rem 0;
+  }
+
+  .findings-card__title a {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1a1a18;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+  }
+
+  .findings-card__title a:hover {
+    color: #666;
+  }
+
+  .findings-card__excerpt {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #666;
+    margin: 0 0 1rem 0;
+    flex-grow: 1;
+  }
+
+  .findings-card__meta {
+    font-size: 0.85rem;
+    color: #999;
+    margin-bottom: 1rem;
+  }
+
+  .findings-card__link {
+    color: #1a1a18;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .findings-card__link:hover {
+    color: #666;
+  }
+
+  @media (max-width: 768px) {
+    .findings-directory {
+      padding: 3rem 1.5rem;
+    }
+
+    .findings-directory__title {
+      font-size: 1.5rem;
+    }
+
+    .findings-directory__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .findings-card {
+      padding: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.findings-directory__filter-button');
+    const findingsCards = document.querySelectorAll('.findings-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const selectedTransition = this.getAttribute('data-transition');
+
+        filterButtons.forEach(btn => {
+          btn.classList.remove('findings-directory__filter-button--active');
+        });
+        this.classList.add('findings-directory__filter-button--active');
+
+        findingsCards.forEach(card => {
+          const cardTransition = card.getAttribute('data-transition');
+          if (selectedTransition === 'all' || cardTransition === selectedTransition) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Findings Directory",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,356 @@
+{%- assign se_product = all_products[section.settings.product] -%}
+{%- assign se_variant = se_product.selected_or_first_available_variant -%}
+{%- assign media_blocks = section.blocks | where: 'type', 'media' -%}
+
+{% style %}
+  #se-hero [data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1)}
+  #se-hero [data-reveal].se-visible{opacity:1;transform:none}
+  #se-hero .se-thumb-btn:hover{opacity:1!important;border-color:#cf9266!important}
+  #se-hero .se-add-btn:hover{background:#cf9266!important;color:#12171f!important}
+  #se-hero .se-qty-btn:hover{background:rgba(255,255,255,0.08)!important}
+  #se-hero .se-arrow:hover{background:rgba(18,23,31,0.85)!important}
+
+  #se-hero .se-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab}
+  #se-hero .se-track::-webkit-scrollbar{display:none}
+  #se-hero .se-track.is-dragging{cursor:grabbing;scroll-behavior:auto}
+  #se-hero .se-slide{flex:0 0 100%;scroll-snap-align:start;position:relative;aspect-ratio:4/5;background:#1b2230}
+  #se-hero .se-slide img,#se-hero .se-slide video{width:100%;height:100%;object-fit:cover;display:block;user-select:none;-webkit-user-drag:none}
+  #se-hero .se-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(18,23,31,0.28);border:none;cursor:pointer;z-index:2}
+  #se-hero .se-play span{width:62px;height:62px;border-radius:50%;background:rgba(241,233,221,0.92);color:#12171f;display:flex;align-items:center;justify-content:center;font-size:22px;padding-left:4px}
+
+  #se-hero .se-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:40px;height:40px;border:none;border-radius:50%;background:rgba(18,23,31,0.6);color:#f1e9dd;font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s}
+  #se-hero .se-arrow:focus-visible{outline:2px solid #cf9266;outline-offset:2px}
+  #se-hero .se-arrow--prev{left:12px}
+  #se-hero .se-arrow--next{right:12px}
+  #se-hero .se-arrow[disabled]{opacity:0;pointer-events:none}
+
+  @media (prefers-reduced-motion: reduce){
+    #se-hero [data-reveal]{transition:none}
+    #se-hero .se-track{scroll-behavior:auto}
+  }
+  @media (max-width:600px){
+    #se-hero .se-buy-row{flex-direction:column;align-items:stretch}
+    #se-hero .se-add-btn{width:100%}
+  }
+{% endstyle %}
+
+<section id="se-hero" style="position:relative;background:{{ section.settings.bg_color }};color:#ece7dd;overflow:hidden;font-family:var(--font-body-family,system-ui,sans-serif)">
+
+  <div style="position:absolute;top:-12%;left:50%;transform:translateX(-50%);width:min(900px,120%);height:520px;background:radial-gradient(ellipse at center,rgba(207,146,102,0.22),rgba(207,146,102,0) 62%);pointer-events:none"></div>
+
+  <div style="position:relative;max-width:1240px;margin:0 auto;padding:clamp(40px,6vw,76px) clamp(20px,5vw,48px) clamp(56px,7vw,90px);display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,68px);align-items:center">
+
+    <div data-reveal style="flex:1 1 360px;min-width:300px;display:flex;flex-direction:column;gap:16px">
+      <div style="position:relative;border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);width:100%">
+        <span style="position:absolute;top:18px;left:18px;z-index:4;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#cf9266;background:rgba(18,23,31,0.55);padding:6px 10px;border-radius:100px;backdrop-filter:blur(4px)">{{ section.settings.badge }}</span>
+
+        <div class="se-track" data-se-track tabindex="0" aria-label="Product media gallery">
+          {%- if media_blocks.size > 0 -%}
+            {%- for block in media_blocks -%}
+              <div class="se-slide" data-kind="{{ block.settings.kind }}" {{ block.shopify_attributes }}>
+                {%- if block.settings.kind == 'video' -%}
+                  {%- if block.settings.video != blank -%}
+                    <video data-se-video muted loop playsinline preload="metadata"
+                      {% if block.settings.poster != blank %}poster="{{ block.settings.poster | image_url: width: 1080 }}"{% endif %}>
+                      <source src="{{ block.settings.video.sources[1].url | default: block.settings.video.sources[0].url }}" type="video/mp4">
+                    </video>
+                    <button class="se-play" data-se-play type="button" aria-label="Play video"><span>&#9658;</span></button>
+                  {%- elsif block.settings.video_url != blank -%}
+                    {%- assign vid = block.settings.video_url -%}
+                    {%- if vid.type == 'youtube' -%}
+                      <iframe src="https://www.youtube.com/embed/{{ vid.id }}?rel=0" title="Product video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;border:0;display:block"></iframe>
+                    {%- elsif vid.type == 'vimeo' -%}
+                      <iframe src="https://player.vimeo.com/video/{{ vid.id }}" title="Product video" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="width:100%;height:100%;border:0;display:block"></iframe>
+                    {%- endif -%}
+                  {%- elsif block.settings.poster != blank -%}
+                    <img src="{{ block.settings.poster | image_url: width: 1080 }}" loading="lazy" alt="{{ block.settings.alt | default: se_product.title | escape }}">
+                  {%- endif -%}
+                {%- else -%}
+                  {%- if block.settings.image != blank -%}
+                    {{ block.settings.image | image_url: width: 1080 | image_tag: loading: forloop.first | default: 'lazy', widths: '540, 800, 1080', sizes: '(max-width: 900px) 100vw, 45vw', alt: block.settings.alt | default: se_product.title }}
+                  {%- elsif block.settings.fallback_url != blank -%}
+                    <img src="{{ block.settings.fallback_url }}" loading="lazy" alt="{{ block.settings.alt | default: se_product.title | escape }}">
+                  {%- endif -%}
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          {%- else -%}
+            {%- comment -%} Fallback: pull the product's own images {%- endcomment -%}
+            {%- if se_product.images.size > 0 -%}
+              {%- for img in se_product.images limit: 6 -%}
+                <div class="se-slide" data-kind="image">
+                  {{ img | image_url: width: 1080 | image_tag: loading: forloop.first | default: 'lazy', widths: '540, 800, 1080', sizes: '(max-width: 900px) 100vw, 45vw', alt: se_product.title }}
+                </div>
+              {%- endfor -%}
+            {%- elsif section.settings.fallback_image != blank -%}
+              <div class="se-slide" data-kind="image">
+                <img src="{{ section.settings.fallback_image | image_url: width: 1080 }}" loading="eager" alt="{{ section.settings.title | escape }}">
+              </div>
+            {%- endif -%}
+          {%- endif -%}
+        </div>
+
+        <button class="se-arrow se-arrow--prev" data-se-prev type="button" aria-label="Previous">&larr;</button>
+        <button class="se-arrow se-arrow--next" data-se-next type="button" aria-label="Next">&rarr;</button>
+      </div>
+
+      <div data-se-thumbs style="display:flex;gap:12px;overflow-x:auto;scrollbar-width:none"></div>
+    </div>
+
+    <div data-reveal style="flex:1 1 380px;min-width:300px;max-width:540px">
+      <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#cf9266;margin-bottom:18px">{{ section.settings.eyebrow }}</div>
+      <h1 style="font-family:var(--font-heading-family,serif);font-weight:400;font-size:clamp(38px,5.4vw,64px);line-height:1.04;margin:0 0 8px;letter-spacing:-0.015em;color:#ece7dd">{{ section.settings.title }}</h1>
+      <p style="font-family:var(--font-heading-family,serif);font-style:italic;font-size:clamp(17px,2vw,21px);line-height:1.5;color:#b9b3a7;margin:0 0 22px">{{ section.settings.subtitle }}</p>
+
+      <div style="display:flex;align-items:baseline;gap:12px;padding-bottom:24px;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.13)">
+        <span style="font-family:var(--font-heading-family,serif);font-size:34px;color:#ece7dd">
+          {%- if se_variant -%}{{ se_variant.price | money }}{%- else -%}{{ section.settings.price_text }}{%- endif -%}
+        </span>
+        <span style="font-size:13px;color:#9aa1ac">{{ section.settings.price_subtext }}</span>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#cbc6bb;margin:0 0 30px;max-width:46ch">{{ section.settings.description }}</p>
+
+      <div class="se-buy-row" style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-bottom:24px">
+        <div style="display:flex;align-items:center;border:1px solid rgba(255,255,255,0.18);border-radius:100px;height:54px;padding:0 6px">
+          <button data-se-dec class="se-qty-btn" type="button" aria-label="Decrease quantity" style="width:42px;height:42px;border:none;background:transparent;color:#ece7dd;font-size:20px;cursor:pointer;border-radius:100px;transition:background .2s;line-height:1">&minus;</button>
+          <span data-se-qty aria-live="polite" style="min-width:30px;text-align:center;font-size:16px;font-variant-numeric:tabular-nums;color:#ece7dd">1</span>
+          <button data-se-inc class="se-qty-btn" type="button" aria-label="Increase quantity" style="width:42px;height:42px;border:none;background:transparent;color:#ece7dd;font-size:20px;cursor:pointer;border-radius:100px;transition:background .2s;line-height:1">+</button>
+        </div>
+        <button data-se-add class="se-add-btn" type="button" style="flex:1;min-width:180px;height:54px;display:inline-flex;align-items:center;justify-content:center;padding:0 24px;border:none;border-radius:100px;background:#f1e9dd;color:#12171f;font-family:var(--font-body-family,sans-serif);font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;cursor:pointer;transition:background .3s,color .3s">{{ section.settings.add_text | default: 'Add to cart' }}</button>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:18px 28px;font-size:12.5px;color:#9aa1ac;letter-spacing:.02em">
+        {%- if section.settings.trust_1 != blank -%}<span>&#10003; {{ section.settings.trust_1 }}</span>{%- endif -%}
+        {%- if section.settings.trust_2 != blank -%}<span>&#10003; {{ section.settings.trust_2 }}</span>{%- endif -%}
+        {%- if section.settings.trust_3 != blank -%}<span>&#10003; {{ section.settings.trust_3 }}</span>{%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var root = document.getElementById('se-hero');
+  if (!root || root.dataset.seReady === '1') return;
+  root.dataset.seReady = '1';
+
+  var track = root.querySelector('[data-se-track]');
+  var slides = track ? Array.prototype.slice.call(track.querySelectorAll('.se-slide')) : [];
+  var thumbsWrap = root.querySelector('[data-se-thumbs]');
+  var prevBtn = root.querySelector('[data-se-prev]');
+  var nextBtn = root.querySelector('[data-se-next]');
+  var total = slides.length;
+  var index = 0;
+
+  function pauseAllVideos(except) {
+    slides.forEach(function (s) {
+      var v = s.querySelector('[data-se-video]');
+      if (v && v !== except) { v.pause(); }
+    });
+  }
+
+  function updateUI(i) {
+    index = i;
+    if (thumbsWrap) {
+      thumbsWrap.querySelectorAll('.se-thumb-btn').forEach(function (b, j) {
+        var on = j === i;
+        b.style.borderColor = on ? '#cf9266' : 'rgba(255,255,255,0.16)';
+        b.style.opacity = on ? '1' : '0.55';
+        b.setAttribute('aria-current', on ? 'true' : 'false');
+      });
+    }
+    if (prevBtn) prevBtn.disabled = i <= 0;
+    if (nextBtn) nextBtn.disabled = i >= total - 1;
+    pauseAllVideos(null);
+  }
+
+  function goTo(i) {
+    if (!track || !slides[i]) return;
+    i = Math.max(0, Math.min(total - 1, i));
+    track.scrollTo({ left: slides[i].offsetLeft, behavior: 'smooth' });
+    updateUI(i);
+  }
+
+  // Thumbnails
+  if (thumbsWrap && total > 1) {
+    slides.forEach(function (slide, i) {
+      var kind = slide.getAttribute('data-kind');
+      var media = slide.querySelector('img') || slide.querySelector('video');
+      var thumbSrc = '';
+      if (media) thumbSrc = media.tagName === 'VIDEO' ? (media.getAttribute('poster') || '') : (media.currentSrc || media.src);
+      var btn = document.createElement('button');
+      btn.className = 'se-thumb-btn';
+      btn.type = 'button';
+      btn.setAttribute('aria-label', (kind === 'video' ? 'Play video ' : 'View image ') + (i + 1));
+      btn.style.cssText = 'position:relative;flex:0 0 64px;aspect-ratio:1;padding:0;border-radius:4px;overflow:hidden;cursor:pointer;background:#1b2230;transition:opacity .3s,border-color .3s;border:1px solid ' + (i === 0 ? '#cf9266' : 'rgba(255,255,255,0.16)') + ';opacity:' + (i === 0 ? '1' : '0.55') + ';';
+      if (thumbSrc) {
+        var t = document.createElement('img');
+        t.src = thumbSrc; t.loading = 'lazy'; t.alt = '';
+        t.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block';
+        btn.appendChild(t);
+      }
+      if (kind === 'video') {
+        var dot = document.createElement('span');
+        dot.textContent = '\u25B6';
+        dot.style.cssText = 'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#f1e9dd;font-size:14px;text-shadow:0 1px 4px rgba(0,0,0,.5)';
+        btn.appendChild(dot);
+      }
+      btn.addEventListener('click', function () { goTo(i); });
+      thumbsWrap.appendChild(btn);
+    });
+  }
+
+  // Sync index to native swipe/scroll
+  if (track) {
+    var scrollTimer;
+    track.addEventListener('scroll', function () {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function () {
+        var nearest = Math.round(track.scrollLeft / track.clientWidth);
+        if (nearest !== index) updateUI(Math.max(0, Math.min(total - 1, nearest)));
+      }, 90);
+    }, { passive: true });
+
+    track.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(index - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(index + 1); }
+    });
+
+    // Desktop click-drag
+    var down = false, startX = 0, startScroll = 0, moved = false;
+    track.addEventListener('mousedown', function (e) {
+      down = true; moved = false; startX = e.pageX; startScroll = track.scrollLeft; track.classList.add('is-dragging');
+    });
+    window.addEventListener('mousemove', function (e) {
+      if (!down) return;
+      var dx = e.pageX - startX;
+      if (Math.abs(dx) > 4) moved = true;
+      track.scrollLeft = startScroll - dx;
+    });
+    window.addEventListener('mouseup', function () {
+      if (!down) return; down = false; track.classList.remove('is-dragging');
+      if (moved) goTo(Math.round(track.scrollLeft / track.clientWidth));
+    });
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', function () { goTo(index - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function () { goTo(index + 1); });
+
+  // Native video play buttons
+  root.querySelectorAll('[data-se-play]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var slide = btn.closest('.se-slide');
+      var v = slide ? slide.querySelector('[data-se-video]') : null;
+      if (!v) return;
+      pauseAllVideos(v);
+      if (v.paused) { v.play(); btn.style.display = 'none'; }
+    });
+  });
+
+  updateUI(0);
+
+  // Quantity + cart
+  var qty = 1;
+  var qtyEl = root.querySelector('[data-se-qty]');
+  var dec = root.querySelector('[data-se-dec]');
+  var inc = root.querySelector('[data-se-inc]');
+  if (dec) dec.addEventListener('click', function () { if (qty > 1) { qty--; qtyEl.textContent = qty; } });
+  if (inc) inc.addEventListener('click', function () { if (qty < 9) { qty++; qtyEl.textContent = qty; } });
+
+  var addBtn = root.querySelector('[data-se-add]');
+  var variantId = {{ se_variant.id | default: 0 | json }};
+  var addText = {{ section.settings.add_text | default: 'Add to cart' | json }};
+  var addTimer;
+  if (addBtn) addBtn.addEventListener('click', function () {
+    if (addBtn.disabled || !variantId) return;
+    addBtn.disabled = true; addBtn.textContent = 'Adding…';
+    fetch('/cart/add.js', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ id: variantId, quantity: qty }) })
+    .then(function (r) { if (!r.ok) throw new Error('cart'); return r.json(); })
+    .then(function () {
+      addBtn.textContent = 'Added to cart ✓'; addBtn.disabled = false;
+      document.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
+      clearTimeout(addTimer); addTimer = setTimeout(function () { addBtn.textContent = addText; }, 1800);
+    })
+    .catch(function () {
+      addBtn.textContent = 'Try again'; addBtn.disabled = false;
+      clearTimeout(addTimer); addTimer = setTimeout(function () { addBtn.textContent = addText; }, 1800);
+    });
+  });
+
+  // Reveal
+  var els = root.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('se-visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+    els.forEach(function (el) { obs.observe(el); });
+  } else {
+    els.forEach(function (el) { el.classList.add('se-visible'); });
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "SE — Hero & Buy Box",
+  "settings": [
+    { "type": "header", "content": "Product" },
+    { "type": "product", "id": "product", "label": "Product" },
+    { "type": "image_picker", "id": "fallback_image", "label": "Fallback image (if no product)" },
+    { "type": "paragraph", "content": "Add Media blocks below to control the gallery. With none added, the product's own images are used." },
+    { "type": "header", "content": "Copy" },
+    { "type": "text", "id": "badge", "label": "Badge", "default": "Evening · 50 ml" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Work → Recovery · Evening Ritual" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Stillness Elixir" },
+    { "type": "text", "id": "subtitle", "label": "Subtitle (italic)", "default": "A grounding evening body oil — the signal that the day has ended." },
+    { "type": "header", "content": "Price & Description" },
+    { "type": "text", "id": "price_text", "label": "Price (used if no product set)", "default": "Rs. 1,100" },
+    { "type": "text", "id": "price_subtext", "label": "Price sub-text", "default": "50 ml · inclusive of all taxes" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Crafted with grounding Ayurvedic botanicals — Ashwagandha, Jatamansi, Vetiver, Lavender, Blue Tansy. More than a fragrance, it is a nightly cue to pause." },
+    { "type": "text", "id": "add_text", "label": "Add to cart text", "default": "Add to cart" },
+    { "type": "header", "content": "Trust signals" },
+    { "type": "text", "id": "trust_1", "label": "Trust signal 1", "default": "Free shipping over ₹999" },
+    { "type": "text", "id": "trust_2", "label": "Trust signal 2", "default": "Made in India" },
+    { "type": "text", "id": "trust_3", "label": "Trust signal 3", "default": "12-month shelf life" },
+    { "type": "header", "content": "Style" },
+    { "type": "color", "id": "bg_color", "label": "Background colour", "default": "#12171f" }
+  ],
+  "blocks": [
+    {
+      "type": "media",
+      "name": "Media (image or video)",
+      "settings": [
+        {
+          "type": "select",
+          "id": "kind",
+          "label": "Type",
+          "options": [
+            { "value": "image", "label": "Image" },
+            { "value": "video", "label": "Video" }
+          ],
+          "default": "image"
+        },
+        { "type": "header", "content": "Image" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "fallback_url", "label": "Fallback image URL" },
+        { "type": "header", "content": "Video" },
+        { "type": "video", "id": "video", "label": "Video (uploaded)" },
+        { "type": "video_url", "id": "video_url", "label": "Or video URL (YouTube/Vimeo)", "accept": ["youtube", "vimeo"] },
+        { "type": "image_picker", "id": "poster", "label": "Video poster image" },
+        { "type": "text", "id": "alt", "label": "Alt text" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SE — Hero & Buy Box",
+      "blocks": [
+        { "type": "media", "settings": { "kind": "image" } },
+        { "type": "media", "settings": { "kind": "image" } },
+        { "type": "media", "settings": { "kind": "video" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

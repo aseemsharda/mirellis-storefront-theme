@@ -1,0 +1,57 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "sw_exp_v1": {
+      "type": "sw-experience",
+      "settings": {
+        "show_section": true
+      }
+    },
+    "td": {
+      "type": "mirellis-transition-deep",
+      "settings": {
+        "transition_name": "Sleep → Wakefulness",
+        "time_label": "Morning",
+        "hero_description": "The alarm goes off. The phone wakes up first. The day enters before you do.",
+        "experience_eyebrow": "THE EXPERIENCE",
+        "mechanism_eyebrow": "THE MECHANISM",
+        "ritual_arch_eyebrow": "THE RITUAL ARCHITECTURE",
+        "sound_eyebrow": "RITUAL SOUND",
+        "sound_series_name": "Morning Clarity Series",
+        "sound_frequency": "440–528 Hz",
+        "sound_description": "Designed to support the Sleep → Wakefulness transition. Orientation, not stimulation.",
+        "ritual_product": "shopify://products/mirellis-oil-pulling-elixir",
+        "product_cta": "Begin the morning ritual →",
+        "observatory_eyebrow": "FROM THE OBSERVATORY",
+        "observatory_heading": "The research behind this transition.",
+        "observatory_link": "/blogs/observatory/tagged/sleep-to-wakefulness",
+        "observatory_link_label": "View all Sleep → Wakefulness research →",
+        "promise_eyebrow": "THE PROMISE"
+      }
+    },
+    "sw_intervention": {
+      "type": "mirellis-transition-intervention",
+      "settings": {}
+    },
+    "sw_rp_v1": {
+      "type": "sw-ritual-pathway",
+      "settings": {
+        "show_section": true
+      }
+    }
+  },
+  "order": [
+    "sw_exp_v1",
+    "td",
+    "sw_intervention",
+    "sw_rp_v1"
+  ]
+}

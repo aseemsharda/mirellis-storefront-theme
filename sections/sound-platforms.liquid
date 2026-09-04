@@ -1,0 +1,243 @@
+<section class="sound-platforms">
+
+  <div class="sound-platforms__intro">
+
+    <p class="sound-platforms__eyebrow">
+      {{ section.settings.eyebrow }}
+    </p>
+
+    <h2 class="sound-platforms__heading">
+      {{ section.settings.heading }}
+    </h2>
+
+    <div class="sound-platforms__text rte">
+      {{ section.settings.text }}
+    </div>
+
+  </div>
+
+  <div class="sound-platforms__grid">
+
+    {% for block in section.blocks %}
+
+      <a
+        href="{{ block.settings.link }}"
+        class="sound-platforms__card"
+      >
+
+        <div class="sound-platforms__card-inner">
+
+          <p class="sound-platforms__label">
+            {{ block.settings.label }}
+          </p>
+
+          <h3 class="sound-platforms__title">
+            {{ block.settings.title }}
+          </h3>
+
+          <div class="sound-platforms__description rte">
+            {{ block.settings.text }}
+          </div>
+
+        </div>
+
+      </a>
+
+    {% endfor %}
+
+  </div>
+
+</section>
+
+<style>
+
+.sound-platforms {
+  background: #faf7f2;
+  color: #1a1a18;
+  padding: 180px 80px;
+}
+
+.sound-platforms__intro {
+  max-width: 900px;
+  margin: 0 auto 110px;
+}
+
+.sound-platforms__eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin-bottom: 24px;
+}
+
+.sound-platforms__heading {
+  font-size: clamp(42px, 5vw, 74px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  margin: 0 0 32px;
+  max-width: 760px;
+}
+
+.sound-platforms__text {
+  font-size: 17px;
+  line-height: 1.95;
+  color: rgba(245,241,235,0.76);
+  max-width: 680px;
+}
+
+.sound-platforms__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px;
+}
+
+.sound-platforms__card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgba(26,26,24,0.08);
+  transition: all 0.35s ease;
+}
+
+.sound-platforms__card:hover {
+  border-color: rgba(26,26,24,0.18);
+  transform: translateY(-3px);
+}
+
+.sound-platforms__card-inner {
+  padding: 42px;
+}
+
+.sound-platforms__label {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin-bottom: 22px;
+}
+
+.sound-platforms__title {
+  font-size: 34px;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  margin: 0 0 20px;
+}
+
+.sound-platforms__description {
+  font-size: 16px;
+  line-height: 1.85;
+  color: rgba(245,241,235,0.72);
+}
+
+.sound-platforms__description p {
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+@media screen and (max-width: 990px) {
+
+  .sound-platforms {
+    padding: 110px 28px;
+  }
+
+  .sound-platforms__intro {
+    margin-bottom: 72px;
+  }
+
+  .sound-platforms__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .sound-platforms__card-inner {
+    padding: 32px;
+  }
+
+  .sound-platforms__title {
+    font-size: 30px;
+  }
+
+  .sound-platforms__description {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Sound Platforms",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "THE LIVING SOUND ECOSYSTEM"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "An evolving collection of sonic environments, rituals, and sensory spaces."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "platform",
+      "name": "Platform",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "SPOTIFY"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Ritual Sound Environments"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sound Platforms",
+      "blocks": [
+        {
+          "type": "platform"
+        },
+        {
+          "type": "platform"
+        },
+        {
+          "type": "platform"
+        },
+        {
+          "type": "platform"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

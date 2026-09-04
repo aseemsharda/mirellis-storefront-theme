@@ -1,0 +1,54 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "public-notes-hero",
+      "settings": {
+        "heading": "Public Notes",
+        "intro": "A quiet archive of public writing, announcements, and external references connected to the evolving Mirellis ecosystem."
+      }
+    },
+    "archive": {
+      "type": "public-notes-archive",
+      "blocks": {
+        "reference_1": {
+          "type": "reference",
+          "settings": {
+            "date": "October 2026",
+            "title": "Lambda Lifestyle Launches Premium Ayurvedic Wellness Brand Mirellis",
+            "context": "An introductory public note outlining Mirellis’ early philosophy around ritual wellness, sensory pacing, and science-led Ayurveda.",
+            "link": "https://www.prlog.org/13101896-lambda-lifestyle-launches-premium-ayurvedic-wellness-brand-mirellis.html",
+            "link_label": "Read Reference →"
+          }
+        },
+        "reference_2": {
+          "type": "reference",
+          "settings": {
+            "date": "October 2026",
+            "title": "Mirellis Launches Ritual Wellness Products for Sleep and Nervous-System Recovery",
+            "context": "A public release exploring Mirellis’ evening ritual philosophy around decompression, transition pacing, and nervous-system restoration.",
+            "link": "https://www.prlog.org/13144833-mirellis-launches-ritual-wellness-products-for-sleep-and-nervous-system-recovery.html",
+            "link_label": "Read Reference →"
+          }
+        }
+      },
+      "block_order": [
+        "reference_1",
+        "reference_2"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "archive"
+  ]
+}

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import { MirellisBrand } from '@/components/MirellisBrand';
 import { deleteData, loadData, saveData } from '@/lib/local-store';
 import { createCue, noteForRecord, sortedRecords } from '@/lib/observatory';
 import { afterWorkDestination, assertRouteEngineIntegrity, routeFor, routes, stillness, type Route } from '@/lib/route-engine';
@@ -271,7 +272,7 @@ export function TransitionApp() {
 }
 
 function Header({ destination, onHome, onSettings }: { destination: string; onHome: () => void; onSettings?: () => void }) {
-  return <header className="topbar"><button className="wordmark" onClick={onHome} aria-label="Return to Mirellis today">MIRELLIS</button><span className="destination">{destination}</span>{onSettings && <button className="header-settings" onClick={onSettings}>Settings</button>}</header>;
+  return <header className="topbar"><button className="wordmark" onClick={onHome} aria-label="Return to Mirellis today"><MirellisBrand /></button><span className="destination">{destination}</span>{onSettings && <button className="header-settings" onClick={onSettings}>Settings</button>}</header>;
 }
 
 function TodayScreen({ activeRoute, savedRoute, onResume, onChooseAfterWork, onChooseSavedRoute, onRecord, onSettings }: {
@@ -285,7 +286,7 @@ function TodayScreen({ activeRoute, savedRoute, onResume, onChooseAfterWork, onC
 }) {
   return <section className="screen threshold-screen">
     <div className="threshold-image" role="img" aria-label="Late afternoon light falling across a quiet desk by a window">
-      <header className="threshold-header"><span className="threshold-wordmark">MIRELLIS</span><span>Today</span></header>
+      <header className="threshold-header"><span className="threshold-wordmark"><MirellisBrand label="Mirellis" /></span><span>Today</span></header>
     </div>
     <div className="threshold-copy">
       <p className="eyebrow">A private practice companion. No account required.</p>

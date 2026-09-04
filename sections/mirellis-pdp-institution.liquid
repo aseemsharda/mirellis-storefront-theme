@@ -1,0 +1,65 @@
+{%- comment -%}
+  MIRELLIS — PDP INSTITUTION  (Product Experience OS · reusable)
+  Book I: Journey 4 (Trust) · resolves Uncertainty 7 (Brand) · Dim B (foregrounded).
+  The product is the end of a documented chain; every claim passes named scientific ratification.
+  Reviewer name/role are structured settings so the ⟦placeholder⟧ can be filled without code.
+  Voice Law: nothing shown as "established" until ratified. All copy is settings; empty-safe.
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+<section class="pdin">
+  <div class="pdin__inner">
+    {%- if s.eyebrow != blank -%}<div class="pdin__eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+    {%- if s.lead != blank -%}<div class="pdin__lead">{{ s.lead }}</div>{%- endif -%}
+
+    {%- if s.reviewer_name != blank or s.ratification != blank -%}
+      <div class="pdin__ratify">
+        {%- if s.ratify_label != blank -%}<div class="pdin__rlabel">{{ s.ratify_label }}</div>{%- endif -%}
+        {%- if s.reviewer_name != blank -%}
+          <div class="pdin__reviewer">
+            <span class="pdin__rname">{{ s.reviewer_name }}</span>
+            {%- if s.reviewer_role != blank -%}<span class="pdin__rrole">{{ s.reviewer_role }}</span>{%- endif -%}
+          </div>
+        {%- endif -%}
+        {%- if s.ratification != blank -%}<div class="pdin__rbody">{{ s.ratification }}</div>{%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if s.link_label != blank and s.link_url != blank -%}
+      <div class="pdin__links"><a href="{{ s.link_url }}">{{ s.link_label }}</a></div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .pdin { background: var(--ml-color-warm-paper); padding-block: clamp(3.5rem, 8vw, 6.5rem); border-top: 1px solid var(--ml-color-border-soft); }
+  .pdin__inner { max-width: 680px; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2rem); }
+  .pdin__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1.75rem; }
+  .pdin__lead p { font-size: clamp(1.15rem, 2.4vw, 1.4rem); font-weight: 300; line-height: 1.55; color: var(--ml-color-soft-charcoal); margin: 0 0 1.25rem; max-width: 44ch; }
+  .pdin__ratify { margin-top: 2.5rem; padding: 1.75rem clamp(1.25rem, 4vw, 2rem); border: 1px solid var(--ml-color-border-soft); border-radius: 2px; background: rgba(0,0,0,0.012); }
+  .pdin__rlabel { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1rem; }
+  .pdin__reviewer { display: flex; flex-direction: column; gap: 0.15rem; margin-bottom: 1rem; }
+  .pdin__rname { font-size: 1.05rem; font-weight: 400; color: var(--ml-color-soft-charcoal); }
+  .pdin__rrole { font-size: 0.9rem; color: var(--ml-color-muted-earth); }
+  .pdin__rbody p { font-size: 1rem; line-height: 1.9; color: var(--ml-color-text-secondary); margin: 0 0 0.75rem; }
+  .pdin__rbody em { font-style: italic; }
+  .pdin__links { margin-top: 1.75rem; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .pdin__links a { color: var(--ml-color-soft-charcoal); text-underline-offset: 3px; }
+</style>
+
+{% schema %}
+{
+  "name": "PDP · Institution",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Who stands behind this" },
+    { "type": "richtext", "id": "lead", "label": "Lead", "default": "<p>Morning Clarity is one output of the Mirellis Observatory, our research arm studying human state transitions. It is not a marketing idea; it is the end of a documented chain of reasoning.</p>" },
+    { "type": "text", "id": "ratify_label", "label": "Ratification block label", "default": "Scientific ratification" },
+    { "type": "text", "id": "reviewer_name", "label": "Reviewer name", "default": "⟦Priyanka Sharda⟧" },
+    { "type": "text", "id": "reviewer_role", "label": "Reviewer credentials / role", "default": "⟦credentials / role⟧" },
+    { "type": "richtext", "id": "ratification", "label": "Ratification statement", "default": "<p>Every scientific and mechanism claim on this page is reviewed before it is shown. Nothing is presented as <em>established</em> until it has passed that review — and where the evidence is only emerging, or the claim is our own interpretation, we say so.</p>" },
+    { "type": "text", "id": "link_label", "label": "Link label", "default": "How the Observatory works →" },
+    { "type": "url", "id": "link_url", "label": "Link url" }
+  ],
+  "presets": [{ "name": "PDP · Institution" }]
+}
+{% endschema %}

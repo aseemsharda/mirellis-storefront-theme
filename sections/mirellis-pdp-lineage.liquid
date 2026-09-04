@@ -1,0 +1,58 @@
+{%- comment -%}
+  MIRELLIS — PDP LINEAGE  (Product Experience OS · reusable)
+  Book I: Journey 3 (Understanding) · resolves Uncertainty 1 (Product), 11 (Philosophy), 8 (Evidence setup) · Dim B.
+  Framework 5 (Ayurvedic trust conditions): heritage presented as RATIONALE, separated from modern proof.
+  The two-axis evidence model made visible: a "Classical Ayurvedic tradition" tag on the heritage claim,
+  then an explicit honest boundary. All copy is settings; empty-safe; no icons/animation.
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+<section class="pdln">
+  <div class="pdln__inner">
+    {%- if s.eyebrow != blank -%}<div class="pdln__eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+    {%- if s.heading != blank -%}<h2 class="pdln__heading">{{ s.heading }}</h2>{%- endif -%}
+
+    {%- if s.tradition != blank -%}
+      <div class="pdln__tradition">
+        {%- if s.tradition_tag != blank -%}<span class="pdln__tag">{{ s.tradition_tag }}</span>{%- endif -%}
+        <div class="pdln__trad-body">{{ s.tradition }}</div>
+      </div>
+    {%- endif -%}
+
+    {%- if s.boundary != blank -%}<div class="pdln__boundary">{{ s.boundary }}</div>{%- endif -%}
+
+    {%- if s.expand_label != blank and s.expand_url != blank -%}
+      <div class="pdln__links"><a href="{{ s.expand_url }}">{{ s.expand_label }}</a></div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .pdln { background: var(--ml-color-warm-paper); padding-block: clamp(3.5rem, 8vw, 6.5rem); border-top: 1px solid var(--ml-color-border-soft); }
+  .pdln__inner { max-width: 680px; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2rem); }
+  .pdln__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1.5rem; }
+  .pdln__heading { font-size: clamp(1.6rem, 3.4vw, 2.1rem); font-weight: 300; line-height: 1.25; color: var(--ml-color-soft-charcoal); margin: 0 0 2rem; max-width: 24ch; }
+  .pdln__tradition { border-left: 2px solid var(--ml-color-border-soft); padding: 0.25rem 0 0.25rem 1.5rem; margin-bottom: 2rem; }
+  .pdln__tag { display: inline-block; font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; border: 1px solid var(--ml-color-border-soft); border-radius: 999px; padding: 0.3rem 0.75rem; margin-bottom: 1.1rem; }
+  .pdln__trad-body p { font-size: 1.0625rem; line-height: 1.95; color: var(--ml-color-text-secondary); margin: 0 0 1rem; }
+  .pdln__trad-body em { font-style: italic; }
+  .pdln__boundary p { font-size: clamp(1.1rem, 2.3vw, 1.3rem); font-weight: 300; line-height: 1.6; color: var(--ml-color-soft-charcoal); margin: 0 0 1.25rem; max-width: 46ch; }
+  .pdln__links { margin-top: 1.75rem; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .pdln__links a { color: var(--ml-color-soft-charcoal); text-underline-offset: 3px; }
+</style>
+
+{% schema %}
+{
+  "name": "PDP · Lineage",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The practice we chose" },
+    { "type": "text", "id": "heading", "label": "Heading (optional)", "default": "Kavala — the classical morning practice, honestly bounded." },
+    { "type": "text", "id": "tradition_tag", "label": "Heritage tag", "default": "Classical Ayurvedic tradition" },
+    { "type": "richtext", "id": "tradition", "label": "Heritage description", "default": "<p>Oil pulling — <em>Kavala</em> and <em>Gandusha</em> — is described in the classical Ayurvedic texts as a morning oral practice, part of <em>dinacharya</em>, the daily routine. Tradition associates it with oral cleanliness, freshness, and a clear beginning to the day.</p>" },
+    { "type": "richtext", "id": "boundary", "label": "The honest boundary", "default": "<p>That is what tradition describes. It is not the same as modern clinical proof, and we will not pretend it is. What the current research does and does not yet support, we set out plainly further down — and we keep tradition and evidence separate on purpose. That separation is the honest version of an Ayurvedic product, and we think it is the only one worth making.</p>" },
+    { "type": "text", "id": "expand_label", "label": "Expand link label", "default": "More on Kavala vs. Gandusha and their place in dinacharya →" },
+    { "type": "url", "id": "expand_url", "label": "Expand link url" }
+  ],
+  "presets": [{ "name": "PDP · Lineage" }]
+}
+{% endschema %}

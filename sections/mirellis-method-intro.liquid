@@ -1,0 +1,130 @@
+<section class="mmi-section">
+  <div class="mmi-inner">
+    {% if section.settings.eyebrow != blank %}
+      <p class="mmi-eyebrow">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    <div class="mmi-body">
+      {% if section.settings.line_1 != blank %}<p>{{ section.settings.line_1 }}</p>{% endif %}
+      {% if section.settings.line_2 != blank %}<p>{{ section.settings.line_2 }}</p>{% endif %}
+      {% if section.settings.line_3 != blank %}<p>{{ section.settings.line_3 }}</p>{% endif %}
+      {% if section.settings.closing_line != blank %}
+        <p class="mmi-close">{{ section.settings.closing_line | newline_to_br }}</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+.mmi-section {
+  background: {{ section.settings.background_color }};
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-top: 1px solid rgba(26,26,24,0.06);
+}
+.mmi-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.mmi-eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(26,26,24,0.35);
+  margin: 0 0 2.5rem 0;
+  font-family: inherit;
+}
+.mmi-body p {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.6;
+  color: rgba(26,26,24,0.45);
+  margin: 0 0 0.5rem 0;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.mmi-body p.mmi-close {
+  color: #1a1a18;
+  margin-top: 1.5rem;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.65;
+  border-top: 1px solid rgba(26,26,24,0.08);
+  padding-top: 1.5rem;
+}
+@media (max-width: 640px) {
+  .mmi-section {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Method Introduction",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "THE METHOD"
+    },
+    {
+      "type": "text",
+      "id": "line_1",
+      "label": "Line 1",
+      "default": "Products are not the method."
+    },
+    {
+      "type": "text",
+      "id": "line_2",
+      "label": "Line 2",
+      "default": "Sound is not the method."
+    },
+    {
+      "type": "text",
+      "id": "line_3",
+      "label": "Line 3",
+      "default": "Articles are not the method."
+    },
+    {
+      "type": "textarea",
+      "id": "closing_line",
+      "label": "Closing statement",
+      "info": "Press Enter to break onto a new line. Each line renders separately.",
+      "default": "The method is repeated, coherent sensory signaling — that teaches the nervous system where one chapter ends and the next begins."
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#faf7f2"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 80
+    }
+  ],
+  "presets": [{ "name": "Method Introduction" }]
+}
+{% endschema %}

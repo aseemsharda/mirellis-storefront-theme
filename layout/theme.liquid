@@ -23,10 +23,9 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
 
     {%- render 'mirellis-public-governance' -%}
 
-    {%- if settings.favicon -%}
-      <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 96 }}">
-      <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 180 }}">
-    {%- endif -%}
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ 'mirellis-favicon-32.png' | asset_url }}">
+    <link rel="shortcut icon" type="image/png" href="{{ 'mirellis-favicon-32.png' | asset_url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ 'mirellis-apple-icon.png' | asset_url }}">
 
     {%- comment -%}Few prefetch to increase performance on commonly used third-parties{%- endcomment -%}
     <link rel="preconnect" href="https://cdn.shopify.com">

@@ -1,0 +1,95 @@
+{%- comment -%}
+  MIRELLIS — HOW A RITUAL COMES TO EXIST  (Homepage Section 4, Slice 4)
+  --------------------------------------------------------------
+  The spine of Mirellis 2.0, explained to a first-time visitor:
+  nothing begins as a product. Shows the discovery pipeline as an
+  institutional diagram (no icons, no animation).
+  Build-alongside: new file, self-contained styles, zero new CSS/JS.
+  Fully editor-configurable via schema settings (drag into homepage,
+  edit copy in the theme editor). Empty-safe on every field.
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+<section class="how-ritual" style="background: {{ s.background | default: 'var(--ml-color-warm-paper)' }};">
+  <div class="how-ritual__inner">
+    {%- if s.eyebrow != blank -%}
+      <div class="how-ritual__eyebrow">{{ s.eyebrow }}</div>
+    {%- endif -%}
+    {%- if s.heading != blank -%}
+      <h2 class="how-ritual__heading">{{ s.heading }}</h2>
+    {%- endif -%}
+    {%- if s.body != blank -%}
+      <div class="how-ritual__body">{{ s.body }}</div>
+    {%- endif -%}
+
+    {%- comment -%} The pipeline — institutional diagram {%- endcomment -%}
+    <div class="how-ritual__pipeline" role="list" aria-label="From observation to ritual">
+      {%- assign steps = s.steps | default: 'Observation, Finding, Mechanism, Intervention, Delivery, Ritual, Outcome' | split: ',' -%}
+      {%- for step in steps -%}
+        <span class="how-ritual__node" role="listitem">{{ step | strip }}</span>
+        {%- unless forloop.last -%}<span class="how-ritual__arrow" aria-hidden="true">→</span>{%- endunless -%}
+      {%- endfor -%}
+      <span class="how-ritual__loop" aria-hidden="true">↺</span>
+    </div>
+    {%- if s.pipeline_note != blank -%}
+      <p class="how-ritual__note">{{ s.pipeline_note }}</p>
+    {%- endif -%}
+
+    {%- if s.cta_label != blank and s.cta_url != blank -%}
+      <p class="how-ritual__cta"><a href="{{ s.cta_url }}">{{ s.cta_label }}</a></p>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .how-ritual { padding-block: clamp(4.5rem, 9vw, 7rem); }
+  .how-ritual__inner {
+    max-width: 760px; margin-inline: auto;
+    padding-inline: clamp(1rem, 5vw, 2rem);
+  }
+  .how-ritual__eyebrow {
+    font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1.75rem;
+  }
+  .how-ritual__heading {
+    font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 300; letter-spacing: -0.01em;
+    line-height: 1.2; color: var(--ml-color-soft-charcoal); margin: 0 0 1.75rem; max-width: 22ch;
+  }
+  .how-ritual__body { line-height: 1.9; color: var(--ml-color-text-secondary); max-width: 60ch; }
+  .how-ritual__body p { font-size: 1.0625rem; margin: 0 0 1.5rem; }
+  .how-ritual__pipeline {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem;
+    margin: 3rem 0 1.25rem; padding-top: 2.5rem;
+    border-top: 1px solid var(--ml-color-border-soft);
+  }
+  .how-ritual__node {
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ml-color-soft-charcoal); font-weight: 500;
+    padding: 0.4rem 0; white-space: nowrap;
+  }
+  .how-ritual__arrow, .how-ritual__loop { color: var(--ml-color-muted-earth); opacity: 0.6; }
+  .how-ritual__loop { margin-left: 0.25rem; }
+  .how-ritual__note {
+    font-size: 0.95rem; color: var(--ml-color-text-secondary); line-height: 1.7;
+    font-style: italic; max-width: 52ch; margin: 0 0 2rem;
+  }
+  .how-ritual__cta { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0; }
+  .how-ritual__cta a { color: var(--ml-color-soft-charcoal); text-underline-offset: 3px; }
+</style>
+
+{% schema %}
+{
+  "name": "How a Ritual Exists",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "How we work" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Nothing here begins as a product." },
+    { "type": "richtext", "id": "body", "label": "Body", "default": "<p>We start with an observation. It becomes a finding. The finding raises a question — what would help most here? — and that question opens a landscape of possibilities: light, scent, sound, temperature, timing, attention.</p><p>Only then do we ask what form the answer should take. Sometimes an oil. Sometimes a sound. Sometimes an environment. Often, it stays a question a little longer.</p><p>The form is always chosen last.</p>" },
+    { "type": "text", "id": "steps", "label": "Pipeline steps (comma-separated)", "default": "Observation, Finding, Mechanism, Intervention, Delivery, Ritual, Outcome" },
+    { "type": "text", "id": "pipeline_note", "label": "Pipeline note", "default": "There may be ten intervention opportunities for a transition. Only one becomes a product. The others are not failures — they are the pipeline." },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Enter the Observatory →" },
+    { "type": "url", "id": "cta_url", "label": "CTA link" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#faf7f2" }
+  ],
+  "presets": [{ "name": "How a Ritual Exists" }]
+}
+{% endschema %}

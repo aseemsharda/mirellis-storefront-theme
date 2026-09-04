@@ -1,0 +1,79 @@
+{% stylesheet %}
+.transition-tools{padding:120px 0;}
+.transition-tools .container{max-width:1280px;margin:0 auto;padding:0 40px;}
+.transition-tools__grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.transition-tools__image img{width:100%;display:block;border-radius:10px;}
+.eyebrow{display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#8d847d;margin-bottom:22px}
+.eyebrow:before{content:"";width:42px;height:1px;background:#9d6d4f}
+.heading{font-family:var(--heading-font-family);font-size:72px;line-height:.96;margin:0 0 36px;}
+.intro{font-size:20px;line-height:1.8;color:#6b655f;margin-bottom:52px}
+.tool{display:grid;grid-template-columns:36px 1fr;gap:18px;padding:28px 0;border-top:1px solid rgba(0,0,0,.08)}
+.tool:last-child{border-bottom:1px solid rgba(0,0,0,.08)}
+.num{color:#9d6d4f;font-size:14px;font-weight:600}
+.tool p{margin:0;font-size:19px;line-height:1.8;color:#4d4945}
+.tool strong{font-weight:600;color:#1d1b19}
+@media(max-width:990px){
+.transition-tools{padding:80px 0}
+.transition-tools__grid{grid-template-columns:1fr;gap:50px}
+.heading{font-size:46px}
+.intro,.tool p{font-size:18px}
+}
+{% endstylesheet %}
+
+<section class="transition-tools">
+<div class="container">
+<div class="transition-tools__grid">
+
+<div class="transition-tools__image">
+<img src="{{ section.settings.image | image_url: width: 1200 }}" alt="{{ section.settings.image.alt | escape }}">
+</div>
+
+<div class="transition-tools__content">
+
+<div class="eyebrow">TRANSITION TOOLS</div>
+
+<h2 class="heading">
+{{ section.settings.heading | newline_to_br }}
+</h2>
+
+<div class="intro">
+{{ section.settings.intro }}
+</div>
+
+<div class="tool">
+<div class="num">01</div>
+<p><strong>{{ section.settings.title_1 }}</strong> {{ section.settings.text_1 }}</p>
+</div>
+
+<div class="tool">
+<div class="num">02</div>
+<p><strong>{{ section.settings.title_2 }}</strong> {{ section.settings.text_2 }}</p>
+</div>
+
+<div class="tool">
+<div class="num">03</div>
+<p><strong>{{ section.settings.title_3 }}</strong> {{ section.settings.text_3 }}</p>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+{% schema %}
+{
+"name":"Tools Editorial",
+"settings":[
+{"type":"image_picker","id":"image","label":"Image"},
+{"type":"textarea","id":"heading","label":"Heading","default":"Two ritual tools.\nBuilt to become\nfamiliar signals."},
+{"type":"richtext","id":"intro","label":"Intro","default":"<p>The goal is not to force a change in state.</p><p>The goal is to create a signal the nervous system learns to recognize.</p><p>Used consistently, these rituals become markers between one part of the day and the next.</p>"},
+{"type":"text","id":"title_1","label":"Item 1 title","default":"Morning Clarity:"},
+{"type":"textarea","id":"text_1","label":"Item 1 text","default":"The first signal of the day. Not a cleanse. A beginning. Morning Clarity helps create a consistent sensory marker between sleep and wakefulness."},
+{"type":"text","id":"title_2","label":"Item 2 title","default":"Stillness Elixir (Work → Recovery):"},
+{"type":"textarea","id":"text_2","label":"Item 2 text","default":"The signal that work has ended. Not a sedative. A boundary. Stillness helps create a clear shift between sustained engagement and recovery."},
+{"type":"text","id":"title_3","label":"Item 3 title","default":"Stillness Elixir (Stimulation → Restoration):"},
+{"type":"textarea","id":"text_3","label":"Item 3 text","default":"The signal that restoration can begin. Not a sedative. A descent. Stillness helps create a familiar pathway from stimulation into deeper evening restoration."}
+],
+"presets":[{"name":"Tools Editorial"}]
+}
+{% endschema %}

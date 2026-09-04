@@ -1,0 +1,385 @@
+{% stylesheet %}
+.mirellis-environment {
+  position: relative;
+  padding: 10rem 2rem;
+  background: #0e0c0b;
+  overflow: hidden;
+}
+
+.mirellis-environment::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      80% 50% at 50% 0%,
+      rgba(196, 112, 72, 0.06),
+      transparent 55%
+    );
+  pointer-events: none;
+}
+
+.mirellis-environment__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.mirellis-environment__label {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
+  margin: 0 0 1.4rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1.4rem;
+}
+
+.mirellis-environment__label::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 1.8rem;
+  height: 1px;
+  background: rgba(196, 112, 72, 0.7);
+  transform: translateX(-50%);
+}
+
+.mirellis-environment__heading {
+  font-family: var(--font-heading-family);
+  font-size: clamp(2.2rem, 4.6vw, 4.2rem);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  color: #f4efe8;
+  margin: 0 auto 2rem;
+  font-weight: 500;
+  max-width: 16ch;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.mirellis-environment__intro {
+  max-width: 56ch;
+  margin: 0 auto 6rem;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.62);
+  text-wrap: pretty;
+}
+
+.mirellis-environment__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.4rem;
+}
+
+.mirellis-environment__card {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  min-height: 520px;
+  display: flex;
+  align-items: flex-end;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.mirellis-environment__image {
+  position: absolute;
+  inset: 0;
+}
+
+.mirellis-environment__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+  transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.mirellis-environment__card:hover .mirellis-environment__image img {
+  transform: scale(1);
+}
+
+.mirellis-environment__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.05) 0%,
+      rgba(0, 0, 0, 0.30) 45%,
+      rgba(0, 0, 0, 0.80) 100%
+    );
+}
+
+.mirellis-environment__content {
+  position: relative;
+  z-index: 2;
+  padding: 2.6rem;
+  width: 100%;
+}
+
+.mirellis-environment__index {
+  font-family: var(--font-heading-family);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: rgba(196, 112, 72, 0.85);
+  font-variant-numeric: tabular-nums;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.mirellis-environment__title {
+  font-family: var(--font-heading-family);
+  font-size: 1.55rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #f5f1ea;
+  margin: 0 0 0.9rem;
+  font-weight: 500;
+}
+
+.mirellis-environment__text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.70);
+  max-width: 44ch;
+  margin: 0;
+}
+
+.mirellis-environment__link {
+  position: relative;
+  display: inline-block;
+  margin-top: 1.8rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.74);
+  text-decoration: none;
+  padding-bottom: 0.35rem;
+  transition: color 0.35s ease;
+}
+
+.mirellis-environment__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: rgba(196, 112, 72, 0.9);
+  transition: width 0.4s ease;
+}
+
+.mirellis-environment__link:hover,
+.mirellis-environment__link:focus-visible {
+  color: #fff;
+}
+
+.mirellis-environment__link:hover::after,
+.mirellis-environment__link:focus-visible::after {
+  width: 100%;
+}
+
+.mirellis-environment__link:focus-visible {
+  outline: 2px solid rgba(196, 112, 72, 0.9);
+  outline-offset: 5px;
+}
+
+@media screen and (max-width: 989px) {
+  .mirellis-environment__grid {
+    grid-template-columns: 1fr;
+  }
+  .mirellis-environment__card {
+    min-height: 440px;
+  }
+  .mirellis-environment__heading {
+    max-width: none;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .mirellis-environment {
+    padding: 6rem 1.4rem;
+  }
+  .mirellis-environment__heading {
+    font-size: clamp(2rem, 9vw, 3.2rem);
+    line-height: 1.12;
+  }
+  .mirellis-environment__intro {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+  .mirellis-environment__card {
+    min-height: 400px;
+  }
+  .mirellis-environment__content {
+    padding: 1.8rem;
+  }
+  .mirellis-environment__title {
+    font-size: 1.3rem;
+  }
+  .mirellis-environment__text {
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mirellis-environment__image img {
+    transform: scale(1);
+    transition: none;
+  }
+  .mirellis-environment__card:hover .mirellis-environment__image img {
+    transform: scale(1);
+  }
+}
+{% endstylesheet %}
+
+<section class="mirellis-environment">
+
+  <div class="mirellis-environment__inner">
+
+    <p class="mirellis-environment__label">{{ section.settings.label }}</p>
+
+    <h2 class="mirellis-environment__heading">{{ section.settings.heading }}</h2>
+
+    <div class="mirellis-environment__intro">{{ section.settings.intro }}</div>
+
+    <div class="mirellis-environment__grid">
+      {% for block in section.blocks %}
+        <div class="mirellis-environment__card" {{ block.shopify_attributes }}>
+
+          <div class="mirellis-environment__image">
+            {% if block.settings.image != blank %}
+              {{ block.settings.image | image_url: width: 1400 | image_tag: loading: 'lazy' }}
+            {% endif %}
+            <div class="mirellis-environment__overlay"></div>
+          </div>
+
+          <div class="mirellis-environment__content">
+            <span class="mirellis-environment__index">{{ forloop.index | prepend: '0' }}</span>
+            <h3 class="mirellis-environment__title">{{ block.settings.title }}</h3>
+            <p class="mirellis-environment__text">{{ block.settings.text }}</p>
+
+            {% if block.settings.link_text != blank and block.settings.link_url != blank %}
+              <a href="{{ block.settings.link_url }}" class="mirellis-environment__link">
+                {{ block.settings.link_text }}
+              </a>
+            {% endif %}
+          </div>
+
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Environmental Philosophy",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "ENVIRONMENTAL PHILOSOPHY"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Environments shape how people feel, focus, and slow down."
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro",
+      "default": "Light, sound, density, and pace are constant signals. The body reads them long before conscious thought \u2014 and over a day, they shape how easily it slows."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "environment",
+      "name": "Environment Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Light"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Brightness and contrast are read as time of day \u2014 shaping pace, alertness, and the move toward slowing."
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text",
+          "default": "Light & Rhythm"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Environmental Philosophy",
+      "blocks": [
+        {
+          "type": "environment",
+          "settings": {
+            "title": "Light",
+            "text": "Brightness and contrast are read as time of day \u2014 shaping pace, alertness, and the move toward slowing.",
+            "link_text": "Light & Rhythm"
+          }
+        },
+        {
+          "type": "environment",
+          "settings": {
+            "title": "Sound",
+            "text": "The body settles or sharpens to what it hears. Familiar sound becomes a signal the day is changing register.",
+            "link_text": "The Sound System"
+          }
+        },
+        {
+          "type": "environment",
+          "settings": {
+            "title": "Pace",
+            "text": "The speed of the room sets the speed of the nervous system. Slower hands invite a slower state.",
+            "link_text": "On Pace"
+          }
+        },
+        {
+          "type": "environment",
+          "settings": {
+            "title": "Atmosphere",
+            "text": "Scent, density, and warmth accumulate into a sense of place \u2014 one the body comes to associate with recovery.",
+            "link_text": "On Atmosphere"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

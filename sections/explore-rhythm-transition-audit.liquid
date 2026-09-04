@@ -1,0 +1,321 @@
+<section id="transition-audit" class="transition-audit">
+
+  <div class="transition-audit-container">
+
+    <div class="transition-audit-header">
+
+      <p class="audit-eyebrow">
+        Observation 01
+      </p>
+
+      <h2>
+        The Missing Transitions
+      </h2>
+
+      <p class="audit-intro">
+        Modern life often changes activities without changing states.
+        This observation explores where transitions may have become less defined.
+      </p>
+
+      <div class="audit-time">
+        Estimated time: 2 minutes
+      </div>
+
+    </div>
+
+    <div class="audit-questions">
+
+      <div class="audit-question">
+
+        <h3>
+          When you woke up yesterday, what received your attention first?
+        </h3>
+
+        <label><input type="radio" name="q1"> Natural light</label>
+        <label><input type="radio" name="q1"> Phone or notification</label>
+        <label><input type="radio" name="q1"> Conversation</label>
+        <label><input type="radio" name="q1"> Tea, coffee or water</label>
+        <label><input type="radio" name="q1"> Movement</label>
+        <label><input type="radio" name="q1"> Work-related thought</label>
+
+      </div>
+
+      <div class="audit-question">
+
+        <h3>
+          How long passed before you looked at a screen?
+        </h3>
+
+        <label><input type="radio" name="q2"> Immediately</label>
+        <label><input type="radio" name="q2"> Within 5 minutes</label>
+        <label><input type="radio" name="q2"> Within 30 minutes</label>
+        <label><input type="radio" name="q2"> More than 30 minutes</label>
+
+      </div>
+
+      <div class="audit-question">
+
+        <h3>
+          At what moment did your workday actually end?
+        </h3>
+
+        <label><input type="radio" name="q3"> When work finished</label>
+        <label><input type="radio" name="q3"> When I left work</label>
+        <label><input type="radio" name="q3"> When I stopped checking messages</label>
+        <label><input type="radio" name="q3"> When I went to bed</label>
+        <label><input type="radio" name="q3"> I'm not sure it ended</label>
+
+      </div>
+
+      <div class="audit-question">
+
+        <h3>
+          Which of these changed between your workday and your evening?
+        </h3>
+
+        <label><input type="checkbox"> Lighting</label>
+        <label><input type="checkbox"> Clothing</label>
+        <label><input type="checkbox"> Location</label>
+        <label><input type="checkbox"> Sound</label>
+        <label><input type="checkbox"> Activity</label>
+        <label><input type="checkbox"> Conversation</label>
+        <label><input type="checkbox"> Nothing noticeably changed</label>
+
+      </div>
+
+      <div class="audit-question">
+
+        <h3>
+          Did yesterday have a recognizable ending?
+        </h3>
+
+        <label><input type="radio" name="q5"> Yes</label>
+        <label><input type="radio" name="q5"> Somewhat</label>
+        <label><input type="radio" name="q5"> Not really</label>
+
+      </div>
+
+    </div>
+
+    <div class="audit-action">
+
+      <button id="view-observation-btn">
+        View Observation
+      </button>
+
+    </div>
+
+    <div id="observation-result" class="observation-result">
+
+      <h3>
+        Observation
+      </h3>
+
+      <p>
+        Your responses suggest that your day may contain fewer environmental transitions than activity transitions.
+      </p>
+
+      <p>
+        Many things changed throughout the day, but relatively few signals indicated that one state had ended and another had begun.
+      </p>
+
+      <p>
+        Modern environments often encourage continuity. Messages remain available. Screens remain present. Attention continues moving even when activities change.
+      </p>
+
+      <div class="experiment-box">
+
+        <h4>
+          Small Experiment
+        </h4>
+
+        <p>
+          For the next three evenings, choose one signal that clearly marks the beginning of your evening.
+        </p>
+
+        <ul>
+          <li>Dim one light</li>
+          <li>Play the same piece of music</li>
+          <li>Make tea</li>
+          <li>Sit in the same chair</li>
+          <li>Write a brief reflection</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  const btn = document.getElementById('view-observation-btn');
+  const result = document.getElementById('observation-result');
+
+  btn.addEventListener('click', function() {
+
+    result.style.display = 'block';
+
+    result.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+
+  });
+
+});
+</script>
+
+<style>
+
+.transition-audit{
+  background:#ffffff;
+  padding:140px 40px;
+}
+
+.transition-audit-container{
+  max-width:900px;
+  margin:0 auto;
+}
+
+.transition-audit-header{
+  text-align:center;
+  margin-bottom:80px;
+}
+
+.audit-eyebrow{
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  font-size:13px;
+  color:#8d867d;
+  margin-bottom:20px;
+}
+
+.transition-audit-header h2{
+  font-size:clamp(40px,5vw,68px);
+  line-height:1.08;
+  margin-bottom:25px;
+  font-weight:400;
+}
+
+.audit-intro{
+  font-size:20px;
+  line-height:1.9;
+  color:#5f5952;
+}
+
+.audit-time{
+  margin-top:30px;
+  color:#8d867d;
+}
+
+.audit-question{
+  margin-bottom:60px;
+}
+
+.audit-question h3{
+  font-size:28px;
+  line-height:1.4;
+  font-weight:400;
+  margin-bottom:24px;
+}
+
+.audit-question label{
+  display:block;
+  margin-bottom:14px;
+  font-size:17px;
+  line-height:1.7;
+  cursor:pointer;
+}
+
+.audit-action{
+  text-align:center;
+  margin-top:60px;
+}
+
+.audit-action button{
+  background:#222;
+  color:#fff;
+  border:none;
+  padding:18px 34px;
+  cursor:pointer;
+  font-size:14px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.observation-result{
+  display:none;
+  margin-top:100px;
+  padding:60px;
+  background:#f8f4ee;
+  border-radius:18px;
+}
+
+.observation-result h3{
+  font-size:42px;
+  margin-bottom:24px;
+  font-weight:400;
+}
+
+.observation-result p{
+  font-size:18px;
+  line-height:1.9;
+  margin-bottom:18px;
+}
+
+.experiment-box{
+  margin-top:40px;
+  padding-top:40px;
+  border-top:1px solid rgba(0,0,0,.08);
+}
+
+.experiment-box h4{
+  font-size:24px;
+  margin-bottom:20px;
+  font-weight:400;
+}
+
+.experiment-box ul{
+  padding-left:20px;
+}
+
+.experiment-box li{
+  margin-bottom:10px;
+}
+
+@media(max-width:768px){
+
+.transition-audit{
+padding:90px 24px;
+}
+
+.audit-question h3{
+font-size:24px;
+}
+
+.audit-intro{
+font-size:17px;
+}
+
+.observation-result{
+padding:30px;
+}
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Explore Rhythm Audit",
+  "presets": [
+    {
+      "name": "Explore Rhythm Audit"
+    }
+  ]
+}
+{% endschema %}

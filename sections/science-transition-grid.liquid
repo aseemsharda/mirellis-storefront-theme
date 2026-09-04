@@ -1,0 +1,318 @@
+{% stylesheet %}
+
+.science-transition {
+  padding: 180px 60px;
+  background: #efe9e1;
+}
+
+.science-transition__intro {
+  max-width: 920px;
+  margin: 0 auto 120px;
+  text-align: center;
+}
+
+.science-transition__eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(30,26,22,0.48);
+  margin-bottom: 22px;
+  font-weight: 500;
+}
+
+.science-transition__heading {
+  font-family: var(--heading-font-family);
+  font-size: clamp(48px, 6vw, 88px);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  color: #1d1a17;
+  margin: 0;
+  font-weight: 400;
+}
+
+.science-transition__text {
+  margin: 36px auto 0;
+  max-width: 720px;
+  font-size: 18px;
+  line-height: 1.9;
+  color: rgba(29,26,23,0.76);
+}
+
+.science-transition__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.science-transition__card {
+  position: relative;
+  overflow: hidden;
+  min-height: 780px;
+  display: flex;
+  align-items: flex-end;
+  padding: 56px;
+  background: #ddd;
+}
+
+.science-transition__image {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.science-transition__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.science-transition__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.science-transition__overlay--morning {
+  background:
+    linear-gradient(
+      to top,
+      rgba(34,28,20,0.62),
+      rgba(34,28,20,0.14)
+    );
+}
+
+.science-transition__overlay--evening {
+  background:
+    linear-gradient(
+      to top,
+      rgba(12,10,8,0.78),
+      rgba(12,10,8,0.18)
+    );
+}
+
+.science-transition__content {
+  position: relative;
+  z-index: 3;
+  max-width: 520px;
+}
+
+.science-transition__label {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.72);
+  margin-bottom: 18px;
+}
+
+.science-transition__title {
+  font-family: var(--heading-font-family);
+  font-size: clamp(38px, 4vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #f8f4ef;
+  margin: 0;
+  font-weight: 400;
+}
+
+.science-transition__body {
+  margin-top: 28px;
+  font-size: 17px;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.82);
+}
+
+.science-transition__body p {
+  margin: 0 0 22px;
+}
+
+.science-transition__body p:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 999px) {
+
+  .science-transition {
+    padding: 90px 24px;
+  }
+
+  .science-transition__intro {
+    margin-bottom: 56px;
+  }
+
+  .science-transition__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .science-transition__card {
+    min-height: 620px;
+    padding: 36px 28px;
+  }
+
+  .science-transition__heading {
+    font-size: 52px;
+    line-height: 1.02;
+  }
+
+  .science-transition__text,
+  .science-transition__body {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+}
+
+{% endstylesheet %}
+
+<section class="science-transition">
+
+  <div class="science-transition__intro">
+
+    <div class="science-transition__eyebrow">
+      {{ section.settings.eyebrow }}
+    </div>
+
+    <h2 class="science-transition__heading">
+      {{ section.settings.heading }}
+    </h2>
+
+    <div class="science-transition__text">
+      {{ section.settings.text }}
+    </div>
+
+  </div>
+
+  <div class="science-transition__grid">
+
+    <div class="science-transition__card">
+
+      <div class="science-transition__image">
+        {{
+          section.settings.morning_image
+          | image_url: width: 1800
+          | image_tag:
+          loading: 'lazy'
+        }}
+      </div>
+
+      <div class="science-transition__overlay science-transition__overlay--morning"></div>
+
+      <div class="science-transition__content">
+
+        <div class="science-transition__label">
+          Morning Ritual Physiology
+        </div>
+
+        <h3 class="science-transition__title">
+          {{ section.settings.morning_heading }}
+        </h3>
+
+        <div class="science-transition__body">
+          {{ section.settings.morning_text }}
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="science-transition__card">
+
+      <div class="science-transition__image">
+        {{
+          section.settings.evening_image
+          | image_url: width: 1800
+          | image_tag:
+          loading: 'lazy'
+        }}
+      </div>
+
+      <div class="science-transition__overlay science-transition__overlay--evening"></div>
+
+      <div class="science-transition__content">
+
+        <div class="science-transition__label">
+          Evening Ritual Physiology
+        </div>
+
+        <h3 class="science-transition__title">
+          {{ section.settings.evening_heading }}
+        </h3>
+
+        <div class="science-transition__body">
+          {{ section.settings.evening_text }}
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Science Transition",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Transition Physiology"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Morning and Evening Are Biological Transitions"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Intro Text",
+      "default": "<p>The nervous system responds differently to the first and last signals of the day. Light, sound, scent, rhythm, breath, and environmental pacing influence how the body gradually awakens or slows.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "morning_image",
+      "label": "Morning Image"
+    },
+    {
+      "type": "textarea",
+      "id": "morning_heading",
+      "label": "Morning Heading",
+      "default": "Orientation Before Stimulation"
+    },
+    {
+      "type": "richtext",
+      "id": "morning_text",
+      "label": "Morning Text",
+      "default": "<p>Morning rituals influence circadian orientation, breath rhythm, sensory clarity, and the body’s transition into alertness.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "evening_image",
+      "label": "Evening Image"
+    },
+    {
+      "type": "textarea",
+      "id": "evening_heading",
+      "label": "Evening Heading",
+      "default": "Slowing Is a Biological Process"
+    },
+    {
+      "type": "richtext",
+      "id": "evening_text",
+      "label": "Evening Text",
+      "default": "<p>Dim light, reduced stimulation, slower sound environments, warmth, and repetition help the nervous system transition toward rest.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Science Transition"
+    }
+  ]
+}
+{% endschema %}

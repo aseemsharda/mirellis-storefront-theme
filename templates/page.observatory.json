@@ -1,0 +1,83 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "observatory_landing": {
+      "type": "observatory-landing",
+      "blocks": {
+        "pillar_sw": {
+          "type": "pillar",
+          "settings": {
+            "transition_label": "Sleep → Wakefulness",
+            "title": "Sleep → Wakefulness",
+            "description": "How the nervous system transitions from sleep to wakefulness — and what modern life has done to that transition.",
+            "cta": "Read the research →",
+            "link": "/blogs/observatory/tagged/sleep-to-wakefulness"
+          }
+        },
+        "pillar_wr": {
+          "type": "pillar",
+          "settings": {
+            "transition_label": "Work → Recovery",
+            "title": "Work → Recovery",
+            "description": "How the body moves from sustained cognitive engagement to genuine recovery — and why work rarely ends when the day does.",
+            "cta": "Read the research →",
+            "link": "/blogs/observatory/tagged/work-to-recovery"
+          }
+        },
+        "pillar_str": {
+          "type": "pillar",
+          "settings": {
+            "transition_label": "Stimulation → Restoration",
+            "title": "Stimulation → Restoration",
+            "description": "How sensory overload accumulates and how the nervous system returns to a state where restoration is actually possible.",
+            "cta": "Read the research →",
+            "link": "/blogs/observatory/tagged/stimulation-to-restoration"
+          }
+        }
+      },
+      "block_order": [
+        "pillar_sw",
+        "pillar_wr",
+        "pillar_str"
+      ],
+      "settings": {
+        "eyebrow": "THE OBSERVATORY",
+        "heading": "The study of Human State Transitions.",
+        "intro": "Mirellis is a Ritual Science Company. The Observatory is where the research is published — on how humans move between states of being, and what modern life has done to those transitions.",
+        "blog": "",
+        "articles_eyebrow": "LATEST RESEARCH",
+        "articles_heading": "From the Observatory",
+        "all_articles_label": "View all research →",
+        "subscribe_eyebrow": "FOLLOW THE RESEARCH",
+        "subscribe_heading": "Receive new research when it is published.",
+        "subscribe_text": "The Observatory publishes slowly and without noise. One piece at a time.",
+        "email_placeholder": "Your email address",
+        "subscribe_cta": "Follow the Observatory",
+        "success_message": "You are now following the Observatory."
+      }
+    },
+    "mirellis_pathway_hero_xXjhbX": {
+      "type": "mirellis-pathway-hero",
+      "name": "Mirellis Hero",
+      "settings": {
+        "label": "THE FIRST INSTRUMENT",
+        "heading": "The Observatory Mirror",
+        "text": "<p>The Mirror identifies which of the three <br/>foundational transitions is most disrupted <br/>in your daily experience — and returns <br/>a Personal Observatory Record.<br/></p><p>Takes four minutes. No account required.</p>",
+        "button_label": "Begin the observation",
+        "button_link": "https://observatory-build.vercel.app/assessment"
+      }
+    }
+  },
+  "order": [
+    "observatory_landing",
+    "mirellis_pathway_hero_xXjhbX"
+  ]
+}

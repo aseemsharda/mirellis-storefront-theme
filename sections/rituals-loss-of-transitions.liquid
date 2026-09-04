@@ -1,0 +1,51 @@
+<section class="ritual-section ritual-section--medium">
+
+  <div class="ritual-container">
+
+    <div class="ritual-reading-width">
+
+      {% if section.settings.heading != blank %}
+        <h2 class="ritual-heading ritual-fade-up" style="margin-bottom:70px;">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.body != blank %}
+        <div class="ritual-body ritual-fade-up">
+          {{ section.settings.body }}
+        </div>
+      {% endif %}
+
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Loss of Transitions",
+  "settings": [
+
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Loss of Transitions"
+    },
+
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Modern life increasingly moves without clear transitions.</p><p>Mornings often begin abruptly. Evenings rarely end fully. Attention moves continuously between screens, conversations, notifications, responsibilities, information, and low-level urgency without enough separation between one state and the next.</p><p>Many people now move through entire days without fully arriving anywhere psychologically.</p><p>Over time, the nervous system adapts to continuity without closure.</p><p>Rituals historically helped restore continuity between states.</p>"
+    }
+
+  ],
+  "presets": [
+    {
+      "name": "Loss of Transitions"
+    }
+  ]
+}
+{% endschema %}

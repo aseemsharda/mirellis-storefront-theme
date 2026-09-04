@@ -1,0 +1,86 @@
+<section class="public-notes-hero">
+  <div class="public-notes-hero__inner">
+    <h1 class="public-notes-hero__title">
+      {{ section.settings.heading }}
+    </h1>
+
+    <div class="public-notes-hero__text">
+      {{ section.settings.intro }}
+    </div>
+  </div>
+</section>
+
+<style>
+  .public-notes-hero {
+    padding: 140px 24px 120px;
+    background: transparent;
+  }
+
+  .public-notes-hero__inner {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .public-notes-hero__title {
+    margin: 0;
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+    color: rgba(var(--color-foreground), 1);
+  }
+
+  .public-notes-hero__text {
+    max-width: 520px;
+    margin-top: 32px;
+    font-size: 16px;
+    line-height: 1.85;
+    color: rgba(var(--color-foreground), 0.72);
+  }
+
+  .public-notes-hero__text p {
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .public-notes-hero {
+      padding: 100px 24px 80px;
+    }
+
+    .public-notes-hero__title {
+      font-size: 42px;
+      line-height: 1.08;
+    }
+
+    .public-notes-hero__text {
+      margin-top: 24px;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Public Notes Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Public Notes"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro Text",
+      "default": "A quiet archive of public writing, announcements, and external references connected to the evolving Mirellis ecosystem."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Public Notes Hero"
+    }
+  ]
+}
+{% endschema %}

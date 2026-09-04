@@ -1,0 +1,177 @@
+{% comment %}
+=========================================================
+MIRELLIS — SCENE 05 (REFINED FINAL)
+PHYSIOLOGICAL GROUNDING / SOMATIC FIELD
+=========================================================
+{% endcomment %}
+
+<section
+  class="
+    ml-scene
+    ml-scene-continuous
+    ml-scene-descent-medium
+    ml-spatial-stillness
+    ml-scene-text-flow
+  "
+>
+
+  <!-- =====================================================
+       ATMOSPHERIC FOUNDATION (REFINED)
+       ===================================================== -->
+
+  <div
+    class="ml-depth-layer ml-depth-soft"
+    style="
+      background:
+        radial-gradient(
+          ellipse at top,
+          rgba(246,241,232,0.55) 0%,
+          rgba(246,241,232,0.20) 45%,
+          rgba(246,241,232,0) 75%
+        );
+      filter: blur(6px);
+      opacity: 0.95;
+    "
+  ></div>
+
+
+  <!-- =====================================================
+       PHYSIOLOGICAL FIELD
+       ===================================================== -->
+
+  {% if section.settings.scene_image != blank %}
+
+    <div
+      class="ml-depth-layer ml-depth-atmospheric ml-breathing-atmosphere"
+      style="opacity: 0.14; filter: saturate(0.9) contrast(0.95);"
+    >
+
+      {{
+        section.settings.scene_image
+        | image_url: width: 2200
+        | image_tag:
+          class: 'ml-atmospheric-image ml-soft-presence',
+          loading: 'lazy',
+          widths: '1200,1600,2200',
+          alt: section.settings.scene_heading
+      }}
+
+    </div>
+
+  {% endif %}
+
+
+  <!-- =====================================================
+       SOMATIC FIELD (TEXT FLOW)
+       ===================================================== -->
+
+  <div class="ml-container-reading">
+
+    <div class="ml-balanced-field ml-rhythm-atmospheric ml-scene-text-flow">
+
+      <div class="ml-visual-silence-lg"></div>
+
+
+      <!-- HEADING -->
+
+      {% if section.settings.scene_heading != blank %}
+        <h2 class="ml-display-heading ml-headline-soft">
+          {{ section.settings.scene_heading }}
+        </h2>
+      {% endif %}
+
+
+      <!-- COPY -->
+
+      {% if section.settings.scene_copy != blank %}
+        <div class="ml-contemplative-copy ml-copy-soft">
+          {{ section.settings.scene_copy }}
+        </div>
+      {% endif %}
+
+
+      <!-- PAUSE -->
+
+      <div class="ml-cinematic-pause"></div>
+
+
+      <!-- NOTE -->
+
+      {% if section.settings.scene_note != blank %}
+        <div class="ml-copy-whisper ml-fade-soft">
+          <div class="ml-supporting-text">
+            {{ section.settings.scene_note }}
+          </div>
+        </div>
+      {% endif %}
+
+
+      <div class="ml-visual-silence-lg"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       ATMOSPHERIC RESIDUAL FIELD
+       ===================================================== -->
+
+  <div
+    class="ml-depth-layer ml-light-drift ml-depth-atmospheric"
+    style="
+      background:
+        radial-gradient(
+          ellipse at 60% 30%,
+          rgba(255,255,255,0.06) 0%,
+          rgba(255,255,255,0) 70%
+        );
+    "
+  ></div>
+
+</section>
+
+
+{% schema %}
+{
+  "name": "Mirellis Scene 05",
+  "tag": "section",
+  "class": "section-mirellis-science",
+  "settings": [
+
+    {
+      "type": "image_picker",
+      "id": "scene_image",
+      "label": "Scene Image"
+    },
+
+    {
+      "type": "textarea",
+      "id": "scene_heading",
+      "label": "Heading",
+      "default": "The body still responds to environments that allow transition gradually."
+    },
+
+    {
+      "type": "textarea",
+      "id": "scene_copy",
+      "label": "Copy",
+      "default": "Rhythm, light, warmth, scent, repetition and atmosphere all influence how the nervous system experiences transition."
+    },
+
+    {
+      "type": "textarea",
+      "id": "scene_note",
+      "label": "Supporting Note",
+      "default": "Certain rituals were never merely symbolic. They helped physiology understand change."
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "Mirellis Scene 05"
+    }
+  ]
+}
+{% endschema %}

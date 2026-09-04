@@ -1,0 +1,131 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "ingredient-hero",
+      "settings": {
+        "title": "Sensory Memory & Ritual",
+        "description": "<p>The body remembers environments long before the mind fully explains them. Rituals often become emotionally familiar through repeated sensory experience rather than conscious intention alone.</p>"
+      }
+    },
+
+    "intro": {
+      "type": "editorial-intro",
+      "settings": {
+        "text": "<p>Human memory is not purely intellectual. The nervous system continuously stores associations between atmosphere, repetition, sensory pacing, emotional tone, and physiological experience. Certain environments begin feeling familiar before conscious thought fully understands why.</p><p>Aroma, texture, temperature, sound, light, rhythm, and repetition gradually become linked to emotional states through repeated exposure. The body begins anticipating specific internal conditions before deliberate attention fully arrives.</p><p>Rituals operate partly through this process of sensory familiarity. Repeated environments slowly teach the nervous system what to expect physiologically. Calmness, stillness, restoration, clarity, and emotional safety become associated with recognizable sensory patterns over time.</p><p>Mirellis approaches ritual not as performance, but as emotional orientation through sensory continuity. The body gradually learns coherence through repeated environmental experience.</p>"
+      }
+    },
+
+    "image_break_1": {
+      "type": "ingredient-image-break",
+      "settings": {
+        "caption": "The nervous system often recognizes familiarity before conscious thought fully identifies it."
+      }
+    },
+
+    "essay": {
+      "type": "editorial-essay",
+      "settings": {
+        "label": "Physiological Familiarity",
+        "text": "<p>Many emotional responses emerge before conscious interpretation fully organizes itself. A familiar scent, a certain quality of light, a repeated texture, or a particular rhythm of pacing can immediately alter physiological atmosphere without deliberate reasoning.</p><p>Modern environments often weaken this continuity through overstimulation and fragmentation. Attention is repeatedly interrupted before the nervous system fully settles into recognizable emotional states. Sensory transitions become abrupt rather than coherent.</p><p>Rituals slowly rebuild familiarity through repetition. Over time, the body begins associating specific sensory environments with steadiness, clarity, restoration, or stillness. Familiarity itself starts regulating emotional response.</p><p>The effect is gradual rather than dramatic. The nervous system learns through repeated exposure to coherent sensory pacing. Ritual becomes recognizable not because it is intellectually analyzed, but because the body begins remembering the atmosphere itself.</p>"
+      }
+    },
+
+    "framework": {
+      "type": "editorial-framework",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "title": "Sensory Association",
+            "description": "<p>The nervous system gradually links repeated sensory environments with emotional and physiological states through repetition.</p>"
+          }
+        },
+
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "title": "Emotional Familiarity",
+            "description": "<p>Repeated rituals slowly become recognizable internal environments rather than isolated behavioral actions.</p>"
+          }
+        },
+
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "title": "Atmospheric Memory",
+            "description": "<p>The body often remembers pacing, texture, aroma, and emotional rhythm before conscious thought fully explains them.</p>"
+          }
+        },
+
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "title": "Ritual Recognition",
+            "description": "<p>Over time, the nervous system begins anticipating coherence through repeated sensory continuity and emotional pacing.</p>"
+          }
+        }
+      },
+
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4"
+      ],
+
+      "settings": {
+        "label": "Core Ideas"
+      }
+    },
+
+    "research": {
+      "type": "ingredient-research-notes",
+      "blocks": {
+        "note_1": {
+          "type": "note",
+          "settings": {
+            "title": "Sensory Processing & Emotional Association",
+            "text": "<p>Emerging discussions across neuroscience and sensory psychology continue examining how repeated sensory experiences may influence emotional familiarity, memory formation, physiological expectation, and nervous-system response.</p>"
+          }
+        },
+
+        "note_2": {
+          "type": "note",
+          "settings": {
+            "title": "Ritual Repetition & Behavioral Familiarity",
+            "text": "<p>Research surrounding ritual behavior increasingly explores how repetition, predictability, environmental consistency, and sensory continuity may contribute to emotional regulation and perceived physiological steadiness over time.</p>"
+          }
+        }
+      },
+
+      "block_order": [
+        "note_1",
+        "note_2"
+      ],
+
+      "settings": {}
+    },
+
+    "closing": {
+      "type": "ingredient-closing-statement",
+      "settings": {
+        "text": "The body often remembers emotional environments before the mind fully explains them. Rituals become familiar through repetition, atmosphere, and sensory continuity long before they become conscious habits."
+      }
+    }
+  },
+
+  "order": [
+    "hero",
+    "intro",
+    "image_break_1",
+    "essay",
+    "framework",
+    "research",
+    "closing"
+  ]
+}

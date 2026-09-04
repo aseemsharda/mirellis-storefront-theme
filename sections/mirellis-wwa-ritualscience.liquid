@@ -1,0 +1,82 @@
+{% if section.settings.show_section %}
+<section class="wwa-ritualscience">
+  <div class="wwa-inner">
+    {% if section.settings.eyebrow != blank %}
+    <p class="wwa-eyebrow">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    {% if section.settings.heading != blank %}
+    <h2 class="wwa-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+    {% if section.settings.body != blank %}
+    <div class="wwa-body">{{ section.settings.body | newline_to_br }}</div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+<style>
+.wwa-ritualscience {
+  background: #faf7f2;
+  padding: 6rem 2rem;
+}
+.wwa-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.wwa-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(26,26,24,0.45);
+  margin: 0 0 1.5rem 0;
+}
+.wwa-heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: #1a1a18;
+  margin: 0 0 2.5rem 0;
+  line-height: 1.2;
+}
+.wwa-body {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: rgba(26,26,24,0.7);
+}
+@media (max-width: 640px) {
+  .wwa-ritualscience {
+    padding: 4rem 1.5rem;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "WWA Ritual Science",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "WHAT WE ARE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Mirellis is a Ritual Science Company."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body",
+      "default": "Most approaches to wellness try to change behaviour through information and intention.\n\nMore advice. More content.\nMore optimisation.\n\nMirellis works differently.\n\nWe study Human State Transitions — the moments between one state and another — and design coherent sensory systems that help the body recognize them.\n\nBecause the nervous system responds to signals faster than instructions.\n\nThe ritual.\nThe sound.\nThe environment.\nThe repetition.\n\nTogether they create coherence.\nAnd coherence is the method."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show section",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

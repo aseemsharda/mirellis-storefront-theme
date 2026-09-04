@@ -1,0 +1,205 @@
+
+<section class="ritual-experiences-section">
+  <div class="ritual-experiences-container">
+
+    {% if section.settings.heading != blank %}
+      <h2 class="ritual-experiences-heading">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.subheading != blank %}
+      <p class="ritual-experiences-subheading">
+        {{ section.settings.subheading }}
+      </p>
+    {% endif %}
+
+    <div class="ritual-experiences-list">
+
+      {% for block in section.blocks %}
+        <div class="ritual-experience-item" {{ block.shopify_attributes }}>
+
+          <div class="ritual-experience-quote">
+            {{ block.settings.quote }}
+          </div>
+
+          {% if block.settings.label != blank %}
+            <div class="ritual-experience-label">
+              {{ block.settings.label }}
+            </div>
+          {% endif %}
+
+        </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .ritual-experiences-section {
+    position: relative;
+    z-index: 2;
+    background: #f6f1ea;
+    padding: 160px 24px;
+    overflow: hidden;
+  }
+
+  .ritual-experiences-container {
+    max-width: 680px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .ritual-experiences-heading {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 52px;
+    line-height: 1.08;
+    font-weight: 500;
+    color: #2b2b2b;
+    margin-bottom: 18px;
+    letter-spacing: -0.6px;
+  }
+
+  .ritual-experiences-subheading {
+    font-size: 17px;
+    line-height: 1.8;
+    color: rgba(43,43,43,0.72);
+    max-width: 520px;
+    margin-bottom: 100px;
+    font-weight: 300;
+  }
+
+  .ritual-experiences-list {
+    display: flex;
+    flex-direction: column;
+    gap: 90px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .ritual-experience-item {
+    position: relative;
+    z-index: 2;
+    background: #f6f1ea;
+    padding: 48px 0;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .ritual-experience-quote {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+    line-height: 1.58;
+    color: #2f2f2f;
+    letter-spacing: 0.1px;
+    font-weight: 400;
+  }
+
+  .ritual-experience-label {
+    margin-top: 26px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(43,43,43,0.5);
+  }
+
+  @media screen and (max-width: 768px) {
+
+    .ritual-experiences-section {
+      padding: 80px 24px;
+    }
+
+    .ritual-experiences-container {
+      max-width: 100%;
+    }
+
+    .ritual-experiences-heading {
+      font-size: 38px;
+      line-height: 1.12;
+      margin-bottom: 14px;
+    }
+
+    .ritual-experiences-subheading {
+      font-size: 15px;
+      line-height: 1.75;
+      margin-bottom: 70px;
+    }
+
+    .ritual-experiences-list {
+      gap: 70px;
+    }
+
+    .ritual-experience-item {
+      padding: 36px 0;
+    }
+
+    .ritual-experience-quote {
+      font-size: 22px;
+      line-height: 1.65;
+    }
+
+    .ritual-experience-label {
+      margin-top: 18px;
+      font-size: 10px;
+      letter-spacing: 1.6px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Ritual Experiences",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "From Real Evenings"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Small nightly rituals. Quiet transitions. Human experiences."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Ritual Reflection",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "The scent slowly became associated with the end of the day."
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Evening Ritual — Kanika"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ritual Experiences",
+      "blocks": [
+        {
+          "type": "review"
+        },
+        {
+          "type": "review"
+        },
+        {
+          "type": "review"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+```

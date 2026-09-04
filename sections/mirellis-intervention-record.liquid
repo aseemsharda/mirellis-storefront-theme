@@ -1,0 +1,192 @@
+{%- comment -%}
+  MIRELLIS — INTERVENTION RECORD  (Mirellis 2.0 spine object)
+  --------------------------------------------------------------
+  The bridge page that makes a product visibly descend from a Finding.
+  Journey made explicit on one page:
+    Transition → Originating Finding → The Question → Intervention Landscape
+    → What we chose & why → Why this delivery form → The Instrument
+    → Evidence strength → (Draft/Ratified gate)
+
+  BUILD-ALONGSIDE NOTES
+  - New file. Modifies nothing existing.
+  - Renders entirely from Shopify PAGE METAFIELDS (namespace: custom, prefix: ir_)
+    following the PROVEN pattern of sections/mirellis-finding-detail.liquid.
+  - Reuses observatory.css + finding-detail__ classes → zero new CSS, visual coherence.
+  - Voice Law: content is authored as Draft and must be ratified (Priyanka) before
+    ir_status is set to "Active". This section shows a Draft notice until then.
+{%- endcomment -%}
+
+{{ 'observatory.css' | asset_url | stylesheet_tag }}
+
+{%- assign m = page.metafields.custom -%}
+
+<div class="finding-detail intervention-record">
+
+  {%- comment -%} ══ METADATA / EYEBROW ══════════════════════ {%- endcomment -%}
+  <header class="finding-detail__metadata">
+    <div class="finding-detail__metadata-inner">
+      <div class="finding-detail__institution">MIRELLIS OBSERVATORY · INTERVENTION RECORD</div>
+      {%- if m.ir_transition -%}
+        <div class="finding-detail__finding-label">{{ m.ir_transition }}</div>
+      {%- endif -%}
+    </div>
+  </header>
+
+  {%- comment -%} ══ DRAFT / RATIFICATION GATE ═══════════════ {%- endcomment -%}
+  {%- assign status = m.ir_status | default: 'Draft' -%}
+  {%- unless status == 'Active' -%}
+    <section class="finding-detail__statement-section">
+      <div class="finding-detail__statement-inner">
+        <p class="finding-detail__subtitle" style="opacity:.55;">
+          Draft record — pending scientific ratification. Mechanism and delivery
+          reasoning below are provisional and not yet published as findings.
+        </p>
+      </div>
+    </section>
+  {%- endunless -%}
+
+  {%- comment -%} ══ TITLE ═══════════════════════════════════ {%- endcomment -%}
+  <section class="finding-detail__title-section">
+    <div class="finding-detail__title-inner">
+      {%- if page.title != blank -%}
+        <h1 class="finding-detail__title">{{- page.title -}}</h1>
+      {%- endif -%}
+      {%- if m.ir_finding_label and m.ir_finding_url -%}
+        <p class="finding-detail__subtitle">
+          This ritual descends from
+          <a href="{{ m.ir_finding_url }}">{{ m.ir_finding_label }}</a>.
+        </p>
+      {%- endif -%}
+    </div>
+  </section>
+
+  {%- comment -%} ══ THE QUESTION ════════════════════════════ {%- endcomment -%}
+  {%- if m.ir_question != blank -%}
+    <section class="finding-detail__statement-section">
+      <div class="finding-detail__statement-inner">
+        <div class="finding-detail__institution">THE QUESTION</div>
+        <p class="finding-detail__statement">{{ m.ir_question }}</p>
+      </div>
+    </section>
+  {%- endif -%}
+
+  <div class="finding-detail__body">
+    <div class="finding-detail__body-inner">
+
+      {%- comment -%} ══ INTERVENTION LANDSCAPE ═══════════════ {%- endcomment -%}
+      {%- if m.ir_landscape != blank -%}
+        <div class="finding-detail__institution">THE INTERVENTION LANDSCAPE</div>
+        <div class="finding-detail__prose ml-reading-flow"><p>{{ m.ir_landscape | newline_to_br }}</p></div>
+      {%- endif -%}
+
+      {%- comment -%} ══ WHAT WE CHOSE & WHY ══════════════════ {%- endcomment -%}
+      {%- if m.ir_selection != blank -%}
+        <div class="finding-detail__institution">WHAT WE CHOSE, AND WHY</div>
+        <div class="finding-detail__prose ml-reading-flow"><p>{{ m.ir_selection | newline_to_br }}</p></div>
+      {%- endif -%}
+
+      {%- comment -%} ══ WHY THIS DELIVERY FORM ═══════════════ {%- endcomment -%}
+      {%- if m.ir_delivery != blank -%}
+        <div class="finding-detail__institution">WHY THIS DELIVERY FORM</div>
+        <div class="finding-detail__prose ml-reading-flow"><p>{{ m.ir_delivery | newline_to_br }}</p></div>
+      {%- endif -%}
+
+      {%- comment -%} ══ FREEFORM BODY (optional) ═════════════ {%- endcomment -%}
+      {%- if page.content != blank -%}
+        <div class="finding-detail__prose ml-reading-flow">{{ page.content }}</div>
+      {%- endif -%}
+
+    </div>
+  </div>
+
+  {%- comment -%} ══ THE INSTRUMENT (product) ════════════════ {%- endcomment -%}
+  {%- if m.ir_product_url and m.ir_product_label -%}
+    <section class="finding-detail__statement-section">
+      <div class="finding-detail__statement-inner">
+        <div class="finding-detail__institution">THE INSTRUMENT</div>
+        <p class="finding-detail__statement" style="font-size:1.2rem;">
+          {{ m.ir_product_label }}
+        </p>
+        <p><a class="finding-detail__cta" href="{{ m.ir_product_url }}">View the ritual →</a></p>
+      </div>
+    </section>
+  {%- endif -%}
+
+  {%- comment -%} ══ EVIDENCE STRENGTH ══════════════════════ {%- endcomment -%}
+  {%- if m.ir_evidence -%}
+    <footer class="finding-detail__footer">
+      <div class="finding-detail__footer-inner">
+        <div class="finding-detail__archive-item">Evidence strength: {{ m.ir_evidence }}</div>
+      </div>
+    </footer>
+  {%- endif -%}
+
+</div>
+
+<style>
+  /* Self-contained styles — mirrors sections/mirellis-finding-detail.liquid design language.
+     Uses mirellis-tokens.css variables so it inherits the institutional system. */
+  .intervention-record.finding-detail { background: var(--ml-color-warm-paper); }
+  .intervention-record .finding-detail__metadata,
+  .intervention-record .finding-detail__title-section,
+  .intervention-record .finding-detail__statement-section {
+    background: var(--ml-color-warm-paper);
+    padding-block: 4rem;
+    border-bottom: 1px solid var(--ml-color-border-soft);
+  }
+  .intervention-record .finding-detail__statement-section { padding-block: 5rem; }
+  .intervention-record .finding-detail__metadata-inner,
+  .intervention-record .finding-detail__title-inner,
+  .intervention-record .finding-detail__statement-inner,
+  .intervention-record .finding-detail__body-inner,
+  .intervention-record .finding-detail__footer-inner {
+    max-width: 680px; margin-inline: auto;
+    padding-inline: clamp(1rem, 5vw, 2rem);
+  }
+  .intervention-record .finding-detail__institution {
+    font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1.25rem;
+  }
+  .intervention-record .finding-detail__finding-label {
+    font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--ml-color-soft-charcoal); font-weight: 500;
+  }
+  .intervention-record .finding-detail__subtitle {
+    font-size: 1rem; color: var(--ml-color-text-secondary); line-height: 1.6;
+  }
+  .intervention-record .finding-detail__subtitle a,
+  .intervention-record .finding-detail__cta {
+    color: var(--ml-color-soft-charcoal); text-underline-offset: 3px;
+  }
+  .intervention-record .finding-detail__title {
+    font-size: clamp(2.25rem, 5vw, 3.25rem); line-height: 1.15;
+    color: var(--ml-color-soft-charcoal); font-weight: 300;
+    letter-spacing: -0.01em; margin: 0 0 1rem; max-width: 25ch;
+  }
+  .intervention-record .finding-detail__statement {
+    font-size: clamp(1.4rem, 3.2vw, 1.9rem); color: var(--ml-color-soft-charcoal);
+    line-height: 1.45; font-weight: 300; max-width: 30ch; margin: 0.5rem 0 0;
+  }
+  .intervention-record .finding-detail__body { background: var(--ml-color-warm-paper); padding-block: 4.5rem; }
+  .intervention-record .finding-detail__prose { line-height: 2; color: var(--ml-color-text-secondary); }
+  .intervention-record .finding-detail__prose p { font-size: 1.0625rem; margin-bottom: 2rem; }
+  .intervention-record .finding-detail__body .finding-detail__institution { margin-top: 3.5rem; }
+  .intervention-record .finding-detail__body .finding-detail__institution:first-child { margin-top: 0; }
+  .intervention-record .finding-detail__cta { font-size: 0.95rem; font-weight: 500; letter-spacing: 0.02em; }
+  .intervention-record .finding-detail__footer {
+    background: var(--ml-color-warm-paper); padding-block: 3rem;
+    border-top: 1px solid var(--ml-color-border-soft);
+  }
+  .intervention-record .finding-detail__archive-item {
+    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--ml-color-muted-earth);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Intervention Record",
+  "settings": [],
+  "presets": [{ "name": "Intervention Record" }]
+}
+{% endschema %}

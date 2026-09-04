@@ -1,0 +1,147 @@
+{%- comment -%}
+  MIRELLIS — PDP FORMULATION  (Product Experience OS · reusable)
+  Book I: Journey 5 (Evaluation) · resolves Uncertainty 2 (Ingredient) · Dim A+B.
+  Full transparency — no proprietary blend. Each ingredient is a card: surface line always visible,
+  native <details> Expand for the full template, optional dossier Link. Up to 8 ingredient slots,
+  empty-safe (a slot renders only if it has a name). Detail/link default blank = data gate to fill.
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+<section class="pdfm">
+  <div class="pdfm__inner">
+    {%- if s.eyebrow != blank -%}<div class="pdfm__eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+    {%- if s.intro != blank -%}<div class="pdfm__intro">{{ s.intro }}</div>{%- endif -%}
+
+    <div class="pdfm__list">
+      {%- for i in (1..8) -%}
+        {%- assign nk = 'ing_' | append: i | append: '_name' -%}
+        {%- assign name = s[nk] -%}
+        {%- if name != blank -%}
+          {%- assign sk = 'ing_' | append: i | append: '_surface' -%}
+          {%- assign tk = 'ing_' | append: i | append: '_tag' -%}
+          {%- assign dk = 'ing_' | append: i | append: '_detail' -%}
+          {%- assign lk = 'ing_' | append: i | append: '_link_label' -%}
+          {%- assign uk = 'ing_' | append: i | append: '_link_url' -%}
+          {%- assign surface = s[sk] -%}{%- assign tag = s[tk] -%}
+          {%- assign detail = s[dk] -%}{%- assign llabel = s[lk] -%}{%- assign lurl = s[uk] -%}
+          {%- if detail != blank or lurl != blank -%}
+            <details class="pdfm__card">
+              <summary class="pdfm__summary">
+                <span class="pdfm__name">{{ name }}</span>
+                {%- if tag != blank -%}<span class="pdfm__tag">{{ tag }}</span>{%- endif -%}
+                {%- if surface != blank -%}<span class="pdfm__surface">{{ surface }}</span>{%- endif -%}
+                <span class="pdfm__chev" aria-hidden="true">+</span>
+              </summary>
+              <div class="pdfm__detail">
+                {%- if detail != blank -%}{{ detail }}{%- endif -%}
+                {%- if llabel != blank and lurl != blank -%}<p class="pdfm__dossier"><a href="{{ lurl }}">{{ llabel }}</a></p>{%- endif -%}
+              </div>
+            </details>
+          {%- else -%}
+            <div class="pdfm__card pdfm__card--static">
+              <span class="pdfm__name">{{ name }}</span>
+              {%- if tag != blank -%}<span class="pdfm__tag">{{ tag }}</span>{%- endif -%}
+              {%- if surface != blank -%}<span class="pdfm__surface">{{ surface }}</span>{%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    {%- if s.expand_all_label != blank and s.expand_all_url != blank -%}
+      <div class="pdfm__links"><a href="{{ s.expand_all_url }}">{{ s.expand_all_label }}</a></div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .pdfm { background: var(--ml-color-warm-paper); padding-block: clamp(3.5rem, 8vw, 6.5rem); border-top: 1px solid var(--ml-color-border-soft); }
+  .pdfm__inner { max-width: 680px; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2rem); }
+  .pdfm__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1.5rem; }
+  .pdfm__intro p { font-size: clamp(1.1rem, 2.3vw, 1.3rem); font-weight: 300; line-height: 1.6; color: var(--ml-color-soft-charcoal); margin: 0 0 2.25rem; max-width: 48ch; }
+  .pdfm__list { border-top: 1px solid var(--ml-color-border-soft); }
+  .pdfm__card { border-bottom: 1px solid var(--ml-color-border-soft); }
+  .pdfm__summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 0.25rem 1rem; padding: 1.4rem 0; }
+  .pdfm__summary::-webkit-details-marker { display: none; }
+  .pdfm__card--static { display: grid; grid-template-columns: 1fr; gap: 0.25rem; padding: 1.4rem 0; }
+  .pdfm__name { font-size: 1.05rem; font-weight: 400; color: var(--ml-color-soft-charcoal); grid-column: 1; }
+  .pdfm__tag { grid-column: 1; justify-self: start; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; border: 1px solid var(--ml-color-border-soft); border-radius: 999px; padding: 0.2rem 0.6rem; margin: 0.4rem 0; }
+  .pdfm__surface { grid-column: 1; font-size: 0.98rem; line-height: 1.75; color: var(--ml-color-text-secondary); }
+  .pdfm__chev { grid-column: 2; grid-row: 1; font-size: 1.1rem; color: var(--ml-color-muted-earth); font-weight: 300; transition: transform var(--ml-motion-fast, 200ms) ease; }
+  .pdfm__card[open] .pdfm__chev { transform: rotate(45deg); }
+  .pdfm__detail { padding: 0 0 1.6rem; }
+  .pdfm__detail p { font-size: 0.98rem; line-height: 1.85; color: var(--ml-color-text-secondary); margin: 0 0 0.75rem; max-width: 60ch; }
+  .pdfm__dossier a { font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ml-color-soft-charcoal); text-underline-offset: 3px; }
+  .pdfm__links { margin-top: 2rem; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .pdfm__links a { color: var(--ml-color-soft-charcoal); text-underline-offset: 3px; }
+</style>
+
+{% schema %}
+{
+  "name": "PDP · Formulation",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "What is in it, and why" },
+    { "type": "richtext", "id": "intro", "label": "Intro", "default": "<p>A short formula, chosen deliberately. Each ingredient is here for a reason — and we say why, including why we left others out. No proprietary blend, no undisclosed \"actives.\"</p>" },
+    { "type": "header", "content": "Ingredient 1" },
+    { "type": "text", "id": "ing_1_name", "label": "Name", "default": "Sesame oil — the base" },
+    { "type": "text", "id": "ing_1_tag", "label": "Tag", "default": "Classical Ayurvedic" },
+    { "type": "text", "id": "ing_1_surface", "label": "Surface line", "default": "The classical oil of Kavala. ⟦why chosen over other base oils; proportion⟧" },
+    { "type": "richtext", "id": "ing_1_detail", "label": "Expanded detail" },
+    { "type": "text", "id": "ing_1_link_label", "label": "Dossier link label" },
+    { "type": "url", "id": "ing_1_link_url", "label": "Dossier link url" },
+    { "type": "header", "content": "Ingredient 2" },
+    { "type": "text", "id": "ing_2_name", "label": "Name", "default": "Coconut oil — ⟦role⟧" },
+    { "type": "text", "id": "ing_2_tag", "label": "Tag" },
+    { "type": "text", "id": "ing_2_surface", "label": "Surface line", "default": "⟦why selected; proportion⟧" },
+    { "type": "richtext", "id": "ing_2_detail", "label": "Expanded detail" },
+    { "type": "text", "id": "ing_2_link_label", "label": "Dossier link label" },
+    { "type": "url", "id": "ing_2_link_url", "label": "Dossier link url" },
+    { "type": "header", "content": "Ingredient 3" },
+    { "type": "text", "id": "ing_3_name", "label": "Name", "default": "Black cumin (kalonji) oil — ⟦role⟧" },
+    { "type": "text", "id": "ing_3_tag", "label": "Tag" },
+    { "type": "text", "id": "ing_3_surface", "label": "Surface line", "default": "⟦why selected⟧" },
+    { "type": "richtext", "id": "ing_3_detail", "label": "Expanded detail" },
+    { "type": "text", "id": "ing_3_link_label", "label": "Dossier link label" },
+    { "type": "url", "id": "ing_3_link_url", "label": "Dossier link url" },
+    { "type": "header", "content": "Ingredient 4" },
+    { "type": "text", "id": "ing_4_name", "label": "Name", "default": "Clove — ⟦role⟧" },
+    { "type": "text", "id": "ing_4_tag", "label": "Tag" },
+    { "type": "text", "id": "ing_4_surface", "label": "Surface line", "default": "⟦why selected; aromatic rationale⟧" },
+    { "type": "richtext", "id": "ing_4_detail", "label": "Expanded detail" },
+    { "type": "text", "id": "ing_4_link_label", "label": "Dossier link label" },
+    { "type": "url", "id": "ing_4_link_url", "label": "Dossier link url" },
+    { "type": "header", "content": "Ingredient 5" },
+    { "type": "text", "id": "ing_5_name", "label": "Name", "default": "Peppermint — ⟦role⟧" },
+    { "type": "text", "id": "ing_5_tag", "label": "Tag" },
+    { "type": "text", "id": "ing_5_surface", "label": "Surface line", "default": "⟦sensory / freshness rationale⟧" },
+    { "type": "richtext", "id": "ing_5_detail", "label": "Expanded detail" },
+    { "type": "text", "id": "ing_5_link_label", "label": "Dossier link label" },
+    { "type": "url", "id": "ing_5_link_url", "label": "Dossier link url" },
+    { "type": "header", "content": "Ingredient 6" },
+    { "type": "text", "id": "ing_6_name", "label": "Name" },
+    { "type": "text", "id": "ing_6_tag", "label": "Tag" },
+    { "type": "text", "id": "ing_6_surface", "label": "Surface line" },
+    { "type": "richtext", "id": "ing_6_detail", "label": "Expanded detail" },
+    { "type": "text", "id": "ing_6_link_label", "label": "Dossier link label" },
+    { "type": "url", "id": "ing_6_link_url", "label": "Dossier link url" },
+    { "type": "header", "content": "Ingredient 7" },
+    { "type": "text", "id": "ing_7_name", "label": "Name" },
+    { "type": "text", "id": "ing_7_tag", "label": "Tag" },
+    { "type": "text", "id": "ing_7_surface", "label": "Surface line" },
+    { "type": "richtext", "id": "ing_7_detail", "label": "Expanded detail" },
+    { "type": "text", "id": "ing_7_link_label", "label": "Dossier link label" },
+    { "type": "url", "id": "ing_7_link_url", "label": "Dossier link url" },
+    { "type": "header", "content": "Ingredient 8" },
+    { "type": "text", "id": "ing_8_name", "label": "Name" },
+    { "type": "text", "id": "ing_8_tag", "label": "Tag" },
+    { "type": "text", "id": "ing_8_surface", "label": "Surface line" },
+    { "type": "richtext", "id": "ing_8_detail", "label": "Expanded detail" },
+    { "type": "text", "id": "ing_8_link_label", "label": "Dossier link label" },
+    { "type": "url", "id": "ing_8_link_url", "label": "Dossier link url" },
+    { "type": "header", "content": "Footer link" },
+    { "type": "text", "id": "expand_all_label", "label": "Expand-all link label", "default": "Read the full formulation, ingredient by ingredient →" },
+    { "type": "url", "id": "expand_all_url", "label": "Expand-all link url" }
+  ],
+  "presets": [{ "name": "PDP · Formulation" }]
+}
+{% endschema %}

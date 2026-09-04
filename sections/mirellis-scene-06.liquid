@@ -1,0 +1,224 @@
+{% comment %}
+MIRELLIS SCENE 06
+ATMOSPHERIC COMMERCE
+{% endcomment %}
+
+<section class="ml-scene ml-scene-continuous ml-scene-descent-large ml-spatial-stillness">
+
+  <div
+    class="ml-depth-layer ml-depth-soft"
+    style="
+      background: linear-gradient(
+        180deg,
+        rgba(239,231,219,0.96) 0%,
+        rgba(246,241,232,0.98) 100%
+      );
+    "
+  ></div>
+
+  <div class="ml-container-wide ml-cinematic-breathing">
+
+    <div class="ml-soft-grid ml-balanced-field">
+
+      {% if section.settings.morning_image != blank %}
+
+        <div class="ml-image-atmosphere ml-image-cinematic ml-breathing-atmosphere ml-fade-soft is-visible">
+
+          {{
+            section.settings.morning_image
+            | image_url: width: 2200
+            | image_tag:
+              class: 'ml-atmospheric-image ml-soft-presence',
+              loading: 'lazy',
+              widths: '1200,1600,2200',
+              alt: section.settings.morning_heading
+          }}
+
+        </div>
+
+      {% endif %}
+
+      <div class="ml-reading-width ml-rhythm-atmospheric ml-fade-soft is-visible">
+
+        {% if section.settings.morning_heading != blank %}
+
+          <h2 class="ml-display-heading ml-headline-soft">
+            {{ section.settings.morning_heading }}
+          </h2>
+
+        {% endif %}
+
+        {% if section.settings.morning_copy != blank %}
+
+          <div class="ml-contemplative-copy ml-copy-soft">
+            {{ section.settings.morning_copy }}
+          </div>
+
+        {% endif %}
+
+        {% if section.settings.morning_cta_label != blank %}
+
+          <div class="ml-button-field">
+
+            <a
+              href="{{ section.settings.morning_cta_link }}"
+              class="ml-soft-cta ml-soft-hover"
+            >
+              {{ section.settings.morning_cta_label }}
+            </a>
+
+          </div>
+
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="ml-cinematic-pause"></div>
+
+  <div class="ml-container-wide ml-cinematic-breathing">
+
+    <div class="ml-soft-grid ml-balanced-field">
+
+      {% if section.settings.evening_image != blank %}
+
+        <div class="ml-image-atmosphere ml-image-cinematic ml-light-drift ml-fade-soft is-visible">
+
+          {{
+            section.settings.evening_image
+            | image_url: width: 2200
+            | image_tag:
+              class: 'ml-atmospheric-image ml-soft-presence',
+              loading: 'lazy',
+              widths: '1200,1600,2200',
+              alt: section.settings.evening_heading
+          }}
+
+        </div>
+
+      {% endif %}
+
+      <div class="ml-reading-width ml-rhythm-atmospheric ml-fade-soft is-visible">
+
+        {% if section.settings.evening_heading != blank %}
+
+          <h2 class="ml-display-heading ml-headline-soft">
+            {{ section.settings.evening_heading }}
+          </h2>
+
+        {% endif %}
+
+        {% if section.settings.evening_copy != blank %}
+
+          <div class="ml-contemplative-copy ml-copy-soft">
+            {{ section.settings.evening_copy }}
+          </div>
+
+        {% endif %}
+
+        {% if section.settings.evening_cta_label != blank %}
+
+          <div class="ml-button-field">
+
+            <a
+              href="{{ section.settings.evening_cta_link }}"
+              class="ml-soft-cta ml-soft-hover"
+            >
+              {{ section.settings.evening_cta_label }}
+            </a>
+
+          </div>
+
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div
+    class="ml-depth-layer ml-shadow-breathing ml-depth-atmospheric"
+    style="
+      background: radial-gradient(
+        circle at 50% 50%,
+        rgba(255,255,255,0.06) 0%,
+        rgba(255,255,255,0) 72%
+      );
+      opacity:0.78;
+    "
+  ></div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Scene 06",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "morning_image",
+      "label": "Morning Image"
+    },
+    {
+      "type": "textarea",
+      "id": "morning_heading",
+      "label": "Morning Heading",
+      "default": "A slower beginning for mornings that no longer begin naturally."
+    },
+    {
+      "type": "textarea",
+      "id": "morning_copy",
+      "label": "Morning Copy",
+      "default": "Sensory rituals designed to help the nervous system arrive gradually before urgency fully returns."
+    },
+    {
+      "type": "text",
+      "id": "morning_cta_label",
+      "label": "Morning CTA Label",
+      "default": "Enter the Morning Ritual"
+    },
+    {
+      "type": "url",
+      "id": "morning_cta_link",
+      "label": "Morning CTA Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "evening_image",
+      "label": "Evening Image"
+    },
+    {
+      "type": "textarea",
+      "id": "evening_heading",
+      "label": "Evening Heading",
+      "default": "Evening environments for releasing the day more slowly."
+    },
+    {
+      "type": "textarea",
+      "id": "evening_copy",
+      "label": "Evening Copy",
+      "default": "Rituals designed to soften the transition between stimulation and rest."
+    },
+    {
+      "type": "text",
+      "id": "evening_cta_label",
+      "label": "Evening CTA Label",
+      "default": "Explore Stillness"
+    },
+    {
+      "type": "url",
+      "id": "evening_cta_link",
+      "label": "Evening CTA Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scene 06"
+    }
+  ]
+}
+{% endschema %}

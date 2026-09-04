@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stillness Elixir — Mirellis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:#faf7f4;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  ::selection{background:#cf9266;color:#12171f}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  @keyframes glowpulse{0%,100%{opacity:.55}50%{opacity:.85}}
+  a{color:inherit}
+  .thumb-btn:hover{opacity:1!important}
+  .add-btn:hover{background:#cf9266!important;transform:translateY(-1px)!important}
+  .qty-btn:hover{background:rgba(255,255,255,0.08)!important}
+  .companion-link:hover{background:rgba(255,255,255,0.06)!important;border-color:rgba(255,255,255,0.5)!important}
+  .research-btn:hover .research-sign{color:#e5c09e}
+</style>
+</head>
+<body style="background:#faf7f4;color:#26221d;font-family:'Hanken Grotesk',system-ui,sans-serif;overflow-x:hidden;line-height:1.5">
+
+  <!-- NAV -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(250,247,244,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #e6dfd4">
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,48px);height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <div style="display:flex;align-items:baseline;gap:10px">
+        <span style="font-family:'Newsreader',serif;font-size:22px;font-weight:500;letter-spacing:.16em;text-transform:uppercase">Mirellis</span>
+      </div>
+      <nav style="display:flex;align-items:center;gap:clamp(14px,2.4vw,30px);font-size:13px;letter-spacing:.04em;color:#5e564b">
+        <a href="#" style="text-decoration:none">Morning</a>
+        <a href="#hero" style="text-decoration:none;color:#26221d;font-weight:600">Evening</a>
+        <a href="#research" style="text-decoration:none">Observatory</a>
+        <span style="display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border:1px solid #d8cfc1;border-radius:100px;font-size:12px;letter-spacing:.05em">Cart · 0</span>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO / BUY BOX -->
+  <section id="hero" style="position:relative;background:#12171f;color:#ece7dd;overflow:hidden">
+    <div style="position:absolute;top:-12%;left:50%;transform:translateX(-50%);width:min(900px,120%);height:520px;background:radial-gradient(ellipse at center,rgba(207,146,102,0.30),rgba(207,146,102,0) 62%);filter:blur(8px);animation:glowpulse 9s ease-in-out infinite;pointer-events:none"></div>
+    <div style="position:absolute;bottom:-20%;right:-10%;width:520px;height:520px;background:radial-gradient(circle at center,rgba(141,150,187,0.18),rgba(141,150,187,0) 65%);pointer-events:none"></div>
+    <div style="position:relative;max-width:1240px;margin:0 auto;padding:clamp(40px,6vw,76px) clamp(20px,5vw,48px) clamp(56px,7vw,90px);display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,68px);align-items:center">
+
+      <!-- Gallery -->
+      <div style="flex:1 1 360px;min-width:300px;display:flex;flex-direction:column;gap:18px">
+        <div style="position:relative;border-radius:6px;overflow:hidden;background:#1b2230;border:1px solid rgba(255,255,255,0.10);aspect-ratio:4/5;width:100%">
+          <span style="position:absolute;top:18px;left:18px;z-index:2;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#cf9266;background:rgba(18,23,31,0.55);padding:6px 10px;border-radius:100px;backdrop-filter:blur(4px)">Evening · 50 ml</span>
+          <img id="main-img" src="https://mirellis.in/cdn/shop/files/Image-1_Product.png?v=1773638905&width=1080" loading="lazy" alt="Stillness Elixir" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:floaty 8s ease-in-out infinite"/>
+        </div>
+        <div id="thumb-strip" style="display:flex;gap:12px"></div>
+      </div>
+
+      <!-- Buy box -->
+      <div style="flex:1 1 380px;min-width:300px;max-width:540px">
+        <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#cf9266;margin-bottom:18px">Work → Recovery · Evening Ritual</div>
+        <h1 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(38px,5.4vw,64px);line-height:1.02;margin:0 0 8px;letter-spacing:-0.01em">Stillness Elixir</h1>
+        <p style="font-family:'Newsreader',serif;font-style:italic;font-size:clamp(17px,2vw,21px);color:#b9b3a7;margin:0 0 22px">A grounding evening body oil — the signal that the day has ended.</p>
+
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
+          <span style="color:#cf9266;font-size:15px;letter-spacing:2px">★★★★<span style="color:#5b6271">★</span></span>
+          <span style="font-size:13px;color:#9aa1ac;letter-spacing:.03em">4.1 · 263 reviews</span>
+        </div>
+
+        <div style="display:flex;align-items:baseline;gap:12px;padding-bottom:24px;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.13)">
+          <span style="font-family:'Newsreader',serif;font-size:34px">Rs. 1,100</span>
+          <span style="font-size:13px;color:#9aa1ac">50 ml · inclusive of all taxes</span>
+        </div>
+
+        <p style="font-size:15.5px;line-height:1.75;color:#cbc6bb;margin:0 0 30px;max-width:46ch">Crafted with grounding Ayurvedic botanicals — Ashwagandha, Jatamansi, Vetiver, Lavender, Blue Tansy. More than a fragrance, it is a nightly cue to pause.</p>
+
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:24px">
+          <div style="display:flex;align-items:center;border:1px solid rgba(255,255,255,0.18);border-radius:100px;height:54px;padding:0 6px">
+            <button id="qty-dec" class="qty-btn" style="width:42px;height:42px;border:none;background:transparent;color:#ece7dd;font-size:20px;cursor:pointer;border-radius:100px;transition:background .2s;line-height:1">−</button>
+            <span id="qty-display" style="min-width:30px;text-align:center;font-size:16px;font-variant-numeric:tabular-nums">1</span>
+            <button id="qty-inc" class="qty-btn" style="width:42px;height:42px;border:none;background:transparent;color:#ece7dd;font-size:20px;cursor:pointer;border-radius:100px;transition:background .2s;line-height:1">+</button>
+          </div>
+          <button id="add-btn" class="add-btn" style="flex:1;min-width:180px;height:54px;border:none;border-radius:100px;background:#f1e9dd;color:#12171f;font-family:'Hanken Grotesk',sans-serif;font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .3s,transform .2s">Add to cart</button>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:18px 28px;font-size:12.5px;color:#9aa1ac;letter-spacing:.02em">
+          <span>✓ Free shipping over ₹999</span>
+          <span>✓ Made in India</span>
+          <span>✓ 12-month shelf life</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO STATEMENT -->
+  <section style="background:#faf7f4">
+    <div style="max-width:880px;margin:0 auto;padding:clamp(72px,11vw,140px) clamp(20px,5vw,48px);text-align:center">
+      <div data-reveal style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#b07f54;margin-bottom:28px">This is not a sedative</div>
+      <p data-reveal style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(26px,4.2vw,46px);line-height:1.28;letter-spacing:-0.01em;margin:0;text-wrap:balance;color:#2a261f">Modern life rarely transitions gently into rest. As the day ends, the body doesn't always know how to stop — so Stillness becomes the <span style="font-style:italic;color:#b07f54">signal</span> that it is safe to slow down.</p>
+    </div>
+  </section>
+
+  <!-- WIDE BAND IMAGE -->
+  <section style="background:#12171f">
+    <div data-reveal style="position:relative;height:clamp(280px,42vw,520px);overflow:hidden">
+      <img src="https://mirellis.in/cdn/shop/files/Evening_Stillness_Elixir.png?v=1779104296&width=1600" alt="Evening Stillness" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92"/>
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,23,31,0.78) 0%,rgba(18,23,31,0.30) 55%,rgba(18,23,31,0.10) 100%)"></div>
+      <div style="position:absolute;inset:0;display:flex;align-items:center">
+        <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,48px);width:100%">
+          <div style="max-width:420px;color:#ece7dd">
+            <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#cf9266;margin-bottom:18px">The Transition</div>
+            <p style="font-family:'Newsreader',serif;font-size:clamp(22px,3vw,34px);line-height:1.3;margin:0">A calming aromatic oil designed to support the transition from day to night.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE RITUAL -->
+  <section style="background:#faf7f4">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(72px,10vw,128px) clamp(20px,5vw,48px)">
+      <div data-reveal style="text-align:center;margin-bottom:clamp(48px,7vw,84px)">
+        <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#b07f54;margin-bottom:18px">The Evening Ritual</div>
+        <h2 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(30px,4.4vw,52px);margin:0;letter-spacing:-0.01em">Three movements. Five to ten minutes.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(28px,4vw,56px)">
+        <div data-reveal style="border-top:1px solid #e0d8cc;padding-top:26px">
+          <div style="font-family:'Newsreader',serif;font-size:42px;color:#cf9266;line-height:1;margin-bottom:22px">01</div>
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:24px;margin:0 0 12px">Apply</h3>
+          <p style="font-size:15px;line-height:1.75;color:#6f665b;margin:0">Warm a few drops between your palms. Apply to pulse points — wrists, behind the ears, the soles of the feet.</p>
+        </div>
+        <div data-reveal style="border-top:1px solid #e0d8cc;padding-top:26px">
+          <div style="font-family:'Newsreader',serif;font-size:42px;color:#cf9266;line-height:1;margin-bottom:22px">02</div>
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:24px;margin:0 0 12px">Breathe</h3>
+          <p style="font-size:15px;line-height:1.75;color:#6f665b;margin:0">Take slow, deliberate breaths. Let the aroma guide the breath downward and soften the body.</p>
+        </div>
+        <div data-reveal style="border-top:1px solid #e0d8cc;padding-top:26px">
+          <div style="font-family:'Newsreader',serif;font-size:42px;color:#cf9266;line-height:1;margin-bottom:22px">03</div>
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:24px;margin:0 0 12px">Release</h3>
+          <p style="font-size:15px;line-height:1.75;color:#6f665b;margin:0">Pause. Let the nervous system receive the signal that the day is complete — and it is safe to slow down.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT MAKES IT WORK -->
+  <section style="background:#12171f;color:#ece7dd">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(20px,5vw,48px);display:flex;flex-wrap:wrap;gap:clamp(36px,5vw,72px);align-items:center">
+      <div data-reveal style="flex:1 1 340px;min-width:280px;border-radius:6px;overflow:hidden;aspect-ratio:5/4;background:#1b2230">
+        <img src="https://mirellis.in/cdn/shop/files/mirellis-what-makes-it-work.png?v=1779104480&width=1100" alt="What makes it work" loading="lazy" style="width:100%;height:100%;object-fit:cover"/>
+      </div>
+      <div data-reveal style="flex:1 1 380px;min-width:300px">
+        <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#cf9266;margin-bottom:20px">What makes it work</div>
+        <h2 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(28px,3.6vw,42px);line-height:1.18;margin:0 0 24px;letter-spacing:-0.01em">Scent, touch, and breath — the senses most closely tied to rest.</h2>
+        <p style="font-size:15.5px;line-height:1.8;color:#bcb6ab;margin:0 0 18px">Stillness engages grounding botanical extracts and essential oils traditionally used to calm the mind and ease the body. Rather than forcing sleep, the ritual supports the nervous system’s natural ability to transition into stillness.</p>
+        <p style="font-size:15.5px;line-height:1.8;color:#bcb6ab;margin:0">Consistency matters more than intensity. The ritual is designed to be repeated gently, every evening.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY INGREDIENTS -->
+  <section style="background:#f2ede6">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(72px,10vw,128px) clamp(20px,5vw,48px)">
+      <div data-reveal style="margin-bottom:clamp(40px,6vw,72px);max-width:620px">
+        <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#b07f54;margin-bottom:18px">Key Ingredients</div>
+        <h2 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(30px,4.4vw,52px);margin:0;letter-spacing:-0.01em">Grounding Ayurvedic botanicals.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0 clamp(36px,5vw,72px)">
+        <div data-reveal style="display:flex;gap:20px;padding:26px 0;border-top:1px solid #e2dacd">
+          <span style="font-family:'Newsreader',serif;font-style:italic;color:#cf9266;font-size:18px;min-width:24px">01</span>
+          <div><h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;margin:0 0 6px">Ashwagandha</h3><p style="font-size:14.5px;line-height:1.7;color:#6f665b;margin:0">Traditionally associated with resilience, restoration, and emotional balance.</p></div>
+        </div>
+        <div data-reveal style="display:flex;gap:20px;padding:26px 0;border-top:1px solid #e2dacd">
+          <span style="font-family:'Newsreader',serif;font-style:italic;color:#cf9266;font-size:18px;min-width:24px">02</span>
+          <div><h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;margin:0 0 6px">Jatamansi</h3><p style="font-size:14.5px;line-height:1.7;color:#6f665b;margin:0">A grounding Himalayan botanical linked to calmness and evening stillness rituals.</p></div>
+        </div>
+        <div data-reveal style="display:flex;gap:20px;padding:26px 0;border-top:1px solid #e2dacd">
+          <span style="font-family:'Newsreader',serif;font-style:italic;color:#cf9266;font-size:18px;min-width:24px">03</span>
+          <div><h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;margin:0 0 6px">Tagar · Valerian Root</h3><p style="font-size:14.5px;line-height:1.7;color:#6f665b;margin:0">Traditionally used in practices associated with deep relaxation and rest.</p></div>
+        </div>
+        <div data-reveal style="display:flex;gap:20px;padding:26px 0;border-top:1px solid #e2dacd">
+          <span style="font-family:'Newsreader',serif;font-style:italic;color:#cf9266;font-size:18px;min-width:24px">04</span>
+          <div><h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;margin:0 0 6px">Vetiver &amp; Lavender</h3><p style="font-size:14.5px;line-height:1.7;color:#6f665b;margin:0">Grounding aromatic oils known for their calming, emotionally settling profile.</p></div>
+        </div>
+        <div data-reveal style="display:flex;gap:20px;padding:26px 0;border-top:1px solid #e2dacd">
+          <span style="font-family:'Newsreader',serif;font-style:italic;color:#cf9266;font-size:18px;min-width:24px">05</span>
+          <div><h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;margin:0 0 6px">Blue Tansy</h3><p style="font-size:14.5px;line-height:1.7;color:#6f665b;margin:0">A rare botanical oil prized for its soft, soothing aromatic character.</p></div>
+        </div>
+        <div data-reveal style="display:flex;gap:20px;padding:26px 0;border-top:1px solid #e2dacd">
+          <span style="font-family:'Newsreader',serif;font-style:italic;color:#cf9266;font-size:18px;min-width:24px">06</span>
+          <div><h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:21px;margin:0 0 6px">Sweet Almond &amp; Vitamin E</h3><p style="font-size:14.5px;line-height:1.7;color:#6f665b;margin:0">Nourishing oils that create a silky, fast-absorbing ritual experience.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section style="background:#faf7f4">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(72px,10vw,128px) clamp(20px,5vw,48px)">
+      <div data-reveal style="text-align:center;margin-bottom:clamp(40px,6vw,72px)">
+        <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#b07f54;margin-bottom:18px">Who this ritual is for</div>
+        <h2 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(30px,4.4vw,52px);margin:0;letter-spacing:-0.01em">For those who find the day won’t end.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(20px,3vw,32px)">
+        <figure data-reveal style="margin:0">
+          <div style="border-radius:6px;overflow:hidden;aspect-ratio:1;background:#efe9e1"><img src="https://mirellis.in/cdn/shop/files/Struggle_to_switch_off_at_night.png?v=1779106102&width=900" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover"/></div>
+          <figcaption style="font-size:15px;color:#3b362e;margin-top:16px;line-height:1.5">Struggle to switch off at night</figcaption>
+        </figure>
+        <figure data-reveal style="margin:0">
+          <div style="border-radius:6px;overflow:hidden;aspect-ratio:1;background:#efe9e1"><img src="https://mirellis.in/cdn/shop/files/Feel_overstimulated_after_long_days.png?v=1779106138&width=900" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover"/></div>
+          <figcaption style="font-size:15px;color:#3b362e;margin-top:16px;line-height:1.5">Feel overstimulated after long days</figcaption>
+        </figure>
+        <figure data-reveal style="margin:0">
+          <div style="border-radius:6px;overflow:hidden;aspect-ratio:1;background:#efe9e1"><img src="https://mirellis.in/cdn/shop/files/Want_rest_without_force_or_medication.png?v=1779106178&width=900" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover"/></div>
+          <figcaption style="font-size:15px;color:#3b362e;margin-top:16px;line-height:1.5">Want rest without force or medication</figcaption>
+        </figure>
+        <figure data-reveal style="margin:0">
+          <div style="border-radius:6px;overflow:hidden;aspect-ratio:1;background:#efe9e1"><img src="https://mirellis.in/cdn/shop/files/Value_consistency_over_quick_fixes.png?v=1779106220&width=900" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover"/></div>
+          <figcaption style="font-size:15px;color:#3b362e;margin-top:16px;line-height:1.5">Value consistency over quick fixes</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section style="background:#12171f;color:#ece7dd">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(72px,10vw,124px) clamp(20px,5vw,48px)">
+      <div data-reveal style="text-align:center;margin-bottom:clamp(44px,6vw,76px)">
+        <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#cf9266;margin-bottom:18px">From real evenings</div>
+        <h2 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(28px,4vw,46px);margin:0;letter-spacing:-0.01em">Small nightly rituals. Quiet transitions.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(20px,3vw,28px)">
+        <blockquote data-reveal style="margin:0;border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:34px 30px;background:rgba(255,255,255,0.02)">
+          <p style="font-family:'Newsreader',serif;font-size:19px;line-height:1.5;color:#e6e1d6;margin:0 0 22px">“My evenings already feel quieter somehow. The aroma is calming without feeling overpowering.”</p>
+          <footer style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#9aa1ac">Kanika · Stillness Elixir</footer>
+        </blockquote>
+        <blockquote data-reveal style="margin:0;border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:34px 30px;background:rgba(255,255,255,0.02)">
+          <p style="font-family:'Newsreader',serif;font-size:19px;line-height:1.5;color:#e6e1d6;margin:0 0 22px">“The scent slowly became associated with the end of the day.”</p>
+          <footer style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#9aa1ac">Pragnesh · Evening Reflection</footer>
+        </blockquote>
+        <blockquote data-reveal style="margin:0;border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:34px 30px;background:rgba(255,255,255,0.02)">
+          <p style="font-family:'Newsreader',serif;font-size:19px;line-height:1.5;color:#e6e1d6;margin:0 0 22px">“Even the aroma started feeling like a signal to slow down and disconnect from the day.”</p>
+          <footer style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#9aa1ac">Aakash · Night Ritual</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH NOTES (accordion) -->
+  <section id="research" style="background:#faf7f4">
+    <div style="max-width:920px;margin:0 auto;padding:clamp(72px,10vw,128px) clamp(20px,5vw,48px)">
+      <div data-reveal style="margin-bottom:clamp(36px,5vw,56px)">
+        <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#b07f54;margin-bottom:18px">Research notes</div>
+        <h2 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(28px,4vw,46px);margin:0 0 14px;letter-spacing:-0.01em">Evening rhythm &amp; nervous-system restoration.</h2>
+        <p style="font-size:15px;line-height:1.75;color:#6f665b;margin:0;max-width:60ch">Quiet research increasingly supports the relationship between repeated sensory environments, circadian rhythm, and nervous-system slowing.</p>
+      </div>
+      <div data-reveal id="research-accordion" style="border-top:1px solid #e2dacd"></div>
+    </div>
+  </section>
+
+  <!-- COMPANION CROSS-SELL -->
+  <section style="background:#1b2230;color:#ece7dd">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(20px,5vw,48px);display:flex;flex-wrap:wrap;gap:36px;align-items:center;justify-content:space-between">
+      <div data-reveal style="max-width:560px">
+        <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#8d96bb;margin-bottom:18px">The transition that follows</div>
+        <h2 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(26px,3.6vw,42px);line-height:1.2;margin:0 0 16px;letter-spacing:-0.01em">The morning ritual that follows the evening.</h2>
+        <p style="font-size:15.5px;line-height:1.75;color:#bcb6ab;margin:0">Stillness creates the conditions for a different kind of morning. Morning Clarity exists for the Sleep → Wakefulness transition — made possible by how the evening ended.</p>
+      </div>
+      <a href="#" data-reveal class="companion-link" style="flex:none;display:inline-flex;align-items:center;gap:12px;padding:16px 28px;border:1px solid rgba(255,255,255,0.25);border-radius:100px;text-decoration:none;color:#ece7dd;font-size:14px;letter-spacing:.06em;transition:background .3s,border-color .3s">Companion ritual — Morning Clarity →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#12171f;color:#9aa1ac">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(48px,6vw,72px) clamp(20px,5vw,48px)">
+      <div style="display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:flex-start;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.1)">
+        <div style="max-width:320px">
+          <div style="font-family:'Newsreader',serif;font-size:22px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#ece7dd;margin-bottom:14px">Mirellis</div>
+          <p style="font-size:13.5px;line-height:1.7;margin:0">A ritual science company by Lambda Lifestyle Private Limited.</p>
+        </div>
+        <div style="display:flex;gap:clamp(36px,6vw,80px);flex-wrap:wrap">
+          <div>
+            <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#6b7280;margin-bottom:16px">Shop</div>
+            <div style="display:flex;flex-direction:column;gap:11px;font-size:13.5px">
+              <a href="#" style="text-decoration:none">Morning Clarity</a>
+              <a href="#hero" style="text-decoration:none;color:#ece7dd">Stillness Elixir</a>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#6b7280;margin-bottom:16px">Observatory</div>
+            <div style="display:flex;flex-direction:column;gap:11px;font-size:13.5px">
+              <a href="#research" style="text-decoration:none">Findings</a>
+              <a href="#" style="text-decoration:none">Our Method</a>
+              <a href="#" style="text-decoration:none">About</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="padding-top:24px;font-size:12px;color:#6b7280;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between">
+        <span>© 2026 Mirellis</span>
+        <span>Made in India · Gurugram</span>
+      </div>
+    </div>
+  </footer>
+
+<script>
+(function () {
+  // ── Gallery ────────────────────────────────────────────────────────────────────────
+  var imgs = [
+    'https://mirellis.in/cdn/shop/files/Image-1_Product.png?v=1773638905&width=1080',
+    'https://mirellis.in/cdn/shop/files/Image-3_For-evenings.png?v=1773638905&width=1080',
+    'https://mirellis.in/cdn/shop/files/Image-5_warm-grounding.png?v=1773638905&width=1080',
+    'https://mirellis.in/cdn/shop/files/Image-7_Warm-in-palms.png?v=1773638905&width=1080',
+    'https://mirellis.in/cdn/shop/files/Image-8_50ml-Ritual.png?v=1773638905&width=1080'
+  ];
+  var activeImg = 0;
+  var mainImg = document.getElementById('main-img');
+  var thumbStrip = document.getElementById('thumb-strip');
+
+  function buildThumbs() {
+    thumbStrip.innerHTML = '';
+    imgs.forEach(function (url, i) {
+      var btn = document.createElement('button');
+      btn.className = 'thumb-btn';
+      btn.style.cssText =
+        'flex:1;aspect-ratio:1;padding:0;border-radius:4px;overflow:hidden;' +
+        'cursor:pointer;background:#1b2230;transition:opacity .3s,border-color .3s;' +
+        (i === activeImg
+          ? 'border:1.5px solid #cf9266;opacity:1;'
+          : 'border:1px solid rgba(255,255,255,0.16);opacity:0.55;');
+      var img = document.createElement('img');
+      img.src = url;
+      img.loading = 'lazy';
+      img.alt = '';
+      img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block';
+      btn.appendChild(img);
+      btn.addEventListener('click', function () {
+        activeImg = i;
+        mainImg.src = url;
+        buildThumbs();
+      });
+      thumbStrip.appendChild(btn);
+    });
+  }
+  buildThumbs();
+
+  // ── Qty stepper ──────────────────────────────────────────────────────────────────────────────
+  var qty = 1;
+  var qtyDisplay = document.getElementById('qty-display');
+
+  document.getElementById('qty-dec').addEventListener('click', function () {
+    if (qty > 1) { qty--; qtyDisplay.textContent = qty; }
+  });
+  document.getElementById('qty-inc').addEventListener('click', function () {
+    if (qty < 9) { qty++; qtyDisplay.textContent = qty; }
+  });
+
+  // ── Add to cart ─────────────────────────────────────────────────────────────────────────────
+  var addBtn = document.getElementById('add-btn');
+  var addTimer;
+  addBtn.addEventListener('click', function () {
+    if (addBtn.disabled) return;
+    addBtn.disabled = true;
+    addBtn.textContent = 'Adding…';
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: 42345014820930, quantity: qty })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function() {
+      addBtn.textContent = 'Added to cart ✓';
+      addBtn.disabled = false;
+      clearTimeout(addTimer);
+      addTimer = setTimeout(function() { addBtn.textContent = 'Add to cart'; }, 1800);
+    })
+    .catch(function() {
+      addBtn.textContent = 'Add to cart';
+      addBtn.disabled = false;
+    });
+  });
+
+  // ── Research accordion ────────────────────────────────────────────────────────────────
+  var research = [
+    {
+      t: 'Warmth, texture & sensory regulation',
+      b: 'Temperature, tactile softness, dim light, and sensory atmosphere may influence how the body perceives comfort, safety, and evening decompression.'
+    },
+    {
+      t: 'Environmental predictability & restoration',
+      b: 'Repeated sensory environments and predictable evening rituals may help the nervous system associate certain signals with slowing, familiarity, and restoration.'
+    },
+    {
+      t: 'Breathing & parasympathetic activity',
+      b: 'Slower breathing rhythms are associated with parasympathetic nervous-system activity and may influence physiological slowing and emotional regulation.'
+    },
+    {
+      t: 'Sound environment & emotional pacing',
+      b: 'Lower-intensity sound environments and slower auditory pacing may support emotional decompression and reduced physiological stimulation during evening transitions.'
+    },
+    {
+      t: 'Light exposure & circadian rhythm',
+      b: "Artificial light exposure during evening hours may influence melatonin timing, circadian rhythm, and the body's natural transition into rest and restoration."
+    }
+  ];
+  var openIdx = 0;
+  var accordion = document.getElementById('research-accordion');
+
+  function buildAccordion() {
+    accordion.innerHTML = '';
+    research.forEach(function (r, i) {
+      var isOpen = openIdx === i;
+
+      var item = document.createElement('div');
+      item.style.borderBottom = '1px solid #e2dacd';
+
+      var btn = document.createElement('button');
+      btn.className = 'research-btn';
+      btn.style.cssText =
+        'width:100%;display:flex;align-items:center;justify-content:space-between;' +
+        'gap:20px;padding:24px 0;background:transparent;border:none;cursor:pointer;' +
+        "text-align:left;font-family:'Hanken Grotesk',sans-serif";
+
+      var titleEl = document.createElement('span');
+      titleEl.style.cssText = 'font-size:clamp(16px,2vw,19px);color:#2a261f;font-weight:500';
+      titleEl.textContent = r.t;
+
+      var signEl = document.createElement('span');
+      signEl.className = 'research-sign';
+      signEl.style.cssText =
+        "font-family:'Newsreader',serif;font-size:24px;color:#cf9266;line-height:1;" +
+        'flex:none;transition:color .2s';
+      signEl.textContent = isOpen ? '−' : '+';
+
+      btn.appendChild(titleEl);
+      btn.appendChild(signEl);
+
+      var panel = document.createElement('div');
+      panel.style.cssText =
+        'overflow:hidden;transition:max-height .5s cubic-bezier(.22,.61,.36,1),opacity .4s ease;' +
+        (isOpen ? 'max-height:200px;opacity:1;' : 'max-height:0;opacity:0;');
+
+      var p = document.createElement('p');
+      p.style.cssText =
+        'font-size:14.5px;line-height:1.8;color:#6f665b;margin:0;padding-bottom:26px;max-width:62ch';
+      p.textContent = r.b;
+      panel.appendChild(p);
+
+      btn.addEventListener('click', function () {
+        openIdx = isOpen ? -1 : i;
+        buildAccordion();
+      });
+
+      item.appendChild(btn);
+      item.appendChild(panel);
+      accordion.appendChild(item);
+    });
+  }
+  buildAccordion();
+
+  // ── Scroll-reveal ─────────────────────────────────────────────────────────────────────────────
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  revealEls.forEach(function (el) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(26px)';
+    el.style.transition =
+      'opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1)';
+  });
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'none';
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+  revealEls.forEach(function (el) { observer.observe(el); });
+})();
+</script>
+</body>
+</html>
+
+{% schema %}
+{
+  "name": "Stillness Elixir Page",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,57 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "str_exp_v1": {
+      "type": "str-experience",
+      "settings": {
+        "show_section": true
+      }
+    },
+    "td": {
+      "type": "mirellis-transition-deep",
+      "settings": {
+        "transition_name": "Stimulation → Restoration",
+        "time_label": "Night",
+        "hero_description": "You are not scrolling because you are entertained. You are scrolling because you cannot find the doorway out of the day.",
+        "experience_eyebrow": "THE EXPERIENCE",
+        "mechanism_eyebrow": "THE MECHANISM",
+        "ritual_arch_eyebrow": "THE RITUAL ARCHITECTURE",
+        "sound_eyebrow": "RITUAL SOUND",
+        "sound_series_name": "Stillness Series",
+        "sound_frequency": "396–432 Hz",
+        "sound_description": "Designed to support the Stimulation → Restoration transition. The signal that this part is finished.",
+        "ritual_product": "shopify://products/mirellis-stillness-elixir",
+        "product_cta": "Begin the evening ritual →",
+        "observatory_eyebrow": "FROM THE OBSERVATORY",
+        "observatory_heading": "The research behind this transition.",
+        "observatory_link": "/blogs/observatory/tagged/stimulation-to-restoration",
+        "observatory_link_label": "View all Stimulation → Restoration research →",
+        "promise_eyebrow": "THE PROMISE"
+      }
+    },
+    "str_intervention": {
+      "type": "mirellis-transition-intervention",
+      "settings": {}
+    },
+    "str_rp_v1": {
+      "type": "str-ritual-pathway",
+      "settings": {
+        "show_section": true
+      }
+    }
+  },
+  "order": [
+    "str_exp_v1",
+    "td",
+    "str_intervention",
+    "str_rp_v1"
+  ]
+}

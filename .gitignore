@@ -1,0 +1,15 @@
+node_modules/
+.tooling/
+.next/
+.vercel/
+*.tsbuildinfo
+.DS_Store
+
+# added 2026-09-04 for the storefront-theme backup
+.env
+.env.local
+**/.env.local
+.pnpm-store/
+.tmp-app-audit/
+.tmp-competition-research/
+.audit-directory/

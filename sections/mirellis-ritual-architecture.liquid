@@ -1,0 +1,512 @@
+{% stylesheet %}
+.mirellis-ritual-map {
+  position: relative;
+  padding: 9rem 2rem;
+  background:
+    linear-gradient(
+      180deg,
+      #0d0c0b 0%,
+      #12100f 100%
+    );
+  overflow: hidden;
+}
+
+.mirellis-ritual-map__inner {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.mirellis-ritual-map__label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.42);
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.mirellis-ritual-map__heading {
+  font-family: var(--font-heading-family);
+  font-size: clamp(2.4rem, 5vw, 5rem);
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+  color: #f4efe8;
+  margin: 0 auto 2rem;
+  font-weight: 500;
+  max-width: 920px;
+  text-align: center;
+}
+
+.mirellis-ritual-map__intro {
+  max-width: 760px;
+  margin: 0 auto 6rem;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.66);
+}
+
+.mirellis-ritual-map__flow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  align-items: stretch;
+}
+
+.mirellis-ritual-map__state {
+  position: relative;
+  padding: 2rem;
+  border-radius: 32px;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+}
+
+.mirellis-ritual-map__state::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.85;
+}
+
+.mirellis-ritual-map__state--morning::before {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(202,176,128,0.16),
+      rgba(255,255,255,0.02)
+    );
+}
+
+.mirellis-ritual-map__state--day::before {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(160,150,130,0.12),
+      rgba(255,255,255,0.02)
+    );
+}
+
+.mirellis-ritual-map__state--evening::before {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(196,112,72,0.14),
+      rgba(255,255,255,0.02)
+    );
+}
+
+.mirellis-ritual-map__state--closure::before {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(110,90,80,0.16),
+      rgba(255,255,255,0.02)
+    );
+}
+
+.mirellis-ritual-map__state--restoration::before {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(70,60,65,0.2),
+      rgba(255,255,255,0.02)
+    );
+}
+
+.mirellis-ritual-map__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.mirellis-ritual-map__phase {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.38);
+  margin-bottom: 1rem;
+}
+
+.mirellis-ritual-map__title {
+  font-size: 1.45rem;
+  line-height: 1.2;
+  color: #f5f1ea;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.mirellis-ritual-map__description {
+  font-size: 0.96rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.66);
+}
+
+.mirellis-ritual-map__signal {
+  margin-top: auto;
+  padding-top: 2.4rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.42);
+}
+
+.mirellis-ritual-map__link {
+  display: inline-block;
+  margin-top: 1.8rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.72);
+  text-decoration: none;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.mirellis-ritual-map__link:hover {
+  opacity: 0.58;
+  transform: translateX(3px);
+}
+
+@media screen and (max-width: 1100px) {
+
+  .mirellis-ritual-map__flow {
+    grid-template-columns: 1fr;
+  }
+
+  .mirellis-ritual-map__state {
+    min-height: auto;
+  }
+
+}
+
+@media screen and (max-width: 749px) {
+
+  .mirellis-ritual-map {
+    padding: 5rem 1.4rem;
+  }
+
+  .mirellis-ritual-map__heading {
+    font-size: clamp(2rem, 10vw, 3.4rem);
+    line-height: 1.1;
+  }
+
+  .mirellis-ritual-map__intro {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  .mirellis-ritual-map__state {
+    padding: 1.6rem;
+    border-radius: 26px;
+  }
+
+  .mirellis-ritual-map__title {
+    font-size: 1.2rem;
+  }
+
+  .mirellis-ritual-map__description {
+    font-size: 0.94rem;
+    line-height: 1.75;
+  }
+
+  .mirellis-ritual-map__link {
+    margin-top: 1.5rem;
+  }
+
+}
+
+.rp-snippet {
+  margin-top: 1.5rem;
+}
+
+.rp-snippet-divider {
+  width: 100%;
+  height: 1px;
+  margin-bottom: 1.25rem;
+}
+
+.rp-snippet-context {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  margin-top: 0;
+}
+
+.rp-snippet-name-link {
+  display: block;
+  font-size: 0.95rem;
+  text-decoration: none;
+  font-weight: 400;
+  margin: 0;
+  transition: color 0.2s ease;
+}
+
+.rp-snippet-name {
+  font-size: 0.95rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+.rp-snippet--dark .rp-snippet-divider {
+  background: rgba(255,255,255,0.15);
+}
+
+.rp-snippet--dark .rp-snippet-context {
+  color: rgba(255,255,255,0.35);
+}
+
+.rp-snippet--dark .rp-snippet-name-link {
+  color: rgba(255,255,255,0.75);
+}
+
+.rp-snippet--dark .rp-snippet-name-link:hover {
+  color: rgba(255,255,255,1);
+}
+
+.rp-snippet--dark .rp-snippet-name {
+  color: rgba(255,255,255,0.75);
+}
+
+.rp-snippet--light .rp-snippet-divider {
+  background: rgba(26,26,24,0.1);
+}
+
+.rp-snippet--light .rp-snippet-context {
+  color: rgba(26,26,24,0.4);
+}
+
+.rp-snippet--light .rp-snippet-name-link {
+  color: #1a1a18;
+  border-bottom: 1px solid rgba(26,26,24,0.25);
+  padding-bottom: 1px;
+}
+
+.rp-snippet--light .rp-snippet-name-link:hover {
+  border-color: rgba(26,26,24,0.7);
+}
+
+.rp-snippet--light .rp-snippet-name {
+  color: #1a1a18;
+}
+{% endstylesheet %}
+
+<section class="mirellis-ritual-map">
+
+  <div class="mirellis-ritual-map__inner">
+
+    <div class="mirellis-ritual-map__label">
+      {{ section.settings.label }}
+    </div>
+
+    <h2 class="mirellis-ritual-map__heading">
+      {{ section.settings.heading }}
+    </h2>
+
+    <div class="mirellis-ritual-map__intro">
+      {{ section.settings.intro }}
+    </div>
+
+    <div class="mirellis-ritual-map__flow">
+
+      {% for block in section.blocks %}
+
+        <div class="mirellis-ritual-map__state mirellis-ritual-map__state--{{ block.settings.theme }}">
+
+          <div class="mirellis-ritual-map__content">
+
+            <div class="mirellis-ritual-map__phase">
+              {{ block.settings.phase }}
+            </div>
+
+            <div class="mirellis-ritual-map__title">
+              {{ block.settings.title }}
+            </div>
+
+            <div class="mirellis-ritual-map__description">
+              {{ block.settings.description }}
+            </div>
+
+            <div class="mirellis-ritual-map__signal">
+              {{ block.settings.signal }}
+            </div>
+
+            {% if block.settings.link_text != blank and block.settings.link_url != blank %}
+              <a
+                href="{{ block.settings.link_url }}"
+                class="mirellis-ritual-map__link"
+              >
+                {{ block.settings.link_text }} →
+              </a>
+            {% endif %}
+
+          {% assign ritual_product_name = block.settings.ritual_product_name %}
+          {% assign ritual_product_link = block.settings.ritual_product_link %}
+          {% assign ritual_context = block.settings.ritual_context %}
+          {% if ritual_product_name != blank %}
+          {% render 'ritual-pairing',
+             ritual_product_name: ritual_product_name,
+             ritual_product_link: ritual_product_link,
+             ritual_context: ritual_context,
+             variant: 'dark' %}
+          {% endif %}
+
+        </div>
+
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Ritual Architecture",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "RITUAL ARCHITECTURE"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Modern restoration depends on how humans move between states throughout the day."
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro",
+      "default": "Mirellis approaches rituals as sensory and environmental supports that help create gentler transitions between activation, engagement, slowing, closure, and restoration."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "state",
+      "name": "Rhythm State",
+      "settings": [
+        {
+          "type": "text",
+          "id": "phase",
+          "label": "Phase",
+          "default": "Phase 01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Morning"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Orientation, sensory awakening, predictability, and gradual activation shape how the nervous system enters the day."
+        },
+        {
+          "type": "text",
+          "id": "signal",
+          "label": "Signal",
+          "default": "activation & orientation"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text",
+          "default": "Explore Morning Orientation"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        },
+        {
+          "type": "select",
+          "id": "theme",
+          "label": "Theme",
+          "options": [
+            {
+              "value": "morning",
+              "label": "Morning"
+            },
+            {
+              "value": "day",
+              "label": "Day"
+            },
+            {
+              "value": "evening",
+              "label": "Evening"
+            },
+            {
+              "value": "closure",
+              "label": "Closure"
+            },
+            {
+              "value": "restoration",
+              "label": "Restoration"
+            }
+          ],
+          "default": "morning"
+        },
+        {
+          "type": "text",
+          "id": "ritual_product_name",
+          "label": "Ritual Tool Name"
+        },
+        {
+          "type": "url",
+          "id": "ritual_product_link",
+          "label": "Ritual Tool Link"
+        },
+        {
+          "type": "text",
+          "id": "ritual_context",
+          "label": "Ritual Context Label",
+          "default": "RITUAL TOOL"
+        },
+        {
+          "type": "text",
+          "id": "ritual_label",
+          "label": "Ritual CTA Label",
+          "default": "Explore →"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ritual Architecture",
+      "blocks": [
+        {
+          "type": "state"
+        },
+        {
+          "type": "state"
+        },
+        {
+          "type": "state"
+        },
+        {
+          "type": "state"
+        },
+        {
+          "type": "state"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

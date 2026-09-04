@@ -3,6 +3,7 @@
 import type { EmailOtpType } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
 import { createStudioBrowserClient } from "@/lib/supabase/browser";
+import { MirellisBrand } from "@/app/_components/mirellis-brand";
 
 function safeNext(value: string | null) {
   return value?.startsWith("/") && !value.startsWith("//") ? value : "/workspace";
@@ -68,9 +69,7 @@ export default function ConfirmSignInPage() {
 
   return (
     <main className="centered-shell">
-      <a className="wordmark" href="https://mirellis.in">
-        MIRELLIS
-      </a>
+      <a className="wordmark" href="https://mirellis.in" aria-label="Mirellis website"><MirellisBrand /></a>
       <section className="message-card" aria-labelledby="confirm-title">
         <p className="eyebrow">Mirellis Studio</p>
         <h1 id="confirm-title">Secure sign in</h1>

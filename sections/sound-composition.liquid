@@ -1,0 +1,222 @@
+<section class="sound-composition">
+
+  <div class="sound-composition__container">
+
+    <div class="sound-composition__left">
+
+      <p class="sound-composition__eyebrow">
+        {{ section.settings.eyebrow }}
+      </p>
+
+      <h2 class="sound-composition__heading">
+        {{ section.settings.heading }}
+      </h2>
+
+    </div>
+
+    <div class="sound-composition__right">
+
+      <div class="sound-composition__text rte">
+        {{ section.settings.text }}
+      </div>
+
+      <div class="sound-composition__principles">
+
+        {% for block in section.blocks %}
+
+          <div class="sound-composition__principle">
+
+            <h3 class="sound-composition__principle-title">
+              {{ block.settings.title }}
+            </h3>
+
+            <div class="sound-composition__principle-text rte">
+              {{ block.settings.text }}
+            </div>
+
+          </div>
+
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.sound-composition {
+  background: #faf7f2;
+  color: #1a1a18;
+  padding: 180px 80px;
+  border-top: 1px solid rgba(26,26,24,0.06);
+}
+
+.sound-composition__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 120px;
+}
+
+.sound-composition__eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin-bottom: 24px;
+}
+
+.sound-composition__heading {
+  font-size: clamp(42px, 5vw, 74px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  margin: 0;
+  max-width: 520px;
+}
+
+.sound-composition__text {
+  font-size: 18px;
+  line-height: 2;
+  color: rgba(245,241,235,0.78);
+  margin-bottom: 80px;
+  max-width: 680px;
+}
+
+.sound-composition__text p {
+  margin-top: 0;
+  margin-bottom: 28px;
+}
+
+.sound-composition__principles {
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+}
+
+.sound-composition__principle {
+  border-top: 1px solid rgba(26,26,24,0.08);
+  padding-top: 26px;
+}
+
+.sound-composition__principle-title {
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+  margin: 0 0 18px;
+}
+
+.sound-composition__principle-text {
+  font-size: 16px;
+  line-height: 1.9;
+  color: rgba(245,241,235,0.72);
+  max-width: 620px;
+}
+
+.sound-composition__principle-text p {
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+@media screen and (max-width: 990px) {
+
+  .sound-composition {
+    padding: 110px 28px;
+  }
+
+  .sound-composition__container {
+    grid-template-columns: 1fr;
+    gap: 62px;
+  }
+
+  .sound-composition__text {
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 62px;
+  }
+
+  .sound-composition__heading {
+    font-size: 42px;
+  }
+
+  .sound-composition__principle-title {
+    font-size: 22px;
+  }
+
+  .sound-composition__principle-text {
+    font-size: 15px;
+    line-height: 1.85;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Sound Composition",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "COMPOSITION PHILOSOPHY"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Built with spaciousness, restraint, warmth, and slower transitions."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "principle",
+      "name": "Principle",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Environmental Realism"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sound Composition",
+      "blocks": [
+        {
+          "type": "principle"
+        },
+        {
+          "type": "principle"
+        },
+        {
+          "type": "principle"
+        },
+        {
+          "type": "principle"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

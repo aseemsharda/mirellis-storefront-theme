@@ -1,0 +1,162 @@
+{% comment %}
+MIRELLIS — Homepage Section 2
+“The Problem We Are Solving”
+Impact Theme Compatible
+{% endcomment %}
+
+<section class="mirellis-problem">
+  <div class="mirellis-container">
+
+    {% if section.settings.headline != blank %}
+      <h2 class="mirellis-headline">
+        {{ section.settings.headline }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.subhead != blank %}
+      <p class="mirellis-subhead">
+        {{ section.settings.subhead }}
+      </p>
+    {% endif %}
+
+    <div class="mirellis-body">
+      {{ section.settings.body }}
+    </div>
+
+    {% if section.settings.insight != blank %}
+      <div class="mirellis-insight">
+        {{ section.settings.insight }}
+      </div>
+    {% endif %}
+
+    {% if section.settings.closing != blank %}
+      <p class="mirellis-closing">
+        {{ section.settings.closing }}
+      </p>
+    {% endif %}
+
+  </div>
+</section>
+
+<style>
+/* =========================
+   MIRELLIS — PROBLEM SECTION
+   ========================= */
+
+.mirellis-problem {
+  background: #f6f1ea;
+  padding: 120px 24px;
+  position: relative;
+}
+
+.mirellis-container {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* Headline */
+.mirellis-headline {
+  font-size: 42px;
+  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #1c1c1c;
+  margin-bottom: 24px;
+}
+
+/* Subhead */
+.mirellis-subhead {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(28, 28, 28, 0.7);
+  margin-bottom: 48px;
+}
+
+/* Body text */
+.mirellis-body {
+  font-size: 17px;
+  line-height: 1.8;
+  color: rgba(28, 28, 28, 0.85);
+}
+
+.mirellis-body p {
+  margin-bottom: 22px;
+}
+
+/* Insight block */
+.mirellis-insight {
+  margin-top: 48px;
+  padding: 24px 0;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #1c1c1c;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Closing line */
+.mirellis-closing {
+  margin-top: 48px;
+  font-size: 16px;
+  color: rgba(28, 28, 28, 0.65);
+  font-style: italic;
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .mirellis-problem {
+    padding: 80px 20px;
+  }
+
+  .mirellis-headline {
+    font-size: 30px;
+  }
+
+  .mirellis-subhead {
+    font-size: 16px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Mirellis Problem",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Modern life rarely breaks. It only continues."
+    },
+    {
+      "type": "textarea",
+      "id": "subhead",
+      "label": "Subhead",
+      "default": "We move from one moment to another without true transition. The nervous system does not get time to reset — only to adapt."
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body Content",
+      "default": "<p>Modern life does not feel chaotic because of what we do.</p><p>It feels chaotic because there are no longer clear beginnings and no longer clear endings.</p><p>The day starts with stimulation. And it continues without pause.</p><p>Work blends into consumption. Screens blend into rest. Evening blends into continuation.</p><p>Nothing signals that this is the end of a state.</p><p>So the body never fully exits what it is in.</p><p>Over time, this creates a quiet accumulation of fatigue, fragmentation, and rest that does not feel like recovery.</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "insight",
+      "label": "Insight Block",
+      "default": "The nervous system does not struggle with activity. It struggles with lack of transition."
+    },
+    {
+      "type": "textarea",
+      "id": "closing",
+      "label": "Closing Line",
+      "default": "This is where Mirellis begins — not as a product, but as a response to something the modern world removed."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mirellis Problem"
+    }
+  ]
+}
+{% endschema %}

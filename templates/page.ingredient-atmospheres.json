@@ -1,0 +1,134 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "ingredient-hero",
+      "settings": {
+        "title": "Ingredient Atmospheres",
+        "description": "<p>Mirellis ingredients are not approached as isolated botanical claims. Each ingredient participates in atmosphere, pacing, emotional orientation, sensory memory, and ritual architecture.</p>"
+      }
+    },
+
+    "philosophy": {
+      "type": "ingredient-philosophy",
+      "settings": {
+        "text": "<p>The body responds to sensory environments long before conscious interpretation fully forms. Texture, aroma, warmth, pacing, repetition, and atmosphere gradually shape emotional familiarity through ritual exposure over time.</p><p>Within Mirellis, ingredients are selected not only for formulation function, but for the way they alter emotional environments around waking, stillness, clarity, restoration, and nervous-system coherence.</p>"
+      }
+    },
+
+    "territories": {
+      "type": "homepage-ritual-territories",
+      "blocks": {
+        "territory_1": {
+          "type": "territory",
+          "settings": {
+            "label": "Ingredient Territory",
+            "title": "Stillness",
+            "description": "Ingredients associated with slower emotional pacing, sensory settling, and atmospheric quietness.",
+            "link": "/pages/brahmi-the-softness-of-mental-space"
+          }
+        },
+
+        "territory_2": {
+          "type": "territory",
+          "settings": {
+            "label": "Ingredient Territory",
+            "title": "Clarity",
+            "description": "Ingredients associated with attentional openness, breath, coherence, and lighter sensory orientation.",
+            "link": "/pages/tulsi-the-atmosphere-of-inner-clarity"
+          }
+        },
+
+        "territory_3": {
+          "type": "territory",
+          "settings": {
+            "label": "Ingredient Territory",
+            "title": "Restoration",
+            "description": "Ingredients associated with replenishment, ritual grounding, emotional recovery, and sensory nourishment.",
+            "link": "/pages/sesame-oil-the-weight-of-grounding"
+          }
+        }
+      },
+
+      "block_order": [
+        "territory_1",
+        "territory_2",
+        "territory_3"
+      ],
+
+      "settings": {
+        "label": "Ingredient Territories",
+        "heading": "Different sensory environments emerge through different ingredient architectures."
+      }
+    },
+
+    "editorial": {
+      "type": "homepage-editorial-pathways",
+      "blocks": {
+        "pathway_1": {
+          "type": "pathway",
+          "settings": {
+            "item_label": "Stillness",
+            "title": "Brahmi",
+            "description": "An ingredient associated with spaciousness, softer attentional pacing, and quieter mental atmosphere.",
+            "link": "/pages/brahmi-the-softness-of-mental-space"
+          }
+        },
+
+        "pathway_2": {
+          "type": "pathway",
+          "settings": {
+            "item_label": "Clarity",
+            "title": "Tulsi",
+            "description": "An aromatic ingredient associated with breath, openness, atmospheric lift, and sensory orientation.",
+            "link": "/pages/tulsi-the-atmosphere-of-inner-clarity"
+          }
+        },
+
+        "pathway_3": {
+          "type": "pathway",
+          "settings": {
+            "item_label": "Restoration",
+            "title": "Sesame Oil",
+            "description": "A grounding ritual ingredient associated with warmth, nourishment, repetition, and emotional settling.",
+            "link": "/pages/sesame-oil-the-weight-of-grounding"
+          }
+        }
+      },
+
+      "block_order": [
+        "pathway_1",
+        "pathway_2",
+        "pathway_3"
+      ],
+
+      "settings": {
+        "label": "Ingredient Atmospheres",
+        "heading": "Ingredients become meaningful through the emotional environments they gradually help create."
+      }
+    },
+
+    "closing": {
+      "type": "ingredient-closing-statement",
+      "settings": {
+        "text": "Rituals are remembered through atmosphere long before they are remembered through explanation."
+      }
+    }
+  },
+
+  "order": [
+    "hero",
+    "philosophy",
+    "territories",
+    "editorial",
+    "closing"
+  ]
+}

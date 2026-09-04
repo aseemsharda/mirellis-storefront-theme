@@ -1,0 +1,168 @@
+<section class="ingredient-research">
+
+  <div class="page-width">
+
+    <div class="ingredient-research__inner">
+
+      <p class="ingredient-research__label">
+        Research Notes
+      </p>
+
+      <div class="ingredient-research__items">
+
+        {% for block in section.blocks %}
+
+          <div class="ingredient-research__item">
+
+            <h3 class="ingredient-research__title">
+              {{ block.settings.title }}
+            </h3>
+
+            <div class="ingredient-research__text">
+              {{ block.settings.text }}
+            </div>
+
+          </div>
+
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.ingredient-research {
+  background: #f7f3ee;
+  padding: 90px 0;
+}
+
+.ingredient-research__inner {
+  max-width: 760px;
+}
+
+.ingredient-research__label {
+  margin-bottom: 40px;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #8b8378;
+}
+
+.ingredient-research__items {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.ingredient-research__item {
+  padding: 32px;
+
+  background: #fcfaf7;
+  border-radius: 2px;
+}
+
+.ingredient-research__title {
+  margin: 0 0 16px;
+
+  font-size: 24px;
+  line-height: 1.35;
+  font-weight: 400;
+
+  color: #1f1f1f;
+}
+
+.ingredient-research__text {
+  font-size: 16px;
+  line-height: 1.85;
+
+  color: #5f5952;
+}
+
+.ingredient-research__text p {
+  margin: 0 0 18px;
+}
+
+.ingredient-research__text p:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 990px) {
+
+  .ingredient-research {
+    padding: 75px 0;
+  }
+
+  .ingredient-research__item {
+    padding: 26px;
+  }
+
+  .ingredient-research__title {
+    font-size: 21px;
+  }
+
+}
+
+@media screen and (max-width: 749px) {
+
+  .ingredient-research {
+    padding: 60px 0;
+  }
+
+  .ingredient-research__items {
+    gap: 16px;
+  }
+
+  .ingredient-research__item {
+    padding: 22px;
+  }
+
+  .ingredient-research__title {
+    font-size: 19px;
+  }
+
+  .ingredient-research__text {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Ingredient Research Notes",
+  "blocks": [
+    {
+      "type": "note",
+      "name": "Research Note",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Oral Microbiome Research"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Coconut oil has drawn increasing interest within oral microbiome discussions due to its naturally occurring fatty acid composition.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredient Research Notes"
+    }
+  ]
+}
+{% endschema %}

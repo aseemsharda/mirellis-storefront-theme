@@ -1,0 +1,110 @@
+<section class="distribution-richtext">
+  <div class="distribution-richtext__inner">
+
+    {% if section.settings.subheading != blank %}
+      <p class="distribution-richtext__subheading">
+        {{ section.settings.subheading }}
+      </p>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="distribution-richtext__heading">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.text != blank %}
+      <div class="distribution-richtext__text">
+        {{ section.settings.text }}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<style>
+.distribution-richtext {
+  padding: 140px 20px 110px;
+  background: #f5f1eb;
+}
+
+.distribution-richtext__inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.distribution-richtext__subheading {
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #9f8f80;
+  margin-bottom: 24px;
+}
+
+.distribution-richtext__heading {
+  font-size: 72px;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  font-weight: 400;
+  color: #2b2927;
+  margin-bottom: 34px;
+}
+
+.distribution-richtext__text {
+  font-size: 20px;
+  line-height: 1.9;
+  color: #5f5a55;
+}
+
+.distribution-richtext__text p {
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+
+  .distribution-richtext {
+    padding: 90px 24px 70px;
+  }
+
+  .distribution-richtext__heading {
+    font-size: 42px;
+    line-height: 1.12;
+    letter-spacing: -1px;
+  }
+
+  .distribution-richtext__text {
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+}
+</style>
+
+{% schema %}
+{
+  "name": "Distribution Richtext",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Distribution Richtext"
+    }
+  ]
+}
+{% endschema %}

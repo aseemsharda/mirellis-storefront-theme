@@ -1,0 +1,112 @@
+<section class="editorial-essay">
+
+  <div class="page-width">
+
+    <div class="editorial-essay__inner">
+
+      {% if section.settings.label != blank %}
+
+        <p class="editorial-essay__label">
+          {{ section.settings.label }}
+        </p>
+
+      {% endif %}
+
+      <div class="editorial-essay__text">
+        {{ section.settings.text }}
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.editorial-essay {
+  padding: 110px 0;
+  background: #f7f3ee;
+}
+
+.editorial-essay__inner {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.editorial-essay__label {
+  margin-bottom: 28px;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #8b8378;
+}
+
+.editorial-essay__text {
+  font-size: 24px;
+  line-height: 1.85;
+  font-weight: 300;
+
+  color: #2a2a2a;
+}
+
+.editorial-essay__text p {
+  margin: 0 0 28px;
+}
+
+.editorial-essay__text p:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 990px) {
+
+  .editorial-essay {
+    padding: 90px 0;
+  }
+
+  .editorial-essay__text {
+    font-size: 21px;
+  }
+
+}
+
+@media screen and (max-width: 749px) {
+
+  .editorial-essay {
+    padding: 70px 0;
+  }
+
+  .editorial-essay__text {
+    font-size: 17px;
+    line-height: 1.9;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Editorial Essay",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "Editorial Reflection"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Editorial Essay"
+    }
+  ]
+}
+{% endschema %}

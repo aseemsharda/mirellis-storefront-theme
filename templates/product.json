@@ -1,0 +1,725 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "vendor",
+          "settings": {}
+        },
+        "liquid_JgjH8B": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<style>\n.rating-wrapper {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n\n.rating-wrapper .stars {\n  display: flex;\n  gap: 5px;\n}\n\n.rating-wrapper .star {\n  width: 16px;\n  height: 16px;\n  fill: #ddd;\n}\n\n.rating-wrapper .star.full {\n  fill: #f5a623;\n}\n\n.rating-wrapper .rating-text {\n  font-size: 14px;\n  color: #222;\n}\n\n.rating-wrapper .rating-text strong {\n  font-weight: 600;\n}\n\n.rating-wrapper .rating-text span {\n  color: #555;\n  font-weight: 500;\n}\n</style>\n\n\n<div class=\"rating-wrapper\">\n  \n  <div class=\"stars\">\n    \n    <!-- 4 Full Stars -->\n    <svg viewBox=\"0 0 24 24\" class=\"star full\">\n      <path d=\"M12 .587l3.668 7.568 8.332 1.151-6.064 5.797 1.48 8.275L12 18.896l-7.416 4.482 1.48-8.275L0 9.306l8.332-1.151z\"/>\n    </svg>\n\n    <svg viewBox=\"0 0 24 24\" class=\"star full\">\n      <path d=\"M12 .587l3.668 7.568 8.332 1.151-6.064 5.797 1.48 8.275L12 18.896l-7.416 4.482 1.48-8.275L0 9.306l8.332-1.151z\"/>\n    </svg>\n\n    <svg viewBox=\"0 0 24 24\" class=\"star full\">\n      <path d=\"M12 .587l3.668 7.568 8.332 1.151-6.064 5.797 1.48 8.275L12 18.896l-7.416 4.482 1.48-8.275L0 9.306l8.332-1.151z\"/>\n    </svg>\n\n    <svg viewBox=\"0 0 24 24\" class=\"star full\">\n      <path d=\"M12 .587l3.668 7.568 8.332 1.151-6.064 5.797 1.48 8.275L12 18.896l-7.416 4.482 1.48-8.275L0 9.306l8.332-1.151z\"/>\n    </svg>\n\n    <!-- Half Star -->\n    <svg viewBox=\"0 0 24 24\" class=\"star\">\n      <defs>\n        <linearGradient id=\"halfGrad\">\n          <stop offset=\"50%\" stop-color=\"#f5a623\"/>\n          <stop offset=\"50%\" stop-color=\"#ddd\"/>\n        </linearGradient>\n      </defs>\n      <path fill=\"url(#halfGrad)\" d=\"M12 .587l3.668 7.568 8.332 1.151-6.064 5.797 1.48 8.275L12 18.896l-7.416 4.482 1.48-8.275L0 9.306l8.332-1.151z\"/>\n    </svg>\n\n  </div>\n\n  <div class=\"rating-text\">\n    <span>4.1</span>\n<span>(263 Reviews)</span>\n  </div>\n\n</div>"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h1"
+          }
+        },
+        "badges": {
+          "type": "badges",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "rating": {
+          "type": "rating",
+          "disabled": true,
+          "settings": {
+            "show_empty": false
+          }
+        },
+        "payment_terms": {
+          "type": "payment_terms",
+          "disabled": true,
+          "settings": {}
+        },
+        "separator": {
+          "type": "separator",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "collapse_content": false
+          }
+        },
+        "separator_WMxrrG": {
+          "type": "separator",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "stack_blocks": true,
+            "selector_style": "block",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "collapsible_text_xJBgdg": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "What It Does",
+            "content": "{{ product.metafields.custom.what_it_does | metafield_tag }}",
+            "page": ""
+          }
+        },
+        "collapsible_text_EUCyMf": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "How to Use",
+            "content": "{{ product.metafields.custom.how_to_use | metafield_tag }}",
+            "page": ""
+          }
+        },
+        "collapsible_text_TNL6yh": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Key Ingredients",
+            "content": "{{ product.metafields.custom.key_ingredients | metafield_tag }}",
+            "page": ""
+          }
+        },
+        "collapsible_text_LMgkiC": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Suitable For",
+            "content": "{{ product.metafields.custom.suitable_for | metafield_tag }}",
+            "page": ""
+          }
+        },
+        "collapsible_text_7UwPDW": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Product Details",
+            "content": "{{ product.metafields.custom.product_details | metafield_tag }}",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "liquid_JgjH8B",
+        "title",
+        "badges",
+        "price",
+        "rating",
+        "payment_terms",
+        "separator",
+        "description",
+        "separator_WMxrrG",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "collapsible_text_xJBgdg",
+        "collapsible_text_EUCyMf",
+        "collapsible_text_TNL6yh",
+        "collapsible_text_LMgkiC",
+        "collapsible_text_7UwPDW"
+      ],
+      "settings": {
+        "full_width": true,
+        "show_fixed_add_to_cart": true,
+        "desktop_media_width": 55,
+        "desktop_media_layout": "carousel_thumbnails_left",
+        "mobile_media_size": "expanded",
+        "mobile_carousel_control": "floating_dots",
+        "enable_video_autoplay": true,
+        "enable_video_looping": true,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "input_background": "rgba(0,0,0,0)",
+        "input_text_color": ""
+      }
+    },
+    "research_notes_plus_at8HRc": {
+      "type": "research-notes-plus",
+      "blocks": {
+        "research_note_QnKcLp": {
+          "type": "research_note",
+          "settings": {
+            "title": "Warmth, Texture & Sensory Regulation",
+            "description": "Temperature, tactile softness, dim light, and sensory atmosphere may influence how the body perceives comfort, safety, and evening decompression.",
+            "source": "Sensory & Environmental Physiology Research",
+            "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3422615/"
+          }
+        },
+        "research_note_6VdRnY": {
+          "type": "research_note",
+          "settings": {
+            "title": "Environmental Predictability & Restoration",
+            "description": "Repeated sensory environments and predictable evening rituals may help the nervous system associate certain signals with slowing, familiarity, and restoration.",
+            "source": "Environmental Psychology & Behavioral Research",
+            "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3505409/"
+          }
+        },
+        "research_note_PmknPT": {
+          "type": "research_note",
+          "settings": {
+            "title": "Breathing & Parasympathetic Activity",
+            "description": "Slower breathing rhythms are associated with parasympathetic nervous-system activity and may influence physiological slowing and emotional regulation.",
+            "source": "NIH / Breath Physiology Research",
+            "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6137615/"
+          }
+        },
+        "research_note_QMHiHL": {
+          "type": "research_note",
+          "settings": {
+            "title": "Sound Environment & Emotional Pacing",
+            "description": "Lower-intensity sound environments and slower auditory pacing may support emotional decompression and reduced physiological stimulation during evening transitions.",
+            "source": "NIH / Auditory & Emotional Research",
+            "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5618809/"
+          }
+        },
+        "research_note_N7ECLW": {
+          "type": "research_note",
+          "settings": {
+            "title": "Light Exposure & Circadian Rhythm",
+            "description": "Artificial light exposure during evening hours may influence melatonin timing, circadian rhythm, and the body’s natural transition into rest and restoration.",
+            "source": "Harvard Medical School / Circadian Research",
+            "link": "https://www.health.harvard.edu/staying-healthy/blue-light-has-a-dark-side"
+          }
+        }
+      },
+      "block_order": [
+        "research_note_QnKcLp",
+        "research_note_6VdRnY",
+        "research_note_PmknPT",
+        "research_note_QMHiHL",
+        "research_note_N7ECLW"
+      ],
+      "name": "Research Notes+",
+      "settings": {
+        "eyebrow": "Research Notes+",
+        "heading": "Evening Rhythm & Nervous System Restoration",
+        "intro": "Evening rituals influence sensory pacing, environmental perception, emotional decompression, and the body’s gradual transition into restoration. Quiet scientific research increasingly supports the relationship between repeated sensory environments, circadian rhythm, and nervous-system slowing."
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "recommendations_count": 6,
+        "products": [],
+        "full_width": true,
+        "stack_products": true,
+        "show_progress_bar": false,
+        "products_per_row_mobile": "1",
+        "products_per_row_desktop": 3,
+        "subheading": "",
+        "title": "You may also like",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "images_with_text_scrolling_GwVcqB": {
+      "type": "images-with-text-scrolling",
+      "blocks": {
+        "item_n3kzUT": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Evening_Stillness_Elixir.png",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Evening Stillness Elixir",
+            "heading_bottom_content": "",
+            "content": "<p>A calming aromatic oil designed to support the transition from day to night.</p><p>This is not a sedative. It is a signal.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_n3kzUT"
+      ],
+      "name": "Images and text scrolling",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "show_counter": false,
+        "desktop_image_effect": "reveal",
+        "image_position": "end",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "mct_evening": {
+      "type": "mirellis-cross-transition",
+      "settings": {
+        "eyebrow": "THE TRANSITION THAT FOLLOWS",
+        "heading": "The morning ritual that follows the evening.",
+        "body": "Stillness creates the conditions for a different kind of morning.\n\nMorning Clarity exists for the Sleep → Wakefulness transition — the first deliberate signal before the world arrives, made possible by how the evening ended.",
+        "product_name": "Morning Clarity",
+        "product_link": "/products/morning-clarity",
+        "show_section": true
+      }
+    },
+    "rich_text_zLG3aX": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_EQAAJW": {
+          "type": "heading",
+          "settings": {
+            "text": "As the day ends, the body doesn't always know how to stop.",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        },
+        "richtext_kL7KwQ": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Mental noise lingers. Physical tension remains. The nervous system stays alert — even when rest is needed.</p><p>Evening Stillness was created for this exact moment: to help the body recognise that the day is complete, and it is safe to slow down.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_EQAAJW",
+        "richtext_kL7KwQ"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "medium",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "rich_text_rYVTmd": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_gVmTFW": {
+          "type": "heading",
+          "settings": {
+            "text": "The Evening Stillness Ritual",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        },
+        "richtext_PYMqfm": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>At Lambda, we focus on rituals because they create anchoring moments — points in the day where the body receives a clear signal to begin, to focus, or to rest.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_gVmTFW",
+        "richtext_PYMqfm"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "medium",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "multi_column_qCBGVA": {
+      "type": "multi-column",
+      "blocks": {
+        "item_HnJFKW": {
+          "type": "item",
+          "settings": {
+            "show_controls": false,
+            "column_size": "3",
+            "title": "1. Apply",
+            "heading_tag": "h1",
+            "content": "<p>Warm a few drops of the oil between your palms.<br/><br/>Gently apply to pulse points — wrists, behind the ears, or soles of the feet.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_Be8ndj": {
+          "type": "item",
+          "settings": {
+            "show_controls": false,
+            "column_size": "3",
+            "title": "2. Breathe",
+            "heading_tag": "h1",
+            "content": "<p>Take slow, deliberate breaths.<br/><br/>Allow the aroma to guide the breath downward and soften the body.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_iq36YX": {
+          "type": "item",
+          "settings": {
+            "show_controls": false,
+            "column_size": "3",
+            "title": "3. Release",
+            "heading_tag": "h1",
+            "content": "<p>Pause.<br/><br/>Let the nervous system receive the signal that the day has ended.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "item_HnJFKW",
+        "item_Be8ndj",
+        "item_iq36YX"
+      ],
+      "name": "Multi-column",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "gap": "medium",
+        "text_alignment": "start",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "rich_text_AybHMY": {
+      "type": "rich-text",
+      "blocks": {
+        "richtext_bxtBDP": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>5–10 minutes. Performed as the day winds down.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "richtext_bxtBDP"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "images_with_text_scrolling_HxfjR7": {
+      "type": "images-with-text-scrolling",
+      "blocks": {
+        "item_j7aznn": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/mirellis-what-makes-it-work.png",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "What makes it work",
+            "heading_bottom_content": "",
+            "content": "<p>Evening Stillness works by engaging the senses most closely tied to relaxation — scent, touch, and breath.<br/><br/>The formulation combines grounding botanical extracts and essential oils traditionally used to calm the mind and ease the body into rest.<br/><br/>Rather than forcing sleep, the ritual supports the nervous system's natural ability to transition into stillness.<br/><br/>Consistency matters more than intensity. This is why the ritual is designed to be repeated gently, every evening.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_j7aznn"
+      ],
+      "name": "Images and text scrolling",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "show_counter": false,
+        "desktop_image_effect": "reveal",
+        "image_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "rich_text_F7eVxm": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_Hbj4H6": {
+          "type": "subheading",
+          "settings": {
+            "text": "Who this Ritual is for"
+          }
+        },
+        "heading_hgKPRC": {
+          "type": "heading",
+          "settings": {
+            "text": "Evening Stillness is for those who:",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_Hbj4H6",
+        "heading_hgKPRC"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "medium",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "multi_column_8bzxRE": {
+      "type": "multi-column",
+      "blocks": {
+        "item_k3zenK": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Struggle_to_switch_off_at_night.png",
+            "show_controls": false,
+            "column_size": "4",
+            "title": "Struggle to switch off at night",
+            "heading_tag": "h4",
+            "content": "",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_RFhdkG": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Feel_overstimulated_after_long_days.png",
+            "show_controls": false,
+            "column_size": "4",
+            "title": "Feel overstimulated after long days",
+            "heading_tag": "h4",
+            "content": "",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_gaEM8J": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Want_rest_without_force_or_medication.png",
+            "show_controls": false,
+            "column_size": "4",
+            "title": "Want rest without force or medication",
+            "heading_tag": "h4",
+            "content": "",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_tTaBmV": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Value_consistency_over_quick_fixes.png",
+            "show_controls": false,
+            "column_size": "4",
+            "title": "Value consistency over quick fixes",
+            "heading_tag": "h4",
+            "content": "",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "item_k3zenK",
+        "item_RFhdkG",
+        "item_gaEM8J",
+        "item_tTaBmV"
+      ],
+      "name": "Multi-column",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "gap": "medium",
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "from_real_evenings_nmUyc9": {
+      "type": "from-real-evenings",
+      "blocks": {
+        "review_KjJ8bm": {
+          "type": "review",
+          "settings": {
+            "quote": "I’ve only been using it for a few nights, but my evenings already feel quieter somehow. The aroma is calming without feeling overpowering, and I genuinely look forward to the ritual before bed now",
+            "label": "Stillness Elixir — Kanika"
+          }
+        },
+        "review_dtCqTn": {
+          "type": "review",
+          "settings": {
+            "quote": "The scent slowly became associated with the end of the day.",
+            "label": "Evening Reflection — Pragnesh"
+          }
+        },
+        "review_bgxNBA": {
+          "type": "review",
+          "settings": {
+            "quote": "After a few evenings, even the aroma started feeling like a signal to slow down and disconnect from the day.",
+            "label": "Night Ritual — Aakash"
+          }
+        }
+      },
+      "block_order": [
+        "review_KjJ8bm",
+        "review_dtCqTn",
+        "review_bgxNBA"
+      ],
+      "name": "Ritual Experiences",
+      "settings": {
+        "heading": "From Real Evenings",
+        "subheading": "Small nightly rituals. Quiet transitions. Human experiences."
+      }
+    },
+    "research_notes_plus_dx6AVD": {
+      "type": "research-notes-plus",
+      "blocks": {
+        "research_note_PFpyYe": {
+          "type": "research_note",
+          "settings": {
+            "title": "Evening Rituals & Nervous-System Association",
+            "description": "Repeated evening sensory rituals gradually become associated with familiarity, predictability, and restoration through nervous-system and behavioral association.",
+            "source": "Behavioral Psychology & Habit Research",
+            "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3505409/"
+          }
+        },
+        "research_note_Empcxx": {
+          "type": "research_note",
+          "settings": {
+            "title": "Vetiver & Sensory Grounding",
+            "description": "Earthy aromatic compounds such as vetiver have historically been associated with grounding sensory environments and slower emotional pacing in aromatic traditions and sensory research.",
+            "source": "Vetiver Aromatic Research",
+            "link": "https://clinicaltrials.gov/study/NCT05024136"
+          }
+        },
+        "research_note_bym8Tm": {
+          "type": "research_note",
+          "settings": {
+            "title": "Breath, Aroma & Parasympathetic Activity",
+            "description": "Slow aromatic rituals and intentional breathing patterns may influence parasympathetic nervous-system activity and physiological slowing during evening transitions.",
+            "source": "NIH / Breath Physiology Research",
+            "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8125361/"
+          }
+        },
+        "research_note_AAqjfG": {
+          "type": "research_note",
+          "settings": {
+            "title": "Lavender & Emotional Regulation",
+            "description": "Lavender has been studied in aromatherapeutic and sensory research exploring emotional regulation, environmental relaxation, and reduced psychological distress.",
+            "source": "PMC / Lavender & Nervous System Research",
+            "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3612440/"
+          }
+        },
+        "research_note_UMFEbt": {
+          "type": "research_note",
+          "settings": {
+            "title": "Ashwagandha & Stress Physiology",
+            "description": "Ashwagandha has been explored in stress physiology and adaptogenic research related to nervous-system resilience, cortisol regulation, and emotional restoration.",
+            "source": "NIH / Ashwagandha Research",
+            "link": "https://ods.od.nih.gov/factsheets/Ashwagandha-HealthProfessional/"
+          }
+        }
+      },
+      "block_order": [
+        "research_note_PFpyYe",
+        "research_note_Empcxx",
+        "research_note_bym8Tm",
+        "research_note_AAqjfG",
+        "research_note_UMFEbt"
+      ],
+      "name": "Research Notes+",
+      "settings": {
+        "eyebrow": "Ingredient Research+",
+        "heading": "Formulation, Sensory Rhythm & Restoration Research",
+        "intro": "Stillness Elixir brings together botanical oils, aromatic compounds, and sensory ingredients traditionally associated with slower evening environments, emotional decompression, and restoration rituals. Contemporary research continues exploring how certain plant compounds may influence stress physiology, sensory perception, and nervous-system regulation."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "research_notes_plus_at8HRc",
+    "related-products",
+    "images_with_text_scrolling_GwVcqB",
+    "mct_evening",
+    "rich_text_zLG3aX",
+    "rich_text_rYVTmd",
+    "multi_column_qCBGVA",
+    "rich_text_AybHMY",
+    "images_with_text_scrolling_HxfjR7",
+    "rich_text_F7eVxm",
+    "multi_column_8bzxRE",
+    "from_real_evenings_nmUyc9",
+    "research_notes_plus_dx6AVD"
+  ]
+}

@@ -1,0 +1,204 @@
+<!-- MIRELLIS SOUND — LAYER 4: CONTRIBUTE AN OBSERVATION -->
+<style>
+.msc-section {
+  background: #1a1a18;
+  color: #f4efe8;
+  padding: 80px 2rem;
+}
+.msc-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.msc-header {
+  margin-bottom: 50px;
+}
+.msc-eyebrow {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #8a8478;
+  margin: 0 0 20px 0;
+}
+.msc-heading {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(26px, 3.5vw, 42px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 24px 0;
+  color: #f4efe8;
+}
+.msc-intro {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #b8b2a8;
+  line-height: 1.7;
+  max-width: 52ch;
+  margin: 0;
+}
+
+.msc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 560px;
+}
+.msc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.msc-label {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #8a8478;
+}
+.msc-input,
+.msc-select,
+.msc-textarea {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  background: #26261f;
+  border: 1px solid #3a3a30;
+  color: #f4efe8;
+  padding: 13px 14px;
+  line-height: 1.6;
+}
+.msc-input::placeholder,
+.msc-textarea::placeholder,
+.msc-select option {
+  color: #7a7468;
+}
+.msc-input:focus,
+.msc-select:focus,
+.msc-textarea:focus {
+  outline: 2px solid #8a8478;
+  outline-offset: 0;
+  border-color: #8a8478;
+}
+.msc-select {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  cursor: pointer;
+}
+.msc-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.msc-button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 8px;
+}
+.msc-submit {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: #f4efe8;
+  color: #1a1a18;
+  border: 1px solid #f4efe8;
+  padding: 12px 26px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.msc-submit:hover {
+  background: transparent;
+  color: #f4efe8;
+}
+.msc-note {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  color: #7a7468;
+  letter-spacing: 0.03em;
+}
+
+.msc-confirmation {
+  display: none;
+  padding: 20px;
+  background: #26261f;
+  border: 1px solid #3a3a30;
+  text-align: center;
+}
+.msc-confirmation.visible {
+  display: block;
+}
+.msc-confirmation p {
+  font-size: 16px;
+  color: #f4efe8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .msc-section { padding: 60px 1.5rem; }
+  .msc-header { margin-bottom: 40px; }
+  .msc-form { gap: 20px; }
+}
+</style>
+
+<div class="msc-section">
+  <div class="msc-wrap">
+    <div class="msc-header">
+      <p class="msc-eyebrow">Research Participation</p>
+      <h2 class="msc-heading">Contribute an Observation</h2>
+      <p class="msc-intro">The Observatory will begin collecting sound observations shortly. This instrument opens once the first observation pipeline is established.</p>
+    </div>
+
+    <form class="msc-form" id="sound-obs-form">
+      <div class="msc-field">
+        <label class="msc-label" for="env-select">Which environment did you use?</label>
+        <select id="env-select" class="msc-select" required>
+          <option value="">Select an environment</option>
+          <option value="morning">Morning Clarity</option>
+          <option value="flow">Flow</option>
+          <option value="stillness">Stillness</option>
+          <option value="restoration">Restoration</option>
+        </select>
+      </div>
+
+      <div class="msc-field">
+        <label class="msc-label" for="time-input">When did you listen?</label>
+        <input id="time-input" type="text" class="msc-input" placeholder="e.g., This morning · After work · Late evening" />
+      </div>
+
+      <div class="msc-field">
+        <label class="msc-label" for="leaving-input">What state were you leaving?</label>
+        <input id="leaving-input" type="text" class="msc-input" placeholder="e.g., Sleep · Focused work · Overstimulated" />
+      </div>
+
+      <div class="msc-field">
+        <label class="msc-label" for="entering-input">What state did you enter?</label>
+        <input id="entering-input" type="text" class="msc-input" placeholder="e.g., Wakefulness · Rest · Clarity" />
+      </div>
+
+      <div class="msc-field">
+        <label class="msc-label" for="observation-input">Your observation</label>
+        <textarea id="observation-input" class="msc-textarea" placeholder="Describe what you noticed. How did your attention change? Your pace? Your body? Be plain and specific." required></textarea>
+      </div>
+
+      <div class="msc-button-row">
+        <button type="button" class="msc-submit" disabled style="opacity:0.4;cursor:default;">Observation Collection Opens Soon</button>
+        <p class="msc-note">Reviewed before entering the pool · Anonymous</p>
+      </div>
+
+      <div class="msc-confirmation" id="confirmation">
+        <p>Your observation has been received. Thank you for contributing to the research.</p>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Sound Contribute",
+  "presets": [{ "name": "Sound Contribute" }]
+}
+{% endschema %}

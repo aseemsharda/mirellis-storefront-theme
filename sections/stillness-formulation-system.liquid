@@ -1,0 +1,445 @@
+{% style %}
+
+.mirellis-formulation {
+  padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+  background: {{ section.settings.bg_color }};
+}
+
+.mirellis-formulation .page-width {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.mirellis-formulation-header {
+  max-width: 760px;
+  margin-bottom: 70px;
+}
+
+.mirellis-eyebrow {
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  opacity: .6;
+  margin-bottom: 20px;
+}
+
+.mirellis-heading {
+  font-size: clamp(40px, 5vw, 74px);
+  line-height: 1.05;
+  font-weight: 400;
+  margin: 0 0 28px;
+  letter-spacing: -.04em;
+}
+
+.mirellis-description {
+  font-size: 18px;
+  line-height: 1.9;
+  opacity: .78;
+}
+
+.mirellis-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 28px;
+}
+
+.mirellis-card {
+  background: rgba(255,255,255,.45);
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 28px;
+  padding: 40px;
+}
+
+.mirellis-card-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  opacity: .5;
+  margin-bottom: 18px;
+}
+
+.mirellis-card-heading {
+  font-size: 24px;
+  line-height: 1.45;
+  margin-bottom: 36px;
+  font-weight: 400;
+}
+
+.mirellis-ingredient {
+  border-top: 1px solid rgba(0,0,0,.08);
+  padding: 22px 0;
+}
+
+.mirellis-ingredient:last-child {
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+
+.mirellis-ingredient summary {
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  font-size: 18px;
+}
+
+.mirellis-ingredient summary::-webkit-details-marker {
+  display:none;
+}
+
+.mirellis-ingredient summary::after {
+  content:"+";
+  position:absolute;
+  right:0;
+  top:0;
+  opacity:.45;
+}
+
+.mirellis-ingredient[open] summary::after {
+  content:"−";
+}
+
+.mirellis-ingredient-content {
+  padding-top:18px;
+}
+
+.mirellis-role {
+  font-size:15px;
+  line-height:1.8;
+  margin-bottom:12px;
+}
+
+.mirellis-text {
+  font-size:15px;
+  line-height:1.9;
+  opacity:.75;
+}
+
+.mirellis-link {
+  display:inline-block;
+  margin-top:14px;
+  font-size:12px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  text-decoration:none;
+  border-bottom:1px solid rgba(0,0,0,.15);
+  padding-bottom:4px;
+}
+
+@media screen and (max-width: 990px){
+
+  .mirellis-grid{
+    grid-template-columns:1fr;
+  }
+
+  .mirellis-card{
+    padding:32px;
+  }
+
+}
+
+{% endstyle %}
+
+
+<section class="mirellis-formulation">
+
+  <div class="page-width">
+
+    <div class="mirellis-formulation-header">
+
+      <div class="mirellis-eyebrow">
+        {{ section.settings.eyebrow }}
+      </div>
+
+      <h2 class="mirellis-heading">
+        {{ section.settings.heading }}
+      </h2>
+
+      <div class="mirellis-description">
+        {{ section.settings.description }}
+      </div>
+
+    </div>
+
+
+    <div class="mirellis-grid">
+
+      {% for block in section.blocks %}
+
+        <div class="mirellis-card" {{ block.shopify_attributes }}>
+
+          <div class="mirellis-card-label">
+            {{ block.settings.label }}
+          </div>
+
+          <h3 class="mirellis-card-heading">
+            {{ block.settings.heading }}
+          </h3>
+
+
+          <!-- Ingredient 1 -->
+
+          <details class="mirellis-ingredient">
+
+            <summary>
+              {{ block.settings.ing1 }}
+            </summary>
+
+            <div class="mirellis-ingredient-content">
+
+              <div class="mirellis-role">
+                {{ block.settings.ing1_role }}
+              </div>
+
+              <div class="mirellis-text">
+                {{ block.settings.ing1_text }}
+              </div>
+
+              {% if block.settings.ing1_link != blank %}
+                <a href="{{ block.settings.ing1_link }}" class="mirellis-link">
+                  Explore Research
+                </a>
+              {% endif %}
+
+            </div>
+
+          </details>
+
+
+          <!-- Ingredient 2 -->
+
+          <details class="mirellis-ingredient">
+
+            <summary>
+              {{ block.settings.ing2 }}
+            </summary>
+
+            <div class="mirellis-ingredient-content">
+
+              <div class="mirellis-role">
+                {{ block.settings.ing2_role }}
+              </div>
+
+              <div class="mirellis-text">
+                {{ block.settings.ing2_text }}
+              </div>
+
+              {% if block.settings.ing2_link != blank %}
+                <a href="{{ block.settings.ing2_link }}" class="mirellis-link">
+                  Explore Research
+                </a>
+              {% endif %}
+
+            </div>
+
+          </details>
+
+
+          <!-- Ingredient 3 -->
+
+          <details class="mirellis-ingredient">
+
+            <summary>
+              {{ block.settings.ing3 }}
+            </summary>
+
+            <div class="mirellis-ingredient-content">
+
+              <div class="mirellis-role">
+                {{ block.settings.ing3_role }}
+              </div>
+
+              <div class="mirellis-text">
+                {{ block.settings.ing3_text }}
+              </div>
+
+              {% if block.settings.ing3_link != blank %}
+                <a href="{{ block.settings.ing3_link }}" class="mirellis-link">
+                  Explore Research
+                </a>
+              {% endif %}
+
+            </div>
+
+          </details>
+
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</section>
+
+
+{% schema %}
+{
+  "name": "Formulation System",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Inside the Formulation"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The architecture behind Stillness Elixir"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Stillness Elixir was formulated through layered Ayurvedic composition — combining grounding oils, adaptogenic botanicals, and calming aromatic layers selected to support sensory slowing and evening decompression."
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#f6f2eb"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 40,
+      "max": 200,
+      "step": 10,
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 40,
+      "max": 200,
+      "step": 10,
+      "default": 120
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "cluster",
+      "name": "Ingredient Cluster",
+      "settings": [
+
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Cluster Label",
+          "default": "Cognitive Quieting"
+        },
+
+        {
+          "type": "textarea",
+          "id": "heading",
+          "label": "Cluster Heading",
+          "default": "Designed to soften mental overstimulation and cognitive momentum during evening transitions."
+        },
+
+        {
+          "type": "text",
+          "id": "ing1",
+          "label": "Ingredient 1",
+          "default": "Brahmi"
+        },
+
+        {
+          "type": "textarea",
+          "id": "ing1_role",
+          "label": "Ingredient 1 Role",
+          "default": "Selected to support mental quietness during periods of cognitive overstimulation."
+        },
+
+        {
+          "type": "textarea",
+          "id": "ing1_text",
+          "label": "Ingredient 1 Description",
+          "default": "Traditionally associated with clarity and calming the mind."
+        },
+
+        {
+          "type": "url",
+          "id": "ing1_link",
+          "label": "Ingredient 1 Link"
+        },
+
+        {
+          "type": "text",
+          "id": "ing2",
+          "label": "Ingredient 2",
+          "default": "Jatamansi"
+        },
+
+        {
+          "type": "textarea",
+          "id": "ing2_role",
+          "label": "Ingredient 2 Role",
+          "default": "Included to support slower emotional transitions."
+        },
+
+        {
+          "type": "textarea",
+          "id": "ing2_text",
+          "label": "Ingredient 2 Description",
+          "default": "Traditionally used in calming Ayurvedic formulations."
+        },
+
+        {
+          "type": "url",
+          "id": "ing2_link",
+          "label": "Ingredient 2 Link"
+        },
+
+        {
+          "type": "text",
+          "id": "ing3",
+          "label": "Ingredient 3",
+          "default": "Ashwagandha"
+        },
+
+        {
+          "type": "textarea",
+          "id": "ing3_role",
+          "label": "Ingredient 3 Role",
+          "default": "Supports steadiness during emotional depletion."
+        },
+
+        {
+          "type": "textarea",
+          "id": "ing3_text",
+          "label": "Ingredient 3 Description",
+          "default": "Associated with adaptogenic support and resilience."
+        },
+
+        {
+          "type": "url",
+          "id": "ing3_link",
+          "label": "Ingredient 3 Link"
+        }
+
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Formulation System",
+      "blocks": [
+        {
+          "type": "cluster"
+        },
+        {
+          "type": "cluster"
+        },
+        {
+          "type": "cluster"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

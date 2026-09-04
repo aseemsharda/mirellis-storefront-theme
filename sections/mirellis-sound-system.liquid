@@ -1,0 +1,475 @@
+<div id="mss-root-{{ section.id }}">
+<style>
+#mss-root-{{ section.id }} {
+  --cream: #FAF7F2;
+  --ink: #1A1A18;
+  --muted: #6B6B66;
+  --line: #DDD6CC;
+  --paper: #FCFAF6;
+  --accent: #3A3A36;
+  --gold: #8B6F47;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --serif: Georgia, 'Times New Roman', serif;
+  --mono: 'SFMono-Regular', Menlo, Consolas, monospace;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--serif);
+  -webkit-font-smoothing: antialiased;
+}
+#mss-root-{{ section.id }} * { box-sizing: border-box; }
+#mss-root-{{ section.id }} .wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* HERO */
+#mss-root-{{ section.id }} .hero {
+  padding: 100px 0 60px;
+  border-bottom: 1px solid var(--line);
+}
+#mss-root-{{ section.id }} .eyebrow {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 28px 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+#mss-root-{{ section.id }} .eyebrow::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+  max-width: 120px;
+}
+#mss-root-{{ section.id }} .hero h1 {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  max-width: 18ch;
+  margin: 0 0 28px 0;
+}
+#mss-root-{{ section.id }} .hero p {
+  font-size: 17px;
+  color: var(--muted);
+  max-width: 52ch;
+  line-height: 1.75;
+  margin: 0;
+  font-family: var(--sans);
+}
+
+/* STATE SELECTOR */
+#mss-root-{{ section.id }} .selector {
+  padding: 60px 0 40px;
+  border-bottom: 1px solid var(--line);
+}
+#mss-root-{{ section.id }} .selector-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 28px 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+#mss-root-{{ section.id }} .selector-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+  max-width: 120px;
+}
+#mss-root-{{ section.id }} .selector-q {
+  font-size: clamp(20px, 2.8vw, 28px);
+  font-weight: 400;
+  margin: 0 0 32px 0;
+  line-height: 1.2;
+}
+#mss-root-{{ section.id }} .state-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+#mss-root-{{ section.id }} .state-btn {
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--line);
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+#mss-root-{{ section.id }} .state-btn:hover {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+#mss-root-{{ section.id }} .state-btn.active {
+  background: var(--ink);
+  color: var(--cream);
+  border-color: var(--ink);
+}
+
+/* ENVIRONMENTS */
+#mss-root-{{ section.id }} .environments {
+  padding: 60px 0;
+}
+#mss-root-{{ section.id }} .env-intro {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 40px 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+#mss-root-{{ section.id }} .env-intro::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+  max-width: 120px;
+}
+#mss-root-{{ section.id }} .env-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+#mss-root-{{ section.id }} .env-card {
+  background: var(--cream);
+  padding: 2.5rem;
+  display: none;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: background 0.25s ease;
+}
+#mss-root-{{ section.id }} .env-card.visible { display: flex; }
+#mss-root-{{ section.id }} .env-card.highlight { background: var(--paper); }
+#mss-root-{{ section.id }} .env-card.show-all { display: flex; }
+#mss-root-{{ section.id }} .env-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 12px 0;
+}
+#mss-root-{{ section.id }} .env-name {
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+}
+#mss-root-{{ section.id }} .env-transition {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+#mss-root-{{ section.id }} .env-when {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.65;
+  font-family: var(--sans);
+  margin: 0;
+}
+#mss-root-{{ section.id }} .env-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+#mss-root-{{ section.id }} .env-link-label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.6;
+  margin: 0 0 4px 0;
+}
+#mss-root-{{ section.id }} .env-link {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: color 0.2s ease;
+}
+#mss-root-{{ section.id }} .env-link:hover { color: var(--ink); }
+
+/* CLOSING */
+#mss-root-{{ section.id }} .closing {
+  padding: 80px 0 100px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+#mss-root-{{ section.id }} .closing p {
+  font-size: 17px;
+  color: var(--muted);
+  max-width: 44ch;
+  margin: 0 auto;
+  line-height: 1.85;
+  font-family: var(--sans);
+}
+#mss-root-{{ section.id }} .closing em {
+  color: var(--ink);
+  font-style: normal;
+}
+
+@media (max-width: 640px) {
+  #mss-root-{{ section.id }} .env-grid { grid-template-columns: 1fr; }
+  #mss-root-{{ section.id }} .hero { padding: 64px 0 44px; }
+  #mss-root-{{ section.id }} .environments { padding: 48px 0; }
+  #mss-root-{{ section.id }} .env-card { padding: 2rem; }
+  #mss-root-{{ section.id }} .state-buttons { flex-direction: column; }
+  #mss-root-{{ section.id }} .state-btn { text-align: left; }
+  #mss-root-{{ section.id }} .eyebrow::after,
+  #mss-root-{{ section.id }} .selector-label::after,
+  #mss-root-{{ section.id }} .env-intro::after { max-width: 64px; }
+  #mss-root-{{ section.id }} .closing { padding: 64px 0 80px; }
+}
+</style>
+
+<!-- HERO -->
+<div class="hero wrap">
+  <p class="eyebrow">{{ section.settings.hero_eyebrow }}</p>
+  <h1>{{ section.settings.hero_heading }}</h1>
+  <p>{{ section.settings.hero_body }}</p>
+</div>
+
+<!-- STATE SELECTOR -->
+<div class="selector wrap">
+  <p class="selector-label">{{ section.settings.selector_label }}</p>
+  <p class="selector-q">{{ section.settings.selector_question }}</p>
+  <div class="state-buttons">
+    <button class="state-btn" data-state="waking">{{ section.settings.btn_waking }}</button>
+    <button class="state-btn" data-state="recovery">{{ section.settings.btn_recovery }}</button>
+    <button class="state-btn" data-state="restoration">{{ section.settings.btn_restoration }}</button>
+    <button class="state-btn" data-state="overwhelmed">{{ section.settings.btn_overwhelmed }}</button>
+    <button class="state-btn active" data-state="all">{{ section.settings.btn_all }}</button>
+  </div>
+</div>
+
+<!-- ENVIRONMENTS -->
+<div class="environments wrap">
+  <p class="env-intro" id="env-intro-{{ section.id }}">{{ section.settings.env_intro }}</p>
+  <div class="env-grid" id="env-grid-{{ section.id }}">
+    {% for block in section.blocks %}
+      <div class="env-card show-all" data-transitions="{{ block.settings.transitions }}" {{ block.shopify_attributes }}>
+        <div>
+          {% if block.settings.tag != blank %}<p class="env-tag">{{ block.settings.tag }}</p>{% endif %}
+          <h2 class="env-name">{{ block.settings.name }}</h2>
+          {% if block.settings.transition_label != blank %}<p class="env-transition">{{ block.settings.transition_label }}</p>{% endif %}
+        </div>
+        {% if block.settings.when_text != blank %}<p class="env-when">{{ block.settings.when_text }}</p>{% endif %}
+        <div class="env-links">
+          {% if block.settings.link1_text != blank %}
+            <div>
+              <span class="env-link-label">{{ block.settings.link1_label }}</span>
+              <a href="{{ block.settings.link1_url }}" class="env-link"{% if block.settings.link1_new_tab %} target="_blank" rel="noopener"{% endif %}>{{ block.settings.link1_text }}</a>
+            </div>
+          {% endif %}
+          {% if block.settings.link2_text != blank %}
+            <div>
+              <span class="env-link-label">{{ block.settings.link2_label }}</span>
+              <a href="{{ block.settings.link2_url }}" class="env-link"{% if block.settings.link2_new_tab %} target="_blank" rel="noopener"{% endif %}>{{ block.settings.link2_text }}</a>
+            </div>
+          {% endif %}
+          {% if block.settings.link3_text != blank %}
+            <div>
+              <span class="env-link-label">{{ block.settings.link3_label }}</span>
+              <a href="{{ block.settings.link3_url }}" class="env-link"{% if block.settings.link3_new_tab %} target="_blank" rel="noopener"{% endif %}>{{ block.settings.link3_text }}</a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="closing wrap">
+  <p>{{ section.settings.closing_text }}</p>
+</div>
+
+<script>
+(function() {
+  var root = document.getElementById('mss-root-{{ section.id }}');
+  if (!root) return;
+  var btns = root.querySelectorAll('.state-btn');
+  var cards = root.querySelectorAll('.env-card');
+  var intro = document.getElementById('env-intro-{{ section.id }}');
+
+  var labels = {
+    all: {{ section.settings.env_intro | json }},
+    waking: {{ section.settings.label_waking | json }},
+    recovery: {{ section.settings.label_recovery | json }},
+    restoration: {{ section.settings.label_restoration | json }},
+    overwhelmed: {{ section.settings.label_overwhelmed | json }}
+  };
+
+  function activate(state) {
+    btns.forEach(function(b) {
+      b.classList.toggle('active', b.dataset.state === state);
+    });
+    intro.textContent = labels[state] || labels.all;
+    cards.forEach(function(card) {
+      var transitions = (card.dataset.transitions || '').split(' ');
+      if (state === 'all') {
+        card.classList.add('show-all');
+        card.classList.remove('visible');
+        card.classList.remove('highlight');
+      } else {
+        card.classList.remove('show-all');
+        if (transitions.indexOf(state) > -1) {
+          card.classList.add('visible');
+          card.classList.add('highlight');
+        } else {
+          card.classList.remove('visible');
+          card.classList.remove('highlight');
+        }
+      }
+    });
+  }
+
+  btns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      activate(btn.dataset.state);
+    });
+  });
+
+  activate('all');
+})();
+</script>
+
+</div>
+
+{% schema %}
+{
+  "name": "Sound System",
+  "settings": [
+    { "type": "header", "content": "Hero" },
+    { "type": "text", "id": "hero_eyebrow", "label": "Eyebrow", "default": "Sound Environments" },
+    { "type": "text", "id": "hero_heading", "label": "Heading", "default": "Sound for Human State Transitions." },
+    { "type": "textarea", "id": "hero_body", "label": "Body", "default": "Sound is not background. It is one of the signals through which the nervous system learns that one chapter has ended and another has begun. Each environment is designed for a specific transition — not a mood, not a genre, a moment." },
+
+    { "type": "header", "content": "State Selector" },
+    { "type": "text", "id": "selector_label", "label": "Label", "default": "Navigate by transition" },
+    { "type": "text", "id": "selector_question", "label": "Question", "default": "What are you transitioning from?" },
+    { "type": "text", "id": "btn_waking", "label": "Button — Waking", "default": "Sleep → Wakefulness" },
+    { "type": "text", "id": "btn_recovery", "label": "Button — Recovery", "default": "Work → Recovery" },
+    { "type": "text", "id": "btn_restoration", "label": "Button — Restoration", "default": "Stimulation → Restoration" },
+    { "type": "text", "id": "btn_overwhelmed", "label": "Button — Overwhelmed", "default": "Feeling Overwhelmed" },
+    { "type": "text", "id": "btn_all", "label": "Button — Show all", "default": "Show all environments" },
+
+    { "type": "header", "content": "Environments Intro / Filter Labels" },
+    { "type": "text", "id": "env_intro", "label": "Default intro (Show all)", "default": "Four listening environments" },
+    { "type": "text", "id": "label_waking", "label": "Intro — Waking", "default": "For Sleep → Wakefulness" },
+    { "type": "text", "id": "label_recovery", "label": "Intro — Recovery", "default": "For Work → Recovery" },
+    { "type": "text", "id": "label_restoration", "label": "Intro — Restoration", "default": "For Stimulation → Restoration" },
+    { "type": "text", "id": "label_overwhelmed", "label": "Intro — Overwhelmed", "default": "For moments of overwhelm" },
+
+    { "type": "header", "content": "Closing" },
+    { "type": "richtext", "id": "closing_text", "label": "Closing", "default": "<p>The nervous system learns through <em>repetition</em>, not intensity.<br>Listen at the same transition point. Every day.<br>Allow the environment to become meaningful.</p>" }
+  ],
+  "blocks": [
+    {
+      "type": "environment",
+      "name": "Environment",
+      "settings": [
+        { "type": "text", "id": "tag", "label": "Number tag", "default": "01" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Morning Clarity" },
+        { "type": "text", "id": "transition_label", "label": "Transition label", "default": "Sleep → Wakefulness" },
+        { "type": "textarea", "id": "when_text", "label": "When text", "default": "The first signal of the day. Listened to during the morning ritual — before screens, before conversation, before the day has named itself." },
+        { "type": "text", "id": "transitions", "label": "Filter tags (space-separated)", "info": "Use: waking, recovery, restoration, overwhelmed. Determines which filters reveal this card.", "default": "waking" },
+        { "type": "header", "content": "Link 1" },
+        { "type": "text", "id": "link1_label", "label": "Label", "default": "Listen" },
+        { "type": "text", "id": "link1_text", "label": "Link text", "default": "Open Morning Clarity →" },
+        { "type": "url", "id": "link1_url", "label": "URL" },
+        { "type": "checkbox", "id": "link1_new_tab", "label": "Open in new tab", "default": true },
+        { "type": "header", "content": "Link 2" },
+        { "type": "text", "id": "link2_label", "label": "Label" },
+        { "type": "text", "id": "link2_text", "label": "Link text" },
+        { "type": "url", "id": "link2_url", "label": "URL" },
+        { "type": "checkbox", "id": "link2_new_tab", "label": "Open in new tab", "default": false },
+        { "type": "header", "content": "Link 3" },
+        { "type": "text", "id": "link3_label", "label": "Label" },
+        { "type": "text", "id": "link3_text", "label": "Link text" },
+        { "type": "url", "id": "link3_url", "label": "URL" },
+        { "type": "checkbox", "id": "link3_new_tab", "label": "Open in new tab", "default": false }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Sound System",
+      "blocks": [
+        {
+          "type": "environment",
+          "settings": {
+            "tag": "01", "name": "Morning Clarity", "transition_label": "Sleep → Wakefulness",
+            "when_text": "The first signal of the day. Listened to during the morning ritual — before screens, before conversation, before the day has named itself.",
+            "transitions": "waking",
+            "link1_label": "Listen", "link1_text": "Open Morning Clarity →", "link1_url": "https://open.spotify.com/playlist/0kPGfp1m7uIAEkT8h6j66P", "link1_new_tab": true,
+            "link2_label": "Ritual pairing", "link2_text": "Morning Clarity Elixir →", "link2_url": "/products/morning-clarity", "link2_new_tab": false,
+            "link3_label": "Research", "link3_text": "Finding 002 →", "link3_url": "/blogs/journal/the-first-30-minutes-after-waking-are-not-like-the-rest-of-the-day", "link3_new_tab": false
+          }
+        },
+        {
+          "type": "environment",
+          "settings": {
+            "tag": "02", "name": "Flow", "transition_label": "Work Initiation / Deep Focus",
+            "when_text": "The environment for entering focused work. Reduces the friction between intention and action. Not stimulation — acoustic continuity the mind can settle into.",
+            "transitions": "waking recovery",
+            "link1_label": "Listen", "link1_text": "Open Flow →", "link1_url": "https://open.spotify.com/playlist/10xydaUigLOhIwJa4FCAtT", "link1_new_tab": true,
+            "link2_label": "Research", "link2_text": "Finding 004 →", "link2_url": "/blogs/journal/the-boundary-between-states-an-emerging-theory-of-human-state-transitions", "link2_new_tab": false
+          }
+        },
+        {
+          "type": "environment",
+          "settings": {
+            "tag": "03", "name": "Stillness", "transition_label": "Work → Recovery",
+            "when_text": "The acoustic signal that the professional chapter is closing. Listened to when the workday ends — the sound environment of descent, not sleep.",
+            "transitions": "recovery restoration",
+            "link1_label": "Listen", "link1_text": "Open Stillness →", "link1_url": "https://open.spotify.com/playlist/6VG02jtawiXTcOGi0nZzp6", "link1_new_tab": true,
+            "link2_label": "Ritual pairing", "link2_text": "Stillness Elixir →", "link2_url": "/products/mirellis-stillness-elixir", "link2_new_tab": false,
+            "link3_label": "Research", "link3_text": "Finding 001 →", "link3_url": "/blogs/journal/why-your-brain-turns-on-the-moment-you-get-into-bed", "link3_new_tab": false
+          }
+        },
+        {
+          "type": "environment",
+          "settings": {
+            "tag": "04", "name": "Restoration", "transition_label": "Stimulation → Restoration / Feeling Overwhelmed",
+            "when_text": "The deep evening descent. For moments when the nervous system needs to return to a usable state — not sleep, not focus. Stability and return.",
+            "transitions": "restoration overwhelmed",
+            "link1_label": "Listen", "link1_text": "Open Restoration →", "link1_url": "https://open.spotify.com/playlist/53xH1HRTy7x9IEN7WPByDp", "link1_new_tab": true,
+            "link2_label": "Ritual pairing", "link2_text": "Stillness Elixir →", "link2_url": "/products/mirellis-stillness-elixir", "link2_new_tab": false,
+            "link3_label": "Research", "link3_text": "Finding 003 →", "link3_url": "/blogs/journal/what-11pm-scrolling-is-actually-about-and-its-not-entertainment", "link3_new_tab": false
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

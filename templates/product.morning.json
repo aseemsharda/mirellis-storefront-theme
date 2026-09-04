@@ -1,0 +1,220 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "mirellis-pdp-hero",
+      "blocks": {
+        "video_xTaVmV": {
+          "type": "video",
+          "settings": {
+            "native_video": "shopify://files/videos/Oil Pulling website low res.mov",
+            "video_url": "",
+            "autoplay": false
+          }
+        },
+        "image_D78RpQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/71P6t3DFEOL._SL1500.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "video_xTaVmV",
+        "image_D78RpQ"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Oil_Pulling_Product.png",
+        "eyebrow": "Sleep → Wakefulness",
+        "heading": "The first signal of the day.",
+        "identity": "An Ayurvedic morning ritual for the crossing from sleep into wakefulness.",
+        "sub": "Not an oil-pulling product. The first coherent sensory signal the nervous system receives each morning — before screens, before caffeine, before language.",
+        "cta_label": "Begin the morning ritual →",
+        "cta_url": "",
+        "secondary_label": "Why this exists →",
+        "secondary_url": "/pages/why-we-exist",
+        "background": "#faf7f2"
+      }
+    },
+    "recognition": {
+      "type": "mirellis-pdp-recognition",
+      "settings": {
+        "eyebrow": "The morning most of us have",
+        "body": "<p>The alarm ends. Before the day has named itself, the phone is already in your hand — a message from last night, a headline, a notification you don't remember enabling.</p><p>By the time you are fully awake, the day is already running someone else's agenda. It started two minutes ago, and it is already not yours.</p>",
+        "contrast_a_label": "Most mornings",
+        "contrast_a": "<p>Alarm → phone → messages → reaction</p>",
+        "contrast_b_label": "A different beginning",
+        "contrast_b": "<p>Alarm → light → a small ritual → orientation → the day, entered on purpose</p>"
+      }
+    },
+    "reasoning": {
+      "type": "mirellis-pdp-reasoning",
+      "settings": {
+        "eyebrow": "How this came to exist",
+        "intro": "<p>Nothing here began as a product. It began with an observation.</p>",
+        "finding_label": "Finding 002",
+        "finding_line": "The first thirty minutes after waking are not like the rest of the day.",
+        "body": "<p>The nervous system, in that window, appears unusually receptive — it takes on whatever signal arrives first. Modern life fills that window with a screen.</p><p>So we asked one question: given that, what would most help the body cross from sleep into wakefulness — before screens, before caffeine, before language?</p><p>That question opens a landscape of possibilities — light, hydration, temperature, breath, scent, sound, and slow oral-sensory activity. None is obviously correct on its own. We were drawn to a slow, repetitive, oral-sensory ritual performed before the first screen: it occupies attention gently, sits before language and notification, and is easy to repeat at the same moment each day.</p><p>Only then did we ask what form it should take. The answer was an Ayurvedic practice older than any of this research.</p>",
+        "steps": "Transition, Observation, Finding, Question, Intervention, Ritual, Product",
+        "link1_label": "Read Finding 002 →",
+        "link1_url": "https://mirellis.in/blogs/journal/the-first-30-minutes-after-waking-are-not-like-the-rest-of-the-day",
+        "link2_label": "The full reasoning →",
+        "link2_url": "https://mirellis.in/pages/intervention-morning-clarity"
+      }
+    },
+    "lineage": {
+      "type": "mirellis-pdp-lineage",
+      "settings": {
+        "eyebrow": "The practice we chose",
+        "heading": "Kavala — the classical morning practice, honestly bounded.",
+        "tradition_tag": "Classical Ayurvedic tradition",
+        "tradition": "<p>Oil pulling — <em>Kavala</em> and <em>Gandusha</em> — is described in the classical Ayurvedic texts as a morning oral practice, part of <em>dinacharya</em>, the daily routine. Tradition associates it with oral cleanliness, freshness, and a clear beginning to the day.</p>",
+        "boundary": "<p>That is what tradition describes. It is not the same as modern clinical proof, and we will not pretend it is. We keep tradition and evidence separate on purpose — and where we cannot yet point to strong evidence, we would rather say nothing than overstate. That restraint is the honest version of an Ayurvedic ritual, and we think it is the only one worth making.</p>",
+        "expand_label": "More on Kavala vs. Gandusha and their place in dinacharya →",
+        "expand_url": "/pages/the-first-signals-of-the-morning"
+      }
+    },
+    "institution": {
+      "type": "mirellis-pdp-institution",
+      "settings": {
+        "eyebrow": "Who stands behind this",
+        "lead": "<p>Morning Clarity is one output of the Mirellis Observatory, our research arm studying human state transitions. It is not a marketing idea; it is the end of a documented chain of reasoning.</p>",
+        "ratify_label": "How claims are reviewed",
+        "reviewer_name": "",
+        "reviewer_role": "",
+        "ratification": "<p>Claims on Mirellis pages pass through the Observatory's review process before they appear. Where the evidence is only emerging, or a statement is our own interpretation, we say so. The reviewers behind each formula are recorded in its Formula Dossier.</p>",
+        "link_label": "How the Observatory works →",
+        "link_url": "/pages/the-observatory"
+      }
+    },
+    "made": {
+      "type": "mirellis-pdp-made",
+      "settings": {
+        "eyebrow": "How it is made",
+        "manufacture_label": "Manufacture",
+        "manufacture": "<p>Made in India by Lambda Lifestyle Pvt Ltd, Gurugram. · contact@lambdalifestyle.com</p>",
+        "testing_label": "Testing",
+        "testing": "",
+        "sourcing_label": "Sourcing",
+        "sourcing": "",
+        "expand_label": "",
+        "expand_url": "",
+        "coa_label": "",
+        "coa_url": ""
+      }
+    },
+    "safety": {
+      "type": "mirellis-pdp-safety",
+      "settings": {
+        "eyebrow": "Who this is for — and who it isn't",
+        "suit_label": "It may suit you if",
+        "suit": "<p>You wake to a screen, rely on caffeine to feel alert, or want the first minutes of the day to belong to you.</p>",
+        "not_label": "It is not for",
+        "not_for": "<p>It is not intended for young children; for anyone with a known allergy to any of its ingredients; and it is not a treatment for any medical condition. If you are pregnant, nursing, or managing a health condition, please speak with your doctor first.</p>",
+        "using_label": "Using it safely",
+        "using": "<p>It is swished and spat out — <strong>not swallowed</strong>. Spit into a bin (not the sink), then rinse with warm water.</p>",
+        "closing": "Every one of these is here to return control to you — so nothing about the ritual is a surprise."
+      }
+    },
+    "ritual": {
+      "type": "mirellis-pdp-ritual",
+      "settings": {
+        "eyebrow": "The ritual",
+        "lead": "Five to ten minutes, performed on waking — before the phone, before food, before caffeine.",
+        "step_1_title": "Take",
+        "step_1_body": "One tablespoon of oil into the mouth.",
+        "step_2_title": "Swish",
+        "step_2_body": "Slowly, for five to ten minutes. Let it move without force. Let the mind be quiet.",
+        "step_3_title": "Release & rinse",
+        "step_3_body": "Spit it out; rinse with warm water.",
+        "step_4_title": "",
+        "step_4_body": "",
+        "step_5_title": "",
+        "step_5_body": "",
+        "step_6_title": "",
+        "step_6_body": "",
+        "meaning": "<p>The warmth, the taste, and the rhythm are the same each morning. That sameness is the point: repetition is what turns a pleasant few minutes into a signal the body begins to anticipate.</p>",
+        "expand_label": "Making the ritual stick — where to keep it, when exactly, what to expect →",
+        "expand_url": ""
+      }
+    },
+    "companion": {
+      "type": "mirellis-pdp-companion",
+      "settings": {
+        "eyebrow": "The transition before this one",
+        "body": "<p>The clarity of a morning is shaped by how the evening ended. <strong>Stillness Elixir</strong> exists for the Work → Recovery crossing — the signal that tells the nervous system the day is finished, so the morning can begin differently.</p>",
+        "link1_label": "Stillness Elixir →",
+        "link1_url": "/products/mirellis-stillness-elixir",
+        "link2_label": "The three transitions →",
+        "link2_url": "/pages/transitions"
+      }
+    },
+    "pricing": {
+      "type": "mirellis-pdp-pricing",
+      "settings": {
+        "eyebrow": "Why it costs what it costs",
+        "price": "₹1,200",
+        "allocation": "<p>The price reflects the formulation and the work behind it — and a standing decision never to discount.</p>",
+        "tradeoff": "<p>A simpler, cheaper product was possible — a longer-lasting but lower-grade oil, or an undisclosed blend. It would have compromised the one reason Morning Clarity exists. We chose not to.</p>"
+      }
+    },
+    "faq": {
+      "type": "mirellis-pdp-faq",
+      "settings": {
+        "eyebrow": "Questions answered",
+        "q_1_q": "Do I swallow it?",
+        "q_1_a": "<p>No — it is swished and spat out.</p>",
+        "q_2_q": "How is this different from a supermarket oil-pulling oil?",
+        "q_2_a": "<p>Morning Clarity isn't an oil-pulling product — oil pulling is simply the delivery mechanism we chose for a specific morning transition. It is a considered ritual, and we're honest about what we can and can't yet show.</p>",
+        "q_3_q": "Is this Ayurvedic \"medicine\"?",
+        "q_3_a": "<p>It is an Ayurvedic preparation, spoken about observationally. It is not a treatment for any condition; for medical concerns, see your doctor.</p>",
+        "q_4_q": "When will I notice something?",
+        "q_4_a": "<p>Honestly — there is no promised timeline. The ritual works through repetition; what people describe tends to be quiet, not dramatic.</p>",
+        "q_5_q": "Why are there never discounts?",
+        "q_5_a": "<p>Because a considered product held to a fair, steady price is part of the trust — discounting would undercut it.</p>",
+        "q_6_q": "",
+        "q_6_a": "",
+        "q_7_q": "",
+        "q_7_a": "",
+        "q_8_q": "",
+        "q_8_a": ""
+      }
+    },
+    "decision": {
+      "type": "mirellis-pdp-decision",
+      "settings": {
+        "heading": "Begin the morning ritual.",
+        "sub": "",
+        "variant_label": "Option",
+        "cta_label": "Add to cart",
+        "sold_out": "Sold out",
+        "reassurance": "Secure checkout.",
+        "next": "",
+        "fallback_label": "",
+        "fallback_url": ""
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "recognition",
+    "reasoning",
+    "lineage",
+    "institution",
+    "made",
+    "safety",
+    "ritual",
+    "companion",
+    "pricing",
+    "faq",
+    "decision"
+  ]
+}

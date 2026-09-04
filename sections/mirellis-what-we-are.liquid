@@ -1,0 +1,238 @@
+{%- comment -%}
+  MIRELLIS — WHAT WE ARE
+  Companion styles: assets/core-pages.css
+{%- endcomment -%}
+
+{{ 'core-pages.css' | asset_url | stylesheet_tag }}
+
+{%- assign output_blocks = section.blocks | where: 'type', 'output_item' -%}
+{%- assign standard_blocks = section.blocks | where: 'type', 'standard_item' -%}
+
+<div class="cp">
+
+
+  {%- comment -%} ══ S01: HEADER ══════════════════════════════ {%- endcomment -%}
+
+  <header class="cp__header">
+    <div class="ml-container-reading">
+      <div class="ml-text-breathing">
+
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="cp-eyebrow ml-supporting-text">{{- section.settings.eyebrow -}}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h1 class="ml-display-heading ml-headline-soft">{{- section.settings.heading -}}</h1>
+        {%- endif -%}
+
+        {%- if section.settings.body != blank -%}
+          <p class="ml-contemplative-copy ml-copy-soft">{{- section.settings.body -}}</p>
+        {%- endif -%}
+
+      </div>
+    </div>
+  </header>
+
+
+  {%- comment -%} ══ S02: WHAT WE STUDY ═══════════════════════ {%- endcomment -%}
+
+  {%- if section.settings.study_heading != blank or section.settings.study_body != blank -%}
+    <section class="cp__text-block cp__text-block--alt">
+      <div class="ml-container-narrow">
+
+        {%- if section.settings.study_eyebrow != blank -%}
+          <p class="cp-eyebrow ml-supporting-text">{{- section.settings.study_eyebrow -}}</p>
+        {%- endif -%}
+
+        {%- if section.settings.study_heading != blank -%}
+          <h2 class="cp__section-heading ml-section-heading ml-headline-soft">{{- section.settings.study_heading -}}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.study_body != blank -%}
+          <div class="cp__body rte">{{- section.settings.study_body -}}</div>
+        {%- endif -%}
+
+      </div>
+    </section>
+  {%- endif -%}
+
+
+  {%- comment -%} ══ S03: WHAT WE BUILD ═══════════════════════ {%- endcomment -%}
+
+  {%- if output_blocks.size > 0 -%}
+    <section class="cp__text-block">
+      <div class="ml-container-reading">
+
+        {%- if section.settings.build_eyebrow != blank -%}
+          <p class="cp-eyebrow ml-supporting-text">{{- section.settings.build_eyebrow -}}</p>
+        {%- endif -%}
+
+        {%- if section.settings.build_heading != blank -%}
+          <h2 class="cp__section-heading ml-section-heading ml-headline-soft">{{- section.settings.build_heading -}}</h2>
+        {%- endif -%}
+
+        <ol class="cp__numbered-list">
+          {%- for block in output_blocks -%}
+            <li class="cp__numbered-item" {{ block.shopify_attributes }}>
+              <span class="cp__item-number ml-supporting-text">0{{- forloop.index -}}</span>
+              <div class="cp__item-content">
+                {%- if block.settings.output_name != blank -%}
+                  <h3 class="cp__item-name">{{- block.settings.output_name -}}</h3>
+                {%- endif -%}
+                {%- if block.settings.output_description != blank -%}
+                  <p class="cp__item-desc ml-body-copy ml-copy-soft">{{- block.settings.output_description -}}</p>
+                {%- endif -%}
+              </div>
+            </li>
+          {%- endfor -%}
+        </ol>
+
+      </div>
+    </section>
+  {%- endif -%}
+
+
+  {%- comment -%} ══ S04: WHAT WE ARE NOT ═════════════════════ {%- endcomment -%}
+
+  {%- if section.settings.not_heading != blank or section.settings.not_body != blank -%}
+    <section class="cp__text-block cp__text-block--alt">
+      <div class="ml-container-narrow">
+
+        {%- if section.settings.not_eyebrow != blank -%}
+          <p class="cp-eyebrow ml-supporting-text">{{- section.settings.not_eyebrow -}}</p>
+        {%- endif -%}
+
+        {%- if section.settings.not_heading != blank -%}
+          <h2 class="cp__section-heading ml-section-heading ml-headline-soft">{{- section.settings.not_heading -}}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.not_body != blank -%}
+          <div class="cp__body rte">{{- section.settings.not_body -}}</div>
+        {%- endif -%}
+
+      </div>
+    </section>
+  {%- endif -%}
+
+
+  {%- comment -%} ══ S05: THE STANDARDS ═══════════════════════ {%- endcomment -%}
+
+  {%- if standard_blocks.size > 0 -%}
+    <section class="cp__text-block">
+      <div class="ml-container-reading">
+
+        {%- if section.settings.standards_eyebrow != blank -%}
+          <p class="cp-eyebrow ml-supporting-text">{{- section.settings.standards_eyebrow -}}</p>
+        {%- endif -%}
+
+        {%- if section.settings.standards_heading != blank -%}
+          <h2 class="cp__section-heading ml-section-heading ml-headline-soft">{{- section.settings.standards_heading -}}</h2>
+        {%- endif -%}
+
+        <ol class="cp__numbered-list">
+          {%- for block in standard_blocks -%}
+            <li class="cp__numbered-item" {{ block.shopify_attributes }}>
+              <span class="cp__item-number ml-supporting-text">0{{- forloop.index -}}</span>
+              <div class="cp__item-content">
+                {%- if block.settings.standard_name != blank -%}
+                  <h3 class="cp__item-name">{{- block.settings.standard_name -}}</h3>
+                {%- endif -%}
+                {%- if block.settings.standard_description != blank -%}
+                  <p class="cp__item-desc ml-body-copy ml-copy-soft">{{- block.settings.standard_description -}}</p>
+                {%- endif -%}
+              </div>
+            </li>
+          {%- endfor -%}
+        </ol>
+
+      </div>
+    </section>
+  {%- endif -%}
+
+
+  {%- comment -%} ══ S06: ENTRY ═══════════════════════════════ {%- endcomment -%}
+
+  <section class="cp__entry cp__entry--dual">
+    <div class="ml-container-narrow">
+
+      {%- if section.settings.entry_eyebrow != blank -%}
+        <p class="cp-eyebrow ml-supporting-text">{{- section.settings.entry_eyebrow -}}</p>
+      {%- endif -%}
+
+      <div class="cp__dual-links">
+
+        {%- if section.settings.entry_obs_link != blank and section.settings.entry_obs_label != blank -%}
+          <a href="{{ section.settings.entry_obs_link }}" class="cp__dual-link ml-soft-hover">
+            <span class="cp__dual-link-label ml-section-heading ml-headline-soft">{{- section.settings.entry_obs_label -}}</span>
+            <span class="cp__dual-link-arrow ml-supporting-text ml-copy-soft">Explore →</span>
+          </a>
+        {%- endif -%}
+
+        {%- if section.settings.entry_trans_link != blank and section.settings.entry_trans_label != blank -%}
+          <a href="{{ section.settings.entry_trans_link }}" class="cp__dual-link ml-soft-hover">
+            <span class="cp__dual-link-label ml-section-heading ml-headline-soft">{{- section.settings.entry_trans_label -}}</span>
+            <span class="cp__dual-link-arrow ml-supporting-text ml-copy-soft">Explore →</span>
+          </a>
+        {%- endif -%}
+
+      </div>
+
+    </div>
+  </section>
+
+
+</div>
+
+
+{% schema %}
+{
+  "name": "What We Are",
+  "settings": [
+    { "type": "header", "content": "S01 — Header" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "WHAT WE ARE" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Mirellis is a Ritual Science Company." },
+    { "type": "textarea", "id": "body", "label": "Body" },
+    { "type": "header", "content": "S02 — What We Study" },
+    { "type": "text", "id": "study_eyebrow", "label": "Eyebrow", "default": "WHAT WE STUDY" },
+    { "type": "textarea", "id": "study_heading", "label": "Heading", "default": "Human State Transitions." },
+    { "type": "richtext", "id": "study_body", "label": "Body" },
+    { "type": "header", "content": "S03 — What We Build" },
+    { "type": "text", "id": "build_eyebrow", "label": "Eyebrow", "default": "WHAT WE BUILD" },
+    { "type": "textarea", "id": "build_heading", "label": "Heading", "default": "Four types of output." },
+    { "type": "header", "content": "S04 — What We Are Not" },
+    { "type": "text", "id": "not_eyebrow", "label": "Eyebrow", "default": "WHAT WE ARE NOT" },
+    { "type": "textarea", "id": "not_heading", "label": "Heading", "default": "The rejections." },
+    { "type": "richtext", "id": "not_body", "label": "Body" },
+    { "type": "header", "content": "S05 — The Standards" },
+    { "type": "text", "id": "standards_eyebrow", "label": "Eyebrow", "default": "THE STANDARDS" },
+    { "type": "textarea", "id": "standards_heading", "label": "Heading", "default": "Five things we will not compromise." },
+    { "type": "header", "content": "S06 — Entry" },
+    { "type": "text", "id": "entry_eyebrow", "label": "Eyebrow", "default": "EXPLORE" },
+    { "type": "text", "id": "entry_obs_label", "label": "Observatory label", "default": "The Observatory" },
+    { "type": "url", "id": "entry_obs_link", "label": "Observatory link" },
+    { "type": "text", "id": "entry_trans_label", "label": "Transitions label", "default": "The Three Transitions" },
+    { "type": "url", "id": "entry_trans_link", "label": "Transitions link" }
+  ],
+  "blocks": [
+    {
+      "type": "output_item",
+      "name": "Output Item",
+      "limit": 4,
+      "settings": [
+        { "type": "text", "id": "output_name", "label": "Output name" },
+        { "type": "textarea", "id": "output_description", "label": "Description" }
+      ]
+    },
+    {
+      "type": "standard_item",
+      "name": "Standard",
+      "limit": 5,
+      "settings": [
+        { "type": "text", "id": "standard_name", "label": "Standard" },
+        { "type": "textarea", "id": "standard_description", "label": "Description" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "What We Are" }]
+}
+{% endschema %}

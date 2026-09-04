@@ -1,0 +1,71 @@
+{% stylesheet %}
+.hst-s5-wrap{max-width:1280px;margin:0 auto;padding:clamp(56px,9vh,120px) clamp(20px,5vw,72px);}
+.hst-s5-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:clamp(32px,6vw,80px);align-items:start;}
+.hst-s5-sticky{position:sticky;top:90px;}
+.hst-s5-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.2em;color:#978c7c;margin-bottom:16px;}
+.hst-s5-h2{font-family:'Newsreader',Georgia,serif;font-weight:200;font-size:clamp(1.9rem,3.4vw,3rem);line-height:1.06;color:#1c1813;margin:0 0 24px;}
+.hst-s5-p{font-size:1.1rem;line-height:1.6;color:#3a342c;margin:0 0 28px;max-width:42ch;}
+.hst-s5-meth-link{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;color:#35536c;border-bottom:1px solid rgba(53,83,108,0.4);padding-bottom:5px;transition:border-color 0.15s;}
+.hst-s5-meth-link:hover{border-color:#35536c;}
+.hst-s5-principles{border-top:1px solid rgba(28,24,19,0.16);}
+.hst-s5-principle{display:grid;grid-template-columns:54px 1fr;gap:20px;padding:26px 0;border-bottom:1px solid rgba(28,24,19,0.12);}
+.hst-s5-principle:last-child{border-bottom:none;}
+.hst-s5-prin-num{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#35536c;letter-spacing:0.06em;}
+.hst-s5-prin-title{font-family:'Newsreader',Georgia,serif;font-size:1.36rem;font-weight:300;margin-bottom:8px;color:#1c1813;}
+.hst-s5-prin-body{margin:0;font-size:1.02rem;line-height:1.55;color:#6a6256;max-width:54ch;}
+@media(max-width:768px){
+  .hst-s5-grid{grid-template-columns:1fr;}
+  .hst-s5-sticky{position:static;}
+}
+{% endstylesheet %}
+
+<section id="s5" style="scroll-margin-top:54px;background:#f4efe6;color:#1c1813;font-family:'Newsreader',Georgia,serif;">
+  <div class="hst-s5-wrap">
+    <div class="hst-s5-grid">
+      <div class="hst-s5-sticky">
+        <div class="hst-s5-label">05 - THE METHOD</div>
+        <h2 class="hst-s5-h2">The body responds to signals faster than to instructions.</h2>
+        <p class="hst-s5-p">Repeated, coherent sensory signalling teaches the nervous system where one chapter ends and the next begins. Ritual Science is the disciplined study of those signals.</p>
+        <a href="https://mirellis.in/pages/the-method" class="hst-s5-meth-link">READ THE METHOD IN FULL &#8594;</a>
+      </div>
+      <div class="hst-s5-principles">
+        <div class="hst-s5-principle">
+          <div class="hst-s5-prin-num">01</div>
+          <div>
+            <div class="hst-s5-prin-title">Signal over instruction</div>
+            <p class="hst-s5-prin-body">A sensory cue reaches the nervous system before a conscious decision can. We act on the cue, not on willpower.</p>
+          </div>
+        </div>
+        <div class="hst-s5-principle">
+          <div class="hst-s5-prin-num">02</div>
+          <div>
+            <div class="hst-s5-prin-title">Coherence over intensity</div>
+            <p class="hst-s5-prin-body">Cues aligned across light, scent, temperature and sound outperform any single channel, however strong.</p>
+          </div>
+        </div>
+        <div class="hst-s5-principle">
+          <div class="hst-s5-prin-num">03</div>
+          <div>
+            <div class="hst-s5-prin-title">Repetition shortens latency</div>
+            <p class="hst-s5-prin-body">The interval between the signal and the state it opens narrows each time the passage is repeated.</p>
+          </div>
+        </div>
+        <div class="hst-s5-principle">
+          <div class="hst-s5-prin-num">04</div>
+          <div>
+            <div class="hst-s5-prin-title">Observation over assertion</div>
+            <p class="hst-s5-prin-body">Nothing is published until it is measured. The Observatory keeps the record so that claims can be retired.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Mirellis S5",
+  "settings": [],
+  "presets": [{"name": "Mirellis S5"}]
+}
+{% endschema %}

@@ -1,0 +1,202 @@
+{%- comment -%}
+  MIRELLIS — ASSESSMENT
+  Seven questions · Client-side only · Redirect to /pages/assessment-result?t=[code]
+{%- endcomment -%}
+
+{{ 'assessment.css' | asset_url | stylesheet_tag }}
+
+<div class="assess">
+
+  <div class="assess__header">
+    <div class="assess__progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="7">
+      <div class="assess__progress-fill" id="assess-progress-fill"></div>
+    </div>
+    <p class="assess__counter ml-supporting-text" id="assess-counter" aria-live="polite"></p>
+  </div>
+
+  <div class="assess__body">
+    <div class="assess__question-wrap" id="assess-question-wrap">
+      <h1 class="assess__question" id="assess-question-text"></h1>
+      <div class="assess__options" id="assess-options" role="list"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var QUESTIONS = [
+    {
+      text: "How would you describe the first 15 minutes after waking?",
+      options: [
+        { text: "Alert and oriented — I wake up ready to move", sw: 0, wr: 0, str: 0 },
+        { text: "Slow but undisturbed — I find my rhythm without urgency", sw: 1, wr: 0, str: 0 },
+        { text: "Already reactive — phone, tasks, or urgency arrives before I am ready", sw: 2, wr: 0, str: 0 },
+        { text: "Disoriented and resistant — the day begins before I arrive in it", sw: 2, wr: 0, str: 1 }
+      ]
+    },
+    {
+      text: "At what point in the morning do you feel fully present?",
+      options: [
+        { text: "Within 30 minutes of waking", sw: 0, wr: 0, str: 0 },
+        { text: "After coffee, movement, or routine — within the first hour", sw: 1, wr: 0, str: 0 },
+        { text: "Mid-morning, once work has started", sw: 2, wr: 0, str: 0 },
+        { text: "Rarely — the morning passes in a kind of managed fog", sw: 2, wr: 0, str: 1 }
+      ]
+    },
+    {
+      text: "When your last work task ends, what happens internally?",
+      options: [
+        { text: "I disengage clearly — work ends and I feel it end", sw: 0, wr: 0, str: 0 },
+        { text: "It takes 30–60 minutes, but I do eventually switch off", sw: 0, wr: 1, str: 0 },
+        { text: "Work continues in my mind — replays, plans, unfinished threads", sw: 0, wr: 2, str: 0 },
+        { text: "I don't notice when work ends anymore — it blurs into everything else", sw: 0, wr: 2, str: 1 }
+      ]
+    },
+    {
+      text: "How would you describe the hours between finishing work and sleeping?",
+      options: [
+        { text: "Genuinely restful — I decompress and feel recovered", sw: 0, wr: 0, str: 0 },
+        { text: "Mild winding down — I get there eventually", sw: 0, wr: 1, str: 0 },
+        { text: "Still running — the day continues in a different form", sw: 0, wr: 2, str: 1 },
+        { text: "Exhausted but unable to stop — I keep going by habit", sw: 0, wr: 1, str: 2 }
+      ]
+    },
+    {
+      text: "How do you typically spend the last hour before sleep?",
+      options: [
+        { text: "Quiet activities — reading, stretching, or undistracted conversation", sw: 0, wr: 0, str: 0 },
+        { text: "Some screen time, but I wind down meaningfully before bed", sw: 0, wr: 0, str: 1 },
+        { text: "Screens until I am tired enough to stop", sw: 0, wr: 0, str: 2 },
+        { text: "Scrolling — not for enjoyment, but because I cannot find the exit", sw: 1, wr: 0, str: 2 }
+      ]
+    },
+    {
+      text: "When you attempt to rest in the evening, what actually happens?",
+      options: [
+        { text: "I rest genuinely — stillness arrives without effort", sw: 0, wr: 0, str: 0 },
+        { text: "It takes time but restoration eventually comes", sw: 0, wr: 0, str: 1 },
+        { text: "My body is still but my mind keeps moving", sw: 0, wr: 1, str: 2 },
+        { text: "Rest never feels like recovery — I wake where I left off", sw: 1, wr: 1, str: 2 }
+      ]
+    },
+    {
+      text: "Which of these feels most true about your typical day?",
+      options: [
+        { text: "My mornings are reactive before I have chosen to engage", sw: 2, wr: 0, str: 0 },
+        { text: "My evenings feel like continuation — not completion", sw: 0, wr: 2, str: 0 },
+        { text: "Nothing fully ends — I carry the day forward into the night", sw: 0, wr: 0, str: 2 },
+        { text: "All of the above — the whole day is one unbroken state", sw: 1, wr: 1, str: 1 }
+      ]
+    }
+  ];
+
+  var ORDER = { sw: 0, wr: 1, str: 2 };
+  var currentQ = 0;
+  var scores = { sw: 0, wr: 0, str: 0 };
+
+  function updateProgress() {
+    var fill = document.getElementById('assess-progress-fill');
+    var counter = document.getElementById('assess-counter');
+    fill.style.width = ((currentQ / QUESTIONS.length) * 100) + '%';
+    fill.parentElement.setAttribute('aria-valuenow', currentQ);
+    counter.textContent = 'Question ' + (currentQ + 1) + ' of ' + QUESTIONS.length;
+  }
+
+  function renderQuestion() {
+    var q = QUESTIONS[currentQ];
+    var wrap = document.getElementById('assess-question-wrap');
+    var qText = document.getElementById('assess-question-text');
+    var opts = document.getElementById('assess-options');
+
+    wrap.classList.add('is-exiting');
+
+    setTimeout(function () {
+      qText.textContent = q.text;
+      opts.innerHTML = '';
+
+      q.options.forEach(function (opt, i) {
+        var btn = document.createElement('button');
+        btn.className = 'assess__option';
+        btn.type = 'button';
+        btn.setAttribute('role', 'listitem');
+        btn.textContent = opt.text;
+        btn.addEventListener('click', function () { selectOption(i, opt); });
+        opts.appendChild(btn);
+      });
+
+      wrap.classList.remove('is-exiting');
+      wrap.classList.add('is-entering');
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          wrap.classList.remove('is-entering');
+        });
+      });
+    }, 220);
+  }
+
+  function selectOption(idx, opt) {
+    document.querySelectorAll('.assess__option').forEach(function (el, i) {
+      el.classList.toggle('is-selected', i === idx);
+      el.disabled = true;
+    });
+
+    scores.sw  += (opt.sw  || 0);
+    scores.wr  += (opt.wr  || 0);
+    scores.str += (opt.str || 0);
+
+    setTimeout(function () {
+      currentQ++;
+      if (currentQ < QUESTIONS.length) {
+        updateProgress();
+        renderQuestion();
+      } else {
+        finish();
+      }
+    }, 420);
+  }
+
+  function finish() {
+    document.getElementById('assess-progress-fill').style.width = '100%';
+    document.getElementById('assess-counter').textContent = 'Complete';
+
+    var ranked = Object.entries(scores)
+      .sort(function (a, b) { return b[1] - a[1] || ORDER[a[0]] - ORDER[b[0]]; });
+
+    var first  = ranked[0];
+    var second = ranked[1];
+    var code;
+
+    if (second[1] >= 2 && (first[1] - second[1]) <= 1) {
+      var pair = [first[0], second[0]]
+        .sort(function (a, b) { return ORDER[a] - ORDER[b]; });
+      code = pair.join('-');
+    } else {
+      code = first[0];
+    }
+
+    try {
+      sessionStorage.setItem('assess_result', JSON.stringify({ code: code, scores: scores }));
+    } catch (e) {}
+
+    setTimeout(function () {
+      window.location.href = '/pages/assessment-result?t=' + code;
+    }, 500);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    updateProgress();
+    renderQuestion();
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Assessment",
+  "settings": [],
+  "presets": [{ "name": "Assessment" }]
+}
+{% endschema %}

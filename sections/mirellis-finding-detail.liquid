@@ -1,0 +1,279 @@
+{%- style -%}
+@keyframes mfd-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+#mfd-progress-bar {
+  position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+  background: #9c5f3f; z-index: 9999;
+  transition: width 0.08s linear; pointer-events: none;
+}
+.mfd-wrapper {
+  max-width: 680px; margin: 0 auto; padding: 0 32px;
+}
+.mfd-breadcrumb {
+  padding: 34px 0 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #9a9081; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+}
+.mfd-breadcrumb a { color: inherit; text-decoration: none; transition: color 0.15s; }
+.mfd-breadcrumb a:hover { color: #211c16; }
+.mfd-bc-sep { color: #cfc4b4; }
+.mfd-bc-current { color: #211c16; }
+.mfd-header { padding: 56px 0 0; animation: mfd-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.mfd-eyebrow { display: flex; align-items: center; gap: 18px; margin-bottom: 30px; }
+.mfd-num { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.16em; color: #9c5f3f; }
+.mfd-rule { flex: 1; height: 1px; background: #e3d9cb; }
+.mfd-status { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: #9a9081; }
+.mfd-ttag {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-family: 'IBM Plex Mono', monospace; font-size: 13px;
+  letter-spacing: 0.18em; text-transform: uppercase; color: #5c5349; margin-bottom: 26px;
+}
+.mfd-ttag-arrow { color: #9c5f3f; font-size: 15px; }
+.mfd-title {
+  font-family: var(--font-heading-family, Georgia, serif); font-weight: 400;
+  font-size: clamp(36px, 5.5vw, 58px); line-height: 1.04;
+  letter-spacing: -0.018em; color: #1c1812; margin-bottom: 28px;
+}
+.mfd-lead {
+  font-family: var(--font-heading-family, Georgia, serif); font-weight: 300;
+  font-size: clamp(18px, 2.2vw, 23px); line-height: 1.5; color: #6b6155; max-width: 560px;
+}
+.mfd-meta {
+  margin: 48px 0 0; padding: 20px 0;
+  border-top: 1px solid #e7ded2; border-bottom: 1px solid #e7ded2;
+  display: flex; flex-wrap: wrap; gap: 36px;
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+}
+.mfd-meta-lbl { color: #c2b7a6; margin-bottom: 6px; }
+.mfd-meta-val { color: #5c5349; }
+.mfd-article { padding: 64px 0 0; }
+.mfd-sec { margin-bottom: 64px; }
+.mfd-sec--last { margin-bottom: 24px; }
+.mfd-sec-label {
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+  letter-spacing: 0.16em; text-transform: uppercase; color: #9c5f3f; margin-bottom: 22px;
+}
+.mfd-body {
+  font-family: var(--font-heading-family, Georgia, serif); font-weight: 400;
+  font-size: 20px; line-height: 1.72; color: #332d25;
+}
+.mfd-body + .mfd-body { margin-top: 24px; }
+.mfd-pq { margin: 0 0 64px; padding: 8px 0 8px 28px; border-left: 2px solid #9c5f3f; }
+.mfd-pq p {
+  font-family: var(--font-heading-family, Georgia, serif); font-style: italic;
+  font-weight: 400; font-size: 28px; line-height: 1.4; color: #1c1812;
+}
+.mfd-diagram { margin: 0 0 64px; padding: 44px 36px; background: #f4eee6; border: 1px solid #e7ded2; }
+.mfd-diagram-inner { display: flex; align-items: center; justify-content: center; }
+.mfd-dnode { text-align: center; flex: 1; }
+.mfd-ddot { width: 13px; height: 13px; border-radius: 50%; margin: 0 auto 16px; }
+.mfd-ddot--work { background: #c08a5e; }
+.mfd-ddot--recovery { background: #7c8a86; }
+.mfd-dlabel {
+  font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+  letter-spacing: 0.16em; text-transform: uppercase; color: #5c5349;
+}
+.mfd-dsub {
+  font-family: var(--font-heading-family, Georgia, serif); font-style: italic;
+  font-size: 15px; color: #9a9081; margin-top: 6px;
+}
+.mfd-dline { flex: 1.2; height: 1px; background: #d8cdba; position: relative; }
+.mfd-dline::after { content: '\2192'; position: absolute; right: -2px; top: -9px; color: #9c5f3f; font-size: 16px; }
+.mfd-diagram figcaption {
+  text-align: center; margin-top: 30px;
+  font-family: 'IBM Plex Mono', monospace; font-size: 10.5px;
+  letter-spacing: 0.12em; text-transform: uppercase; color: #a89d8c;
+}
+.mfd-loop { margin: 80px 0 0; padding: 52px 0; border-top: 1px solid #e7ded2; }
+.mfd-loop-title {
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: #9a9081; margin-bottom: 34px; text-align: center;
+}
+.mfd-loop-steps { display: flex; flex-direction: column; align-items: center; }
+.mfd-loop-step {
+  font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+  letter-spacing: 0.14em; text-transform: uppercase; padding: 9px 0; color: #5c5349;
+}
+.mfd-loop-step--finding { color: #9c5f3f; }
+.mfd-loop-arrow { color: #cfc4b4; font-size: 13px; font-family: 'IBM Plex Mono', monospace; }
+.mfd-loop-note {
+  text-align: center; margin-top: 34px;
+  font-family: var(--font-heading-family, Georgia, serif); font-style: italic;
+  font-size: 16px; color: #9a9081;
+}
+.mfd-next {
+  display: block; margin: 40px 0 96px; padding: 34px;
+  background: #211c16; color: #f4eee6; text-decoration: none; transition: background 0.15s;
+}
+.mfd-next:hover { background: #2c251c; }
+.mfd-next-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.mfd-next-prefix {
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+  letter-spacing: 0.16em; text-transform: uppercase; color: #b0a48f; margin-bottom: 12px;
+}
+.mfd-next-trans {
+  font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+  letter-spacing: 0.16em; text-transform: uppercase; color: #c8975f; margin-bottom: 14px;
+}
+.mfd-next-title {
+  font-family: var(--font-heading-family, Georgia, serif); font-size: 26px; line-height: 1.2; color: #f7f1e8;
+}
+.mfd-next-arrow {
+  font-family: var(--font-heading-family, Georgia, serif); font-size: 30px; color: #c8975f; flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  .mfd-wrapper { padding: 0 20px; }
+  .mfd-title { font-size: 32px; }
+  .mfd-lead { font-size: 18px; }
+  .mfd-meta { gap: 20px; }
+  .mfd-pq p { font-size: 22px; }
+  .mfd-diagram { padding: 28px 20px; }
+  .mfd-next { padding: 24px 20px; }
+  .mfd-next-title { font-size: 20px; }
+}
+{%- endstyle -%}
+
+<div id="mfd-progress-bar" aria-hidden="true"></div>
+
+<div class="mfd-wrapper">
+
+  <nav class="mfd-breadcrumb" aria-label="Breadcrumb">
+    <a href="/pages/the-observatory">Observatory</a>
+    <span class="mfd-bc-sep" aria-hidden="true">/</span>
+    <a href="/pages/findings">Findings</a>
+    <span class="mfd-bc-sep" aria-hidden="true">/</span>
+    <span class="mfd-bc-current" aria-current="page">Finding 001</span>
+  </nav>
+
+  <div class="mfd-header">
+    <div class="mfd-eyebrow">
+      <span class="mfd-num">FINDING 001</span>
+      <span class="mfd-rule" aria-hidden="true"></span>
+      <span class="mfd-status">STATUS &#x2014; OPEN</span>
+    </div>
+    <div class="mfd-ttag" aria-label="Transition: Work to Recovery">
+      <span>Work</span>
+      <span class="mfd-ttag-arrow" aria-hidden="true">&#x2192;</span>
+      <span>Recovery</span>
+    </div>
+    <h1 class="mfd-title">The Problem May<br>Not Be Sleep</h1>
+    <p class="mfd-lead">Many people describe their difficulty as a problem with sleep. The observations suggest something earlier in the day may be failing first &#x2014; and that the night inherits a state it did not create.</p>
+  </div>
+
+  <div class="mfd-meta" role="list" aria-label="Finding metadata">
+    <div role="listitem"><div class="mfd-meta-lbl">Type</div><div class="mfd-meta-val">Foundational Document</div></div>
+    <div role="listitem"><div class="mfd-meta-lbl">Domain</div><div class="mfd-meta-val">Human State Transitions</div></div>
+    <div role="listitem"><div class="mfd-meta-lbl">Confidence</div><div class="mfd-meta-val">Provisional</div></div>
+    <div role="listitem"><div class="mfd-meta-lbl">Published</div><div class="mfd-meta-val">Observatory Archive</div></div>
+  </div>
+
+  <article class="mfd-article">
+
+    <section class="mfd-sec">
+      <div class="mfd-sec-label">01 &#x2014; The Observation</div>
+      <p class="mfd-body">Across the accounts we collect, a consistent description appears. The day ends, but the person does not. Work concludes on a calendar and on a screen, yet the internal state it produced continues without interruption.</p>
+      <p class="mfd-body">People rarely report this as a daytime problem. They report it at night, as an inability to fall &#x2014; or to stay &#x2014; asleep. The complaint arrives late, but its cause may arrive early.</p>
+    </section>
+
+    <section class="mfd-sec">
+      <div class="mfd-sec-label">02 &#x2014; The Pattern</div>
+      <p class="mfd-body">When many of these accounts are placed side by side, a shape emerges. The boundary between work and rest is observed externally &#x2014; a closed laptop, a commute, a doorway &#x2014; but is rarely observed internally.</p>
+      <p class="mfd-body">The nervous system appears to carry activation across that boundary. What was useful during the day &#x2014; vigilance, readiness, a forward lean &#x2014; does not switch off simply because the work did.</p>
+    </section>
+
+    <blockquote class="mfd-pq">
+      <p>Work often ends externally while remaining active internally.</p>
+    </blockquote>
+
+    <section class="mfd-sec">
+      <div class="mfd-sec-label">03 &#x2014; A Closer Look &#xB7; The Transition That Fails</div>
+      <p class="mfd-body">The Observatory studies transitions rather than states. A state can be measured at a single moment. A transition can only be observed as it moves.</p>
+      <p class="mfd-body">The transition from work to recovery seems to be one that modern life no longer marks. There is often no signal that the day is complete &#x2014; no equivalent of the closing shop, the dark office, the whistle. Without that signal, the body may have no reason to stand down.</p>
+    </section>
+
+    <figure class="mfd-diagram">
+      <div class="mfd-diagram-inner" role="img" aria-label="Diagram: Work (activated) to Recovery (stood down)">
+        <div class="mfd-dnode">
+          <div class="mfd-ddot mfd-ddot--work"></div>
+          <div class="mfd-dlabel">Work</div>
+          <div class="mfd-dsub">activated</div>
+        </div>
+        <div class="mfd-dline" aria-hidden="true"></div>
+        <div class="mfd-dnode">
+          <div class="mfd-ddot mfd-ddot--recovery"></div>
+          <div class="mfd-dlabel">Recovery</div>
+          <div class="mfd-dsub">stood down</div>
+        </div>
+      </div>
+      <figcaption>The unmarked transition &#x2014; observed externally, rarely internally</figcaption>
+    </figure>
+
+    <section class="mfd-sec">
+      <div class="mfd-sec-label">04 &#x2014; Interpretation</div>
+      <p class="mfd-body">If this reading is correct, then the difficulty described as &#x201C;difficulty sleeping&#x201D; may be better described as difficulty ending. The night is asked to perform a transition that the evening never began.</p>
+      <p class="mfd-body">This does not mean sleep is unimportant. It means sleep may sit downstream of a step that is missing earlier &#x2014; the deliberate closing of the day.</p>
+    </section>
+
+    <section class="mfd-sec mfd-sec--last">
+      <div class="mfd-sec-label">05 &#x2014; What This Suggests</div>
+      <p class="mfd-body">The Observatory does not prescribe. It observes, and it publishes what appears durable across enough accounts to warrant explanation.</p>
+      <p class="mfd-body">What this Finding suggests is narrow: that attention may be better placed on the transition out of work than on the hours of sleep themselves. A day that is allowed to end may produce a night that does not have to be fought.</p>
+    </section>
+
+  </article>
+
+  <section class="mfd-loop" aria-labelledby="mfd-loop-title">
+    <div class="mfd-loop-title" id="mfd-loop-title">How a Finding is Formed</div>
+    <div class="mfd-loop-steps" role="list">
+      <div class="mfd-loop-step" role="listitem">Observation</div>
+      <div class="mfd-loop-arrow" aria-hidden="true">&#x2193;</div>
+      <div class="mfd-loop-step" role="listitem">Pattern</div>
+      <div class="mfd-loop-arrow" aria-hidden="true">&#x2193;</div>
+      <div class="mfd-loop-step" role="listitem">Interpretation</div>
+      <div class="mfd-loop-arrow" aria-hidden="true">&#x2193;</div>
+      <div class="mfd-loop-step mfd-loop-step--finding" role="listitem">Finding</div>
+      <div class="mfd-loop-arrow" aria-hidden="true">&#x2193;</div>
+      <div class="mfd-loop-step" role="listitem">New Observation</div>
+    </div>
+    <p class="mfd-loop-note">This Finding remains open. New observations may refine it.</p>
+  </section>
+
+  <a href="/pages/finding-002" class="mfd-next" aria-label="Next: Finding 002">
+    <div class="mfd-next-inner">
+      <div>
+        <div class="mfd-next-prefix">Next &#xB7; Finding 002</div>
+        <div class="mfd-next-trans">Sleep &#x2192; Wakefulness</div>
+        <div class="mfd-next-title">The First 30 Minutes After Waking Are Not Like the Rest of the Day</div>
+      </div>
+      <span class="mfd-next-arrow" aria-hidden="true">&#x2192;</span>
+    </div>
+  </a>
+
+</div>
+
+<script>
+(function() {
+  var bar = document.getElementById('mfd-progress-bar');
+  if (!bar) return;
+  function update() {
+    var el = document.scrollingElement || document.documentElement;
+    var max = el.scrollHeight - el.clientHeight;
+    bar.style.width = (max > 0 ? (el.scrollTop / max) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Finding Detail",
+  "class": "mfd-section",
+  "settings": [],
+  "presets": [{ "name": "Finding Detail" }]
+}
+{% endschema %}

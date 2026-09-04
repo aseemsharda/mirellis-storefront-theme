@@ -1,0 +1,255 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "mirellis_pathway_hero_3EjHTN": {
+      "type": "mirellis-pathway-hero",
+      "name": "Mirellis Pathway Hero",
+      "settings": {
+        "label": "EVENING RECOVERY",
+        "heading": "Your body may be resting while your mind is still continuing the day.",
+        "text": "<p>Many people today experience a quieter form of exhaustion: being physically tired while mentally unable to fully slow down.</p>",
+        "button_label": "Explore What May Be Happening",
+        "button_link": ""
+      }
+    },
+    "mirellis_recognition_JXRGdN": {
+      "type": "mirellis-recognition",
+      "blocks": {
+        "card_Wi4VF8": {
+          "type": "card",
+          "settings": {
+            "title": "Physically tired. Mentally active.",
+            "text": "Even after the body slows down, attention may continue moving through unfinished thoughts, stimulation, and anticipatory loops."
+          }
+        },
+        "card_Hq8an8": {
+          "type": "card",
+          "settings": {
+            "title": "Physically tired. Mentally active.",
+            "text": "Even after the body slows down, attention may continue moving through unfinished thoughts, stimulation, and anticipatory loops."
+          }
+        },
+        "card_3CT7BD": {
+          "type": "card",
+          "settings": {
+            "title": "Physically tired. Mentally active.",
+            "text": "Even after the body slows down, attention may continue moving through unfinished thoughts, stimulation, and anticipatory loops."
+          }
+        }
+      },
+      "block_order": [
+        "card_Wi4VF8",
+        "card_Hq8an8",
+        "card_3CT7BD"
+      ],
+      "name": "Mirellis Recognition",
+      "settings": {
+        "eyebrow": "RECOGNITION",
+        "heading": "Modern exhaustion is not always loud.",
+        "intro": "<p>Many people today are physically inactive by evening, yet mentally unable to fully slow down. Attention often continues long after the body has stopped moving.</p>"
+      }
+    },
+    "mirellis_atmospheric_interval_aBeGBb": {
+      "type": "mirellis-atmospheric-interval",
+      "name": "Atmospheric Interval",
+      "settings": {
+        "image": "shopify://shop_images/closing-image-mirellis.png",
+        "quote": "Not all exhaustion is visible.",
+        "subtle": "A quieter transition"
+      }
+    },
+    "mirellis_transition_explainer_HUpbp4": {
+      "type": "mirellis-transition-explainer",
+      "name": "Transition Flow",
+      "settings": {
+        "label": "TRANSITIONS",
+        "heading": "Modern life often removes the space between states.",
+        "text": "<p>Many people today move directly from stimulation into more stimulation — without clear transitions between focus, recovery, slowing, and rest.</p><p>Over time, the nervous system may begin carrying attention continuously across the day.</p>"
+      }
+    },
+    "mirellis_state_map_KYJ3Ej": {
+      "type": "mirellis-state-map",
+      "name": "State Map",
+      "settings": {
+        "label": "STATE ORIENTATION",
+        "heading": "Modern exhaustion often begins long before sleep.",
+        "text": "<p>Many people today move through stimulation continuously without fully completing the transitions that help the nervous system slow down and recalibrate.</p>"
+      }
+    },
+    "mirellis_protocol_sequence_8wAEVD": {
+      "type": "mirellis-protocol-sequence",
+      "blocks": {
+        "step_tGXW8e": {
+          "type": "step",
+          "settings": {
+            "number": "01",
+            "title": "Reduce informational intensity",
+            "description": "Move away from rapid scrolling, endless switching, and continuous incoming stimulation."
+          }
+        },
+        "step_hdnFY9": {
+          "type": "step",
+          "settings": {
+            "number": "01",
+            "title": "Reduce informational intensity",
+            "description": "Move away from rapid scrolling, endless switching, and continuous incoming stimulation."
+          }
+        },
+        "step_y3UUFH": {
+          "type": "step",
+          "settings": {
+            "number": "01",
+            "title": "Reduce informational intensity",
+            "description": "Move away from rapid scrolling, endless switching, and continuous incoming stimulation."
+          }
+        },
+        "step_kQxnGg": {
+          "type": "step",
+          "settings": {
+            "number": "01",
+            "title": "Reduce informational intensity",
+            "description": "Move away from rapid scrolling, endless switching, and continuous incoming stimulation."
+          }
+        },
+        "step_eBEVgY": {
+          "type": "step",
+          "settings": {
+            "number": "01",
+            "title": "Reduce informational intensity",
+            "description": "Move away from rapid scrolling, endless switching, and continuous incoming stimulation."
+          }
+        },
+        "step_FyjTMX": {
+          "type": "step",
+          "settings": {
+            "number": "01",
+            "title": "Reduce informational intensity",
+            "description": "Move away from rapid scrolling, endless switching, and continuous incoming stimulation."
+          }
+        }
+      },
+      "block_order": [
+        "step_tGXW8e",
+        "step_hdnFY9",
+        "step_y3UUFH",
+        "step_kQxnGg",
+        "step_eBEVgY",
+        "step_FyjTMX"
+      ],
+      "name": "Protocol Sequence",
+      "settings": {
+        "label": "EVENING DESCENT",
+        "heading": "A slower transition into rest often begins before sleep itself.",
+        "text": "<p>Many nervous systems today move directly from stimulation into attempted rest. Gradual slowing may help create clearer transitions into restoration.</p>"
+      }
+    },
+    "mirellis_product_context_ktQRAB": {
+      "type": "mirellis-product-context",
+      "name": "Product Context",
+      "settings": {
+        "heading": "Stillness was designed as a slower evening ritual."
+      }
+    },
+    "mirellis_expandable_depth_gf84L7": {
+      "type": "mirellis-expandable-depth",
+      "blocks": {
+        "depth_WiRwd8": {
+          "type": "depth",
+          "settings": {
+            "title": "Why attention continues into rest",
+            "content": "<p>Modern environments often maintain low-grade attentional engagement long after physical activity has stopped. Notifications, scrolling, anticipatory thinking, and unresolved cognitive loops may contribute to continued internal activation.</p>"
+          }
+        },
+        "depth_dRnrDh": {
+          "type": "depth",
+          "settings": {
+            "title": "Why attention continues into rest",
+            "content": "<p>Modern environments often maintain low-grade attentional engagement long after physical activity has stopped. Notifications, scrolling, anticipatory thinking, and unresolved cognitive loops may contribute to continued internal activation.</p>"
+          }
+        },
+        "depth_P3BbJC": {
+          "type": "depth",
+          "settings": {
+            "title": "Why attention continues into rest",
+            "content": "<p>Modern environments often maintain low-grade attentional engagement long after physical activity has stopped. Notifications, scrolling, anticipatory thinking, and unresolved cognitive loops may contribute to continued internal activation.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "depth_WiRwd8",
+        "depth_dRnrDh",
+        "depth_P3BbJC"
+      ],
+      "name": "Expandable Depth",
+      "settings": {
+        "label": "OPTIONAL DEPTH",
+        "heading": "There may be deeper mechanisms underneath modern exhaustion.",
+        "text": "<p>For those who wish to explore further, modern nervous-system research increasingly points toward the role of transitions, environmental pacing, attentional continuation, and sensory signaling in how restoration is experienced.</p>"
+      }
+    },
+    "mirellis_guided_pathways_xbRzMc": {
+      "type": "mirellis-guided-pathways",
+      "blocks": {
+        "pathway_LXrAQx": {
+          "type": "pathway",
+          "settings": {
+            "title": "Why Evenings No Longer Feel Restful",
+            "text": "Modern evenings increasingly remove the slower transitions that once helped the nervous system descend.",
+            "link": ""
+          }
+        },
+        "pathway_MReCxj": {
+          "type": "pathway",
+          "settings": {
+            "title": "Why Evenings No Longer Feel Restful",
+            "text": "Modern evenings increasingly remove the slower transitions that once helped the nervous system descend.",
+            "link": ""
+          }
+        },
+        "pathway_6Gw6zb": {
+          "type": "pathway",
+          "settings": {
+            "title": "Why Evenings No Longer Feel Restful",
+            "text": "Modern evenings increasingly remove the slower transitions that once helped the nervous system descend.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "pathway_LXrAQx",
+        "pathway_MReCxj",
+        "pathway_6Gw6zb"
+      ],
+      "name": "Guided Pathways",
+      "settings": {
+        "label": "CONTINUE EXPLORING",
+        "heading": "Related pathways and deeper explorations."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "mirellis_pathway_hero_3EjHTN",
+    "mirellis_recognition_JXRGdN",
+    "mirellis_atmospheric_interval_aBeGBb",
+    "mirellis_transition_explainer_HUpbp4",
+    "mirellis_state_map_KYJ3Ej",
+    "mirellis_protocol_sequence_8wAEVD",
+    "mirellis_product_context_ktQRAB",
+    "mirellis_expandable_depth_gf84L7",
+    "mirellis_guided_pathways_xbRzMc"
+  ]
+}

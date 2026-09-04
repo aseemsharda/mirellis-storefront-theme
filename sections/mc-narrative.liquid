@@ -1,0 +1,95 @@
+{% stylesheet %}
+[data-mc-reveal]{opacity:0;transform:translateY(18px);transition:opacity 0.85s cubic-bezier(.2,.7,.2,1),transform 0.85s cubic-bezier(.2,.7,.2,1)}
+[data-mc-reveal].mc-on{opacity:1;transform:none}
+@media(max-width:768px){.mc-narr-grid{grid-template-columns:1fr!important}}
+{% endstylesheet %}
+
+<section style="background:{{ section.settings.bg_color }};color:{{ section.settings.text_color }};overflow:hidden">
+  <div style="max-width:1080px;margin:0 auto;padding:108px 32px 96px">
+
+    <p data-mc-reveal style="margin:0 0 38px;font-family:'Mulish',sans-serif;font-size:11px;letter-spacing:0.26em;text-transform:uppercase;color:{{ section.settings.eyebrow_color }}">{{ section.settings.eyebrow }}</p>
+
+    <h2 data-mc-reveal style="margin:0;font-weight:300;font-size:46px;line-height:1.18;letter-spacing:-0.01em;max-width:22ch">{{ section.settings.heading }}</h2>
+
+    <p data-mc-reveal style="margin:34px 0 0;font-size:21px;line-height:1.6;color:#b6ab9b;max-width:40ch">{{ section.settings.subtext_1 }}</p>
+    <p data-mc-reveal style="margin:14px 0 0;font-size:21px;line-height:1.6;color:{{ section.settings.text_color }};max-width:40ch;font-style:italic">{{ section.settings.subtext_2 }}</p>
+
+    {% assign before_items = section.blocks | where: 'type', 'before_item' %}
+    {% assign after_items = section.blocks | where: 'type', 'after_item' %}
+    {% if before_items.size > 0 or after_items.size > 0 %}
+    <div data-mc-reveal style="display:grid;grid-template-columns:1fr 1fr;gap:1px;margin:72px 0 0;background:#39322a;border:1px solid #39322a;border-radius:6px;overflow:hidden" class="mc-narr-grid">
+      <div style="background:{{ section.settings.bg_color }};padding:38px 36px">
+        <p style="margin:0 0 26px;font-family:'Mulish',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#8a7d6b">{{ section.settings.col_left_label }}</p>
+        <div style="display:flex;flex-direction:column;gap:0">
+          {% for block in section.blocks %}
+            {% if block.type == 'before_item' %}
+              <div {{ block.shopify_attributes }} style="display:flex;align-items:center;gap:14px;padding:11px 0">
+                <span style="width:7px;height:7px;border-radius:50%;background:#6b6052;flex:none"></span>
+                <span style="font-size:20px;color:#b6ab9b">{{ block.settings.label }}</span>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <div style="background:#262019;padding:38px 36px">
+        <p style="margin:0 0 26px;font-family:'Mulish',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:{{ section.settings.eyebrow_color }}">{{ section.settings.col_right_label }}</p>
+        <div style="display:flex;flex-direction:column;gap:0">
+          {% for block in section.blocks %}
+            {% if block.type == 'after_item' %}
+              <div {{ block.shopify_attributes }} style="display:flex;align-items:center;gap:14px;padding:11px 0">
+                <span style="width:7px;height:7px;border-radius:50%;background:#bb7a33;flex:none"></span>
+                <span style="font-size:20px;color:{{ section.settings.text_color }}">{{ block.settings.label }}</span>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <div data-mc-reveal style="margin:78px auto 0;max-width:30ch;text-align:center">
+      <p style="margin:0;font-size:27px;line-height:1.45;font-style:italic;color:{{ section.settings.text_color }}">{{ section.settings.quote }}</p>
+      <p style="margin:22px 0 0;font-family:'Mulish',sans-serif;font-size:12px;letter-spacing:0.14em;color:{{ section.settings.eyebrow_color }}">{{ section.settings.quote_note }}</p>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){if(!window.mcBaseInit){window.mcBaseInit=true;document.addEventListener('DOMContentLoaded',function(){var io=null;if('IntersectionObserver' in window){io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('mc-on');io.unobserve(e.target);}});},{threshold:0.12});}document.querySelectorAll('[data-mc-reveal]').forEach(function(el){if(io){io.observe(el);}else{el.classList.add('mc-on');}});});}})();
+</script>
+
+{% schema %}
+{
+  "name": "MC — Narrative",
+  "settings": [
+    {"type": "color", "id": "bg_color", "label": "Background", "default": "#211d18"},
+    {"type": "color", "id": "text_color", "label": "Text color", "default": "#ece3d6"},
+    {"type": "color", "id": "eyebrow_color", "label": "Eyebrow color", "default": "#bb8b4d"},
+    {"type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The first transition"},
+    {"type": "textarea", "id": "heading", "label": "Heading", "default": "Most mornings begin with a screen. Messages. Notifications. News."},
+    {"type": "text", "id": "subtext_1", "label": "Subtext (muted)", "default": "The nervous system receives the world before it receives itself."},
+    {"type": "text", "id": "subtext_2", "label": "Subtext (italic)", "default": "Morning Clarity exists to restore the moment before that happens."},
+    {"type": "text", "id": "col_left_label", "label": "Left column label", "default": "Most mornings"},
+    {"type": "text", "id": "col_right_label", "label": "Right column label", "default": "A different beginning"},
+    {"type": "textarea", "id": "quote", "label": "Closing quote", "default": "The body waking the mind. Not the mind forcing the body."},
+    {"type": "text", "id": "quote_note", "label": "Quote note", "default": "Five to ten minutes · before screens, before caffeine"}
+  ],
+  "blocks": [
+    {
+      "type": "before_item",
+      "name": "Before item",
+      "settings": [
+        {"type": "text", "id": "label", "label": "Label"}
+      ]
+    },
+    {
+      "type": "after_item",
+      "name": "After item",
+      "settings": [
+        {"type": "text", "id": "label", "label": "Label"}
+      ]
+    }
+  ],
+  "presets": [{"name": "MC — Narrative"}]
+}
+{% endschema %}

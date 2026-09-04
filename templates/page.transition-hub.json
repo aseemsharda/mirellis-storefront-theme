@@ -1,0 +1,50 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "transition-hub-hero",
+      "settings": {}
+    },
+    "featured_findings": {
+      "type": "transition-featured-findings",
+      "settings": {}
+    },
+    "explanation": {
+      "type": "transition-explanation",
+      "settings": {}
+    },
+    "published_research": {
+      "type": "transition-published-research",
+      "settings": {}
+    },
+    "research_archive": {
+      "type": "transition-research-archive",
+      "settings": {}
+    },
+    "dossier_integration": {
+      "type": "transition-dossier-integration",
+      "settings": {}
+    },
+    "related_transitions": {
+      "type": "transition-related-transitions",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "featured_findings",
+    "explanation",
+    "published_research",
+    "research_archive",
+    "dossier_integration",
+    "related_transitions"
+  ]
+}

@@ -1,0 +1,505 @@
+/* =========================================
+   MIRELLIS — RITUALS PAGE FOUNDATION
+========================================= */
+
+:root {
+
+  /* Typography */
+  --ritual-heading: clamp(52px, 7vw, 96px);
+  --ritual-heading-mobile: clamp(34px, 9vw, 54px);
+
+  --ritual-body: 21px;
+  --ritual-body-mobile: 18px;
+
+  --ritual-line-height: 1.9;
+
+  /* Widths */
+  --ritual-reading-width: 760px;
+  --ritual-wide-width: 1600px;
+
+  /* Colors */
+  --ritual-bg: #f7f4ef;
+  --ritual-text: #1f1f1c;
+  --ritual-muted: #6f6a63;
+  --ritual-border: rgba(0,0,0,0.08);
+
+  /* Spacing */
+  --ritual-space-xl: 220px;
+  --ritual-space-lg: 180px;
+  --ritual-space-md: 140px;
+  --ritual-space-sm: 100px;
+
+  /* Shadows */
+  --ritual-soft-shadow:
+    0 10px 30px rgba(0,0,0,0.04);
+
+  /* Transition */
+  --ritual-transition:
+    700ms cubic-bezier(0.22, 1, 0.36, 1);
+
+}
+
+
+/* =========================================
+   GLOBAL PAGE FOUNDATION
+========================================= */
+
+.rituals-page {
+
+  background: var(--ritual-bg);
+  color: var(--ritual-text);
+
+  overflow-x: hidden;
+
+}
+
+
+/* =========================================
+   GLOBAL SECTION SPACING
+========================================= */
+
+.ritual-section {
+
+  position: relative;
+
+  padding-top: var(--ritual-space-lg);
+  padding-bottom: var(--ritual-space-lg);
+
+}
+
+.ritual-section--large {
+
+  padding-top: var(--ritual-space-xl);
+  padding-bottom: var(--ritual-space-xl);
+
+}
+
+.ritual-section--medium {
+
+  padding-top: var(--ritual-space-md);
+  padding-bottom: var(--ritual-space-md);
+
+}
+
+.ritual-section--quiet {
+
+  padding-top: 260px;
+  padding-bottom: 260px;
+
+}
+
+
+/* =========================================
+   CONTAINERS
+========================================= */
+
+.ritual-container {
+
+  width: 100%;
+  max-width: 1600px;
+
+  margin: 0 auto;
+
+  padding-left: 6vw;
+  padding-right: 6vw;
+
+}
+
+.ritual-reading-width {
+
+  width: 100%;
+  max-width: var(--ritual-reading-width);
+
+}
+
+
+/* =========================================
+   TYPOGRAPHY SYSTEM
+========================================= */
+
+.ritual-eyebrow {
+
+  display: inline-block;
+
+  margin-bottom: 24px;
+
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  color: var(--ritual-muted);
+
+}
+
+.ritual-heading {
+
+  font-size: var(--ritual-heading);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+
+  font-weight: 400;
+
+  margin: 0;
+
+}
+
+.ritual-body {
+
+  font-size: var(--ritual-body);
+  line-height: var(--ritual-line-height);
+
+  color: var(--ritual-text);
+
+}
+
+.ritual-body p {
+
+  margin-top: 0;
+  margin-bottom: 38px;
+
+}
+
+.ritual-muted {
+
+  color: var(--ritual-muted);
+
+}
+
+
+/* =========================================
+   HERO SYSTEM
+========================================= */
+
+.ritual-hero {
+
+  position: relative;
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: flex-end;
+
+  overflow: hidden;
+
+}
+
+.ritual-hero__media {
+
+  position: absolute;
+  inset: 0;
+
+}
+
+.ritual-hero__media img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+}
+
+.ritual-hero__overlay {
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,0.42),
+      rgba(0,0,0,0.08),
+      rgba(0,0,0,0.02)
+    );
+
+}
+
+.ritual-hero__content {
+
+  position: relative;
+  z-index: 2;
+
+  padding-bottom: 10vh;
+
+  max-width: 680px;
+
+  color: #f5f1ea;
+
+}
+
+.ritual-hero__content .ritual-body {
+
+  color: rgba(255,255,255,0.86);
+
+}
+
+
+/* =========================================
+   EDITORIAL LAYOUTS
+========================================= */
+
+.ritual-editorial-grid {
+
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+
+  gap: 8vw;
+  align-items: center;
+
+}
+
+.ritual-editorial-grid--reverse {
+
+  grid-template-columns: 1fr 1.2fr;
+
+}
+
+.ritual-editorial-image {
+
+  position: relative;
+
+}
+
+.ritual-editorial-image img {
+
+  width: 100%;
+  height: auto;
+
+  display: block;
+
+}
+
+.ritual-editorial-content {
+
+  position: relative;
+
+}
+
+
+/* =========================================
+   RESEARCH NOTES
+========================================= */
+
+.ritual-research-grid {
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 32px;
+
+  margin-top: 80px;
+
+}
+
+.ritual-research-card {
+
+  background: rgba(255,255,255,0.52);
+
+  border: 1px solid var(--ritual-border);
+
+  padding: 42px;
+
+  box-shadow: var(--ritual-soft-shadow);
+
+  backdrop-filter: blur(10px);
+
+}
+
+.ritual-research-card h3 {
+
+  margin-top: 0;
+  margin-bottom: 18px;
+
+  font-size: 20px;
+  font-weight: 500;
+
+}
+
+
+/* =========================================
+   ECOSYSTEM GRID
+========================================= */
+
+.ritual-ecosystem-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(12, 1fr);
+
+  gap: 28px;
+
+  margin-top: 100px;
+
+}
+
+.ritual-ecosystem-card {
+
+  grid-column: span 4;
+
+  position: relative;
+
+}
+
+.ritual-ecosystem-card img {
+
+  width: 100%;
+  height: auto;
+
+  display: block;
+
+  margin-bottom: 28px;
+
+}
+
+
+/* =========================================
+   IMAGE ATMOSPHERE
+========================================= */
+
+.ritual-image-soft {
+
+  overflow: hidden;
+
+}
+
+.ritual-image-soft img {
+
+  transition: transform 2s ease;
+
+}
+
+.ritual-image-soft:hover img {
+
+  transform: scale(1.02);
+
+}
+
+
+/* =========================================
+   MOTION
+========================================= */
+
+.ritual-fade-up {
+
+  opacity: 0;
+  transform: translateY(30px);
+
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s ease;
+
+}
+
+.ritual-fade-up.is-visible {
+
+  opacity: 1;
+  transform: translateY(0);
+
+}
+
+
+/* =========================================
+   QUIET ENDING
+========================================= */
+
+.ritual-ending {
+
+  text-align: center;
+
+}
+
+.ritual-ending__line {
+
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: 1.15;
+
+  letter-spacing: -0.03em;
+
+  max-width: 900px;
+
+  margin: 0 auto;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media screen and (max-width: 989px) {
+
+  :root {
+
+    --ritual-space-xl: 160px;
+    --ritual-space-lg: 120px;
+    --ritual-space-md: 100px;
+
+  }
+
+  .ritual-heading {
+
+    font-size: var(--ritual-heading-mobile);
+    line-height: 1.04;
+
+  }
+
+  .ritual-body {
+
+    font-size: var(--ritual-body-mobile);
+
+  }
+
+  .ritual-container {
+
+    padding-left: 24px;
+    padding-right: 24px;
+
+  }
+
+  .ritual-hero {
+
+    min-height: 95vh;
+
+  }
+
+  .ritual-hero__content {
+
+    padding-bottom: 8vh;
+
+  }
+
+  .ritual-editorial-grid,
+  .ritual-editorial-grid--reverse {
+
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+
+  }
+
+  .ritual-research-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .ritual-ecosystem-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .ritual-ecosystem-card {
+
+    grid-column: auto;
+
+  }
+
+  .ritual-section--quiet {
+
+    padding-top: 180px;
+    padding-bottom: 180px;
+
+  }
+
+}

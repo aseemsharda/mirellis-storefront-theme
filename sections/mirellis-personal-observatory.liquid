@@ -1,0 +1,82 @@
+{%- comment -%}
+  MIRELLIS — PERSONAL OBSERVATORY  (fully editable in theme editor)
+  Every field exposed as a section setting. Roadmap items are item_1..item_7.
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+<div class="po">
+
+  <section class="po__hero">
+    <div class="po__inner">
+      {%- if s.eyebrow != blank -%}<div class="po__eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+      {%- if s.title != blank -%}<h1 class="po__title">{{ s.title }}</h1>{%- endif -%}
+      {%- if s.lede != blank -%}<p class="po__lede">{{ s.lede }}</p>{%- endif -%}
+      {%- if s.cta_label != blank and s.cta_url != blank -%}
+        <p class="po__cta"><a href="{{ s.cta_url }}">{{ s.cta_label }}</a></p>
+      {%- endif -%}
+    </div>
+  </section>
+
+  <section class="po__body">
+    <div class="po__inner">
+      {%- if s.today_label != blank -%}<div class="po__label">{{ s.today_label }}</div>{%- endif -%}
+      {%- if s.today_body != blank -%}<p class="po__now">{{ s.today_body }}</p>{%- endif -%}
+
+      {%- if s.will_label != blank -%}<div class="po__label">{{ s.will_label }}</div>{%- endif -%}
+      <ul class="po__list">
+        {%- for i in (1..7) -%}
+          {%- assign ik = 'item_' | append: i -%}
+          {%- assign item = section.settings[ik] -%}
+          {%- if item != blank -%}<li>{{ item }}</li>{%- endif -%}
+        {%- endfor -%}
+      </ul>
+      {%- if s.note != blank -%}<p class="po__note">{{ s.note }}</p>{%- endif -%}
+    </div>
+  </section>
+
+</div>
+
+<style>
+  .po { background: var(--ml-color-warm-paper); }
+  .po__inner { max-width: 680px; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2rem); }
+  .po__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1.75rem; }
+  .po__hero { padding-block: clamp(5rem, 10vw, 8rem) clamp(2.5rem, 5vw, 4rem); }
+  .po__title { font-size: clamp(2rem, 4.4vw, 3rem); font-weight: 300; letter-spacing: -0.01em; line-height: 1.2; color: var(--ml-color-soft-charcoal); margin: 0 0 1.5rem; max-width: 18ch; }
+  .po__lede { font-size: clamp(1.15rem, 2.4vw, 1.4rem); font-weight: 300; line-height: 1.55; color: var(--ml-color-text-secondary); max-width: 52ch; margin: 0 0 2rem; }
+  .po__cta { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0; }
+  .po__cta a { color: var(--ml-color-soft-charcoal); text-underline-offset: 3px; }
+  .po__body { padding-block: clamp(1rem, 3vw, 2rem) clamp(4rem, 8vw, 6rem); }
+  .po__label { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin: 2.5rem 0 1.25rem; padding-top: 2.5rem; border-top: 1px solid var(--ml-color-border-soft); }
+  .po__label:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  .po__now { font-size: 1.0625rem; line-height: 1.9; color: var(--ml-color-text-secondary); max-width: 58ch; margin: 0; }
+  .po__list { list-style: none; margin: 0; padding: 0; }
+  .po__list li { font-size: 1.0625rem; line-height: 1.7; color: var(--ml-color-text-secondary); padding-block: 0.85rem; border-bottom: 1px solid var(--ml-color-border-soft); }
+  .po__note { font-size: 1rem; font-style: italic; line-height: 1.8; color: var(--ml-color-text-secondary); max-width: 54ch; margin: 2.5rem 0 0; }
+</style>
+
+{% schema %}
+{
+  "name": "Personal Observatory",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Personal Observatory" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Your own transition laboratory." },
+    { "type": "inline_richtext", "id": "lede", "label": "Lede", "default": "The Observatory studies transitions across many people. The Personal Observatory turns that lens on one: you. It begins with a single instrument — the Mirror — and grows into a quiet record of how your own transitions change over time." },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Enter the Observatory Mirror →" },
+    { "type": "url", "id": "cta_url", "label": "CTA link" },
+    { "type": "header", "content": "Today" },
+    { "type": "text", "id": "today_label", "label": "Today label", "default": "What it holds today" },
+    { "type": "inline_richtext", "id": "today_body", "label": "Today body", "default": "The Mirror identifies which of the three transitions is most disrupted for you, and returns a Personal Observatory Record — a starting point, kept simple, no account required." },
+    { "type": "header", "content": "Roadmap" },
+    { "type": "text", "id": "will_label", "label": "Roadmap label", "default": "What it will hold" },
+    { "type": "inline_richtext", "id": "item_1", "label": "Item 1", "default": "Your transition history — the Mirror, repeated over time, so change becomes visible." },
+    { "type": "inline_richtext", "id": "item_2", "label": "Item 2", "default": "An observation journal — what you notice, in your own words." },
+    { "type": "inline_richtext", "id": "item_3", "label": "Item 3", "default": "A ritual tracker — the instruments you use, and when." },
+    { "type": "inline_richtext", "id": "item_4", "label": "Item 4", "default": "Outcome notes — what shifted after thirty days." },
+    { "type": "inline_richtext", "id": "item_5", "label": "Item 5", "default": "A reflection timeline — journal and outcomes on one axis." },
+    { "type": "inline_richtext", "id": "item_6", "label": "Item 6", "default": "Gentle pattern recognition — signals surfaced across your own history." },
+    { "type": "inline_richtext", "id": "item_7", "label": "Item 7", "default": "Your contribution history — what you have given back to the Observatory." },
+    { "type": "inline_richtext", "id": "note", "label": "Closing note", "default": "We are building this slowly and in the open. Nothing here tracks you for its own sake; every part exists to make a transition easier to see, and easier to cross." }
+  ],
+  "presets": [{ "name": "Personal Observatory" }]
+}
+{% endschema %}

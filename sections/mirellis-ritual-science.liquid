@@ -1,0 +1,151 @@
+{% stylesheet %}
+.homepage-signals-principle{
+  padding:120px 0;
+}
+.homepage-signals-principle .container{
+  max-width:1280px;
+  margin:0 auto;
+  padding:0 40px;
+}
+.hp-eyebrow{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:40px;
+}
+.hp-eyebrow:before{
+  content:"";
+  width:48px;
+  height:1px;
+  background:#a56a4d;
+}
+.hp-eyebrow span{
+  font-size:12px;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:#777;
+}
+.hp-grid{
+  display:grid;
+  grid-template-columns:58% 42%;
+  gap:90px;
+}
+.hp-title{
+  font-family:var(--heading-font-family);
+  font-size:78px;
+  line-height:.95;
+  margin:0 0 70px;
+}
+.hp-left .item{
+  display:grid;
+  grid-template-columns:50px 1fr;
+  gap:24px;
+  padding:28px 0;
+  border-top:1px solid rgba(0,0,0,.08);
+}
+.hp-left .item:last-child{
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+.hp-num{
+  color:#a56a4d;
+  font-size:14px;
+  font-weight:600;
+}
+.hp-text{
+  font-family:var(--heading-font-family);
+  font-size:30px;
+  line-height:1.35;
+}
+.hp-dot{
+  width:20px;
+  height:20px;
+  border:1px solid #a56a4d;
+  border-radius:50%;
+  margin-bottom:28px;
+}
+.hp-quote{
+  font-family:var(--heading-font-family);
+  font-style:italic;
+  font-size:42px;
+  line-height:1.3;
+  margin-bottom:40px;
+}
+.hp-copy{
+  font-size:19px;
+  line-height:1.8;
+  color:#666;
+  max-width:420px;
+}
+@media(max-width:989px){
+ .homepage-signals-principle{padding:80px 0;}
+ .hp-grid{grid-template-columns:1fr;gap:60px;}
+ .hp-title{font-size:48px;margin-bottom:48px;}
+ .hp-text{font-size:24px;}
+ .hp-quote{font-size:34px;}
+}
+{% endstylesheet %}
+
+<section class="homepage-signals-principle">
+  <div class="container">
+
+    <div class="hp-eyebrow">
+      <span>WHY THIS HAPPENS</span>
+    </div>
+
+    <div class="hp-grid">
+
+      <div class="hp-left">
+
+        <h2 class="hp-title">
+          The body responds<br>
+          to signals faster<br>
+          than instructions.
+        </h2>
+
+        <div class="item">
+          <div class="hp-num">01</div>
+          <div class="hp-text">A sunrise tells the body to wake.</div>
+        </div>
+
+        <div class="item">
+          <div class="hp-num">02</div>
+          <div class="hp-text">Darkness tells it to slow down.</div>
+        </div>
+
+        <div class="item">
+          <div class="hp-num">03</div>
+          <div class="hp-text">A familiar environment can create calm before a single thought appears.</div>
+        </div>
+
+      </div>
+
+      <div class="hp-right">
+
+        <div class="hp-dot"></div>
+
+        <div class="hp-quote">
+          Long before behaviour changes, the nervous system responds to signals.
+        </div>
+
+        <div class="hp-copy">
+          Modern life has become rich in stimulation, but increasingly poor in the signals that once marked beginnings, endings, recovery, and rest.
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name":"Signals Principle",
+  "settings":[],
+  "presets":[
+    {
+      "name":"Signals Principle"
+    }
+  ]
+}
+{% endschema %}

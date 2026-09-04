@@ -1,0 +1,212 @@
+{% comment %}
+Dossier Hero Section
+Hero for intervention logic dossier pages
+{% endcomment %}
+
+<section class="dossier-hero">
+  <div class="dossier-hero__container">
+    
+    <div class="dossier-hero__breadcrumb">
+      <a href="/">Observatory</a> / <a href="/pages/sleep-to-wakefulness">Sleep → Wakefulness</a>
+    </div>
+
+    <h1 class="dossier-hero__title">The Cold Exposure Protocol</h1>
+
+    <p class="dossier-hero__tagline">
+      A structured cold-water sequence to activate your nervous system and accelerate the transition from sleep to wakefulness.
+    </p>
+
+    <div class="dossier-hero__meta">
+      <div class="dossier-hero__meta-item">
+        <span class="dossier-hero__meta-label">Duration</span>
+        <span class="dossier-hero__meta-value">5–15 minutes</span>
+      </div>
+      <div class="dossier-hero__meta-item">
+        <span class="dossier-hero__meta-label">Difficulty</span>
+        <span class="dossier-hero__meta-value">Moderate</span>
+      </div>
+      <div class="dossier-hero__meta-item">
+        <span class="dossier-hero__meta-label">Equipment</span>
+        <span class="dossier-hero__meta-value">Cold water source</span>
+      </div>
+    </div>
+
+    <div class="dossier-hero__ctas">
+      <a href="#protocol" class="dossier-hero__cta dossier-hero__cta--primary">
+        View Protocol
+      </a>
+      <a href="/pages/sleep-to-wakefulness" class="dossier-hero__cta dossier-hero__cta--secondary">
+        Back to Transition Hub
+      </a>
+    </div>
+
+  </div>
+
+  <div class="dossier-hero__background"></div>
+</section>
+
+<style>
+  .dossier-hero {
+    position: relative;
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, #faf7f2 0%, #f5f2ed 100%);
+    overflow: hidden;
+  }
+
+  .dossier-hero__background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(245, 166, 35, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .dossier-hero__container {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .dossier-hero__breadcrumb {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: #999;
+    margin-bottom: 1.5rem;
+  }
+
+  .dossier-hero__breadcrumb a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .dossier-hero__breadcrumb a:hover {
+    color: #1a1a18;
+  }
+
+  .dossier-hero__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #1a1a18;
+    margin: 0 0 1rem 0;
+  }
+
+  .dossier-hero__tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #666;
+    margin: 0 0 2rem 0;
+    max-width: 700px;
+  }
+
+  .dossier-hero__meta {
+    display: flex;
+    gap: 3rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+  }
+
+  .dossier-hero__meta-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dossier-hero__meta-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #999;
+    margin-bottom: 0.5rem;
+  }
+
+  .dossier-hero__meta-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1a1a18;
+  }
+
+  .dossier-hero__ctas {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .dossier-hero__cta {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .dossier-hero__cta--primary {
+    background: #1a1a18;
+    color: #fff;
+  }
+
+  .dossier-hero__cta--primary:hover {
+    background: #333;
+  }
+
+  .dossier-hero__cta--secondary {
+    background: transparent;
+    border: 1px solid #1a1a18;
+    color: #1a1a18;
+  }
+
+  .dossier-hero__cta--secondary:hover {
+    background: #faf7f2;
+  }
+
+  @media (max-width: 768px) {
+    .dossier-hero {
+      padding: 4rem 1.5rem;
+    }
+
+    .dossier-hero__title {
+      font-size: 2.5rem;
+    }
+
+    .dossier-hero__tagline {
+      font-size: 1.1rem;
+    }
+
+    .dossier-hero__meta {
+      gap: 1.5rem;
+    }
+
+    .dossier-hero__ctas {
+      flex-direction: column;
+    }
+
+    .dossier-hero__cta {
+      width: 100%;
+      text-align: center;
+    }
+
+    .dossier-hero__background {
+      width: 250px;
+      height: 250px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Dossier Hero",
+  "settings": []
+}
+{% endschema %}

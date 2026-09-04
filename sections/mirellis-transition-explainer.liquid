@@ -1,0 +1,280 @@
+{% stylesheet %}
+.mirellis-transition {
+  position: relative;
+  padding: 7rem 2rem;
+  background:
+    linear-gradient(
+      180deg,
+      #181512 0%,
+      #151311 100%
+    );
+}
+
+.mirellis-transition__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 5rem;
+  align-items: center;
+}
+
+.mirellis-transition__label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.42);
+  margin-bottom: 1.2rem;
+}
+
+.mirellis-transition__heading {
+  font-family: var(--font-heading-family);
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: #f4efe8;
+  margin: 0 0 1.5rem;
+  font-weight: 500;
+  max-width: 680px;
+}
+
+.mirellis-transition__text {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.68);
+  max-width: 620px;
+}
+
+.mirellis-transition__flow {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mirellis-transition__step {
+  position: relative;
+  padding: 1.2rem 1.4rem;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #f4efe8;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  backdrop-filter: blur(10px);
+  transition:
+    border-color 0.35s ease,
+    background 0.35s ease,
+    transform 0.35s ease;
+}
+
+.mirellis-transition__step:hover {
+  border-color: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.045);
+  transform: translateY(-2px);
+}
+
+.mirellis-transition__arrow {
+  text-align: center;
+  color: rgba(255,255,255,0.22);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.mirellis-transition__footer {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.mirellis-transition__link {
+  display: inline-block;
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.68);
+  text-decoration: none;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.mirellis-transition__link:hover {
+  opacity: 0.58;
+  transform: translateX(3px);
+}
+
+@media screen and (max-width: 989px) {
+
+  .mirellis-transition__inner {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .mirellis-transition__flow {
+    max-width: 420px;
+  }
+
+}
+
+@media screen and (max-width: 749px) {
+
+  .mirellis-transition {
+    padding: 5rem 1.4rem;
+  }
+
+  .mirellis-transition__heading {
+    font-size: clamp(1.9rem, 9vw, 3rem);
+    line-height: 1.12;
+  }
+
+  .mirellis-transition__text {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .mirellis-transition__step {
+    padding: 1rem 1.2rem;
+    border-radius: 20px;
+  }
+
+  .mirellis-transition__footer {
+    margin-top: 2rem;
+  }
+
+}
+{% endstylesheet %}
+
+<section class="mirellis-transition">
+
+  <div class="mirellis-transition__inner">
+
+    <div class="mirellis-transition__content">
+
+      <div class="mirellis-transition__label">
+        {{ section.settings.label }}
+      </div>
+
+      <h2 class="mirellis-transition__heading">
+        {{ section.settings.heading }}
+      </h2>
+
+      <div class="mirellis-transition__text">
+        {{ section.settings.text }}
+      </div>
+
+      {% if section.settings.link_text != blank and section.settings.link_url != blank %}
+        <div class="mirellis-transition__footer">
+
+          <a
+            href="{{ section.settings.link_url }}"
+            class="mirellis-transition__link"
+          >
+            {{ section.settings.link_text }} →
+          </a>
+
+        </div>
+      {% endif %}
+
+    </div>
+
+    <div class="mirellis-transition__flow">
+
+      {% for block in section.blocks %}
+
+        <div class="mirellis-transition__step">
+          {{ block.settings.step }}
+        </div>
+
+        {% unless forloop.last %}
+          <div class="mirellis-transition__arrow">↓</div>
+        {% endunless %}
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Transition Flow",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "TRANSITIONS"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The nervous system depends on transitions modern life increasingly weakens."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Humans were not designed to move continuously between stimulation, information, work, recovery, and rest without slower psychological and sensory transitions between states.</p>"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link Text",
+      "default": "Explore Modern Overstimulation"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Transition Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "step",
+          "label": "Step",
+          "default": "Engagement"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Transition Flow",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "step": "Engagement"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step": "Recovery"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step": "Descent"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step": "Closure"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

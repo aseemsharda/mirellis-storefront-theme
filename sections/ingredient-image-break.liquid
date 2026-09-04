@@ -1,0 +1,125 @@
+<section class="ingredient-image-break">
+
+  <div class="page-width">
+
+    <div class="ingredient-image-break__inner">
+
+      {% if section.settings.image != blank %}
+
+        <div class="ingredient-image-break__media">
+
+          {{
+            section.settings.image
+            | image_url: width: 1800
+            | image_tag:
+              loading: 'lazy',
+              class: 'ingredient-image-break__image'
+          }}
+
+        </div>
+
+      {% endif %}
+
+      {% if section.settings.caption != blank %}
+
+        <div class="ingredient-image-break__caption-wrap">
+
+          <div class="ingredient-image-break__caption">
+            {{ section.settings.caption }}
+          </div>
+
+        </div>
+
+      {% endif %}
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.ingredient-image-break {
+  padding: 90px 0;
+  background: #fcfaf7;
+}
+
+.ingredient-image-break__inner {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.ingredient-image-break__media {
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.ingredient-image-break__image {
+  width: 100%;
+  display: block;
+}
+
+.ingredient-image-break__caption-wrap {
+  margin-top: 26px;
+}
+
+.ingredient-image-break__caption {
+  max-width: 560px;
+  margin: 0 auto;
+
+  font-size: 14px;
+  line-height: 1.85;
+  font-weight: 300;
+
+  color: #756d64;
+  text-align: center;
+}
+
+@media screen and (max-width: 990px) {
+
+  .ingredient-image-break {
+    padding: 75px 0;
+  }
+
+}
+
+@media screen and (max-width: 749px) {
+
+  .ingredient-image-break {
+    padding: 60px 0;
+  }
+
+  .ingredient-image-break__caption {
+    max-width: 100%;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Image Break",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "textarea",
+      "id": "caption",
+      "label": "Caption",
+      "default": "Rituals are shaped as much by atmosphere as by intention."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Break"
+    }
+  ]
+}
+{% endschema %}

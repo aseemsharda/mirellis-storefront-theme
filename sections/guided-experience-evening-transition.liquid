@@ -1,0 +1,324 @@
+<section class="mirellis-transition-hub">
+
+  <div class="transition-hub-container">
+
+    <div class="transition-hub-header">
+
+      <p class="transition-eyebrow">
+        Field Observations
+      </p>
+
+      <h2>
+        Explore By Transition
+      </h2>
+
+      <p class="transition-intro">
+        Mirellis observations are organized around the recurring transitions that shape the rhythm of a day. Each observation is designed to help you notice patterns that often go unseen.
+      </p>
+
+    </div>
+
+    <div class="transition-grid">
+
+      <!-- MORNING -->
+
+      <div class="transition-card transition-active">
+
+        <span class="transition-phase">
+          Morning
+        </span>
+
+        <h3>
+          The First Signals Of The Morning
+        </h3>
+
+        <p>
+           Observe how attention arrives and what signals help the nervous system understand that a new day has begun.
+        </p>
+
+        <div class="transition-meta">
+          3 Minutes · Guided Observation
+        </div>
+  <a href="/pages/the-first-signals-of-the-morning" class="transition-button">
+    Begin Observation
+  </a>
+      </div>
+
+      <!-- DAY -->
+
+      <div class="transition-card transition-coming-soon">
+
+        <span class="transition-phase">
+          Day
+        </span>
+
+        <h3>
+          Attention & Environment
+        </h3>
+
+        <p>
+          Observe how surroundings influence focus, pacing and engagement.
+        </p>
+
+        <div class="transition-status">
+          Coming Soon
+        </div>
+
+      </div>
+
+      <!-- EVENING -->
+
+      <div class="transition-card transition-active">
+
+        <span class="transition-phase">
+          {{ section.settings.evening_phase }}
+        </span>
+
+        <h3>
+          {{ section.settings.evening_heading }}
+        </h3>
+
+        <p>
+          {{ section.settings.evening_description }}
+        </p>
+
+        <div class="transition-meta">
+          {{ section.settings.evening_meta }}
+        </div>
+
+        <a href="{{ section.settings.evening_link }}" class="transition-button">
+          {{ section.settings.evening_button }}
+        </a>
+
+      </div>
+
+      <!-- NIGHT -->
+
+      <div class="transition-card transition-coming-soon">
+
+        <span class="transition-phase">
+          Night
+        </span>
+
+        <h3>
+          The Missing Ending
+        </h3>
+
+        <p>
+          Observe whether the day actually concluded before sleep arrived.
+        </p>
+
+        <div class="transition-status">
+          Coming Soon
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.mirellis-transition-hub{
+  padding:140px 40px;
+  background:#f8f4ee;
+}
+
+.transition-hub-container{
+  max-width:1400px;
+  margin:0 auto;
+}
+
+.transition-hub-header{
+  text-align:center;
+  max-width:820px;
+  margin:0 auto 90px;
+}
+
+.transition-eyebrow{
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#8d867d;
+  margin-bottom:20px;
+}
+
+.transition-hub-header h2{
+  font-size:clamp(52px,6vw,92px);
+  line-height:1.02;
+  font-weight:400;
+  color:#1f1f1f;
+  margin-bottom:28px;
+}
+
+.transition-intro{
+  font-size:20px;
+  line-height:1.9;
+  color:#5d5650;
+}
+
+.transition-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+
+.transition-card{
+  background:white;
+  padding:42px;
+  border-radius:24px;
+  min-height:420px;
+  display:flex;
+  flex-direction:column;
+}
+
+.transition-phase{
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#8d867d;
+  margin-bottom:18px;
+}
+
+.transition-card h3{
+  font-size:30px;
+  line-height:1.2;
+  font-weight:400;
+  margin-bottom:20px;
+  color:#1f1f1f;
+}
+
+.transition-card p{
+  font-size:17px;
+  line-height:1.8;
+  color:#5d5650;
+  margin-bottom:auto;
+}
+
+.transition-status{
+  margin-top:30px;
+  color:#8d867d;
+  font-size:12px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.transition-active{
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 10px 40px rgba(0,0,0,.04);
+}
+
+.transition-meta{
+  margin-top:30px;
+  margin-bottom:20px;
+  color:#8d867d;
+  font-size:12px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.transition-button{
+  display:inline-block;
+  padding:16px 24px;
+  background:#1f1f1f;
+  color:white;
+  text-decoration:none;
+  font-size:12px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  transition:.3s ease;
+}
+
+.transition-button:hover{
+  opacity:.9;
+}
+
+@media(max-width:1100px){
+
+.transition-grid{
+  grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:768px){
+
+.mirellis-transition-hub{
+  padding:90px 24px;
+}
+
+.transition-grid{
+  grid-template-columns:1fr;
+}
+
+.transition-hub-header h2{
+  font-size:48px;
+}
+
+.transition-intro{
+  font-size:17px;
+}
+
+.transition-card{
+  min-height:auto;
+  padding:32px;
+}
+
+.transition-card h3{
+  font-size:28px;
+}
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Field Observations",
+  "settings": [
+    {
+      "type": "text",
+      "id": "evening_phase",
+      "label": "Evening Phase",
+      "default": "Evening"
+    },
+    {
+      "type": "text",
+      "id": "evening_heading",
+      "label": "Evening Heading",
+      "default": "The Evening Transition"
+    },
+    {
+      "type": "textarea",
+      "id": "evening_description",
+      "label": "Evening Description",
+      "default": "Observe how activity becomes restoration through environmental signals, sensory cues and attention shifts."
+    },
+    {
+      "type": "text",
+      "id": "evening_meta",
+      "label": "Evening Meta",
+      "default": "3 Minutes · Guided Observation"
+    },
+    {
+      "type": "text",
+      "id": "evening_button",
+      "label": "Button Text",
+      "default": "Begin Observation"
+    },
+    {
+      "type": "url",
+      "id": "evening_link",
+      "label": "Observation Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Field Observations"
+    }
+  ]
+}
+{% endschema %}

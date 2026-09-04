@@ -1,0 +1,98 @@
+{% comment %}
+MIRELLIS SCENE 04 — WORLDS (FIXED FOR SHOPIFY CUSTOMIZER)
+{% endcomment %}
+
+<section class="mirellis-worlds">
+
+  <div class="mirellis-world mirellis-morning">
+
+    {% if section.settings.morning_image != blank %}
+      {{ section.settings.morning_image | image_url: width: 2400 | image_tag: class: 'mirellis-world-image' }}
+    {% endif %}
+
+    <div class="mirellis-world-overlay morning"></div>
+
+    <div class="mirellis-world-content">
+
+      <h2>Morning World</h2>
+
+      <p>{{ section.settings.morning_copy }}</p>
+
+      <div>{{ section.settings.morning_feel }}</div>
+
+    </div>
+
+  </div>
+
+  <div class="mirellis-world mirellis-evening">
+
+    {% if section.settings.evening_image != blank %}
+      {{ section.settings.evening_image | image_url: width: 2400 | image_tag: class: 'mirellis-world-image' }}
+    {% endif %}
+
+    <div class="mirellis-world-overlay evening"></div>
+
+    <div class="mirellis-world-content">
+
+      <h2>Evening World</h2>
+
+      <p>{{ section.settings.evening_copy }}</p>
+
+      <div>{{ section.settings.evening_feel }}</div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+.mirellis-worlds { width:100%; }
+
+.mirellis-world { position:relative; min-height:100vh; overflow:hidden; }
+
+.mirellis-world-image {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  position:absolute;
+}
+
+.morning {
+  background: linear-gradient(180deg, rgba(246,241,232,0.4), rgba(246,241,232,0.9));
+}
+
+.evening {
+  background: linear-gradient(180deg, rgba(20,18,16,0.2), rgba(0,0,0,0.8));
+}
+
+.mirellis-world-content {
+  position:relative;
+  z-index:2;
+  text-align:center;
+  padding:120px 24px;
+  max-width:800px;
+  margin:auto;
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Scene 04 Worlds FIX",
+  "settings": [
+    { "type": "image_picker", "id": "morning_image", "label": "Morning Image" },
+    { "type": "textarea", "id": "morning_copy", "label": "Morning Copy" },
+    { "type": "textarea", "id": "morning_feel", "label": "Morning Feel" },
+
+    { "type": "image_picker", "id": "evening_image", "label": "Evening Image" },
+    { "type": "textarea", "id": "evening_copy", "label": "Evening Copy" },
+    { "type": "textarea", "id": "evening_feel", "label": "Evening Feel" }
+  ],
+  "presets": [
+    {
+      "name": "Scene 04 Worlds FIX"
+    }
+  ]
+}
+{% endschema %}

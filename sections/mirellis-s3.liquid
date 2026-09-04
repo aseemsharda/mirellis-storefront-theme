@@ -1,0 +1,374 @@
+{% stylesheet %}
+.ed-proc {
+  background: #faf7f2;
+  padding: 8rem 2rem;
+}
+
+.ed-proc__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ed-proc__head {
+  max-width: 62ch;
+  margin: 0 0 5rem;
+}
+
+.ed-proc__eyebrow {
+  font-family: var(--font-body-family);
+  font-size: 0.72rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(26, 26, 24, 0.45);
+  margin: 0 0 1.6rem;
+}
+
+.ed-proc__heading {
+  font-family: var(--font-heading-family);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.14;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+  color: #1a1a18;
+  margin: 0 0 2.4rem;
+  max-width: 18ch;
+  text-wrap: balance;
+}
+
+.ed-proc__intro > * {
+  font-family: var(--font-body-family);
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: rgba(26, 26, 24, 0.76);
+  margin: 0 0 1.3rem;
+  text-wrap: pretty;
+}
+
+.ed-proc__intro > *:last-child { margin-bottom: 0; }
+
+/* ---- Vertical numbered timeline ---- */
+.ed-proc__flow {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 760px;
+}
+
+.ed-proc__step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.6rem 1fr;
+  column-gap: 1.6rem;
+  padding: 0 0 2.8rem;
+}
+
+.ed-proc__step:last-child {
+  padding-bottom: 0;
+}
+
+/* continuous line down the left, behind the nodes */
+.ed-proc__step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 0.5rem;
+  width: 1px;
+  height: 100%;
+  background: rgba(26, 26, 24, 0.16);
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: ed-proc-draw 0.7s ease forwards;
+  animation-timeline: view();
+  animation-range: cover 4% cover 36%;
+}
+
+.ed-proc__node {
+  width: 11px;
+  height: 11px;
+  border-radius: 999px;
+  background: #faf7f2;
+  border: 1px solid #8b6f47;
+  margin-top: 0.35rem;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: ed-proc-pop 0.5s ease forwards;
+  animation-timeline: view();
+  animation-range: cover 2% cover 24%;
+}
+
+.ed-proc__body {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: ed-proc-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  animation-timeline: view();
+  animation-range: cover 2% cover 28%;
+}
+
+.ed-proc__num {
+  font-family: var(--font-heading-family);
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  color: #8b6f47;
+  font-variant-numeric: tabular-nums;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.ed-proc__label {
+  font-family: var(--font-heading-family);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: #1a1a18;
+  margin: 0 0 0.7rem;
+  text-wrap: balance;
+}
+
+.ed-proc__desc {
+  font-family: var(--font-body-family);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: rgba(26, 26, 24, 0.72);
+  margin: 0;
+  max-width: 52ch;
+  text-wrap: pretty;
+}
+
+.ed-proc__loop {
+  margin: 3rem 0 0;
+  max-width: 760px;
+  padding: 2.4rem 0 0 4.2rem;
+  border-top: 1px solid rgba(26, 26, 24, 0.14);
+}
+
+.ed-proc__loop-label {
+  font-family: var(--font-body-family);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8b6f47;
+  margin: 0;
+}
+
+.ed-proc__closing {
+  max-width: 700px;
+  margin: 4rem 0 0;
+}
+
+.ed-proc__closing > * {
+  font-family: var(--font-heading-family);
+  font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: #1a1a18;
+  margin: 0;
+  text-wrap: balance;
+}
+
+@keyframes ed-proc-draw { to { transform: scaleY(1); } }
+@keyframes ed-proc-pop { to { opacity: 1; } }
+@keyframes ed-proc-rise { to { opacity: 1; transform: translateY(0); } }
+
+/* No scroll-timeline support: reveal everything, no hidden state. */
+@supports not (animation-timeline: view()) {
+  .ed-proc__step:not(:last-child)::before { transform: scaleY(1); animation: none; }
+  .ed-proc__node { opacity: 1; animation: none; }
+  .ed-proc__body { opacity: 1; transform: none; animation: none; }
+}
+
+@media screen and (max-width: 749px) {
+  .ed-proc {
+    padding: 5.5rem 1.5rem;
+  }
+  .ed-proc__head {
+    margin-bottom: 3.5rem;
+  }
+  .ed-proc__heading { max-width: none; }
+
+  .ed-proc__step {
+    grid-template-columns: 2rem 1fr;
+    column-gap: 1.2rem;
+    padding-bottom: 2.4rem;
+  }
+
+  .ed-proc__loop {
+    padding-left: 3.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ed-proc__step:not(:last-child)::before { transform: scaleY(1); animation: none; }
+  .ed-proc__node { opacity: 1; animation: none; }
+  .ed-proc__body { opacity: 1; transform: none; animation: none; }
+}
+{% endstylesheet %}
+
+<section class="ed-proc">
+  <div class="ed-proc__inner">
+
+    <div class="ed-proc__head">
+      {% if section.settings.eyebrow != blank %}
+        <p class="ed-proc__eyebrow">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="ed-proc__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.intro != blank %}
+        <div class="ed-proc__intro">{{ section.settings.intro }}</div>
+      {% endif %}
+    </div>
+
+    {% if section.blocks.size > 0 %}
+      <ol class="ed-proc__flow">
+        {% for block in section.blocks %}
+          <li class="ed-proc__step" {{ block.shopify_attributes }}>
+            <span class="ed-proc__node" aria-hidden="true"></span>
+            <div class="ed-proc__body">
+              <span class="ed-proc__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+              {% if block.settings.label != blank %}
+                <h3 class="ed-proc__label">{{ block.settings.label }}</h3>
+              {% endif %}
+              {% if block.settings.description != blank %}
+                <p class="ed-proc__desc">{{ block.settings.description }}</p>
+              {% endif %}
+            </div>
+          </li>
+        {% endfor %}
+      </ol>
+
+      {% if section.settings.is_loop and section.settings.loop_label != blank %}
+        <div class="ed-proc__loop">
+          <p class="ed-proc__loop-label">{{ section.settings.loop_label }}</p>
+        </div>
+      {% endif %}
+    {% endif %}
+
+    {% if section.settings.closing != blank %}
+      <div class="ed-proc__closing">{{ section.settings.closing }}</div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Process Timeline",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "How we study them"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Observation Before Intervention"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro",
+      "default": "<p>Mirellis was built as a learning system rather than a product catalogue. Every product begins as an observation. Every observation is interpreted into a finding. Every finding is tested through daily ritual \u2014 and returns to the Observatory as new understanding.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "is_loop",
+      "label": "Present as a closed loop",
+      "info": "Shows a label indicating the process returns to its beginning.",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "loop_label",
+      "label": "Loop Label",
+      "default": "\u2014 and the cycle begins again"
+    },
+    {
+      "type": "textarea",
+      "id": "closing",
+      "label": "Closing",
+      "default": "The goal is not to collect more information. The goal is to understand human transitions more precisely over time."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Observation"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "A short explanation of what happens at this step."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Process Timeline",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "label": "Human Experience",
+            "description": "People describe where the movement between states feels disrupted."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "label": "Observation",
+            "description": "Experiences are collected through the Observatory and studied as recurring patterns."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "label": "Interpretation",
+            "description": "Recurring observations are interpreted into research findings that explain the underlying transition."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "label": "Ritual Tool",
+            "description": "Findings inform the design of ritual tools that deliver coherent sensory signals at that boundary."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "label": "Daily Practice",
+            "description": "The ritual is repeated within everyday life, allowing the nervous system to learn through consistency."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "label": "Outcome",
+            "description": "Changes are observed over time to understand what improved, what remained difficult, and what emerged."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "label": "New Understanding",
+            "description": "Every outcome returns to the Observatory, where it becomes part of the next generation of observations and findings."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

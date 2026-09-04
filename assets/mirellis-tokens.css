@@ -1,0 +1,257 @@
+/* =========================================================
+   MIRELLIS — FRONTEND NERVOUS SYSTEM
+   ATMOSPHERIC TOKEN FOUNDATION
+   ========================================================= */
+
+/* =========================================================
+   ROOT TOKENS
+   ========================================================= */
+
+:root {
+
+  /* =====================================================
+     ATMOSPHERIC COLOR SYSTEM
+     ===================================================== */
+
+  /* Core Emotional Surfaces */
+  --ml-color-warm-paper: #f6f1e8;
+  --ml-color-linen-cream: #efe7db;
+  --ml-color-soft-clay: #d8c6b1;
+  --ml-color-faded-sand: #e6ddd2;
+  --ml-color-pale-amber: #dcc7a8;
+
+  /* Emotional Depth */
+  --ml-color-soft-charcoal: #2e2b28;
+  --ml-color-warm-shadow: #4a433d;
+  --ml-color-muted-earth: #85776b;
+
+  /* Atmospheric Layering */
+  --ml-color-mist: rgba(255, 250, 244, 0.42);
+  --ml-color-fog: rgba(239, 231, 219, 0.58);
+  --ml-color-shadow-haze: rgba(46, 43, 40, 0.08);
+
+  /* Quiet Contrast */
+  --ml-color-text-primary: #2f2c29;
+  --ml-color-text-secondary: #6e655d;
+  --ml-color-text-soft: #91857a;
+
+  /* Emotional Warmth System */
+  --ml-color-morning-light: #f3eadf;
+  --ml-color-evening-light: #d9c2a6;
+
+  /* Interface Neutrality */
+  --ml-color-border-soft: rgba(46, 43, 40, 0.08);
+  --ml-color-border-faint: rgba(46, 43, 40, 0.04);
+
+  /* =====================================================
+     ATMOSPHERIC SHADOW SYSTEM
+     ===================================================== */
+
+  /* Soft Environmental Shadows */
+  --ml-shadow-atmospheric-sm:
+    0 4px 12px rgba(46, 43, 40, 0.04);
+
+  --ml-shadow-atmospheric-md:
+    0 12px 32px rgba(46, 43, 40, 0.06);
+
+  --ml-shadow-atmospheric-lg:
+    0 28px 64px rgba(46, 43, 40, 0.08);
+
+  /* Emotional Depth Shadows */
+  --ml-shadow-soft-depth:
+    0 40px 90px rgba(30, 28, 26, 0.10);
+
+  /* Inner Atmospheric Softness */
+  --ml-shadow-inner-soft:
+    inset 0 1px 0 rgba(255,255,255,0.18);
+
+  /* =====================================================
+     ATMOSPHERIC OVERLAY SYSTEM
+     ===================================================== */
+
+  /* Environmental Diffusion */
+  --ml-overlay-warm:
+    linear-gradient(
+      180deg,
+      rgba(246, 241, 232, 0.04) 0%,
+      rgba(246, 241, 232, 0.12) 100%
+    );
+
+  --ml-overlay-evening:
+    linear-gradient(
+      180deg,
+      rgba(217, 194, 166, 0.06) 0%,
+      rgba(46, 43, 40, 0.14) 100%
+    );
+
+  --ml-overlay-morning:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.08) 0%,
+      rgba(243,234,223,0.18) 100%
+    );
+
+  /* Hero Atmospheric Depth */
+  --ml-overlay-depth:
+    radial-gradient(
+      circle at center,
+      rgba(255,255,255,0.02) 0%,
+      rgba(46,43,40,0.10) 100%
+    );
+
+  /* =====================================================
+     OPACITY SYSTEM
+     ===================================================== */
+
+  --ml-opacity-whisper: 0.04;
+  --ml-opacity-soft: 0.08;
+  --ml-opacity-atmospheric: 0.14;
+  --ml-opacity-breathable: 0.22;
+  --ml-opacity-grounded: 0.36;
+
+  /* =====================================================
+     SPATIAL BREATHING SYSTEM
+     ===================================================== */
+
+  /* Micro Spacing */
+  --ml-space-xs: 0.5rem;
+  --ml-space-sm: 0.875rem;
+  --ml-space-md: 1.5rem;
+
+  /* Emotional Breathing */
+  --ml-space-lg: 3rem;
+  --ml-space-xl: 5rem;
+  --ml-space-2xl: 8rem;
+  --ml-space-3xl: 12rem;
+
+  /* Cinematic Decompression */
+  --ml-space-scene-sm: 10vh;
+  --ml-space-scene-md: 16vh;
+  --ml-space-scene-lg: 24vh;
+
+  /* Emotional Edge Softness */
+  --ml-container-padding-desktop: 6vw;
+  --ml-container-padding-tablet: 5vw;
+  --ml-container-padding-mobile: 7vw;
+
+  /* =====================================================
+     TYPOGRAPHIC RHYTHM TOKENS
+     ===================================================== */
+
+  /* Headline Scale */
+  --ml-text-hero: clamp(3rem, 6vw, 6.5rem);
+  --ml-text-display: clamp(2.4rem, 4vw, 4.8rem);
+  --ml-text-heading: clamp(1.8rem, 2.5vw, 3rem);
+
+  /* Body Scale */
+  --ml-text-body-lg: 1.25rem;
+  --ml-text-body: 1.05rem;
+  --ml-text-body-sm: 0.95rem;
+
+  /* Emotional Line Heights */
+  --ml-leading-hero: 1.08;
+  --ml-leading-display: 1.14;
+  --ml-leading-body: 1.9;
+  --ml-leading-relaxed: 2.1;
+
+  /* Typography Spacing */
+  --ml-letter-soft: -0.02em;
+  --ml-letter-breathing: -0.03em;
+
+  /* Reading Width */
+  --ml-reading-width: 680px;
+  --ml-reading-width-narrow: 540px;
+
+  /* =====================================================
+     MOTION & CONTINUITY SYSTEM
+     ===================================================== */
+
+  /* Emotional Timing */
+  --ml-motion-fast: 400ms;
+  --ml-motion-medium: 800ms;
+  --ml-motion-slow: 1400ms;
+  --ml-motion-atmospheric: 2200ms;
+
+  /* Environmental Easing */
+  --ml-ease-soft:
+    cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  --ml-ease-atmospheric:
+    cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  --ml-ease-breathing:
+    cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* =====================================================
+     CINEMATIC CONTAINER SYSTEM
+     ===================================================== */
+
+  --ml-container-wide: 1440px;
+  --ml-container-cinematic: 1320px;
+  --ml-container-reading: 980px;
+  --ml-container-narrow: 720px;
+
+  /* =====================================================
+     BORDER RADIUS SYSTEM
+     ===================================================== */
+
+  --ml-radius-soft-sm: 8px;
+  --ml-radius-soft-md: 18px;
+  --ml-radius-soft-lg: 32px;
+  --ml-radius-soft-xl: 48px;
+
+  /* =====================================================
+     Z-DEPTH SYSTEM
+     ===================================================== */
+
+  --ml-z-background: 1;
+  --ml-z-atmosphere: 2;
+  --ml-z-content: 3;
+  --ml-z-navigation: 5;
+  --ml-z-overlay: 8;
+
+}
+
+/* =========================================================
+   RESPONSIVE NERVOUS-SYSTEM ADAPTATION
+   ========================================================= */
+
+@media screen and (max-width: 1024px) {
+
+  :root {
+
+    /* Softer Mobile Breathing */
+    --ml-space-lg: 2.5rem;
+    --ml-space-xl: 4rem;
+    --ml-space-2xl: 6rem;
+
+    /* Mobile Emotional Width */
+    --ml-reading-width: 100%;
+
+    /* Slightly Softer Typography */
+    --ml-leading-body: 2;
+    --ml-leading-relaxed: 2.2;
+
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  :root {
+
+    /* Mobile Decompression */
+    --ml-space-scene-sm: 8vh;
+    --ml-space-scene-md: 12vh;
+    --ml-space-scene-lg: 18vh;
+
+    /* Emotional Touch Softness */
+    --ml-motion-fast: 500ms;
+    --ml-motion-medium: 1000ms;
+
+    /* Mobile Hero Softness */
+    --ml-text-hero: clamp(2.8rem, 10vw, 4.6rem);
+
+  }
+
+}

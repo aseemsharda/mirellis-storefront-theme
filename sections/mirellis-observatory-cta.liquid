@@ -1,0 +1,272 @@
+{% if section.settings.show_section %}
+<section class="mirellis-obs-cta">
+  <div class="moc-inner">
+
+    <div class="moc-index" aria-hidden="true">
+      <span class="moc-index__rule"></span>
+      <span class="moc-index__label">{{ section.settings.index_label }}</span>
+      <span class="moc-index__rule"></span>
+    </div>
+
+    {% if section.settings.eyebrow != blank %}
+      <p class="moc-eyebrow">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="moc-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.settings.body != blank %}
+      <div class="moc-body">{{ section.settings.body | newline_to_br }}</div>
+    {% endif %}
+
+    {% if section.settings.negation_a != blank or section.settings.negation_b != blank %}
+      <div class="moc-negations">
+        {% if section.settings.negation_a != blank %}
+          <p class="moc-negation">{{ section.settings.negation_a }}</p>
+        {% endif %}
+        {% if section.settings.negation_b != blank %}
+          <p class="moc-negation">{{ section.settings.negation_b }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if section.settings.closing != blank %}
+      <p class="moc-closing">{{ section.settings.closing }}</p>
+    {% endif %}
+
+    {% if section.settings.cta_text != blank and section.settings.cta_link != blank %}
+      <a href="{{ section.settings.cta_link }}" class="moc-cta">
+        {{ section.settings.cta_text }}
+        <span class="moc-cta__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    {% endif %}
+
+  </div>
+</section>
+{% endif %}
+
+{% stylesheet %}
+.mirellis-obs-cta {
+  background: #faf7f2;
+  padding: 8rem 2rem;
+}
+
+.moc-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Signature: archival index header. The Observatory is a numbered,
+   ongoing body of work, so the catalog framing encodes something true. */
+.moc-index {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 3.5rem;
+}
+
+.moc-index__rule {
+  height: 1px;
+  width: 3rem;
+  background: rgba(26, 26, 24, 0.18);
+}
+
+.moc-index__label {
+  font-family: var(--font-heading-family);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(26, 26, 24, 0.5);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.moc-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(26, 26, 24, 0.45);
+  margin: 0 0 1.4rem;
+}
+
+.moc-heading {
+  font-family: var(--font-heading-family);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #1a1a18;
+  margin: 0 0 2.4rem;
+  line-height: 1.18;
+  text-wrap: balance;
+}
+
+.moc-body {
+  font-size: 1.02rem;
+  line-height: 1.9;
+  color: rgba(26, 26, 24, 0.74);
+  margin: 0 auto 2.5rem;
+  max-width: 54ch;
+  text-wrap: pretty;
+}
+
+/* Category-error prevention, set apart as its own register. */
+.moc-negations {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.6rem 0;
+  margin: 0 auto 2.5rem;
+  border-top: 1px solid rgba(26, 26, 24, 0.12);
+  border-bottom: 1px solid rgba(26, 26, 24, 0.12);
+}
+
+.moc-negation {
+  font-family: var(--font-heading-family);
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  color: rgba(26, 26, 24, 0.55);
+  margin: 0;
+}
+
+.moc-closing {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #1a1a18;
+  margin: 0 auto 3.5rem;
+  max-width: 42ch;
+  text-wrap: balance;
+}
+
+.moc-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  color: #1a1a18;
+  text-decoration: none;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid rgba(26, 26, 24, 0.3);
+  transition: border-color 0.35s ease;
+}
+
+.moc-cta:hover,
+.moc-cta:focus-visible {
+  border-color: #1a1a18;
+}
+
+.moc-cta:focus-visible {
+  outline: 2px solid rgba(139, 111, 71, 0.9);
+  outline-offset: 6px;
+}
+
+.moc-cta__arrow {
+  transition: transform 0.35s ease;
+}
+
+.moc-cta:hover .moc-cta__arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 640px) {
+  .mirellis-obs-cta {
+    padding: 5rem 1.5rem;
+  }
+  .moc-index {
+    margin-bottom: 2.8rem;
+  }
+  .moc-index__rule {
+    width: 2rem;
+  }
+  .moc-heading {
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+    line-height: 1.22;
+  }
+  .moc-body {
+    font-size: 0.98rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .moc-cta__arrow {
+    transition: none;
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Mirellis Observatory CTA",
+  "settings": [
+    {
+      "type": "text",
+      "id": "index_label",
+      "label": "Index Label",
+      "default": "ONGOING \u2014 EST. 2026"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "THE OBSERVATORY"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Research into Human State Transitions."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body Text",
+      "default": "The Observatory is the research arm of Mirellis \u2014 a growing body of work on the moments between sleep and waking, work and recovery, stimulation and restoration."
+    },
+    {
+      "type": "text",
+      "id": "negation_a",
+      "label": "Negation Line A",
+      "default": "Not wellness content."
+    },
+    {
+      "type": "text",
+      "id": "negation_b",
+      "label": "Negation Line B",
+      "default": "Not productivity advice."
+    },
+    {
+      "type": "text",
+      "id": "closing",
+      "label": "Closing Line",
+      "default": "A deeper investigation into how people change states."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Text",
+      "default": "Enter the Observatory"
+    },
+    {
+      "type": "text",
+      "id": "cta_link",
+      "label": "CTA Link",
+      "default": "/pages/the-observatory"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show section",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mirellis Observatory CTA"
+    }
+  ]
+}
+{% endschema %}

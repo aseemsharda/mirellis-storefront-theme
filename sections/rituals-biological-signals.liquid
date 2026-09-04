@@ -1,0 +1,156 @@
+<section class="ritual-section ritual-section--large">
+
+  <div class="ritual-container">
+
+    <div class="ritual-reading-width">
+
+      {% if section.settings.heading != blank %}
+        <h2 class="ritual-heading ritual-fade-up" style="margin-bottom:70px;">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.body != blank %}
+        <div class="ritual-body ritual-fade-up">
+          {{ section.settings.body }}
+        </div>
+      {% endif %}
+
+    </div>
+
+    <!-- RESEARCH GRID -->
+    <div class="ritual-research-grid">
+
+      <!-- CARD 1 -->
+      <div class="ritual-research-card ritual-fade-up">
+
+        <h3>{{ section.settings.card_1_heading }}</h3>
+
+        <div class="ritual-body">
+          {{ section.settings.card_1_body }}
+        </div>
+
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="ritual-research-card ritual-fade-up">
+
+        <h3>{{ section.settings.card_2_heading }}</h3>
+
+        <div class="ritual-body">
+          {{ section.settings.card_2_body }}
+        </div>
+
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="ritual-research-card ritual-fade-up">
+
+        <h3>{{ section.settings.card_3_heading }}</h3>
+
+        <div class="ritual-body">
+          {{ section.settings.card_3_body }}
+        </div>
+
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="ritual-research-card ritual-fade-up">
+
+        <h3>{{ section.settings.card_4_heading }}</h3>
+
+        <div class="ritual-body">
+          {{ section.settings.card_4_body }}
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Biological Signals",
+  "settings": [
+
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Rituals as Biological Signals"
+    },
+
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>The body continuously learns from repeated environments.</p><p>Over time, light, sound, pacing, atmosphere, timing, scent, and repeated sensory experiences gradually become associated with specific physiological and emotional states.</p><p>Repeated behaviors and environments gradually become biological signals — helping the nervous system predict, prepare for, and transition between different states over time.</p><p>Rituals work not because they are dramatic.</p><p>They work because the body remembers what life repeats.</p>"
+    },
+
+    {
+      "type": "text",
+      "id": "card_1_heading",
+      "label": "Card 1 Heading",
+      "default": "Circadian Rhythm & Light"
+    },
+
+    {
+      "type": "richtext",
+      "id": "card_1_body",
+      "label": "Card 1 Body",
+      "default": "<p>Changes in light exposure help regulate circadian timing, alertness, hormonal rhythm, and physiological orientation throughout the day.</p>"
+    },
+
+    {
+      "type": "text",
+      "id": "card_2_heading",
+      "label": "Card 2 Heading",
+      "default": "Sensory Association & Repetition"
+    },
+
+    {
+      "type": "richtext",
+      "id": "card_2_body",
+      "label": "Card 2 Body",
+      "default": "<p>Repeated sensory experiences gradually become associated with emotional and physiological states over time.</p>"
+    },
+
+    {
+      "type": "text",
+      "id": "card_3_heading",
+      "label": "Card 3 Heading",
+      "default": "Environmental Psychology"
+    },
+
+    {
+      "type": "richtext",
+      "id": "card_3_body",
+      "label": "Card 3 Body",
+      "default": "<p>Spatial rhythm, atmosphere, sound, visual density, and environmental pacing influence emotional regulation and perceived restoration.</p>"
+    },
+
+    {
+      "type": "text",
+      "id": "card_4_heading",
+      "label": "Card 4 Heading",
+      "default": "Nervous-System Rhythm"
+    },
+
+    {
+      "type": "richtext",
+      "id": "card_4_body",
+      "label": "Card 4 Body",
+      "default": "<p>Repeated interruption, overstimulation, and unresolved transitions may gradually influence internal rhythm over time.</p>"
+    }
+
+  ],
+  "presets": [
+    {
+      "name": "Biological Signals"
+    }
+  ]
+}
+{% endschema %}

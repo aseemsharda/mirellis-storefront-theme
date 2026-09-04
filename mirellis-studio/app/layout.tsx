@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://studio.mirellis.in"),
   title: "Mirellis Studio",
   description: "Private contributor and editorial review workspace for Mirellis.",
+  icons: {
+    icon: [
+      { url: "/brand/mirellis-favicon-32.png?v=20260822", sizes: "32x32", type: "image/png" },
+      { url: "/brand/mirellis-favicon-16.png?v=20260822", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/apple-icon.png?v=20260822",
+    shortcut: "/brand/mirellis-favicon-32.png?v=20260822",
+  },
   robots: { index: false, follow: false, nocache: true },
 };
 

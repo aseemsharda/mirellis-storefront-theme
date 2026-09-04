@@ -1,0 +1,77 @@
+{%- comment -%}
+  MIRELLIS — ABOUT  (canonical, fully editable in theme editor)
+  All copy exposed as section settings with defaults = canonical copy.
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+<div class="ab">
+
+  <section class="ab__hero">
+    <div class="ab__inner">
+      {%- if s.eyebrow != blank -%}<div class="ab__eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+      {%- if s.title != blank -%}<h1 class="ab__title">{{ s.title }}</h1>{%- endif -%}
+      {%- if s.lede != blank -%}<p class="ab__lede">{{ s.lede }}</p>{%- endif -%}
+    </div>
+  </section>
+
+  {%- if s.body != blank -%}
+    <section class="ab__body">
+      <div class="ab__inner ab__prose">{{ s.body }}</div>
+    </section>
+  {%- endif -%}
+
+  <section class="ab__approach">
+    <div class="ab__inner">
+      {%- if s.approach_eyebrow != blank -%}<div class="ab__eyebrow">{{ s.approach_eyebrow }}</div>{%- endif -%}
+      {%- if s.approach_line != blank -%}<p class="ab__approach-line">{{ s.approach_line }}</p>{%- endif -%}
+      {%- if s.cta_label != blank and s.cta_url != blank -%}
+        <p class="ab__cta"><a href="{{ s.cta_url }}">{{ s.cta_label }}</a></p>
+      {%- endif -%}
+    </div>
+  </section>
+
+  <section class="ab__close">
+    <div class="ab__inner">
+      {%- if s.close_line != blank -%}<p class="ab__close-line">{{ s.close_line }}</p>{%- endif -%}
+      {%- if s.legal != blank -%}<p class="ab__legal">{{ s.legal }}</p>{%- endif -%}
+    </div>
+  </section>
+
+</div>
+
+<style>
+  .ab { background: var(--ml-color-warm-paper); }
+  .ab__inner { max-width: 680px; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2rem); }
+  .ab__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1.75rem; }
+  .ab__hero { padding-block: clamp(5rem, 10vw, 8rem) clamp(2.5rem, 5vw, 4rem); }
+  .ab__title { font-size: clamp(2.1rem, 4.6vw, 3rem); font-weight: 300; letter-spacing: -0.01em; line-height: 1.18; color: var(--ml-color-soft-charcoal); margin: 0 0 1.75rem; max-width: 22ch; }
+  .ab__lede { font-size: clamp(1.2rem, 2.6vw, 1.5rem); font-weight: 300; line-height: 1.5; color: var(--ml-color-text-secondary); max-width: 42ch; margin: 0; }
+  .ab__body { padding-block: clamp(1rem, 3vw, 2rem) clamp(3rem, 6vw, 5rem); }
+  .ab__prose p { font-size: 1.0625rem; line-height: 2; color: var(--ml-color-text-secondary); margin: 0 0 2rem; max-width: 60ch; }
+  .ab__approach { padding-block: clamp(3rem, 6vw, 5rem); border-top: 1px solid var(--ml-color-border-soft); }
+  .ab__approach-line { font-size: clamp(1.15rem, 2.4vw, 1.4rem); font-weight: 300; line-height: 1.6; color: var(--ml-color-soft-charcoal); max-width: 46ch; margin: 0 0 2rem; }
+  .ab__cta { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0; }
+  .ab__cta a { color: var(--ml-color-soft-charcoal); text-underline-offset: 3px; }
+  .ab__close { padding-block: clamp(3.5rem, 7vw, 6rem); border-top: 1px solid var(--ml-color-border-soft); }
+  .ab__close-line { font-size: clamp(1.3rem, 3vw, 1.75rem); font-weight: 300; color: var(--ml-color-soft-charcoal); margin: 0 0 1.5rem; }
+  .ab__legal { font-size: 0.85rem; line-height: 1.7; color: var(--ml-color-muted-earth); margin: 0; max-width: 52ch; }
+</style>
+
+{% schema %}
+{
+  "name": "About",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "About" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Mirellis is a Ritual Science Company." },
+    { "type": "inline_richtext", "id": "lede", "label": "Lede", "default": "We study the moments most people overlook — the transition between one state and the next. Sleep into waking. Work into recovery. Stimulation into rest." },
+    { "type": "richtext", "id": "body", "label": "Body", "default": "<p>Modern life did not fail people through bad information. It removed the architecture that once marked these moments — the walk home, the fading light, the quiet before sleep. What disappeared was not knowledge. It was the signal that told the body one chapter had ended and another had begun.</p><p>We work at those boundaries. We combine ancient ritual wisdom with modern science — circadian biology, sensory science, nervous-system research, and the traditional systems that understood these transitions long before we could measure them.</p><p>We do not start with a product. We start with an observation. An observation becomes a finding. A finding becomes a question: what would help most here? Only then do we ask what form the answer should take — an oil, a sound, an environment, a ritual, or something we have not built yet.</p><p>Sometimes the answer is a product. Often it is not. That is the discipline that keeps us honest.</p><p>Everything we make is an instrument inside a larger method. The method is not the product. The method is repeated, coherent sensory signalling — the thing that teaches the body where one state ends and the next begins.</p>" },
+    { "type": "text", "id": "approach_eyebrow", "label": "Approach eyebrow", "default": "How we hold this work" },
+    { "type": "inline_richtext", "id": "approach_line", "label": "Approach line", "default": "We design states, not features. Before we add anything — a product, a sound, a line of copy — we ask one question: does this deepen the state we intend, or does it merely add more? If it only adds, we remove it. Restraint is the method, not the aesthetic." },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "See how we work →" },
+    { "type": "url", "id": "cta_url", "label": "CTA link" },
+    { "type": "text", "id": "close_line", "label": "Closing line", "default": "Mirellis. The science of how you transition." },
+    { "type": "inline_richtext", "id": "legal", "label": "Legal line", "default": "Mirellis is the consumer brand of Lambda Lifestyle Private Limited. Observational content only; not medical advice." }
+  ],
+  "presets": [{ "name": "About" }]
+}
+{% endschema %}

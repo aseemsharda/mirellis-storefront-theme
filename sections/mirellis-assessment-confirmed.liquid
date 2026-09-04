@@ -1,0 +1,92 @@
+{%- comment -%}
+  MIRELLIS — ASSESSMENT CONFIRMED
+  Dark full-viewport confirmation page
+{%- endcomment -%}
+
+<style>
+  .ac {
+    background: var(--ml-color-soft-charcoal);
+    color: var(--ml-color-warm-paper);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--ml-space-2xl);
+    text-align: center;
+  }
+
+  .ac__heading {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: 400;
+    line-height: var(--ml-leading-display);
+    letter-spacing: var(--ml-letter-breathing);
+    margin: 0 0 var(--ml-space-xl);
+    max-width: 24ch;
+  }
+
+  .ac__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ml-space-md);
+    list-style: none;
+    margin: var(--ml-space-xl) auto;
+    padding: 0;
+    max-width: 52ch;
+    text-align: left;
+    font-size: var(--ml-text-body);
+    line-height: var(--ml-leading-relaxed);
+    color: rgba(255, 255, 255, 0.76);
+  }
+
+  .ac__item {
+    padding-left: var(--ml-space-lg);
+    position: relative;
+  }
+
+  .ac__item::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--ml-color-warm-paper);
+  }
+
+  @media screen and (max-width: 768px) {
+    .ac {
+      padding: var(--ml-space-xl);
+    }
+
+    .ac__heading {
+      margin-bottom: var(--ml-space-lg);
+    }
+
+    .ac__list {
+      margin: var(--ml-space-lg) auto;
+      gap: var(--ml-space-sm);
+    }
+
+    .ac__item {
+      padding-left: var(--ml-space-md);
+      font-size: var(--ml-text-body-sm);
+    }
+  }
+</style>
+
+<div class="ac">
+  <h1 class="ac__heading">Your protocol is being prepared.</h1>
+  <ol class="ac__list">
+    <li class="ac__item">An overview of your primary transition</li>
+    <li class="ac__item">The science behind why it matters</li>
+    <li class="ac__item">The three rituals that address it</li>
+    <li class="ac__item">The tool designed for your transition</li>
+    <li class="ac__item">A first-week guide to integration</li>
+  </ol>
+</div>
+
+{% schema %}
+{
+  "name": "Assessment Confirmed",
+  "settings": [],
+  "presets": [{ "name": "Assessment Confirmed" }]
+}
+{% endschema %}

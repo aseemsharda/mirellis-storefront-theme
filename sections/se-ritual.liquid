@@ -1,0 +1,52 @@
+<section style="background:{{ section.settings.bg_color }};font-family:'Hanken Grotesk',system-ui,sans-serif">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(72px,10vw,128px) clamp(20px,5vw,48px)">
+    <div data-reveal style="text-align:center;margin-bottom:clamp(48px,7vw,84px)">
+      {%- if section.settings.eyebrow != blank -%}
+        <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#b07f54;margin-bottom:18px">{{ section.settings.eyebrow }}</div>
+      {%- endif -%}
+      <h2 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(30px,4.4vw,52px);margin:0;letter-spacing:-0.01em;color:{{ section.settings.text_color }}">{{ section.settings.heading }}</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(28px,4vw,56px)">
+      {%- for block in section.blocks -%}
+        <div {{ block.shopify_attributes }} data-reveal style="border-top:1px solid #e0d8cc;padding-top:26px">
+          <div style="font-family:'Newsreader',serif;font-size:42px;color:#cf9266;line-height:1;margin-bottom:22px">{{ block.settings.number }}</div>
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:24px;margin:0 0 12px;color:{{ section.settings.text_color }}">{{ block.settings.title }}</h3>
+          <p style="font-size:15px;line-height:1.75;color:#6f665b;margin:0">{{ block.settings.body }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SE — Ritual Steps",
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Number", "default": "01" },
+        { "type": "text", "id": "title", "label": "Step title", "default": "Apply" },
+        { "type": "textarea", "id": "body", "label": "Description", "default": "Describe this step." }
+      ]
+    }
+  ],
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Evening Ritual" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Three movements. Five to ten minutes." },
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#faf7f4" },
+    { "type": "color", "id": "text_color", "label": "Heading colour", "default": "#26221d" }
+  ],
+  "presets": [
+    {
+      "name": "SE — Ritual Steps",
+      "blocks": [
+        { "type": "step", "settings": { "number": "01", "title": "Apply", "body": "Warm a few drops between your palms. Apply to pulse points — wrists, behind the ears, the soles of the feet." } },
+        { "type": "step", "settings": { "number": "02", "title": "Breathe", "body": "Take slow, deliberate breaths. Let the aroma guide the breath downward and soften the body." } },
+        { "type": "step", "settings": { "number": "03", "title": "Release", "body": "Pause. Let the nervous system receive the signal that the day is complete — and it is safe to slow down." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

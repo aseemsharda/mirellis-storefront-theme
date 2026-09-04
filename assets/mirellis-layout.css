@@ -1,0 +1,554 @@
+/* =========================================================
+   MIRELLIS — LAYOUT ENGINE
+   SPATIAL BREATHING ARCHITECTURE
+   ========================================================= */
+
+
+/* =========================================================
+   GLOBAL LAYOUT FOUNDATION
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+
+  min-height: 100vh;
+
+  background: var(--ml-color-warm-paper);
+
+  overflow-x: hidden;
+
+}
+
+
+/* =========================================================
+   CINEMATIC CONTAINER SYSTEM
+   ========================================================= */
+
+.ml-container-cinematic {
+
+  width: 100%;
+
+  max-width: var(--ml-container-cinematic);
+
+  margin-inline: auto;
+
+  padding-inline: var(--ml-container-padding-desktop);
+
+}
+
+.ml-container-reading {
+
+  width: 100%;
+
+  max-width: var(--ml-container-reading);
+
+  margin-inline: auto;
+
+  padding-inline: var(--ml-container-padding-desktop);
+
+}
+
+.ml-container-narrow {
+
+  width: 100%;
+
+  max-width: var(--ml-container-narrow);
+
+  margin-inline: auto;
+
+  padding-inline: var(--ml-container-padding-desktop);
+
+}
+
+.ml-container-wide {
+
+  width: 100%;
+
+  max-width: var(--ml-container-wide);
+
+  margin-inline: auto;
+
+  padding-inline: var(--ml-container-padding-desktop);
+
+}
+
+
+/* =========================================================
+   ATMOSPHERIC WIDTH BEHAVIOR
+   ========================================================= */
+
+.ml-atmospheric-width {
+
+  max-width: 88vw;
+
+  margin-inline: auto;
+
+}
+
+.ml-reading-intimacy {
+
+  max-width: 720px;
+
+}
+
+
+/* =========================================================
+   SPATIAL BREATHING SYSTEM
+   ========================================================= */
+
+.ml-scene-spacing-sm {
+  padding-block: var(--ml-space-scene-sm);
+}
+
+.ml-scene-spacing-md {
+  padding-block: var(--ml-space-scene-md);
+}
+
+.ml-scene-spacing-lg {
+  padding-block: var(--ml-space-scene-lg);
+}
+
+
+/* =========================================================
+   EMOTIONAL DECOMPRESSION UTILITIES
+   ========================================================= */
+
+.ml-decompression-top {
+  padding-top: var(--ml-space-2xl);
+}
+
+.ml-decompression-bottom {
+  padding-bottom: var(--ml-space-2xl);
+}
+
+.ml-decompression-both {
+  padding-block: var(--ml-space-2xl);
+}
+
+.ml-cinematic-breathing {
+
+  padding-top: clamp(6rem, 12vh, 14rem);
+
+  padding-bottom: clamp(6rem, 12vh, 14rem);
+
+}
+
+
+/* =========================================================
+   HERO VIEWPORT ARCHITECTURE
+   ========================================================= */
+
+.ml-hero-scene {
+
+  position: relative;
+
+  min-height: 100svh;
+
+  display: flex;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--ml-color-warm-paper) 0%,
+      var(--ml-color-linen-cream) 100%
+    );
+
+}
+
+
+/* =========================================================
+   HERO ATMOSPHERIC FIELD
+   ========================================================= */
+
+.ml-hero-field {
+
+  position: relative;
+
+  width: 100%;
+
+  z-index: var(--ml-z-content);
+
+}
+
+.ml-hero-inner {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  min-height: 100svh;
+
+  padding-top: clamp(7rem, 14vh, 12rem);
+
+  padding-bottom: clamp(5rem, 10vh, 8rem);
+
+}
+
+
+/* =========================================================
+   HERO TYPOGRAPHIC POSITIONING
+   ========================================================= */
+
+.ml-hero-copy {
+
+  max-width: 760px;
+
+  position: relative;
+
+  z-index: var(--ml-z-content);
+
+}
+
+.ml-hero-copy > * + * {
+
+  margin-top: var(--ml-space-md);
+
+}
+
+
+/* =========================================================
+   VISUAL SILENCE ZONES
+   ========================================================= */
+
+.ml-visual-silence {
+
+  min-height: 8vh;
+
+}
+
+.ml-visual-silence-lg {
+
+  min-height: 16vh;
+
+}
+
+
+/* =========================================================
+   ATMOSPHERIC DEPTH LAYERING
+   ========================================================= */
+
+.ml-depth-layer {
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+}
+
+.ml-depth-soft {
+
+  opacity: var(--ml-opacity-soft);
+
+}
+
+.ml-depth-atmospheric {
+
+  opacity: var(--ml-opacity-atmospheric);
+
+}
+
+
+/* =========================================================
+   SCENE CONTINUITY SYSTEM
+   ========================================================= */
+
+.ml-scene {
+
+  position: relative;
+
+  width: 100%;
+
+}
+
+.ml-scene + .ml-scene {
+
+  margin-top: -2px;
+
+}
+
+
+/* =========================================================
+   EMOTIONAL DESCENT TRANSITIONS
+   ========================================================= */
+
+.ml-scene-descent {
+
+  position: relative;
+
+}
+
+.ml-scene-descent::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: -12vh;
+  left: 0;
+
+  width: 100%;
+  height: 20vh;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(246,241,232,0) 0%,
+      rgba(246,241,232,0.92) 100%
+    );
+
+}
+
+
+/* =========================================================
+   ATMOSPHERIC GRID RESTRAINT
+   ========================================================= */
+
+.ml-soft-grid {
+
+  display: grid;
+
+  gap: clamp(2rem, 5vw, 6rem);
+
+}
+
+
+/* =========================================================
+   EMOTIONAL CONTENT DISTRIBUTION
+   ========================================================= */
+
+.ml-balanced-field {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  gap: var(--ml-space-xl);
+
+}
+
+
+/* =========================================================
+   SECTION RHYTHM UTILITIES
+   ========================================================= */
+
+.ml-rhythm-soft > * + * {
+  margin-top: var(--ml-space-lg);
+}
+
+.ml-rhythm-atmospheric > * + * {
+  margin-top: var(--ml-space-xl);
+}
+
+
+/* =========================================================
+   IMAGE ATMOSPHERE CONTAINERS
+   ========================================================= */
+
+.ml-image-atmosphere {
+
+  overflow: hidden;
+
+  border-radius: var(--ml-radius-soft-lg);
+
+  background: var(--ml-color-faded-sand);
+
+  box-shadow: var(--ml-shadow-atmospheric-md);
+
+}
+
+.ml-image-breathing {
+
+  aspect-ratio: 4 / 5;
+
+}
+
+.ml-image-cinematic {
+
+  aspect-ratio: 16 / 9;
+
+}
+
+
+/* =========================================================
+   CONTENT EDGE SOFTNESS
+   ========================================================= */
+
+.ml-edge-softness {
+
+  padding-inline:
+    clamp(1.5rem, 4vw, 5rem);
+
+}
+
+
+/* =========================================================
+   EMOTIONAL WIDTH RESTRAINT
+   ========================================================= */
+
+.ml-width-soft {
+
+  max-width: 72ch;
+
+}
+
+.ml-width-contemplative {
+
+  max-width: 54ch;
+
+}
+
+
+/* =========================================================
+   SPATIAL STILLNESS
+   ========================================================= */
+
+.ml-spatial-stillness {
+
+  isolation: isolate;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE TABLET
+   ========================================================= */
+
+@media screen and (max-width: 1024px) {
+
+  .ml-container-cinematic,
+  .ml-container-reading,
+  .ml-container-narrow,
+  .ml-container-wide {
+
+    padding-inline:
+      var(--ml-container-padding-tablet);
+
+  }
+
+  .ml-hero-copy {
+
+    max-width: 680px;
+
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+
+  .ml-container-cinematic,
+  .ml-container-reading,
+  .ml-container-narrow,
+  .ml-container-wide {
+
+    padding-inline:
+      var(--ml-container-padding-mobile);
+
+  }
+
+  .ml-hero-inner {
+
+    justify-content: center;
+
+    padding-top: 22vh;
+
+    padding-bottom: 14vh;
+
+  }
+
+  .ml-hero-copy {
+
+    max-width: 100%;
+
+  }
+
+  .ml-cinematic-breathing {
+
+    padding-top: 5rem;
+
+    padding-bottom: 5rem;
+
+  }
+
+  .ml-soft-grid {
+
+    gap: var(--ml-space-xl);
+
+  }
+
+  .ml-visual-silence {
+
+    min-height: 5vh;
+
+  }
+
+  .ml-visual-silence-lg {
+
+    min-height: 10vh;
+
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE SMALL MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 480px) {
+
+  .ml-hero-inner {
+
+    padding-top: 18vh;
+
+    padding-bottom: 12vh;
+
+  }
+
+  .ml-scene-spacing-lg {
+
+    padding-block: 14vh;
+
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED SPATIAL AGGRESSION
+   ========================================================= */
+
+.ml-no-hard-edges * {
+
+  border-radius:
+    min(
+      var(--ml-radius-soft-md),
+      2vw
+    );
+
+}

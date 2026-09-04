@@ -1,0 +1,235 @@
+<section class="explore-rhythm-hero">
+
+  <div class="explore-rhythm-video-wrapper">
+
+    {% if section.settings.desktop_video != blank %}
+      {{
+        section.settings.desktop_video
+        | video_tag:
+          autoplay: true,
+          loop: true,
+          muted: true,
+          controls: false,
+          playsinline: true,
+          class: 'explore-rhythm-video desktop-video'
+      }}
+    {% endif %}
+
+    {% if section.settings.mobile_video != blank %}
+      {{
+        section.settings.mobile_video
+        | video_tag:
+          autoplay: true,
+          loop: true,
+          muted: true,
+          controls: false,
+          playsinline: true,
+          class: 'explore-rhythm-video mobile-video'
+      }}
+    {% endif %}
+
+    <div class="explore-rhythm-overlay"></div>
+
+  </div>
+
+  <div class="explore-rhythm-content">
+
+    <p class="explore-rhythm-eyebrow">
+      Mirellis Rhythm Observatory
+    </p>
+
+    <h1>{{ section.settings.heading }}</h1>
+
+    <p class="explore-rhythm-description">
+      {{ section.settings.paragraph }}
+    </p>
+
+    <a href="#transition-audit" class="explore-rhythm-button">
+      {{ section.settings.button_label }}
+    </a>
+
+  </div>
+
+</section>
+
+<style>
+
+.explore-rhythm-hero {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  overflow: hidden;
+  background: #f4efe7;
+}
+
+.explore-rhythm-video-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.explore-rhythm-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mobile-video {
+  display: none;
+}
+
+.explore-rhythm-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(15,15,15,0.22),
+      rgba(15,15,15,0.48)
+    );
+}
+
+.explore-rhythm-content {
+  position: relative;
+  z-index: 2;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 120px 40px;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.explore-rhythm-eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(244,239,231,0.75);
+  margin-bottom: 24px;
+}
+
+.explore-rhythm-content h1 {
+  font-size: clamp(48px, 7vw, 92px);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  color: #f4efe7;
+  margin-bottom: 32px;
+  font-weight: 400;
+  max-width: 900px;
+}
+
+.explore-rhythm-description {
+  font-size: 20px;
+  line-height: 1.95;
+  color: rgba(244,239,231,0.88);
+  max-width: 760px;
+  margin-bottom: 48px;
+  font-weight: 300;
+}
+
+.explore-rhythm-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 36px;
+  border: 1px solid rgba(244,239,231,0.45);
+  color: #f4efe7;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: all 0.35s ease;
+  backdrop-filter: blur(4px);
+}
+
+.explore-rhythm-button:hover {
+  background: rgba(244,239,231,0.12);
+  border-color: rgba(244,239,231,0.8);
+}
+
+@media screen and (max-width: 768px) {
+
+  .desktop-video {
+    display: none;
+  }
+
+  .mobile-video {
+    display: block;
+  }
+
+  .explore-rhythm-content {
+    padding: 100px 24px 80px;
+    min-height: 85vh;
+  }
+
+  .explore-rhythm-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    margin-bottom: 20px;
+  }
+
+  .explore-rhythm-content h1 {
+    font-size: 48px;
+    line-height: 1.08;
+    margin-bottom: 24px;
+  }
+
+  .explore-rhythm-description {
+    font-size: 17px;
+    line-height: 1.85;
+    margin-bottom: 36px;
+  }
+
+  .explore-rhythm-button {
+    padding: 14px 28px;
+    font-size: 13px;
+  }
+
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Explore Rhythm Hero",
+  "settings": [
+    {
+      "type": "video",
+      "id": "desktop_video",
+      "label": "Desktop Video"
+    },
+    {
+      "type": "video",
+      "id": "mobile_video",
+      "label": "Mobile Video"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Explore Your Rhythm"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph",
+      "label": "Paragraph",
+      "default": "A collection of guided observations exploring how transitions, environments and repeated signals shape everyday experience. These observations are not assessments. They are invitations to notice patterns that often go unseen."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Begin Observation"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Explore Rhythm Hero"
+    }
+  ]
+}
+{% endschema %}

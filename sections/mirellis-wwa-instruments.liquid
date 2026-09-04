@@ -1,0 +1,209 @@
+{% if section.settings.show_section %}
+<section class="wwa-instruments">
+  <div class="wwa-inner">
+    {% if section.settings.eyebrow != blank %}
+    <p class="wwa-eyebrow">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+    {% if section.settings.heading != blank %}
+    <h2 class="wwa-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="wwa-instruments-grid">
+      {% for block in section.blocks %}
+      <div class="wwa-instrument-card">
+        <h3 class="wwa-instrument-title">{{ block.settings.title }}</h3>
+        {% if block.settings.transition != blank %}
+        <p class="wwa-instrument-transition">{{ block.settings.transition }}</p>
+        {% endif %}
+        <p class="wwa-instrument-body">{{ block.settings.body }}</p>
+        {% if block.settings.cta_text != blank and block.settings.cta_link != blank %}
+        <a href="{{ block.settings.cta_link }}" class="wwa-cta-primary">{{ block.settings.cta_text }}</a>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<style>
+.wwa-instruments {
+  background: #faf7f2;
+  padding: 6rem 2rem;
+}
+.wwa-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.wwa-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(26,26,24,0.45);
+  margin: 0 0 1.5rem 0;
+}
+.wwa-heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: #1a1a18;
+  margin: 0 0 3rem 0;
+  line-height: 1.2;
+}
+.wwa-instruments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.wwa-instrument-card {
+  padding: 2rem;
+  border-left: 2px solid rgba(26,26,24,0.1);
+}
+.wwa-instrument-title {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #1a1a18;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+.wwa-instrument-transition {
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: rgba(26,26,24,0.5);
+  margin: 0 0 1rem 0;
+  font-style: italic;
+}
+.wwa-instrument-body {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(26,26,24,0.7);
+  margin-bottom: 1.5rem;
+}
+.wwa-cta-primary {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid rgba(26,26,24,0.35);
+  color: #1a1a18;
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+}
+.wwa-cta-primary:hover {
+  background: rgba(26,26,24,0.05);
+  border-color: rgba(26,26,24,0.7);
+}
+@media (max-width: 640px) {
+  .wwa-instruments {
+    padding: 4rem 1.5rem;
+  }
+  .wwa-instruments-grid {
+    grid-template-columns: 1fr;
+  }
+  .wwa-instrument-card {
+    padding: 1.5rem 0;
+    border-left: none;
+    border-bottom: 1px solid rgba(26,26,24,0.1);
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "WWA Instruments",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "FROM RESEARCH TO RITUAL"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Three instruments. Each built for a specific transition."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show section",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "instrument",
+      "name": "Instrument",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Morning Clarity"
+        },
+        {
+          "type": "text",
+          "id": "transition",
+          "label": "Transition",
+          "default": "Sleep → Wakefulness"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Body",
+          "default": "The transition from sleep into wakefulness is one of the most consequential moments of the day. The first signals the nervous system receives set the baseline for everything that follows.\n\nMorning Clarity is a daily oral ritual for this transition. Used in the first minutes of waking — before screens, before conversation, before the day has named itself — it creates a deliberate beginning rather than a reactive one.\n\nNot a cleanse. A beginning."
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Text",
+          "default": "Explore Morning Clarity →"
+        },
+        {
+          "type": "text",
+          "id": "cta_link",
+          "label": "CTA Link",
+          "default": "/products/morning-clarity"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "What We Are - Instruments",
+      "blocks": [
+        {
+          "type": "instrument",
+          "settings": {
+            "title": "Morning Clarity",
+            "transition": "Sleep → Wakefulness",
+            "body": "The transition from sleep into wakefulness is one of the most consequential moments of the day. The first signals the nervous system receives set the baseline for everything that follows.\n\nMorning Clarity is a daily oral ritual for this transition. Used in the first minutes of waking — before screens, before conversation, before the day has named itself — it creates a deliberate beginning rather than a reactive one.\n\nNot a cleanse. A beginning.",
+            "cta_text": "Explore Morning Clarity →",
+            "cta_link": "/products/morning-clarity"
+          }
+        },
+        {
+          "type": "instrument",
+          "settings": {
+            "title": "Stillness Elixir",
+            "transition": "Work → Recovery · Stimulation → Restoration",
+            "body": "The transition out of work and sustained engagement is one modern life rarely supports. The professional chapter ends on the calendar. In the nervous system, it often continues for hours.\n\nStillness Elixir is an evening body ritual for this transition. Applied to pulse points as the workday closes, its scent, texture, and consistent repetition combine to create a signal the nervous system learns to recognize: this part is finished.\n\nNot a sedative. A signal.",
+            "cta_text": "Explore Stillness →",
+            "cta_link": "/products/mirellis-stillness-elixir"
+          }
+        },
+        {
+          "type": "instrument",
+          "settings": {
+            "title": "Ritual Sound",
+            "transition": "All transitions",
+            "body": "Four acoustic series, each designed for a specific moment in the day. Not music for entertainment — environments for state change.\n\nMorning Clarity. Flow. Stillness. Ground.\n\nEach series maps to a transition. Each creates the acoustic conditions for the body to recognize that a shift is occurring.",
+            "cta_text": "Explore Ritual Sound →",
+            "cta_link": "/pages/ritual-sound"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

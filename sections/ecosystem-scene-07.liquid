@@ -1,0 +1,441 @@
+{% comment %}
+=========================================================
+MIRELLIS — SCENE 07
+THE RESTORATIVE ECOSYSTEM
+ENVIRONMENTAL CONTINUITY
+=========================================================
+{% endcomment %}
+
+<section
+  class="
+    ml-scene
+    ml-scene-continuous
+    ml-scene-descent-large
+    ml-spatial-stillness
+  "
+>
+
+  <!-- =====================================================
+       ATMOSPHERIC FOUNDATION
+       ===================================================== -->
+
+  <div
+    class="ml-depth-layer ml-depth-soft"
+    style="
+      background:
+        linear-gradient(
+          180deg,
+          rgba(246,241,232,0.98) 0%,
+          rgba(239,231,219,0.96) 100%
+        );
+    "
+  ></div>
+
+
+  <!-- =====================================================
+       ECOSYSTEM PHILOSOPHY FIELD
+       ===================================================== -->
+
+  <div class="ml-container-reading ml-cinematic-breathing">
+
+    <div
+      class="
+        ml-balanced-field
+        ml-rhythm-atmospheric
+      "
+    >
+
+      <!-- Emotional Silence -->
+      <div class="ml-visual-silence"></div>
+
+
+      <!-- =================================================
+           ECOSYSTEM HEADING
+           ================================================= -->
+
+      <div
+        class="
+          ml-reading-width-narrow
+          ml-fade-soft
+          is-visible
+        "
+      >
+
+        {% if section.settings.scene_heading != blank %}
+
+          <h2
+            class="
+              ml-display-heading
+              ml-headline-soft
+            "
+          >
+            {{ section.settings.scene_heading }}
+          </h2>
+
+        {% endif %}
+
+      </div>
+
+
+      <!-- =================================================
+           ECOSYSTEM PHILOSOPHY COPY
+           ================================================= -->
+
+      <div
+        class="
+          ml-reading-width
+          ml-fade-soft
+          is-visible
+        "
+      >
+
+        {% if section.settings.scene_copy != blank %}
+
+          <div
+            class="
+              ml-contemplative-copy
+              ml-copy-soft
+            "
+          >
+            {{ section.settings.scene_copy }}
+          </div>
+
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       JOURNAL ENVIRONMENT
+       ===================================================== -->
+
+  <div
+    class="
+      ml-container-wide
+      ml-cinematic-breathing
+    "
+  >
+
+    <div
+      class="
+        ml-soft-grid
+        ml-balanced-field
+      "
+    >
+
+      <!-- =================================================
+           JOURNAL IMAGE
+           ================================================= -->
+
+      {% if section.settings.journal_image != blank %}
+
+        <div
+          class="
+            ml-image-atmosphere
+            ml-image-cinematic
+            ml-breathing-atmosphere
+            ml-fade-soft
+            is-visible
+          "
+        >
+
+          {{
+            section.settings.journal_image
+            | image_url: width: 2200
+            | image_tag:
+              class: 'ml-atmospheric-image ml-soft-presence',
+              loading: 'lazy',
+              widths: '1200, 1600, 2200',
+              alt: section.settings.journal_heading
+          }}
+
+        </div>
+
+      {% endif %}
+
+
+      <!-- =================================================
+           JOURNAL COPY
+           ================================================= -->
+
+      <div
+        class="
+          ml-reading-width
+          ml-rhythm-atmospheric
+          ml-fade-soft
+          is-visible
+        "
+      >
+
+        {% if section.settings.journal_heading != blank %}
+
+          <h3
+            class="
+              ml-subheading-soft
+              ml-headline-soft
+            "
+          >
+            {{ section.settings.journal_heading }}
+          </h3>
+
+        {% endif %}
+
+
+        {% if section.settings.journal_copy != blank %}
+
+          <div
+            class="
+              ml-contemplative-copy
+              ml-copy-soft
+            "
+          >
+            {{ section.settings.journal_copy }}
+          </div>
+
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       ATMOSPHERIC TRANSITION
+       ===================================================== -->
+
+  <div class="ml-cinematic-pause"></div>
+
+
+  <!-- =====================================================
+       SOUNDSCAPE ENVIRONMENT
+       ===================================================== -->
+
+  <div
+    class="
+      ml-container-wide
+      ml-cinematic-breathing
+    "
+  >
+
+    <div
+      class="
+        ml-soft-grid
+        ml-balanced-field
+      "
+    >
+
+      <!-- =================================================
+           SOUNDSCAPE IMAGE
+           ================================================= -->
+
+      {% if section.settings.soundscape_image != blank %}
+
+        <div
+          class="
+            ml-image-atmosphere
+            ml-image-cinematic
+            ml-light-drift
+            ml-fade-soft
+            is-visible
+          "
+        >
+
+          {{
+            section.settings.soundscape_image
+            | image_url: width: 2200
+            | image_tag:
+              class: 'ml-atmospheric-image ml-soft-presence',
+              loading: 'lazy',
+              widths: '1200, 1600, 2200',
+              alt: section.settings.soundscape_heading
+          }}
+
+        </div>
+
+      {% endif %}
+
+
+      <!-- =================================================
+           SOUNDSCAPE COPY
+           ================================================= -->
+
+      <div
+        class="
+          ml-reading-width
+          ml-rhythm-atmospheric
+          ml-fade-soft
+          is-visible
+        "
+      >
+
+        {% if section.settings.soundscape_heading != blank %}
+
+          <h3
+            class="
+              ml-subheading-soft
+              ml-headline-soft
+            "
+          >
+            {{ section.settings.soundscape_heading }}
+          </h3>
+
+        {% endif %}
+
+
+        {% if section.settings.soundscape_copy != blank %}
+
+          <div
+            class="
+              ml-contemplative-copy
+              ml-copy-soft
+            "
+          >
+            {{ section.settings.soundscape_copy }}
+          </div>
+
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       ECOSYSTEM REFLECTION
+       ===================================================== -->
+
+  <div class="ml-container-reading ml-cinematic-breathing">
+
+    <div
+      class="
+        ml-reading-width-narrow
+        ml-copy-whisper
+        ml-fade-soft
+        is-visible
+      "
+    >
+
+      {% if section.settings.scene_note != blank %}
+
+        <div class="ml-supporting-text">
+
+          {{ section.settings.scene_note }}
+
+        </div>
+
+      {% endif %}
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       ATMOSPHERIC CONTINUITY GLOW
+       ===================================================== -->
+
+  <div
+    class="
+      ml-depth-layer
+      ml-shadow-breathing
+      ml-depth-atmospheric
+    "
+    style="
+      background:
+        radial-gradient(
+          circle at 50% 50%,
+          rgba(255,255,255,0.06) 0%,
+          rgba(255,255,255,0) 72%
+        );
+      opacity: 0.72;
+    "
+  ></div>
+
+</section>
+
+
+{% schema %}
+{
+  "name": "Mirellis Scene 07",
+  "tag": "section",
+  "class": "section section-mirellis-ecosystem",
+  "settings": [
+
+    {
+      "type": "textarea",
+      "id": "scene_heading",
+      "label": "Ecosystem Heading",
+      "default": "Restoration rarely happens through one moment alone."
+    },
+
+    {
+      "type": "textarea",
+      "id": "scene_copy",
+      "label": "Ecosystem Philosophy Copy",
+      "default": "Sound, scent, writing, stillness, repetition — the nervous system responds to ecosystems, not isolated interventions."
+    },
+
+    {
+      "type": "image_picker",
+      "id": "journal_image",
+      "label": "Journal Environment Image"
+    },
+
+    {
+      "type": "textarea",
+      "id": "journal_heading",
+      "label": "Journal Heading",
+      "default": "Some rituals continue through reflection."
+    },
+
+    {
+      "type": "textarea",
+      "id": "journal_copy",
+      "label": "Journal Copy",
+      "default": "Writing once helped thoughts settle gradually into experience instead of remaining suspended inside constant mental movement."
+    },
+
+    {
+      "type": "image_picker",
+      "id": "soundscape_image",
+      "label": "Soundscape Environment Image"
+    },
+
+    {
+      "type": "textarea",
+      "id": "soundscape_heading",
+      "label": "Soundscape Heading",
+      "default": "Some environments are carried through sound."
+    },
+
+    {
+      "type": "textarea",
+      "id": "soundscape_copy",
+      "label": "Soundscape Copy",
+      "default": "Atmosphere does not only exist visually. Rhythm, silence, repetition, and tone also shape how the nervous system inhabits space."
+    },
+
+    {
+      "type": "textarea",
+      "id": "scene_note",
+      "label": "Quiet Ecosystem Reflection",
+      "default": "A slower life is rarely created all at once. It emerges through emotional environments repeated gently over time."
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "Mirellis Scene 07"
+    }
+  ]
+}
+{% endschema %}

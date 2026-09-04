@@ -1,0 +1,227 @@
+{% schema %}
+{
+  "name": "Experience Wall",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shared Experiences"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph",
+      "label": "Paragraph",
+      "default": "Reflections shared by people who have experienced Mirellis rituals in their own routines and environments."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Experience Wall"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="mirellis-experience-wall">
+
+  <div class="experience-wall-header">
+
+    <h2>
+      {{ section.settings.heading }}
+    </h2>
+
+    <p>
+      {{ section.settings.paragraph }}
+    </p>
+
+  </div>
+
+  <div class="experience-grid">
+
+    {% assign reflections = shop.metaobjects.experience_reflection.values %}
+
+    {% for reflection in reflections %}
+
+      {% if reflection.approved == true %}
+
+        <div class="experience-card">
+
+          <div class="experience-meta">
+
+            <span class="experience-name">
+              {{ reflection.name }}
+            </span>
+
+            <span class="experience-details">
+
+              {% if reflection.profession != blank %}
+                {{ reflection.profession }}
+              {% endif %}
+
+              {% if reflection.city != blank %}
+                • {{ reflection.city }}
+              {% endif %}
+
+            </span>
+
+          </div>
+
+          <div class="experience-text">
+
+            “{{ reflection.reflection }}”
+
+          </div>
+
+          {% if reflection.instagram_handle != blank %}
+
+            <div class="experience-instagram">
+
+              <a
+                href="https://instagram.com/{{ reflection.instagram_handle | remove: '@' }}"
+                target="_blank"
+                rel="noopener"
+              >
+                {{ reflection.instagram_handle }}
+              </a>
+
+            </div>
+
+          {% endif %}
+
+        </div>
+
+      {% endif %}
+
+    {% endfor %}
+
+  </div>
+
+</section>
+
+<style>
+
+.mirellis-experience-wall {
+  background: #efe9df;
+  padding: 140px 24px;
+}
+
+.experience-wall-header {
+  max-width: 780px;
+  margin: 0 auto 90px auto;
+  text-align: center;
+}
+
+.experience-wall-header h2 {
+  font-size: clamp(38px, 5vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #1a1a1a;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.experience-wall-header p {
+  font-size: 18px;
+  line-height: 1.9;
+  color: rgba(20,20,20,0.72);
+  font-weight: 300;
+}
+
+.experience-grid {
+  max-width: 1380px;
+  margin: 0 auto;
+  columns: 3;
+  column-gap: 28px;
+}
+
+.experience-card {
+  break-inside: avoid;
+  margin-bottom: 28px;
+  background: rgba(255,255,255,0.58);
+  padding: 38px;
+  border: 1px solid rgba(20,20,20,0.06);
+}
+
+.experience-meta {
+  margin-bottom: 24px;
+}
+
+.experience-name {
+  display: block;
+  font-size: 16px;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+}
+
+.experience-details {
+  font-size: 14px;
+  color: rgba(20,20,20,0.5);
+  letter-spacing: 0.02em;
+}
+
+.experience-text {
+  font-size: 20px;
+  line-height: 1.8;
+  color: rgba(20,20,20,0.84);
+  font-weight: 300;
+}
+
+.experience-instagram {
+  margin-top: 28px;
+  font-size: 14px;
+}
+
+.experience-instagram a {
+  color: rgba(20,20,20,0.46);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.experience-instagram a:hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 1100px) {
+
+  .experience-grid {
+    columns: 2;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .mirellis-experience-wall {
+    padding: 90px 20px;
+  }
+
+  .experience-wall-header {
+    margin-bottom: 54px;
+  }
+
+  .experience-wall-header h2 {
+    font-size: 42px;
+  }
+
+  .experience-wall-header p {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .experience-grid {
+    columns: 1;
+  }
+
+  .experience-card {
+    padding: 28px;
+  }
+
+  .experience-text {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+}
+
+</style>

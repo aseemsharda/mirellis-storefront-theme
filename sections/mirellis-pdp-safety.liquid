@@ -1,0 +1,69 @@
+{%- comment -%}
+  MIRELLIS — PDP SAFETY  (Product Experience OS · reusable)
+  Book I: Journey 5 (Evaluation) · resolves Uncertainty 9 (Safety), 4 (Personal relevance) · Dim A.
+  Honest fit: who it may suit AND who it is not for — control returned to the reader.
+  Carries ⟦age · allergen · interactions⟧ data gates. All copy is settings; empty-safe; no icons.
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+<section class="pdsf">
+  <div class="pdsf__inner">
+    {%- if s.eyebrow != blank -%}<div class="pdsf__eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+
+    <div class="pdsf__fit">
+      {%- if s.suit != blank -%}
+        <div class="pdsf__col pdsf__col--for">
+          {%- if s.suit_label != blank -%}<div class="pdsf__label">{{ s.suit_label }}</div>{%- endif -%}
+          <div class="pdsf__body">{{ s.suit }}</div>
+        </div>
+      {%- endif -%}
+      {%- if s.not_for != blank -%}
+        <div class="pdsf__col pdsf__col--not">
+          {%- if s.not_label != blank -%}<div class="pdsf__label">{{ s.not_label }}</div>{%- endif -%}
+          <div class="pdsf__body">{{ s.not_for }}</div>
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if s.using != blank -%}
+      <div class="pdsf__using">
+        {%- if s.using_label != blank -%}<div class="pdsf__label">{{ s.using_label }}</div>{%- endif -%}
+        <div class="pdsf__body">{{ s.using }}</div>
+      </div>
+    {%- endif -%}
+
+    {%- if s.closing != blank -%}<p class="pdsf__closing">{{ s.closing }}</p>{%- endif -%}
+  </div>
+</section>
+
+<style>
+  .pdsf { background: var(--ml-color-warm-paper); padding-block: clamp(3.5rem, 8vw, 6.5rem); border-top: 1px solid var(--ml-color-border-soft); }
+  .pdsf__inner { max-width: 680px; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2rem); }
+  .pdsf__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 2rem; }
+  .pdsf__fit { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+  @media (min-width: 640px) { .pdsf__fit { grid-template-columns: 1fr 1fr; gap: 2.5rem; } }
+  .pdsf__col { padding-top: 1.25rem; border-top: 2px solid var(--ml-color-border-soft); }
+  .pdsf__label { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1rem; }
+  .pdsf__body p { font-size: 1rem; line-height: 1.85; color: var(--ml-color-text-secondary); margin: 0 0 0.75rem; }
+  .pdsf__body p:last-child { margin-bottom: 0; }
+  .pdsf__body strong { color: var(--ml-color-soft-charcoal); font-weight: 500; }
+  .pdsf__using { margin-top: 2.5rem; padding: 1.75rem clamp(1.25rem, 4vw, 2rem); border: 1px solid var(--ml-color-border-soft); border-radius: 2px; background: rgba(0,0,0,0.012); }
+  .pdsf__closing { margin-top: 2.25rem; font-size: clamp(1.05rem, 2.2vw, 1.25rem); font-weight: 300; line-height: 1.6; color: var(--ml-color-soft-charcoal); max-width: 46ch; }
+</style>
+
+{% schema %}
+{
+  "name": "PDP · Safety",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Who this is for — and who it isn't" },
+    { "type": "text", "id": "suit_label", "label": "Column 1 label", "default": "It may suit you if" },
+    { "type": "richtext", "id": "suit", "label": "It may suit you if", "default": "<p>You wake to a screen, rely on caffeine to feel alert, or want the first minutes of the day to belong to you.</p>" },
+    { "type": "text", "id": "not_label", "label": "Column 2 label", "default": "It is not for" },
+    { "type": "richtext", "id": "not_for", "label": "It is not for", "default": "<p>Children under ⟦age⟧; anyone with ⟦allergy to sesame / tree nuts / coconut / clove⟧; and it is not a treatment for any medical condition. If you are pregnant, nursing, or managing a health condition, please speak with your doctor first.</p>" },
+    { "type": "text", "id": "using_label", "label": "Callout label", "default": "Using it safely" },
+    { "type": "richtext", "id": "using", "label": "Using it safely", "default": "<p>It is swished and spat out — <strong>not swallowed</strong>. Spit into a bin (not the sink), then rinse with warm water. ⟦known interactions / cautions⟧.</p>" },
+    { "type": "inline_richtext", "id": "closing", "label": "Closing line", "default": "Every one of these is here to return control to you — so nothing about the ritual is a surprise." }
+  ],
+  "presets": [{ "name": "PDP · Safety" }]
+}
+{% endschema %}

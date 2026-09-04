@@ -1,0 +1,208 @@
+<section class="ritual-section ritual-section--large">
+
+  <div class="ritual-container">
+
+    <!-- INTRO -->
+    <div class="ritual-reading-width" style="margin-bottom:140px;">
+
+      {% if section.settings.heading != blank %}
+        <h2 class="ritual-heading ritual-fade-up" style="margin-bottom:70px;">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.intro_body != blank %}
+        <div class="ritual-body ritual-fade-up">
+          {{ section.settings.intro_body }}
+        </div>
+      {% endif %}
+
+    </div>
+
+
+    <!-- MORNING -->
+    <div class="ritual-editorial-grid" style="margin-bottom:220px;">
+
+      <div class="ritual-editorial-image ritual-image-soft ritual-fade-up">
+
+        {% if section.settings.morning_image != blank %}
+          <img
+            src="{{ section.settings.morning_image | image_url: width: 1800 }}"
+            alt="Morning Orientation"
+            loading="lazy"
+            width="{{ section.settings.morning_image.width }}"
+            height="{{ section.settings.morning_image.height }}"
+          >
+        {% endif %}
+
+      </div>
+
+      <div class="ritual-editorial-content">
+
+        <h3 style="font-size:42px; margin-bottom:40px;">
+          {{ section.settings.morning_heading }}
+        </h3>
+
+        <div class="ritual-body">
+          {{ section.settings.morning_body }}
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- EVENING -->
+    <div class="ritual-editorial-grid ritual-editorial-grid--reverse" style="margin-bottom:220px;">
+
+      <div class="ritual-editorial-content">
+
+        <h3 style="font-size:42px; margin-bottom:40px;">
+          {{ section.settings.evening_heading }}
+        </h3>
+
+        <div class="ritual-body">
+          {{ section.settings.evening_body }}
+        </div>
+
+      </div>
+
+      <div class="ritual-editorial-image ritual-image-soft ritual-fade-up">
+
+        {% if section.settings.evening_image != blank %}
+          <img
+            src="{{ section.settings.evening_image | image_url: width: 1800 }}"
+            alt="Evening Decompression"
+            loading="lazy"
+            width="{{ section.settings.evening_image.width }}"
+            height="{{ section.settings.evening_image.height }}"
+          >
+        {% endif %}
+
+      </div>
+
+    </div>
+
+
+    <!-- SOUND -->
+    <div class="ritual-editorial-grid">
+
+      <div class="ritual-editorial-image ritual-image-soft ritual-fade-up">
+
+        {% if section.settings.sound_image != blank %}
+          <img
+            src="{{ section.settings.sound_image | image_url: width: 1800 }}"
+            alt="Environmental Sound"
+            loading="lazy"
+            width="{{ section.settings.sound_image.width }}"
+            height="{{ section.settings.sound_image.height }}"
+          >
+        {% endif %}
+
+      </div>
+
+      <div class="ritual-editorial-content">
+
+        <h3 style="font-size:42px; margin-bottom:40px;">
+          {{ section.settings.sound_heading }}
+        </h3>
+
+        <div class="ritual-body">
+          {{ section.settings.sound_body }}
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Transition Architecture",
+  "settings": [
+
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Mirellis Focuses on These Rituals"
+    },
+
+    {
+      "type": "richtext",
+      "id": "intro_body",
+      "label": "Intro Body",
+      "default": "<p>Mirellis focuses on transitions that quietly shape how the body moves through modern life.</p><p>Certain transitions — especially mornings, evenings, and repeated sensory environments — often shape orientation, pacing, decompression, emotional carryover, and nervous-system rhythm far more than people consciously realize.</p><p>These transitions became the foundation of the Mirellis ritual system.</p>"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "morning_image",
+      "label": "Morning Image"
+    },
+
+    {
+      "type": "text",
+      "id": "morning_heading",
+      "label": "Morning Heading",
+      "default": "Morning Orientation"
+    },
+
+    {
+      "type": "richtext",
+      "id": "morning_body",
+      "label": "Morning Body",
+      "default": "<p>The first environments and sensory signals of the day often shape attention, breath, pacing, orientation, and emotional tone long before conscious momentum fully begins.</p><p>Mirellis approaches mornings as orientation rituals rather than productivity rituals.</p><p>The Oil Pulling Elixir was designed as a morning sensory transition — supporting freshness, breath awareness, and intentional beginning through repeated ritual continuity.</p>"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "evening_image",
+      "label": "Evening Image"
+    },
+
+    {
+      "type": "text",
+      "id": "evening_heading",
+      "label": "Evening Heading",
+      "default": "Evening Decompression"
+    },
+
+    {
+      "type": "richtext",
+      "id": "evening_body",
+      "label": "Evening Body",
+      "default": "<p>Modern evenings often remain cognitively and emotionally active long after the body has become tired.</p><p>Mirellis approaches evenings as descent rituals — environments designed to support slowing, atmospheric quietness, and transition toward restoration.</p><p>The Stillness Elixir was designed as an evening decompression ritual — supporting slower pacing, sensory quietness, and emotional descent through repeated atmospheric signaling.</p>"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "sound_image",
+      "label": "Sound Image"
+    },
+
+    {
+      "type": "text",
+      "id": "sound_heading",
+      "label": "Sound Heading",
+      "default": "Environmental & Sound Transitions"
+    },
+
+    {
+      "type": "richtext",
+      "id": "sound_body",
+      "label": "Sound Body",
+      "default": "<p>Human physiology responds not only to products, but also to atmosphere.</p><p>Sound, pacing, environmental texture, lighting, repetition, and emotional tone continuously influence how spaces feel internally.</p><p>Mirellis explores sound and sensory environments as transition architectures — helping create continuity between states through atmosphere and repeated environmental cues.</p>"
+    }
+
+  ],
+  "presets": [
+    {
+      "name": "Transition Architecture"
+    }
+  ]
+}
+{% endschema %}

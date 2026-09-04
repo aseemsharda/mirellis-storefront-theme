@@ -1,0 +1,186 @@
+/* =========================================================
+   MIRELLIS ASSESSMENT RESULT — CSS
+   All values use --ml-* tokens from mirellis-tokens.css.
+   No hardcoded hex values.
+   ========================================================= */
+
+.ar {
+  background: var(--ml-color-warm-paper);
+}
+
+.ar-hero {
+  background: var(--ml-color-soft-charcoal);
+  color: var(--ml-color-warm-paper);
+  padding-block: var(--ml-space-2xl);
+  text-align: center;
+}
+
+.ar-headline {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 400;
+  line-height: var(--ml-leading-display);
+  color: var(--ml-color-warm-paper);
+  letter-spacing: var(--ml-letter-breathing);
+  margin: 0;
+  max-width: 16ch;
+  margin-inline: auto;
+}
+
+.ar-body {
+  background: var(--ml-color-warm-paper);
+  padding-block: var(--ml-space-2xl);
+}
+
+.ar-recognition,
+.ar-framework {
+  font-size: var(--ml-text-body-lg);
+  line-height: var(--ml-leading-relaxed);
+  color: var(--ml-color-text-secondary);
+  margin-bottom: var(--ml-space-lg);
+}
+
+.ar-framework {
+  margin-bottom: 0;
+}
+
+.ar-choice {
+  background: var(--ml-color-linen-cream);
+  padding-block: var(--ml-space-xl);
+}
+
+.ar-choice-label {
+  text-align: center;
+  margin-bottom: var(--ml-space-lg);
+}
+
+.ar-choice-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ml-space-md);
+}
+
+.ar-choice-btn {
+  display: block;
+  padding: var(--ml-space-lg);
+  border-radius: var(--ml-radius-soft-lg);
+  border: 1px solid var(--ml-color-border-soft);
+  background: var(--ml-color-warm-paper);
+  color: var(--ml-color-soft-charcoal);
+  text-decoration: none;
+  text-align: center;
+  font-size: var(--ml-text-body);
+  font-weight: 500;
+  transition:
+    background var(--ml-motion-medium) var(--ml-ease-soft),
+    border-color var(--ml-motion-medium) var(--ml-ease-soft);
+}
+
+.ar-choice-btn:hover {
+  background: var(--ml-color-linen-cream);
+  border-color: var(--ml-color-text-secondary);
+}
+
+.ar-capture {
+  background: var(--ml-color-warm-paper);
+  padding-block: var(--ml-space-2xl);
+}
+
+.ar-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ml-space-md);
+}
+
+.ar-input-group {
+  display: flex;
+  gap: var(--ml-space-sm);
+}
+
+.ar-input {
+  flex: 1;
+  padding: var(--ml-space-md) var(--ml-space-lg);
+  border: 1px solid var(--ml-color-border-soft);
+  border-radius: var(--ml-radius-soft-lg);
+  background: var(--ml-color-linen-cream);
+  color: var(--ml-color-soft-charcoal);
+  font-size: var(--ml-text-body);
+  transition: border-color var(--ml-motion-medium) var(--ml-ease-soft);
+}
+
+.ar-input:focus {
+  outline: none;
+  border-color: var(--ml-color-text-secondary);
+}
+
+.ar-submit {
+  appearance: none;
+  padding: var(--ml-space-md) var(--ml-space-lg);
+  border: 1px solid var(--ml-color-text-secondary);
+  border-radius: var(--ml-radius-soft-lg);
+  background: var(--ml-color-soft-charcoal);
+  color: var(--ml-color-warm-paper);
+  font-size: var(--ml-text-body-sm);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition:
+    opacity var(--ml-motion-medium) var(--ml-ease-soft),
+    transform var(--ml-motion-medium) var(--ml-ease-soft);
+}
+
+.ar-submit:hover {
+  opacity: 0.88;
+}
+
+.ar-articles {
+  background: var(--ml-color-linen-cream);
+  padding-block: var(--ml-space-2xl);
+  text-align: center;
+}
+
+.ar-articles-label {
+  margin-bottom: var(--ml-space-lg);
+}
+
+.ar-articles-grid {
+  display: flex;
+  justify-content: center;
+}
+
+.ar-article-link {
+  color: var(--ml-color-text-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ml-color-border-soft);
+  padding-bottom: 0.2em;
+  transition:
+    border-color var(--ml-motion-medium) var(--ml-ease-soft),
+    color var(--ml-motion-medium) var(--ml-ease-soft);
+}
+
+.ar-article-link:hover {
+  border-color: var(--ml-color-text-secondary);
+  color: var(--ml-color-soft-charcoal);
+}
+
+@media screen and (max-width: 768px) {
+  .ar-hero {
+    padding-block: var(--ml-space-xl);
+  }
+
+  .ar-input-group {
+    flex-direction: column;
+  }
+
+  .ar-choice-buttons {
+    gap: var(--ml-space-sm);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ar-input,
+  .ar-submit,
+  .ar-choice-btn,
+  .ar-article-link {
+    transition: none;
+  }
+}

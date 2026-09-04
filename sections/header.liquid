@@ -203,19 +203,11 @@ the underlying logic of the menu.
       {%- endcomment -%}
 
       {%- capture logo_content -%}
-        {%- if section.settings.logo -%}
-          {%- capture sizes -%}{{ section.settings.logo_max_width }}px{%- endcapture -%}
-          {%- capture widths -%}{{ section.settings.logo_max_width | times: 2 | at_most: section.settings.logo.width }}, {{ section.settings.logo_max_width | times: 3 | at_most: section.settings.logo.width }}{%- endcapture -%}
-          <span class="sr-only">{{ shop.name }}</span>
-          {%- assign alt_text = section.settings.logo.alt | default: shop.name -%}
-          {{- section.settings.logo | image_url: width: section.settings.logo.width | image_tag: sizes: sizes, alt: alt_text, widths: widths, class: 'header__logo-image' -}}
-
-          {%- if section.settings.transparent_logo -%}
-            {{- section.settings.transparent_logo | image_url: width: section.settings.transparent_logo.width | image_tag: sizes: sizes, widths: widths, class: 'header__logo-image header__logo-image--transparent' -}}
-          {%- endif -%}
-        {%- else -%}
-          <span class="header__logo-text h4">{{ shop.name }}</span>
-        {%- endif -%}
+        <span class="sr-only">{{ shop.name }}</span>
+        <span class="mirellis-header-brand" aria-hidden="true">
+          <img class="mirellis-header-brand__symbol" src="{{ 'mirellis-symbol-gold.png' | asset_url }}" width="512" height="512" alt="">
+          <img class="mirellis-header-brand__wordmark" src="{{ 'mirellis-wordmark-gold.png' | asset_url }}" width="1024" height="130" alt="">
+        </span>
       {%- endcapture -%}
 
       <a href="{{ routes.root_url }}" class="header__logo">{{ logo_content }}</a>

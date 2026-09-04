@@ -1,0 +1,192 @@
+{% comment %}
+=========================================================
+MIRELLIS — SCENE 03 (REFINED)
+PHILOSOPHICAL REVEAL / ATMOSPHERIC TRANSITION FIELD
+=========================================================
+{% endcomment %}
+
+<section
+  class="
+    ml-scene
+    ml-scene-continuous
+    ml-scene-descent-medium
+    ml-spatial-stillness
+  "
+>
+
+  <!-- =====================================================
+       ATMOSPHERIC BACKGROUND FIELD (REFINED)
+       ===================================================== -->
+
+  <div
+    class="ml-depth-layer ml-depth-soft"
+    style="
+      background:
+        radial-gradient(
+          ellipse at top,
+          rgba(246,241,232,0.60) 0%,
+          rgba(246,241,232,0.20) 45%,
+          rgba(246,241,232,0) 75%
+        );
+      filter: blur(6px);
+      opacity: 0.95;
+    "
+  ></div>
+
+
+  <!-- =====================================================
+       ENVIRONMENTAL IMAGE LAYER (REFINED)
+       ===================================================== -->
+
+  {% if section.settings.scene_image != blank %}
+
+    <div
+      class="
+        ml-depth-layer
+        ml-depth-atmospheric
+        ml-breathing-atmosphere
+      "
+      style="
+        opacity: 0.16;
+        filter: blur(0.5px) saturate(0.9);
+      "
+    >
+
+      {{
+        section.settings.scene_image
+        | image_url: width: 2200
+        | image_tag:
+          class: 'ml-atmospheric-image ml-soft-presence',
+          loading: 'lazy',
+          widths: '1200, 1600, 2200',
+          alt: section.settings.scene_heading
+      }}
+
+    </div>
+
+  {% endif %}
+
+
+  <!-- =====================================================
+       PHILOSOPHY FIELD
+       ===================================================== -->
+
+  <div class="ml-container-reading">
+
+    <div class="ml-balanced-field ml-rhythm-atmospheric">
+
+      <div class="ml-visual-silence-lg"></div>
+
+
+      <!-- =================================================
+           PHILOSOPHICAL STATEMENT
+           ================================================= -->
+
+      {% if section.settings.scene_heading != blank %}
+        <h2 class="ml-display-heading ml-headline-soft">
+          {{ section.settings.scene_heading }}
+        </h2>
+      {% endif %}
+
+
+      <!-- =================================================
+           SUPPORTING REFLECTION
+           ================================================= -->
+
+      {% if section.settings.scene_copy != blank %}
+        <div class="ml-contemplative-copy ml-copy-soft">
+          {{ section.settings.scene_copy }}
+        </div>
+      {% endif %}
+
+
+      <!-- =================================================
+           ATMOSPHERIC PAUSE
+           ================================================= -->
+
+      <div class="ml-cinematic-pause"></div>
+
+
+      <!-- =================================================
+           QUIET PHILOSOPHICAL NOTE
+           ================================================= -->
+
+      {% if section.settings.scene_note != blank %}
+        <div class="ml-copy-whisper ml-fade-soft">
+          <div class="ml-supporting-text">
+            {{ section.settings.scene_note }}
+          </div>
+        </div>
+      {% endif %}
+
+
+      <div class="ml-visual-silence-lg"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       ATMOSPHERIC LIGHT FIELD (REFINED)
+       ===================================================== -->
+
+  <div
+    class="ml-depth-layer ml-light-drift"
+    style="
+      background:
+        radial-gradient(
+          ellipse at 65% 25%,
+          rgba(255,255,255,0.06) 0%,
+          rgba(255,255,255,0) 70%
+        );
+      opacity: 0.7;
+    "
+  ></div>
+
+</section>
+
+
+{% schema %}
+{
+  "name": "Philosophy Scene 03",
+  "tag": "section",
+  "class": "section section-mirellis-philosophy",
+  "settings": [
+
+    {
+      "type": "image_picker",
+      "id": "scene_image",
+      "label": "Atmospheric Scene Image"
+    },
+
+    {
+      "type": "textarea",
+      "id": "scene_heading",
+      "label": "Philosophical Heading",
+      "default": "Some transitions were never meant to disappear from human life."
+    },
+
+    {
+      "type": "textarea",
+      "id": "scene_copy",
+      "label": "Supporting Reflection",
+      "default": "Rituals once helped the body understand that one state of life had ended and another was beginning. Morning. Evening. Arrival. Rest."
+    },
+
+    {
+      "type": "textarea",
+      "id": "scene_note",
+      "label": "Quiet Philosophical Note",
+      "default": "The nervous system still responds to environments that allow transition gradually."
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "Philosophy Scene 03"
+    }
+  ]
+}
+{% endschema %}

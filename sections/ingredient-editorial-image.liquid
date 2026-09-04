@@ -1,0 +1,91 @@
+<section class="ingredient-editorial-image">
+  <div class="ingredient-editorial-image__inner">
+
+    {% if section.settings.image != blank %}
+
+      <div class="ingredient-editorial-image__media">
+        {{
+          section.settings.image
+          | image_url: width: 2000
+          | image_tag:
+            loading: 'lazy',
+            class: 'ingredient-editorial-image__image'
+        }}
+      </div>
+
+    {% endif %}
+
+    {% if section.settings.caption != blank %}
+
+      <div class="page-width">
+
+        <div class="ingredient-editorial-image__caption">
+          {{ section.settings.caption }}
+        </div>
+
+      </div>
+
+    {% endif %}
+
+  </div>
+</section>
+
+<style>
+.ingredient-editorial-image {
+  padding: 0;
+  background: #fcfaf7;
+}
+
+.ingredient-editorial-image__media {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.ingredient-editorial-image__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ingredient-editorial-image__caption {
+  max-width: 640px;
+  padding: 32px 0 0;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #7a7268;
+}
+
+@media screen and (max-width: 749px) {
+
+  .ingredient-editorial-image__caption {
+    padding: 24px 20px 0;
+    font-size: 13px;
+  }
+
+}
+</style>
+
+{% schema %}
+{
+  "name": "Editorial Image",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "textarea",
+      "id": "caption",
+      "label": "Caption",
+      "default": "Morning rituals are shaped as much by atmosphere as by intention."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Editorial Image"
+    }
+  ]
+}
+{% endschema %}

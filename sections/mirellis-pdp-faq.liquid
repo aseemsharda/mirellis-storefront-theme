@@ -1,0 +1,74 @@
+{%- comment -%}
+  MIRELLIS — PDP FAQ  ("Questions answered" · reusable)
+  Book I: Journey 5–6 (Evaluation→Decision) · resolves residual uncertainties · Dim A+B.
+  Accordion — each answer removes exactly one uncertainty. Native <details>, no JS. Up to 8 Q/A, empty-safe.
+{%- endcomment -%}
+
+{%- assign s = section.settings -%}
+<section class="pdfq">
+  <div class="pdfq__inner">
+    {%- if s.eyebrow != blank -%}<div class="pdfq__eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+    <div class="pdfq__list">
+      {%- for i in (1..8) -%}
+        {%- assign qk = 'q_' | append: i | append: '_q' -%}
+        {%- assign q = s[qk] -%}
+        {%- if q != blank -%}
+          {%- assign ak = 'q_' | append: i | append: '_a' -%}
+          <details class="pdfq__item">
+            <summary class="pdfq__q"><span>{{ q }}</span><span class="pdfq__chev" aria-hidden="true">+</span></summary>
+            {%- if s[ak] != blank -%}<div class="pdfq__a">{{ s[ak] }}</div>{%- endif -%}
+          </details>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .pdfq { background: var(--ml-color-warm-paper); padding-block: clamp(3.5rem, 8vw, 6.5rem); border-top: 1px solid var(--ml-color-border-soft); }
+  .pdfq__inner { max-width: 680px; margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2rem); }
+  .pdfq__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ml-color-muted-earth); font-weight: 600; margin-bottom: 1.5rem; }
+  .pdfq__list { border-top: 1px solid var(--ml-color-border-soft); }
+  .pdfq__item { border-bottom: 1px solid var(--ml-color-border-soft); }
+  .pdfq__q { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; padding: 1.4rem 0; font-size: 1.05rem; font-weight: 400; color: var(--ml-color-soft-charcoal); }
+  .pdfq__q::-webkit-details-marker { display: none; }
+  .pdfq__chev { font-size: 1.2rem; font-weight: 300; color: var(--ml-color-muted-earth); transition: transform var(--ml-motion-fast, 200ms) ease; }
+  .pdfq__item[open] .pdfq__chev { transform: rotate(45deg); }
+  .pdfq__a { padding: 0 0 1.6rem; }
+  .pdfq__a p { font-size: 1rem; line-height: 1.85; color: var(--ml-color-text-secondary); margin: 0 0 0.75rem; max-width: 60ch; }
+  .pdfq__a p:last-child { margin-bottom: 0; }
+</style>
+
+{% schema %}
+{
+  "name": "PDP · FAQ",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Questions answered" },
+    { "type": "header", "content": "Q1" },
+    { "type": "text", "id": "q_1_q", "label": "Question", "default": "Do I swallow it?" },
+    { "type": "richtext", "id": "q_1_a", "label": "Answer", "default": "<p>No — it is swished and spat out.</p>" },
+    { "type": "header", "content": "Q2" },
+    { "type": "text", "id": "q_2_q", "label": "Question", "default": "How is this different from a supermarket oil-pulling oil?" },
+    { "type": "richtext", "id": "q_2_a", "label": "Answer", "default": "<p>It is chosen and formulated for a specific transition, made as a licensed Ayurvedic product, batch-tested, and honest about what the evidence does and doesn't show.</p>" },
+    { "type": "header", "content": "Q3" },
+    { "type": "text", "id": "q_3_q", "label": "Question", "default": "Is this Ayurvedic \"medicine\"?" },
+    { "type": "richtext", "id": "q_3_a", "label": "Answer", "default": "<p>It is a licensed Ayurvedic product, spoken about observationally. It is not a treatment for any condition; for medical concerns, see your doctor.</p>" },
+    { "type": "header", "content": "Q4" },
+    { "type": "text", "id": "q_4_q", "label": "Question", "default": "When will I notice something?" },
+    { "type": "richtext", "id": "q_4_a", "label": "Answer", "default": "<p>Honestly — there is no promised timeline. The ritual works through repetition; what people describe tends to be quiet, not dramatic.</p>" },
+    { "type": "header", "content": "Q5" },
+    { "type": "text", "id": "q_5_q", "label": "Question", "default": "Why are there never discounts?" },
+    { "type": "richtext", "id": "q_5_a", "label": "Answer", "default": "<p>Because a research-led, tested product held to a fair, steady price is part of the trust — discounting would undercut it.</p>" },
+    { "type": "header", "content": "Q6" },
+    { "type": "text", "id": "q_6_q", "label": "Question", "default": "Is it tested?" },
+    { "type": "richtext", "id": "q_6_a", "label": "Answer", "default": "<p>⟦Yes — each batch is tested for ____; the certificate is available.⟧</p>" },
+    { "type": "header", "content": "Q7" },
+    { "type": "text", "id": "q_7_q", "label": "Question" },
+    { "type": "richtext", "id": "q_7_a", "label": "Answer" },
+    { "type": "header", "content": "Q8" },
+    { "type": "text", "id": "q_8_q", "label": "Question" },
+    { "type": "richtext", "id": "q_8_a", "label": "Answer" }
+  ],
+  "presets": [{ "name": "PDP · FAQ" }]
+}
+{% endschema %}

@@ -1,0 +1,764 @@
+{
+  "generatedAt": "2026-08-22T14:26:54.029Z",
+  "sitemapFile": "deliverables/launch-readiness-audit-2026-08-13/sitemap-blogs.xml",
+  "metadataOnly": true,
+  "summary": {
+    "clear": 39,
+    "medium": 0,
+    "high": 25,
+    "critical": 1
+  },
+  "results": [
+    {
+      "url": "https://mirellis.in/blogs/journal/finding-calm-the-transformative-benefits-of-ashwagandha-for-stress-relief",
+      "status": "not-fetched",
+      "title": "finding calm the transformative benefits of ashwagandha for stress relief",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "stress-outcome",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: finding calm the transformative benefits of ashwagandha for stress relief"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/transform-your-life-the-power-of-daily-rituals",
+      "status": "not-fetched",
+      "title": "transform your life the power of daily rituals",
+      "description": "",
+      "severity": "critical",
+      "action": "unpublish-or-noindex-until-reviewed",
+      "flags": [
+        {
+          "id": "guaranteed-outcome",
+          "severity": "critical",
+          "excerpt": "Title/URL triage only: transform your life the power of daily rituals"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/unlock-the-secrets-to-restorative-sleep-your-ayurvedic-guide",
+      "status": "not-fetched",
+      "title": "unlock the secrets to restorative sleep your ayurvedic guide",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "sleep-outcome",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: unlock the secrets to restorative sleep your ayurvedic guide"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/nourish-your-smile-the-organic-and-ayurvedic-guide-to-better-teeth-and-gums",
+      "status": "not-fetched",
+      "title": "nourish your smile the organic and ayurvedic guide to better teeth and gums",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/harmonizing-health-the-role-of-music-and-sound-in-ayurvedic-healing-and-wellness",
+      "status": "not-fetched",
+      "title": "harmonizing health the role of music and sound in ayurvedic healing and wellness",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/breathe-in-bliss-adding-aromatherapy-to-your-everyday-life",
+      "status": "not-fetched",
+      "title": "breathe in bliss adding aromatherapy to your everyday life",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/daily-rituals-morning-routines-for-a-holistic-start",
+      "status": "not-fetched",
+      "title": "daily rituals morning routines for a holistic start",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/holistic-approaches-to-stress-management-beyond-meditation",
+      "status": "not-fetched",
+      "title": "holistic approaches to stress management beyond meditation",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/the-ultimate-guide-to-oil-pulling-ancient-wisdom-for-modern-health",
+      "status": "not-fetched",
+      "title": "the ultimate guide to oil pulling ancient wisdom for modern health",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/sleep-oil-myths-debunked-what-really-works-for-deep-sleep",
+      "status": "not-fetched",
+      "title": "sleep oil myths debunked what really works for deep sleep",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "sleep-outcome",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: sleep oil myths debunked what really works for deep sleep"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/day-by-day-rituals-for-holistic-well-being",
+      "status": "not-fetched",
+      "title": "day by day rituals for holistic well being",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/ayurvedic-rituals-bring-intention-to-everyday-habits-helping-you-realign-with-your-body-s-natural-rhythm-for-lasting-wellness",
+      "status": "not-fetched",
+      "title": "ayurvedic rituals bring intention to everyday habits helping you realign with your body s natural rhythm for lasting wellness",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/ayurveda-based-morning-clarity-kit-designed-to-center-the-mind-awaken-the-senses-and-support-daily-rituals",
+      "status": "not-fetched",
+      "title": "ayurveda based morning clarity kit designed to center the mind awaken the senses and support daily rituals",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/sleep-is-a-nervous-system-problem-how-essential-oils-calms-the-body-to-help-you-truly-rest",
+      "status": "not-fetched",
+      "title": "sleep is a nervous system problem how essential oils calms the body to help you truly rest",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "stress-outcome",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: sleep is a nervous system problem how essential oils calms the body to help you truly rest"
+        },
+        {
+          "id": "physiology-mechanism",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: sleep is a nervous system problem how essential oils calms the body to help you truly rest"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/oil-pulling-is-an-ancient-ayurvedic-practice-that-can-promote-oral-health-and-overall-wellness",
+      "status": "not-fetched",
+      "title": "oil pulling is an ancient ayurvedic practice that can promote oral health and overall wellness",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "health-benefit",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: oil pulling is an ancient ayurvedic practice that can promote oral health and overall wellness"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/evening-rituals-for-sleep-sleep-amp-restorative-practices",
+      "status": "not-fetched",
+      "title": "evening rituals for sleep sleep amp restorative practices",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/reflection-prompt-how-do-i-prepare-for-deep-rest",
+      "status": "not-fetched",
+      "title": "reflection prompt how do i prepare for deep rest",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/the-science-of-ritual-how-environment-shapes-the-nervous-system",
+      "status": "not-fetched",
+      "title": "the science of ritual how environment shapes the nervous system",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "physiology-mechanism",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: the science of ritual how environment shapes the nervous system"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/why-modern-life-keeps-the-brain-in-stimulation-mode",
+      "status": "not-fetched",
+      "title": "why modern life keeps the brain in stimulation mode",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/why-screens-and-artificial-light-delay-deep-sleep",
+      "status": "not-fetched",
+      "title": "why screens and artificial light delay deep sleep",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "sleep-outcome",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: why screens and artificial light delay deep sleep"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/why-the-nervous-system-needs-predictability-to-feel-safe",
+      "status": "not-fetched",
+      "title": "why the nervous system needs predictability to feel safe",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "physiology-mechanism",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: why the nervous system needs predictability to feel safe"
+        },
+        {
+          "id": "absolute-mechanism",
+          "severity": "medium",
+          "excerpt": "Title/URL triage only: why the nervous system needs predictability to feel safe"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/why-you-feel-tired-but-cannot-sleep",
+      "status": "not-fetched",
+      "title": "why you feel tired but cannot sleep",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/why-your-mind-races-at-night",
+      "status": "not-fetched",
+      "title": "why your mind races at night",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/why-modern-life-keeps-the-nervous-system-in-stimulation-mode",
+      "status": "not-fetched",
+      "title": "why modern life keeps the nervous system in stimulation mode",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "physiology-mechanism",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: why modern life keeps the nervous system in stimulation mode"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/why-deep-rest-requires-transition",
+      "status": "not-fetched",
+      "title": "why deep rest requires transition",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/the-science-of-morning-rituals-how-your-first-signals-shape-the-nervous-system",
+      "status": "not-fetched",
+      "title": "the science of morning rituals how your first signals shape the nervous system",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "physiology-mechanism",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: the science of morning rituals how your first signals shape the nervous system"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/why-your-first-signals-of-the-day-matter",
+      "status": "not-fetched",
+      "title": "why your first signals of the day matter",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/the-oral-gut-brain-connection",
+      "status": "not-fetched",
+      "title": "the oral gut brain connection",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "physiology-mechanism",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: the oral gut brain connection"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/why-slow-mornings-change-the-nervous-system",
+      "status": "not-fetched",
+      "title": "why slow mornings change the nervous system",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "physiology-mechanism",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: why slow mornings change the nervous system"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/why-morning-predictability-affects-emotional-state",
+      "status": "not-fetched",
+      "title": "why morning predictability affects emotional state",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/why-your-brain-feels-foggy-in-the-morning",
+      "status": "not-fetched",
+      "title": "why your brain feels foggy in the morning",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/why-evenings-no-longer-feel-restful",
+      "status": "not-fetched",
+      "title": "why evenings no longer feel restful",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/why-silence-feels-uncomfortable-for-many-people-today",
+      "status": "not-fetched",
+      "title": "why silence feels uncomfortable for many people today",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/why-rest-no-longer-feels-mentally-complete",
+      "status": "not-fetched",
+      "title": "why rest no longer feels mentally complete",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/why-modern-attention-feels-fragmented",
+      "status": "not-fetched",
+      "title": "why modern attention feels fragmented",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/why-oral-wellness-is-more-than-just-teeth",
+      "status": "not-fetched",
+      "title": "why oral wellness is more than just teeth",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/why-modern-mouths-feel-constantly-dry-sensitive-or-irritated",
+      "status": "not-fetched",
+      "title": "why modern mouths feel constantly dry sensitive or irritated",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/modern-life-rarely-gives-the-nervous-system-a-clear-ending",
+      "status": "not-fetched",
+      "title": "modern life rarely gives the nervous system a clear ending",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "physiology-mechanism",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: modern life rarely gives the nervous system a clear ending"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/the-first-signals-of-the-morning",
+      "status": "not-fetched",
+      "title": "the first signals of the morning",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/why-modern-life-rarely-gives-the-nervous-system-a-clear-ending",
+      "status": "not-fetched",
+      "title": "why modern life rarely gives the nervous system a clear ending",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "physiology-mechanism",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: why modern life rarely gives the nervous system a clear ending"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/why-the-nervous-system-depends-on-rhythms-of-recovery",
+      "status": "not-fetched",
+      "title": "why the nervous system depends on rhythms of recovery",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "physiology-mechanism",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: why the nervous system depends on rhythms of recovery"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/how-modern-environments-disrupt-the-nervous-system-s-sense-of-time",
+      "status": "not-fetched",
+      "title": "how modern environments disrupt the nervous system s sense of time",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "physiology-mechanism",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: how modern environments disrupt the nervous system s sense of time"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/why-modern-life-rarely-feels-quiet-anymore",
+      "status": "not-fetched",
+      "title": "why modern life rarely feels quiet anymore",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/how-visual-density-and-modern-environments-shape-the-nervous-system",
+      "status": "not-fetched",
+      "title": "how visual density and modern environments shape the nervous system",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "physiology-mechanism",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: how visual density and modern environments shape the nervous system"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/how-repeated-sensory-rituals-shape-the-nervous-system",
+      "status": "not-fetched",
+      "title": "how repeated sensory rituals shape the nervous system",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "physiology-mechanism",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: how repeated sensory rituals shape the nervous system"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/the-observatory",
+      "status": "not-fetched",
+      "title": "the observatory",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/you-are-not-exhausted-because-you-do-too-much",
+      "status": "not-fetched",
+      "title": "you are not exhausted because you do too much",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/why-your-brain-turns-on-the-moment-you-get-into-bed",
+      "status": "not-fetched",
+      "title": "why your brain turns on the moment you get into bed",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/the-first-30-minutes-after-waking-are-not-like-the-rest-of-the-day",
+      "status": "not-fetched",
+      "title": "the first 30 minutes after waking are not like the rest of the day",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/what-11pm-scrolling-is-actually-about-and-its-not-entertainment",
+      "status": "not-fetched",
+      "title": "what 11pm scrolling is actually about and its not entertainment",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/the-boundary-between-states-an-emerging-theory-of-human-state-transitions",
+      "status": "not-fetched",
+      "title": "the boundary between states an emerging theory of human state transitions",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/the-cortisol-awakening-response-why-the-first-30-minutes-matter-most",
+      "status": "not-fetched",
+      "title": "the cortisol awakening response why the first 30 minutes matter most",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "physiology-mechanism",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: the cortisol awakening response why the first 30 minutes matter most"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/phone-first-mornings-what-happens-to-the-nervous-system-when-the-screen-comes-first",
+      "status": "not-fetched",
+      "title": "phone first mornings what happens to the nervous system when the screen comes first",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "physiology-mechanism",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: phone first mornings what happens to the nervous system when the screen comes first"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/oil-pulling-and-the-oral-gut-brain-axis",
+      "status": "not-fetched",
+      "title": "oil pulling and the oral gut brain axis",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "physiology-mechanism",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: oil pulling and the oral gut brain axis"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/how-circadian-rhythm-shapes-the-quality-of-waking",
+      "status": "not-fetched",
+      "title": "how circadian rhythm shapes the quality of waking",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "physiology-mechanism",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: how circadian rhythm shapes the quality of waking"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/the-architecture-of-a-deliberate-morning",
+      "status": "not-fetched",
+      "title": "the architecture of a deliberate morning",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/the-parasympathetic-shift-why-the-body-struggles-to-leave-work",
+      "status": "not-fetched",
+      "title": "the parasympathetic shift why the body struggles to leave work",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "physiology-mechanism",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: the parasympathetic shift why the body struggles to leave work"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/journal/evening-rituals-and-nervous-system-downregulation",
+      "status": "not-fetched",
+      "title": "evening rituals and nervous system downregulation",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "physiology-mechanism",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: evening rituals and nervous system downregulation"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/observatory-findings/problem-not-sleep",
+      "status": "not-fetched",
+      "title": "problem not sleep",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/observatory-findings/brain-turns-on-bed",
+      "status": "not-fetched",
+      "title": "brain turns on bed",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/observatory-findings/scrolling-11pm",
+      "status": "not-fetched",
+      "title": "scrolling 11pm",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/observatory-dossiers/psychological-detachment",
+      "status": "not-fetched",
+      "title": "psychological detachment",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/observatory-dossiers/circadian-alignment",
+      "status": "not-fetched",
+      "title": "circadian alignment",
+      "description": "",
+      "severity": "high",
+      "action": "editorial-and-evidence-review",
+      "flags": [
+        {
+          "id": "physiology-mechanism",
+          "severity": "high",
+          "excerpt": "Title/URL triage only: circadian alignment"
+        }
+      ]
+    },
+    {
+      "url": "https://mirellis.in/blogs/observatory-dossiers/morning-light",
+      "status": "not-fetched",
+      "title": "morning light",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    },
+    {
+      "url": "https://mirellis.in/blogs/observatory-findings/why-your-brain-turns-on-the-moment-you-get-into-bed",
+      "status": "not-fetched",
+      "title": "why your brain turns on the moment you get into bed",
+      "description": "",
+      "severity": "clear",
+      "action": "manual-review-required",
+      "flags": []
+    }
+  ]
+}
