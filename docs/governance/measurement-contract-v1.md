@@ -1,6 +1,6 @@
 # Mirellis consent-safe measurement contract v1
 
-Status: development candidate. Website measurement runs only after Shopify reports that analytics processing is allowed. App analytics remain inactive in this build.
+Status: development candidate. Website measurement runs only after the visitor explicitly accepts analytics in the Shopify privacy banner (`currentVisitorConsent().analytics === "yes"`). Relying on `analyticsProcessingAllowed()` was not enough: it is true for any region the store does not configure to require consent, which on 17 October 2026 included India (DPDP audit, finding 3). App analytics remain inactive in this build.
 
 ## Product boundary
 
