@@ -12,7 +12,15 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
 <html lang="{{ request.locale.iso_code }}" dir="{% render 'direction' %}">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0">
+    {%- comment -%}
+      minimum-scale / maximum-scale removed 2026-09-27 (Tier 4 accessibility
+      sweep). Pinning both to 1.0 disables pinch-zoom on every Shopify-served
+      page — WCAG 2.1 SC 1.4.4. It is a poor default anywhere and a bad one
+      here: this site is read by people with sleep, focus and fatigue problems,
+      some of whom enlarge text to read at all. The Next surface never set it.
+      Do not restore the scale limits.
+    {%- endcomment -%}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height">
     <meta name="theme-color" content="{{ settings.header_background }}">
 
     <title>{% if page_title == blank %}{{ shop.name }}{% else %}{{ page_title }}{% if current_page != 1 %} &ndash; {{ 'general.page' | t: page: current_page }}{% endif %}{% endif %}</title>
@@ -30,6 +38,8 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
     {%- comment -%}Few prefetch to increase performance on commonly used third-parties{%- endcomment -%}
     <link rel="preconnect" href="https://cdn.shopify.com">
     <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     {%- unless settings.heading_font.system? -%}
       <link rel="preload" href="{{ settings.heading_font | font_url }}" as="font" type="font/woff2" crossorigin>
@@ -66,6 +76,7 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
     {{- 'mirellis-typography.css' | asset_url | stylesheet_tag -}}
     {{- 'mirellis-motion.css' | asset_url | stylesheet_tag -}}
     {{- 'mirellis-impact-overrides.css' | asset_url | stylesheet_tag -}}
+    {{- 'mirellis-nav-contract.css' | asset_url | stylesheet_tag -}}
 
 <style>
 
