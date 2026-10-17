@@ -56,5 +56,6 @@ Preview the copy and look at the footer, the contact page and `/pages/explore-yo
 
 ## 7. Shopify settings (not theme code)
 
-- **Settings → Customer privacy → Cookie banner:** turn it on for India and set it to require consent before tracking. Without this, the Google tag `GT-NBPNV7VB` (from the Google & YouTube channel) keeps sending data to `G-1R1RFYJBJ8` and Merchant Center before any choice, and storefront GA cannot start because no one is ever asked.
+- **Settings → Customer privacy → Cookie banner:** turn it on for India and set it to require consent before tracking. Without this, the Google tag `GT-NBPNV7VB` (Google & YouTube channel) keeps sending to Merchant Center before any choice, and storefront GA cannot start because no one is ever asked.
+- **Settings → Customer events:** delete the custom pixel that still sends to `G-1R1RFYJBJ8`. That is the directory's retired GA property; nothing should be reporting to it.
 - **Settings → Policies → Privacy policy:** paste the HTML from `mirellis-directory/docs/operations/privacy-drafts/store-privacy-policy-v2.html` (use the editor's `<>` HTML view).
