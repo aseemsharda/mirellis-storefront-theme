@@ -48,7 +48,7 @@ Copy the `<p class="mirellis-form-notice">` paragraph (and the comment above it)
 
 ## 5. Product experience form — `sections/mirellis-participation-form.liquid`
 
-Replace the file's contents with this repo's version. The file was identical to the live one before the change, so nothing else is lost. It corrects the note that said details are not shared with third parties (they go to Shopify and the courier) and the privacy link, which pointed at a page that does not exist.
+Replace the file's contents with this repo's version. The file was identical to the live one before the change, so nothing else is lost. It corrects the note that said details are not shared with third parties (they go to Shopify and the courier) and points the privacy link at the store policy of record (`/policies/privacy-policy`) instead of the older August page at `/pages/privacy-policy`.
 
 ## 6. Check, then publish
 
@@ -59,3 +59,10 @@ Preview the copy and look at the footer, the contact page and `/pages/explore-yo
 - **Settings → Customer privacy → Cookie banner:** turn it on for India and set it to require consent before tracking. Without this, the Google tag `GT-NBPNV7VB` (Google & YouTube channel) keeps sending to Merchant Center before any choice, and storefront GA cannot start because no one is ever asked.
 - **Settings → Customer events:** delete the custom pixel that still sends to `G-1R1RFYJBJ8`. That is the directory's retired GA property; nothing should be reporting to it.
 - **Settings → Policies → Privacy policy:** paste the HTML from `mirellis-directory/docs/operations/privacy-drafts/store-privacy-policy-v2.html` (use the editor's `<>` HTML view).
+
+## Update, 17 October: done for you
+
+The edits above are already applied in an unpublished theme, **"Privacy notices 2026-10-17"** (ID 147086278722), copied from the live theme, with every file checked against this repo by checksum. Preview it, then publish it from Online Store → Themes. Section 7 (Shopify settings) still needs doing by hand, and so does one more item: unpublish the old **Privacy Policy page** (`/pages/privacy-policy`, last edited August 2026) so the store has a single privacy policy.
+
+The Google & YouTube channel also sends to `G-L0Y4QXC97D` on its own, so storefront GA keeps firing before consent until the cookie banner requires consent (section 7). The theme's own GA no longer does.
+
