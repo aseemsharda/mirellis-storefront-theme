@@ -164,7 +164,13 @@ img {
     let analyticsLoaded = false;
 
     const startAnalytics = () => {
-      if (analyticsLoaded || !window.Shopify?.customerPrivacy?.analyticsProcessingAllowed()) return;
+      // Explicit opt-in only (DPDP audit 2026-10-17, finding 3).
+      // analyticsProcessingAllowed() is true for any region where the store's
+      // Customer Privacy settings do not require consent, which included India
+      // on 17 Oct 2026, so GA ran for every visitor before any choice. An
+      // explicit "yes" from the privacy banner is the only thing that starts it.
+      const visitor = window.Shopify?.customerPrivacy?.currentVisitorConsent?.();
+      if (analyticsLoaded || visitor?.analytics !== 'yes') return;
       analyticsLoaded = true;
       window.dataLayer = window.dataLayer || [];
       window.gtag = function () { window.dataLayer.push(arguments); };
