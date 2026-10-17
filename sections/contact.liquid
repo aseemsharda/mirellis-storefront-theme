@@ -92,6 +92,14 @@
             {%- render 'input', name: 'contact[body]', label: label, multiline: 4, required: true -%}
           </div>
 
+          {%- comment -%}Point-of-collection notice (DPDP audit 2026-10-17, finding 9).{%- endcomment -%}
+          <p class="mirellis-form-notice" style="font-size: 12px; line-height: 1.6; opacity: 0.72; margin: 0;">
+            We use your name, email and message only to reply to you. They reach us by email through Shopify, our
+            store platform, and we keep the conversation for up to 12 months after it ends. Please do not include
+            health details you would not want in an email.
+            <a href="/policies/privacy-policy" style="color: inherit;">Privacy Policy</a>
+          </p>
+
           <div class="{% if text_position == 'center' %}justify-self-center{% else%}justify-self-start{% endif %}">
             {%- capture button_content -%}{{ 'contact.form.submit' | t }}{%- endcapture -%}
             {%- render 'button', content: button_content, type: 'submit', size: 'xl', background: section.settings.button_background, text_color: section.settings.button_text_color -%}

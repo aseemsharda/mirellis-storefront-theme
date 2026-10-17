@@ -223,6 +223,7 @@
           {%- endif -%}
 
           {{- form.errors | default_errors -}}
+          {%- render 'mirellis-newsletter-notice' -%}
         {%- endform -%}
 
       </div>

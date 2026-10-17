@@ -66,6 +66,7 @@
                 {%- render 'input', type: 'email', name: 'contact[email]', label: label, value: customer.email, required: true, autocomplete: 'email' -%}
                 {%- render 'button', content: button_content, icon: 'email', type: 'submit', size: 'xl', background: section.settings.button_background, text_color: section.settings.button_text_color -%}
               </div>
+              {%- render 'mirellis-newsletter-notice' -%}
             {%- endform -%}
           {%- endif -%}
         </div>
@@ -140,6 +141,7 @@
                       </div>
 
                       {%- render 'button', content: block.settings.button_text, icon: 'picto-envelope', type: 'submit', size: 'xl', secondary: true -%}
+                      {%- render 'mirellis-newsletter-notice' -%}
                     {%- endform -%}
 
                     {%- if block.settings.subtext != blank -%}
