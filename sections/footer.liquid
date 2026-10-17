@@ -143,6 +143,7 @@
                         {%- capture label -%}{{ 'general.newsletter.email' | t }}{%- endcapture -%}
                         {%- render 'input', name: 'contact[email]', label: label, type: 'email', required: true, autocomplete: 'email', enterkeyhint: 'send', self_submit: true -%}
                       {%- endif -%}
+                      {%- render 'mirellis-newsletter-notice' -%}
                     {%- endform -%}
                   </div>
                 </div>

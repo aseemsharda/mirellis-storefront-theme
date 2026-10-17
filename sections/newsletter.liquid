@@ -58,6 +58,7 @@
       {%- if section.settings.subtext != blank -%}
         <p class="text-xs text-subdued">{{ section.settings.subtext | escape }}</p>
       {%- endif -%}
+      {%- render 'mirellis-newsletter-notice' -%}
     {%- endform -%}
   </div>
 {%- endcapture -%}
