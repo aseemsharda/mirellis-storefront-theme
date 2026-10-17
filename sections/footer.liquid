@@ -64,49 +64,11 @@
                 {%- endif -%}
 
               {%- when 'links' -%}
-                {%- if block.settings.menu != blank -%}
-                  <div class="footer__block footer__block--menu" {{ block.shopify_attributes }}>
-                    {%- if block.settings.show_menu_title -%}
-                      <p class="bold">{{ block.settings.menu_title | default: block.settings.menu.title }}</p>
-                    {%- endif -%}
-
-                    <ul class="v-stack gap-3" role="list">
-                      {%- if block.settings.menu_title == 'Understand' -%}
-                        <li><a href="/sleep" class="inline-block link-faded break-all">Sleep</a></li>
-                        <li><a href="/focus" class="inline-block link-faded break-all">Focus</a></li>
-                        <li><a href="/restoration" class="inline-block link-faded break-all">Restoration</a></li>
-                        <li><a href="/pages/understand" class="inline-block link-faded break-all">Understand what is happening</a></li>
-                        <li><a href="/blogs/journal" class="inline-block link-faded break-all">Journal</a></li>
-                      {%- elsif block.settings.menu_title == 'Get help' -%}
-                        <li><a href="https://directory.mirellis.in" class="inline-block link-faded break-all">Find a specialist</a></li>
-                        <li><a href="https://directory.mirellis.in/problems/navigator" class="inline-block link-faded break-all">Help me choose</a></li>
-                        <li><a href="https://app.mirellis.in/welcome" class="inline-block link-faded break-all">After Work</a></li>
-                      {%- elsif block.settings.menu_title == 'About' -%}
-                        <li><a href="/pages/about" class="inline-block link-faded break-all">About Mirellis</a></li>
-                        <li><a href="/pages/why-we-exist" class="inline-block link-faded break-all">Why we exist</a></li>
-                        <li><a href="/pages/how-we-work" class="inline-block link-faded break-all">How we work</a></li>
-                        <li><a href="/pages/contact" class="inline-block link-faded break-all">Contact</a></li>
-                      {%- elsif block.settings.menu_title == 'More' -%}
-                        <li><a href="/collections/all" class="inline-block link-faded break-all">Shop</a></li>
-                        <li><a href="/policies/privacy-policy" class="inline-block link-faded break-all">Privacy</a></li>
-                        <li><a href="/policies/terms-of-service" class="inline-block link-faded break-all">Terms</a></li>
-                      {%- else -%}
-                        {%- for link in block.settings.menu.links -%}
-                          {%- liquid
-                            assign footer_link_title = link.title
-                            assign footer_link_title_downcase = link.title | downcase
-                            if link.url contains 'app.mirellis.in' and footer_link_title_downcase == 'after work'
-                              assign footer_link_title = 'Mirellis app'
-                            endif
-                          -%}
-                          <li>
-                            <a href="{{ link.url }}" class="inline-block link-faded break-all">{{ footer_link_title }}</a>
-                          </li>
-                        {%- endfor -%}
-                      {%- endif -%}
-                    </ul>
-                  </div>
-                {%- endif -%}
+                {%- comment -%} Footer navigation is one generated partial (from lib/nav-registry.ts). It replaces the per-block link lists; the first 'links' block renders it, the rest render nothing. {%- endcomment -%}
+                {%- unless mirellis_footer_nav_rendered -%}
+                  {%- render 'mirellis-footer-navigation' -%}
+                  {%- assign mirellis_footer_nav_rendered = true -%}
+                {%- endunless -%}
 
               {%- when 'newsletter' -%}
                 <div class="footer__block footer__block--newsletter" {{ block.shopify_attributes }}>
@@ -159,14 +121,8 @@
           <span aria-hidden="true"> · </span>
           <a href="tel:+918130666366">+91 81306 66366</a>
         </p>
-        <p class="mirellis-footer-support__crisis">
-          If you're in crisis or need urgent support, please reach a free 24/7 national helpline:
-          <a href="tel:14416">Tele-MANAS (Govt. of India) 14416</a>
-          <span aria-hidden="true"> · </span>
-          <a href="tel:9152987821">iCall 9152987821</a>
-          <span aria-hidden="true"> · </span>
-          <a href="tel:18602662345">Vandrevala Foundation 1860-2662-345</a>.
-        </p>
+        {%- comment -%} Crisis lines live in snippets/mirellis-urgent-support.liquid so the hours stay correct in one place. Do not inline them here again. {%- endcomment -%}
+        {%- render 'mirellis-urgent-support' -%}
       </div>
 
       {%- comment -%}
@@ -403,22 +359,10 @@
           "id": "heading_size",
           "label": "Title size",
           "options": [
-            {
-              "value": "h3",
-              "label": "H3"
-            },
-            {
-              "value": "h4",
-              "label": "H4"
-            },
-            {
-              "value": "h5",
-              "label": "H5"
-            },
-            {
-              "value": "h6",
-              "label": "H6"
-            }
+            { "value": "h3", "label": "H3" },
+            { "value": "h4", "label": "H4" },
+            { "value": "h5", "label": "H5" },
+            { "value": "h6", "label": "H6" }
           ],
           "default": "h3"
         },
